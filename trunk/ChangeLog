@@ -5,6 +5,7 @@
 2006-02-28  Alexander Saal  <alex.saal@gmx.de>
 
 * PORT:		to Qt 4.1.x (dialogs complet, code not complet)
+* CHANGE:	rewrite code (not port with qt3to4 tool)
 
 2005-01-30  Alexander Saal  <alex.saal@gmx.de>
 
