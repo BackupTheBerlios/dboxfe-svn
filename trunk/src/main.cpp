@@ -44,12 +44,11 @@ int main(int argc, char *argv[])
     if (splash) splash->show(); 
     
     w.init();
-
-      
+          
     if (splash) splash->showMessage( "Starting GUI" );
     w.show();
     
-    //if (splash) delete splash;
+    if (splash) delete splash;
     app.connect(&app, SIGNAL(lastWindowClosed()), &app, SLOT(quit()));
     
     return app.exec();
