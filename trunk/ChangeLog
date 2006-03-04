@@ -1,3 +1,27 @@
+2006-03-04  Alexander Saal  <alex.saal@gmx.de>
+
+* ADD:		project to SVN on developer.berlios.de
+ 
+2006-02-28  Alexander Saal  <alex.saal@gmx.de>
+
+* PORT:		to Qt 4.1.x (dialogs complet, code not complet)
+
+2005-01-30  Alexander Saal  <alex.saal@gmx.de>
+
+* ADD:		src/gamedownload, src/searchengine, src/updatewizard (i mean i added loadable libs)
+* ADD:		source for launch updatewizard in src/dosboxfe.cpp/h 
+* ADD:		to dosboxfe_wizard.cpp/h search-game code (beta) 
+* ADD:		Splashscreensource in main.cpp 
+* ADD:		new Logo dbfe.png to cvs, install dboxfe - this picture will be install in $KDEDIR/apps/dboxfe/pics 
+* FIXED:		downloading the version file is working now. if the (new) version ist greater than the specified version, the update button will be enabled, otherwise it is disable
+* FIXED:		Layout (too small)
+* FIXED:		many minor bugs and project cleanup ;) 
+* CHANCHED:	GUI is more user friendly :) 
+* MOVED:		Preference to extra tab 
+* MOVED:		Gamedownload button to Preference tab 
+* MOVED:		Logoutput to extra tab 
+* REMOVED:	search-game (executable)
+
 2004-12-20  Alexander Saal  <alex.saal@gmx.de>
 
 * FIXED:		choose snap dir is function
