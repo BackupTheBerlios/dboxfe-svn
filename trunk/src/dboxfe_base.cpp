@@ -75,6 +75,8 @@ void DB_BASE::saveGPIni( const QString &gpIni, QListWidget* lw  )
 
 void DB_BASE::readDBConf( const QString &dbconf )
 {
+    
+    
 }
 
 void DB_BASE::saveDBConf( const QString &dbconf )
