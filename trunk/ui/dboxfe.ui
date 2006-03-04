@@ -1,0 +1,3662 @@
+<ui version="4.0" >
+ <author></author>
+ <comment></comment>
+ <exportmacro></exportmacro>
+ <class>DBoxFE</class>
+ <widget class="QWidget" name="DBoxFE" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>761</width>
+    <height>559</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>DOSBox - Front End</string>
+  </property>
+  <property name="windowIcon" >
+   <iconset resource="../res/dboxfe.qrc" >:/pics/images/default.png</iconset>
+  </property>
+  <widget class="QTabWidget" name="twDbx" >
+   <property name="geometry" >
+    <rect>
+     <x>210</x>
+     <y>10</y>
+     <width>541</width>
+     <height>481</height>
+    </rect>
+   </property>
+   <widget class="QWidget" name="tbGeneralCfg" >
+    <attribute name="title" >
+     <string>SDL, Render &amp;&amp; CPU</string>
+    </attribute>
+    <layout class="QGridLayout" >
+     <property name="margin" >
+      <number>9</number>
+     </property>
+     <property name="spacing" >
+      <number>6</number>
+     </property>
+     <item row="2" column="0" >
+      <widget class="QGroupBox" name="groupBox_2" >
+       <property name="title" >
+        <string>CPU</string>
+       </property>
+       <layout class="QGridLayout" >
+        <property name="margin" >
+         <number>9</number>
+        </property>
+        <property name="spacing" >
+         <number>6</number>
+        </property>
+        <item row="0" column="0" >
+         <layout class="QHBoxLayout" >
+          <property name="margin" >
+           <number>0</number>
+          </property>
+          <property name="spacing" >
+           <number>6</number>
+          </property>
+          <item>
+           <layout class="QVBoxLayout" >
+            <property name="margin" >
+             <number>0</number>
+            </property>
+            <property name="spacing" >
+             <number>6</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="label_35" >
+              <property name="text" >
+               <string>Core:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_38" >
+              <property name="text" >
+               <string>Cycles:</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" >
+            <property name="margin" >
+             <number>0</number>
+            </property>
+            <property name="spacing" >
+             <number>6</number>
+            </property>
+            <item>
+             <widget class="QComboBox" name="comboBox_22" >
+              <property name="toolTip" >
+               <string>CPU Core used in emulation:
+normal,full,dynamic</string>
+              </property>
+              <property name="whatsThis" >
+               <string>CPU Core used in emulation:
+normal,full,dynamic</string>
+              </property>
+              <item>
+               <property name="text" >
+                <string>normal</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>full</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>dynamic</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="comboBox_24" >
+              <property name="toolTip" >
+               <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Amount of instructions dosbox tries to emulate&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">each millisecond. Setting this higher than your&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">machine can handle is bad!&lt;/p>&lt;/body>&lt;/html></string>
+              </property>
+              <property name="whatsThis" >
+               <string>Amount of instructions dosbox tries to emulate each
+millisecond. Setting this higher than your machine
+can handle is bad!</string>
+              </property>
+              <item>
+               <property name="text" >
+                <string>500</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>550</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>600</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>650</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>700</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>750</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>800</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>850</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>900</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>950</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>1000</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>1500</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>2000</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>2500</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>3000</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>3500</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" >
+            <property name="margin" >
+             <number>0</number>
+            </property>
+            <property name="spacing" >
+             <number>6</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="label_37" >
+              <property name="text" >
+               <string>Cycleup:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_36" >
+              <property name="text" >
+               <string>Cycledown:</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" >
+            <property name="margin" >
+             <number>0</number>
+            </property>
+            <property name="spacing" >
+             <number>6</number>
+            </property>
+            <item>
+             <widget class="QComboBox" name="comboBox_23" >
+              <property name="toolTip" >
+               <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Amount of cycles to increase/decrease with&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">keycombo&lt;/p>&lt;/body>&lt;/html></string>
+              </property>
+              <property name="whatsThis" >
+               <string>Amount of cycles to increase/decrease with
+keycombo</string>
+              </property>
+              <item>
+               <property name="text" >
+                <string>3500</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>3000</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>2500</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>2000</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>1500</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>1000</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>950</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>900</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>850</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>800</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>750</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>700</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>650</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>600</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>550</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>500</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="comboBox_25" >
+              <property name="toolTip" >
+               <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Setting it lower than 100 will be a percentage&lt;/p>&lt;/body>&lt;/html></string>
+              </property>
+              <property name="whatsThis" >
+               <string>Setting it lower than 100 will be a percentage</string>
+              </property>
+              <item>
+               <property name="text" >
+                <string>10</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>20</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>30</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>40</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>50</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>60</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>70</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>80</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>90</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>100</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item row="1" column="0" >
+      <widget class="QGroupBox" name="gBoxRender" >
+       <property name="title" >
+        <string>Render</string>
+       </property>
+       <layout class="QGridLayout" >
+        <property name="margin" >
+         <number>8</number>
+        </property>
+        <property name="spacing" >
+         <number>6</number>
+        </property>
+        <item row="0" column="0" >
+         <layout class="QGridLayout" >
+          <property name="margin" >
+           <number>0</number>
+          </property>
+          <property name="spacing" >
+           <number>6</number>
+          </property>
+          <item row="0" column="2" >
+           <layout class="QVBoxLayout" >
+            <property name="margin" >
+             <number>0</number>
+            </property>
+            <property name="spacing" >
+             <number>6</number>
+            </property>
+            <item>
+             <widget class="QLCDNumber" name="lcdFS" />
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnSnapDir" >
+              <property name="text" >
+               <string/>
+              </property>
+              <property name="icon" >
+               <iconset resource="../res/dboxfe.qrc" >:/pics/images/folder-open_16.png</iconset>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="chkBoxAspect" >
+              <property name="toolTip" >
+               <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Do aspect correction&lt;/p>&lt;/body>&lt;/html></string>
+              </property>
+              <property name="text" >
+               <string>Aspect</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="0" column="0" >
+           <layout class="QVBoxLayout" >
+            <property name="margin" >
+             <number>0</number>
+            </property>
+            <property name="spacing" >
+             <number>6</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="lblFrameSkip" >
+              <property name="text" >
+               <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:MS Shell Dlg; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Frameskip:&lt;/p>&lt;/body>&lt;/html></string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="lblSnapDir" >
+              <property name="text" >
+               <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:MS Shell Dlg; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Snapdir:&lt;/p>&lt;/body>&lt;/html></string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="lblScaler" >
+              <property name="text" >
+               <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:MS Shell Dlg; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Scaler:&lt;/p>&lt;/body>&lt;/html></string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="0" column="1" >
+           <layout class="QVBoxLayout" >
+            <property name="margin" >
+             <number>0</number>
+            </property>
+            <property name="spacing" >
+             <number>6</number>
+            </property>
+            <item>
+             <widget class="QSlider" name="sliderFS" >
+              <property name="toolTip" >
+               <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">How many frames dosbox&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">skips before drawing one&lt;/p>&lt;/body>&lt;/html></string>
+              </property>
+              <property name="orientation" >
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="LESnapDir" />
+            </item>
+            <item>
+             <widget class="QComboBox" name="cbxScaler" >
+              <property name="toolTip" >
+               <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Scaler used to enlarge/enhance&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">low resolution modes Supported&lt;/p>&lt;/body>&lt;/html></string>
+              </property>
+              <property name="whatsThis" >
+               <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Scaler used to enlarge/enhance&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">low resolution modes Supported&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">are:&lt;/p>&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">none&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">normal2x&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">advmame2x&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">advmame3x&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">advinterp2x&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">interp2x&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">tv2x&lt;/p>&lt;/body>&lt;/html></string>
+              </property>
+              <property name="currentIndex" >
+               <number>1</number>
+              </property>
+              <item>
+               <property name="text" >
+                <string>none</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>normal2x</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>advmame2x</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>advmame3x</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>advinterp2x</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>interp2x</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>tv2x</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+       </layout>
+       <widget class="QWidget" name="widget_16" >
+        <property name="geometry" >
+         <rect>
+          <x>10</x>
+          <y>20</y>
+          <width>209</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QWidget" name="widget_16" >
+        <property name="geometry" >
+         <rect>
+          <x>10</x>
+          <y>60</y>
+          <width>222</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QWidget" name="widget_16" >
+        <property name="geometry" >
+         <rect>
+          <x>11</x>
+          <y>21</y>
+          <width>481</width>
+          <height>80</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QWidget" name="widget_16" >
+        <property name="geometry" >
+         <rect>
+          <x>12</x>
+          <y>22</y>
+          <width>49</width>
+          <height>78</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QWidget" name="widget_16" >
+        <property name="geometry" >
+         <rect>
+          <x>67</x>
+          <y>22</y>
+          <width>341</width>
+          <height>78</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QWidget" name="widget_16" >
+        <property name="geometry" >
+         <rect>
+          <x>414</x>
+          <y>22</y>
+          <width>77</width>
+          <height>78</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QWidget" name="widget_16" >
+        <property name="geometry" >
+         <rect>
+          <x>11</x>
+          <y>25</y>
+          <width>479</width>
+          <height>84</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QWidget" name="widget_16" >
+        <property name="geometry" >
+         <rect>
+          <x>12</x>
+          <y>88</y>
+          <width>477</width>
+          <height>20</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QWidget" name="widget_16" >
+        <property name="geometry" >
+         <rect>
+          <x>12</x>
+          <y>26</y>
+          <width>477</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QWidget" name="widget_16" >
+        <property name="geometry" >
+         <rect>
+          <x>12</x>
+          <y>57</y>
+          <width>477</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QWidget" name="widget_16" >
+        <property name="geometry" >
+         <rect>
+          <x>80</x>
+          <y>30</y>
+          <width>341</width>
+          <height>81</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QWidget" name="widget_16" >
+        <property name="geometry" >
+         <rect>
+          <x>10</x>
+          <y>20</y>
+          <width>481</width>
+          <height>25</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QWidget" name="widget_16" >
+        <property name="geometry" >
+         <rect>
+          <x>81</x>
+          <y>59</y>
+          <width>88</width>
+          <height>43</height>
+         </rect>
+        </property>
+       </widget>
+      </widget>
+     </item>
+     <item row="0" column="0" >
+      <widget class="QGroupBox" name="gBoxSDL" >
+       <property name="title" >
+        <string>SDL</string>
+       </property>
+       <layout class="QGridLayout" >
+        <property name="margin" >
+         <number>9</number>
+        </property>
+        <property name="spacing" >
+         <number>6</number>
+        </property>
+        <item row="2" column="0" >
+         <layout class="QHBoxLayout" >
+          <property name="margin" >
+           <number>0</number>
+          </property>
+          <property name="spacing" >
+           <number>6</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="lblFullHW" >
+            <property name="text" >
+             <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:MS Shell Dlg; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Full wight/height:&lt;/p>&lt;/body>&lt;/html></string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="cbxWight" >
+            <property name="toolTip" >
+             <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">What resolution to use for&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">fullscreen, use together&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">with fullfixed&lt;/p>&lt;/body>&lt;/html></string>
+            </property>
+            <property name="currentIndex" >
+             <number>2</number>
+            </property>
+            <item>
+             <property name="text" >
+              <string>640x480</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>800x600</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>1024x768</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>1280x1024</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>1600x1200</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>2480x1600</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="1" column="0" >
+         <layout class="QHBoxLayout" >
+          <property name="margin" >
+           <number>0</number>
+          </property>
+          <property name="spacing" >
+           <number>6</number>
+          </property>
+          <item>
+           <layout class="QVBoxLayout" >
+            <property name="margin" >
+             <number>0</number>
+            </property>
+            <property name="spacing" >
+             <number>6</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="lblHardwareScale" >
+              <property name="text" >
+               <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:MS Shell Dlg; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Hardwarescale:&lt;/p>&lt;/body>&lt;/html></string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="lblSensitivity" >
+              <property name="text" >
+               <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:MS Shell Dlg; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Sensitivity:&lt;/p>&lt;/body>&lt;/html></string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" >
+            <property name="margin" >
+             <number>0</number>
+            </property>
+            <property name="spacing" >
+             <number>6</number>
+            </property>
+            <item>
+             <widget class="QSlider" name="sliderHW" >
+              <property name="toolTip" >
+               <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Extra scaling of window if the&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">output device supports hardware&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">scaling&lt;/p>&lt;/body>&lt;/html></string>
+              </property>
+              <property name="orientation" >
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSlider" name="sliderSV" >
+              <property name="toolTip" >
+               <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Mouse sensitivity&lt;/p>&lt;/body>&lt;/html></string>
+              </property>
+              <property name="maximum" >
+               <number>512</number>
+              </property>
+              <property name="value" >
+               <number>100</number>
+              </property>
+              <property name="orientation" >
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" >
+            <property name="margin" >
+             <number>0</number>
+            </property>
+            <property name="spacing" >
+             <number>6</number>
+            </property>
+            <item>
+             <widget class="QLCDNumber" name="lcdHW" />
+            </item>
+            <item>
+             <widget class="QLCDNumber" name="lcdSV" >
+              <property name="value" stdset="0" >
+               <double>100</double>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item row="0" column="0" >
+         <layout class="QHBoxLayout" >
+          <property name="margin" >
+           <number>0</number>
+          </property>
+          <property name="spacing" >
+           <number>6</number>
+          </property>
+          <item>
+           <layout class="QHBoxLayout" >
+            <property name="margin" >
+             <number>0</number>
+            </property>
+            <property name="spacing" >
+             <number>6</number>
+            </property>
+            <item>
+             <layout class="QVBoxLayout" >
+              <property name="margin" >
+               <number>0</number>
+              </property>
+              <property name="spacing" >
+               <number>6</number>
+              </property>
+              <item>
+               <widget class="QCheckBox" name="chkBoxFullScreen" >
+                <property name="toolTip" >
+                 <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Start dosbox directly in fullscreen&lt;/p>&lt;/body>&lt;/html></string>
+                </property>
+                <property name="text" >
+                 <string>Full screen</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="chkBoxFullDouble" >
+                <property name="toolTip" >
+                 <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Use double buffering in fullscreen&lt;/p>&lt;/body>&lt;/html></string>
+                </property>
+                <property name="text" >
+                 <string>Full double</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="chkBoxFullFixed" >
+                <property name="toolTip" >
+                 <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Don't resize the screen when in fullscreen&lt;/p>&lt;/body>&lt;/html></string>
+                </property>
+                <property name="text" >
+                 <string>Full fixed</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" >
+              <property name="margin" >
+               <number>0</number>
+              </property>
+              <property name="spacing" >
+               <number>6</number>
+              </property>
+              <item>
+               <widget class="QCheckBox" name="chkBoxAutolock" >
+                <property name="toolTip" >
+                 <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Mouse will automatically lock,&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">if you click on the screen&lt;/p>&lt;/body>&lt;/html></string>
+                </property>
+                <property name="text" >
+                 <string>Autolock</string>
+                </property>
+                <property name="checked" >
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="chkBoxWaitOnError" >
+                <property name="toolTip" >
+                 <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Wait before closing the console&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">if dosbox has an error&lt;/p>&lt;/body>&lt;/html></string>
+                </property>
+                <property name="text" >
+                 <string>Wait on Error</string>
+                </property>
+                <property name="checked" >
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" >
+            <property name="margin" >
+             <number>0</number>
+            </property>
+            <property name="spacing" >
+             <number>6</number>
+            </property>
+            <item>
+             <layout class="QVBoxLayout" >
+              <property name="margin" >
+               <number>0</number>
+              </property>
+              <property name="spacing" >
+               <number>6</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="label_13" >
+                <property name="text" >
+                 <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:MS Shell Dlg; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Output:&lt;/p>&lt;/body>&lt;/html></string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_13" >
+                <property name="text" >
+                 <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:MS Shell Dlg; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Focus/Unfocus&lt;/p>&lt;/body>&lt;/html></string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" >
+              <property name="margin" >
+               <number>0</number>
+              </property>
+              <property name="spacing" >
+               <number>6</number>
+              </property>
+              <item>
+               <widget class="QComboBox" name="cbxOutout" >
+                <property name="toolTip" >
+                 <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">What to use for output&lt;/p>&lt;/body>&lt;/html></string>
+                </property>
+                <property name="whatsThis" >
+                 <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">What to use for output:&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">surface&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">overlay&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">opengl&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">openglnb&lt;/p>&lt;/body>&lt;/html></string>
+                </property>
+                <item>
+                 <property name="text" >
+                  <string>surface</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>overlay</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>opengl</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>openglnb</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>ddraw</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="cbxFocusUnfocus" />
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="tbDosBoxCfg" >
+    <attribute name="title" >
+     <string>DosBox</string>
+    </attribute>
+    <layout class="QGridLayout" >
+     <property name="margin" >
+      <number>9</number>
+     </property>
+     <property name="spacing" >
+      <number>6</number>
+     </property>
+     <item row="0" column="0" >
+      <layout class="QGridLayout" >
+       <property name="margin" >
+        <number>0</number>
+       </property>
+       <property name="spacing" >
+        <number>6</number>
+       </property>
+       <item row="1" column="0" >
+        <widget class="QGroupBox" name="gBoxMapper" >
+         <property name="title" >
+          <string>Mapper</string>
+         </property>
+         <layout class="QGridLayout" >
+          <property name="margin" >
+           <number>9</number>
+          </property>
+          <property name="spacing" >
+           <number>6</number>
+          </property>
+          <item row="0" column="0" >
+           <widget class="QCheckBox" name="chkBoxStartmapper" >
+            <property name="text" >
+             <string>Starmapper</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="0" column="0" >
+        <widget class="QGroupBox" name="gBoxOther" >
+         <property name="title" >
+          <string>Other</string>
+         </property>
+         <layout class="QGridLayout" >
+          <property name="margin" >
+           <number>9</number>
+          </property>
+          <property name="spacing" >
+           <number>6</number>
+          </property>
+          <item row="0" column="0" >
+           <layout class="QHBoxLayout" >
+            <property name="margin" >
+             <number>0</number>
+            </property>
+            <property name="spacing" >
+             <number>6</number>
+            </property>
+            <item>
+             <layout class="QHBoxLayout" >
+              <property name="margin" >
+               <number>0</number>
+              </property>
+              <property name="spacing" >
+               <number>6</number>
+              </property>
+              <item>
+               <layout class="QVBoxLayout" >
+                <property name="margin" >
+                 <number>0</number>
+                </property>
+                <property name="spacing" >
+                 <number>6</number>
+                </property>
+                <item>
+                 <widget class="QLabel" name="lblLanguage" >
+                  <property name="text" >
+                   <string>Language:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="lblCaptures" >
+                  <property name="text" >
+                   <string>Captures:</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" >
+                <property name="margin" >
+                 <number>0</number>
+                </property>
+                <property name="spacing" >
+                 <number>6</number>
+                </property>
+                <item>
+                 <layout class="QHBoxLayout" >
+                  <property name="margin" >
+                   <number>0</number>
+                  </property>
+                  <property name="spacing" >
+                   <number>6</number>
+                  </property>
+                  <item>
+                   <widget class="QLineEdit" name="LELanguage" />
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="btnLanguage" >
+                    <property name="toolTip" >
+                     <string>Open the language file for dosbox</string>
+                    </property>
+                    <property name="text" >
+                     <string/>
+                    </property>
+                    <property name="icon" >
+                     <iconset resource="../res/dboxfe.qrc" >:/pics/images/folder-open_16.png</iconset>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="cbxCaptures" >
+                  <property name="currentIndex" >
+                   <number>2</number>
+                  </property>
+                  <item>
+                   <property name="text" >
+                    <string>wave</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>midi</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>capture</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>screenshot</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" >
+              <property name="margin" >
+               <number>0</number>
+              </property>
+              <property name="spacing" >
+               <number>6</number>
+              </property>
+              <item>
+               <layout class="QVBoxLayout" >
+                <property name="margin" >
+                 <number>0</number>
+                </property>
+                <property name="spacing" >
+                 <number>6</number>
+                </property>
+                <item>
+                 <widget class="QLabel" name="lblMachine" >
+                  <property name="text" >
+                   <string>Machine:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="lblMemSize" >
+                  <property name="text" >
+                   <string>Memorysize:</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" >
+                <property name="margin" >
+                 <number>0</number>
+                </property>
+                <property name="spacing" >
+                 <number>6</number>
+                </property>
+                <item>
+                 <widget class="QComboBox" name="cbxMachine" >
+                  <property name="currentIndex" >
+                   <number>3</number>
+                  </property>
+                  <item>
+                   <property name="text" >
+                    <string>hercules</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>cga</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>tandy</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>vga</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="cbxMemsize" >
+                  <item>
+                   <property name="text" >
+                    <string>16</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>32</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>64</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>128</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>256</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>512</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="3" column="0" >
+        <widget class="QGroupBox" name="gBoxDbxVersion" >
+         <property name="title" >
+          <string>Which dosbox version would you like to use?</string>
+         </property>
+         <layout class="QGridLayout" >
+          <property name="margin" >
+           <number>9</number>
+          </property>
+          <property name="spacing" >
+           <number>6</number>
+          </property>
+          <item row="0" column="1" >
+           <widget class="QRadioButton" name="rbtnDBXCVS" >
+            <property name="enabled" >
+             <bool>false</bool>
+            </property>
+            <property name="text" >
+             <string>DOSBox 0.6x (cvs) "nothing coming soon"</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0" >
+           <widget class="QRadioButton" name="rbtnDBXStabel" >
+            <property name="text" >
+             <string>DOSBox 0.6x (stabel)</string>
+            </property>
+            <property name="checked" >
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="2" column="0" >
+        <widget class="QGroupBox" name="gBoxExecutable" >
+         <property name="title" >
+          <string>Executable/DOSBox binary</string>
+         </property>
+         <layout class="QGridLayout" >
+          <property name="margin" >
+           <number>9</number>
+          </property>
+          <property name="spacing" >
+           <number>6</number>
+          </property>
+          <item row="0" column="0" >
+           <layout class="QVBoxLayout" >
+            <property name="margin" >
+             <number>0</number>
+            </property>
+            <property name="spacing" >
+             <number>6</number>
+            </property>
+            <item>
+             <layout class="QHBoxLayout" >
+              <property name="margin" >
+               <number>0</number>
+              </property>
+              <property name="spacing" >
+               <number>6</number>
+              </property>
+              <item>
+               <layout class="QVBoxLayout" >
+                <property name="margin" >
+                 <number>0</number>
+                </property>
+                <property name="spacing" >
+                 <number>6</number>
+                </property>
+                <item>
+                 <widget class="QLabel" name="lblStabelVersion" >
+                  <property name="text" >
+                   <string>Stable Version:
+</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="lblCVSVersion" >
+                  <property name="text" >
+                   <string>CVS Version:</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" >
+                <property name="margin" >
+                 <number>0</number>
+                </property>
+                <property name="spacing" >
+                 <number>6</number>
+                </property>
+                <item>
+                 <widget class="QLineEdit" name="LEDbxStabel" >
+                  <property name="text" >
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="LEDbxCvs" />
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" >
+                <property name="margin" >
+                 <number>0</number>
+                </property>
+                <property name="spacing" >
+                 <number>6</number>
+                </property>
+                <item>
+                 <widget class="QPushButton" name="btnDbxStable" >
+                  <property name="toolTip" >
+                   <string>Open the stabel binary of dosbox</string>
+                  </property>
+                  <property name="text" >
+                   <string/>
+                  </property>
+                  <property name="icon" >
+                   <iconset resource="../res/dboxfe.qrc" >:/pics/images/folder-open_16.png</iconset>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="btnDbxCvs" >
+                  <property name="toolTip" >
+                   <string>Open the cvs binary of dosbox</string>
+                  </property>
+                  <property name="text" >
+                   <string/>
+                  </property>
+                  <property name="icon" >
+                   <iconset resource="../res/dboxfe.qrc" >:/pics/images/folder-open_16.png</iconset>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" >
+              <property name="margin" >
+               <number>0</number>
+              </property>
+              <property name="spacing" >
+               <number>6</number>
+              </property>
+              <item>
+               <widget class="QLineEdit" name="LEParam" />
+              </item>
+              <item>
+               <widget class="QLineEdit" name="LEDbxVersion" >
+                <property name="enabled" >
+                 <bool>false</bool>
+                </property>
+                <property name="readOnly" >
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="tbSoundCfg" >
+    <attribute name="title" >
+     <string>Sound</string>
+    </attribute>
+    <layout class="QGridLayout" >
+     <property name="margin" >
+      <number>9</number>
+     </property>
+     <property name="spacing" >
+      <number>6</number>
+     </property>
+     <item row="0" column="0" >
+      <widget class="QToolBox" name="toolBox" >
+       <widget class="QWidget" name="pageMixer" >
+        <property name="geometry" >
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>164</width>
+          <height>135</height>
+         </rect>
+        </property>
+        <attribute name="label" >
+         <string>Mixer</string>
+        </attribute>
+        <layout class="QGridLayout" >
+         <property name="margin" >
+          <number>9</number>
+         </property>
+         <property name="spacing" >
+          <number>6</number>
+         </property>
+         <item row="0" column="0" >
+          <layout class="QVBoxLayout" >
+           <property name="margin" >
+            <number>0</number>
+           </property>
+           <property name="spacing" >
+            <number>6</number>
+           </property>
+           <item>
+            <layout class="QHBoxLayout" >
+             <property name="margin" >
+              <number>0</number>
+             </property>
+             <property name="spacing" >
+              <number>6</number>
+             </property>
+             <item>
+              <layout class="QVBoxLayout" >
+               <property name="margin" >
+                <number>0</number>
+               </property>
+               <property name="spacing" >
+                <number>6</number>
+               </property>
+               <item>
+                <widget class="QLabel" name="label_2" >
+                 <property name="text" >
+                  <string>Rate:</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="label_3" >
+                 <property name="text" >
+                  <string>Block Size:</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="label_4" >
+                 <property name="text" >
+                  <string>Wave dir:</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QVBoxLayout" >
+               <property name="margin" >
+                <number>0</number>
+               </property>
+               <property name="spacing" >
+                <number>6</number>
+               </property>
+               <item>
+                <widget class="QComboBox" name="comboBox_4" >
+                 <property name="toolTip" >
+                  <string>Mixer sample rate, setting any devices
+higher than this will probably lower their
+sound quality</string>
+                 </property>
+                 <property name="whatsThis" >
+                  <string>Mixer sample rate, setting any devices
+higher than this will probably lower their
+sound quality</string>
+                 </property>
+                 <item>
+                  <property name="text" >
+                   <string>11050</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text" >
+                   <string>22050</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text" >
+                   <string>44100</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item>
+                <widget class="QComboBox" name="comboBox_5" >
+                 <property name="toolTip" >
+                  <string>Mixer block size, larger blocks might
+help sound stuttering but sound will
+also be more lagged</string>
+                 </property>
+                 <property name="whatsThis" >
+                  <string>Mixer block size, larger blocks might
+help sound stuttering but sound will
+also be more lagged</string>
+                 </property>
+                 <item>
+                  <property name="text" >
+                   <string>1024</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text" >
+                   <string>2048</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text" >
+                   <string>4096</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="lineEdit_2" >
+                 <property name="toolTip" >
+                  <string>Directory where saved sound output
+goes when you use the sound record
+key-combination, check README file</string>
+                 </property>
+                 <property name="whatsThis" >
+                  <string>Directory where saved sound output
+goes when you use the sound record
+key-combination, check README file</string>
+                 </property>
+                 <property name="text" >
+                  <string>waves</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="checkBox_2" >
+             <property name="toolTip" >
+              <string>Enable silent mode, sound is still emulated though</string>
+             </property>
+             <property name="whatsThis" >
+              <string>Enable silent mode, sound is still emulated though</string>
+             </property>
+             <property name="text" >
+              <string>No sound</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="pageSB" >
+        <attribute name="label" >
+         <string>Soundbalster</string>
+        </attribute>
+        <layout class="QGridLayout" >
+         <property name="margin" >
+          <number>9</number>
+         </property>
+         <property name="spacing" >
+          <number>6</number>
+         </property>
+         <item row="0" column="0" >
+          <layout class="QHBoxLayout" >
+           <property name="margin" >
+            <number>0</number>
+           </property>
+           <property name="spacing" >
+            <number>6</number>
+           </property>
+           <item>
+            <layout class="QVBoxLayout" >
+             <property name="margin" >
+              <number>0</number>
+             </property>
+             <property name="spacing" >
+              <number>6</number>
+             </property>
+             <item>
+              <layout class="QHBoxLayout" >
+               <property name="margin" >
+                <number>0</number>
+               </property>
+               <property name="spacing" >
+                <number>6</number>
+               </property>
+               <item>
+                <layout class="QVBoxLayout" >
+                 <property name="margin" >
+                  <number>0</number>
+                 </property>
+                 <property name="spacing" >
+                  <number>6</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="label_10" >
+                   <property name="text" >
+                    <string>Type:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_11" >
+                   <property name="text" >
+                    <string>IRQ:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_9" >
+                   <property name="text" >
+                    <string>OPL mode:</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QVBoxLayout" >
+                 <property name="margin" >
+                  <number>0</number>
+                 </property>
+                 <property name="spacing" >
+                  <number>6</number>
+                 </property>
+                 <item>
+                  <widget class="QComboBox" name="comboBox_9" >
+                   <property name="toolTip" >
+                    <string>Type of sblaster to emulate:
+none
+sb1
+sb2
+sbpro1
+sbpro2
+sb16 (default)</string>
+                   </property>
+                   <property name="whatsThis" >
+                    <string>Type of sblaster to emulate:
+none
+sb1
+sb2
+sbpro1
+sbpro2
+sb16 (default)</string>
+                   </property>
+                   <item>
+                    <property name="text" >
+                     <string>none</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text" >
+                     <string>sb1</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text" >
+                     <string>sb2</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text" >
+                     <string>sbpro1</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text" >
+                     <string>sbpro2</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text" >
+                     <string>sb16</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QComboBox" name="comboBox_10" >
+                   <property name="toolTip" >
+                    <string>The IRQ address of the soundblaster</string>
+                   </property>
+                   <property name="whatsThis" >
+                    <string>The IRQ address of the soundblaster</string>
+                   </property>
+                   <item>
+                    <property name="text" >
+                     <string>5</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text" >
+                     <string>7</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text" >
+                     <string>9</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text" >
+                     <string>10</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QComboBox" name="comboBox_12" >
+                   <property name="toolTip" >
+                    <string>Type of OPL emulation:
+
+auto
+cms
+opl2
+dualopl2
+opl3
+
+On auto the mode is determined by sblaster type.</string>
+                   </property>
+                   <property name="whatsThis" >
+                    <string>Type of OPL emulation:
+
+auto
+cms
+opl2
+dualopl2
+opl3
+
+On auto the mode is determined by sblaster type.</string>
+                   </property>
+                   <item>
+                    <property name="text" >
+                     <string>auto</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text" >
+                     <string>cms</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text" >
+                     <string>opl2</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text" >
+                     <string>dualopl2</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text" >
+                     <string>opl3</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="checkBox_3" >
+               <property name="toolTip" >
+                <string>Allow rate of soundblaster emulation.</string>
+               </property>
+               <property name="whatsThis" >
+                <string>Allow rate of soundblaster emulation.</string>
+               </property>
+               <property name="text" >
+                <string>Mixer</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" >
+             <property name="margin" >
+              <number>0</number>
+             </property>
+             <property name="spacing" >
+              <number>6</number>
+             </property>
+             <item>
+              <layout class="QVBoxLayout" >
+               <property name="margin" >
+                <number>0</number>
+               </property>
+               <property name="spacing" >
+                <number>6</number>
+               </property>
+               <item>
+                <widget class="QLabel" name="label_5" >
+                 <property name="text" >
+                  <string>Base:</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="label_6" >
+                 <property name="text" >
+                  <string>DMA:</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="label_7" >
+                 <property name="text" >
+                  <string>HDMA:</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="label_8" >
+                 <property name="text" >
+                  <string>OPL Rate:</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QVBoxLayout" >
+               <property name="margin" >
+                <number>0</number>
+               </property>
+               <property name="spacing" >
+                <number>6</number>
+               </property>
+               <item>
+                <widget class="QComboBox" name="comboBox_6" >
+                 <property name="toolTip" >
+                  <string>The IO address of the soundblaster</string>
+                 </property>
+                 <property name="whatsThis" >
+                  <string>The IO address of the soundblaster</string>
+                 </property>
+                 <item>
+                  <property name="text" >
+                   <string>220</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text" >
+                   <string>240</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item>
+                <widget class="QComboBox" name="comboBox_7" >
+                 <property name="toolTip" >
+                  <string>The DMA address of the soundblaster</string>
+                 </property>
+                 <property name="whatsThis" >
+                  <string>The DMA address of the soundblaster</string>
+                 </property>
+                 <item>
+                  <property name="text" >
+                   <string>1</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text" >
+                   <string>3</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item>
+                <widget class="QComboBox" name="comboBox_8" >
+                 <property name="toolTip" >
+                  <string>The High DMA address of the soundblaster</string>
+                 </property>
+                 <property name="whatsThis" >
+                  <string>The High DMA address of the soundblaster</string>
+                 </property>
+                 <item>
+                  <property name="text" >
+                   <string>1</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text" >
+                   <string>3</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text" >
+                   <string>5</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item>
+                <widget class="QComboBox" name="comboBox_11" >
+                 <property name="toolTip" >
+                  <string>Smaple rate of OPL music emulation.</string>
+                 </property>
+                 <property name="whatsThis" >
+                  <string>Smaple rate of OPL music emulation.</string>
+                 </property>
+                 <item>
+                  <property name="text" >
+                   <string>11050</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text" >
+                   <string>22050</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text" >
+                   <string>44100</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="pageGUS" >
+        <attribute name="label" >
+         <string>GUS</string>
+        </attribute>
+        <layout class="QGridLayout" >
+         <property name="margin" >
+          <number>9</number>
+         </property>
+         <property name="spacing" >
+          <number>6</number>
+         </property>
+         <item row="0" column="0" >
+          <layout class="QVBoxLayout" >
+           <property name="margin" >
+            <number>0</number>
+           </property>
+           <property name="spacing" >
+            <number>6</number>
+           </property>
+           <item>
+            <layout class="QHBoxLayout" >
+             <property name="margin" >
+              <number>0</number>
+             </property>
+             <property name="spacing" >
+              <number>6</number>
+             </property>
+             <item>
+              <layout class="QVBoxLayout" >
+               <property name="margin" >
+                <number>0</number>
+               </property>
+               <property name="spacing" >
+                <number>6</number>
+               </property>
+               <item>
+                <widget class="QLabel" name="label_12" >
+                 <property name="text" >
+                  <string>Gus rate:</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="label_14" >
+                 <property name="text" >
+                  <string>Gus Base:</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="label_16" >
+                 <property name="text" >
+                  <string>IRQ's:</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="label_15" >
+                 <property name="text" >
+                  <string>DMA's:</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="label_17" >
+                 <property name="text" >
+                  <string>Ultra dir:</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QVBoxLayout" >
+               <property name="margin" >
+                <number>0</number>
+               </property>
+               <property name="spacing" >
+                <number>6</number>
+               </property>
+               <item>
+                <widget class="QComboBox" name="comboBox_17" >
+                 <property name="toolTip" >
+                  <string>Sample rate of Ultrasound emulation</string>
+                 </property>
+                 <property name="whatsThis" >
+                  <string>Sample rate of Ultrasound emulation</string>
+                 </property>
+                 <item>
+                  <property name="text" >
+                   <string>11050</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text" >
+                   <string>22050</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text" >
+                   <string>44100</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item>
+                <widget class="QComboBox" name="comboBox_18" >
+                 <item>
+                  <property name="text" >
+                   <string>220</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text" >
+                   <string>240</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item>
+                <layout class="QGridLayout" >
+                 <property name="margin" >
+                  <number>0</number>
+                 </property>
+                 <property name="spacing" >
+                  <number>6</number>
+                 </property>
+                 <item row="0" column="1" >
+                  <widget class="QComboBox" name="comboBox_13" >
+                   <property name="toolTip" >
+                    <string>The IO/IRQ/DMA addresses of the 
+Gravis Ultrasound. (Same IRQ's and
+DMA's are OK.)</string>
+                   </property>
+                   <property name="whatsThis" >
+                    <string>The IO/IRQ/DMA addresses of the 
+Gravis Ultrasound. (Same IRQ's and
+DMA's are OK.)</string>
+                   </property>
+                   <item>
+                    <property name="text" >
+                     <string>5</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text" >
+                     <string>7</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text" >
+                     <string>9</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text" >
+                     <string>10</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                 <item row="1" column="1" >
+                  <widget class="QComboBox" name="comboBox_16" >
+                   <property name="toolTip" >
+                    <string>The IO/IRQ/DMA addresses of the 
+Gravis Ultrasound. (Same IRQ's and
+DMA's are OK.)</string>
+                   </property>
+                   <property name="whatsThis" >
+                    <string>The IO/IRQ/DMA addresses of the 
+Gravis Ultrasound. (Same IRQ's and
+DMA's are OK.)</string>
+                   </property>
+                   <item>
+                    <property name="text" >
+                     <string>1</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text" >
+                     <string>3</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                 <item row="1" column="0" >
+                  <widget class="QComboBox" name="comboBox_14" >
+                   <property name="toolTip" >
+                    <string>The IO/IRQ/DMA addresses of the 
+Gravis Ultrasound. (Same IRQ's and
+DMA's are OK.)</string>
+                   </property>
+                   <property name="whatsThis" >
+                    <string>The IO/IRQ/DMA addresses of the 
+Gravis Ultrasound. (Same IRQ's and
+DMA's are OK.)</string>
+                   </property>
+                   <item>
+                    <property name="text" >
+                     <string>1</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text" >
+                     <string>3</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                 <item row="0" column="0" >
+                  <widget class="QComboBox" name="comboBox_15" >
+                   <property name="toolTip" >
+                    <string>The IO/IRQ/DMA addresses of the 
+Gravis Ultrasound. (Same IRQ's and
+DMA's are OK.)</string>
+                   </property>
+                   <property name="whatsThis" >
+                    <string>The IO/IRQ/DMA addresses of the 
+Gravis Ultrasound. (Same IRQ's and
+DMA's are OK.)</string>
+                   </property>
+                   <item>
+                    <property name="text" >
+                     <string>5</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text" >
+                     <string>7</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text" >
+                     <string>9</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text" >
+                     <string>10</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="lineEdit_3" >
+                 <property name="toolTip" >
+                  <string>Path to Ultrasound directory.
+In this directory there should
+be a MIDI directory that contains
+the patch files for GUS playback.
+Patch sets used with Timidity
+should work fine.</string>
+                 </property>
+                 <property name="whatsThis" >
+                  <string>Path to Ultrasound directory.
+In this directory there should
+be a MIDI directory that contains
+the patch files for GUS playback.
+Patch sets used with Timidity
+should work fine.</string>
+                 </property>
+                 <property name="text" >
+                  <string>C:\ULTRASND</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="checkBox_4" >
+             <property name="toolTip" >
+              <string>Enable the Gravis Ultrasound emulation</string>
+             </property>
+             <property name="whatsThis" >
+              <string>Enable the Gravis Ultrasound emulation</string>
+             </property>
+             <property name="text" >
+              <string>gus</string>
+             </property>
+             <property name="checked" >
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="pageSpeaker" >
+        <attribute name="label" >
+         <string>Speaker</string>
+        </attribute>
+        <layout class="QGridLayout" >
+         <property name="margin" >
+          <number>9</number>
+         </property>
+         <property name="spacing" >
+          <number>6</number>
+         </property>
+         <item row="0" column="0" >
+          <layout class="QVBoxLayout" >
+           <property name="margin" >
+            <number>0</number>
+           </property>
+           <property name="spacing" >
+            <number>6</number>
+           </property>
+           <item>
+            <layout class="QHBoxLayout" >
+             <property name="margin" >
+              <number>0</number>
+             </property>
+             <property name="spacing" >
+              <number>6</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="label_18" >
+               <property name="text" >
+                <string>Rate:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="comboBox_19" >
+               <property name="toolTip" >
+                <string>Sample rate of the PC-Speaker
+sound generation</string>
+               </property>
+               <property name="whatsThis" >
+                <string>Sample rate of the PC-Speaker
+sound generation</string>
+               </property>
+               <item>
+                <property name="text" >
+                 <string>11050</string>
+                </property>
+               </item>
+               <item>
+                <property name="text" >
+                 <string>22050</string>
+                </property>
+               </item>
+               <item>
+                <property name="text" >
+                 <string>44100</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="comboBox_20" >
+               <property name="toolTip" >
+                <string>Sample rate of the Tandy
+3-Voice generation</string>
+               </property>
+               <property name="whatsThis" >
+                <string>Sample rate of the Tandy
+3-Voice generation</string>
+               </property>
+               <item>
+                <property name="text" >
+                 <string>11050</string>
+                </property>
+               </item>
+               <item>
+                <property name="text" >
+                 <string>22050</string>
+                </property>
+               </item>
+               <item>
+                <property name="text" >
+                 <string>44100</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" >
+             <property name="margin" >
+              <number>0</number>
+             </property>
+             <property name="spacing" >
+              <number>6</number>
+             </property>
+             <item>
+              <widget class="QCheckBox" name="checkBox_5" >
+               <property name="toolTip" >
+                <string>Enable PC-Speaker emulation</string>
+               </property>
+               <property name="whatsThis" >
+                <string>Enable PC-Speaker emulation</string>
+               </property>
+               <property name="text" >
+                <string>PC speaker</string>
+               </property>
+               <property name="checked" >
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="checkBox_6" >
+               <property name="toolTip" >
+                <string>Enable Tandy 3-Voice emulation</string>
+               </property>
+               <property name="whatsThis" >
+                <string>Enable Tandy 3-Voice emulation</string>
+               </property>
+               <property name="text" >
+                <string>Tandy</string>
+               </property>
+               <property name="checked" >
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="checkBox_7" >
+               <property name="toolTip" >
+                <string>Enable Disney Sound Source emulation</string>
+               </property>
+               <property name="whatsThis" >
+                <string>Enable Disney Sound Source emulation</string>
+               </property>
+               <property name="text" >
+                <string>Disney</string>
+               </property>
+               <property name="checked" >
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="pageMidi" >
+        <property name="geometry" >
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>258</width>
+          <height>76</height>
+         </rect>
+        </property>
+        <attribute name="label" >
+         <string>Midi</string>
+        </attribute>
+        <layout class="QGridLayout" >
+         <property name="margin" >
+          <number>9</number>
+         </property>
+         <property name="spacing" >
+          <number>6</number>
+         </property>
+         <item row="0" column="0" >
+          <layout class="QHBoxLayout" >
+           <property name="margin" >
+            <number>0</number>
+           </property>
+           <property name="spacing" >
+            <number>6</number>
+           </property>
+           <item>
+            <layout class="QVBoxLayout" >
+             <property name="margin" >
+              <number>0</number>
+             </property>
+             <property name="spacing" >
+              <number>6</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="label_19" >
+               <property name="text" >
+                <string>Device:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_34" >
+               <property name="text" >
+                <string>Config:</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" >
+             <property name="margin" >
+              <number>0</number>
+             </property>
+             <property name="spacing" >
+              <number>6</number>
+             </property>
+             <item>
+              <widget class="QComboBox" name="comboBox_21" >
+               <property name="toolTip" >
+                <string>Device that will receive the MIDI
+data from MPU-401. This can be
+default,alsa,oss,win32,coreaudio,22</string>
+               </property>
+               <property name="whatsThis" >
+                <string>Device that will receive the MIDI
+data from MPU-401. This can be
+default,alsa,oss,win32,coreaudio,22</string>
+               </property>
+               <item>
+                <property name="text" >
+                 <string>default</string>
+                </property>
+               </item>
+               <item>
+                <property name="text" >
+                 <string>alsa</string>
+                </property>
+               </item>
+               <item>
+                <property name="text" >
+                 <string>oss</string>
+                </property>
+               </item>
+               <item>
+                <property name="text" >
+                 <string>win32</string>
+                </property>
+               </item>
+               <item>
+                <property name="text" >
+                 <string>coreaudio</string>
+                </property>
+               </item>
+               <item>
+                <property name="text" >
+                 <string>none</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="lineEdit_4" >
+               <property name="toolTip" >
+                <string>Special configuration options for the device</string>
+               </property>
+               <property name="whatsThis" >
+                <string>Special configuration options for the device</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" >
+             <property name="margin" >
+              <number>0</number>
+             </property>
+             <property name="spacing" >
+              <number>6</number>
+             </property>
+             <item>
+              <widget class="QCheckBox" name="checkBox_8" >
+               <property name="toolTip" >
+                <string>Enable MPU-401 Emulation</string>
+               </property>
+               <property name="whatsThis" >
+                <string>Enable MPU-401 Emulation</string>
+               </property>
+               <property name="text" >
+                <string>MPU 401</string>
+               </property>
+               <property name="checked" >
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="checkBox_9" >
+               <property name="text" >
+                <string>Intelligent</string>
+               </property>
+               <property name="checked" >
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="tbMiscCfg" >
+    <attribute name="title" >
+     <string>Misc (Modem, Autoexec, Dos)</string>
+    </attribute>
+    <layout class="QGridLayout" >
+     <property name="margin" >
+      <number>9</number>
+     </property>
+     <property name="spacing" >
+      <number>6</number>
+     </property>
+     <item row="0" column="0" >
+      <layout class="QGridLayout" >
+       <property name="margin" >
+        <number>0</number>
+       </property>
+       <property name="spacing" >
+        <number>6</number>
+       </property>
+       <item row="0" column="0" >
+        <widget class="QGroupBox" name="gBoxAutoexec" >
+         <property name="title" >
+          <string>Autoexec</string>
+         </property>
+         <layout class="QGridLayout" >
+          <property name="margin" >
+           <number>9</number>
+          </property>
+          <property name="spacing" >
+           <number>6</number>
+          </property>
+          <item row="0" column="0" >
+           <layout class="QGridLayout" >
+            <property name="margin" >
+             <number>0</number>
+            </property>
+            <property name="spacing" >
+             <number>6</number>
+            </property>
+            <item row="1" column="0" >
+             <layout class="QHBoxLayout" >
+              <property name="margin" >
+               <number>0</number>
+              </property>
+              <property name="spacing" >
+               <number>6</number>
+              </property>
+              <item>
+               <widget class="QPushButton" name="btnAutexecAdd" >
+                <property name="text" >
+                 <string>Add</string>
+                </property>
+                <property name="icon" >
+                 <iconset resource="../res/dboxfe.qrc" >:/pics/images/add_16.png</iconset>
+                </property>
+                <property name="flat" >
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer>
+                <property name="orientation" >
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" >
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnAutexecRemove" >
+                <property name="text" >
+                 <string>Remove</string>
+                </property>
+                <property name="icon" >
+                 <iconset resource="../res/dboxfe.qrc" >:/pics/images/delete_16.png</iconset>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer>
+                <property name="orientation" >
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" >
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnAutexecUpdate" >
+                <property name="enabled" >
+                 <bool>false</bool>
+                </property>
+                <property name="text" >
+                 <string>Update</string>
+                </property>
+                <property name="icon" >
+                 <iconset resource="../res/dboxfe.qrc" >:/pics/images/undo_16.png</iconset>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="2" column="0" >
+             <layout class="QVBoxLayout" >
+              <property name="margin" >
+               <number>0</number>
+              </property>
+              <property name="spacing" >
+               <number>6</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="lblMountDir" >
+                <property name="text" >
+                 <string>Choose directory for mount in dosbox</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" >
+                <property name="margin" >
+                 <number>0</number>
+                </property>
+                <property name="spacing" >
+                 <number>6</number>
+                </property>
+                <item>
+                 <widget class="QComboBox" name="cbxDrive" >
+                  <item>
+                   <property name="text" >
+                    <string>A</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>B</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>C</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>D</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>E</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>F</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>G</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>H</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>I</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>J</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>K</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>L</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>M</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>N</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>O</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>P</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>Q</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>R</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>S</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>T</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>U</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>V</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>W</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>X</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>Y</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>Z</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="LEDrives" />
+                </item>
+                <item>
+                 <widget class="QPushButton" name="btnAutexecDrive" >
+                  <property name="icon" >
+                   <iconset resource="../res/dboxfe.qrc" >:/pics/images/folder-open_16.png</iconset>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+            <item row="0" column="0" >
+             <widget class="QListWidget" name="lwAutoexec" />
+            </item>
+            <item row="3" column="0" >
+             <layout class="QHBoxLayout" >
+              <property name="margin" >
+               <number>0</number>
+              </property>
+              <property name="spacing" >
+               <number>6</number>
+              </property>
+              <item>
+               <widget class="QCheckBox" name="chkBoxCDDVD" >
+                <property name="text" >
+                 <string>Use this directory as CD/DVD ROM</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="chkBoxFloppy" >
+                <property name="text" >
+                 <string>Use this directory as floppy drive</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="1" column="0" >
+        <layout class="QHBoxLayout" >
+         <property name="margin" >
+          <number>0</number>
+         </property>
+         <property name="spacing" >
+          <number>6</number>
+         </property>
+         <item>
+          <layout class="QVBoxLayout" >
+           <property name="margin" >
+            <number>0</number>
+           </property>
+           <property name="spacing" >
+            <number>6</number>
+           </property>
+           <item>
+            <widget class="QGroupBox" name="gBoxModem" >
+             <property name="title" >
+              <string>Modem</string>
+             </property>
+             <layout class="QGridLayout" >
+              <property name="margin" >
+               <number>9</number>
+              </property>
+              <property name="spacing" >
+               <number>6</number>
+              </property>
+              <item row="0" column="0" >
+               <layout class="QGridLayout" >
+                <property name="margin" >
+                 <number>0</number>
+                </property>
+                <property name="spacing" >
+                 <number>6</number>
+                </property>
+                <item row="1" column="0" >
+                 <layout class="QHBoxLayout" >
+                  <property name="margin" >
+                   <number>0</number>
+                  </property>
+                  <property name="spacing" >
+                   <number>6</number>
+                  </property>
+                  <item>
+                   <layout class="QVBoxLayout" >
+                    <property name="margin" >
+                     <number>0</number>
+                    </property>
+                    <property name="spacing" >
+                     <number>6</number>
+                    </property>
+                    <item>
+                     <widget class="QLabel" name="label_26" >
+                      <property name="text" >
+                       <string>COM Port:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="label_27" >
+                      <property name="text" >
+                       <string>Listen Port:</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QVBoxLayout" >
+                    <property name="margin" >
+                     <number>0</number>
+                    </property>
+                    <property name="spacing" >
+                     <number>6</number>
+                    </property>
+                    <item>
+                     <widget class="QComboBox" name="cbxComPort" >
+                      <item>
+                       <property name="text" >
+                        <string>1</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text" >
+                        <string>2</string>
+                       </property>
+                      </item>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QComboBox" name="cbxListenPort" />
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </item>
+                <item row="0" column="0" >
+                 <layout class="QHBoxLayout" >
+                  <property name="margin" >
+                   <number>0</number>
+                  </property>
+                  <property name="spacing" >
+                   <number>6</number>
+                  </property>
+                  <item>
+                   <widget class="QCheckBox" name="chkBoxModem" >
+                    <property name="text" >
+                     <string>Modem</string>
+                    </property>
+                    <property name="checked" >
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QCheckBox" name="chkBoxIPX" >
+                    <property name="text" >
+                     <string>IPX</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="gBoxDOS" >
+             <property name="title" >
+              <string>DOS</string>
+             </property>
+             <layout class="QGridLayout" >
+              <property name="margin" >
+               <number>9</number>
+              </property>
+              <property name="spacing" >
+               <number>6</number>
+              </property>
+              <item row="0" column="0" >
+               <layout class="QHBoxLayout" >
+                <property name="margin" >
+                 <number>0</number>
+                </property>
+                <property name="spacing" >
+                 <number>6</number>
+                </property>
+                <item>
+                 <widget class="QCheckBox" name="cbxXMS" >
+                  <property name="text" >
+                   <string>XMS</string>
+                  </property>
+                  <property name="checked" >
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="cbxEMS" >
+                  <property name="text" >
+                   <string>EMS</string>
+                  </property>
+                  <property name="checked" >
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="gBoxDirectSerial" >
+           <property name="title" >
+            <string>Direct serial</string>
+           </property>
+           <layout class="QGridLayout" >
+            <property name="margin" >
+             <number>9</number>
+            </property>
+            <property name="spacing" >
+             <number>6</number>
+            </property>
+            <item row="1" column="0" >
+             <layout class="QHBoxLayout" >
+              <property name="margin" >
+               <number>0</number>
+              </property>
+              <property name="spacing" >
+               <number>6</number>
+              </property>
+              <item>
+               <layout class="QVBoxLayout" >
+                <property name="margin" >
+                 <number>0</number>
+                </property>
+                <property name="spacing" >
+                 <number>6</number>
+                </property>
+                <item>
+                 <widget class="QLabel" name="label_28" >
+                  <property name="font" >
+                   <font>
+                    <family>Bitstream Vera Sans</family>
+                    <pointsize>12</pointsize>
+                    <weight>50</weight>
+                    <italic>false</italic>
+                    <bold>false</bold>
+                    <underline>false</underline>
+                    <strikeout>false</strikeout>
+                   </font>
+                  </property>
+                  <property name="text" >
+                   <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; font-size:9pt;">&lt;span style=" font-size:12pt;">COM Port:&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_29" >
+                  <property name="text" >
+                   <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; font-size:9pt;">&lt;span style=" font-size:12pt;">Real Port:&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_30" >
+                  <property name="text" >
+                   <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; font-size:9pt;">&lt;span style=" font-size:12pt;">Default bps:&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_31" >
+                  <property name="text" >
+                   <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; font-size:9pt;">&lt;span style=" font-size:12pt;">Parity:&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_32" >
+                  <property name="text" >
+                   <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; font-size:9pt;">&lt;span style=" font-size:12pt;">Bytesize:&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_33" >
+                  <property name="text" >
+                   <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; font-size:9pt;">&lt;span style=" font-size:12pt;">Stopbit:&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" >
+                <property name="margin" >
+                 <number>0</number>
+                </property>
+                <property name="spacing" >
+                 <number>6</number>
+                </property>
+                <item>
+                 <widget class="QComboBox" name="cbxDSComPort" >
+                  <item>
+                   <property name="text" >
+                    <string>1</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>2</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="cbxDSRealPort" >
+                  <item>
+                   <property name="text" >
+                    <string>COM1</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>COM2</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="lineEdit" >
+                  <property name="text" >
+                   <string>1200</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="comboBox" >
+                  <item>
+                   <property name="text" >
+                    <string>N</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>E</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>O</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="comboBox_2" >
+                  <property name="currentIndex" >
+                   <number>1</number>
+                  </property>
+                  <item>
+                   <property name="text" >
+                    <string>5</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>8</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="comboBox_3" >
+                  <item>
+                   <property name="text" >
+                    <string>1</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>2</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+            <item row="0" column="0" >
+             <widget class="QCheckBox" name="checkBox" >
+              <property name="text" >
+               <string>Direct serial</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="tbAboutCfg" >
+    <attribute name="title" >
+     <string>About</string>
+    </attribute>
+    <widget class="QTabWidget" name="twAbout" >
+     <widget class="QWidget" name="tab" >
+      <attribute name="title" >
+       <string>Author</string>
+      </attribute>
+      <layout class="QGridLayout" >
+       <property name="margin" >
+        <number>9</number>
+       </property>
+       <property name="spacing" >
+        <number>6</number>
+       </property>
+       <item row="0" column="0" >
+        <widget class="QLabel" name="lblLogo" >
+         <property name="frameShape" >
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow" >
+          <enum>QFrame::Sunken</enum>
+         </property>
+         <property name="text" >
+          <string/>
+         </property>
+         <property name="pixmap" >
+          <pixmap/>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0" >
+        <layout class="QVBoxLayout" >
+         <property name="margin" >
+          <number>0</number>
+         </property>
+         <property name="spacing" >
+          <number>6</number>
+         </property>
+         <item>
+          <layout class="QHBoxLayout" >
+           <property name="margin" >
+            <number>0</number>
+           </property>
+           <property name="spacing" >
+            <number>6</number>
+           </property>
+           <item>
+            <widget class="QLabel" name="label_20" >
+             <property name="text" >
+              <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; font-size:8pt;">&lt;span style=" font-size:12pt; font-weight:600;">Developer:&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_23" >
+             <property name="text" >
+              <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; font-size:8pt;">&lt;span style=" font-size:12pt; font-weight:600;">First Nick:	&lt;/span>&lt;span style=" font-size:12pt;">ChMaster &amp;amp; LFreak &amp;amp; ChMaster|LFreak&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg;">&lt;span style=" font-weight:600;">Real Name:&lt;/span>Alexander Saal&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg;">&lt;span style=" font-weight:600;">E-Mail:	&lt;/span>&lt;span style=" color:#0000ff;">alex.saal@gmx.de&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" >
+           <property name="margin" >
+            <number>0</number>
+           </property>
+           <property name="spacing" >
+            <number>6</number>
+           </property>
+           <item>
+            <layout class="QVBoxLayout" >
+             <property name="margin" >
+              <number>0</number>
+             </property>
+             <property name="spacing" >
+              <number>6</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="label_21" >
+               <property name="text" >
+                <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; font-size:8pt;">&lt;span style=" font-size:12pt; font-weight:600;">Designer:&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_22" >
+               <property name="text" >
+                <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; font-size:8pt;">&lt;span style=" font-size:12pt; font-weight:600;">(C)opyright:&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" >
+             <property name="margin" >
+              <number>0</number>
+             </property>
+             <property name="spacing" >
+              <number>6</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="label_24" >
+               <property name="text" >
+                <string>Alexander Saal</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_25" >
+               <property name="text" >
+                <string>© '2004, 2005, 2006</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_2" >
+      <attribute name="title" >
+       <string>License</string>
+      </attribute>
+      <layout class="QGridLayout" >
+       <property name="margin" >
+        <number>9</number>
+       </property>
+       <property name="spacing" >
+        <number>6</number>
+       </property>
+       <item row="0" column="0" >
+        <widget class="QTextBrowser" name="txtBrowserLic" >
+         <property name="verticalScrollBarPolicy" >
+          <enum>Qt::ScrollBarAlwaysOn</enum>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_3" >
+      <attribute name="title" >
+       <string>Thanks</string>
+      </attribute>
+      <layout class="QGridLayout" >
+       <property name="margin" >
+        <number>9</number>
+       </property>
+       <property name="spacing" >
+        <number>6</number>
+       </property>
+       <item row="0" column="0" >
+        <widget class="QLabel" name="label" >
+         <property name="layoutDirection" >
+          <enum>Qt::LeftToRight</enum>
+         </property>
+         <property name="text" >
+          <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:MS Shell Dlg; font-size:8.25pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:9pt;">&lt;span style=" font-weight:600;">KConfig: &lt;/span>Michael Goettsche &lt;span style=" color:#0000ff;">michi.goettsche@gmx.de&lt;/span>&lt;/p>&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:9pt; color:#0000ff;">&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:9pt; color:#0000ff;">&lt;span style=" font-weight:600; color:#000000;">Gameprofile: &lt;/span>&lt;span style=" color:#000000;">anda_skoa &lt;/span>http://www.mrunix.de/forums/member.php?find=lastposter&amp;amp;t=42863&lt;/p>&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:9pt; color:#0000ff;">&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:9pt; color:#0000ff;">&lt;span style=" font-weight:600; color:#000000;">DOSBox: &lt;/span>&lt;span style=" color:#000000;">The DOSBox Team &lt;/span>http://dosbox.sourceforgef.net&lt;/p>&lt;/body>&lt;/html></string>
+         </property>
+         <property name="textFormat" >
+          <enum>Qt::RichText</enum>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_4" >
+      <attribute name="title" >
+       <string>Update</string>
+      </attribute>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="groupBox" >
+   <property name="geometry" >
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>191</width>
+     <height>481</height>
+    </rect>
+   </property>
+   <property name="title" >
+    <string>Gameprofile</string>
+   </property>
+   <layout class="QGridLayout" >
+    <property name="margin" >
+     <number>9</number>
+    </property>
+    <property name="spacing" >
+     <number>6</number>
+    </property>
+    <item row="0" column="0" >
+     <layout class="QVBoxLayout" >
+      <property name="margin" >
+       <number>0</number>
+      </property>
+      <property name="spacing" >
+       <number>6</number>
+      </property>
+      <item>
+       <widget class="QListWidget" name="lwProfile" >
+        <item>
+         <property name="text" >
+          <string>Default</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item>
+       <layout class="QGridLayout" >
+        <property name="margin" >
+         <number>0</number>
+        </property>
+        <property name="spacing" >
+         <number>6</number>
+        </property>
+        <item row="1" column="1" >
+         <widget class="QPushButton" name="btnRemoveGP" >
+          <property name="toolTip" >
+           <string>Remove selected profile</string>
+          </property>
+          <property name="whatsThis" >
+           <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:MS Shell Dlg; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Remove Gameprofile&lt;/p>&lt;/body>&lt;/html></string>
+          </property>
+          <property name="text" >
+           <string>&amp;Remove</string>
+          </property>
+          <property name="icon" >
+           <iconset resource="../res/dboxfe.qrc" >:/pics/images/delete_16.png</iconset>
+          </property>
+          <property name="shortcut" >
+           <string>Alt+R</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0" >
+         <widget class="QPushButton" name="btnSaveGP" >
+          <property name="toolTip" >
+           <string>Save profile</string>
+          </property>
+          <property name="whatsThis" >
+           <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:MS Shell Dlg; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Save Gameprofile&lt;/p>&lt;/body>&lt;/html></string>
+          </property>
+          <property name="text" >
+           <string>&amp;Save</string>
+          </property>
+          <property name="icon" >
+           <iconset resource="../res/dboxfe.qrc" >:/pics/images/save_16.png</iconset>
+          </property>
+          <property name="shortcut" >
+           <string>Alt+S</string>
+          </property>
+          <property name="default" >
+           <bool>false</bool>
+          </property>
+          <property name="flat" >
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1" >
+         <widget class="QPushButton" name="btnCreateGP" >
+          <property name="toolTip" >
+           <string>Create profile</string>
+          </property>
+          <property name="whatsThis" >
+           <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:MS Shell Dlg; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Create new Gameprofile&lt;/p>&lt;/body>&lt;/html></string>
+          </property>
+          <property name="text" >
+           <string>&amp;Create</string>
+          </property>
+          <property name="icon" >
+           <iconset resource="../res/dboxfe.qrc" >:/pics/images/documents_16.png</iconset>
+          </property>
+          <property name="shortcut" >
+           <string>Alt+C</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0" >
+         <widget class="QPushButton" name="btnStartDBox" >
+          <property name="toolTip" >
+           <string>Start dosbox with selected configuration</string>
+          </property>
+          <property name="whatsThis" >
+           <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:MS Shell Dlg; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Start DoxBox with selected configurationfile&lt;/p>&lt;/body>&lt;/html></string>
+          </property>
+          <property name="text" >
+           <string>St&amp;art</string>
+          </property>
+          <property name="icon" >
+           <iconset resource="../res/dboxfe.qrc" >:/pics/images/applications_16.png</iconset>
+          </property>
+          <property name="shortcut" >
+           <string>Alt+D</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QListWidget" name="lwOutPut" >
+   <property name="geometry" >
+    <rect>
+     <x>10</x>
+     <y>500</y>
+     <width>741</width>
+     <height>53</height>
+    </rect>
+   </property>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11" />
+ <pixmapfunction></pixmapfunction>
+ <resources>
+  <include location="Resources/dboxfe.qrc" />
+  <include location="../res/dboxfe.qrc" />
+ </resources>
+ <connections/>
+</ui>
