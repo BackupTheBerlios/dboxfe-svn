@@ -27,6 +27,7 @@
 #include <QtCore/QProcess>
 #include <QtGui/QListWidget>
 #include <QtCore/QStringList>
+#include <QtGui/QWidget>
 
 /**
  * Klasse für DBoxFE
@@ -73,7 +74,7 @@ public:
      * @param dbconf   read the dosbox configuration file
      * @since 0.1.0
      */    
-    void readDBConf( const QString &dbconf );
+    void readDBConf( const QString &dbconf, QWidget* qw );
     
     /**
      * Save dosbox configuration file
@@ -81,7 +82,7 @@ public:
      * @param dbconf   save the dosbox configuration file
      * @since 0.1.0
      */    
-    void saveDBConf( const QString &dbconf );
+    void saveDBConf( const QString &dbconf, QWidget* qw );
     
     /**
      * Start dosbox with parameters and configuration file

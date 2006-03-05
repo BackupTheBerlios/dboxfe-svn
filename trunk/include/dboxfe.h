@@ -22,6 +22,11 @@
 #define DBOXFE_H
 
 #include <QtGui/QWidget>
+#include <QtGui/QCloseEvent>
+#include <QtGui/QListWidgetItem>
+
+#include <QtCore/QString>
+
 #include "ui_dboxfe.h"
 
 class DBoxFE : public QWidget
@@ -34,15 +39,16 @@ public:
 
     Ui::DBoxFE ui;
     
-private:
+private:    
+    QString getAppVersion(){ return "v0.1.0"; }
+    QString titleLin, titleWin, titleMac, appVersion, gpTxt, winTitle;
+    QListWidgetItem *gpItem;
     
-    QString getAppVersion()
-    {
-        return "v0.1.0";
-    }
-
+protected:
+    void closeEvent( QCloseEvent *e );
+    
 private slots:
-    void slotListWidget(QListWidgetItem*);
+    void slotListWidget( QListWidgetItem* );
     void slotAutexecDrive();
     void slotAutexecUpdate();
     void slotAutexecRemove();

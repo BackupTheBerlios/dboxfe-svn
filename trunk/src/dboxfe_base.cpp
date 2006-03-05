@@ -73,11 +73,19 @@ void DB_BASE::saveGPIni( const QString &gpIni, QListWidget* lw  )
   settGP.sync();
 }
 
-void DB_BASE::readDBConf( const QString &dbconf )
-{}
-
-void DB_BASE::saveDBConf( const QString &dbconf )
+void DB_BASE::readDBConf( const QString &dbconf, QWidget* qw )
 {
+  QSettings settGP( dbconf, QSettings::IniFormat );
+  QStringList sList;
+    
+}
+
+void DB_BASE::saveDBConf( const QString &dbcon, QWidget* qw )
+{
+  QSettings settGP( dbcon, QSettings::IniFormat );
+  // qw->ui.
+  settGP.setValue( "", "" );
+
 }
 
 // start dosbox with parameters and return output in QStringList ...
