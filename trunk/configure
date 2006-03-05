@@ -1,84 +1,31 @@
-#!/bin/bash
-clear
+#!/bin/sh
+# Configure script for dboxfe
+ 
+if [ "$1" = "--help" ]; then
+echo "Usage: configure"
+exit 0
+fi
 
-VERSION="0.1.0"
-COPYRIGHT="Copyright (C) 2006 by"
-AUTHOR="Alexander Saal"
-EMAIL="<alex.saal@gmx.de>"
-EXE="bin/dboxfe"
+# Checking for Qt...
+printf "Checking for qmake... "
+qmake="`which qmake`"
+if [ "$qmake" = "" ]; then
+echo "not found!"
+echo
+echo "Make sure you have the Qt development packages installed!"
+fi
+echo $qmake;
 
-echo -e '\E[37;44m'"\033[1mWelcome to DBoxFE a Front End for DOSBox ... $VERSION\033[0m"
+# Now create the makefile
+printf "Creating Makefile... "
+qmake -o Makefile dboxfe.pro
+if [ $? -eq 0 ]; then
+    echo ok
+else 
+    exit 1
+fi
 
-function usage()
-{	
-	#echo "ERROR, no option ......"
-	echo "Script: $0 -h|-v|-c"
-	#echo
-	#echo "Example: ./configure -h"
-	echo
-	echo "-h   information"
-	echo "-cm  configure and make"
-	exit 1
-}
-
-function info()
-{	
-	echo -e '\E[37;44m'"\033[1mInformation\033[0m"
-	echo
-	echo -e "\033[1m***************************************************************************\033[0m"
-	echo -e "\033[1m*                                                                         *\033[0m"
-              echo -e "\033[1m* $COPYRIGHT $AUTHOR                                    *\033[0m"
-	echo -e "\033[1m* $EMAIL                                                      *\033[0m"
-	echo -e "\033[1m*                                                                         *\033[0m"
-	echo -e "\033[1m*  $VERSION                                                                  *\033[0m"
-	echo -e "\033[1m*                                                                         *\033[0m"
-	echo -e "\033[1m* This program is free software; you can redistribute it and/or modify    *\033[0m"
-	echo -e "\033[1m* it under the terms of the GNU General Public License as published by    *\033[0m"
-	echo -e "\033[1m* the Free Software Foundation; either version 2 of the License, or       *\033[0m"
-	echo -e "\033[1m* (at your option) any later version.                                     *\033[0m"
-	echo -e "\033[1m*                                                                         *\033[0m"
-	echo -e "\033[1m***************************************************************************\033[0m"
-	exit 1
-}
-
-function conf()
-{
-	echo -e '\E[37;44m'"\033[1mCreate project\033[0m"
-	echo
-              echo -en "Create makefile ... "
-              qmake -o Makefile dboxfe.pro
-
-	if [ -f Makefile ]; then
-		echo -e "\033[32;1m [done]\033[0m"
-	else
-		echo -e "\033[31;1m [error]\033[0m"
-		echo -e "\033[31;1m [Makefile] not created\033[0m"
-		exit 1
-	fi
-
-              echo -en "Create executable ... "
-              make -f Makefile &>make_project
-
-	if [ -f $EXE ]; then
-		echo -e "\033[32;1m [done]\033[0m"
-	else
-		echo -e "\033[31;1m [error]\033[0m"
-		echo -e "\033[31;1m [$EXE] not created\033[0m"
-		exit 1
-	fi
-	sleep 5
-              echo
-	exit 1
-}
-while [ "$#" -gt "0" ]; do
-   case $1 in
-      -h) info
-          shift;;
-      -cm) conf
-          shift;;
-      *)  usage
-	;;
-   esac
-done
-
-test "$OPTIND" == "1" && usage # no args was given
+echo
+echo Good - your configure finished. Start make now.
+echo
+exit 0
