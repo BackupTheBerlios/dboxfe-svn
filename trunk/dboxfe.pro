@@ -42,16 +42,12 @@ SOURCES += src/dboxfe.cpp \
 RESOURCES += res/dboxfe.qrc
 
 unix{
-target.path = /usr/bin
-INSTALLS += target
 MOC_DIR += .unix/moc
 OBJECTS_DIR += .unix/obj
 UI_DIR += .unix/ui
 }
 
 win32{
-target.path = C:\Programme\DBoxFE
-INSTALLS += target
 MOC_DIR += win/moc
 OBJECTS_DIR += win/obj
 UI_DIR += win/ui
