@@ -74,7 +74,7 @@ void DBoxFE_Splash::drawContents (QPainter* painter)
     painter->drawEllipse(51,7,9,9);
     painter->drawEllipse(62,7,9,9);
     painter->drawEllipse(73,7,9,9);
-    
+
     for (int i=0; i < progress_bar_size; i++)
     {
         position = (state+i)%(2*progress_bar_size-1);
@@ -94,5 +94,4 @@ void DBoxFE_Splash::drawContents (QPainter* painter)
         m_string += "...";
     }
     painter->drawText(90, 16, m_string);
-
 }

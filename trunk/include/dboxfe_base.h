@@ -43,11 +43,12 @@ class DB_BASE
 
 private:
     DBoxFE dbfe;
-    
+
 public:
     DB_BASE();
-    inline virtual ~DB_BASE() {}
-    
+    inline virtual ~DB_BASE()
+    {}
+
     /**
      * Read gameprofile file
      *
@@ -56,7 +57,7 @@ public:
      * @since 0.1.0
      */
     void readGPIni( const QString &gpIni, QListWidget* lw );
-    
+
     /**
      * Save gameprofile file
      *
@@ -65,22 +66,22 @@ public:
      * @since 0.1.0
      */
     void saveGPIni( const QString &gpIni, QListWidget* lw );
-    
+
 
     /**
      * Read dosbox configuration file
      *
      * @param dbconf   read the dosbox configuration file
      * @since 0.1.0
-     */    
+     */
     void readDBConf( const QString &dbconf, QWidget* qw );
-    
+
     /**
      * Save dosbox configuration file
      *
      * @param dbconf   save the dosbox configuration file
      * @since 0.1.0
-     */    
+     */
     void saveDBConf( const QString &dbconf, QWidget* qw );
 };
 

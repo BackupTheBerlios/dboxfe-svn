@@ -34,58 +34,57 @@ DB_BASE::DB_BASE()
 // read gameprofile ini
 void DB_BASE::readGPIni( const QString &gpIni, QListWidget* lw )
 {
-  QStringList sList;
+    QStringList sList;
 
-  QSettings settGP( gpIni, QSettings::IniFormat );
+    QSettings settGP( gpIni, QSettings::IniFormat );
 
-  int size = settGP.beginReadArray("Profile");
+    int size = settGP.beginReadArray("Profile");
 
-  for (int i = 0; i < size; ++i)
-  {
-    settGP.setArrayIndex(i);
-    sList.append( settGP.value("Name").toString() );
-  }
+    for (int i = 0; i < size; ++i)
+    {
+        settGP.setArrayIndex(i);
+        sList.append( settGP.value("Name").toString() );
+    }
 
-  settGP.endArray();
-  lw->clear();
-  lw->addItems( sList );
+    settGP.endArray();
+    lw->clear();
+    lw->addItems( sList );
 }
 
 // save gameprofile ini
 void DB_BASE::saveGPIni( const QString &gpIni, QListWidget* lw  )
 {
-  QSettings settGP( gpIni, QSettings::IniFormat );
-  QStringList sList;
+    QSettings settGP( gpIni, QSettings::IniFormat );
+    QStringList sList;
 
-  for( int a = 0; a < lw->count(); ++a )
-  {
-    sList.append( lw->item( a )->text() );
-  }
+    for( int a = 0; a < lw->count(); ++a )
+    {
+        sList.append( lw->item( a )->text() );
+    }
 
-  settGP.beginWriteArray( "Profile" );
+    settGP.beginWriteArray( "Profile" );
 
-  for( int x = 0; x < sList.count(); ++x )
-  {
-    settGP.setArrayIndex( x );
-    settGP.setValue( "Name", sList.value( x ) );
-  }
+    for( int x = 0; x < sList.count(); ++x )
+    {
+        settGP.setArrayIndex( x );
+        settGP.setValue( "Name", sList.value( x ) );
+    }
 
-  settGP.endArray();
-  settGP.sync();
+    settGP.endArray();
+    settGP.sync();
 }
 
 void DB_BASE::readDBConf( const QString &dbconf, QWidget* qw )
 {
-  QSettings settGP( dbconf, QSettings::IniFormat );
-  QStringList sList;
+    QSettings settGP( dbconf, QSettings::IniFormat );
+    QStringList sList;
 
 }
 
 void DB_BASE::saveDBConf( const QString &dbcon, QWidget* qw )
 {
-  QSettings settGP( dbcon, QSettings::IniFormat );
-  // qw->ui.
-  settGP.setValue( "", "" );
+    QSettings settGP( dbcon, QSettings::IniFormat );
+    // qw->ui.
+    settGP.setValue( "", "" );
 
 }
-

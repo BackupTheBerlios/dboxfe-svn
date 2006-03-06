@@ -33,7 +33,7 @@ public:
     ~DBoxFE_Profile();
 
     Ui::DBoxFE_Profile ui;
-    
+
 private:
 
 private slots:

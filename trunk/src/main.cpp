@@ -31,25 +31,29 @@ int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
     DBoxFE w;
-    
+
     DBoxFE_Splash *splash;
-    
+
     splash = new DBoxFE_Splash( QPixmap(":/pics/images/logo.png") );
-        
+
     app.processEvents();
-    
-    if (splash) splash->showMessage( "Loading Profiles" );
-    
-        
-    if (splash) splash->show(); 
-    
+
+    if (splash)
+        splash->showMessage( "Loading Profiles" );
+
+
+    if (splash)
+        splash->show();
+
     w.init();
-          
-    if (splash) splash->showMessage( "Starting GUI" );
+
+    if (splash)
+        splash->showMessage( "Starting GUI" );
     w.show();
-    
-    if (splash) delete splash;
+
+    if (splash)
+        delete splash;
     app.connect(&app, SIGNAL(lastWindowClosed()), &app, SLOT(quit()));
-    
+
     return app.exec();
 }

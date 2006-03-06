@@ -38,17 +38,21 @@ public:
     ~DBoxFE();
 
     Ui::DBoxFE ui;
-    
-private:    
-    QString getAppVersion(){ return "v0.1.0"; }
+
+private:
+    QString getAppVersion()
+    {
+        return "v0.1.0";
+    }
+
     QString titleLin, titleWin, titleMac, appVersion, gpTxt, winTitle, m_result;
     QStringList m_param;
     QProcess *dBox;
     QListWidgetItem *gpItem;
-    
+
 protected:
     void closeEvent( QCloseEvent *e );
-    
+
 private slots:
     void slotListWidget( QListWidgetItem* );
     void slotAutexecDrive();
@@ -63,11 +67,11 @@ private slots:
     void slotStartDBox();
     void slotCreateGP();
     void slotSaveGP();
-    
-    void start( const QString& bin, const QString &param, const QString &conf ); 
+
+    void start( const QString& bin, const QString &param, const QString &conf );
     void readOutput();
     void finish();
-    
+
 public slots:
     void init();
 };
