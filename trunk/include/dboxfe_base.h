@@ -46,8 +46,7 @@ private:
 
 public:
     DB_BASE();
-    inline virtual ~DB_BASE()
-    {}
+    inline virtual ~DB_BASE(){}
 
     /**
      * Read gameprofile file
@@ -71,7 +70,8 @@ public:
     /**
      * Read dosbox configuration file
      *
-     * @param dbconf   read the dosbox configuration file
+     * @param dbconf  read the dosbox configuration file
+     * @param qw      the QWidget
      * @since 0.1.0
      */
     void readDBConf( const QString &dbconf, QWidget* qw );
@@ -79,7 +79,8 @@ public:
     /**
      * Save dosbox configuration file
      *
-     * @param dbconf   save the dosbox configuration file
+     * @param dbconf  save the dosbox configuration file
+     * @param qw      the QWidget
      * @since 0.1.0
      */
     void saveDBConf( const QString &dbconf, QWidget* qw );

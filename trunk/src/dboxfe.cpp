@@ -45,6 +45,7 @@
 #include <QtCore/QDir>
 #include <QtCore/QRect>
 #include <QtCore/QIODevice>
+#include <QtCore/QtDebug>
 
 DBoxFE::DBoxFE(QWidget *parent, Qt::WFlags flags)
         : QWidget(parent, flags)
@@ -111,16 +112,25 @@ DBoxFE::~DBoxFE()
 {}
 
 /**
- * Close event
+ * TODO Close event
  **/
 void DBoxFE::closeEvent( QCloseEvent *e )
 {
-    slotSaveGP();
-    e->accept();
+    switch( QMessageBox::information( this, winTitle(), "Would you realy quit?", "Yes", "No", 0, 1 ) )
+    {
+    case 0: // Yes clicked
+	slotSaveGP(); /* Save profile list */
+	e->accept(); /* accept the quit */
+        break;
+    case 1: // No clicked
+	e->ignore();
+	return;
+        break;
+    }
 }
 
 /**
- * Initial DBoxFE
+ * TODO Initial DBoxFE
  **/
 void DBoxFE::init()
 {
@@ -133,7 +143,7 @@ void DBoxFE::init()
 }
 
 /**
- * Save game profile
+ * TODO Save game profile
  **/
 void DBoxFE::slotSaveGP()
 {
@@ -147,7 +157,7 @@ void DBoxFE::slotSaveGP()
 }
 
 /**
- * Create game profile file
+ * TODO Create game profile file
  **/
 void DBoxFE::slotCreateGP()
 {
@@ -162,31 +172,51 @@ void DBoxFE::slotCreateGP()
 }
 
 /**
- * Start dosbox with configuration file
+ * TODO Start dosbox with configuration file
  **/
 void DBoxFE::slotStartDBox()
 {
 
+    gpItem = ui.lwProfile->currentItem();
+
+    if ( gpItem == NULL )
+    {
+        QMessageBox::information( this, winTitle(), "Please select profile." );
+        return;
+    }
+
+    gpTxt = gpItem->text();
+
+    m_conf = QDir::homePath();
+    m_conf.append( "/.dboxfe/" + gpTxt + ".conf" );
+
+    if ( !QFile( m_conf ).exists() )
+    {
+        QMessageBox::information( this, winTitle(), "Configuration file not found!\n\n'" + m_conf + "'" );
+        qDebug() << "DBoxFE Debug: Configuration file not found! " << m_conf;
+        return;
+    }
+
     if( ui.rbtnDBXStabel->isChecked() )
     {
-	if( ui.LEDbxStabel->text().isEmpty() )
-	{
-	    QMessageBox::information( this, winTitle(), "Can not start dosbox, no dosbox binary was selected.\nPlease choose dosbox binary." );
-	    ui.twDbx->setCurrentIndex( 1 );
-	    return;
-	}
-        start( ui.LEDbxStabel->text(), "-conf", "" );
+        if( ui.LEDbxStabel->text().isEmpty() )
+        {
+            QMessageBox::information( this, winTitle(), "Can not start dosbox, no dosbox binary was selected.\nPlease choose dosbox binary." );
+            ui.twDbx->setCurrentIndex( 1 );
+            return;
+        }
+        start( ui.LEDbxStabel->text(), "-conf", m_conf );
 
     }
     else if( ui.rbtnDBXStabel->isChecked() )
     {
-	if( ui.LEDbxCvs->text().isEmpty() )
-	{
-	    QMessageBox::information( this, winTitle(), "Can not start dosbox, no dosbox binary was selected.\nPlease choose dosbox binary." );
-	    ui.twDbx->setCurrentIndex( 1 );
-	    return;
-	}
-        start( "dosbox", "-conf", "" );
+        if( ui.LEDbxCvs->text().isEmpty() )
+        {
+            QMessageBox::information( this, winTitle(), "Can not start dosbox, no dosbox binary was selected.\nPlease choose dosbox binary." );
+            ui.twDbx->setCurrentIndex( 1 );
+            return;
+        }
+        start(  ui.LEDbxCvs->text(), "-conf", m_conf );
     }
 }
 
@@ -232,7 +262,7 @@ void DBoxFE::slotRemoveGP()
 }
 
 /**
- * Coose snapshot directory
+ * TODO Coose snapshot directory
  **/
 void DBoxFE::slotSnapDir()
 {
@@ -241,7 +271,7 @@ void DBoxFE::slotSnapDir()
 }
 
 /**
- * DOSBox
+ * TODO DOSBox language, eg.: german is my language :)
  **/
 void DBoxFE::slotLanguage()
 {
@@ -253,7 +283,7 @@ void DBoxFE::slotLanguage()
 }
 
 /**
- * Choose stabel binary of dosbox
+ * TODO Choose stabel binary of dosbox
  **/
 void DBoxFE::slotDbxStable()
 {
@@ -273,7 +303,7 @@ void DBoxFE::slotDbxStable()
 }
 
 /**
- * Choose cvs binary of dosbox
+ * TODO Choose cvs binary of dosbox
  **/
 void DBoxFE::slotDbxCvs()
 {
@@ -293,7 +323,7 @@ void DBoxFE::slotDbxCvs()
 }
 
 /**
- * Misc (Modem, Autoexec, Dos)
+ * TODO Misc (Modem, Autoexec, Dos)
  **/
 void DBoxFE::slotAutexecAdd()
 {
@@ -301,7 +331,7 @@ void DBoxFE::slotAutexecAdd()
 }
 
 /**
- * Autoexec option
+ * TODO Autoexec option
  **/
 void DBoxFE::slotAutexecRemove()
 {
@@ -309,7 +339,7 @@ void DBoxFE::slotAutexecRemove()
 }
 
 /**
- * Update autexec item in the list
+ * TODO Update autexec item in the list
  **/
 void DBoxFE::slotAutexecUpdate()
 {
@@ -352,7 +382,7 @@ void DBoxFE::start( const QString& bin, const QString &param, const QString &con
 
     dBox->start( bin, m_param );
     connect( dBox, SIGNAL( readyReadStandardOutput()), this, SLOT( readOutput() ) );
-    connect( dBox, SIGNAL( finished(int, QProcess::ExitStatus ) ), this, SLOT( finish() ) );
+    connect( dBox, SIGNAL( finished( int, QProcess::ExitStatus ) ), this, SLOT( finish() ) );
 
     this->hide();
 

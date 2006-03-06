@@ -24,6 +24,7 @@
 #include <QtCore/QSettings>
 #include <QtCore/QString>
 #include <QtCore/QStringList>
+#include <QtCore/QtDebug>
 
 #include <QtGui/QWidget>
 #include <QtGui/QListWidgetItem>
