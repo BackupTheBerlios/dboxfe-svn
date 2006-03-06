@@ -40,12 +40,10 @@ public:
     Ui::DBoxFE ui;
 
 private:
-    QString getAppVersion()
-    {
-        return "v0.1.0";
-    }
+    QString getAppVersion(){ return "v0.1.0"; }
+    QString winTitle(){ return windowTitle(); }
 
-    QString titleLin, titleWin, titleMac, appVersion, gpTxt, winTitle, m_result;
+    QString titleLin, titleWin, titleMac, appVersion, gpTxt, m_result;
     QStringList m_param;
     QProcess *dBox;
     QListWidgetItem *gpItem;
