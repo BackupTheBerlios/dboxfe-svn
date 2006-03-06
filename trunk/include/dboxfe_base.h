@@ -40,10 +40,9 @@
 */
 class DB_BASE
 {
+
 private:
     DBoxFE dbfe;
-    QProcess *dBox;
-    QStringList m_param, m_out;
     
 public:
     DB_BASE();
@@ -83,16 +82,6 @@ public:
      * @since 0.1.0
      */    
     void saveDBConf( const QString &dbconf, QWidget* qw );
-    
-    /**
-     * Start dosbox with parameters and configuration file
-     *
-     * @param bin   dosbox binary
-     * @param param dosbox parameter
-     * @param conf  dosbox configuration file
-     * @since 0.1.0
-     */    
-    QStringList start( const QString& bin, const QString &param, const QString &conf );
 };
 
 #endif // DBOXFE_BASE_H

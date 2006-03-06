@@ -25,6 +25,7 @@
 #include <QtCore/QString>
 #include <QtCore/QStringList>
 
+#include <QtGui/QWidget>
 #include <QtGui/QListWidgetItem>
 
 DB_BASE::DB_BASE()
@@ -77,7 +78,7 @@ void DB_BASE::readDBConf( const QString &dbconf, QWidget* qw )
 {
   QSettings settGP( dbconf, QSettings::IniFormat );
   QStringList sList;
-    
+
 }
 
 void DB_BASE::saveDBConf( const QString &dbcon, QWidget* qw )
@@ -88,22 +89,3 @@ void DB_BASE::saveDBConf( const QString &dbcon, QWidget* qw )
 
 }
 
-// start dosbox with parameters and return output in QStringList ...
-QStringList DB_BASE::start( const QString& bin, const QString &param, const QString &conf )
-{
-  QByteArray m_result;
-  dBox = new QProcess();
-
-  m_param.append( param );
-  m_param.append( conf );
-
-  dBox->start( bin, m_param );
-  
-  while( dBox->waitForReadyRead() )
-      m_result += dBox->readAll();
-  
-  m_out.append( m_result );
-  m_param.clear();
-  
-  return m_out;
-}

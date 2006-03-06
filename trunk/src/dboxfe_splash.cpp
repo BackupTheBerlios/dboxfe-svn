@@ -67,7 +67,7 @@ void DBoxFE_Splash::showMessage( const QString &str, int flags, const QColor &co
 void DBoxFE_Splash::drawContents (QPainter* painter)
 {
     int position;
-    QColor base_color (255,255,165);
+    QColor base_color (255,255,255);
 
     painter->setPen(Qt::NoPen);
     painter->setBrush(QColor(255,255,255));

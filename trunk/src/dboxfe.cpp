@@ -35,6 +35,7 @@
 #include <QtGui/QDesktopWidget>
 #include <QtGui/QMessageBox>
 #include <QtGui/QCloseEvent>
+#include <QtGui/QFileDialog>
 
 // QtCore Header
 #include <QtCore/QProcess>
@@ -43,6 +44,7 @@
 #include <QtCore/QFile>
 #include <QtCore/QDir>
 #include <QtCore/QRect>
+#include <QtCore/QIODevice>
 
 DBoxFE::DBoxFE(QWidget *parent, Qt::WFlags flags)
     : QWidget(parent, flags)
@@ -103,12 +105,18 @@ DBoxFE::DBoxFE(QWidget *parent, Qt::WFlags flags)
 DBoxFE::~DBoxFE()
 {}
 
+/**
+ * Close event
+ **/
 void DBoxFE::closeEvent( QCloseEvent *e )
 {
   slotSaveGP();
   e->accept();
 }
 
+/**
+ * Initial DBoxFE
+ **/
 void DBoxFE::init()
 {
   DB_BASE gpIni;
@@ -119,7 +127,9 @@ void DBoxFE::init()
   gpIni.readGPIni( file, ui.lwProfile );
 }
 
-// ############### Profile ###############
+/**
+ * Save game profile
+ **/
 void DBoxFE::slotSaveGP()
 {
   DB_BASE gpIni;
@@ -131,14 +141,13 @@ void DBoxFE::slotSaveGP()
   gpIni.saveGPIni( file, ui.lwProfile );
 }
 
+/**
+ * Create game profile file
+ **/
 void DBoxFE::slotCreateGP()
 {
-  // create new profileitem
   QListWidgetItem *gpItem = new QListWidgetItem;
-
-  // create new instance
   DBoxFE_Profile *dbfe_profile = new DBoxFE_Profile();
-
 
   if ( dbfe_profile->exec() == QDialog::Accepted )
   {
@@ -147,15 +156,12 @@ void DBoxFE::slotCreateGP()
   }
 }
 
+/**
+ * Start dosbox with configuration file
+ **/
 void DBoxFE::slotStartDBox()
 {
-  DB_BASE gpIni;
-  QStringList out = gpIni.start( "dosbox", "-conf", ""  );
-
-  for( int x = 0; x < out.count(); ++x )
-  {
-    ui.lwOutPut->addItem( out.value( x ) );
-  }
+  start( "dosbox", "-conf", "" );
 }
 
 void DBoxFE::slotRemoveGP()
@@ -199,48 +205,98 @@ void DBoxFE::slotRemoveGP()
   }
 }
 
+/**
+ * Coose snapshot directory
+ **/
 void DBoxFE::slotSnapDir()
 {
   qDebug( "void DBoxFE::slotSnapDir()" );
 }
 
-// ############### DOSBox ###############
+/**
+ * DOSBox
+ **/
 void DBoxFE::slotLanguage()
 {
-  qDebug( "void DBoxFE::slotLanguage()" );
+  QString strLng = QFileDialog::getOpenFileName( this, "Open language file", QDir::homePath(), "Language file (*.*)" );
+  if ( strLng.isEmpty() )
+    return;
+  ui.LELanguage->setText( strLng );
 }
 
+/**
+ * Choose stabel binary of dosbox
+ **/
 void DBoxFE::slotDbxStable()
 {
-  qDebug( "void DBoxFE::slotDbxStable()" );
+  QString strDbxStabel = QFileDialog::getOpenFileName( this, "Open DOSBox stabel binary", QDir::currentPath(), "DOSBox binary (dosbox)" );
+  
+  if ( strDbxStabel.isEmpty() )
+    return;
+  
+  ui.LEDbxStabel->setText( strDbxStabel );
+  
+  QProcess *p = new QProcess( this );
+  p->start( strDbxStabel, QStringList() << "-version" );
+  
+  while( p->waitForFinished() )
+      ui.LEDbxVersion->setText( QString( "DOSBox Version: " + p->readAll() ) );
 }
 
+/**
+ * Choose cvs binary of dosbox
+ **/
 void DBoxFE::slotDbxCvs()
 {
-  qDebug( "void DBoxFE::slotDbxCvs()" );
+  QString strDbxCVS = QFileDialog::getOpenFileName( this, "Open DOSBox CVS binary", QDir::currentPath(), "DOSBox binary (dosbox)" );
+  
+  if ( strDbxCVS.isEmpty() )
+    return;
+  
+  ui.LEDbxStabel->setText( strDbxCVS );
+  
+  QProcess *p = new QProcess( this );
+  p->start( strDbxCVS, QStringList() << "-version" );
+  
+  while( p->waitForFinished() )
+      ui.LEDbxVersion->setText( QString( "DOSBox Version: " + p->readAll() ) );
 }
 
-// ############### Misc (Modem, Autoexec, Dos) ###############
+/**
+ * Misc (Modem, Autoexec, Dos)
+ **/
 void DBoxFE::slotAutexecAdd()
 {
   qDebug( "void DBoxFE::slotAutexecAdd()" );
 }
 
+/**
+ * Autoexec option
+ **/
 void DBoxFE::slotAutexecRemove()
 {
   qDebug( "void DBoxFE::slotAutexecRemove()" );
 }
 
+/**
+ * Update autexec item in the list
+ **/
 void DBoxFE::slotAutexecUpdate()
 {
   qDebug( "void DBoxFE::slotAutexecUpdate()" );
 }
 
+/**
+ * Open the autexec drive, for automaunt in dosbox
+ **/
 void DBoxFE::slotAutexecDrive()
 {
   qDebug( "void DBoxFE::slotAutexecDrive()" );
 }
 
+/**
+ * Open the configuration file for selected profile
+ **/
 void DBoxFE::slotListWidget(QListWidgetItem* item)
 {
   DB_BASE gpIni;
@@ -251,4 +307,37 @@ void DBoxFE::slotListWidget(QListWidgetItem* item)
 
   //gpIni.readGPIni( file, ui.lwProfile  );
   gpIni.readDBConf( file, this );
+}
+
+/**
+ * Function for start dosbox and read output
+ **/
+void DBoxFE::start( const QString& bin, const QString &param, const QString &conf )
+{
+  dBox = new QProcess(this);
+
+  m_param.append( param );
+  m_param.append( conf );
+
+  dBox->start( bin, m_param );
+  connect( dBox, SIGNAL(readyReadStandardOutput ()), this, SLOT(readOutput()));
+  connect( dBox, SIGNAL(finished(int, QProcess::ExitStatus )), this, SLOT(finish()));
+
+  ui.btnStartDBox->setEnabled( false );
+  m_param.clear();
+}
+
+void DBoxFE::readOutput()
+{
+  while( dBox->canReadLine() )
+  {
+    m_result = dBox->readLine();
+    ui.lwOutPut->addItem( "dosbox cmd output ->" + m_result.mid( m_result.indexOf( ":" ) + 1 ) );
+    ui.lwOutPut->update();
+  }
+}
+
+void DBoxFE::finish()
+{
+  ui.btnStartDBox->setEnabled( true );
 }

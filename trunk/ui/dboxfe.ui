@@ -28,138 +28,6 @@
     </rect>
    </property>
   </widget>
-  <widget class="QGroupBox" name="groupBox" >
-   <property name="geometry" >
-    <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>191</width>
-     <height>481</height>
-    </rect>
-   </property>
-   <property name="title" >
-    <string>Gameprofile</string>
-   </property>
-   <layout class="QGridLayout" >
-    <property name="margin" >
-     <number>9</number>
-    </property>
-    <property name="spacing" >
-     <number>6</number>
-    </property>
-    <item row="0" column="0" >
-     <layout class="QVBoxLayout" >
-      <property name="margin" >
-       <number>0</number>
-      </property>
-      <property name="spacing" >
-       <number>6</number>
-      </property>
-      <item>
-       <widget class="QListWidget" name="lwProfile" >
-        <item>
-         <property name="text" >
-          <string>Default</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item>
-       <layout class="QGridLayout" >
-        <property name="margin" >
-         <number>0</number>
-        </property>
-        <property name="spacing" >
-         <number>6</number>
-        </property>
-        <item row="1" column="1" >
-         <widget class="QPushButton" name="btnRemoveGP" >
-          <property name="toolTip" >
-           <string>Remove selected profile</string>
-          </property>
-          <property name="whatsThis" >
-           <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:MS Shell Dlg; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Remove Gameprofile&lt;/p>&lt;/body>&lt;/html></string>
-          </property>
-          <property name="text" >
-           <string>&amp;Remove</string>
-          </property>
-          <property name="icon" >
-           <iconset resource="../res/dboxfe.qrc" >:/pics/images/delete_16.png</iconset>
-          </property>
-          <property name="shortcut" >
-           <string>Alt+R</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="0" >
-         <widget class="QPushButton" name="btnSaveGP" >
-          <property name="toolTip" >
-           <string>Save profile</string>
-          </property>
-          <property name="whatsThis" >
-           <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:MS Shell Dlg; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Save Gameprofile&lt;/p>&lt;/body>&lt;/html></string>
-          </property>
-          <property name="text" >
-           <string>&amp;Save</string>
-          </property>
-          <property name="icon" >
-           <iconset resource="../res/dboxfe.qrc" >:/pics/images/save_16.png</iconset>
-          </property>
-          <property name="shortcut" >
-           <string>Alt+S</string>
-          </property>
-          <property name="default" >
-           <bool>false</bool>
-          </property>
-          <property name="flat" >
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1" >
-         <widget class="QPushButton" name="btnCreateGP" >
-          <property name="toolTip" >
-           <string>Create profile</string>
-          </property>
-          <property name="whatsThis" >
-           <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:MS Shell Dlg; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Create new Gameprofile&lt;/p>&lt;/body>&lt;/html></string>
-          </property>
-          <property name="text" >
-           <string>&amp;Create</string>
-          </property>
-          <property name="icon" >
-           <iconset resource="../res/dboxfe.qrc" >:/pics/images/documents_16.png</iconset>
-          </property>
-          <property name="shortcut" >
-           <string>Alt+C</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="0" >
-         <widget class="QPushButton" name="btnStartDBox" >
-          <property name="toolTip" >
-           <string>Start dosbox with selected configuration</string>
-          </property>
-          <property name="whatsThis" >
-           <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:MS Shell Dlg; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Start DoxBox with selected configurationfile&lt;/p>&lt;/body>&lt;/html></string>
-          </property>
-          <property name="text" >
-           <string>St&amp;art</string>
-          </property>
-          <property name="icon" >
-           <iconset resource="../res/dboxfe.qrc" >:/pics/images/applications_16.png</iconset>
-          </property>
-          <property name="shortcut" >
-           <string>Alt+D</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-     </layout>
-    </item>
-   </layout>
-  </widget>
   <widget class="QTabWidget" name="twDbx" >
    <property name="geometry" >
     <rect>
@@ -1598,12 +1466,12 @@ keycombo</string>
                <number>6</number>
               </property>
               <item>
-               <widget class="QLineEdit" name="LEParam" />
-              </item>
-              <item>
                <widget class="QLineEdit" name="LEDbxVersion" >
                 <property name="enabled" >
                  <bool>false</bool>
+                </property>
+                <property name="alignment" >
+                 <set>Qt::AlignHCenter</set>
                 </property>
                 <property name="readOnly" >
                  <bool>true</bool>
@@ -1639,8 +1507,8 @@ keycombo</string>
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>164</width>
-          <height>135</height>
+          <width>519</width>
+          <height>281</height>
          </rect>
         </property>
         <attribute name="label" >
@@ -3528,14 +3396,14 @@ default,alsa,oss,win32,coreaudio,22</string>
               <number>6</number>
              </property>
              <item>
-              <widget class="QLabel" name="label_20" >
+              <widget class="QLabel" name="lblInfoDeveloper" >
                <property name="text" >
                 <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; font-size:8pt;">&lt;span style=" font-size:12pt; font-weight:600;">Developer:&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QLabel" name="label_23" >
+              <widget class="QLabel" name="lblInfoDeveloperName" >
                <property name="text" >
                 <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; font-size:8pt;">&lt;span style=" font-size:12pt; font-weight:600;">First Nick:	&lt;/span>&lt;span style=" font-size:12pt;">ChMaster &amp;amp; LFreak &amp;amp; ChMaster|LFreak&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg;">&lt;span style=" font-weight:600;">Real Name:&lt;/span>Alexander Saal&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg;">&lt;span style=" font-weight:600;">E-Mail:	&lt;/span>&lt;span style=" color:#0000ff;">alex.saal@gmx.de&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
                </property>
@@ -3560,14 +3428,14 @@ default,alsa,oss,win32,coreaudio,22</string>
                 <number>6</number>
                </property>
                <item>
-                <widget class="QLabel" name="label_21" >
+                <widget class="QLabel" name="lblInfoDesigner" >
                  <property name="text" >
                   <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; font-size:8pt;">&lt;span style=" font-size:12pt; font-weight:600;">Designer:&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="QLabel" name="label_22" >
+                <widget class="QLabel" name="lblInfoCopyright" >
                  <property name="text" >
                   <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; font-size:8pt;">&lt;span style=" font-size:12pt; font-weight:600;">(C)opyright:&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
                  </property>
@@ -3584,14 +3452,14 @@ default,alsa,oss,win32,coreaudio,22</string>
                 <number>6</number>
                </property>
                <item>
-                <widget class="QLabel" name="label_24" >
+                <widget class="QLabel" name="lblInfoCopyrightName" >
                  <property name="text" >
                   <string>Alexander Saal</string>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="QLabel" name="label_25" >
+                <widget class="QLabel" name="lblInfoCopyright_1" >
                  <property name="text" >
                   <string>© '2004, 2005, 2006</string>
                  </property>
@@ -3637,7 +3505,7 @@ default,alsa,oss,win32,coreaudio,22</string>
           <number>6</number>
          </property>
          <item row="0" column="0" >
-          <widget class="QLabel" name="label" >
+          <widget class="QLabel" name="lblInfoThanks" >
            <property name="layoutDirection" >
             <enum>Qt::LeftToRight</enum>
            </property>
@@ -3660,6 +3528,138 @@ default,alsa,oss,win32,coreaudio,22</string>
      </item>
     </layout>
    </widget>
+  </widget>
+  <widget class="QGroupBox" name="gBoxProfile" >
+   <property name="geometry" >
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>191</width>
+     <height>481</height>
+    </rect>
+   </property>
+   <property name="title" >
+    <string>Gameprofile</string>
+   </property>
+   <layout class="QGridLayout" >
+    <property name="margin" >
+     <number>9</number>
+    </property>
+    <property name="spacing" >
+     <number>6</number>
+    </property>
+    <item row="0" column="0" >
+     <layout class="QVBoxLayout" >
+      <property name="margin" >
+       <number>0</number>
+      </property>
+      <property name="spacing" >
+       <number>6</number>
+      </property>
+      <item>
+       <widget class="QListWidget" name="lwProfile" >
+        <item>
+         <property name="text" >
+          <string>Default</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item>
+       <layout class="QGridLayout" >
+        <property name="margin" >
+         <number>0</number>
+        </property>
+        <property name="spacing" >
+         <number>6</number>
+        </property>
+        <item row="1" column="1" >
+         <widget class="QPushButton" name="btnRemoveGP" >
+          <property name="toolTip" >
+           <string>Remove selected profile</string>
+          </property>
+          <property name="whatsThis" >
+           <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:MS Shell Dlg; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Remove Gameprofile&lt;/p>&lt;/body>&lt;/html></string>
+          </property>
+          <property name="text" >
+           <string>&amp;Remove</string>
+          </property>
+          <property name="icon" >
+           <iconset resource="../res/dboxfe.qrc" >:/pics/images/delete_16.png</iconset>
+          </property>
+          <property name="shortcut" >
+           <string>Alt+R</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0" >
+         <widget class="QPushButton" name="btnSaveGP" >
+          <property name="toolTip" >
+           <string>Save profile</string>
+          </property>
+          <property name="whatsThis" >
+           <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:MS Shell Dlg; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Save Gameprofile&lt;/p>&lt;/body>&lt;/html></string>
+          </property>
+          <property name="text" >
+           <string>&amp;Save</string>
+          </property>
+          <property name="icon" >
+           <iconset resource="../res/dboxfe.qrc" >:/pics/images/save_16.png</iconset>
+          </property>
+          <property name="shortcut" >
+           <string>Alt+S</string>
+          </property>
+          <property name="default" >
+           <bool>false</bool>
+          </property>
+          <property name="flat" >
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1" >
+         <widget class="QPushButton" name="btnCreateGP" >
+          <property name="toolTip" >
+           <string>Create profile</string>
+          </property>
+          <property name="whatsThis" >
+           <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:MS Shell Dlg; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Create new Gameprofile&lt;/p>&lt;/body>&lt;/html></string>
+          </property>
+          <property name="text" >
+           <string>&amp;Create</string>
+          </property>
+          <property name="icon" >
+           <iconset resource="../res/dboxfe.qrc" >:/pics/images/documents_16.png</iconset>
+          </property>
+          <property name="shortcut" >
+           <string>Alt+C</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0" >
+         <widget class="QPushButton" name="btnStartDBox" >
+          <property name="toolTip" >
+           <string>Start dosbox with selected configuration</string>
+          </property>
+          <property name="whatsThis" >
+           <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:MS Shell Dlg; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Start DoxBox with selected configurationfile&lt;/p>&lt;/body>&lt;/html></string>
+          </property>
+          <property name="text" >
+           <string>St&amp;art</string>
+          </property>
+          <property name="icon" >
+           <iconset resource="../res/dboxfe.qrc" >:/pics/images/applications_16.png</iconset>
+          </property>
+          <property name="shortcut" >
+           <string>Alt+D</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+   </layout>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11" />

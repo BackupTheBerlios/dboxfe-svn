@@ -24,7 +24,7 @@
 #include <QtGui/QWidget>
 #include <QtGui/QCloseEvent>
 #include <QtGui/QListWidgetItem>
-
+#include <QtCore/QProcess>
 #include <QtCore/QString>
 
 #include "ui_dboxfe.h"
@@ -41,7 +41,9 @@ public:
     
 private:    
     QString getAppVersion(){ return "v0.1.0"; }
-    QString titleLin, titleWin, titleMac, appVersion, gpTxt, winTitle;
+    QString titleLin, titleWin, titleMac, appVersion, gpTxt, winTitle, m_result;
+    QStringList m_param;
+    QProcess *dBox;
     QListWidgetItem *gpItem;
     
 protected:
@@ -61,6 +63,10 @@ private slots:
     void slotStartDBox();
     void slotCreateGP();
     void slotSaveGP();
+    
+    void start( const QString& bin, const QString &param, const QString &conf ); 
+    void readOutput();
+    void finish();
     
 public slots:
     void init();
