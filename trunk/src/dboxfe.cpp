@@ -169,10 +169,23 @@ void DBoxFE::slotStartDBox()
 
     if( ui.rbtnDBXStabel->isChecked() )
     {
+	if( ui.LEDbxStabel->text().isEmpty() )
+	{
+	    QMessageBox::information( this, winTitle(), "Can not start dosbox, no dosbox binary was selected.\nPlease choose dosbox binary." );
+	    ui.twDbx->setCurrentIndex( 1 );
+	    return;
+	}
         start( ui.LEDbxStabel->text(), "-conf", "" );
+
     }
     else if( ui.rbtnDBXStabel->isChecked() )
     {
+	if( ui.LEDbxCvs->text().isEmpty() )
+	{
+	    QMessageBox::information( this, winTitle(), "Can not start dosbox, no dosbox binary was selected.\nPlease choose dosbox binary." );
+	    ui.twDbx->setCurrentIndex( 1 );
+	    return;
+	}
         start( "dosbox", "-conf", "" );
     }
 }
@@ -183,11 +196,10 @@ void DBoxFE::slotRemoveGP()
     gpItem = new QListWidgetItem;
 
     gpItem = ui.lwProfile->currentItem();
-    winTitle = windowTitle();
 
     if ( gpItem == NULL )
     {
-        QMessageBox::information( this, winTitle, "Please select profile to delet it!" );
+        QMessageBox::information( this, winTitle(), "Please select profile to delet it!" );
         return;
     }
 
@@ -195,11 +207,11 @@ void DBoxFE::slotRemoveGP()
 
     if( gpTxt.isEmpty() )
     {
-        QMessageBox::information( this, winTitle, "Please select a profile to delet it!" );
+        QMessageBox::information( this, winTitle(), "Please select a profile to delet it!" );
     }
     else
     {
-        switch( QMessageBox::information( this, winTitle, "Would you delete the configutation file for this Profile?\nIf you click 'No' only the profile from list will be delete.", "Yes", "No", "Cancel", 0, 2 ) )
+        switch( QMessageBox::information( this, winTitle(), "Would you delete the configutation file for this Profile?\nIf you click 'No' only the profile from list will be delete.", "Yes", "No", "Cancel", 0, 2 ) )
         {
         case 0: // Yes clicked
             delete ui.lwProfile->currentItem();
@@ -271,7 +283,7 @@ void DBoxFE::slotDbxCvs()
     if ( strDbxCVS.isEmpty() )
         return;
 
-    ui.LEDbxStabel->setText( strDbxCVS );
+    ui.LEDbxCvs->setText( strDbxCVS );
 
     QProcess *p = new QProcess( this );
     p->start( strDbxCVS, QStringList() << "-version" );
