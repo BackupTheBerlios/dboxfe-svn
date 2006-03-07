@@ -31,7 +31,8 @@ HEADERS += include/dboxfe.h \
 	   include/dboxfe_splash.h
 	   
 FORMS += ui/dboxfe.ui \
-         ui/profile.ui
+         ui/profile.ui \
+	 ui/changelog.ui
 	 
 SOURCES += src/dboxfe.cpp \
            src/dboxfe_profile.cpp \

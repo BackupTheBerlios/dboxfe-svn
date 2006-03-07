@@ -2,17 +2,17 @@
 <!DOCTYPE KDevPrjSession>
 <KDevPrjSession>
  <DocsAndViews NumberOfDocuments="4" >
-  <Doc0 NumberOfViews="1" URL="file:///home/alex/project/dboxfe/src/dboxfe.cpp" >
-   <View0 line="226" Type="Source" />
+  <Doc0 NumberOfViews="1" URL="file:///home/alex/project/dboxfe/src/dboxfe_base.cpp" >
+   <View0 line="27" Type="Source" />
   </Doc0>
-  <Doc1 NumberOfViews="1" URL="file:///home/alex/project/dboxfe/include/dboxfe.h" >
-   <View0 line="68" Type="Source" />
+  <Doc1 NumberOfViews="1" URL="file:///home/alex/project/dboxfe/include/dboxfe_base.h" >
+   <View0 line="73" Type="Source" />
   </Doc1>
-  <Doc2 NumberOfViews="1" URL="file:///home/alex/project/dboxfe/src/dboxfe_base.cpp" >
-   <View0 line="24" Type="Source" />
+  <Doc2 NumberOfViews="1" URL="file:///home/alex/project/dboxfe/src/dboxfe.cpp" >
+   <View0 line="125" Type="Source" />
   </Doc2>
-  <Doc3 NumberOfViews="1" URL="file:///home/alex/project/dboxfe/include/dboxfe_base.h" >
-   <View0 line="25" Type="Source" />
+  <Doc3 NumberOfViews="1" URL="file:///home/alex/project/dboxfe/include/dboxfe.h" >
+   <View0 line="43" Type="Source" />
   </Doc3>
  </DocsAndViews>
  <pluginList>
