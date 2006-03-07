@@ -43,12 +43,14 @@ SOURCES += src/dboxfe.cpp \
 RESOURCES += res/dboxfe.qrc
 
 unix{
+RCC_DIR = .unix/rcc
 MOC_DIR += .unix/moc
 OBJECTS_DIR += .unix/obj
 UI_DIR += .unix/ui
 }
 
 win32{
+RCC_DIR = win/rcc
 MOC_DIR += win/moc
 OBJECTS_DIR += win/obj
 UI_DIR += win/ui
