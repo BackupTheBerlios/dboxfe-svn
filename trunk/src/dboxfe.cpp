@@ -18,10 +18,10 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-#include <dboxfe.h>
-#include <dboxfe_profile.h>
-#include <dboxfe_base.h>
-#include <XMLPreferences.h>
+#include "dboxfe.h"
+#include "dboxfe_profile.h"
+#include "dboxfe_base.h"
+#include "XMLPreferences.h"
 
 // QtGui Header
 #include <QtGui/QFileDialog>
@@ -37,6 +37,12 @@
 #include <QtGui/QMessageBox>
 #include <QtGui/QCloseEvent>
 #include <QtGui/QFileDialog>
+#include <QtGui/QCursor>
+#include <QtGui/QContextMenuEvent>
+#include <QtGui/QMenu>
+#include <QtGui/QIcon>
+#include <QtGui/QMenuBar>
+#include <QtGui/QAction>
 
 // QtCore Header
 #include <QtCore/QProcess>
@@ -47,6 +53,7 @@
 #include <QtCore/QRect>
 #include <QtCore/QIODevice>
 #include <QtCore/QtDebug>
+
 
 DBoxFE::DBoxFE(QWidget *parent, Qt::WFlags flags)
         : QWidget(parent, flags)
@@ -153,7 +160,7 @@ void DBoxFE::slotSaveGP()
     
     QString file;
     file = QDir::homePath();
-    file.append( "/.dboxfe/profile/profile.ini" );
+    file.append( "/.dboxfe/profile/profile.xml" );
     
     QStringList sList;
 
@@ -163,6 +170,7 @@ void DBoxFE::slotSaveGP()
     }
     
     settGP.setStringList( "Profile", "Name", sList );
+    settGP.getStringList( "Profile", "Name" );
     settGP.save( file );
 }
 
@@ -424,4 +432,34 @@ void DBoxFE::finish()
 {
     this->show();
     ui.btnStartDBox->setEnabled( true );
+}
+
+void DBoxFE::contextMenuEvent ( QContextMenuEvent *ce  )
+{
+    QAction *remGP = new QAction( QIcon(":/pics/images/delete_16.png"), tr("&Remove profile"), ui.lwProfile );
+    QAction *creGP = new QAction( QIcon(":/pics/images/documents_16.png"), tr("&Create profile"), ui.lwProfile );
+    QAction *quit = new QAction( QIcon(":/pics/images/documents_16.png"), tr("&Quit"), ui.lwProfile );
+    
+    connect(remGP, SIGNAL(triggered()), this, SLOT(slotRemoveGP()));
+    connect(creGP, SIGNAL(triggered()), this, SLOT(slotCreateGP()));
+    connect(quit, SIGNAL(triggered()), this, SLOT(close()));
+
+    QMenu *menu = new QMenu( "<font color=darkblue><u><b>Game Profile Menu</b></u></font>", ui.lwProfile );
+    menu->addAction( remGP );
+    menu->addAction( creGP );
+    menu->addSeparator();
+    menu->addAction( quit );   
+    menu->exec(ce->globalPos());
+
+  
+    // Qt 3 stuff :)
+    /*Q3PopupMenu* contextMenu = new Q3PopupMenu( ui.lwProfile );
+    Q_CHECK_PTR( contextMenu );
+    QLabel *caption = new QLabel( "<font color=darkblue><u><b>Game Profile Menu</b></u></font>", this );
+    caption->setAlignment( Qt::AlignCenter );
+    contextMenu->insertItem( caption );
+    contextMenu->insertItem( "remove Profile", this, SLOT( slotRemoveGP() ) );
+    contextMenu->insertItem( "create Profile", this, SLOT( slotCreateGP() ) );
+    contextMenu->exec( QCursor::pos() );
+    delete contextMenu;*/
 }
