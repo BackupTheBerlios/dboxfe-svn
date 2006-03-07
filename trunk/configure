@@ -7,18 +7,34 @@ exit 0
 fi
 
 # Checking for Qt...
+echo
 printf "Checking for qmake... "
 qmake="`which qmake`"
 if [ "$qmake" = "" ]; then
 echo "not found!"
 echo
 echo "Make sure you have the Qt development packages installed!"
-fi
+exit 1
+else
 echo $qmake;
+fi
+
+printf "Checking for qmake version... "
+$qmake -v &>qmake.ver
+ver=`sed 's/[a-z,A-Z].//g' qmake.ver | sed -n '1,1p'`
+if [ "$ver" = " 1.07( 3.3.5)" ]; then
+echo "1.07a (Qt 3.3.5)";
+echo
+echo "version too old! Make sure you have the Qt 4.1.x installed!"
+exit 1
+else
+echo $ver;
+rm -rf qmake.ver
+fi
 
 # Now create the makefile
 printf "Creating Makefile... "
-qmake -o Makefile dboxfe.pro
+$qmake -o Makefile dboxfe.pro
 if [ $? -eq 0 ]; then
     echo ok
 else 
