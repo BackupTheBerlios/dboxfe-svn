@@ -18,9 +18,10 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-#include "dboxfe.h"
-#include "dboxfe_profile.h"
-#include "dboxfe_base.h"
+#include <dboxfe.h>
+#include <dboxfe_profile.h>
+#include <dboxfe_base.h>
+#include <XMLPreferences.h>
 
 // QtGui Header
 #include <QtGui/QFileDialog>
@@ -147,20 +148,29 @@ void DBoxFE::init()
  **/
 void DBoxFE::slotSaveGP()
 {
-    DB_BASE gpIni;
-
+    XMLPreferences settGP( "DBoxFE", "Alexander Saal" );
+    settGP.setVersion( getAppVersion() );
+    
     QString file;
     file = QDir::homePath();
     file.append( "/.dboxfe/profile/profile.ini" );
+    
+    QStringList sList;
 
-    gpIni.saveGPIni( file, ui.lwProfile );
+    for( int a = 0; a < ui.lwProfile->count(); ++a )
+    {
+        sList.append( ui.lwProfile->item( a )->text() );
+    }
+    
+    settGP.setStringList( "Profile", "Name", sList );
+    settGP.save( file );
 }
 
 /**
  * TODO Create game profile file
  **/
 void DBoxFE::slotCreateGP()
-{
+{    
     QListWidgetItem *gpItem = new QListWidgetItem;
     DBoxFE_Profile *dbfe_profile = new DBoxFE_Profile();
 
@@ -222,7 +232,6 @@ void DBoxFE::slotStartDBox()
 
 void DBoxFE::slotRemoveGP()
 {
-
     gpItem = new QListWidgetItem;
 
     gpItem = ui.lwProfile->currentItem();
@@ -237,16 +246,27 @@ void DBoxFE::slotRemoveGP()
 
     if( gpTxt.isEmpty() )
     {
-        QMessageBox::information( this, winTitle(), "Please select a profile to delet it!" );
+        QMessageBox::information( this, winTitle(), "Please select profile for remove from list!" );
     }
     else
     {
-        switch( QMessageBox::information( this, winTitle(), "Would you delete the configutation file for this Profile?\nIf you click 'No' only the profile from list will be delete.", "Yes", "No", "Cancel", 0, 2 ) )
+	m_file = QDir::homePath();
+	m_file.append( "/.dboxfe/" + gpTxt + ".conf" );
+        QFile f( m_file );
+	
+        switch( QMessageBox::information( this, winTitle(), "Would you delete the profile and configuration file?\nIf you click 'No' only the profile from list will be removed.", "Yes", "No", "Cancel", 0, 2 ) )
         {
         case 0: // Yes clicked
-            delete ui.lwProfile->currentItem();
+	    delete ui.lwProfile->currentItem();
+	    
+	    if( f.exists() ){
+		f.remove();
+	    }
+	    
             ui.lwOutPut->addItem( "Game Profile -> " + gpTxt + " was deleted" );
+            ui.lwOutPut->addItem( "Game Profile -> " + f.fileName() + " was deleted" );
             ui.lwOutPut->update();
+	    m_file = "";
             break;
         case 1: // No clicked but delete profile from list
             delete ui.lwProfile->currentItem();
@@ -257,7 +277,6 @@ void DBoxFE::slotRemoveGP()
             return;
             break;
         }
-
     }
 }
 

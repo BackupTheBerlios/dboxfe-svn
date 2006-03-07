@@ -43,11 +43,11 @@ private:
     QString getAppVersion(){ return "v0.1.0"; }
     QString winTitle(){ return "DBox Front End"; }
 
-    QString titleLin, titleWin, titleMac, appVersion, gpTxt, m_result, m_conf;
+    QString titleLin, titleWin, titleMac, appVersion, gpTxt, m_result, m_conf, m_file;
     QStringList m_param;
     QProcess *dBox;
     QListWidgetItem *gpItem;
-
+    
 protected:
     void closeEvent( QCloseEvent *e );
 

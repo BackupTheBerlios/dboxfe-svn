@@ -21,14 +21,18 @@
 TEMPLATE = app
 TARGET = bin/dboxfe
 CONFIG += debug thread warn_on qt
+QT += xml
 
-DEPENDPATH += include res src ui
-INCLUDEPATH += include
+DEPENDPATH += include res src ui 3rdparty
+INCLUDEPATH += include 3rdparty
 
 HEADERS += include/dboxfe.h \
            include/dboxfe_profile.h \
 	   include/dboxfe_base.h \
-	   include/dboxfe_splash.h
+	   include/dboxfe_splash.h \
+           3rdparty/Base64.h \
+           3rdparty/XMLWriter.h \
+           3rdparty/XMLPreferences.h
 	   
 FORMS += ui/dboxfe.ui \
          ui/profile.ui \
@@ -38,7 +42,10 @@ SOURCES += src/dboxfe.cpp \
            src/dboxfe_profile.cpp \
 	   src/dboxfe_base.cpp \
 	   src/dboxfe_splash.cpp \
-	   src/main.cpp
+	   src/main.cpp \
+	   3rdparty/Base64.cpp \
+	   3rdparty/XMLPreferences.cpp \
+	   3rdparty/XMLWriter.cpp
 
 RESOURCES += res/dboxfe.qrc
 

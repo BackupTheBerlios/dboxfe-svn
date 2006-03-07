@@ -43,7 +43,6 @@ class DB_BASE
 
 private:
     DBoxFE dbfe;
-
 public:
     DB_BASE();
     inline virtual ~DB_BASE(){}
