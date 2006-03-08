@@ -26,10 +26,19 @@
 
 #include <QtCore/QString>
 #include <QtCore/QDir>
+#include <QtCore/QTranslator>
+#include <QtCore/QLocale>
 
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
+    
+    QString locale = QLocale::system().name();
+
+    QTranslator translator;
+    translator.load(QString("dboxfe_") + locale);
+    app.installTranslator(&translator);
+	
     DBoxFE w;
 
     DBoxFE_Splash *splash;

@@ -25,6 +25,7 @@ QT += xml
 
 DEPENDPATH += include res src ui 3rdparty
 INCLUDEPATH += include 3rdparty
+TRANSLATIONS = lng/dboxfe_de.ts
 
 HEADERS += include/dboxfe.h \
            include/dboxfe_profile.h \

@@ -80,13 +80,7 @@
        <number>6</number>
       </property>
       <item>
-       <widget class="QListWidget" name="lwProfile" >
-        <item>
-         <property name="text" >
-          <string>Default</string>
-         </property>
-        </item>
-       </widget>
+       <widget class="QListWidget" name="lwProfile" />
       </item>
       <item>
        <layout class="QGridLayout" >
@@ -1663,8 +1657,8 @@ keycombo</string>
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>519</width>
-          <height>281</height>
+          <width>164</width>
+          <height>135</height>
          </rect>
         </property>
         <attribute name="label" >
@@ -3666,7 +3660,7 @@ default,alsa,oss,win32,coreaudio,22</string>
             <enum>Qt::LeftToRight</enum>
            </property>
            <property name="text" >
-            <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; font-size:9pt;">&lt;span style=" font-size:12pt; font-weight:600;">KConfig: &lt;/span>&lt;span style=" font-size:12pt;">Michael Goettsche&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg;">&lt;span style=" font-size:10pt; color:#000000;">(KConfig code removed - QSettings is now used)&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg;">&lt;span style=" color:#0000ff;">michi.goettsche@gmx.de&lt;/span>&lt;/p>&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; color:#0000ff;">&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; color:#0000ff;">&lt;span style=" font-weight:600; color:#000000;">Gameprofile: &lt;/span>&lt;span style=" color:#000000;">anda_skoa&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; color:#000000;">&lt;span style=" color:#0000ff;">http://www.mrunix.de/forums/member.php?find=lastposter&amp;amp;t=42863&lt;/span>&lt;/p>&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; color:#0000ff;">&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; color:#0000ff;">&lt;span style=" font-weight:600; color:#000000;">DOSBox: &lt;/span>&lt;span style=" color:#000000;">The DOSBox Crew&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; color:#000000;">&lt;span style=" font-size:11pt; color:#0000ff;">http&lt;/span>&lt;span style=" color:#0000ff;">://dosbox.sourceforgef.net&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+            <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; font-size:9pt;">&lt;span style=" font-size:12pt; font-weight:600;">KConfig: &lt;/span>&lt;span style=" font-size:12pt;">Michael Goettsche&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg;">&lt;span style=" font-size:10pt; color:#000000;">(KConfig code removed - QSettings is now used)&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg;">&lt;span style=" color:#0000ff;">michi.goettsche@gmx.de&lt;/span>&lt;/p>&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; color:#0000ff;">&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; color:#0000ff;">&lt;span style=" font-weight:600; color:#000000;">Gameprofile: &lt;/span>&lt;span style=" color:#000000;">anda_skoa&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; color:#000000;">&lt;span style=" color:#0000ff;">http://www.mrunix.de/forums/member.php?find=lastposter&amp;amp;t=42863&lt;/span>&lt;/p>&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; color:#0000ff;">&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; color:#0000ff;">&lt;span style=" font-weight:600; color:#000000;">DOSBox: &lt;/span>&lt;span style=" color:#000000;">The DOSBox Crew&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; color:#000000;">&lt;span style=" font-size:11pt; color:#0000ff;">http&lt;/span>&lt;span style=" color:#0000ff;">://dosbox.sourceforgef.net&lt;/span>&lt;/p>&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; color:#0000ff;">&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; font-weight:600; color:#000000;">XMLPreferences:&lt;span style=" font-weight:400; color:#0000ff;"> &lt;/span>&lt;span style=" font-weight:400;">Angius Fabrizio (OSDaB)&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; color:#000000;">&lt;span style=" color:#0000ff;">http://osdab.sourceforge.net&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
            </property>
            <property name="textFormat" >
             <enum>Qt::RichText</enum>

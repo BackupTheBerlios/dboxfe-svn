@@ -1,8 +1,13 @@
 #!/bin/sh
-# Configure script for dboxfe
+# Configure script for dboxfe, this script is based on KVideoEncoder by Philipp Ludwig
  
 if [ "$1" = "--help" ]; then
 echo "Usage: configure"
+exit 0
+fi
+
+if [ "$1" = "--v" ]; then
+echo "DBoxFE v0.1.0"
 exit 0
 fi
 
@@ -26,6 +31,7 @@ if [ "$ver" = " 1.07( 3.3.5)" ]; then
 echo "1.07a (Qt 3.3.5)";
 echo
 echo "version too old! Make sure you have the Qt 4.1.x installed!"
+rm -rf qmake.ver
 exit 1
 else
 echo $ver;

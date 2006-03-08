@@ -48,25 +48,6 @@ public:
     inline virtual ~DB_BASE(){}
 
     /**
-     * Read gameprofile file
-     *
-     * @param gpIni   read gameprofile
-     * @param lw      the QListWidget
-     * @since 0.1.0
-     */
-    void readGPIni( const QString &gpIni, QListWidget* lw );
-
-    /**
-     * Save gameprofile file
-     *
-     * @param gpIni   save gameprofile
-     * @param lw      the QListWidget
-     * @since 0.1.0
-     */
-    void saveGPIni( const QString &gpIni, QListWidget* lw );
-
-
-    /**
      * Read dosbox configuration file
      *
      * @param dbconf  read the dosbox configuration file

@@ -81,30 +81,24 @@ DBoxFE::DBoxFE(QWidget *parent, Qt::WFlags flags)
     connect( ui.lwProfile, SIGNAL( itemClicked( QListWidgetItem* ) ), this, SLOT( slotListWidget( QListWidgetItem* ) ) );
 
     // windows title for the application
-    appVersion = getAppVersion();
-
-    titleLin = "DOSBox - Front End for Linux " + appVersion;
-    titleWin = "DOSBox - Front End for Windows " + appVersion;
-    titleMac = "DOSBox - Front End for Mac " + appVersion;
+    titleLin = "DOSBox - Front End for Linux " + getAppVersion();
+    titleWin = "DOSBox - Front End for Windows " + getAppVersion();
+    titleMac = "DOSBox - Front End for Mac " + getAppVersion();
 
 #ifdef Q_OS_WIN32
-
     setWindowTitle( titleWin );
     QApplication::setStyle( "windowsxp" );
 #endif
 
 #ifdef Q_OS_MACX
-
     setWindowTitle( titleMac );
 #endif
 
 #ifdef Q_OS_MAC9
-
     setWindowTitle( titleMac );
 #endif
 
 #ifdef Q_OS_UNIX
-
     setWindowTitle( titleLin );
 #endif
 
@@ -142,12 +136,16 @@ void DBoxFE::closeEvent( QCloseEvent *e )
  **/
 void DBoxFE::init()
 {
-    DB_BASE gpIni;
-
-    QString file;
-    file = QDir::homePath();
-    file.append( "/.dboxfe/profile/profile.ini" );
-    gpIni.readGPIni( file, ui.lwProfile );
+    m_file = QDir::homePath();
+    m_file.append( "/.dboxfe/profile/profile.xml" );
+    
+    XMLPreferences settGP( "DBoxFE", "Alexander Saal" );
+    settGP.setVersion( getAppVersion() );
+    settGP.load( m_file );
+    
+    QStringList sList = settGP.getStringList( "Profile", "Name" );
+    ui.lwProfile->addItems( sList );
+    m_file = "";
 }
 
 /**
@@ -157,10 +155,9 @@ void DBoxFE::slotSaveGP()
 {
     XMLPreferences settGP( "DBoxFE", "Alexander Saal" );
     settGP.setVersion( getAppVersion() );
-    
-    QString file;
-    file = QDir::homePath();
-    file.append( "/.dboxfe/profile/profile.xml" );
+
+    m_file = QDir::homePath();
+    m_file.append( "/.dboxfe/profile/profile.xml" );
     
     QStringList sList;
 
@@ -169,9 +166,9 @@ void DBoxFE::slotSaveGP()
         sList.append( ui.lwProfile->item( a )->text() );
     }
     
-    settGP.setStringList( "Profile", "Name", sList );
-    settGP.getStringList( "Profile", "Name" );
-    settGP.save( file );
+    settGP.setStringList( "Profile", "Name", sList );    
+    settGP.save( m_file);
+    m_file = "";
 }
 
 /**
@@ -293,7 +290,6 @@ void DBoxFE::slotRemoveGP()
  **/
 void DBoxFE::slotSnapDir()
 {
-
     qDebug( "void DBoxFE::slotSnapDir()" );
 }
 
@@ -302,7 +298,6 @@ void DBoxFE::slotSnapDir()
  **/
 void DBoxFE::slotLanguage()
 {
-
     QString strLng = QFileDialog::getOpenFileName( this, "Open language file", QDir::homePath(), "Language file (*.*)" );
     if ( strLng.isEmpty() )
         return;
@@ -314,7 +309,6 @@ void DBoxFE::slotLanguage()
  **/
 void DBoxFE::slotDbxStable()
 {
-
     QString strDbxStabel = QFileDialog::getOpenFileName( this, "Open DOSBox stabel binary", QDir::currentPath(), "DOSBox binary (dosbox)" );
 
     if ( strDbxStabel.isEmpty() )
@@ -334,7 +328,6 @@ void DBoxFE::slotDbxStable()
  **/
 void DBoxFE::slotDbxCvs()
 {
-
     QString strDbxCVS = QFileDialog::getOpenFileName( this, "Open DOSBox CVS binary", QDir::currentPath(), "DOSBox binary (dosbox)" );
 
     if ( strDbxCVS.isEmpty() )
@@ -346,7 +339,7 @@ void DBoxFE::slotDbxCvs()
     p->start( strDbxCVS, QStringList() << "-version" );
 
     while( p->waitForFinished() )
-        ui.LEDbxVersion->setText( QString( "DOSBox Version: " + p->readAll() ) );
+        ui.LEDbxVersion->setText( QString( tr("DOSBox Version: ") + p->readAll() ) );
 }
 
 /**
@@ -374,7 +367,7 @@ void DBoxFE::slotAutexecUpdate()
 }
 
 /**
- * Open the autexec drive, for automaunt in dosbox
+ * TODO Open the autexec drive, for automaunt in dosbox
  **/
 void DBoxFE::slotAutexecDrive()
 {
@@ -382,7 +375,7 @@ void DBoxFE::slotAutexecDrive()
 }
 
 /**
- * Open the configuration file for selected profile
+ * TODO Open the configuration file for selected profile
  **/
 void DBoxFE::slotListWidget(QListWidgetItem* item)
 {
@@ -392,16 +385,15 @@ void DBoxFE::slotListWidget(QListWidgetItem* item)
     file = QDir::homePath();
     file.append( "/.dboxfe/" + item->text() + ".conf" );
 
-    //gpIni.readGPIni( file, ui.lwProfile  );
+    // gpIni.readGPIni( file, ui.lwProfile  );
     gpIni.readDBConf( file, this );
 }
 
 /**
- * Function for start dosbox and read output
+ * TODO Function for start dosbox and read output
  **/
 void DBoxFE::start( const QString& bin, const QString &param, const QString &conf )
 {
-
     dBox = new QProcess(this);
 
     m_param.append( param );
@@ -418,22 +410,31 @@ void DBoxFE::start( const QString& bin, const QString &param, const QString &con
     m_param.clear();
 }
 
+/**
+ * TODO Function for start dosbox and read output
+ **/
 void DBoxFE::readOutput()
 {
     while( dBox->canReadLine() )
     {
         m_result = dBox->readLine();
-        ui.lwOutPut->addItem( "dosbox cmd output ->" + m_result.mid( m_result.indexOf( ":" ) + 1 ) );
+        ui.lwOutPut->addItem( tr("dosbox cmd output ->") + m_result.mid( m_result.indexOf( ":" ) + 1 ) );
         ui.lwOutPut->update();
     }
 }
 
+/**
+ * TODO Function for start dosbox and read output
+ **/
 void DBoxFE::finish()
 {
     this->show();
     ui.btnStartDBox->setEnabled( true );
 }
 
+/**
+ * TODO Function for start dosbox and read output
+ **/
 void DBoxFE::contextMenuEvent ( QContextMenuEvent *ce  )
 {
     QAction *remGP = new QAction( QIcon(":/pics/images/delete_16.png"), tr("&Remove profile"), ui.lwProfile );
@@ -444,22 +445,10 @@ void DBoxFE::contextMenuEvent ( QContextMenuEvent *ce  )
     connect(creGP, SIGNAL(triggered()), this, SLOT(slotCreateGP()));
     connect(quit, SIGNAL(triggered()), this, SLOT(close()));
 
-    QMenu *menu = new QMenu( "<font color=darkblue><u><b>Game Profile Menu</b></u></font>", ui.lwProfile );
+    QMenu *menu = new QMenu( tr("<font color=darkblue><u><b>Game Profile Menu</b></u></font>"), ui.lwProfile );
     menu->addAction( remGP );
     menu->addAction( creGP );
     menu->addSeparator();
     menu->addAction( quit );   
     menu->exec(ce->globalPos());
-
-  
-    // Qt 3 stuff :)
-    /*Q3PopupMenu* contextMenu = new Q3PopupMenu( ui.lwProfile );
-    Q_CHECK_PTR( contextMenu );
-    QLabel *caption = new QLabel( "<font color=darkblue><u><b>Game Profile Menu</b></u></font>", this );
-    caption->setAlignment( Qt::AlignCenter );
-    contextMenu->insertItem( caption );
-    contextMenu->insertItem( "remove Profile", this, SLOT( slotRemoveGP() ) );
-    contextMenu->insertItem( "create Profile", this, SLOT( slotCreateGP() ) );
-    contextMenu->exec( QCursor::pos() );
-    delete contextMenu;*/
 }
