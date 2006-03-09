@@ -40,13 +40,13 @@ class DBoxFE : public QWidget
 public:
     DBoxFE(QWidget *parent = 0, Qt::WFlags flags = 0);
     ~DBoxFE();
-
+    
     Ui::DBoxFE ui;
-
-private:
+    
     QString getAppVersion(){ return "v0.1.0"; }
     QString winTitle(){ return "DBox Front End"; }
 
+private:
     QString titleLin, titleWin, titleMac, gpTxt, m_result, m_conf, m_file;
     QStringList m_param;
     QProcess *dBox;
@@ -62,8 +62,7 @@ private slots:
     void slotAutexecUpdate();
     void slotAutexecRemove();
     void slotAutexecAdd();
-    void slotDbxCvs();
-    void slotDbxStable();
+    void slotChooseDbxBinary();
     void slotLanguage();
     void slotSnapDir();
     void slotRemoveGP();

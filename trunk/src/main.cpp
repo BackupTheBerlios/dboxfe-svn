@@ -20,6 +20,7 @@
 
 #include "dboxfe.h"
 #include "dboxfe_splash.h"
+#include "XMLPreferences.h"
 
 #include <QtGui/QApplication>
 #include <QtGui/QPixmap>
@@ -28,27 +29,55 @@
 #include <QtCore/QDir>
 #include <QtCore/QTranslator>
 #include <QtCore/QLocale>
+#include <QtGui/QMessageBox>
 
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
-    
-    QString locale = QLocale::system().name();
-
+ 
     QTranslator translator;
-    translator.load(QString("dboxfe_") + locale);
-    app.installTranslator(&translator);
-	
+    QString local = QLocale::system().name();
+    QString m_file;
+    
+    m_file = QDir::homePath();
+    m_file.append( "/.dboxfe/profile/profile.xml" );
+    
     DBoxFE w;
+	
+    XMLPreferences settGP( "DBoxFE", "Alexander Saal" );
+    settGP.setVersion( w.getAppVersion() );
+    settGP.load( m_file );
+    
+    QString lng = settGP.getString( "Language", "Lng" );
 
+    if( lng == "ge" )
+    {
+	lng = ":/lng/dboxfe_de.qm";
+	translator.load( lng );
+	app.installTranslator(&translator);
+    }
+    else if( lng == "en" )
+    {
+	lng = ":/lng/dboxfe_en.qm";
+	translator.load( lng );
+	app.installTranslator(&translator);
+    }
+    else
+    {
+	// TODO add code for disable message
+	if( lng == "ge") QMessageBox::information( 0, w.winTitle(), "Es wurde keine Sprache gewählt, benutze standartsprache englisch ...");
+	if( lng == "en") QMessageBox::information( 0, w.winTitle(), "No Language was choosed, use default language english ...");
+	if( lng.isEmpty() ) QMessageBox::information( 0, w.winTitle(), "No Language was choosed, use default language english ...");
+    }
+    
+	
     DBoxFE_Splash *splash;
 
     splash = new DBoxFE_Splash( QPixmap(":/pics/images/logo.png") );
 
     app.processEvents();
 
-    if (splash)
-        splash->showMessage( "Loading Profiles" );
+    if (splash) splash->showMessage( "Loading Profiles" );
 
 
     if (splash)
@@ -56,13 +85,14 @@ int main(int argc, char *argv[])
 
     w.init();
 
-    if (splash)
-        splash->showMessage( "Starting GUI" );
+    if (splash) splash->showMessage( "Starting GUI" );
+    
     w.show();
 
-    if (splash)
-        delete splash;
+    if (splash) delete splash;
+    
     app.connect(&app, SIGNAL(lastWindowClosed()), &app, SLOT(quit()));
+    
 
     return app.exec();
 }

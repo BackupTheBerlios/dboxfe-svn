@@ -69,8 +69,7 @@ DBoxFE::DBoxFE(QWidget *parent, Qt::WFlags flags)
 
     connect( ui.btnSnapDir, SIGNAL( clicked() ), this, SLOT( slotSnapDir() ) );
     connect( ui.btnLanguage, SIGNAL( clicked() ), this, SLOT( slotLanguage() ) );
-    connect( ui.btnDbxStable, SIGNAL( clicked() ), this, SLOT( slotDbxStable() ) );
-    connect( ui.btnDbxCvs, SIGNAL( clicked() ), this, SLOT( slotDbxCvs() ) );
+    connect( ui.btnDbxStable, SIGNAL( clicked() ), this, SLOT( slotChooseDbxBinary() ) );
 
     connect( ui.btnAutexecAdd, SIGNAL( clicked() ), this, SLOT( slotAutexecAdd() ) );
     connect( ui.btnAutexecRemove, SIGNAL( clicked() ), this, SLOT( slotAutexecRemove() ) );
@@ -86,19 +85,23 @@ DBoxFE::DBoxFE(QWidget *parent, Qt::WFlags flags)
     titleMac = "DOSBox - Front End for Mac " + getAppVersion();
 
 #ifdef Q_OS_WIN32
+
     setWindowTitle( titleWin );
     QApplication::setStyle( "windowsxp" );
 #endif
 
 #ifdef Q_OS_MACX
+
     setWindowTitle( titleMac );
 #endif
 
 #ifdef Q_OS_MAC9
+
     setWindowTitle( titleMac );
 #endif
 
 #ifdef Q_OS_UNIX
+
     setWindowTitle( titleLin );
 #endif
 
@@ -118,15 +121,15 @@ DBoxFE::~DBoxFE()
  **/
 void DBoxFE::closeEvent( QCloseEvent *e )
 {
-    switch( QMessageBox::information( this, winTitle(), "Would you realy quit?", "Yes", "No", 0, 1 ) )
+    switch( QMessageBox::information( this, winTitle(), tr("Would you realy quit?"), tr("Yes"), tr("No"), 0, 1 ) )
     {
     case 0: // Yes clicked
-	slotSaveGP(); /* Save profile list */
-	e->accept(); /* accept the quit */
+        slotSaveGP(); /* Save profile list */
+        e->accept(); /* accept the quit */
         break;
     case 1: // No clicked
-	e->ignore();
-	return;
+        e->ignore();
+        return;
         break;
     }
 }
@@ -138,11 +141,11 @@ void DBoxFE::init()
 {
     m_file = QDir::homePath();
     m_file.append( "/.dboxfe/profile/profile.xml" );
-    
+
     XMLPreferences settGP( "DBoxFE", "Alexander Saal" );
     settGP.setVersion( getAppVersion() );
     settGP.load( m_file );
-    
+
     QStringList sList = settGP.getStringList( "Profile", "Name" );
     ui.lwProfile->addItems( sList );
     m_file = "";
@@ -153,20 +156,21 @@ void DBoxFE::init()
  **/
 void DBoxFE::slotSaveGP()
 {
+
     XMLPreferences settGP( "DBoxFE", "Alexander Saal" );
     settGP.setVersion( getAppVersion() );
 
     m_file = QDir::homePath();
     m_file.append( "/.dboxfe/profile/profile.xml" );
-    
+
     QStringList sList;
 
     for( int a = 0; a < ui.lwProfile->count(); ++a )
     {
         sList.append( ui.lwProfile->item( a )->text() );
     }
-    
-    settGP.setStringList( "Profile", "Name", sList );    
+
+    settGP.setStringList( "Profile", "Name", sList );
     settGP.save( m_file);
     m_file = "";
 }
@@ -175,8 +179,8 @@ void DBoxFE::slotSaveGP()
  * TODO Create game profile file
  **/
 void DBoxFE::slotCreateGP()
-{    
-    QListWidgetItem *gpItem = new QListWidgetItem;
+{
+    gpItem = new QListWidgetItem;
     DBoxFE_Profile *dbfe_profile = new DBoxFE_Profile();
 
     if ( dbfe_profile->exec() == QDialog::Accepted )
@@ -191,12 +195,12 @@ void DBoxFE::slotCreateGP()
  **/
 void DBoxFE::slotStartDBox()
 {
-
+    gpItem = new QListWidgetItem;
     gpItem = ui.lwProfile->currentItem();
 
     if ( gpItem == NULL )
     {
-        QMessageBox::information( this, winTitle(), "Please select profile." );
+        QMessageBox::information( this, winTitle(), tr("Please select profile.") );
         return;
     }
 
@@ -207,32 +211,17 @@ void DBoxFE::slotStartDBox()
 
     if ( !QFile( m_conf ).exists() )
     {
-        QMessageBox::information( this, winTitle(), "Configuration file not found!\n\n'" + m_conf + "'" );
-        qDebug() << "DBoxFE Debug: Configuration file not found! " << m_conf;
+        QMessageBox::information( this, winTitle(), tr("Configuration file not found!\n\n'") + m_conf + tr("'") );
         return;
     }
 
-    if( ui.rbtnDBXStabel->isChecked() )
+    if( ui.LEDbxStabel->text().isEmpty() )
     {
-        if( ui.LEDbxStabel->text().isEmpty() )
-        {
-            QMessageBox::information( this, winTitle(), "Can not start dosbox, no dosbox binary was selected.\nPlease choose dosbox binary." );
-            ui.twDbx->setCurrentIndex( 1 );
-            return;
-        }
-        start( ui.LEDbxStabel->text(), "-conf", m_conf );
-
+        QMessageBox::information( this, winTitle(), tr("Can not start dosbox, no dosbox binary was selected.\nPlease choose dosbox binary.") );
+        ui.twDbx->setCurrentIndex( 1 );
+        return;
     }
-    else if( ui.rbtnDBXStabel->isChecked() )
-    {
-        if( ui.LEDbxCvs->text().isEmpty() )
-        {
-            QMessageBox::information( this, winTitle(), "Can not start dosbox, no dosbox binary was selected.\nPlease choose dosbox binary." );
-            ui.twDbx->setCurrentIndex( 1 );
-            return;
-        }
-        start(  ui.LEDbxCvs->text(), "-conf", m_conf );
-    }
+    start( ui.LEDbxStabel->text(), "-conf", m_conf );
 }
 
 void DBoxFE::slotRemoveGP()
@@ -243,7 +232,7 @@ void DBoxFE::slotRemoveGP()
 
     if ( gpItem == NULL )
     {
-        QMessageBox::information( this, winTitle(), "Please select profile to delet it!" );
+        QMessageBox::information( this, winTitle(), tr("Please select profile to delet it!") );
         return;
     }
 
@@ -251,27 +240,28 @@ void DBoxFE::slotRemoveGP()
 
     if( gpTxt.isEmpty() )
     {
-        QMessageBox::information( this, winTitle(), "Please select profile for remove from list!" );
+        QMessageBox::information( this, winTitle(), tr("Please select profile for remove from list!") );
     }
     else
     {
-	m_file = QDir::homePath();
-	m_file.append( "/.dboxfe/" + gpTxt + ".conf" );
+        m_file = QDir::homePath();
+        m_file.append( "/.dboxfe/" + gpTxt + ".conf" );
         QFile f( m_file );
-	
-        switch( QMessageBox::information( this, winTitle(), "Would you delete the profile and configuration file?\nIf you click 'No' only the profile from list will be removed.", "Yes", "No", "Cancel", 0, 2 ) )
+
+        switch( QMessageBox::information( this, winTitle(), tr("Would you delete the profile and configuration file?\nIf you click 'No' only the profile from list will be removed."), tr("Yes"), tr("No"), tr("Cancel"), 0, 2 ) )
         {
         case 0: // Yes clicked
-	    delete ui.lwProfile->currentItem();
-	    
-	    if( f.exists() ){
-		f.remove();
-	    }
-	    
+            delete ui.lwProfile->currentItem();
+
+            if( f.exists() )
+            {
+                f.remove();
+            }
+
             ui.lwOutPut->addItem( "Game Profile -> " + gpTxt + " was deleted" );
             ui.lwOutPut->addItem( "Game Profile -> " + f.fileName() + " was deleted" );
             ui.lwOutPut->update();
-	    m_file = "";
+            m_file = "";
             break;
         case 1: // No clicked but delete profile from list
             delete ui.lwProfile->currentItem();
@@ -298,7 +288,7 @@ void DBoxFE::slotSnapDir()
  **/
 void DBoxFE::slotLanguage()
 {
-    QString strLng = QFileDialog::getOpenFileName( this, "Open language file", QDir::homePath(), "Language file (*.*)" );
+    QString strLng = QFileDialog::getOpenFileName( this, tr("Open language file"), QDir::homePath(), tr("Language file (*.*)") );
     if ( strLng.isEmpty() )
         return;
     ui.LELanguage->setText( strLng );
@@ -307,9 +297,9 @@ void DBoxFE::slotLanguage()
 /**
  * TODO Choose stabel binary of dosbox
  **/
-void DBoxFE::slotDbxStable()
+void DBoxFE::slotChooseDbxBinary()
 {
-    QString strDbxStabel = QFileDialog::getOpenFileName( this, "Open DOSBox stabel binary", QDir::currentPath(), "DOSBox binary (dosbox)" );
+    QString strDbxStabel = QFileDialog::getOpenFileName( this, tr("Open DOSBox binary"), QDir::currentPath(), tr("DOSBox binary (dosbox)") );
 
     if ( strDbxStabel.isEmpty() )
         return;
@@ -318,25 +308,6 @@ void DBoxFE::slotDbxStable()
 
     QProcess *p = new QProcess( this );
     p->start( strDbxStabel, QStringList() << "-version" );
-
-    while( p->waitForFinished() )
-        ui.LEDbxVersion->setText( QString( "DOSBox Version: " + p->readAll() ) );
-}
-
-/**
- * TODO Choose cvs binary of dosbox
- **/
-void DBoxFE::slotDbxCvs()
-{
-    QString strDbxCVS = QFileDialog::getOpenFileName( this, "Open DOSBox CVS binary", QDir::currentPath(), "DOSBox binary (dosbox)" );
-
-    if ( strDbxCVS.isEmpty() )
-        return;
-
-    ui.LEDbxCvs->setText( strDbxCVS );
-
-    QProcess *p = new QProcess( this );
-    p->start( strDbxCVS, QStringList() << "-version" );
 
     while( p->waitForFinished() )
         ui.LEDbxVersion->setText( QString( tr("DOSBox Version: ") + p->readAll() ) );
@@ -440,7 +411,7 @@ void DBoxFE::contextMenuEvent ( QContextMenuEvent *ce  )
     QAction *remGP = new QAction( QIcon(":/pics/images/delete_16.png"), tr("&Remove profile"), ui.lwProfile );
     QAction *creGP = new QAction( QIcon(":/pics/images/documents_16.png"), tr("&Create profile"), ui.lwProfile );
     QAction *quit = new QAction( QIcon(":/pics/images/documents_16.png"), tr("&Quit"), ui.lwProfile );
-    
+
     connect(remGP, SIGNAL(triggered()), this, SLOT(slotRemoveGP()));
     connect(creGP, SIGNAL(triggered()), this, SLOT(slotCreateGP()));
     connect(quit, SIGNAL(triggered()), this, SLOT(close()));
@@ -449,6 +420,6 @@ void DBoxFE::contextMenuEvent ( QContextMenuEvent *ce  )
     menu->addAction( remGP );
     menu->addAction( creGP );
     menu->addSeparator();
-    menu->addAction( quit );   
+    menu->addAction( quit );
     menu->exec(ce->globalPos());
 }
