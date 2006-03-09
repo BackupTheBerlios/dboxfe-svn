@@ -31,4 +31,8 @@
         <file>trash_16.png</file>
         <file>undo_16.png</file>
     </qresource>
+    <qresource prefix="/lng" >
+        <file>dboxfe_de.qm</file>
+        <file>dboxfe_en.qm</file>
+    </qresource>
 </RCC>
