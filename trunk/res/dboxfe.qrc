@@ -1,4 +1,8 @@
 <RCC>
+    <qresource prefix="/lng" >
+        <file>dboxfe_de.qm</file>
+        <file>dboxfe_en.qm</file>
+    </qresource>
     <qresource prefix="/pics/images" >
         <file>add_16.png</file>
         <file>applications_16.png</file>
@@ -10,10 +14,12 @@
         <file>copy_16.png</file>
         <file>cpu.png</file>
         <file>cut_16.png</file>
+        <file>de.png</file>
         <file>default.png</file>
         <file>delete_16.png</file>
         <file>disc-media_16.png</file>
         <file>documents_16.png</file>
+        <file>en.png</file>
         <file>folder-closed_16.png</file>
         <file>folder-open_16.png</file>
         <file>home_16.png</file>
@@ -25,14 +31,7 @@
         <file>print_16.png</file>
         <file>redo_16.png</file>
         <file>save_16.png</file>
-        <file>sound.png</file>
-        <file>soundmixer.png</file>
-        <file>speaker.png</file>
         <file>trash_16.png</file>
         <file>undo_16.png</file>
-    </qresource>
-    <qresource prefix="/lng" >
-        <file>dboxfe_de.qm</file>
-        <file>dboxfe_en.qm</file>
     </qresource>
 </RCC>
