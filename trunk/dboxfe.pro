@@ -20,47 +20,46 @@
 
 TEMPLATE = app
 TARGET = bin/dboxfe
+DEPENDPATH += include res src ui 3rdparty
+INCLUDEPATH += include 3rdparty
+RESOURCES += res/dboxfe.qrc
 CONFIG += debug thread warn_on qt
 QT += xml
 
-DEPENDPATH += include res src ui 3rdparty
-INCLUDEPATH += include 3rdparty
-TRANSLATIONS = lng/dboxfe_de.ts \
-                           lng/dboxfe_en.ts
-
-HEADERS += include/dboxfe.h \
-           include/dboxfe_profile.h \
-	   include/dboxfe_base.h \
-	   include/dboxfe_splash.h \
-           3rdparty/Base64.h \
-           3rdparty/XMLWriter.h \
-           3rdparty/XMLPreferences.h
-	   
 FORMS += ui/dboxfe.ui \
          ui/profile.ui \
-	 ui/changelog.ui
+         ui/changelog.ui 
 	 
+TRANSLATIONS += lng/dboxfe_de.ts \
+                lng/dboxfe_en.ts
+		
+HEADERS += include/dboxfe.h \
+           include/dboxfe_profile.h \
+           include/dboxfe_base.h \
+           include/dboxfe_splash.h \
+           3rdparty/Base64.h \
+           3rdparty/XMLWriter.h \
+           3rdparty/XMLPreferences.h 
+	   
 SOURCES += src/dboxfe.cpp \
            src/dboxfe_profile.cpp \
-	   src/dboxfe_base.cpp \
-	   src/dboxfe_splash.cpp \
-	   src/main.cpp \
-	   3rdparty/Base64.cpp \
-	   3rdparty/XMLPreferences.cpp \
-	   3rdparty/XMLWriter.cpp
-
-RESOURCES += res/dboxfe.qrc
+           src/dboxfe_base.cpp \
+           src/dboxfe_splash.cpp \
+           src/main.cpp \
+           3rdparty/Base64.cpp \
+           3rdparty/XMLPreferences.cpp \
+           3rdparty/XMLWriter.cpp
 
 unix{
-RCC_DIR = .unix/rcc
-MOC_DIR += .unix/moc
-OBJECTS_DIR += .unix/obj
-UI_DIR += .unix/ui
+  RCC_DIR = .unix/rcc
+  MOC_DIR += .unix/moc
+  OBJECTS_DIR += .unix/obj
+  UI_DIR += .unix/ui
 }
 
 win32{
-RCC_DIR = win/rcc
-MOC_DIR += win/moc
-OBJECTS_DIR += win/obj
-UI_DIR += win/ui
+  RCC_DIR = win/rcc
+  MOC_DIR += win/moc
+  OBJECTS_DIR += win/obj
+  UI_DIR += win/ui
 }

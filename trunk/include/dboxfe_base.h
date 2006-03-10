@@ -22,6 +22,7 @@
 #define DBOXFE_BASE_H
 
 #include "dboxfe.h"
+#include "XMLPreferences.h"
 
 #include <QtCore/QString>
 #include <QtCore/QProcess>
@@ -32,7 +33,7 @@
 /**
  * Klasse für DBoxFE
  *
- * @class GP_BASE dboxfe_base.h "GP_BASE"
+ * @class DB_BASE dboxfe_base.h "DB_BASE"
  * @author Alexander Saal <alex.saal@gmx.de>
  * @date 2006/03/03
  * @version 0.1.0
@@ -41,8 +42,6 @@
 class DB_BASE
 {
 
-private:
-    DBoxFE dbfe;
 public:
     DB_BASE();
     inline virtual ~DB_BASE(){}
@@ -54,7 +53,7 @@ public:
      * @param qw      the QWidget
      * @since 0.1.0
      */
-    void readDBConf( const QString &dbconf, QWidget* qw );
+    void readDBConf( const QString &dbconf, const DBoxFE &dbfe );
 
     /**
      * Save dosbox configuration file
@@ -63,7 +62,7 @@ public:
      * @param qw      the QWidget
      * @since 0.1.0
      */
-    void saveDBConf( const QString &dbconf, QWidget* qw );
+    void saveDBConf( const QString &dbconf, const DBoxFE &dbfe );
 };
 
 #endif // DBOXFE_BASE_H

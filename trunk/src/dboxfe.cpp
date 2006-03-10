@@ -66,42 +66,34 @@ DBoxFE::DBoxFE(QWidget *parent, Qt::WFlags flags)
     connect( ui.btnRemoveGP, SIGNAL( clicked() ), this, SLOT( slotRemoveGP() ) );
     connect( ui.btnCreateGP, SIGNAL( clicked() ), this, SLOT( slotCreateGP() ) );
     connect( ui.btnStartDBox, SIGNAL( clicked() ), this, SLOT( slotStartDBox() ) );
-
     connect( ui.btnSnapDir, SIGNAL( clicked() ), this, SLOT( slotSnapDir() ) );
     connect( ui.btnLanguage, SIGNAL( clicked() ), this, SLOT( slotLanguage() ) );
     connect( ui.btnDbxStable, SIGNAL( clicked() ), this, SLOT( slotChooseDbxBinary() ) );
-
     connect( ui.btnAutexecAdd, SIGNAL( clicked() ), this, SLOT( slotAutexecAdd() ) );
     connect( ui.btnAutexecRemove, SIGNAL( clicked() ), this, SLOT( slotAutexecRemove() ) );
     connect( ui.btnAutexecUpdate, SIGNAL( clicked() ), this, SLOT( slotAutexecUpdate() ) );
     connect( ui.btnAutexecDrive, SIGNAL( clicked() ), this, SLOT( slotAutexecDrive() ) );
-
-    // itemChanged
     connect( ui.lwProfile, SIGNAL( itemClicked( QListWidgetItem* ) ), this, SLOT( slotListWidget( QListWidgetItem* ) ) );
-
+    
     // windows title for the application
     titleLin = "DOSBox - Front End for Linux " + getAppVersion();
     titleWin = "DOSBox - Front End for Windows " + getAppVersion();
     titleMac = "DOSBox - Front End for Mac " + getAppVersion();
 
 #ifdef Q_OS_WIN32
-
     setWindowTitle( titleWin );
     QApplication::setStyle( "windowsxp" );
 #endif
 
 #ifdef Q_OS_MACX
-
     setWindowTitle( titleMac );
 #endif
 
 #ifdef Q_OS_MAC9
-
     setWindowTitle( titleMac );
 #endif
 
 #ifdef Q_OS_UNIX
-
     setWindowTitle( titleLin );
 #endif
 
@@ -115,6 +107,27 @@ DBoxFE::DBoxFE(QWidget *parent, Qt::WFlags flags)
 
 DBoxFE::~DBoxFE()
 {}
+
+/**
+ * TODO Initial DBoxFE
+ **/
+void DBoxFE::init()
+{
+    m_file = QDir::homePath();
+    m_file.append( "/.dboxfe/profile/profile.xml" );
+
+    XMLPreferences settGP( "DBoxFE", "Alexander Saal" );
+    settGP.setVersion( getAppVersion() );
+    settGP.load( m_file );
+
+    QStringList sList = settGP.getStringList( "Profile", "Name" );
+    ui.lwProfile->addItems( sList );    
+    ui.LEDbxStabel->setText( QString( settGP.getString( "DOSBox", "binary" )) );
+    ui.LEDbxVersion->setText( QString( settGP.getString( "DOSBox", "version" )) );
+    ui.cbxLanguage->setCurrentIndex( settGP.getInt( "Language", "Lng" ) );
+    
+    m_file = "";
+}
 
 /**
  * TODO Close event
@@ -135,31 +148,13 @@ void DBoxFE::closeEvent( QCloseEvent *e )
 }
 
 /**
- * TODO Initial DBoxFE
- **/
-void DBoxFE::init()
-{
-    m_file = QDir::homePath();
-    m_file.append( "/.dboxfe/profile/profile.xml" );
-
-    XMLPreferences settGP( "DBoxFE", "Alexander Saal" );
-    settGP.setVersion( getAppVersion() );
-    settGP.load( m_file );
-
-    QStringList sList = settGP.getStringList( "Profile", "Name" );
-    ui.lwProfile->addItems( sList );
-    m_file = "";
-}
-
-/**
  * TODO Save game profile
  **/
 void DBoxFE::slotSaveGP()
 {
-
     XMLPreferences settGP( "DBoxFE", "Alexander Saal" );
     settGP.setVersion( getAppVersion() );
-
+    
     m_file = QDir::homePath();
     m_file.append( "/.dboxfe/profile/profile.xml" );
 
@@ -171,6 +166,9 @@ void DBoxFE::slotSaveGP()
     }
 
     settGP.setStringList( "Profile", "Name", sList );
+    settGP.setString( "DOSBox", "binary", ui.LEDbxStabel->text() );
+    settGP.setString( "DOSBox", "version", ui.LEDbxVersion->text() );
+    settGP.setInt( "Language", "Lng", ui.cbxLanguage->currentIndex() );
     settGP.save( m_file);
     m_file = "";
 }
@@ -280,7 +278,11 @@ void DBoxFE::slotRemoveGP()
  **/
 void DBoxFE::slotSnapDir()
 {
-    qDebug( "void DBoxFE::slotSnapDir()" );
+    QString strSnap = QFileDialog::getExistingDirectory( this, tr("Open snapshot directory"), QDir::homePath() );
+    if ( strSnap.isEmpty() )
+        return;
+    
+    ui.LELanguage->setText( strSnap );    
 }
 
 /**
@@ -401,25 +403,4 @@ void DBoxFE::finish()
 {
     this->show();
     ui.btnStartDBox->setEnabled( true );
-}
-
-/**
- * TODO Function for start dosbox and read output
- **/
-void DBoxFE::contextMenuEvent ( QContextMenuEvent *ce  )
-{
-    QAction *remGP = new QAction( QIcon(":/pics/images/delete_16.png"), tr("&Remove profile"), ui.lwProfile );
-    QAction *creGP = new QAction( QIcon(":/pics/images/documents_16.png"), tr("&Create profile"), ui.lwProfile );
-    QAction *quit = new QAction( QIcon(":/pics/images/documents_16.png"), tr("&Quit"), ui.lwProfile );
-
-    connect(remGP, SIGNAL(triggered()), this, SLOT(slotRemoveGP()));
-    connect(creGP, SIGNAL(triggered()), this, SLOT(slotCreateGP()));
-    connect(quit, SIGNAL(triggered()), this, SLOT(close()));
-
-    QMenu *menu = new QMenu( tr("<font color=darkblue><u><b>Game Profile Menu</b></u></font>"), ui.lwProfile );
-    menu->addAction( remGP );
-    menu->addAction( creGP );
-    menu->addSeparator();
-    menu->addAction( quit );
-    menu->exec(ce->globalPos());
 }

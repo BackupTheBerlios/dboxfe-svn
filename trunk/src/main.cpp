@@ -38,6 +38,7 @@ int main(int argc, char *argv[])
     QTranslator translator;
     QString local = QLocale::system().name();
     QString m_file;
+    QString lng;
     
     m_file = QDir::homePath();
     m_file.append( "/.dboxfe/profile/profile.xml" );
@@ -48,26 +49,24 @@ int main(int argc, char *argv[])
     settGP.setVersion( w.getAppVersion() );
     settGP.load( m_file );
     
-    QString lng = settGP.getString( "Language", "Lng" );
+    int lngIndex = settGP.getInt( "Language", "Lng" );
 
-    if( lng == "ge" )
+    if( lngIndex == 0 )
     {
-	lng = ":/lng/dboxfe_de.qm";
+	lng = ":/lng/dboxfe_en.qm";
 	translator.load( lng );
 	app.installTranslator(&translator);
     }
-    else if( lng == "en" )
+    else if( lngIndex == 1 )
     {
-	lng = ":/lng/dboxfe_en.qm";
+	lng = ":/lng/dboxfe_de.qm";
 	translator.load( lng );
 	app.installTranslator(&translator);
     }
     else
     {
 	// TODO add code for disable message
-	if( lng == "ge") QMessageBox::information( 0, w.winTitle(), "Es wurde keine Sprache gewählt, benutze standartsprache englisch ...");
-	if( lng == "en") QMessageBox::information( 0, w.winTitle(), "No Language was choosed, use default language english ...");
-	if( lng.isEmpty() ) QMessageBox::information( 0, w.winTitle(), "No Language was choosed, use default language english ...");
+	if( lngIndex == -1 ) QMessageBox::information( 0, w.winTitle(), "No Language was choosed, use default language english ...");
     }
     
 	
@@ -78,10 +77,7 @@ int main(int argc, char *argv[])
     app.processEvents();
 
     if (splash) splash->showMessage( "Loading Profiles" );
-
-
-    if (splash)
-        splash->show();
+    if (splash) splash->show();
 
     w.init();
 

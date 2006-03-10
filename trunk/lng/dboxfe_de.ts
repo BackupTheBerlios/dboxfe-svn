@@ -3,15 +3,15 @@
     <name>ChangeLog</name>
     <message>
         <source>ChangeLog</source>
-        <translation>ChangeLog</translation>
+        <translation></translation>
     </message>
     <message>
         <source>DOSBox ChangeLog</source>
-        <translation>DOSBox ChangeLog</translation>
+        <translation></translation>
     </message>
     <message>
         <source>DBoxFE ChangeLog </source>
-        <translation>DBoxFE ChangeLog</translation>
+        <translation></translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;/head&gt;&lt;body style=&quot; white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
@@ -33,36 +33,40 @@
         <translation>Spielprofile</translation>
     </message>
     <message>
-        <source>&amp;Remove</source>
-        <translation>&amp;Löschen</translation>
+        <source>Default</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source> &amp;Remove</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Alt+R</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&amp;Save</source>
-        <translation>&amp;Speichern</translation>
+        <source> &amp;Save</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Alt+S</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&amp;Create</source>
-        <translation>&amp;Erstellen</translation>
+        <source> &amp;Create</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Alt+C</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>St&amp;art</source>
-        <translation>St&amp;art</translation>
+        <source> St&amp;art</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Alt+D</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>SDL, Render &amp;&amp; CPU</source>
@@ -154,15 +158,15 @@
     </message>
     <message>
         <source>Cycles:</source>
-        <translation>Zyklen:</translation>
+        <translation>Cycles:</translation>
     </message>
     <message>
         <source>Cycledown:</source>
-        <translation>Zyklus unterhalb:</translation>
+        <translation>Cycledown:</translation>
     </message>
     <message>
         <source>Cycleup:</source>
-        <translation>Zyklus oberhalb:</translation>
+        <translation>Cycleup:</translation>
     </message>
     <message>
         <source>10</source>
@@ -214,11 +218,11 @@
     </message>
     <message>
         <source>Sensitivity:</source>
-        <translation>Sensitivity:</translation>
+        <translation>Empfindlichkeit:</translation>
     </message>
     <message>
         <source>Full wight/height:</source>
-        <translation>Voll höhe/breite:</translation>
+        <translation>Volle Breite/Höhe:</translation>
     </message>
     <message>
         <source>640x480</source>
@@ -246,15 +250,15 @@
     </message>
     <message>
         <source>Autolock</source>
-        <translation></translation>
+        <translation>Auto lock</translation>
     </message>
     <message>
         <source>Use Scancodes</source>
-        <translation>bneutze Scancodes</translation>
+        <translation>Benutze Scancodes</translation>
     </message>
     <message>
         <source>Wait on Error</source>
-        <translation>Warten bei Fehler</translation>
+        <translation>Warten ebi Fehler</translation>
     </message>
     <message>
         <source>lowest,lowest</source>
@@ -378,27 +382,27 @@
     </message>
     <message>
         <source>Focus/Unfocus</source>
-        <translation></translation>
+        <translation>Fokus/k. Fokus</translation>
     </message>
     <message>
         <source>Full screen</source>
-        <translation>Vollbildschrim</translation>
+        <translation>Vollbild</translation>
     </message>
     <message>
         <source>Full double</source>
-        <translation>Full double</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Full fixed</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Render</source>
-        <translation></translation>
+        <translation>Render</translation>
     </message>
     <message>
         <source>Snapdir:</source>
-        <translation>Snapdir:</translation>
+        <translation>Screenshot ordner:</translation>
     </message>
     <message>
         <source>Frameskip:</source>
@@ -406,7 +410,7 @@
     </message>
     <message>
         <source>Scaler:</source>
-        <translation>Scaler:</translation>
+        <translation>Frequenzteiler:</translation>
     </message>
     <message>
         <source>Do aspect correction</source>
@@ -482,11 +486,11 @@
     </message>
     <message>
         <source>Block Size:</source>
-        <translation>Blockgrösse:</translation>
+        <translation>Blockgroesse:</translation>
     </message>
     <message>
         <source>Wave dir:</source>
-        <translation>Wave verzeichnis:</translation>
+        <translation>Wave ordner:</translation>
     </message>
     <message>
         <source>11050</source>
@@ -534,7 +538,7 @@
     </message>
     <message>
         <source>OPL mode:</source>
-        <translation>OPL mode:</translation>
+        <translation>OPL Modus:</translation>
     </message>
     <message>
         <source>sb1</source>
@@ -642,11 +646,11 @@
     </message>
     <message>
         <source>Ultra dir:</source>
-        <translation>Ultra verzeichnis:</translation>
+        <translation>Ultra ordner:</translation>
     </message>
     <message>
         <source>C:\ULTRASND</source>
-        <translation></translation>
+        <translation>C:\ULTRASND</translation>
     </message>
     <message>
         <source>gus</source>
@@ -674,11 +678,11 @@
     </message>
     <message>
         <source>Device:</source>
-        <translation>Device:</translation>
+        <translation>Gerät:</translation>
     </message>
     <message>
         <source>Config:</source>
-        <translation>Konfig:</translation>
+        <translation>Konfgi:</translation>
     </message>
     <message>
         <source>default</source>
@@ -721,7 +725,7 @@
         <translation></translation>
     </message>
     <message>
-        <source>Starmapper</source>
+        <source>Startmapper</source>
         <translation></translation>
     </message>
     <message>
@@ -762,11 +766,11 @@
     </message>
     <message>
         <source>Real Port:</source>
-        <translation>Real Port:</translation>
+        <translation>Realer Port:</translation>
     </message>
     <message>
         <source>Default bps:</source>
-        <translation>Default bps:</translation>
+        <translation>Standart bps:</translation>
     </message>
     <message>
         <source>Parity:</source>
@@ -774,7 +778,7 @@
     </message>
     <message>
         <source>Bytesize:</source>
-        <translation>Bytesize:</translation>
+        <translation>Bytegroesse:</translation>
     </message>
     <message>
         <source>Stopbit:</source>
@@ -809,10 +813,6 @@
         <translation></translation>
     </message>
     <message>
-        <source>Other</source>
-        <translation></translation>
-    </message>
-    <message>
         <source>Language:</source>
         <translation>Sprache:</translation>
     </message>
@@ -822,271 +822,287 @@
     </message>
     <message>
         <source>Open the language file for dosbox</source>
-        <translation>Öffnen der Sprachdatei für DOSBox</translation>
-    </message>
-    <message>
-        <source>wave</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>midi</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>capture</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>screenshot</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Machine:</source>
-        <translation>Maschine:</translation>
-    </message>
-    <message>
-        <source>Memorysize:</source>
-        <translation>Speichergrösse:</translation>
-    </message>
-    <message>
-        <source>hercules</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>cga</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>tandy</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>vga</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>16</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>32</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>64</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>128</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>256</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>512</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Autoexec</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Windows 2000/XP and Linux CD/DVD ROM</source>
-        <translation>Windows 2000/XP und Linux CD/DVD ROM</translation>
-    </message>
-    <message>
-        <source>Windows 98 CD/DVD ROM</source>
-        <translation>Windows 98 CD/DVD ROM</translation>
-    </message>
-    <message>
-        <source>Use directory as CD/DVD ROM</source>
-        <translation>benutze Verzeichnis als CD/DVD ROM</translation>
-    </message>
-    <message>
-        <source>Use directory as floppy drive</source>
-        <translation>benutze Verzeichnis als Floppy</translation>
-    </message>
-    <message>
-        <source>Use label for CD/DVD ROM</source>
-        <translation>benutze Bezeichnungs für CD/DVD ROM</translation>
-    </message>
-    <message>
-        <source>Directory for dosbox:</source>
-        <translation>Verzeichnis für DOSBox:</translation>
-    </message>
-    <message>
-        <source>A</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>B</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>C</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>D</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>F</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>G</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>H</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>I</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>J</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>K</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>L</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>M</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>P</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Q</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>R</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>S</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>T</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>U</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>V</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>W</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>X</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Y</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Z</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Add</source>
-        <translation>Hinzufügen</translation>
-    </message>
-    <message>
-        <source>Remove</source>
-        <translation>Löschen</translation>
-    </message>
-    <message>
-        <source>Update</source>
-        <translation>Aktuaöisieren</translation>
-    </message>
-    <message>
-        <source>Label for device:</source>
-        <translation>Bezeichnung für das Gerät:</translation>
-    </message>
-    <message>
-        <source>DBoxFE Config</source>
-        <translation>DBoxFE Konfiguration</translation>
-    </message>
-    <message>
-        <source>Log</source>
-        <translation>Log</translation>
-    </message>
-    <message>
-        <source>Language</source>
-        <translation>Sprache</translation>
-    </message>
-    <message>
-        <source>English</source>
-        <translation>Englisch</translation>
-    </message>
-    <message>
-        <source>German</source>
-        <translation>Deutsch</translation>
-    </message>
-    <message>
-        <source>Executable/DOSBox binary</source>
-        <translation>Ausführbare Datei von DOSBox</translation>
-    </message>
-    <message>
-        <source>DOSBox binary:</source>
-        <translation>DOSBoxdatei:</translation>
-    </message>
-    <message>
-        <source>About</source>
-        <translation>Info</translation>
-    </message>
-    <message>
-        <source>Author</source>
-        <translation>Author</translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;/head&gt;&lt;body style=&quot; white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; font-size:8pt;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Developer:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;/head&gt;&lt;body style=&quot; white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; font-size:8pt;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Developer:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;/head&gt;&lt;body style=&quot; white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; font-size:8pt;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;First Nick:<byte value="x9"/>&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;ChMaster &amp;amp; LFreak &amp;amp; ChMaster|LFreak&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Real Name:&lt;/span&gt;Alexander Saal&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;E-Mail:<byte value="x9"/>&lt;/span&gt;&lt;span style=&quot; color:#0000ff;&quot;&gt;alex.saal@gmx.de&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;/head&gt;&lt;body style=&quot; white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; font-size:8pt;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Designer:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;/head&gt;&lt;body style=&quot; white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; font-size:8pt;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Designer:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>wave</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;/head&gt;&lt;body style=&quot; white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; font-size:8pt;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;(C)opyright:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;/head&gt;&lt;body style=&quot; white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; font-size:8pt;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;(C)opyright:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>midi</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>capture</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Machine:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Memorysize:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>hercules</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>cga</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tandy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>vga</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>16</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>32</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>64</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>128</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>256</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>512</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Autoexec</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Windows 2000/XP and Linux CD/DVD ROM</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Windows 98 CD/DVD ROM</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use directory as CD/DVD ROM</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use directory as floppy drive</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use label for CD/DVD ROM</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Directory for dosbox:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>B</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>C</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>D</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>F</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>G</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>H</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>I</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>J</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>K</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>L</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>M</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>P</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Q</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>R</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>S</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>T</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>U</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>V</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>W</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Z</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Label for device:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Preferences</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Log</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Language</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>English</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>German</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Executable/DOSBox binary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DOSBox binary:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>About</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Author</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Developer:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Designer:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>(C)opyright:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>E-Mail:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>WWW:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alexander Saal (aka ChMaster, LFreak or ChMaster|LFreak)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Alexander Saal</source>
-        <translation>Alexander Saal</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
         <source>© &apos;2004, 2005, 2006</source>
-        <translation>© &apos;2004, 2005, 2006</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;/head&gt;&lt;body style=&quot; white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration: underline;&quot;&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#0000ff;&quot;&gt;alex.saal@gmx.de&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;/head&gt;&lt;body style=&quot; white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://chmaster.freeforge.net&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>License</source>
-        <translation>Lizenz</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Thanks</source>
@@ -1094,7 +1110,7 @@
     </message>
     <message>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;/head&gt;&lt;body style=&quot; white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; font-size:9pt;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;KConfig: &lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Michael Goettsche&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg;&quot;&gt;&lt;span style=&quot; font-size:10pt; color:#000000;&quot;&gt;(KConfig code removed - QSettings is now used)&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg;&quot;&gt;&lt;span style=&quot; color:#0000ff;&quot;&gt;michi.goettsche@gmx.de&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; color:#0000ff;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; color:#0000ff;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;Gameprofile: &lt;/span&gt;&lt;span style=&quot; color:#000000;&quot;&gt;anda_skoa&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; color:#000000;&quot;&gt;&lt;span style=&quot; color:#0000ff;&quot;&gt;http://www.mrunix.de/forums/member.php?find=lastposter&amp;amp;t=42863&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; color:#0000ff;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; color:#0000ff;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;DOSBox: &lt;/span&gt;&lt;span style=&quot; color:#000000;&quot;&gt;The DOSBox Crew&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; color:#000000;&quot;&gt;&lt;span style=&quot; font-size:11pt; color:#0000ff;&quot;&gt;http&lt;/span&gt;&lt;span style=&quot; color:#0000ff;&quot;&gt;://dosbox.sourceforgef.net&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; color:#0000ff;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; font-weight:600; color:#000000;&quot;&gt;XMLPreferences:&lt;span style=&quot; font-weight:400; color:#0000ff;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-weight:400;&quot;&gt;Angius Fabrizio (OSDaB)&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; color:#000000;&quot;&gt;&lt;span style=&quot; color:#0000ff;&quot;&gt;http://osdab.sourceforge.net&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;/head&gt;&lt;body style=&quot; white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; font-size:9pt;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;KConfig: &lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Michael Goettsche&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg;&quot;&gt;&lt;span style=&quot; font-size:10pt; color:#000000;&quot;&gt;(KConfig code removed - QSettings is now used)&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg;&quot;&gt;&lt;span style=&quot; color:#0000ff;&quot;&gt;michi.goettsche@gmx.de&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; color:#0000ff;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; color:#0000ff;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;Gameprofile: &lt;/span&gt;&lt;span style=&quot; color:#000000;&quot;&gt;anda_skoa&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; color:#000000;&quot;&gt;&lt;span style=&quot; color:#0000ff;&quot;&gt;http://www.mrunix.de/forums/member.php?find=lastposter&amp;amp;t=42863&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; color:#0000ff;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; color:#0000ff;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;DOSBox: &lt;/span&gt;&lt;span style=&quot; color:#000000;&quot;&gt;The DOSBox Crew&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; color:#000000;&quot;&gt;&lt;span style=&quot; font-size:11pt; color:#0000ff;&quot;&gt;http&lt;/span&gt;&lt;span style=&quot; color:#0000ff;&quot;&gt;://dosbox.sourceforgef.net&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; color:#0000ff;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; font-weight:600; color:#000000;&quot;&gt;XMLPreferences:&lt;span style=&quot; font-weight:400; color:#0000ff;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-weight:400;&quot;&gt;Angius Fabrizio (OSDaB)&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; color:#000000;&quot;&gt;&lt;span style=&quot; color:#0000ff;&quot;&gt;http://osdab.sourceforge.net&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Would you realy quit?</source>
@@ -1110,35 +1126,35 @@
     </message>
     <message>
         <source>Please select profile.</source>
-        <translation>Es wurde kein Profile ausgewählt.</translation>
+        <translation>Bitt wähl ein Profile.</translation>
     </message>
     <message>
         <source>Configuration file not found!
 
 &apos;</source>
-        <translation>Konfigurationsdatei nicht gefunden!\n&apos;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&apos;</source>
-        <translation>&apos;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Can not start dosbox, no dosbox binary was selected.
 Please choose dosbox binary.</source>
-        <translation>Kann DOSBox nicht starten. Wurde die DOSBox datei ausgewählt?\nPlease choose dosbox binary.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Please select profile to delet it!</source>
-        <translation>Wählen Sie ein Profile aus um es zu löschen!</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Please select profile for remove from list!</source>
-        <translation>Wählen Sie ein Profile aus um esaus der Liste zu löschen!</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Would you delete the profile and configuration file?
 If you click &apos;No&apos; only the profile from list will be removed.</source>
-        <translation>Möchten Sie das ausgewählte Profile mit der Konfigurationsdatei löschen?\nWenn Sie &apos;Nein&apos; wählen wird nur das gewählte Profile von der Liste gelöscht.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1146,14 +1162,14 @@ If you click &apos;No&apos; only the profile from list will be removed.</source>
     </message>
     <message>
         <source>Open language file</source>
-        <translation>Öffnen der Sprachdate</translation>
+        <translation>Sprachdatei öffnen</translation>
     </message>
     <message>
         <source>Language file (*.*)</source>
         <translation>Sprachdatei (*.*)</translation>
     </message>
     <message>
-        <source>Open DOSBox stabel binary</source>
+        <source>Open DOSBox binary</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1162,47 +1178,38 @@ If you click &apos;No&apos; only the profile from list will be removed.</source>
     </message>
     <message>
         <source>DOSBox Version: </source>
-        <translation>DOSBox Version:</translation>
-    </message>
-    <message>
-        <source>Open DOSBox CVS binary</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dosbox cmd output -&gt;</source>
-        <translation>dosbox cmd ausgabe -&gt;</translation>
-    </message>
-    <message>
-        <source>&amp;Remove profile</source>
-        <translation>Profile löschen</translation>
-    </message>
-    <message>
-        <source>&amp;Create profile</source>
-        <translation>Profile erstellen</translation>
-    </message>
-    <message>
-        <source>&amp;Quit</source>
-        <translation>Beenden</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;font color=darkblue&gt;&lt;u&gt;&lt;b&gt;Game Profile Menu&lt;/b&gt;&lt;/u&gt;&lt;/font&gt;</source>
-        <translation>&lt;font color=darkblue&gt;&lt;u&gt;&lt;b&gt;Profile Menu&lt;/b&gt;&lt;/u&gt;&lt;/font&gt;</translation>
+        <translation type="obsolete">&lt;font color=darkblue&gt;&lt;u&gt;&lt;b&gt;Profile Menu&lt;/b&gt;&lt;/u&gt;&lt;/font&gt;</translation>
+    </message>
+    <message>
+        <source> &amp;Quit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open snapshot directory</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>DBoxFE_Profile</name>
     <message>
         <source>Profilename</source>
-        <translation>Profilename</translation>
+        <translation></translation>
     </message>
     <message>
         <source>&amp;Abort</source>
-        <translation>&amp;Abbrechen
-</translation>
+        <translation>&amp;Abbrechen</translation>
     </message>
     <message>
         <source>Ok</source>
-        <translation>Ok</translation>
+        <translation></translation>
     </message>
     <message>
         <source>Profilename:</source>

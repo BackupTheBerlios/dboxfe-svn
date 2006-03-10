@@ -54,7 +54,6 @@ private:
     
 protected:
     void closeEvent( QCloseEvent *e );
-    void contextMenuEvent ( QContextMenuEvent *ce);
     
 private slots:
     void slotListWidget( QListWidgetItem* );
@@ -73,7 +72,7 @@ private slots:
     void start( const QString& bin, const QString &param, const QString &conf );
     void readOutput();
     void finish();
-
+    
 public slots:
     void init();
 };

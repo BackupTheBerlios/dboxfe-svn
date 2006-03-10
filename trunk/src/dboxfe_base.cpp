@@ -20,11 +20,13 @@
 
 #include "dboxfe.h"
 #include "dboxfe_base.h"
+#include "XMLPreferences.h"
 
 #include <QtCore/QSettings>
 #include <QtCore/QString>
 #include <QtCore/QStringList>
 #include <QtCore/QtDebug>
+#include <QtCore/QDir>
 
 #include <QtGui/QWidget>
 #include <QtGui/QListWidgetItem>
@@ -32,14 +34,14 @@
 DB_BASE::DB_BASE()
 {}
 
-void DB_BASE::readDBConf( const QString &dbconf, QWidget* qw )
+void DB_BASE::readDBConf( const QString &dbconf, const DBoxFE &dbfe )
 {
     QSettings settGP( dbconf, QSettings::IniFormat );
     QStringList sList;
 
 }
 
-void DB_BASE::saveDBConf( const QString &dbcon, QWidget* qw )
+void DB_BASE::saveDBConf( const QString &dbcon, const DBoxFE &dbfe )
 {
     QSettings settGP( dbcon, QSettings::IniFormat );
     // qw->ui.
