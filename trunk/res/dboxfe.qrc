@@ -1,7 +1,7 @@
 <RCC>
     <qresource prefix="/lng" >
-        <file>../lng/dboxfe_de.qm</file>
-        <file>../lng/dboxfe_en.qm</file>
+        <file>dboxfe_de.qm</file>
+        <file>dboxfe_en.qm</file>
     </qresource>
     <qresource prefix="/pics/images" >
         <file>add_16.png</file>
