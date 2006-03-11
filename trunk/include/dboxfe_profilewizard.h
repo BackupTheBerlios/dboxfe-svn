@@ -18,64 +18,32 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-#ifndef DBOXFE_H
-#define DBOXFE_H
+#ifndef DBOXFE_PROFILEWIZARD_H
+#define DBOXFE_PROFILEWIZARD_H
 
-// QtGui Header
-#include <QtGui/QWidget>
-#include <QtGui/QCloseEvent>
-#include <QtGui/QListWidgetItem>
-#include <QtGui/QContextMenuEvent>
+#include <QtGui/QDialog>
 
-// QtCore Header
-#include <QtCore/QProcess>
-#include <QtCore/QString>
+#include "ui_profilewizard.h"
 
-#include "ui_dboxfe.h"
-
-class DBoxFE : public QWidget
+class DBoxFE_ProfileWizard : public QDialog
 {
     Q_OBJECT
 
 public:
-    DBoxFE(QWidget *parent = 0, Qt::WFlags flags = 0);
-    ~DBoxFE();
-    
-    Ui::DBoxFE ui;
-    
-    QString getAppVersion(){ return "v0.1.0"; }
-    QString winTitle(){ return "DBox Front End"; }
+    DBoxFE_ProfileWizard(QDialog *parent = 0, Qt::WFlags flags = 0);
+    ~DBoxFE_ProfileWizard();
 
 private:
-    QString titleLin, titleWin, titleMac, gpTxt, m_result, m_conf, m_file;
-    QStringList m_param;
-    QProcess *dBox;
-    QListWidgetItem *gpItem;
-    
-protected:
-    void closeEvent( QCloseEvent *e );
+    Ui::DBoxFE_ProfileWizard ui;
+    QString getFinishText(){ return tr("&Finish"); }
     
 private slots:
-    void slotListWidget( QListWidgetItem* );
-    void slotAutexecDrive();
-    void slotAutexecUpdate();
-    void slotAutexecRemove();
-    void slotAutexecAdd();
-    void slotChooseDbxBinary();
-    void slotLanguage();
-    void slotSnapDir();
-    void slotRemoveGP();
-    void slotStartDBox();
-    void slotCreateGP();
-    void slotSaveGP();
-    void slotWizard();
-    
-    void start( const QString& bin, const QString &param, const QString &conf );
-    void readOutput();
-    void finish();
-    
-public slots:
-    void init();
+    void slotBack();
+    void slotNext();
+    void slotHelp();
+    void slotAbort();
+    void slotSelectDir();
+    void slotSearch();
 };
 
-#endif // DBOXFE_H
+#endif // DBOXFE_PROFILEWIZARD_H

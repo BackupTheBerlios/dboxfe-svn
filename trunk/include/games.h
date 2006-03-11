@@ -18,64 +18,28 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-#ifndef DBOXFE_H
-#define DBOXFE_H
+#ifndef GAMES_H
+#define GAMES_H
 
-// QtGui Header
-#include <QtGui/QWidget>
-#include <QtGui/QCloseEvent>
-#include <QtGui/QListWidgetItem>
-#include <QtGui/QContextMenuEvent>
+#define Monkey_Island "monkey.exe"
+#define Monkey_Island2 "monkey2.exe"
+#define Indiana_Jones3 "INDYVGA.exe"
+#define Indiana_Jones4 "atlantis.exe"
+#define Sam_n_Max "samnmax.exe"
+#define Simon_the_Sorcerer2 "Simon2.bat"
+#define CyberChess "Cyberc.exe"
+#define Siedler2 "S2.exe"
+#define DOTT "TENTACLE.exe" //Day of the Tentacle
 
-// QtCore Header
-#include <QtCore/QProcess>
-#include <QtCore/QString>
+/*#define Indiana_Jones3                "INDYVGA.exe"
+#define CyberChess                    "CYBERC.exe"
+#define Day of the Tentacle           "TENTACLE.exe"
+#define Indiana_Jones4                "ATLANTIS.exe"
+#define Monkey Island                 "MONKEY.exe"
+#define Monkey Island 2               "MONKEY2.exe"
+#define Sam N Max Hit the Road        "SAMNMAX.exe"
+#define Simon the Sorcerer 2          "SIMON2.bat"
+#define Die Siedler 2                 "S2.exe"*/
 
-#include "ui_dboxfe.h"
 
-class DBoxFE : public QWidget
-{
-    Q_OBJECT
-
-public:
-    DBoxFE(QWidget *parent = 0, Qt::WFlags flags = 0);
-    ~DBoxFE();
-    
-    Ui::DBoxFE ui;
-    
-    QString getAppVersion(){ return "v0.1.0"; }
-    QString winTitle(){ return "DBox Front End"; }
-
-private:
-    QString titleLin, titleWin, titleMac, gpTxt, m_result, m_conf, m_file;
-    QStringList m_param;
-    QProcess *dBox;
-    QListWidgetItem *gpItem;
-    
-protected:
-    void closeEvent( QCloseEvent *e );
-    
-private slots:
-    void slotListWidget( QListWidgetItem* );
-    void slotAutexecDrive();
-    void slotAutexecUpdate();
-    void slotAutexecRemove();
-    void slotAutexecAdd();
-    void slotChooseDbxBinary();
-    void slotLanguage();
-    void slotSnapDir();
-    void slotRemoveGP();
-    void slotStartDBox();
-    void slotCreateGP();
-    void slotSaveGP();
-    void slotWizard();
-    
-    void start( const QString& bin, const QString &param, const QString &conf );
-    void readOutput();
-    void finish();
-    
-public slots:
-    void init();
-};
-
-#endif // DBOXFE_H
+#endif // GAMES_H

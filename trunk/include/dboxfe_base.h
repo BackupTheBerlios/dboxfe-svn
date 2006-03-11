@@ -24,11 +24,13 @@
 #include "dboxfe.h"
 #include "XMLPreferences.h"
 
-#include <QtCore/QString>
-#include <QtCore/QProcess>
-#include <QtGui/QListWidget>
-#include <QtCore/QStringList>
 #include <QtGui/QWidget>
+#include <QtGui/QListWidget>
+#include <QtGui/QProgressBar>
+
+#include <QtCore/QString>
+#include <QtCore/QStringList>
+#include <QtCore/QDir>
 
 /**
  * Klasse für DBoxFE
@@ -63,6 +65,26 @@ public:
      * @since 0.1.0
      */
     void saveDBConf( const QString &dbconf, const DBoxFE &dbfe );
+    
+    /**
+     * Search game executable
+     *
+     * @param dir        the directory for search
+     * @param files      the QStringList &files (include all files from QDir &dir)
+     * @param wildCards  the wild cards for searching executable (like: *.exe)
+     * @since 0.1.0
+     */
+    QStringList findFiles( const QDir &dir, const QStringList &files, const QString &wildCards, QProgressBar *pBar );
+    
+    /**
+     * Show found games
+     *
+     * @param dir        the directory
+     * @param files      the QStringList &files (include all files from QDir &dir)
+     * @param qlw        the QListWidget for show found file
+     * @since 0.1.0
+     */
+    void showFiles( const QDir &dir, const QStringList &files, QListWidget* qlw );
 };
 
 #endif // DBOXFE_BASE_H

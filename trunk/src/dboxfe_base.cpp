@@ -25,9 +25,13 @@
 #include <QtCore/QSettings>
 #include <QtCore/QString>
 #include <QtCore/QStringList>
-#include <QtCore/QtDebug>
 #include <QtCore/QDir>
+#include <QtCore/QFile>
+#include <QtCore/QTextStream>
+#include <QtCore/QIODevice>
+#include <QtCore/QList>
 
+#include <QtGui/QProgressBar>
 #include <QtGui/QWidget>
 #include <QtGui/QListWidgetItem>
 
@@ -47,4 +51,48 @@ void DB_BASE::saveDBConf( const QString &dbcon, const DBoxFE &dbfe )
     // qw->ui.
     settGP.setValue( "", "" );
 
+}
+
+QStringList DB_BASE::findFiles( const QDir &dir, const QStringList &files, const QString &wildCards, QProgressBar *pBar )
+{
+    QStringList foundFiles;
+    pBar->setMaximum( files.size() );
+
+    for( int i = 0; i < files.size(); ++i )
+    {
+        QFile file( dir.absoluteFilePath( files[i] ) );
+
+        if ( file.open( QIODevice::ReadOnly ) )
+        {
+            QString line;
+            QTextStream in( &file );
+	    
+            while (!in.atEnd())
+            {
+                line = in.readLine();
+                if ( line.contains( wildCards ) )
+                {
+                    foundFiles << files[i];
+                    break;
+                }
+            }
+        }
+	pBar->setValue( i );
+    }
+    pBar->reset();
+    return foundFiles;
+}
+
+void DB_BASE::showFiles(const QDir &dir, const QStringList &files, QListWidget* qlw)
+{
+    for( int i = 0; i < files.size(); ++i )
+    {
+	// for future requests
+        // QFile file( dir.absoluteFilePath( files[i] ) );
+	
+	QListWidgetItem *fileNameItem = new QListWidgetItem( files[i] );
+	fileNameItem->setFlags(Qt::ItemIsEnabled);
+	
+	qlw->addItem( fileNameItem );
+    }
 }

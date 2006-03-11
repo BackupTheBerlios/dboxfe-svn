@@ -33,5 +33,6 @@
         <file>save_16.png</file>
         <file>trash_16.png</file>
         <file>undo_16.png</file>
+        <file>wiz_internet.png</file>
     </qresource>
 </RCC>

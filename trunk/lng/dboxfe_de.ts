@@ -1144,10 +1144,6 @@ Please choose dosbox binary.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Please select profile to delet it!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Please select profile for remove from list!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1196,6 +1192,26 @@ If you click &apos;No&apos; only the profile from list will be removed.</source>
         <source>Open snapshot directory</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Window option</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide window if dosbox started</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create with &amp;Wizard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Game Profile -&gt; </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> was deleted</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DBoxFE_Profile</name>
@@ -1214,6 +1230,57 @@ If you click &apos;No&apos; only the profile from list will be removed.</source>
     <message>
         <source>Profilename:</source>
         <translation>Profilename:</translation>
+    </message>
+</context>
+<context>
+    <name>DBoxFE_ProfileWizard</name>
+    <message>
+        <source>Profilewizard</source>
+        <translation>Profile Assistent</translation>
+    </message>
+    <message>
+        <source>&amp;Help</source>
+        <translation>&amp;Hilfe</translation>
+    </message>
+    <message>
+        <source>&amp;Back</source>
+        <translation>&amp;Zurück</translation>
+    </message>
+    <message>
+        <source>&amp;Next</source>
+        <translation>&amp;Weiter</translation>
+    </message>
+    <message>
+        <source>&amp;Abort</source>
+        <translation>&amp;Abbrechen</translation>
+    </message>
+    <message>
+        <source>Games found</source>
+        <translation>Gefundene Spiele</translation>
+    </message>
+    <message>
+        <source>select all Games</source>
+        <translation>alle Spiele markieren</translation>
+    </message>
+    <message>
+        <source>Option</source>
+        <translation>Option</translation>
+    </message>
+    <message>
+        <source>include Subdirectories</source>
+        <translation>Unterverzeichnise einbeziehen</translation>
+    </message>
+    <message>
+        <source>Finish</source>
+        <translation>Fertig</translation>
+    </message>
+    <message>
+        <source>Save configuration</source>
+        <translation>Konfiguration speichern</translation>
+    </message>
+    <message>
+        <source>Create game profiles</source>
+        <translation>Spielprofile erstellen</translation>
     </message>
 </context>
 </TS>

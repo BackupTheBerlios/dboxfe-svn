@@ -19,8 +19,11 @@
  ***************************************************************************/
 
 #include "dboxfe.h"
-#include "dboxfe_profile.h"
 #include "dboxfe_base.h"
+#include "dboxfe_profile.h"
+#include "dboxfe_profilewizard.h"
+
+// 3rdparty library
 #include "XMLPreferences.h"
 
 // QtGui Header
@@ -65,6 +68,7 @@ DBoxFE::DBoxFE(QWidget *parent, Qt::WFlags flags)
     connect( ui.btnSaveGP, SIGNAL( clicked() ), this, SLOT( slotSaveGP() ) );
     connect( ui.btnRemoveGP, SIGNAL( clicked() ), this, SLOT( slotRemoveGP() ) );
     connect( ui.btnCreateGP, SIGNAL( clicked() ), this, SLOT( slotCreateGP() ) );
+    connect( ui.btnWizard, SIGNAL( clicked() ), this, SLOT( slotWizard() ) );
     connect( ui.btnStartDBox, SIGNAL( clicked() ), this, SLOT( slotStartDBox() ) );
     connect( ui.btnSnapDir, SIGNAL( clicked() ), this, SLOT( slotSnapDir() ) );
     connect( ui.btnLanguage, SIGNAL( clicked() ), this, SLOT( slotLanguage() ) );
@@ -109,7 +113,7 @@ DBoxFE::~DBoxFE()
 {}
 
 /**
- * TODO Initial DBoxFE
+ * TODO Initial: configuration
  **/
 void DBoxFE::init()
 {
@@ -124,7 +128,8 @@ void DBoxFE::init()
     ui.lwProfile->addItems( sList );    
     ui.LEDbxStabel->setText( QString( settGP.getString( "DOSBox", "binary" )) );
     ui.LEDbxVersion->setText( QString( settGP.getString( "DOSBox", "version" )) );
-    ui.cbxLanguage->setCurrentIndex( settGP.getInt( "Language", "Lng" ) );
+    ui.cbxLanguage->setCurrentIndex( settGP.getInt( "DBoxFE", "Lng" ) );
+    ui.chkBoxWindowHide->setChecked( settGP.getBool( "DBoxFE", "winHide" ) );
     
     m_file = "";
 }
@@ -168,7 +173,9 @@ void DBoxFE::slotSaveGP()
     settGP.setStringList( "Profile", "Name", sList );
     settGP.setString( "DOSBox", "binary", ui.LEDbxStabel->text() );
     settGP.setString( "DOSBox", "version", ui.LEDbxVersion->text() );
-    settGP.setInt( "Language", "Lng", ui.cbxLanguage->currentIndex() );
+    settGP.setInt( "DBoxFE", "Lng", ui.cbxLanguage->currentIndex() );
+    settGP.setBool( "DBoxFE", "winHide", ui.chkBoxWindowHide->isChecked() );
+    
     settGP.save( m_file);
     m_file = "";
 }
@@ -222,6 +229,9 @@ void DBoxFE::slotStartDBox()
     start( ui.LEDbxStabel->text(), "-conf", m_conf );
 }
 
+/**
+ * TODO Remove gameprofile from list
+ **/
 void DBoxFE::slotRemoveGP()
 {
     gpItem = new QListWidgetItem;
@@ -230,7 +240,7 @@ void DBoxFE::slotRemoveGP()
 
     if ( gpItem == NULL )
     {
-        QMessageBox::information( this, winTitle(), tr("Please select profile to delet it!") );
+        QMessageBox::information( this, winTitle(), tr("Please select profile for remove from list!") );
         return;
     }
 
@@ -256,14 +266,14 @@ void DBoxFE::slotRemoveGP()
                 f.remove();
             }
 
-            ui.lwOutPut->addItem( "Game Profile -> " + gpTxt + " was deleted" );
-            ui.lwOutPut->addItem( "Game Profile -> " + f.fileName() + " was deleted" );
+            ui.lwOutPut->addItem( tr("Game Profile -> ") + gpTxt + tr(" was deleted") );
+            ui.lwOutPut->addItem( tr("Game Profile -> ") + f.fileName() + tr(" was deleted") );
             ui.lwOutPut->update();
             m_file = "";
             break;
         case 1: // No clicked but delete profile from list
             delete ui.lwProfile->currentItem();
-            ui.lwOutPut->addItem( "Game Profile -> " + gpTxt + " was deleted" );
+            ui.lwOutPut->addItem( tr("Game Profile -> ") + gpTxt + tr(" was deleted") );
             ui.lwOutPut->update();
             break;
         case 2: // Cancel clicked or Escape pressed
@@ -274,7 +284,7 @@ void DBoxFE::slotRemoveGP()
 }
 
 /**
- * TODO Coose snapshot directory
+ * TODO Choose snapshot directory
  **/
 void DBoxFE::slotSnapDir()
 {
@@ -348,6 +358,20 @@ void DBoxFE::slotAutexecDrive()
 }
 
 /**
+ * TODO Open the Profilewizard
+ **/
+void DBoxFE::slotWizard()
+{
+    DBoxFE_ProfileWizard *dbfe_profilewizard = new DBoxFE_ProfileWizard();
+
+    if ( dbfe_profilewizard->exec() == QDialog::Accepted )
+    {
+        /*gpItem->setText( dbfe_profile->ui.LEProfile->text() );
+        ui.lwProfile->addItem( gpItem );*/
+    }
+}
+
+/**
  * TODO Open the configuration file for selected profile
  **/
 void DBoxFE::slotListWidget(QListWidgetItem* item)
@@ -375,8 +399,11 @@ void DBoxFE::start( const QString& bin, const QString &param, const QString &con
     dBox->start( bin, m_param );
     connect( dBox, SIGNAL( readyReadStandardOutput()), this, SLOT( readOutput() ) );
     connect( dBox, SIGNAL( finished( int, QProcess::ExitStatus ) ), this, SLOT( finish() ) );
-
-    this->hide();
+    
+    if( ui.chkBoxWindowHide->isChecked() == true )
+    {
+	this->hide();
+    }
 
     ui.btnStartDBox->setEnabled( false );
 
@@ -401,6 +428,10 @@ void DBoxFE::readOutput()
  **/
 void DBoxFE::finish()
 {
-    this->show();
+    if( ui.chkBoxWindowHide->isChecked() == true )
+    {
+	this->hide();
+    }
+    
     ui.btnStartDBox->setEnabled( true );
 }

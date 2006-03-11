@@ -3,23 +3,23 @@
     <name>ChangeLog</name>
     <message>
         <source>ChangeLog</source>
-        <translation type="unfinished"></translation>
+        <translation>ChangeLog</translation>
     </message>
     <message>
         <source>DOSBox ChangeLog</source>
-        <translation type="unfinished"></translation>
+        <translation>DOSBox ChangeLog</translation>
     </message>
     <message>
         <source>DBoxFE ChangeLog </source>
-        <translation type="unfinished"></translation>
+        <translation>DBoxFE ChangeLog</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;/head&gt;&lt;body style=&quot; white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;/head&gt;&lt;body style=&quot; white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>&amp;Ok</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ok</translation>
     </message>
 </context>
 <context>
@@ -1144,10 +1144,6 @@ Please choose dosbox binary.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Please select profile to delet it!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Please select profile for remove from list!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1192,24 +1188,95 @@ If you click &apos;No&apos; only the profile from list will be removed.</source>
         <source>Open snapshot directory</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Window option</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide window if dosbox started</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create with &amp;Wizard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Game Profile -&gt; </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> was deleted</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DBoxFE_Profile</name>
     <message>
         <source>Profilename</source>
-        <translation type="unfinished"></translation>
+        <translation>Profilename</translation>
     </message>
     <message>
         <source>&amp;Abort</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Abort</translation>
     </message>
     <message>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation>Ok</translation>
     </message>
     <message>
         <source>Profilename:</source>
-        <translation type="unfinished"></translation>
+        <translation>Profilename:</translation>
+    </message>
+</context>
+<context>
+    <name>DBoxFE_ProfileWizard</name>
+    <message>
+        <source>Profilewizard</source>
+        <translation>Profilewizard</translation>
+    </message>
+    <message>
+        <source>&amp;Help</source>
+        <translation>&amp;Help</translation>
+    </message>
+    <message>
+        <source>&amp;Back</source>
+        <translation>&amp;Back</translation>
+    </message>
+    <message>
+        <source>&amp;Next</source>
+        <translation>&amp;Next</translation>
+    </message>
+    <message>
+        <source>&amp;Abort</source>
+        <translation>&amp;Abort</translation>
+    </message>
+    <message>
+        <source>Games found</source>
+        <translation>Games found</translation>
+    </message>
+    <message>
+        <source>select all Games</source>
+        <translation>select all Games</translation>
+    </message>
+    <message>
+        <source>Option</source>
+        <translation>Option</translation>
+    </message>
+    <message>
+        <source>include Subdirectories</source>
+        <translation>include Subdirectories</translation>
+    </message>
+    <message>
+        <source>Finish</source>
+        <translation>Finish</translation>
+    </message>
+    <message>
+        <source>Save configuration</source>
+        <translation>Save configuration</translation>
+    </message>
+    <message>
+        <source>Create game profiles</source>
+        <translation>Create game profiles</translation>
     </message>
 </context>
 </TS>
