@@ -3,19 +3,19 @@
     <name>ChangeLog</name>
     <message>
         <source>ChangeLog</source>
-        <translation></translation>
+        <translation>ChangeLog</translation>
     </message>
     <message>
         <source>DOSBox ChangeLog</source>
-        <translation></translation>
+        <translation>DOSBox ChangeLog</translation>
     </message>
     <message>
         <source>DBoxFE ChangeLog </source>
-        <translation></translation>
+        <translation>DBoxFE ChangeLog</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;/head&gt;&lt;body style=&quot; white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation></translation>
+        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;/head&gt;&lt;body style=&quot; white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>&amp;Ok</source>
@@ -26,38 +26,6 @@
     <name>DBoxFE</name>
     <message>
         <source>DOSBox - Front End</source>
-        <translation>DOSBox - Front End</translation>
-    </message>
-    <message>
-        <source>Gameprofile</source>
-        <translation>Spielprofile</translation>
-    </message>
-    <message>
-        <source>Default</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source> &amp;Remove</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Alt+R</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source> &amp;Save</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Alt+S</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source> &amp;Create</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Alt+C</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -69,324 +37,336 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source> &amp;Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alt+S</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> &amp;Quit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>SDL, Render &amp;&amp; CPU</source>
-        <translation>SDL, Render &amp;&amp; CPU</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>CPU</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>normal</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>full</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dynamic</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>500</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>550</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>600</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>650</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>700</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>750</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>800</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>850</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>900</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>950</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>1000</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>1500</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>2000</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>2500</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>3000</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>3500</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Core:</source>
-        <translation>Core:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cycles:</source>
-        <translation>Cycles:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cycledown:</source>
-        <translation>Cycledown:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cycleup:</source>
-        <translation>Cycleup:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>10</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>20</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>30</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>40</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>50</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>60</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>70</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>80</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>90</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>100</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>SDL</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hardwarescale:</source>
-        <translation>Hardwarescale:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Sensitivity:</source>
-        <translation>Empfindlichkeit:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Full wight/height:</source>
-        <translation>Volle Breite/Höhe:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>640x480</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>800x600</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>1024x768</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>1280x1024</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>1600x1200</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>2480x1600</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Autolock</source>
-        <translation>Auto lock</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Use Scancodes</source>
-        <translation>Benutze Scancodes</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Wait on Error</source>
-        <translation>Warten ebi Fehler</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>lowest,lowest</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>lowest,lower</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>lowest,normal</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>lowest,higher</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>lowest,highest</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>lower,lowest</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>lower,lower</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>lower,normal</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>lower,higher</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>lower,highest</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>normal,lowest</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>normal,lower</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>normal,normal</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>normal,higher</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>higher,lowest</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>higher,lower</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>higher,normal</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>higher,higher</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>higher,highest</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>highest,lowest</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>highest,lower</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>highest,normal</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>highest,higher</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>highest,highest</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>surface</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>overlay</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>opengl</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>openglnb</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ddraw</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Output:</source>
-        <translation>Ausgabe:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Focus/Unfocus</source>
-        <translation>Fokus/k. Fokus</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Full screen</source>
-        <translation>Vollbild</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Full double</source>
@@ -398,19 +378,19 @@
     </message>
     <message>
         <source>Render</source>
-        <translation>Render</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Snapdir:</source>
-        <translation>Screenshot ordner:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Frameskip:</source>
-        <translation>Frameskip:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Scaler:</source>
-        <translation>Frequenzteiler:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Do aspect correction</source>
@@ -418,407 +398,407 @@
     </message>
     <message>
         <source>Aspect</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>none</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>normal2x</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>normal3x</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>advmame2x</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>advmame3x</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>advinterp2x</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>interp2x</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>tv2x</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>tv3x</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rgb2x</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rgb3x</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>scan2x</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>scan3x</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Sound</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Mixer</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Rate:</source>
-        <translation>Rate:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Block Size:</source>
-        <translation>Blockgroesse:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Wave dir:</source>
-        <translation>Wave ordner:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>11050</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>22050</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>44100</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>1024</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>2048</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>4096</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>waves</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>No sound</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Soundbalster</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Type:</source>
-        <translation>Type:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>IRQ:</source>
-        <translation>IRQ:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>OPL mode:</source>
-        <translation>OPL Modus:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sb1</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sb2</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sbpro1</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sbpro2</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sb16</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>5</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>7</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>9</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>auto</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>cms</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>opl2</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dualopl2</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>opl3</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Base:</source>
-        <translation>Base:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>DMA:</source>
-        <translation>DMA:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>HDMA:</source>
-        <translation>HDMA:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>OPL Rate:</source>
-        <translation>OPL Rate:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>220</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>240</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>1</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>3</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>GUS</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Gus rate:</source>
-        <translation>Gus rate:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Gus Base:</source>
-        <translation>Gus Base:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>IRQ&apos;s:</source>
-        <translation>IRQ&apos;s:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>DMA&apos;s:</source>
-        <translation>DMA&apos;s:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ultra dir:</source>
-        <translation>Ultra ordner:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>C:\ULTRASND</source>
-        <translation>C:\ULTRASND</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>gus</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Speaker</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>PC speaker</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Tandy</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Disney</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Midi</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Device:</source>
-        <translation>Gerät:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Config:</source>
-        <translation>Konfgi:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>default</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>alsa</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>oss</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>win32</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>coreaudio</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>MPU 401</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Intelligent</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Misc</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Internet &amp;&amp; DOS</source>
-        <translation>Internet &amp;&amp; DOS</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Mapper</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Startmapper</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Modem</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>COM Port:</source>
-        <translation>COM Port:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Listen Port:</source>
-        <translation>Listen Port:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>2</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>IPX</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>DOS</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>XMS</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>EMS</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Direct serial</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Real Port:</source>
-        <translation>Realer Port:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Default bps:</source>
-        <translation>Standart bps:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Parity:</source>
-        <translation>Parität:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Bytesize:</source>
-        <translation>Bytegroesse:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Stopbit:</source>
-        <translation>Stopbit:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>COM1</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>COM2</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>1200</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>N</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>E</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>O</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>8</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Language:</source>
-        <translation>Sprache:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Captures:</source>
-        <translation>Captures:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Open the language file for dosbox</source>
@@ -1029,10 +1009,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Log</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Language</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1045,11 +1021,23 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Window option</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide window if dosbox started</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Executable/DOSBox binary</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>DOSBox binary:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Log</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1106,27 +1094,55 @@
     </message>
     <message>
         <source>Thanks</source>
-        <translation>Danke</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;/head&gt;&lt;body style=&quot; white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; font-size:9pt;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;KConfig: &lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Michael Goettsche&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg;&quot;&gt;&lt;span style=&quot; font-size:10pt; color:#000000;&quot;&gt;(KConfig code removed - QSettings is now used)&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg;&quot;&gt;&lt;span style=&quot; color:#0000ff;&quot;&gt;michi.goettsche@gmx.de&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; color:#0000ff;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; color:#0000ff;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;Gameprofile: &lt;/span&gt;&lt;span style=&quot; color:#000000;&quot;&gt;anda_skoa&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; color:#000000;&quot;&gt;&lt;span style=&quot; color:#0000ff;&quot;&gt;http://www.mrunix.de/forums/member.php?find=lastposter&amp;amp;t=42863&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; color:#0000ff;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; color:#0000ff;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;DOSBox: &lt;/span&gt;&lt;span style=&quot; color:#000000;&quot;&gt;The DOSBox Crew&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; color:#000000;&quot;&gt;&lt;span style=&quot; font-size:11pt; color:#0000ff;&quot;&gt;http&lt;/span&gt;&lt;span style=&quot; color:#0000ff;&quot;&gt;://dosbox.sourceforgef.net&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; color:#0000ff;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; font-weight:600; color:#000000;&quot;&gt;XMLPreferences:&lt;span style=&quot; font-weight:400; color:#0000ff;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-weight:400;&quot;&gt;Angius Fabrizio (OSDaB)&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:MS Shell Dlg; color:#000000;&quot;&gt;&lt;span style=&quot; color:#0000ff;&quot;&gt;http://osdab.sourceforge.net&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Gameprofile</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>  &amp;Gamewizard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> &amp;Create</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alt+C</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> &amp;Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alt+R</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Would you realy quit?</source>
-        <translation>Möchten Sie wirklich beenden?</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Yes</source>
-        <translation>Ja</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>No</source>
-        <translation>Nein</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Please select profile.</source>
-        <translation>Bitt wähl ein Profile.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Configuration file not found!
@@ -1154,15 +1170,27 @@ If you click &apos;No&apos; only the profile from list will be removed.</source>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Abbrechen</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Game Profile -&gt; </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> was deleted</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open snapshot directory</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Open language file</source>
-        <translation>Sprachdatei öffnen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Language file (*.*)</source>
-        <translation>Sprachdatei (*.*)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Open DOSBox binary</source>
@@ -1180,44 +1208,12 @@ If you click &apos;No&apos; only the profile from list will be removed.</source>
         <source>dosbox cmd output -&gt;</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>&lt;font color=darkblue&gt;&lt;u&gt;&lt;b&gt;Game Profile Menu&lt;/b&gt;&lt;/u&gt;&lt;/font&gt;</source>
-        <translation type="obsolete">&lt;font color=darkblue&gt;&lt;u&gt;&lt;b&gt;Profile Menu&lt;/b&gt;&lt;/u&gt;&lt;/font&gt;</translation>
-    </message>
-    <message>
-        <source> &amp;Quit</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Open snapshot directory</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Window option</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Hide window if dosbox started</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Create with &amp;Wizard</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Game Profile -&gt; </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source> was deleted</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>DBoxFE_Profile</name>
     <message>
         <source>Profilename</source>
-        <translation></translation>
+        <translation>Profile Name</translation>
     </message>
     <message>
         <source>&amp;Abort</source>
@@ -1225,62 +1221,62 @@ If you click &apos;No&apos; only the profile from list will be removed.</source>
     </message>
     <message>
         <source>Ok</source>
-        <translation></translation>
+        <translation>Ok</translation>
     </message>
     <message>
         <source>Profilename:</source>
-        <translation>Profilename:</translation>
+        <translation>Profile Name:</translation>
     </message>
 </context>
 <context>
     <name>DBoxFE_ProfileWizard</name>
     <message>
         <source>Profilewizard</source>
-        <translation>Profile Assistent</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation>&amp;Hilfe</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Back</source>
-        <translation>&amp;Zurück</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Next</source>
-        <translation>&amp;Weiter</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Abort</source>
-        <translation>&amp;Abbrechen</translation>
-    </message>
-    <message>
-        <source>Games found</source>
-        <translation>Gefundene Spiele</translation>
-    </message>
-    <message>
-        <source>select all Games</source>
-        <translation>alle Spiele markieren</translation>
-    </message>
-    <message>
-        <source>Option</source>
-        <translation>Option</translation>
-    </message>
-    <message>
-        <source>include Subdirectories</source>
-        <translation>Unterverzeichnise einbeziehen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Finish</source>
-        <translation>Fertig</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save configuration</source>
-        <translation>Konfiguration speichern</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Create game profiles</source>
-        <translation>Spielprofile erstellen</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>include Subdirectories</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Games found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>select all Games</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Finish</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

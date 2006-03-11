@@ -3,23 +3,23 @@
     <name>ChangeLog</name>
     <message>
         <source>ChangeLog</source>
-        <translation>ChangeLog</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>DOSBox ChangeLog</source>
-        <translation>DOSBox ChangeLog</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>DBoxFE ChangeLog </source>
-        <translation>DBoxFE ChangeLog</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;/head&gt;&lt;body style=&quot; white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;/head&gt;&lt;body style=&quot; white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Ok</source>
-        <translation>&amp;Ok</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -29,19 +29,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Gameprofile</source>
+        <source> St&amp;art</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Default</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source> &amp;Remove</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Alt+R</source>
+        <source>Alt+D</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -53,19 +45,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source> &amp;Create</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Alt+C</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source> St&amp;art</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Alt+D</source>
+        <source> &amp;Quit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1029,10 +1009,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Log</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Language</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1045,11 +1021,23 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Window option</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide window if dosbox started</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Executable/DOSBox binary</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>DOSBox binary:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Log</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1113,6 +1101,34 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Gameprofile</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>  &amp;Gamewizard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> &amp;Create</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alt+C</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> &amp;Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alt+R</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Would you realy quit?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1157,6 +1173,18 @@ If you click &apos;No&apos; only the profile from list will be removed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Game Profile -&gt; </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> was deleted</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open snapshot directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Open language file</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1180,103 +1208,75 @@ If you click &apos;No&apos; only the profile from list will be removed.</source>
         <source>dosbox cmd output -&gt;</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source> &amp;Quit</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Open snapshot directory</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Window option</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Hide window if dosbox started</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Create with &amp;Wizard</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Game Profile -&gt; </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source> was deleted</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>DBoxFE_Profile</name>
     <message>
         <source>Profilename</source>
-        <translation>Profilename</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Abort</source>
-        <translation>&amp;Abort</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ok</source>
-        <translation>Ok</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Profilename:</source>
-        <translation>Profilename:</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>DBoxFE_ProfileWizard</name>
     <message>
         <source>Profilewizard</source>
-        <translation>Profilewizard</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation>&amp;Help</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Back</source>
-        <translation>&amp;Back</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Next</source>
-        <translation>&amp;Next</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Abort</source>
-        <translation>&amp;Abort</translation>
-    </message>
-    <message>
-        <source>Games found</source>
-        <translation>Games found</translation>
-    </message>
-    <message>
-        <source>select all Games</source>
-        <translation>select all Games</translation>
-    </message>
-    <message>
-        <source>Option</source>
-        <translation>Option</translation>
-    </message>
-    <message>
-        <source>include Subdirectories</source>
-        <translation>include Subdirectories</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Finish</source>
-        <translation>Finish</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save configuration</source>
-        <translation>Save configuration</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Create game profiles</source>
-        <translation>Create game profiles</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>include Subdirectories</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Games found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>select all Games</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Finish</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
