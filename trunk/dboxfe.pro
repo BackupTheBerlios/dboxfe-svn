@@ -39,7 +39,6 @@ HEADERS += include/dboxfe.h \
 	   include/dboxfe_profilewizard.h \
            include/dboxfe_base.h \
            include/dboxfe_splash.h \
-           include/games.h \
            3rdparty/Base64.h \
            3rdparty/XMLWriter.h \
            3rdparty/XMLPreferences.h 

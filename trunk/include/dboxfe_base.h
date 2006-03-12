@@ -28,6 +28,7 @@
 #include <QtGui/QListWidget>
 #include <QtGui/QProgressBar>
 
+#include <QtCore/QFileInfo>
 #include <QtCore/QString>
 #include <QtCore/QStringList>
 #include <QtCore/QDir>
@@ -43,7 +44,12 @@
 */
 class DB_BASE
 {
-
+    
+private:
+    QStringList gameList, foundFiles;
+    QString m_file, m_gameName;
+    QFileInfo fi;
+        
 public:
     DB_BASE();
     inline virtual ~DB_BASE(){}
@@ -74,17 +80,7 @@ public:
      * @param wildCards  the wild cards for searching executable (like: *.exe)
      * @since 0.1.0
      */
-    QStringList findFiles( const QDir &dir, const QStringList &files, const QString &wildCards, QProgressBar *pBar );
-    
-    /**
-     * Show found games
-     *
-     * @param dir        the directory
-     * @param files      the QStringList &files (include all files from QDir &dir)
-     * @param qlw        the QListWidget for show found file
-     * @since 0.1.0
-     */
-    void showFiles( const QDir &dir, const QStringList &files, QListWidget* qlw );
+    void findFiles( const QString &dirName, QListWidget* qlw, QProgressBar *pBar );
 };
 
 #endif // DBOXFE_BASE_H

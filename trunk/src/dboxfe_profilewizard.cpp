@@ -18,7 +18,6 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-#include "games.h"
 #include "dboxfe_base.h"
 #include "dboxfe_profilewizard.h"
 
@@ -31,6 +30,7 @@
 #include <QtGui/QPushButton>
 #include <QtGui/QDesktopWidget>
 #include <QtGui/QMessageBox>
+#include <QtGui/QFileDialog>
 
 #include <QtCore/QRect>
 
@@ -45,7 +45,7 @@ DBoxFE_ProfileWizard::DBoxFE_ProfileWizard(QDialog *parent, Qt::WFlags flags)
     connect( ui.btnNext, SIGNAL( clicked() ), this, SLOT( slotNext() ) );
     connect( ui.btnHelp, SIGNAL( clicked() ), this, SLOT( slotHelp() ) );
     connect( ui.btnAbort, SIGNAL( clicked() ), this, SLOT( slotAbort() ) );
-    connect( ui.btnSelectDir, SIGNAL( clicked() ), this, SLOT( slotSearch() ) );
+    connect( ui.btnSelectDir, SIGNAL( clicked() ), this, SLOT( slotSelectDir() ) );
     connect( ui.btnSearch, SIGNAL( clicked() ), this, SLOT( slotSearch() ) );
 
     // center the wiget on desktop screen
@@ -73,43 +73,39 @@ DBoxFE_ProfileWizard::~DBoxFE_ProfileWizard()
 
 void DBoxFE_ProfileWizard::slotBack()
 {
-    
 }
 
 void DBoxFE_ProfileWizard::slotNext()
 {
-
 }
 
 void DBoxFE_ProfileWizard::slotHelp()
 {
-    
 }
 
 void DBoxFE_ProfileWizard::slotAbort()
 {
-    
 }
 
 void DBoxFE_ProfileWizard::slotSelectDir()
 {
-    
+    QString strDir = QFileDialog::getExistingDirectory( this, tr("Open search directory"), QDir::homePath() );
+    if ( strDir.isEmpty() )
+        return;
+
+    ui.LEDirectory->setText( strDir );
 }
 
 void DBoxFE_ProfileWizard::slotSearch()
 {
     DB_BASE base;
-    
+
     QString path = ui.LEDirectory->text();
-    QString wild = "*";
-
-    QDir directory = QDir(path);
     QStringList files;
-    QStringList fFiles;
-    if (path.isEmpty())
-        return;
-    files = directory.entryList(QStringList(wild), QDir::Files | QDir::NoSymLinks);
 
-    fFiles = base.findFiles( directory, files, wild, ui.pBarSearch );
-    base.showFiles(directory, files, ui.lwGames);
+    if ( path.isEmpty() )
+        return;
+
+    base.findFiles( path, ui.lwGames, ui.pBarSearch );
+    //base.showFiles( files, ui.lwGames);
 }

@@ -30,6 +30,9 @@
 #include <QtCore/QTextStream>
 #include <QtCore/QIODevice>
 #include <QtCore/QList>
+#include <QtCore/QFileInfo>
+#include <QtCore/QListIterator>
+#include <QtCore/QtDebug>
 
 #include <QtGui/QProgressBar>
 #include <QtGui/QWidget>
@@ -48,51 +51,57 @@ void DB_BASE::readDBConf( const QString &dbconf, const DBoxFE &dbfe )
 void DB_BASE::saveDBConf( const QString &dbcon, const DBoxFE &dbfe )
 {
     QSettings settGP( dbcon, QSettings::IniFormat );
-    // qw->ui.
+
     settGP.setValue( "", "" );
 
 }
 
-QStringList DB_BASE::findFiles( const QDir &dir, const QStringList &files, const QString &wildCards, QProgressBar *pBar )
+void DB_BASE::findFiles( const QString &dirName, QListWidget* qlw, QProgressBar *pBar )
 {
-    QStringList foundFiles;
-    pBar->setMaximum( files.size() );
+    QDir dir( dirName );
+    
+    m_file = QDir::homePath();
+    m_file.append( "/.dboxfe/profile/games.xml" );
+    
+    XMLPreferences games( "DBoxFE", "Alexander Saal" );
+    games.setVersion( "v0.1.0" );
+    games.load( m_file );
+    
+    gameList= games.getStringList( "Games", "Name");
+    
+    int x = 0;
+    
+    const QFileInfoList fil = dir.entryInfoList(QDir::Files | QDir::Dirs, QDir::Name);
+    QListIterator<QFileInfo> it( fil );
 
-    for( int i = 0; i < files.size(); ++i )
+    while ( it.hasNext() )
     {
-        QFile file( dir.absoluteFilePath( files[i] ) );
+        fi = it.next();
+        x += 1;
 
-        if ( file.open( QIODevice::ReadOnly ) )
+        if ( fi.fileName() == "." || fi.fileName() == ".." )
+            ;
+        else
         {
-            QString line;
-            QTextStream in( &file );
-	    
-            while (!in.atEnd())
+            if ( fi.isDir() && fi.isReadable() )
+                findFiles( fi.absoluteFilePath(), qlw, pBar );
+            else
             {
-                line = in.readLine();
-                if ( line.contains( wildCards ) )
+                QFile f( dirName );
+
+                if ( f.exists() )
                 {
-                    foundFiles << files[i];
-                    break;
+		    /*for( int i = 0; i < gameList.size(); ++i )
+		    {
+			m_gameName = gameList.join(";");
+			qDebug() << m_gameName;
+		    }*/
+		    
+                    qlw->addItem( fi.fileName() ) ;
+                    //qDebug() << dirName << fi.fileName();
+                    pBar->setValue( x );
                 }
             }
         }
-	pBar->setValue( i );
-    }
-    pBar->reset();
-    return foundFiles;
-}
-
-void DB_BASE::showFiles(const QDir &dir, const QStringList &files, QListWidget* qlw)
-{
-    for( int i = 0; i < files.size(); ++i )
-    {
-	// for future requests
-        // QFile file( dir.absoluteFilePath( files[i] ) );
-	
-	QListWidgetItem *fileNameItem = new QListWidgetItem( files[i] );
-	fileNameItem->setFlags(Qt::ItemIsEnabled);
-	
-	qlw->addItem( fileNameItem );
     }
 }
