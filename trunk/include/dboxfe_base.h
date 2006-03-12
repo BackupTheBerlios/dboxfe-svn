@@ -46,7 +46,7 @@ class DB_BASE
 {
     
 private:
-    QStringList gameList, foundFiles;
+    QStringList gameList;
     QString m_file, m_gameName;
     QFileInfo fi;
         
@@ -57,8 +57,8 @@ public:
     /**
      * Read dosbox configuration file
      *
-     * @param dbconf  read the dosbox configuration file
-     * @param qw      the QWidget
+     * @param dbconf  Read the dosbox configuration file
+     * @param dbfe    QWidget (include all labels etc.)
      * @since 0.1.0
      */
     void readDBConf( const QString &dbconf, const DBoxFE &dbfe );
@@ -66,8 +66,8 @@ public:
     /**
      * Save dosbox configuration file
      *
-     * @param dbconf  save the dosbox configuration file
-     * @param qw      the QWidget
+     * @param dbconf  Save the dosbox configuration file
+     * @param dbfe    QWidget (include all labels etc.)
      * @since 0.1.0
      */
     void saveDBConf( const QString &dbconf, const DBoxFE &dbfe );
@@ -75,9 +75,9 @@ public:
     /**
      * Search game executable
      *
-     * @param dir        the directory for search
-     * @param files      the QStringList &files (include all files from QDir &dir)
-     * @param wildCards  the wild cards for searching executable (like: *.exe)
+     * @param dir        Directory for search
+     * @param qlw        QListWidget for information
+     * @param pBar       QProgressBar for search status
      * @since 0.1.0
      */
     void findFiles( const QString &dirName, QListWidget* qlw, QProgressBar *pBar );
