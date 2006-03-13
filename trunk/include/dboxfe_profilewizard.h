@@ -35,13 +35,13 @@ public:
 
 private:
     Ui::DBoxFE_ProfileWizard ui;
-    QString getFinishText(){ return tr("&Finish"); }
     
 private slots:
     void slotBack();
     void slotNext();
     void slotHelp();
     void slotAbort();
+    void slotFinish();
     void slotSelectDir();
     void slotSearch();
 };

@@ -56,10 +56,10 @@ void DB_BASE::saveDBConf( const QString &dbcon, const DBoxFE &dbfe )
 
 }
 
-void DB_BASE::findFiles( const QString &dirName, QListWidget* qlw, QProgressBar *pBar )
+void DB_BASE::findGames( const QString &dirName, QListWidget* qlw )
 {
     QDir dir( dirName );
-    
+
     m_file = QDir::homePath();
     m_file.append( "/.dboxfe/profile/games.xml" );
     
@@ -68,38 +68,28 @@ void DB_BASE::findFiles( const QString &dirName, QListWidget* qlw, QProgressBar 
     games.load( m_file );
     
     gameList= games.getStringList( "Games", "Name");
-    
-    int x = 0;
-    
+
     const QFileInfoList fil = dir.entryInfoList(QDir::Files | QDir::Dirs, QDir::Name);
     QListIterator<QFileInfo> it( fil );
+    QStringList lst;
 
     while ( it.hasNext() )
     {
         fi = it.next();
-        x += 1;
 
         if ( fi.fileName() == "." || fi.fileName() == ".." )
             ;
         else
         {
             if ( fi.isDir() && fi.isReadable() )
-                findFiles( fi.absoluteFilePath(), qlw, pBar );
+                findGames( fi.absoluteFilePath(), qlw );
             else
             {
-                QFile f( dirName );
-
-                if ( f.exists() )
+                for( int i = 0; i < gameList.size(); ++i )
                 {
-		    /*for( int i = 0; i < gameList.size(); ++i )
-		    {
-			m_gameName = gameList.join(";");
-			qDebug() << m_gameName;
-		    }*/
-		    
-                    qlw->addItem( fi.fileName() ) ;
-                    //qDebug() << dirName << fi.fileName();
-                    pBar->setValue( x );
+                    lst = gameList[i].split(";");
+                    if( fi.fileName() == lst.value(1))
+                        qlw->addItem( lst.value(0) );
                 }
             }
         }

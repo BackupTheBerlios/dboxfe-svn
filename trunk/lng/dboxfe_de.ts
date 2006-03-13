@@ -1213,7 +1213,7 @@ If you click &apos;No&apos; only the profile from list will be removed.</source>
     <name>DBoxFE_Profile</name>
     <message>
         <source>Profilename</source>
-        <translation>Profile Name</translation>
+        <translation>Profilename</translation>
     </message>
     <message>
         <source>&amp;Abort</source>
@@ -1225,58 +1225,66 @@ If you click &apos;No&apos; only the profile from list will be removed.</source>
     </message>
     <message>
         <source>Profilename:</source>
-        <translation>Profile Name:</translation>
+        <translation>Profile name:</translation>
     </message>
 </context>
 <context>
     <name>DBoxFE_ProfileWizard</name>
     <message>
-        <source>Profilewizard</source>
-        <translation type="unfinished"></translation>
+        <source>Profilewizard &amp; Gamewizard</source>
+        <translation>Profilassistent &amp; Spielassistent</translation>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Hilfe</translation>
     </message>
     <message>
         <source>&amp;Back</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Zurück</translation>
     </message>
     <message>
         <source>&amp;Next</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Weiter</translation>
     </message>
     <message>
         <source>&amp;Abort</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Abbrechen</translation>
     </message>
     <message>
         <source>Finish</source>
-        <translation type="unfinished"></translation>
+        <translation>Fertig</translation>
     </message>
     <message>
         <source>Save configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Konfiguration speichern</translation>
     </message>
     <message>
         <source>Create game profiles</source>
-        <translation type="unfinished"></translation>
+        <translation>Spielprofil erstellen</translation>
     </message>
     <message>
-        <source>include Subdirectories</source>
-        <translation type="unfinished"></translation>
+        <source>Directory</source>
+        <translation>Verzeichnis</translation>
     </message>
     <message>
         <source>Games found</source>
-        <translation type="unfinished"></translation>
+        <translation>Gefundene Spiele</translation>
     </message>
     <message>
         <source>select all Games</source>
-        <translation type="unfinished"></translation>
+        <translation>alle Spiele makieren</translation>
     </message>
     <message>
         <source>&amp;Finish</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Fertig</translation>
+    </message>
+    <message>
+        <source>Not implemented yet!</source>
+        <translation>Zurzeit nicht implementiert!</translation>
+    </message>
+    <message>
+        <source>Open search directory</source>
+        <translation>Öffne des zu durchsuchenden Verzeichnises</translation>
     </message>
 </context>
 </TS>

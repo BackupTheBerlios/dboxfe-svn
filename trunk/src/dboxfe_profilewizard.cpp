@@ -31,8 +31,10 @@
 #include <QtGui/QDesktopWidget>
 #include <QtGui/QMessageBox>
 #include <QtGui/QFileDialog>
+#include <QtGui/QFrame>
 
 #include <QtCore/QRect>
+#include <QtCore/QtDebug>
 
 DBoxFE_ProfileWizard::DBoxFE_ProfileWizard(QDialog *parent, Qt::WFlags flags)
         : QDialog(parent, flags)
@@ -43,11 +45,23 @@ DBoxFE_ProfileWizard::DBoxFE_ProfileWizard(QDialog *parent, Qt::WFlags flags)
     // connection
     connect( ui.btnBack, SIGNAL( clicked() ), this, SLOT( slotBack() ) );
     connect( ui.btnNext, SIGNAL( clicked() ), this, SLOT( slotNext() ) );
+    connect( ui.btnNext, SIGNAL( clicked() ), this, SLOT( slotFinish() ) );
+    
     connect( ui.btnHelp, SIGNAL( clicked() ), this, SLOT( slotHelp() ) );
     connect( ui.btnAbort, SIGNAL( clicked() ), this, SLOT( slotAbort() ) );
     connect( ui.btnSelectDir, SIGNAL( clicked() ), this, SLOT( slotSelectDir() ) );
     connect( ui.btnSearch, SIGNAL( clicked() ), this, SLOT( slotSearch() ) );
-
+    
+    // visible page
+    ui.pageSearchGame->setVisible( true );
+    ui.pageSearchGame->setGeometry( 190, 10, 531, 321 );
+    
+    ui.pageCreateProfiles->setVisible( false );
+    ui.pageCreateProfiles->setGeometry( 190, 10, 531, 321 );
+    
+    // enable button 
+    ui.btnNext->setEnabled( true );
+    
     // center the wiget on desktop screen
     QDesktopWidget *desktop = qApp->desktop();
     const QRect rect = desktop->availableGeometry( desktop->primaryScreen() );
@@ -59,32 +73,66 @@ DBoxFE_ProfileWizard::DBoxFE_ProfileWizard(QDialog *parent, Qt::WFlags flags)
 DBoxFE_ProfileWizard::~DBoxFE_ProfileWizard()
 {}
 
-/*void DBoxFE_ProfileWizard::slotAdd()
+void DBoxFE_ProfileWizard::slotFinish()
 {
-    if ( ui.LEProfile->text().isEmpty() )
+    if( ui.btnNext->text() == tr("&Finish") )
+    {
+	QMessageBox::information( this, "DOSBox Front End", "Fertisch :)" );
+    }
+    /*if ( ui.LEProfile->text().isEmpty() )
     {
         QMessageBox::information( this, "DOSBox Front End", "Please enter a profile name." );
     }
     else
     {
         QDialog::accept();
-    }
-}*/
+    }*/
+}
 
 void DBoxFE_ProfileWizard::slotBack()
 {
+    if( ui.pageCreateProfiles->isVisible() )
+    {
+	ui.pageCreateProfiles->setVisible( false );
+	
+	ui.pageSearchGame->setVisible( true );
+	ui.pageSearchGame->setGeometry( 190, 10, 531, 321 );
+	
+	ui.btnNext->setEnabled( true );
+	ui.btnBack->setEnabled( false );
+    }
+    else
+    {
+	ui.btnNext->setText( tr("&Next") );
+    }
 }
 
 void DBoxFE_ProfileWizard::slotNext()
 {
+    if( ui.pageSearchGame->isVisible() )
+    {
+	ui.pageSearchGame->setVisible( false );
+	
+	ui.pageCreateProfiles->setVisible( true );
+	ui.pageCreateProfiles->setGeometry( 190, 10, 531, 321 );
+	
+	ui.btnNext->setEnabled( true );
+	ui.btnBack->setEnabled( true );	
+    }
+    else
+    {
+	ui.btnNext->setText( tr("&Finish") );
+    }
 }
 
 void DBoxFE_ProfileWizard::slotHelp()
 {
+    qDebug() << tr("Not implemented yet!");
 }
 
 void DBoxFE_ProfileWizard::slotAbort()
 {
+    QDialog::reject();
 }
 
 void DBoxFE_ProfileWizard::slotSelectDir()
@@ -105,7 +153,7 @@ void DBoxFE_ProfileWizard::slotSearch()
 
     if ( path.isEmpty() )
         return;
-
-    base.findFiles( path, ui.lwGames, ui.pBarSearch );
-    //base.showFiles( files, ui.lwGames);
+    
+    ui.lwGames->clear();	
+    base.findGames( path, ui.lwGames );    
 }

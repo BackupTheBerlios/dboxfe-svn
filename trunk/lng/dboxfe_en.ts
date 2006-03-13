@@ -1231,7 +1231,7 @@ If you click &apos;No&apos; only the profile from list will be removed.</source>
 <context>
     <name>DBoxFE_ProfileWizard</name>
     <message>
-        <source>Profilewizard</source>
+        <source>Profilewizard &amp; Gamewizard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1263,7 +1263,7 @@ If you click &apos;No&apos; only the profile from list will be removed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>include Subdirectories</source>
+        <source>Directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1276,6 +1276,14 @@ If you click &apos;No&apos; only the profile from list will be removed.</source>
     </message>
     <message>
         <source>&amp;Finish</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Not implemented yet!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open search directory</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

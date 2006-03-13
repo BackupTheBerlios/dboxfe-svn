@@ -44,12 +44,12 @@ int main(int argc, char *argv[])
     m_file.append( "/.dboxfe/profile/profile.xml" );
     
     DBoxFE w;
-	
+    
     XMLPreferences settGP( "DBoxFE", "Alexander Saal" );
     settGP.setVersion( w.getAppVersion() );
     settGP.load( m_file );
     
-    int lngIndex = settGP.getInt( "Language", "Lng" );
+    int lngIndex = settGP.getInt( "DBoxFE", "Lng" );
 
     if( lngIndex == 0 )
     {
@@ -68,20 +68,17 @@ int main(int argc, char *argv[])
 	// TODO add code for disable message
 	if( lngIndex == -1 ) QMessageBox::information( 0, w.winTitle(), "No Language was choosed, use default language english ...");
     }
-    
-	
+
     DBoxFE_Splash *splash;
-
     splash = new DBoxFE_Splash( QPixmap(":/pics/images/logo.png") );
-
     app.processEvents();
-
+    
     if (splash) splash->showMessage( "Loading Profiles" );
     if (splash) splash->show();
 
     w.init();
 
-    if (splash) splash->showMessage( "Starting GUI" );
+    if (splash) splash->showMessage( "Starting GUI");
     
     w.show();
 

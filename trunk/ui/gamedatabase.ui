@@ -1,0 +1,224 @@
+<ui version="4.0" >
+ <author>Alexander Saal - alex.saal@gmx.de</author>
+ <comment></comment>
+ <exportmacro></exportmacro>
+ <class>DBoxFE_GameDatabase</class>
+ <widget class="QWidget" name="DBoxFE_GameDatabase" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>762</width>
+    <height>482</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>Gamedatabase</string>
+  </property>
+  <property name="windowIcon" >
+   <iconset resource="../res/dboxfe.qrc" >:/pics/images/default.png</iconset>
+  </property>
+  <widget class="QWidget" name="" >
+   <property name="geometry" >
+    <rect>
+     <x>660</x>
+     <y>330</y>
+     <width>89</width>
+     <height>142</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" >
+    <property name="margin" >
+     <number>0</number>
+    </property>
+    <property name="spacing" >
+     <number>6</number>
+    </property>
+    <item>
+     <widget class="QPushButton" name="btnAdd" >
+      <property name="text" >
+       <string>&amp;Add</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="btnChange" >
+      <property name="text" >
+       <string>&amp;Change</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="btnRemove" >
+      <property name="text" >
+       <string>&amp;Remove</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <spacer>
+      <property name="orientation" >
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" >
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButton" >
+      <property name="text" >
+       <string>Cl&amp;ose</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QGroupBox" name="gBoxOption" >
+   <property name="geometry" >
+    <rect>
+     <x>10</x>
+     <y>320</y>
+     <width>641</width>
+     <height>152</height>
+    </rect>
+   </property>
+   <property name="title" >
+    <string>Option</string>
+   </property>
+   <layout class="QGridLayout" >
+    <property name="margin" >
+     <number>9</number>
+    </property>
+    <property name="spacing" >
+     <number>6</number>
+    </property>
+    <item row="0" column="0" >
+     <layout class="QVBoxLayout" >
+      <property name="margin" >
+       <number>0</number>
+      </property>
+      <property name="spacing" >
+       <number>6</number>
+      </property>
+      <item>
+       <layout class="QVBoxLayout" >
+        <property name="margin" >
+         <number>0</number>
+        </property>
+        <property name="spacing" >
+         <number>6</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="lblGameName" >
+          <property name="text" >
+           <string>Gamename:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="LEGameName" />
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" >
+        <property name="margin" >
+         <number>0</number>
+        </property>
+        <property name="spacing" >
+         <number>6</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="lblGameBinary" >
+          <property name="text" >
+           <string>Gamebinary</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" >
+          <property name="margin" >
+           <number>0</number>
+          </property>
+          <property name="spacing" >
+           <number>6</number>
+          </property>
+          <item>
+           <widget class="QLineEdit" name="LEGameBinary" />
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnSelectBin" >
+            <property name="icon" >
+             <iconset resource="../res/dboxfe.qrc" >:/pics/images/folder-open_16.png</iconset>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QGroupBox" name="gBoxGames" >
+   <property name="geometry" >
+    <rect>
+     <x>11</x>
+     <y>11</y>
+     <width>741</width>
+     <height>301</height>
+    </rect>
+   </property>
+   <property name="title" >
+    <string>Games</string>
+   </property>
+   <layout class="QGridLayout" >
+    <property name="margin" >
+     <number>9</number>
+    </property>
+    <property name="spacing" >
+     <number>6</number>
+    </property>
+    <item row="1" column="0" >
+     <widget class="QLabel" name="label" >
+      <property name="text" >
+       <string>Games in database:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1" >
+     <widget class="QLabel" name="label_2" >
+      <property name="text" >
+       <string>0</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0" colspan="2" >
+     <widget class="QTreeWidget" name="twGames" >
+      <column>
+       <property name="text" >
+        <string>Executable</string>
+       </property>
+      </column>
+      <column>
+       <property name="text" >
+        <string>Name</string>
+       </property>
+      </column>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <pixmapfunction></pixmapfunction>
+ <includes/>
+ <resources>
+  <include location="../res/dboxfe.qrc" />
+ </resources>
+ <connections/>
+</ui>

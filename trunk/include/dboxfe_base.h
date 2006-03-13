@@ -27,6 +27,7 @@
 #include <QtGui/QWidget>
 #include <QtGui/QListWidget>
 #include <QtGui/QProgressBar>
+#include <QtGui/QLabel>
 
 #include <QtCore/QFileInfo>
 #include <QtCore/QString>
@@ -53,7 +54,7 @@ private:
 public:
     DB_BASE();
     inline virtual ~DB_BASE(){}
-
+    
     /**
      * Read dosbox configuration file
      *
@@ -80,7 +81,7 @@ public:
      * @param pBar       QProgressBar for search status
      * @since 0.1.0
      */
-    void findFiles( const QString &dirName, QListWidget* qlw, QProgressBar *pBar );
+    void findGames( const QString &dirName, QListWidget* qlw );
 };
 
 #endif // DBOXFE_BASE_H

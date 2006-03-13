@@ -37,7 +37,7 @@
    </size>
   </property>
   <property name="windowTitle" >
-   <string>Profilewizard</string>
+   <string>Profilewizard &amp; Gamewizard</string>
   </property>
   <property name="windowIcon" >
    <iconset resource="../res/dboxfe.qrc" >:/pics/images/default.png</iconset>
@@ -125,19 +125,6 @@
      </widget>
     </item>
    </layout>
-  </widget>
-  <widget class="Line" name="line" >
-   <property name="geometry" >
-    <rect>
-     <x>10</x>
-     <y>330</y>
-     <width>711</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="orientation" >
-    <enum>Qt::Horizontal</enum>
-   </property>
   </widget>
   <widget class="QFrame" name="pageCreateProfiles" >
    <property name="geometry" >
@@ -310,6 +297,19 @@
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
+  <widget class="Line" name="line" >
+   <property name="geometry" >
+    <rect>
+     <x>10</x>
+     <y>330</y>
+     <width>711</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="orientation" >
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
   <widget class="QFrame" name="pageSearchGame" >
    <property name="geometry" >
     <rect>
@@ -329,13 +329,13 @@
     <property name="geometry" >
      <rect>
       <x>0</x>
-      <y>197</y>
+      <y>213</y>
       <width>531</width>
-      <height>118</height>
+      <height>102</height>
      </rect>
     </property>
     <property name="title" >
-     <string/>
+     <string>Directory</string>
     </property>
     <layout class="QGridLayout" >
      <property name="margin" >
@@ -344,36 +344,6 @@
      <property name="spacing" >
       <number>6</number>
      </property>
-     <item row="1" column="0" >
-      <layout class="QHBoxLayout" >
-       <property name="margin" >
-        <number>0</number>
-       </property>
-       <property name="spacing" >
-        <number>6</number>
-       </property>
-       <item>
-        <widget class="QProgressBar" name="pBarSearch" >
-         <property name="value" >
-          <number>0</number>
-         </property>
-         <property name="orientation" >
-          <enum>Qt::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="btnSearch" >
-         <property name="text" >
-          <string/>
-         </property>
-         <property name="icon" >
-          <iconset resource="../res/dboxfe.qrc" >:/pics/images/misc.png</iconset>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
      <item row="0" column="0" >
       <layout class="QVBoxLayout" >
        <property name="margin" >
@@ -383,6 +353,9 @@
         <number>6</number>
        </property>
        <item>
+        <widget class="QLineEdit" name="LEDirectory" />
+       </item>
+       <item>
         <layout class="QHBoxLayout" >
          <property name="margin" >
           <number>0</number>
@@ -391,7 +364,27 @@
           <number>6</number>
          </property>
          <item>
-          <widget class="QLineEdit" name="LEDirectory" />
+          <widget class="QPushButton" name="btnSearch" >
+           <property name="text" >
+            <string/>
+           </property>
+           <property name="icon" >
+            <iconset resource="../res/dboxfe.qrc" >:/pics/images/misc.png</iconset>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer>
+           <property name="orientation" >
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" >
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
          </item>
          <item>
           <widget class="QPushButton" name="btnSelectDir" >
@@ -405,16 +398,6 @@
          </item>
         </layout>
        </item>
-       <item>
-        <widget class="QCheckBox" name="chkBoxSubDirs" >
-         <property name="text" >
-          <string>include Subdirectories</string>
-         </property>
-         <property name="checked" >
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
       </layout>
      </item>
     </layout>
@@ -425,7 +408,7 @@
       <x>0</x>
       <y>0</y>
       <width>531</width>
-      <height>191</height>
+      <height>211</height>
      </rect>
     </property>
     <property name="title" >
