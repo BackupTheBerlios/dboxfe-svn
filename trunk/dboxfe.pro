@@ -29,7 +29,7 @@ QT += xml
 FORMS += ui/dboxfe.ui \
          ui/profile.ui \
  	 ui/profilewizard.ui \
-         ui/changelog.ui
+	 ui/gamedatabase.ui
 	 
 TRANSLATIONS += lng/dboxfe_de.ts \
                 lng/dboxfe_en.ts
