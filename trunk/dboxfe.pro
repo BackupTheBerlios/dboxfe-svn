@@ -37,6 +37,7 @@ TRANSLATIONS += lng/dboxfe_de.ts \
 HEADERS += include/dboxfe.h \
            include/dboxfe_profile.h \
 	   include/dboxfe_profilewizard.h \
+	   include/dboxfe_gamedatabase.h \
            include/dboxfe_base.h \
            include/dboxfe_splash.h \
            3rdparty/Base64.h \
@@ -46,6 +47,7 @@ HEADERS += include/dboxfe.h \
 SOURCES += src/dboxfe.cpp \
            src/dboxfe_profile.cpp \
 	   src/dboxfe_profilewizard.cpp \
+	   src/dboxfe_gamedatabase.cpp \
            src/dboxfe_base.cpp \
            src/dboxfe_splash.cpp \
            src/main.cpp \

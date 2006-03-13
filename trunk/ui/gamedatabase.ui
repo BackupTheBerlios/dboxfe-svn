@@ -18,7 +18,7 @@
   <property name="windowIcon" >
    <iconset resource="../res/dboxfe.qrc" >:/pics/images/default.png</iconset>
   </property>
-  <widget class="QWidget" name="" >
+  <widget class="QWidget" name="layoutWidget" >
    <property name="geometry" >
     <rect>
      <x>660</x>
@@ -69,7 +69,7 @@
      </spacer>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton" >
+     <widget class="QPushButton" name="btnClose" >
       <property name="text" >
        <string>Cl&amp;ose</string>
       </property>
@@ -216,7 +216,6 @@
   </widget>
  </widget>
  <pixmapfunction></pixmapfunction>
- <includes/>
  <resources>
   <include location="../res/dboxfe.qrc" />
  </resources>

@@ -20,6 +20,7 @@
 
 #include "dboxfe.h"
 #include "dboxfe_base.h"
+#include "dboxfe_gamedatabase.h"
 #include "dboxfe_profile.h"
 #include "dboxfe_profilewizard.h"
 
