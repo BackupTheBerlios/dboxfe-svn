@@ -87,11 +87,11 @@ void DB_BASE::findGames( const QString &dirName, QListWidget* qlw )
 /*
  * Create game profiles
  */
-void createGameProfiles( const QString &file, const QStringList &gamesList )
+void DB_BASE::createGameProfiles( const QString &file, const QStringList &gamesList )
 {
 }
 
-void insertGameInToDb( const QString &name, const QString &executable, QTreeWidget* qtw )
+void DB_BASE::insertGameInToDb( const QString &name, const QString &executable, QTreeWidget* qtw )
 {
     qtw->setColumnCount( qtw->columnCount() );
     
@@ -104,15 +104,15 @@ void insertGameInToDb( const QString &name, const QString &executable, QTreeWidg
 /*
  * Returns current count of games
  */
-int removeGameFromDb( QTreeWidgetItem* qtwItem )
+int DB_BASE::removeGameFromDb( QTreeWidgetItem* qtwItem )
 {
     delete qtwItem->parent();
     
     return 0;
 }
 
-void saveGameDb( const QString &file, const QStringList &gamesList )
+void DB_BASE::saveGameDb( const QString &file, const QStringList &gamesList )
 {}
 
-void readGameDb( const QString &file, QTreeWidget* qtw )
+void DB_BASE::readGameDb( const QString &file, QTreeWidget* qtw )
 {}
