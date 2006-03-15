@@ -31,7 +31,6 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
  
     QTranslator translator;
-    QString local = QLocale::system().name();
     QString m_file, m_profile_dir, m_tmpl_dir, lng;
     
     DBoxFE_Splash *splash;

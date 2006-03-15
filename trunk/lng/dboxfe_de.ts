@@ -3,23 +3,23 @@
     <name>ChangeLog</name>
     <message>
         <source>ChangeLog</source>
-        <translation>ChangeLog</translation>
+        <translation type="obsolete">ChangeLog</translation>
     </message>
     <message>
         <source>DOSBox ChangeLog</source>
-        <translation>DOSBox ChangeLog</translation>
+        <translation type="obsolete">DOSBox ChangeLog</translation>
     </message>
     <message>
         <source>DBoxFE ChangeLog </source>
-        <translation>DBoxFE ChangeLog</translation>
+        <translation type="obsolete">DBoxFE ChangeLog</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;/head&gt;&lt;body style=&quot; white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;/head&gt;&lt;body style=&quot; white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="obsolete">&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;/head&gt;&lt;body style=&quot; white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>&amp;Ok</source>
-        <translation>&amp;Ok</translation>
+        <translation type="obsolete">&amp;Ok</translation>
     </message>
 </context>
 <context>
@@ -1105,10 +1105,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Default</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>  &amp;Gamewizard</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1208,6 +1204,73 @@ If you click &apos;No&apos; only the profile from list will be removed.</source>
         <source>dosbox cmd output -&gt;</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Gamedatabase</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>v0.1.0</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DBox Front End</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>DBoxFE_GameDatabase</name>
+    <message>
+        <source>Gamedatabase</source>
+        <translation>Spieldatenbank</translation>
+    </message>
+    <message>
+        <source>Games</source>
+        <translation>Spiele</translation>
+    </message>
+    <message>
+        <source>Games in database:</source>
+        <translation>Spiele in der Datenbank</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>Executable</source>
+        <translation>Ausfürbar</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Name</translation>
+    </message>
+    <message>
+        <source>Option</source>
+        <translation>Einstellung</translation>
+    </message>
+    <message>
+        <source>Gamename:</source>
+        <translation>Spielname:</translation>
+    </message>
+    <message>
+        <source>Gamebinary</source>
+        <translation>Spieldatei</translation>
+    </message>
+    <message>
+        <source>&amp;Add</source>
+        <translation>&amp;Hinzufügen</translation>
+    </message>
+    <message>
+        <source>&amp;Change</source>
+        <translation>Ä&amp;ndern</translation>
+    </message>
+    <message>
+        <source>&amp;Remove</source>
+        <translation>%Entfernen</translation>
+    </message>
+    <message>
+        <source>Cl&amp;ose</source>
+        <translation>Schli&amp;eßen</translation>
+    </message>
 </context>
 <context>
     <name>DBoxFE_Profile</name>
@@ -1232,7 +1295,7 @@ If you click &apos;No&apos; only the profile from list will be removed.</source>
     <name>DBoxFE_ProfileWizard</name>
     <message>
         <source>Profilewizard &amp; Gamewizard</source>
-        <translation>Profilassistent &amp; Spielassistent</translation>
+        <translation>Profil &amp; Spielassistent</translation>
     </message>
     <message>
         <source>&amp;Help</source>
@@ -1285,6 +1348,14 @@ If you click &apos;No&apos; only the profile from list will be removed.</source>
     <message>
         <source>Open search directory</source>
         <translation>Öffne des zu durchsuchenden Verzeichnises</translation>
+    </message>
+    <message>
+        <source>Download failed: %1.</source>
+        <translation>Download fehlgeschlagen: %1</translation>
+    </message>
+    <message>
+        <source>Unable to update the file %1: %2.</source>
+        <translation>Kann update der Datei %1 nicht durchführen: %2</translation>
     </message>
 </context>
 </TS>

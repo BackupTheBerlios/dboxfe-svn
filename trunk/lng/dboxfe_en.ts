@@ -1,26 +1,6 @@
 <!DOCTYPE TS><TS>
 <context>
     <name>ChangeLog</name>
-    <message>
-        <source>ChangeLog</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>DOSBox ChangeLog</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>DBoxFE ChangeLog </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;/head&gt;&lt;body style=&quot; white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;Ok</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>DBoxFE</name>
@@ -1105,10 +1085,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Default</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>  &amp;Gamewizard</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1208,6 +1184,73 @@ If you click &apos;No&apos; only the profile from list will be removed.</source>
         <source>dosbox cmd output -&gt;</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Gamedatabase</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>v0.1.0</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DBox Front End</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>DBoxFE_GameDatabase</name>
+    <message>
+        <source>Gamedatabase</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Games</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Games in database:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Executable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Option</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gamename:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gamebinary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Change</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cl&amp;ose</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DBoxFE_Profile</name>
@@ -1284,6 +1327,14 @@ If you click &apos;No&apos; only the profile from list will be removed.</source>
     </message>
     <message>
         <source>Open search directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Download failed: %1.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unable to update the file %1: %2.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
