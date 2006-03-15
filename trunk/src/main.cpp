@@ -22,14 +22,9 @@
 #include "dboxfe_splash.h"
 #include "XMLPreferences.h"
 
-#include <QtGui/QApplication>
-#include <QtGui/QPixmap>
-
-#include <QtCore/QString>
-#include <QtCore/QDir>
-#include <QtCore/QTranslator>
-#include <QtCore/QLocale>
-#include <QtGui/QMessageBox>
+// Qt 4 Header
+#include <QtCore>
+#include <QtGui>
 
 int main(int argc, char *argv[])
 {
@@ -37,8 +32,41 @@ int main(int argc, char *argv[])
  
     QTranslator translator;
     QString local = QLocale::system().name();
-    QString m_file;
-    QString lng;
+    QString m_file, m_profile_dir, m_tmpl_dir, lng;
+    
+    DBoxFE_Splash *splash;
+    splash = new DBoxFE_Splash( QPixmap(":/pics/images/logo.png") );
+    app.processEvents();
+    
+    if (splash) splash->showMessage( "Create/Search application Directory ..." );
+    if (splash) splash->show();
+    
+    // TODO Create application directory if dosn't exists    
+    m_file = QDir::homePath();
+    m_file.append( "/.dboxfe" );
+    QDir appDir(m_file);
+    
+    if( !appDir.exists( m_file ) ){ appDir.mkdir( m_file ); }
+    if (splash) splash->showMessage( "Create Directory " + m_file +  "..." );
+    
+    // TODO Create profile directory if dosn't exists
+    m_profile_dir = QDir::homePath();
+    m_profile_dir.append( "/.dboxfe/profile" );
+    QDir proDir(m_profile_dir);
+    
+    if( !proDir.exists( m_profile_dir ) ){ proDir.mkdir( m_profile_dir ); }
+    if (splash) splash->showMessage( "Create Directory " + m_profile_dir +  "..." );
+    
+    // TODO Create Template directory if dosn't exists
+    m_tmpl_dir = QDir::homePath();
+    m_tmpl_dir.append( "/.dboxfe/tmpl" );
+    QDir tmplDir(m_tmpl_dir);
+    
+    if( !tmplDir.exists( m_tmpl_dir ) ){ tmplDir.mkdir( m_tmpl_dir ); }
+    if (splash) splash->showMessage( "Create Directory " + m_tmpl_dir +  "..." );
+    
+    if (splash) splash->showMessage( "Read Language settings ..." );
+    m_file = "";
     
     m_file = QDir::homePath();
     m_file.append( "/.dboxfe/profile/profile.xml" );
@@ -68,17 +96,12 @@ int main(int argc, char *argv[])
 	// TODO add code for disable message
 	if( lngIndex == -1 ) QMessageBox::information( 0, w.winTitle(), "No Language was choosed, use default language english ...");
     }
-
-    DBoxFE_Splash *splash;
-    splash = new DBoxFE_Splash( QPixmap(":/pics/images/logo.png") );
-    app.processEvents();
     
-    if (splash) splash->showMessage( "Loading Profiles" );
-    if (splash) splash->show();
+    if (splash) splash->showMessage( "Loading Profiles ..." );
 
     w.init();
-
-    if (splash) splash->showMessage( "Starting GUI");
+    
+    if (splash) splash->showMessage( "Starting GUI ...");
     
     w.show();
 

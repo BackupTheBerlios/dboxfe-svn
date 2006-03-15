@@ -27,36 +27,9 @@
 // 3rdparty library
 #include "XMLPreferences.h"
 
-// QtGui Header
-#include <QtGui/QFileDialog>
-#include <QtGui/QWidget>
-#include <QtGui/QApplication>
-#include <QtGui/QLabel>
-#include <QtGui/QListWidget>
-#include <QtGui/QListWidgetItem>
-#include <QtGui/QLineEdit>
-#include <QtGui/QPushButton>
-#include <QtGui/QRadioButton>
-#include <QtGui/QDesktopWidget>
-#include <QtGui/QMessageBox>
-#include <QtGui/QCloseEvent>
-#include <QtGui/QFileDialog>
-#include <QtGui/QCursor>
-#include <QtGui/QContextMenuEvent>
-#include <QtGui/QMenu>
-#include <QtGui/QIcon>
-#include <QtGui/QMenuBar>
-#include <QtGui/QAction>
-
-// QtCore Header
-#include <QtCore/QProcess>
-#include <QtCore/QStringList>
-#include <QtCore/QSettings>
-#include <QtCore/QFile>
-#include <QtCore/QDir>
-#include <QtCore/QRect>
-#include <QtCore/QIODevice>
-#include <QtCore/QtDebug>
+// Qt 4 Header
+#include <QtCore>
+#include <QtGui>
 
 
 DBoxFE::DBoxFE(QWidget *parent, Qt::WFlags flags)
@@ -377,14 +350,14 @@ void DBoxFE::slotWizard()
  **/
 void DBoxFE::slotListWidget(QListWidgetItem* item)
 {
-    DB_BASE gpIni;
-
+    DB_BASE gpIni; 
+    
     QString file;
     file = QDir::homePath();
     file.append( "/.dboxfe/" + item->text() + ".conf" );
 
     // gpIni.readGPIni( file, ui.lwProfile  );
-    gpIni.readDBConf( file, this );
+    gpIni.readConf( file, this );
 }
 
 /**

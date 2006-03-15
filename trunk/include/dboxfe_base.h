@@ -24,18 +24,11 @@
 #include "dboxfe.h"
 #include "XMLPreferences.h"
 
-#include <QtGui/QWidget>
-#include <QtGui/QListWidget>
-#include <QtGui/QProgressBar>
-#include <QtGui/QLabel>
-
-#include <QtCore/QFileInfo>
-#include <QtCore/QString>
-#include <QtCore/QStringList>
-#include <QtCore/QDir>
+#include <QtCore>
+#include <QtGui>
 
 /**
- * Klasse für DBoxFE
+ * Class for DBoxFE
  *
  * @class DB_BASE dboxfe_base.h "DB_BASE"
  * @author Alexander Saal <alex.saal@gmx.de>
@@ -43,6 +36,7 @@
  * @version 0.1.0
  * @since 0.1.0
 */
+
 class DB_BASE
 {
     
@@ -50,7 +44,7 @@ private:
     QStringList gameList;
     QString m_file, m_gameName;
     QFileInfo fi;
-        
+  
 public:
     DB_BASE();
     inline virtual ~DB_BASE(){}
@@ -62,7 +56,7 @@ public:
      * @param dbfe    QWidget (include all labels etc.)
      * @since 0.1.0
      */
-    void readDBConf( const QString &dbconf, const DBoxFE &dbfe );
+    void readConf( const QString &dbconf, const DBoxFE &dbfe );
 
     /**
      * Save dosbox configuration file
@@ -71,17 +65,61 @@ public:
      * @param dbfe    QWidget (include all labels etc.)
      * @since 0.1.0
      */
-    void saveDBConf( const QString &dbconf, const DBoxFE &dbfe );
+    void saveConf( const QString &dbconf, const DBoxFE &dbfe );
     
     /**
      * Search game executable
      *
      * @param dir        Directory for search
-     * @param qlw        QListWidget for information
-     * @param pBar       QProgressBar for search status
+     * @param qlw        QListWidget for list information
      * @since 0.1.0
      */
     void findGames( const QString &dirName, QListWidget* qlw );
+    
+    /**
+     * Create game profiles
+     *
+     * @param file        configuraton file for store information about profile names
+     * @param gamesList   QListWidget for list information
+     * @since 0.1.0
+     */
+    void createGameProfiles( const QString &file, const QStringList &gamesList );
+    
+    /**
+     * Insert game in to database (xml file)
+     *
+     * @param name        Game name
+     * @param executable  Executabel of game
+     * @param QTreeWidget QTreeWidget for list information
+     * @since 0.1.0
+     */
+    void insertGameInToDb( const QString &name, const QString &executable, QTreeWidget* qtw );
+    
+    /**
+     * Remove game from database (xml file)
+     *
+     * @param QTreeWidget QTreeWidget for information
+     * @since 0.1.0
+     */
+    int removeGameFromDb( QTreeWidgetItem* qtwItem );
+    
+    /**
+     * Save game database (xml file)
+     *
+     * @param file      QTreeWidget for information
+     * @param gamesList QTreeWidget for information
+     * @since 0.1.0
+     */
+    void saveGameDb( const QString &file, const QStringList &gamesList );
+    
+    /**
+     * Load game database file
+     *
+     * @param qtw       QTreeWidget for information
+     * @since 0.1.0
+     */
+    void readGameDb(const QString &file, QTreeWidget* qtw );    
+    
 };
 
 #endif // DBOXFE_BASE_H

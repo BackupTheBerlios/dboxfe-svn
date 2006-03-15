@@ -42,7 +42,148 @@
   <property name="windowIcon" >
    <iconset resource="../res/dboxfe.qrc" >:/pics/images/default.png</iconset>
   </property>
-  <widget class="QWidget" name="layoutWidget" >
+  <widget class="QGroupBox" name="gBoxProfile" >
+   <property name="geometry" >
+    <rect>
+     <x>9</x>
+     <y>9</y>
+     <width>221</width>
+     <height>541</height>
+    </rect>
+   </property>
+   <property name="title" >
+    <string>Gameprofile</string>
+   </property>
+   <layout class="QGridLayout" >
+    <property name="margin" >
+     <number>9</number>
+    </property>
+    <property name="spacing" >
+     <number>6</number>
+    </property>
+    <item row="0" column="0" >
+     <layout class="QVBoxLayout" >
+      <property name="margin" >
+       <number>0</number>
+      </property>
+      <property name="spacing" >
+       <number>6</number>
+      </property>
+      <item>
+       <widget class="QListWidget" name="lwProfile" />
+      </item>
+      <item>
+       <layout class="QGridLayout" >
+        <property name="margin" >
+         <number>0</number>
+        </property>
+        <property name="spacing" >
+         <number>6</number>
+        </property>
+        <item row="1" column="0" >
+         <layout class="QHBoxLayout" >
+          <property name="margin" >
+           <number>0</number>
+          </property>
+          <property name="spacing" >
+           <number>6</number>
+          </property>
+          <item>
+           <spacer>
+            <property name="orientation" >
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" >
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnWizard" >
+            <property name="layoutDirection" >
+             <enum>Qt::LeftToRight</enum>
+            </property>
+            <property name="text" >
+             <string>  &amp;Gamewizard</string>
+            </property>
+            <property name="icon" >
+             <iconset resource="../res/dboxfe.qrc" >:/pics/images/misc.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer>
+            <property name="orientation" >
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" >
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item row="0" column="0" >
+         <layout class="QHBoxLayout" >
+          <property name="margin" >
+           <number>0</number>
+          </property>
+          <property name="spacing" >
+           <number>6</number>
+          </property>
+          <item>
+           <widget class="QPushButton" name="btnCreateGP" >
+            <property name="toolTip" >
+             <string/>
+            </property>
+            <property name="whatsThis" >
+             <string/>
+            </property>
+            <property name="text" >
+             <string> &amp;Create</string>
+            </property>
+            <property name="icon" >
+             <iconset resource="../res/dboxfe.qrc" >:/pics/images/copy_16.png</iconset>
+            </property>
+            <property name="shortcut" >
+             <string>Alt+C</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnRemoveGP" >
+            <property name="toolTip" >
+             <string/>
+            </property>
+            <property name="whatsThis" >
+             <string/>
+            </property>
+            <property name="text" >
+             <string> &amp;Remove</string>
+            </property>
+            <property name="icon" >
+             <iconset resource="../res/dboxfe.qrc" >:/pics/images/cut_16.png</iconset>
+            </property>
+            <property name="shortcut" >
+             <string>Alt+R</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="" >
    <property name="geometry" >
     <rect>
      <x>240</x>
@@ -3167,71 +3308,14 @@
          <number>6</number>
         </property>
         <item row="0" column="0" >
-         <layout class="QGridLayout" >
+         <layout class="QVBoxLayout" >
           <property name="margin" >
            <number>0</number>
           </property>
           <property name="spacing" >
            <number>6</number>
           </property>
-          <item row="1" column="0" >
-           <widget class="QGroupBox" name="gBoxLanguage" >
-            <property name="title" >
-             <string>Language</string>
-            </property>
-            <layout class="QGridLayout" >
-             <property name="margin" >
-              <number>9</number>
-             </property>
-             <property name="spacing" >
-              <number>6</number>
-             </property>
-             <item row="0" column="0" >
-              <widget class="QComboBox" name="cbxLanguage" >
-               <item>
-                <property name="text" >
-                 <string>English</string>
-                </property>
-                <property name="icon" >
-                 <iconset resource="../res/dboxfe.qrc" >:/pics/images/en.png</iconset>
-                </property>
-               </item>
-               <item>
-                <property name="text" >
-                 <string>German</string>
-                </property>
-                <property name="icon" >
-                 <iconset resource="../res/dboxfe.qrc" >:/pics/images/de.png</iconset>
-                </property>
-               </item>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-          </item>
-          <item row="2" column="0" >
-           <widget class="QGroupBox" name="groupBox_4" >
-            <property name="title" >
-             <string>Window option</string>
-            </property>
-            <layout class="QGridLayout" >
-             <property name="margin" >
-              <number>9</number>
-             </property>
-             <property name="spacing" >
-              <number>6</number>
-             </property>
-             <item row="0" column="0" >
-              <widget class="QCheckBox" name="chkBoxWindowHide" >
-               <property name="text" >
-                <string>Hide window if dosbox started</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-          </item>
-          <item row="0" column="0" >
+          <item>
            <widget class="QGroupBox" name="gBoxExecutable" >
             <property name="title" >
              <string>Executable/DOSBox binary</string>
@@ -3303,7 +3387,94 @@
             </layout>
            </widget>
           </item>
-          <item row="3" column="0" >
+          <item>
+           <widget class="QGroupBox" name="gBoxLanguage" >
+            <property name="title" >
+             <string>Language</string>
+            </property>
+            <layout class="QGridLayout" >
+             <property name="margin" >
+              <number>9</number>
+             </property>
+             <property name="spacing" >
+              <number>6</number>
+             </property>
+             <item row="0" column="0" >
+              <widget class="QComboBox" name="cbxLanguage" >
+               <item>
+                <property name="text" >
+                 <string>English</string>
+                </property>
+                <property name="icon" >
+                 <iconset resource="../res/dboxfe.qrc" >:/pics/images/en.png</iconset>
+                </property>
+               </item>
+               <item>
+                <property name="text" >
+                 <string>German</string>
+                </property>
+                <property name="icon" >
+                 <iconset resource="../res/dboxfe.qrc" >:/pics/images/de.png</iconset>
+                </property>
+               </item>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="groupBox_4" >
+            <property name="title" >
+             <string>Window option</string>
+            </property>
+            <layout class="QGridLayout" >
+             <property name="margin" >
+              <number>9</number>
+             </property>
+             <property name="spacing" >
+              <number>6</number>
+             </property>
+             <item row="0" column="0" >
+              <widget class="QCheckBox" name="chkBoxWindowHide" >
+               <property name="text" >
+                <string>Hide window if dosbox started</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" >
+            <property name="margin" >
+             <number>0</number>
+            </property>
+            <property name="spacing" >
+             <number>6</number>
+            </property>
+            <item>
+             <widget class="QPushButton" name="btnGameDb" >
+              <property name="text" >
+               <string>Gamedatabase</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer>
+              <property name="orientation" >
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" >
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <item>
            <spacer>
             <property name="orientation" >
              <enum>Qt::Vertical</enum>
@@ -3636,153 +3807,6 @@
        </layout>
       </widget>
      </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QGroupBox" name="gBoxProfile" >
-   <property name="geometry" >
-    <rect>
-     <x>9</x>
-     <y>9</y>
-     <width>221</width>
-     <height>541</height>
-    </rect>
-   </property>
-   <property name="title" >
-    <string>Gameprofile</string>
-   </property>
-   <layout class="QGridLayout" >
-    <property name="margin" >
-     <number>9</number>
-    </property>
-    <property name="spacing" >
-     <number>6</number>
-    </property>
-    <item row="0" column="0" >
-     <layout class="QVBoxLayout" >
-      <property name="margin" >
-       <number>0</number>
-      </property>
-      <property name="spacing" >
-       <number>6</number>
-      </property>
-      <item>
-       <widget class="QListWidget" name="lwProfile" >
-        <item>
-         <property name="text" >
-          <string>Default</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item>
-       <layout class="QGridLayout" >
-        <property name="margin" >
-         <number>0</number>
-        </property>
-        <property name="spacing" >
-         <number>6</number>
-        </property>
-        <item row="1" column="0" >
-         <layout class="QHBoxLayout" >
-          <property name="margin" >
-           <number>0</number>
-          </property>
-          <property name="spacing" >
-           <number>6</number>
-          </property>
-          <item>
-           <spacer>
-            <property name="orientation" >
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" >
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="QPushButton" name="btnWizard" >
-            <property name="layoutDirection" >
-             <enum>Qt::LeftToRight</enum>
-            </property>
-            <property name="text" >
-             <string>  &amp;Gamewizard</string>
-            </property>
-            <property name="icon" >
-             <iconset resource="../res/dboxfe.qrc" >:/pics/images/misc.png</iconset>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer>
-            <property name="orientation" >
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" >
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-         </layout>
-        </item>
-        <item row="0" column="0" >
-         <layout class="QHBoxLayout" >
-          <property name="margin" >
-           <number>0</number>
-          </property>
-          <property name="spacing" >
-           <number>6</number>
-          </property>
-          <item>
-           <widget class="QPushButton" name="btnCreateGP" >
-            <property name="toolTip" >
-             <string/>
-            </property>
-            <property name="whatsThis" >
-             <string/>
-            </property>
-            <property name="text" >
-             <string> &amp;Create</string>
-            </property>
-            <property name="icon" >
-             <iconset resource="../res/dboxfe.qrc" >:/pics/images/copy_16.png</iconset>
-            </property>
-            <property name="shortcut" >
-             <string>Alt+C</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="btnRemoveGP" >
-            <property name="toolTip" >
-             <string/>
-            </property>
-            <property name="whatsThis" >
-             <string/>
-            </property>
-            <property name="text" >
-             <string> &amp;Remove</string>
-            </property>
-            <property name="icon" >
-             <iconset resource="../res/dboxfe.qrc" >:/pics/images/cut_16.png</iconset>
-            </property>
-            <property name="shortcut" >
-             <string>Alt+R</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-       </layout>
-      </item>
-     </layout>
     </item>
    </layout>
   </widget>

@@ -3,7 +3,7 @@
   <general>
     <author>Alexander Saal</author>
     <email>alex.saal@gmx.de</email>
-    <version>$VERSION$</version>
+    <version>0.1.0</version>
     <projectmanagement>KDevTrollProject</projectmanagement>
     <primarylanguage>C++</primarylanguage>
     <keywords>
@@ -13,6 +13,7 @@
     <absoluteprojectpath>false</absoluteprojectpath>
     <description/>
     <ignoreparts/>
+    <versioncontrol/>
   </general>
   <kdevfileview>
     <groups>
@@ -85,6 +86,7 @@
     </display>
   </kdevdebugger>
   <kdevfilecreate>
+    <filetypes/>
     <useglobaltypes>
       <type ext="ui" />
       <type ext="cpp" />

@@ -21,7 +21,8 @@
 #ifndef DBOXFE_PROFILE_H
 #define DBOXFE_PROFILE_H
 
-#include <QtGui/QDialog>
+#include <QtGui>
+
 #include "ui_profile.h"
 
 class DBoxFE_Profile : public QDialog

@@ -1,13 +1,16 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <!DOCTYPE KDevPrjSession>
 <KDevPrjSession>
- <DocsAndViews NumberOfDocuments="2" >
-  <Doc0 NumberOfViews="1" URL="file:///home/alex/project/dboxfe/src/dboxfe_profilewizard.cpp" >
-   <View0 line="105" Type="Source" />
+ <DocsAndViews NumberOfDocuments="3" >
+  <Doc0 NumberOfViews="1" URL="file:///home/alex/project/dboxfe/dboxfe-0.1.0/include/dboxfe_profilewizard.h" >
+   <View0 line="42" Type="Source" />
   </Doc0>
-  <Doc1 NumberOfViews="1" URL="file:///home/alex/project/dboxfe/include/dboxfe_profilewizard.h" >
-   <View0 line="37" Type="Source" />
+  <Doc1 NumberOfViews="1" URL="file:///home/alex/project/dboxfe/dboxfe-0.1.0/src/dboxfe_profilewizard.cpp" >
+   <View0 line="171" Type="Source" />
   </Doc1>
+  <Doc2 NumberOfViews="1" URL="file:///home/alex/project/dboxfe/dboxfe-0.1.0/src/main.cpp" >
+   <View0 line="40" Type="Source" />
+  </Doc2>
  </DocsAndViews>
  <pluginList>
   <kdevdebugger>

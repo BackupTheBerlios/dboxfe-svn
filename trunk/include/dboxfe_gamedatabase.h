@@ -21,7 +21,7 @@
 #ifndef DBOXFE_GAMEDATABASE_H
 #define DBOXFE_GAMEDATABASE_H
 
-#include <QtGui/QWidget>
+#include <QtGui>
 
 #include "ui_gamedatabase.h"
 

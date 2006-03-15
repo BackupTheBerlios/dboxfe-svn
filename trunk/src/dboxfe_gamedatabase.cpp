@@ -20,21 +20,9 @@
 
 #include "dboxfe_gamedatabase.h"
 
-#include <QtGui/QApplication>
-#include <QtGui/QLabel>
-#include <QtGui/QListWidget>
-#include <QtGui/QTreeWidget>
-#include <QtGui/QListWidgetItem>
-#include <QtGui/QLineEdit>
-#include <QtGui/QPushButton>
-#include <QtGui/QDesktopWidget>
-#include <QtGui/QMessageBox>
-#include <QtGui/QFileDialog>
-#include <QtGui/QFrame>
-#include <QtGui/QWidget>
-
-#include <QtCore/QRect>
-#include <QtCore/QtDebug>
+// Qt 4 Header
+#include <QtCore>
+#include <QtGui>
 
 DBoxFE_GameDatabase::DBoxFE_GameDatabase(QWidget *parent, Qt::WFlags flags)
         : QWidget(parent, flags)

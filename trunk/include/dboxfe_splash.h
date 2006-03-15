@@ -24,16 +24,8 @@
 #define DBoxFE_SPLASH_H
 
 // QtGui
-#include <QtGui/QLabel>
-#include <QtGui/QSplashScreen>
-#include <QtGui/QPainter>
-#include <QtGui/QPixmap>
-#include <QtGui/QColor>
-#include <QtGui/QWidget>
-
-// QtCore
-#include <QtCore/QString>
-#include <QtCore/QObject>
+#include <QtGui>
+#include <QtCore>
 #include <Qt>
 
 class DBoxFE_Splash : public QSplashScreen

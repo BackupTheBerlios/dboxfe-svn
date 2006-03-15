@@ -18,30 +18,25 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
+#include "dboxfe.h"
 #include "dboxfe_base.h"
 #include "dboxfe_profilewizard.h"
 
-#include <QtGui/QDialog>
-#include <QtGui/QApplication>
-#include <QtGui/QLabel>
-#include <QtGui/QListWidget>
-#include <QtGui/QListWidgetItem>
-#include <QtGui/QLineEdit>
-#include <QtGui/QPushButton>
-#include <QtGui/QDesktopWidget>
-#include <QtGui/QMessageBox>
-#include <QtGui/QFileDialog>
-#include <QtGui/QFrame>
-
-#include <QtCore/QRect>
-#include <QtCore/QtDebug>
+#include <QtGui>
+#include <QtCore>
+#include <QtNetwork>
 
 DBoxFE_ProfileWizard::DBoxFE_ProfileWizard(QDialog *parent, Qt::WFlags flags)
         : QDialog(parent, flags)
 {
     // setup grafical user interface (gui)
     ui.setupUi( this );
-
+    
+    // for download game database file
+    m_http = new QHttp( this );
+    connect( m_http, SIGNAL( requestFinished( int, bool ) ), this, SLOT( httpRequestFinished( int, bool ) ) );
+    connect( m_http, SIGNAL( responseHeaderReceived( const QHttpResponseHeader & ) ), this, SLOT( readResponseHeader( const QHttpResponseHeader & ) ) );
+    
     // connection
     connect( ui.btnBack, SIGNAL( clicked() ), this, SLOT( slotBack() ) );
     connect( ui.btnNext, SIGNAL( clicked() ), this, SLOT( slotNext() ) );
@@ -68,6 +63,8 @@ DBoxFE_ProfileWizard::DBoxFE_ProfileWizard(QDialog *parent, Qt::WFlags flags)
     int left = ( rect.width() - width() ) / 2;
     int top = ( rect.height() - height() ) / 2;
     setGeometry( left, top, width(), height() );
+    
+    downloadFile();
 }
 
 DBoxFE_ProfileWizard::~DBoxFE_ProfileWizard()
@@ -77,7 +74,7 @@ void DBoxFE_ProfileWizard::slotFinish()
 {
     if( ui.btnNext->text() == tr("&Finish") )
     {
-	QMessageBox::information( this, "DOSBox Front End", "Fertisch :)" );
+	QMessageBox::information( this, dbfe.winTitle(), "Fertisch :)" );
     }
     /*if ( ui.LEProfile->text().isEmpty() )
     {
@@ -156,4 +153,78 @@ void DBoxFE_ProfileWizard::slotSearch()
     
     ui.lwGames->clear();	
     base.findGames( path, ui.lwGames );    
+}
+
+
+void DBoxFE_ProfileWizard::httpRequestFinished(int requestId, bool error)
+{
+    if (httpRequestAborted)
+    {
+        if (m_file)
+	{
+            m_file->close();
+            m_file->remove();
+            delete m_file;
+            m_file = 0;
+        }
+
+        return;
+    }
+
+    if (requestId != httpGetId)
+        return;
+
+    m_file->flush();
+    m_file->close();
+
+    if (error)
+    {
+        m_file->remove();
+        QMessageBox::information(this, dbfe.winTitle(), tr("Download failed: %1.").arg(m_http->errorString()));
+    }
+
+    delete m_file;
+    m_file = 0;
+}
+
+void DBoxFE_ProfileWizard::readResponseHeader(const QHttpResponseHeader &responseHeader)
+{
+    if (responseHeader.statusCode() != 200)
+    {
+        QMessageBox::information(this, dbfe.winTitle(), tr("Download failed: %1.").arg(responseHeader.reasonPhrase()));
+        httpRequestAborted = true;
+        m_http->abort();
+        return;
+    }
+}
+
+void DBoxFE_ProfileWizard::downloadFile()
+{
+    QUrl url("http://chmaster.freeforge.net/update/dboxfe/games.xml");
+    QFileInfo fileInfo(url.path());
+    QString fileName;
+    fileName = QDir::homePath();
+    fileName.append( "/.dboxfe/profile/" + fileInfo.fileName() );
+
+    if (QFile::exists(fileName))
+    {
+	QFile::remove(fileName);
+    }
+
+    m_file = new QFile(fileName);
+    
+    if (!m_file->open(QIODevice::WriteOnly))
+    {
+        QMessageBox::information(this, dbfe.winTitle(), tr("Unable to update the file %1: %2.").arg(fileName).arg(m_file->errorString()));
+        delete m_file;
+        m_file = 0;
+        return;
+    }
+
+    m_http->setHost(url.host(), url.port() != -1 ? url.port() : 80);
+    if (!url.userName().isEmpty())
+        m_http->setUser(url.userName(), url.password());
+
+    httpRequestAborted = false;
+    httpGetId = m_http->get(url.path(), m_file);
 }

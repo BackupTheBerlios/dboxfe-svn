@@ -21,15 +21,8 @@
 #ifndef DBOXFE_H
 #define DBOXFE_H
 
-// QtGui Header
-#include <QtGui/QWidget>
-#include <QtGui/QCloseEvent>
-#include <QtGui/QListWidgetItem>
-#include <QtGui/QContextMenuEvent>
-
-// QtCore Header
-#include <QtCore/QProcess>
-#include <QtCore/QString>
+#include <QtGui>
+#include <QtCore>
 
 #include "ui_dboxfe.h"
 
@@ -42,10 +35,9 @@ public:
     ~DBoxFE();
     
     Ui::DBoxFE ui;
+    QString getAppVersion(){ return tr("v0.1.0"); }
+    QString winTitle(){ return tr("DBox Front End"); }
     
-    QString getAppVersion(){ return "v0.1.0"; }
-    QString winTitle(){ return "DBox Front End"; }
-
 private:
     QString titleLin, titleWin, titleMac, gpTxt, m_result, m_conf, m_file;
     QStringList m_param;

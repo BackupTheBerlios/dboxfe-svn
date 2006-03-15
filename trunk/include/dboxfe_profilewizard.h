@@ -21,9 +21,14 @@
 #ifndef DBOXFE_PROFILEWIZARD_H
 #define DBOXFE_PROFILEWIZARD_H
 
-#include <QtGui/QDialog>
+#include <QtGui>
 
+#include "dboxfe.h"
 #include "ui_profilewizard.h"
+
+class QFile;
+class QHttp;
+class QHttpResponseHeader;
 
 class DBoxFE_ProfileWizard : public QDialog
 {
@@ -35,7 +40,13 @@ public:
 
 private:
     Ui::DBoxFE_ProfileWizard ui;
+    DBoxFE dbfe;
     
+    QHttp *m_http;
+    QFile *m_file;
+    int httpGetId;
+    bool httpRequestAborted;
+  
 private slots:
     void slotBack();
     void slotNext();
@@ -44,6 +55,10 @@ private slots:
     void slotFinish();
     void slotSelectDir();
     void slotSearch();
+    
+    void httpRequestFinished( int requestId, bool error );
+    void readResponseHeader( const QHttpResponseHeader &responseHeader );
+    void downloadFile();
 };
 
 #endif // DBOXFE_PROFILEWIZARD_H

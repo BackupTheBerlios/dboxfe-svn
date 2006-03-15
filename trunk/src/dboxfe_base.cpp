@@ -22,33 +22,21 @@
 #include "dboxfe_base.h"
 #include "XMLPreferences.h"
 
-#include <QtCore/QSettings>
-#include <QtCore/QString>
-#include <QtCore/QStringList>
-#include <QtCore/QDir>
-#include <QtCore/QFile>
-#include <QtCore/QTextStream>
-#include <QtCore/QIODevice>
-#include <QtCore/QList>
-#include <QtCore/QFileInfo>
-#include <QtCore/QListIterator>
-#include <QtCore/QtDebug>
-
-#include <QtGui/QProgressBar>
-#include <QtGui/QWidget>
-#include <QtGui/QListWidgetItem>
+#include <QtCore>
+#include <QtGui>
+#include <QtNetwork>
 
 DB_BASE::DB_BASE()
 {}
 
-void DB_BASE::readDBConf( const QString &dbconf, const DBoxFE &dbfe )
+void DB_BASE::readConf( const QString &dbconf, const DBoxFE &dbfe )
 {
     QSettings settGP( dbconf, QSettings::IniFormat );
     QStringList sList;
 
 }
 
-void DB_BASE::saveDBConf( const QString &dbcon, const DBoxFE &dbfe )
+void DB_BASE::saveConf( const QString &dbcon, const DBoxFE &dbfe )
 {
     QSettings settGP( dbcon, QSettings::IniFormat );
 
@@ -62,12 +50,12 @@ void DB_BASE::findGames( const QString &dirName, QListWidget* qlw )
 
     m_file = QDir::homePath();
     m_file.append( "/.dboxfe/profile/games.xml" );
-    
+
     XMLPreferences games( "DBoxFE", "Alexander Saal" );
     games.setVersion( "v0.1.0" );
     games.load( m_file );
-    
-    gameList= games.getStringList( "Games", "Name");
+
+    gameList = games.getStringList( "Games", "Name");
 
     const QFileInfoList fil = dir.entryInfoList(QDir::Files | QDir::Dirs, QDir::Name);
     QListIterator<QFileInfo> it( fil );
@@ -95,3 +83,36 @@ void DB_BASE::findGames( const QString &dirName, QListWidget* qlw )
         }
     }
 }
+
+/*
+ * Create game profiles
+ */
+void createGameProfiles( const QString &file, const QStringList &gamesList )
+{
+}
+
+void insertGameInToDb( const QString &name, const QString &executable, QTreeWidget* qtw )
+{
+    qtw->setColumnCount( qtw->columnCount() );
+    
+    QTreeWidgetItem *item = new QTreeWidgetItem( qtw );
+    item->setText( 0, executable );
+    item->setText( 1, name );
+    delete item;
+}
+
+/*
+ * Returns current count of games
+ */
+int removeGameFromDb( QTreeWidgetItem* qtwItem )
+{
+    delete qtwItem->parent();
+    
+    return 0;
+}
+
+void saveGameDb( const QString &file, const QStringList &gamesList )
+{}
+
+void readGameDb( const QString &file, QTreeWidget* qtw )
+{}

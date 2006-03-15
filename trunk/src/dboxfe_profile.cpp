@@ -20,17 +20,9 @@
 
 #include "dboxfe_profile.h"
 
-#include <QtGui/QDialog>
-#include <QtGui/QApplication>
-#include <QtGui/QLabel>
-#include <QtGui/QListWidget>
-#include <QtGui/QListWidgetItem>
-#include <QtGui/QLineEdit>
-#include <QtGui/QPushButton>
-#include <QtGui/QDesktopWidget>
-#include <QtGui/QMessageBox>
-
-#include <QtCore/QRect>
+// Qt 4 Header
+#include <QtCore>
+#include <QtGui>
 
 DBoxFE_Profile::DBoxFE_Profile(QDialog *parent, Qt::WFlags flags)
         : QDialog(parent, flags)

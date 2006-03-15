@@ -22,15 +22,9 @@
 
 #include "dboxfe_splash.h"
 
-// QtGui
-#include <QtGui/QFont>
-#include <QtGui/QColor>
-#include <QtGui/QPixmap>
-
-// QtCore
-#include <QtCore/QTimer>
-#include <QtCore/QObject>
-#include <QtCore/QString>
+// Qt 4 Header
+#include <QtCore>
+#include <QtGui>
 #include <Qt>
 
 
