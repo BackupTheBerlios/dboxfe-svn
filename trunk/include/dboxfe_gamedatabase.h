@@ -32,8 +32,7 @@ class DBoxFE_GameDatabase : public QWidget
 public:
     DBoxFE_GameDatabase(QWidget *parent = 0, Qt::WFlags flags = 0);
     ~DBoxFE_GameDatabase();
-
-private:
+    
     Ui::DBoxFE_GameDatabase ui;
     
 private slots:

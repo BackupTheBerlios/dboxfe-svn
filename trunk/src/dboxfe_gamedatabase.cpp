@@ -18,6 +18,7 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
+#include "dboxfe_base.h"
 #include "dboxfe_gamedatabase.h"
 
 // Qt 4 Header
@@ -51,6 +52,8 @@ DBoxFE_GameDatabase::~DBoxFE_GameDatabase()
 
 void DBoxFE_GameDatabase::slotAdd()
 {
+    DB_BASE gp_base;
+    gp_base.insertGameInToDb( ui.LEGameName->text(), ui.LEGameBinary->text(), ui.twGames );
 }
 
 void DBoxFE_GameDatabase::slotRemove()
@@ -63,11 +66,11 @@ void DBoxFE_GameDatabase::slotChange()
 
 void DBoxFE_GameDatabase::slotSelectBinary()
 {
-    /*QString strDir = QFileDialog::getExistingDirectory( this, tr("Open search directory"), QDir::homePath() );
-    if ( strDir.isEmpty() )
+    QString strGameExe = QFileDialog::getExistingDirectory( this, tr("Open search directory"), QDir::homePath() );
+    if ( strGameExe.isEmpty() )
         return;
 
-    ui.LEDirectory->setText( strDir );*/
+    ui.LEGameBinary->setText( strGameExe );
 }
 
 void DBoxFE_GameDatabase::slotClose()

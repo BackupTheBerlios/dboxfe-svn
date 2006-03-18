@@ -41,7 +41,7 @@ class DB_BASE
 {
     
 private:
-    QStringList gameList;
+    QStringList gameList, gamesList;
     QString m_file, m_gameName;
     QFileInfo fi;
   
@@ -98,27 +98,30 @@ public:
     /**
      * Remove game from database (xml file)
      *
-     * @param QTreeWidget QTreeWidget for information
+     * @param QTreeWidget QTreeWidget for select an item to remove it
      * @since 0.1.0
      */
-    int removeGameFromDb( QTreeWidgetItem* qtwItem );
+    int removeGameFromDb( QTreeWidget* qtw );
     
     /**
      * Save game database (xml file)
      *
-     * @param file      QTreeWidget for information
-     * @param gamesList QTreeWidget for information
+     * @param file      file to save
+     * @param qtw       QTreeWidget for information
+     * @param col1      QTreeWidgetColumn 1 for information
+     * @param col2      QTreeWidgetColumn 2 for information
      * @since 0.1.0
      */
-    void saveGameDb( const QString &file, const QStringList &gamesList );
+    void saveGameDb( const QString &file, QTreeWidget* qtw, int col1, int col2 );
     
     /**
      * Load game database file
      *
-     * @param qtw       QTreeWidget for information
+     * @param file      file to read
+     * @param qtw       QTreeWidget to insert the readed fileinformation
      * @since 0.1.0
      */
-    void readGameDb(const QString &file, QTreeWidget* qtw );    
+    void readGameDb( const QString &file, QTreeWidget* qtw );
     
 };
 

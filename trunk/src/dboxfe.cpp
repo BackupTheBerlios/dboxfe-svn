@@ -52,12 +52,12 @@ DBoxFE::DBoxFE(QWidget *parent, Qt::WFlags flags)
     connect( ui.btnAutexecUpdate, SIGNAL( clicked() ), this, SLOT( slotAutexecUpdate() ) );
     connect( ui.btnAutexecDrive, SIGNAL( clicked() ), this, SLOT( slotAutexecDrive() ) );
     connect( ui.lwProfile, SIGNAL( itemClicked( QListWidgetItem* ) ), this, SLOT( slotListWidget( QListWidgetItem* ) ) );
-    
+
     // windows title for the application
     titleLin = "DOSBox - Front End for Linux " + getAppVersion();
     titleWin = "DOSBox - Front End for Windows " + getAppVersion();
     titleMac = "DOSBox - Front End for Mac " + getAppVersion();
-
+    
 #ifdef Q_OS_WIN32
     setWindowTitle( titleWin );
     QApplication::setStyle( "windowsxp" );
@@ -241,7 +241,7 @@ void DBoxFE::slotRemoveGP()
             }
 
             ui.lwOutPut->addItem( tr("Game Profile -> ") + gpTxt + tr(" was deleted") );
-            ui.lwOutPut->addItem( tr("Game Profile -> ") + f.fileName() + tr(" was deleted") );
+            ui.lwOutPut->addItem( tr("Game configuration -> ") + f.fileName() + tr(" was deleted") );
             ui.lwOutPut->update();
             m_file = "";
             break;
@@ -340,8 +340,7 @@ void DBoxFE::slotWizard()
 
     if ( dbfe_profilewizard->exec() == QDialog::Accepted )
     {
-        /*gpItem->setText( dbfe_profile->ui.LEProfile->text() );
-        ui.lwProfile->addItem( gpItem );*/
+	init();
     }
 }
 

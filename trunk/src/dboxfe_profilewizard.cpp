@@ -31,76 +31,87 @@ DBoxFE_ProfileWizard::DBoxFE_ProfileWizard(QDialog *parent, Qt::WFlags flags)
 {
     // setup grafical user interface (gui)
     ui.setupUi( this );
-    
+
     // for download game database file
     m_http = new QHttp( this );
     connect( m_http, SIGNAL( requestFinished( int, bool ) ), this, SLOT( httpRequestFinished( int, bool ) ) );
     connect( m_http, SIGNAL( responseHeaderReceived( const QHttpResponseHeader & ) ), this, SLOT( readResponseHeader( const QHttpResponseHeader & ) ) );
-    
+
     // connection
     connect( ui.btnBack, SIGNAL( clicked() ), this, SLOT( slotBack() ) );
     connect( ui.btnNext, SIGNAL( clicked() ), this, SLOT( slotNext() ) );
     connect( ui.btnNext, SIGNAL( clicked() ), this, SLOT( slotFinish() ) );
-    
+
     connect( ui.btnHelp, SIGNAL( clicked() ), this, SLOT( slotHelp() ) );
     connect( ui.btnAbort, SIGNAL( clicked() ), this, SLOT( slotAbort() ) );
     connect( ui.btnSelectDir, SIGNAL( clicked() ), this, SLOT( slotSelectDir() ) );
     connect( ui.btnSearch, SIGNAL( clicked() ), this, SLOT( slotSearch() ) );
-    
+
     // visible page
     ui.pageSearchGame->setVisible( true );
     ui.pageSearchGame->setGeometry( 190, 10, 531, 321 );
-    
+
     ui.pageCreateProfiles->setVisible( false );
     ui.pageCreateProfiles->setGeometry( 190, 10, 531, 321 );
-    
-    // enable button 
+
+    // enable button
     ui.btnNext->setEnabled( true );
-    
+
     // center the wiget on desktop screen
     QDesktopWidget *desktop = qApp->desktop();
     const QRect rect = desktop->availableGeometry( desktop->primaryScreen() );
     int left = ( rect.width() - width() ) / 2;
     int top = ( rect.height() - height() ) / 2;
     setGeometry( left, top, width(), height() );
-    
+
     downloadFile();
 }
 
 DBoxFE_ProfileWizard::~DBoxFE_ProfileWizard()
-{}
+{
+    delete m_http;
+    delete m_file;
+}
 
 void DBoxFE_ProfileWizard::slotFinish()
 {
+    DB_BASE gpBase;
+
+    m_gp_file = QDir::homePath();
+    m_gp_file.append( "/.dboxfe/profile/profile.xml" );
+
     if( ui.btnNext->text() == tr("&Finish") )
     {
-	QMessageBox::information( this, dbfe.winTitle(), "Fertisch :)" );
-    }
-    /*if ( ui.LEProfile->text().isEmpty() )
-    {
-        QMessageBox::information( this, "DOSBox Front End", "Please enter a profile name." );
+        for( int a = 0; a < ui.lwGames->count(); ++a )
+        {
+            gpList.append( ui.lwGames->item( a )->text() );
+        }
+	
+        gpBase.createGameProfiles( m_gp_file, gpList );
+        QDialog::accept();
     }
     else
     {
-        QDialog::accept();
-    }*/
+        ui.btnNext->setText( tr("&Next") );
+        return;
+    }
 }
 
 void DBoxFE_ProfileWizard::slotBack()
 {
     if( ui.pageCreateProfiles->isVisible() )
     {
-	ui.pageCreateProfiles->setVisible( false );
-	
-	ui.pageSearchGame->setVisible( true );
-	ui.pageSearchGame->setGeometry( 190, 10, 531, 321 );
-	
-	ui.btnNext->setEnabled( true );
-	ui.btnBack->setEnabled( false );
+        ui.pageCreateProfiles->setVisible( false );
+
+        ui.pageSearchGame->setVisible( true );
+        ui.pageSearchGame->setGeometry( 190, 10, 531, 321 );
+
+        ui.btnNext->setEnabled( true );
+        ui.btnBack->setEnabled( false );
     }
     else
     {
-	ui.btnNext->setText( tr("&Next") );
+        ui.btnNext->setText( tr("&Next") );
     }
 }
 
@@ -108,17 +119,17 @@ void DBoxFE_ProfileWizard::slotNext()
 {
     if( ui.pageSearchGame->isVisible() )
     {
-	ui.pageSearchGame->setVisible( false );
-	
-	ui.pageCreateProfiles->setVisible( true );
-	ui.pageCreateProfiles->setGeometry( 190, 10, 531, 321 );
-	
-	ui.btnNext->setEnabled( true );
-	ui.btnBack->setEnabled( true );	
+        ui.pageSearchGame->setVisible( false );
+
+        ui.pageCreateProfiles->setVisible( true );
+        ui.pageCreateProfiles->setGeometry( 190, 10, 531, 321 );
+
+        ui.btnNext->setEnabled( true );
+        ui.btnBack->setEnabled( true );
     }
     else
     {
-	ui.btnNext->setText( tr("&Finish") );
+        ui.btnNext->setText( tr("&Finish") );
     }
 }
 
@@ -150,9 +161,9 @@ void DBoxFE_ProfileWizard::slotSearch()
 
     if ( path.isEmpty() )
         return;
-    
-    ui.lwGames->clear();	
-    base.findGames( path, ui.lwGames );    
+
+    ui.lwGames->clear();
+    base.findGames( path, ui.lwGames );
 }
 
 
@@ -161,7 +172,7 @@ void DBoxFE_ProfileWizard::httpRequestFinished(int requestId, bool error)
     if (httpRequestAborted)
     {
         if (m_file)
-	{
+        {
             m_file->close();
             m_file->remove();
             delete m_file;
@@ -208,11 +219,12 @@ void DBoxFE_ProfileWizard::downloadFile()
 
     if (QFile::exists(fileName))
     {
-	QFile::remove(fileName);
+        QFile::remove
+            (fileName);
     }
 
     m_file = new QFile(fileName);
-    
+
     if (!m_file->open(QIODevice::WriteOnly))
     {
         QMessageBox::information(this, dbfe.winTitle(), tr("Unable to update the file %1: %2.").arg(fileName).arg(m_file->errorString()));

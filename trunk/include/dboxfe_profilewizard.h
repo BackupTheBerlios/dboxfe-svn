@@ -26,6 +26,8 @@
 #include "dboxfe.h"
 #include "ui_profilewizard.h"
 
+class QString;
+class QStringList;
 class QFile;
 class QHttp;
 class QHttpResponseHeader;
@@ -40,10 +42,14 @@ public:
 
 private:
     Ui::DBoxFE_ProfileWizard ui;
+    
     DBoxFE dbfe;
     
+    QStringList gpList;
+    QString m_gp_file;
     QHttp *m_http;
     QFile *m_file;
+    
     int httpGetId;
     bool httpRequestAborted;
   
@@ -55,10 +61,10 @@ private slots:
     void slotFinish();
     void slotSelectDir();
     void slotSearch();
+    void downloadFile();
     
     void httpRequestFinished( int requestId, bool error );
     void readResponseHeader( const QHttpResponseHeader &responseHeader );
-    void downloadFile();
 };
 
 #endif // DBOXFE_PROFILEWIZARD_H
