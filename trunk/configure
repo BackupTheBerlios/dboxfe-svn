@@ -23,6 +23,27 @@ exit 1
 else
 echo $qmake;
 fi
+printf "Checking for lupdate... "
+lupdate="`which lupdate`"
+if [ "$lupdate" = "" ]; then
+echo "not found!"
+echo
+echo "Make sure you have the Qt development packages installed!"
+exit 1
+else
+echo $lupdate;
+fi
+
+printf "Checking for lrelease... "
+lrelease="`which lrelease`"
+if [ "$lrelease" = "" ]; then
+echo "not found!"
+echo
+echo "Make sure you have the Qt development packages installed!"
+exit 1
+else
+echo $lrelease;
+fi
 
 printf "Checking for qmake version... "
 $qmake -v &>qmake.ver
@@ -36,6 +57,36 @@ exit 1
 else
 echo $ver;
 rm -rf qmake.ver
+fi
+
+printf "Checking for lupdate version... "
+$lupdate -version &>lupdate.ver
+ver=`sed 's/[a-z,A-Z].//g' lupdate.ver | sed -n '1,1p'`
+if [ "$ver" = "3.3.5" ]; then
+echo $ver;
+echo
+echo "version too old! Make sure you have the Qt 4.1.x installed!"
+rm -rf lupdate.ver
+exit 1
+else
+echo $ver;
+$lupdate dboxfe.pro
+rm -rf lupdate.ver
+fi
+
+printf "Checking for lupdate version... "
+$lrelease -version &>lrelease.ver
+ver=`sed 's/[a-z,A-Z].//g' lrelease.ver | sed -n '1,1p'`
+if [ "$ver" = "3.3.5" ]; then
+echo $ver;
+echo
+echo "version too old! Make sure you have the Qt 4.1.x installed!"
+rm -rf lrealse.ver
+exit 1
+else
+echo $ver;
+#$lrealse dboxfe.pro
+rm -rf lrealse.ver
 fi
 
 # Now create the makefile
