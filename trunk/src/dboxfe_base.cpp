@@ -257,7 +257,7 @@ void DB_BASE::readGameDb( const QString &file, QTreeWidget* qtw )
     {
         lst = gamesList[i].split(";");
         item->setText( 0, lst.value(0) );
-        item->setText( 1, lst.value(2) );
+        item->setText( 1, lst.value(1) );
     }
     delete qtw;
     delete item;
