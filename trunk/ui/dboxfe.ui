@@ -2350,8 +2350,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>586</width>
-          <height>298</height>
+          <width>176</width>
+          <height>112</height>
          </rect>
         </property>
         <attribute name="label" >
@@ -2525,320 +2525,394 @@
           <number>6</number>
          </property>
          <item row="0" column="0" >
-          <layout class="QVBoxLayout" >
-           <property name="margin" >
-            <number>0</number>
+          <widget class="QGroupBox" name="gBoxDirectSerial" >
+           <property name="title" >
+            <string>Serial</string>
            </property>
-           <property name="spacing" >
-            <number>6</number>
-           </property>
-           <item>
-            <widget class="QGroupBox" name="gBoxDirectSerial" >
-             <property name="title" >
-              <string>Serial</string>
-             </property>
-             <layout class="QGridLayout" >
+           <layout class="QGridLayout" >
+            <property name="margin" >
+             <number>9</number>
+            </property>
+            <property name="spacing" >
+             <number>6</number>
+            </property>
+            <item row="1" column="0" colspan="2" >
+             <layout class="QHBoxLayout" >
               <property name="margin" >
-               <number>9</number>
+               <number>0</number>
               </property>
               <property name="spacing" >
                <number>6</number>
               </property>
-              <item row="0" column="0" >
-               <layout class="QVBoxLayout" >
-                <property name="margin" >
-                 <number>0</number>
+              <item>
+               <widget class="QPushButton" name="btnSerialAdd" >
+                <property name="text" >
+                 <string> Add</string>
                 </property>
-                <property name="spacing" >
-                 <number>6</number>
+                <property name="icon" >
+                 <iconset resource="../res/dboxfe.qrc" >:/pics/images/add_16.png</iconset>
                 </property>
-                <item>
-                 <layout class="QHBoxLayout" >
-                  <property name="margin" >
-                   <number>0</number>
-                  </property>
-                  <property name="spacing" >
-                   <number>6</number>
-                  </property>
-                  <item>
-                   <widget class="QComboBox" name="cbxDSSerial" >
-                    <item>
-                     <property name="text" >
-                      <string>serial1</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text" >
-                      <string>serial2</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text" >
-                      <string>serial3</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text" >
-                      <string>serial4</string>
-                     </property>
-                    </item>
-                   </widget>
-                  </item>
-                  <item>
-                   <spacer>
-                    <property name="orientation" >
-                     <enum>Qt::Horizontal</enum>
-                    </property>
-                    <property name="sizeHint" >
-                     <size>
-                      <width>40</width>
-                      <height>20</height>
-                     </size>
-                    </property>
-                   </spacer>
-                  </item>
-                  <item>
-                   <widget class="QComboBox" name="cbxDSOption" >
-                    <item>
-                     <property name="text" >
-                      <string>disabled</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text" >
-                      <string>dummy</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text" >
-                      <string>modem</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text" >
-                      <string>directserial</string>
-                     </property>
-                    </item>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-                <item>
-                 <widget class="QGroupBox" name="groupBox_5" >
-                  <property name="title" >
-                   <string/>
-                  </property>
-                  <layout class="QGridLayout" >
+               </widget>
+              </item>
+              <item>
+               <spacer>
+                <property name="orientation" >
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" >
+                 <size>
+                  <width>116</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnSerialRemove" >
+                <property name="text" >
+                 <string> Remove</string>
+                </property>
+                <property name="icon" >
+                 <iconset resource="../res/dboxfe.qrc" >:/pics/images/delete_16.png</iconset>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="3" column="0" >
+             <widget class="QComboBox" name="cbxDSSerial" >
+              <item>
+               <property name="text" >
+                <string>serial1</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>serial2</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>serial3</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>serial4</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item row="3" column="1" >
+             <widget class="QComboBox" name="cbxDSOption" >
+              <item>
+               <property name="text" >
+                <string>disabled</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>dummy</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>modem</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>directserial</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item row="0" column="0" colspan="2" >
+             <widget class="QTreeWidget" name="twSerial" >
+              <column>
+               <property name="text" >
+                <string>Serial</string>
+               </property>
+              </column>
+              <column>
+               <property name="text" >
+                <string>Option</string>
+               </property>
+              </column>
+             </widget>
+            </item>
+            <item row="2" column="0" colspan="2" >
+             <widget class="QGroupBox" name="gBoxSerialOption" >
+              <property name="title" >
+               <string/>
+              </property>
+              <layout class="QGridLayout" >
+               <property name="margin" >
+                <number>9</number>
+               </property>
+               <property name="spacing" >
+                <number>6</number>
+               </property>
+               <item row="0" column="1" >
+                <layout class="QGridLayout" >
+                 <property name="margin" >
+                  <number>0</number>
+                 </property>
+                 <property name="spacing" >
+                  <number>6</number>
+                 </property>
+                 <item row="0" column="0" >
+                  <layout class="QVBoxLayout" >
                    <property name="margin" >
-                    <number>9</number>
+                    <number>0</number>
                    </property>
                    <property name="spacing" >
                     <number>6</number>
                    </property>
-                   <item row="0" column="0" >
-                    <layout class="QHBoxLayout" >
-                     <property name="margin" >
-                      <number>0</number>
+                   <item>
+                    <widget class="QLabel" name="label_30" >
+                     <property name="text" >
+                      <string>Default bps:</string>
                      </property>
-                     <property name="spacing" >
-                      <number>6</number>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="label_27" >
+                     <property name="text" >
+                      <string>Listen Port:</string>
                      </property>
-                     <item>
-                      <layout class="QVBoxLayout" >
-                       <property name="margin" >
-                        <number>0</number>
-                       </property>
-                       <property name="spacing" >
-                        <number>6</number>
-                       </property>
-                       <item>
-                        <widget class="QLabel" name="label_28" >
-                         <property name="font" >
-                          <font>
-                           <family>Bitstream Vera Sans</family>
-                           <pointsize>12</pointsize>
-                           <weight>50</weight>
-                           <italic>false</italic>
-                           <bold>false</bold>
-                           <underline>false</underline>
-                           <strikeout>false</strikeout>
-                          </font>
-                         </property>
-                         <property name="text" >
-                          <string>COM Port:</string>
-                         </property>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QLabel" name="label_29" >
-                         <property name="text" >
-                          <string>Real Port:</string>
-                         </property>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QLabel" name="label_30" >
-                         <property name="text" >
-                          <string>Default bps:</string>
-                         </property>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QLabel" name="label_31" >
-                         <property name="text" >
-                          <string>Parity:</string>
-                         </property>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QLabel" name="label_32" >
-                         <property name="text" >
-                          <string>Bytesize:</string>
-                         </property>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QLabel" name="label_33" >
-                         <property name="text" >
-                          <string>Stopbit:</string>
-                         </property>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QLabel" name="label_27" >
-                         <property name="text" >
-                          <string>Listen Port:</string>
-                         </property>
-                        </widget>
-                       </item>
-                      </layout>
-                     </item>
-                     <item>
-                      <layout class="QVBoxLayout" >
-                       <property name="margin" >
-                        <number>0</number>
-                       </property>
-                       <property name="spacing" >
-                        <number>6</number>
-                       </property>
-                       <item>
-                        <widget class="QComboBox" name="cbxDSComPort" >
-                         <item>
-                          <property name="text" >
-                           <string>1</string>
-                          </property>
-                         </item>
-                         <item>
-                          <property name="text" >
-                           <string>2</string>
-                          </property>
-                         </item>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QComboBox" name="cbxDSRealPort" >
-                         <item>
-                          <property name="text" >
-                           <string>COM1</string>
-                          </property>
-                         </item>
-                         <item>
-                          <property name="text" >
-                           <string>COM2</string>
-                          </property>
-                         </item>
-                         <item>
-                          <property name="text" >
-                           <string>COM3</string>
-                          </property>
-                         </item>
-                         <item>
-                          <property name="text" >
-                           <string>COM4</string>
-                          </property>
-                         </item>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QLineEdit" name="LEDSBps" >
-                         <property name="text" >
-                          <string>9600</string>
-                         </property>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QComboBox" name="cbxDSParity" >
-                         <item>
-                          <property name="text" >
-                           <string>N</string>
-                          </property>
-                         </item>
-                         <item>
-                          <property name="text" >
-                           <string>E</string>
-                          </property>
-                         </item>
-                         <item>
-                          <property name="text" >
-                           <string>O</string>
-                          </property>
-                         </item>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QComboBox" name="cbxDSByteSize" >
-                         <property name="currentIndex" >
-                          <number>1</number>
-                         </property>
-                         <item>
-                          <property name="text" >
-                           <string>5</string>
-                          </property>
-                         </item>
-                         <item>
-                          <property name="text" >
-                           <string>8</string>
-                          </property>
-                         </item>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QComboBox" name="cbxDSStopBit" >
-                         <item>
-                          <property name="text" >
-                           <string>1</string>
-                          </property>
-                         </item>
-                         <item>
-                          <property name="text" >
-                           <string>2</string>
-                          </property>
-                         </item>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QLineEdit" name="LEDSListenPort" />
-                       </item>
-                      </layout>
-                     </item>
-                    </layout>
+                    </widget>
                    </item>
                   </layout>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item>
-            <widget class="QCheckBox" name="chkBoxIPX" >
-             <property name="text" >
-              <string>IPX</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
+                 </item>
+                 <item row="0" column="1" >
+                  <layout class="QVBoxLayout" >
+                   <property name="margin" >
+                    <number>0</number>
+                   </property>
+                   <property name="spacing" >
+                    <number>6</number>
+                   </property>
+                   <item>
+                    <widget class="QLineEdit" name="LEDSBps" >
+                     <property name="text" >
+                      <string>9600</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLineEdit" name="LEDSListenPort" />
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </item>
+               <item row="1" column="0" colspan="2" >
+                <layout class="QGridLayout" >
+                 <property name="margin" >
+                  <number>0</number>
+                 </property>
+                 <property name="spacing" >
+                  <number>6</number>
+                 </property>
+                 <item row="0" column="1" >
+                  <layout class="QVBoxLayout" >
+                   <property name="margin" >
+                    <number>0</number>
+                   </property>
+                   <property name="spacing" >
+                    <number>6</number>
+                   </property>
+                   <item>
+                    <widget class="QComboBox" name="cbxDSParity" >
+                     <item>
+                      <property name="text" >
+                       <string>N</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text" >
+                       <string>E</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text" >
+                       <string>O</string>
+                      </property>
+                     </item>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QComboBox" name="cbxDSByteSize" >
+                     <property name="currentIndex" >
+                      <number>1</number>
+                     </property>
+                     <item>
+                      <property name="text" >
+                       <string>5</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text" >
+                       <string>8</string>
+                      </property>
+                     </item>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QComboBox" name="cbxDSStopBit" >
+                     <item>
+                      <property name="text" >
+                       <string>1</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text" >
+                       <string>2</string>
+                      </property>
+                     </item>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item row="0" column="0" >
+                  <layout class="QVBoxLayout" >
+                   <property name="margin" >
+                    <number>0</number>
+                   </property>
+                   <property name="spacing" >
+                    <number>6</number>
+                   </property>
+                   <item>
+                    <widget class="QLabel" name="label_31" >
+                     <property name="text" >
+                      <string>Parity:</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="label_32" >
+                     <property name="text" >
+                      <string>Bytesize:</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="label_33" >
+                     <property name="text" >
+                      <string>Stopbit:</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </item>
+               <item row="0" column="0" >
+                <layout class="QGridLayout" >
+                 <property name="margin" >
+                  <number>0</number>
+                 </property>
+                 <property name="spacing" >
+                  <number>6</number>
+                 </property>
+                 <item row="0" column="1" >
+                  <layout class="QVBoxLayout" >
+                   <property name="margin" >
+                    <number>0</number>
+                   </property>
+                   <property name="spacing" >
+                    <number>6</number>
+                   </property>
+                   <item>
+                    <widget class="QComboBox" name="cbxDSComPort" >
+                     <item>
+                      <property name="text" >
+                       <string>1</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text" >
+                       <string>2</string>
+                      </property>
+                     </item>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QComboBox" name="cbxDSRealPort" >
+                     <item>
+                      <property name="text" >
+                       <string>COM1</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text" >
+                       <string>COM2</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text" >
+                       <string>COM3</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text" >
+                       <string>COM4</string>
+                      </property>
+                     </item>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item row="0" column="0" >
+                  <layout class="QVBoxLayout" >
+                   <property name="margin" >
+                    <number>0</number>
+                   </property>
+                   <property name="spacing" >
+                    <number>6</number>
+                   </property>
+                   <item>
+                    <widget class="QLabel" name="label_28" >
+                     <property name="font" >
+                      <font>
+                       <family>Bitstream Vera Sans</family>
+                       <pointsize>12</pointsize>
+                       <weight>50</weight>
+                       <italic>false</italic>
+                       <bold>false</bold>
+                       <underline>false</underline>
+                       <strikeout>false</strikeout>
+                      </font>
+                     </property>
+                     <property name="text" >
+                      <string>COM Port:</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="label_29" >
+                     <property name="text" >
+                      <string>Real Port:</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item row="1" column="0" >
+          <widget class="QCheckBox" name="chkBoxIPX" >
+           <property name="text" >
+            <string>IPX</string>
+           </property>
+          </widget>
          </item>
         </layout>
        </widget>
@@ -3652,47 +3726,38 @@
        <property name="spacing" >
         <number>6</number>
        </property>
-       <item row="2" column="0" >
-        <widget class="QGroupBox" name="groupBox_4" >
-         <property name="title" >
-          <string>Option</string>
+       <item row="3" column="0" >
+        <layout class="QHBoxLayout" >
+         <property name="margin" >
+          <number>0</number>
          </property>
-         <layout class="QGridLayout" >
-          <property name="margin" >
-           <number>9</number>
-          </property>
-          <property name="spacing" >
-           <number>6</number>
-          </property>
-          <item row="1" column="0" >
-           <widget class="QCheckBox" name="chkBoxStartmapper" >
-            <property name="text" >
-             <string>start Keymapper</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="0" >
-           <widget class="QCheckBox" name="chkBoxWindowHide" >
-            <property name="text" >
-             <string>Hide window if dosbox started</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item row="4" column="0" >
-        <spacer>
-         <property name="orientation" >
-          <enum>Qt::Vertical</enum>
+         <property name="spacing" >
+          <number>6</number>
          </property>
-         <property name="sizeHint" >
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
+         <item>
+          <widget class="QPushButton" name="btnGameDb" >
+           <property name="enabled" >
+            <bool>false</bool>
+           </property>
+           <property name="text" >
+            <string>Gamedatabase</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer>
+           <property name="orientation" >
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" >
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
        </item>
        <item row="1" column="0" >
         <widget class="QGroupBox" name="gBoxLanguage" >
@@ -3724,6 +3789,61 @@
               <iconset resource="../res/dboxfe.qrc" >:/pics/images/de.png</iconset>
              </property>
             </item>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="4" column="0" >
+        <spacer>
+         <property name="orientation" >
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" >
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="2" column="0" >
+        <widget class="QGroupBox" name="groupBox_4" >
+         <property name="title" >
+          <string>Option</string>
+         </property>
+         <layout class="QGridLayout" >
+          <property name="margin" >
+           <number>9</number>
+          </property>
+          <property name="spacing" >
+           <number>6</number>
+          </property>
+          <item row="1" column="0" >
+           <widget class="QCheckBox" name="chkBoxSaveGP" >
+            <property name="text" >
+             <string>Save gameprofile if you close the application</string>
+            </property>
+            <property name="checked" >
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0" >
+           <widget class="QCheckBox" name="chkBoxStartmapper" >
+            <property name="text" >
+             <string>start Keymapper</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0" >
+           <widget class="QCheckBox" name="chkBoxWindowHide" >
+            <property name="text" >
+             <string>Hide window if dosbox started</string>
+            </property>
+            <property name="checked" >
+             <bool>true</bool>
+            </property>
            </widget>
           </item>
          </layout>
@@ -3800,39 +3920,6 @@
           </item>
          </layout>
         </widget>
-       </item>
-       <item row="3" column="0" >
-        <layout class="QHBoxLayout" >
-         <property name="margin" >
-          <number>0</number>
-         </property>
-         <property name="spacing" >
-          <number>6</number>
-         </property>
-         <item>
-          <widget class="QPushButton" name="btnGameDb" >
-           <property name="enabled" >
-            <bool>false</bool>
-           </property>
-           <property name="text" >
-            <string>Gamedatabase</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <spacer>
-           <property name="orientation" >
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" >
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-        </layout>
        </item>
       </layout>
      </item>
@@ -4230,6 +4317,7 @@
   <tabstop>twAbout</tabstop>
   <tabstop>txtBrowserLic</tabstop>
  </tabstops>
+ <includes/>
  <resources>
   <include location="Resources/dboxfe.qrc" />
   <include location="../res/dboxfe.qrc" />

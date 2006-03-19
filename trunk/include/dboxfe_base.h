@@ -56,7 +56,7 @@ public:
      * @param dbfe    QWidget (include all labels etc.)
      * @since 0.1.0
      */
-    void readConf( const QString &dbconf, const DBoxFE &dbfe );
+    void readConf( const QString &dbconf, DBoxFE* dbfe );
 
     /**
      * Save dosbox configuration file
@@ -65,7 +65,7 @@ public:
      * @param dbfe    QWidget (include all labels etc.)
      * @since 0.1.0
      */
-    void saveConf( const QString &dbconf, const DBoxFE &dbfe );
+    void saveConf( const QString &dbconf, DBoxFE* dbfe );
     
     /**
      * Parse dosbox configuration file

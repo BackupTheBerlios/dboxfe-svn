@@ -104,7 +104,7 @@ void DBoxFE::init()
     ui.LEDbxVersion->setText( QString( settGP.getString( "DOSBox", "version" )) );
     ui.cbxLanguage->setCurrentIndex( settGP.getInt( "DBoxFE", "Lng" ) );
     ui.chkBoxWindowHide->setChecked( settGP.getBool( "DBoxFE", "winHide" ) );
-    
+    ui.btnGameDb->setHidden( true );
     m_file = "";
 }
 
@@ -216,7 +216,7 @@ void DBoxFE::slotStartDBox()
     if( ui.LEDbxStabel->text().isEmpty() )
     {
         QMessageBox::information( this, winTitle(), tr("Can not start dosbox, no dosbox binary was selected.\nPlease choose dosbox binary.") );
-        ui.twDbx->setCurrentIndex( 1 );
+        ui.twDbx->setCurrentIndex( 3 );
         return;
     }
     start( ui.LEDbxStabel->text(), "-conf", m_conf );
@@ -249,7 +249,7 @@ void DBoxFE::slotRemoveGP()
         m_file.append( "/.dboxfe/" + gpTxt + ".conf" );
         QFile f( m_file );
 
-        switch( QMessageBox::information( this, winTitle(), tr("Would you delete the profile and configuration file?\nIf you click 'No' only the profile from list will be removed."), tr("Yes"), tr("No"), tr("Cancel"), 0, 2 ) )
+        switch( QMessageBox::information( this, winTitle(), tr("Would you like delete the profile and configuration file?\nIf you click 'No' only the profile from list will be removed."), tr("Yes"), tr("No"), tr("Cancel"), 0, 2 ) )
         {
         case 0: // Yes clicked
             delete ui.lwProfile->currentItem();
@@ -284,7 +284,7 @@ void DBoxFE::slotSnapDir()
     if ( strSnap.isEmpty() )
         return;
     
-    ui.LELanguage->setText( strSnap );    
+    ui.LESnapDir->setText( strSnap );    
 }
 
 /**
@@ -389,7 +389,8 @@ void DBoxFE::start( const QString& bin, const QString &param, const QString &con
 
     dBox->start( bin, m_param );
     connect( dBox, SIGNAL( readyReadStandardOutput()), this, SLOT( readOutput() ) );
-    connect( dBox, SIGNAL( finished( int, QProcess::ExitStatus ) ), this, SLOT( finish() ) );
+    connect( dBox, SIGNAL( finished( int, QProcess::ExitStatus ) ), this, SLOT( finish( int, QProcess::ExitStatus ) ) );
+    connect( dBox, SIGNAL( error( QProcess::ProcessError ) ), this, SLOT( err( QProcess::ProcessError ) ) );
     
     if( ui.chkBoxWindowHide->isChecked() == true )
     {
@@ -409,19 +410,50 @@ void DBoxFE::readOutput()
     while( dBox->canReadLine() )
     {
         m_result = dBox->readLine();
-        ui.lwOutPut->addItem( tr("dosbox cmd output ->") + m_result.mid( m_result.indexOf( ":" ) + 1 ) );
+        ui.lwOutPut->addItem( tr("dosbox cmd output -> ") + m_result.mid( m_result.indexOf( ":" ) + 1 ) );
         ui.lwOutPut->update();
     }
 }
 
 /**
- * TODO Function for start dosbox and read output
+ * TODO dosbox process was exited
  **/
-void DBoxFE::finish()
+void DBoxFE::finish(int exitCode, QProcess::ExitStatus exitStatus )
 {
-    if( ui.chkBoxWindowHide->isChecked() == true )
+    this->show();
+    
+    switch( exitStatus )
     {
-	this->hide();
+	case QProcess::NormalExit: ui.lwOutPut->addItem( tr("dboxfe: dosbox process exited normally") );
+	break;
+	case QProcess::CrashExit: ui.lwOutPut->addItem( tr("dboxfe: dosbox process crashed") );
+	break;
+    }
+	
+    ui.btnStartDBox->setEnabled( true );
+}
+
+/**
+ * TODO dosbox process was exited amd have an error returned
+ **/
+void DBoxFE::err( QProcess::ProcessError error )
+{
+    this->show();
+    
+    switch( error )
+    {
+	case QProcess::FailedToStart: ui.lwOutPut->addItem( tr("dboxfe: the dosbox process failed to start") );
+	    break;
+	case QProcess::Crashed: ui.lwOutPut->addItem( tr("dboxfe: dosbox process crashed some time after starting successfully") );
+	    break;
+	case QProcess::Timedout: ui.lwOutPut->addItem( tr("dboxfe: last waitFor...() function timed out") );
+	    break;
+	case QProcess::WriteError: ui.lwOutPut->addItem( tr("dboxfe: an error occurred when attempting to write to the dosbox process") );
+	    break;
+	case QProcess::ReadError: ui.lwOutPut->addItem( tr("dboxfe: an error occurred when attempting to read from the dosbox process") );
+	    break;
+	case QProcess::UnknownError: ui.lwOutPut->addItem( tr("dboxfe: An unknown error occurred") );
+	    break;	
     }
     
     ui.btnStartDBox->setEnabled( true );
