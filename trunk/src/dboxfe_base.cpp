@@ -125,7 +125,7 @@ void DB_BASE::saveConf( const QString &dbconf, DBoxFE* dbfe )
 
     // Serial settings
     settConf->beginGroup( "serial" );
-    for ( int i = 0; i < dbfe->ui.twSerial->topLevelItemCount(); i++ )
+    for ( int i = 0; i < dbfe->ui.twSerial->topLevelItemCount(); ++i )
     {
         QTreeWidgetItem *item =  dbfe->ui.twSerial->topLevelItem( i );
 	settConf->setValue( "serial" + i, item->text( 1 ) );
@@ -134,7 +134,7 @@ void DB_BASE::saveConf( const QString &dbconf, DBoxFE* dbfe )
     
     // Autoexec settings
     settConf->beginGroup( "autoexec" );
-    for ( int a = 0; a < dbfe->ui.lwAutoexec->count(); a++ )
+    for ( int a = 0; a < dbfe->ui.lwAutoexec->count(); ++a )
     {
 	settConf->setValue( "", dbfe->ui.lwAutoexec->item( a )->text() );
     }
@@ -239,7 +239,7 @@ void DB_BASE::saveGameDb( const QString &file, QTreeWidget* qtw, int col1, int c
     XMLPreferences games( "DBoxFE", "Alexander Saal" );
     games.setVersion( "v0.1.0" );
 
-    for ( int i = 0; i < qtw->topLevelItemCount(); i++ )
+    for ( int i = 0; i < qtw->topLevelItemCount(); ++i )
     {
         QTreeWidgetItem *item =  qtw->topLevelItem( i );
         gamesList.append( item->text( col1 ) + ";" + item->text( col2 ) );
