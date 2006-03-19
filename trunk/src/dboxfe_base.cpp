@@ -24,7 +24,6 @@
 
 #include <QtCore>
 #include <QtGui>
-#include <QtNetwork>
 
 DB_BASE::DB_BASE()
 {}
@@ -35,113 +34,124 @@ void DB_BASE::readConf( const QString &dbconf, const DBoxFE &dbfe )
 
 void DB_BASE::saveConf( const QString &dbconf, const DBoxFE &dbfe )
 {
-    QSettings settSdl( dbconf, QSettings::IniFormat );
-    settSdl.beginGroup( "sdl" );
-    settSdl.setValue( "fullscreen", dbfe.ui.chkBoxFullScreen->isChecked() );
-    settSdl.setValue( "fulldouble", dbfe.ui.chkBoxFullDouble->isChecked() );
-    settSdl.setValue( "fullfixed", dbfe.ui.chkBoxFullFixed->isChecked() );
-    settSdl.setValue( "fullresolution", dbfe.ui.cbxFullWightHigh->currentText() );
-    settSdl.setValue( "windowresolution", dbfe.ui.cbxWindowWightHigh->currentText() );
-    settSdl.setValue( "output", dbfe.ui.cbxOutout->currentText() );
-    settSdl.setValue( "autolock", dbfe.ui.chkBoxAutolock->isChecked() );
-    settSdl.setValue( "sensitivity", dbfe.ui.lcdSV->intValue() );
-    settSdl.setValue( "waitonerror", dbfe.ui.chkBoxWaitOnError->isChecked() );
-    settSdl.setValue( "priority", dbfe.ui.cbxFocusUnfocus->currentText() );
-    settSdl.setValue( "mapperfile", "mapper.txt" );
-    settSdl.setValue( "usescancodes", dbfe.ui.chkBoxUseScanCode->isChecked() );
-    settSdl.sync();
+    QSettings *settConf = new QSettings( dbconf, QSettings::IniFormat );
+    settConf->beginGroup( "sdl" );
+    settConf->setValue( "fullscreen", dbfe.ui.chkBoxFullScreen->isChecked() );
+    settConf->setValue( "fulldouble", dbfe.ui.chkBoxFullDouble->isChecked() );
+    settConf->setValue( "fullfixed", dbfe.ui.chkBoxFullFixed->isChecked() );
+    settConf->setValue( "fullresolution", dbfe.ui.cbxFullWightHigh->currentText() );
+    settConf->setValue( "windowresolution", dbfe.ui.cbxWindowWightHigh->currentText() );
+    settConf->setValue( "output", dbfe.ui.cbxOutout->currentText() );
+    settConf->setValue( "autolock", dbfe.ui.chkBoxAutolock->isChecked() );
+    settConf->setValue( "sensitivity", dbfe.ui.lcdSV->intValue() );
+    settConf->setValue( "waitonerror", dbfe.ui.chkBoxWaitOnError->isChecked() );
+    settConf->setValue( "priority", dbfe.ui.cbxFocusUnfocus->currentText() );
+    settConf->setValue( "mapperfile", "mapper.txt" );
+    settConf->setValue( "usescancodes", dbfe.ui.chkBoxUseScanCode->isChecked() );
+    settConf->endGroup();
     
-    // DosBox
-    QSettings settDosbox( dbconf, QSettings::IniFormat );
-    settDosbox.beginGroup( "dosbox" );
-    settDosbox.setValue( "language", dbfe.ui.LELanguage->text() );
-    settDosbox.setValue( "machine", dbfe.ui.cbxMachine->currentText() );
-    settDosbox.setValue( "memsize", dbfe.ui.cbxMemsize->currentText() );
-    settDosbox.setValue( "captures", dbfe.ui.cbxCaptures->currentText() );
-    settDosbox.sync();
-
-
-    // Render settGPuratin
-    QSettings settRender( dbconf, QSettings::IniFormat );
-    settRender.beginGroup( "render" );
-    settRender.setValue( "frameskip", dbfe.ui.lcdFS->intValue() );
-    settRender.setValue( "snapdir", dbfe.ui.LESnapDir->text() );
-    settRender.setValue( "scaler", dbfe.ui.cbxScaler->currentText() );
-    settRender.setValue( "aspect", dbfe.ui.chkBoxAspect->isChecked() );
-    settRender.sync();
+    settConf->beginGroup( "dosbox" );
+    settConf->setValue( "language", dbfe.ui.LELanguage->text() );
+    settConf->setValue( "machine", dbfe.ui.cbxMachine->currentText() );
+    settConf->setValue( "memsize", dbfe.ui.cbxMemsize->currentText() );
+    settConf->setValue( "captures", dbfe.ui.cbxCaptures->currentText() );
+    settConf->endGroup();
+    
+    settConf->beginGroup( "render" );
+    settConf->setValue( "frameskip", dbfe.ui.lcdFS->intValue() );
+    settConf->setValue( "snapdir", dbfe.ui.LESnapDir->text() );
+    settConf->setValue( "scaler", dbfe.ui.cbxScaler->currentText() );
+    settConf->setValue( "aspect", dbfe.ui.chkBoxAspect->isChecked() );
+    settConf->endGroup();
 
     // CPU settGPuratin
-    QSettings settCPU( dbconf, QSettings::IniFormat );
-    settCPU.beginGroup( "cpu" );
-    settCPU.setValue( "core", dbfe.ui.cbxCPUCore->currentText() );
-    settCPU.setValue( "cycles", dbfe.ui.cbxCycles->currentText() );
-    settCPU.setValue( "cycleup", dbfe.ui.cbxCycleUp->currentText() );
-    settCPU.setValue( "cycledown", dbfe.ui.cbxCycleDown->currentText() );
-    settCPU.sync();
+    settConf->beginGroup( "cpu" );
+    settConf->setValue( "core", dbfe.ui.cbxCPUCore->currentText() );
+    settConf->setValue( "cycles", dbfe.ui.cbxCPUCycles->currentText() );
+    settConf->setValue( "cycleup", dbfe.ui.cbxCPUCycleUp->currentText() );
+    settConf->setValue( "cycledown", dbfe.ui.cbxCPUCycleDown->currentText() );
+    settConf->endGroup();
 
     // Sound value
-    /*QSettings settMixer( dbconf, QSettings::IniFormat );
-    settMixer->setGroup( "mixer" );
-    settMixer.setValue( "nosound",  dbfe.ui.CheckBox_Mixer_NoSound->isChecked() );
-    settMixer.setValue( "rate",  dbfe.ui.ComboBox_Mixer_Rate->currentText() );
-    settMixer.setValue( "blocksize",  dbfe.ui.ComboBox_Mix_BlockSize->currentText() );
-    settMixer.setValue( "prebuffer",  dbfe.ui.LineEdit_Mixer_WaveDir->text() );
+    settConf->beginGroup( "mixer" );
+    settConf->setValue( "nosound",  dbfe.ui.chkBoxMixerNoSound->isChecked() );
+    settConf->setValue( "rate",  dbfe.ui.cbxMixerRate->currentText() );
+    settConf->setValue( "blocksize",  dbfe.ui.cbxMixerBlockSize->currentText() );
+    settConf->setValue( "prebuffer",  dbfe.ui.spBoxPrebuffer->value() );
+    settConf->endGroup();
 
-    QSettings settMidi( dbconf, QSettings::IniFormat );
-    settMidisettGP->setGroup( "midi" );
-    settMidi.setValue( "mpu401", CheckBox_Midi_MPU401->isChecked() );
-    settMidi.setValue( "device", ComboBox_Midi_Device->currentText() );
-    settMidi.setValue( "settGP", LineEdit_Midi_settGP->text() );
-    settMidi.setValue( "intelligent", CheckBox_Midi_Intelligent->isChecked() );
+    settConf->beginGroup( "midi" );
+    settConf->setValue( "mpu401", dbfe.ui.cbxMDIMPU->currentText() );
+    settConf->setValue( "device", dbfe.ui.cbxMDIDevice->currentText() );
+    settConf->setValue( "config", dbfe.ui.LEMDIConfig->text() );
+    settConf->endGroup();
 
-    QSettings settSblaster( dbconf, QSettings::IniFormat );
-    settSblaster->setGroup( "sblaster" );
-    settSblaster.setValue( "type", ComboBox_SBlaster_Type_CVS->currentText() );
-    settSblaster.setValue( "base", ComboBox_SBlaster_Base_CVS->currentText() );
-    settSblaster.setValue( "irq", ComboBox_SBlaster_IRQ_CVS->currentText() );
-    settSblaster.setValue( "dma", ComboBox_SBlaster_DMA_CVS->currentText() );
-    settSblaster.setValue( "hdma", ComboBox_SBlaster_HDMA_CVS->currentText() );
-    settSblaster.setValue( "mixer", CheckBox_SBlaster_Mixer_CVS->isChecked() );
-    settSblaster.setValue( "oplrate", ComboBox_SBlaster_OPLRate_CVS->currentText() );
-    settSblaster.setValue( "oplmode", ComboBox_Sblaster_OPLMode_CVS->currentText() );
+    settConf->beginGroup( "sblaster" );
+    settConf->setValue( "sbtype", dbfe.ui.cbxSBType->currentText() );
+    settConf->setValue( "sbbase", dbfe.ui.cbxSBBase->currentText() );
+    settConf->setValue( "irq", dbfe.ui.cbxSBIRQ->currentText() );
+    settConf->setValue( "dma", dbfe.ui.cbxSBDMA->currentText() );
+    settConf->setValue( "hdma", dbfe.ui.cbxSBHDMA->currentText() );
+    settConf->setValue( "mixer", dbfe.ui.chkBoxSBMixer->isChecked() );
+    settConf->setValue( "oplrate", dbfe.ui.cbxSBOPLRate->currentText() );
+    settConf->setValue( "oplmode", dbfe.ui.cbxSBOplMode->currentText() );
+    settConf->endGroup();
 
-    QSettings settGus( dbconf, QSettings::IniFormat );
-    settGus->setGroup( "gus" );
-    settGus.setValue( "gus", CheckBox_GravisUltraSound->isChecked() );
-    settGus.setValue( "base", ComboBox_GUS_Base->currentText() );
-    settGus.setValue( "rate", ComboBox_GUS_Rate->currentText() );
-    settGus.setValue( "irq1", ComboBox_GUS_IRQ1->currentText() );
-    settGus.setValue( "irq2", ComboBox_GUS_IRQ2->currentText() );
-    settGus.setValue( "dma1", ComboBox_GUS_DMA1->currentText() );
-    settGus.setValue( "dma2", ComboBox_GUS_DMA2->currentText() );
-    settGus.setValue( "ultradir", LineEdit_GUS_UltraDir->text() );
+    settConf->beginGroup( "gus" );
+    settConf->setValue( "gus", dbfe.ui.chkBoxGUS->isChecked() );
+    settConf->setValue( "gusrate", dbfe.ui.cbxGUSRate->currentText() );
+    settConf->setValue( "gusbase", dbfe.ui.cbxGUSBase->currentText() );
+    settConf->setValue( "irq1", dbfe.ui.cbxGUSIrq_1->currentText() );
+    settConf->setValue( "irq2", dbfe.ui.cbxGUSIrq_2->currentText() );
+    settConf->setValue( "dma1", dbfe.ui.cbxGUSDMA_1->currentText() );
+    settConf->setValue( "dma2", dbfe.ui.cbxGUSDMA_2->currentText() );
+    settConf->setValue( "ultradir", dbfe.ui.LEGUSUltraDir->text() );
+    settConf->endGroup();
 
-    QSettings settSpeaker( dbconf, QSettings::IniFormat );
-    settSpeaker->setGroup( "speaker" );
-    settSpeaker.setValue( "pcspeaker", CheckBox_PC_Speaker->isChecked() );
-    settSpeaker.setValue( "pcrate", ComboBox_PC_SpeakerRate->currentText() );
-    settSpeaker.setValue( "tandy", CheckBox_PC_Tandy->isChecked() );
-    settSpeaker.setValue( "tandyrate", ComboBox_PC_TandyRate->currentText() );
-    settSpeaker.setValue( "disney", CheckBox_PC_Disney->isChecked() );
+    settConf->beginGroup( "speaker" );
+    settConf->setValue( "pcspeaker", dbfe.ui.cbxSpeaker->currentText() );
+    settConf->setValue( "pcrate", dbfe.ui.cbxSpeakerRate->currentText() );
+    settConf->setValue( "tandy", dbfe.ui.cbxSpeakerTandy->currentText() );
+    settConf->setValue( "tandyrate", dbfe.ui.cbxSpeakerTandyRate->currentText() );
+    settConf->setValue( "disney", dbfe.ui.chkBoxDisney->isChecked() );
+    settConf->endGroup();
+
 
     // Misc ( DOS, Modem and Autoexc )
-    QSettings settDos( dbconf, QSettings::IniFormat );
-    settDos->setGroup( "dos" );
-    settDos.setValue( "xms", CheckBox_Dos_XMS->isChecked() );
-    settDos.setValue( "ems", CheckBox_Dos_EMS->isChecked() );
+    /*
+    settConf->beginGroup( "serial" );
+    settConf->setValue( "serial1", CheckBox_Dos_XMS->isChecked() );
+    settConf->setValue( "serial2", CheckBox_Dos_EMS->isChecked() );
+    settConf->setValue( "serial3", CheckBox_Dos_EMS->isChecked() );
+    settConf->setValue( "serial4", CheckBox_Dos_EMS->isChecked() );
+    settConf->endGroup();
+    settConf->sync();
+    
+    settConf->beginGroup( "modem" );
+    settConf->setValue( "modem", CheckBox_Modem->isChecked() );
+    settConf->setValue( "comport", ComboBox_Modem_ComPort->currentText() );
+    settConf->setValue( "listenport", ComboBox_Modem_ListenPort->currentText() );
 
-    QSettings settModem( dbconf, QSettings::IniFormat );
-    settGP->setGroup( "modem" );
-    settGP.setValue( "modem", CheckBox_Modem->isChecked() );
-    settGP.setValue( "comport", ComboBox_Modem_ComPort->currentText() );
-    settGP.setValue( "listenport", ComboBox_Modem_ListenPort->currentText() );
+    settConf->beginGroup( "ipx" );
+    settConf->setValue( "ipx", CheckBox_IPX->isChecked() );
+    settConf->setValue( "", "" );
+    settConf->setValue( "", "" );*/
+    settConf->sync();
+    delete settConf;
 
-    QSettings settGP( dbconf, QSettings::IniFormat );
-    settGP->setGroup( "ipx" );
-    settGP.setValue( "ipx", CheckBox_IPX->isChecked() );
-    settGP.setValue( "", "" );
-    settGP.setValue( "", "" );*/
-
+}
+void DB_BASE::parseAutoexecSection( const QString &dbconf, QListWidget* qlw, const QString &section = QString("[autoexec]") )
+{
+    QSettings settAuto( dbconf, QSettings::IniFormat );
+    settAuto.beginGroup( section );
+    
+    QStringList execList = settAuto.allKeys();
+    for( int i = 0; i < execList.size(); ++i )
+    {
+	qlw->addItem( QString( execList.value(i) ) );
+    }
+    
+    settAuto.endGroup();
 }
 
 void DB_BASE::findGames( const QString &dirName, QListWidget* qlw )

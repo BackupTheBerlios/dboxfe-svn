@@ -118,8 +118,7 @@
   </kdevtrollproject>
   <kdevcppsupport>
     <references>
-      <pcs>Qt4</pcs>
-      <pcs>Project Include</pcs>
+      <pcs>Porject include</pcs>
     </references>
     <codecompletion>
       <includeGlobalFunctions>true</includeGlobalFunctions>
@@ -167,6 +166,6 @@
   </kdevdocumentation>
   <ctagspart>
     <customArguments/>
-    <customTagfilePath>/home/alex/project/dboxfe/tags</customTagfilePath>
+    <customTagfilePath>/home/alex/project/dboxfe/dboxfe-0.1.0/tags</customTagfilePath>
   </ctagspart>
 </kdevelop>

@@ -52,7 +52,7 @@ DBoxFE::DBoxFE(QWidget *parent, Qt::WFlags flags)
     connect( ui.btnAutexecUpdate, SIGNAL( clicked() ), this, SLOT( slotAutexecUpdate() ) );
     connect( ui.btnAutexecDrive, SIGNAL( clicked() ), this, SLOT( slotAutexecDrive() ) );
     connect( ui.lwProfile, SIGNAL( itemClicked( QListWidgetItem* ) ), this, SLOT( slotListWidget( QListWidgetItem* ) ) );
-
+    
     // windows title for the application
     titleLin = "DOSBox - Front End for Linux " + getAppVersion();
     titleWin = "DOSBox - Front End for Windows " + getAppVersion();
@@ -136,7 +136,7 @@ void DBoxFE::slotSaveGP()
     
     m_file = QDir::homePath();
     m_file.append( "/.dboxfe/profile/profile.xml" );
-
+    
     QStringList sList;
 
     for( int a = 0; a < ui.lwProfile->count(); ++a )
@@ -151,7 +151,26 @@ void DBoxFE::slotSaveGP()
     settGP.setBool( "DBoxFE", "winHide", ui.chkBoxWindowHide->isChecked() );
     
     settGP.save( m_file);
-    m_file = "";
+    
+    //Save configuration
+    DB_BASE gpIni;
+    
+    gpItem = new QListWidgetItem;
+    gpItem = ui.lwProfile->currentItem();
+            
+    if ( gpItem == NULL )
+    {
+        QMessageBox::information( this, winTitle(), tr("No Profile was selected to save it.") );
+        return;
+    }
+        
+    m_conf = QDir::homePath();
+    m_conf.append( "/.dboxfe/" + gpItem->text() + ".conf" );
+    
+    QFile f( m_conf );
+    f.remove();
+    
+    gpIni.saveConf( m_conf, this );
 }
 
 /**
@@ -243,7 +262,6 @@ void DBoxFE::slotRemoveGP()
             ui.lwOutPut->addItem( tr("Game Profile -> ") + gpTxt + tr(" was deleted") );
             ui.lwOutPut->addItem( tr("Game configuration -> ") + f.fileName() + tr(" was deleted") );
             ui.lwOutPut->update();
-            m_file = "";
             break;
         case 1: // No clicked but delete profile from list
             delete ui.lwProfile->currentItem();
@@ -347,7 +365,7 @@ void DBoxFE::slotWizard()
 /**
  * TODO Open the configuration file for selected profile
  **/
-void DBoxFE::slotListWidget(QListWidgetItem* item)
+void DBoxFE::slotListWidget( QListWidgetItem* item )
 {
     DB_BASE gpIni; 
     

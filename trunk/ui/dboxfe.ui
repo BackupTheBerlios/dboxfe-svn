@@ -1087,7 +1087,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QComboBox" name="cbxCycles" >
+               <widget class="QComboBox" name="cbxCPUCycles" >
                 <property name="toolTip" >
                  <string/>
                 </property>
@@ -1292,7 +1292,7 @@
                <number>6</number>
               </property>
               <item>
-               <widget class="QComboBox" name="cbxCycleUp" >
+               <widget class="QComboBox" name="cbxCPUCycleUp" >
                 <property name="toolTip" >
                  <string/>
                 </property>
@@ -1453,7 +1453,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QComboBox" name="cbxCycleDown" >
+               <widget class="QComboBox" name="cbxCPUCycleDown" >
                 <property name="toolTip" >
                  <string/>
                 </property>
@@ -1677,7 +1677,7 @@
        </widget>
        <widget class="QWidget" name="pageSB" >
         <attribute name="label" >
-         <string>Soundbalster</string>
+         <string>Soundblaster</string>
         </attribute>
         <layout class="QGridLayout" >
          <property name="margin" >
@@ -2365,7 +2365,7 @@
           <number>6</number>
          </property>
          <item row="0" column="0" >
-          <layout class="QHBoxLayout" >
+          <layout class="QVBoxLayout" >
            <property name="margin" >
             <number>0</number>
            </property>
@@ -2373,7 +2373,46 @@
             <number>6</number>
            </property>
            <item>
-            <layout class="QVBoxLayout" >
+            <layout class="QHBoxLayout" >
+             <property name="margin" >
+              <number>0</number>
+             </property>
+             <property name="spacing" >
+              <number>6</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="label_22" >
+               <property name="text" >
+                <string>MPU 401:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="cbxMDIMPU" >
+               <property name="currentIndex" >
+                <number>2</number>
+               </property>
+               <item>
+                <property name="text" >
+                 <string>none</string>
+                </property>
+               </item>
+               <item>
+                <property name="text" >
+                 <string>uart</string>
+                </property>
+               </item>
+               <item>
+                <property name="text" >
+                 <string>intelligent</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" >
              <property name="margin" >
               <number>0</number>
              </property>
@@ -2387,23 +2426,6 @@
                </property>
               </widget>
              </item>
-             <item>
-              <widget class="QLabel" name="label_34" >
-               <property name="text" >
-                <string>Config:</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item>
-            <layout class="QVBoxLayout" >
-             <property name="margin" >
-              <number>0</number>
-             </property>
-             <property name="spacing" >
-              <number>6</number>
-             </property>
              <item>
               <widget class="QComboBox" name="cbxMDIDevice" >
                <item>
@@ -2438,13 +2460,10 @@
                </item>
               </widget>
              </item>
-             <item>
-              <widget class="QLineEdit" name="LEMDIConfig" />
-             </item>
             </layout>
            </item>
            <item>
-            <layout class="QVBoxLayout" >
+            <layout class="QHBoxLayout" >
              <property name="margin" >
               <number>0</number>
              </property>
@@ -2452,22 +2471,22 @@
               <number>6</number>
              </property>
              <item>
-              <widget class="QCheckBox" name="chkBoxMDIMPU" >
+              <widget class="QLabel" name="label_34" >
                <property name="text" >
-                <string>MPU 401</string>
-               </property>
-               <property name="checked" >
-                <bool>true</bool>
+                <string>Config:</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QCheckBox" name="chkBoxMDIIntelligent" >
+              <widget class="QLineEdit" name="LEMDIConfig" />
+             </item>
+             <item>
+              <widget class="QPushButton" name="btnConfig" >
                <property name="text" >
-                <string>Intelligent</string>
+                <string/>
                </property>
-               <property name="checked" >
-                <bool>true</bool>
+               <property name="icon" >
+                <iconset resource="../res/dboxfe.qrc" >:/pics/images/folder-open_16.png</iconset>
                </property>
               </widget>
              </item>
@@ -4161,8 +4180,8 @@
   <tabstop>cbxScaler</tabstop>
   <tabstop>chkBoxAspect</tabstop>
   <tabstop>cbxCPUCore</tabstop>
-  <tabstop>cbxCycleUp</tabstop>
-  <tabstop>cbxCycleDown</tabstop>
+  <tabstop>cbxCPUCycleUp</tabstop>
+  <tabstop>cbxCPUCycleDown</tabstop>
   <tabstop>cbxMixerRate</tabstop>
   <tabstop>cbxMixerBlockSize</tabstop>
   <tabstop>chkBoxMixerNoSound</tabstop>
@@ -4186,9 +4205,7 @@
   <tabstop>cbxSpeakerRate</tabstop>
   <tabstop>chkBoxDisney</tabstop>
   <tabstop>cbxMDIDevice</tabstop>
-  <tabstop>chkBoxMDIMPU</tabstop>
   <tabstop>LEMDIConfig</tabstop>
-  <tabstop>chkBoxMDIIntelligent</tabstop>
   <tabstop>twMisc</tabstop>
   <tabstop>cbxDSComPort</tabstop>
   <tabstop>cbxDSRealPort</tabstop>

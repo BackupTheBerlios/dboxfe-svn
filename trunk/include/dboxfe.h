@@ -61,7 +61,6 @@ private slots:
     void slotCreateGP();
     void slotSaveGP();
     void slotWizard();
-    
     void start( const QString& bin, const QString &param, const QString &conf );
     void readOutput();
     void finish();

@@ -68,6 +68,16 @@ public:
     void saveConf( const QString &dbconf, const DBoxFE &dbfe );
     
     /**
+     * Parse dosbox configuration file
+     *
+     * @param dbconf  Save the dosbox configuration file
+     * @param qlw     QListWidget for list information
+     * @param section Section in the configfile, default = "[autoexec]"
+     * @since 0.1.0
+     */
+    void parseAutoexecSection( const QString &dbconf, QListWidget* qlw, const QString &section );    
+    
+    /**
      * Search game executable
      *
      * @param dir        Directory for search
@@ -96,7 +106,7 @@ public:
     void insertGameInToDb( const QString &name, const QString &executable, QTreeWidget* qtw );
     
     /**
-     * Remove game from database (xml file)
+     * Remove game from database (xml file) and return the current count
      *
      * @param QTreeWidget QTreeWidget for select an item to remove it
      * @since 0.1.0
