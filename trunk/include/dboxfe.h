@@ -53,6 +53,8 @@ private slots:
     void slotAutexecUpdate();
     void slotAutexecRemove();
     void slotAutexecAdd();
+    void slotSerialRemove();
+    void slotSerialAdd();
     void slotChooseDbxBinary();
     void slotLanguage();
     void slotSnapDir();

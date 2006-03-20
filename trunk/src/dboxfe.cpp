@@ -49,6 +49,8 @@ DBoxFE::DBoxFE(QWidget *parent, Qt::WFlags flags)
     connect( ui.btnDbxStable, SIGNAL( clicked() ), this, SLOT( slotChooseDbxBinary() ) );
     connect( ui.btnAutexecAdd, SIGNAL( clicked() ), this, SLOT( slotAutexecAdd() ) );
     connect( ui.btnAutexecRemove, SIGNAL( clicked() ), this, SLOT( slotAutexecRemove() ) );
+    connect( ui.btnSerialAdd, SIGNAL( clicked() ), this, SLOT( slotSerialAdd() ) );
+    connect( ui.btnSerialRemove, SIGNAL( clicked() ), this, SLOT( slotSerialRemove() ) );
     connect( ui.btnAutexecUpdate, SIGNAL( clicked() ), this, SLOT( slotAutexecUpdate() ) );
     connect( ui.btnAutexecDrive, SIGNAL( clicked() ), this, SLOT( slotAutexecDrive() ) );
     connect( ui.lwProfile, SIGNAL( itemClicked( QListWidgetItem* ) ), this, SLOT( slotListWidget( QListWidgetItem* ) ) );
@@ -330,7 +332,7 @@ void DBoxFE::slotAutexecAdd()
  **/
 void DBoxFE::slotAutexecRemove()
 {
-    qDebug( "void DBoxFE::slotAutexecRemove()" );
+    qDebug( "void DBoxFE::slotSerialRemove()" );
 }
 
 /**
@@ -347,6 +349,30 @@ void DBoxFE::slotAutexecUpdate()
 void DBoxFE::slotAutexecDrive()
 {
     qDebug( "void DBoxFE::slotAutexecDrive()" );
+}
+
+/**
+ * TODO Serial option add
+ **/
+void DBoxFE::slotSerialAdd()
+{
+    if( ui.twSerial->topLevelItemCount() >= 4 )
+    {
+	QMessageBox::information( this, winTitle(), tr("Can not add 5 serialports to the list, maximal 4 are allow.") );
+	return;
+    }
+    
+    QTreeWidgetItem *item = new QTreeWidgetItem( ui.twSerial );
+    item->setText( 0, ui.cbxDSSerial->currentText() );
+    item->setText( 1, ui.cbxDSOption->currentText() ); 
+}
+
+/**
+ * TODO Serial option remove
+ **/
+void DBoxFE::slotSerialRemove()
+{
+    qDebug( "void DBoxFE::slotAutexecRemove()" );
 }
 
 /**
