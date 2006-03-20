@@ -29,8 +29,7 @@ DB_BASE::DB_BASE()
 {}
 
 void DB_BASE::readConf( const QString &dbconf, DBoxFE* dbfe )
-{
-}
+{}
 
 void DB_BASE::saveConf( const QString &dbconf, DBoxFE* dbfe )
 {
@@ -50,7 +49,7 @@ void DB_BASE::saveConf( const QString &dbconf, DBoxFE* dbfe )
     settConf->setValue( "mapperfile", "mapper.txt" );
     settConf->setValue( "usescancodes", dbfe->ui.chkBoxUseScanCode->isChecked() );
     settConf->endGroup();
-    
+
     // DOSBox settings
     settConf->beginGroup( "dosbox" );
     settConf->setValue( "language", dbfe->ui.LELanguage->text() );
@@ -58,7 +57,7 @@ void DB_BASE::saveConf( const QString &dbconf, DBoxFE* dbfe )
     settConf->setValue( "memsize", dbfe->ui.cbxMemsize->currentText() );
     settConf->setValue( "captures", dbfe->ui.cbxCaptures->currentText() );
     settConf->endGroup();
-    
+
     // Render settings
     settConf->beginGroup( "render" );
     settConf->setValue( "frameskip", dbfe->ui.lcdFS->intValue() );
@@ -125,27 +124,45 @@ void DB_BASE::saveConf( const QString &dbconf, DBoxFE* dbfe )
 
     // Serial settings
     settConf->beginGroup( "serial" );
-    for ( int i = 0; i < dbfe->ui.twSerial->topLevelItemCount(); ++i )
+    for ( int i = 0; i < dbfe->ui.twSerial->topLevelItemCount(); i++ )
     {
         QTreeWidgetItem *item =  dbfe->ui.twSerial->topLevelItem( i );
-	settConf->setValue( "serial" + i, item->text( 1 ) );
+        settConf->setValue( item->text( 0 ), item->text( 1 ) );
     }
-    settConf->endGroup();
-    
-    // Autoexec settings
-    settConf->beginGroup( "autoexec" );
-    for ( int a = 0; a < dbfe->ui.lwAutoexec->count(); ++a )
+
+    if( dbfe->ui.twSerial->topLevelItemCount() <= 0 )
     {
-	settConf->setValue( "", dbfe->ui.lwAutoexec->item( a )->text() );
+        settConf->setValue( "serial1", "dummy" );
+        settConf->setValue( "serial2", "dummy" );
+        settConf->setValue( "serial3", "disabled" );
+        settConf->setValue( "serial4", "disabled" );
     }
     settConf->endGroup();
-    
+
     // IPX settings
     settConf->beginGroup( "ipx" );
     settConf->setValue( "ipx", dbfe->ui.chkBoxIPX->isChecked() );
     settConf->endGroup();
-    
+
     settConf->sync();
+    
+    // Autoexec settings
+    QFile f( dbconf );
+
+    if ( !f.open( QFile::Append | QFile::WriteOnly ) )
+        return;
+    
+    QTextStream t( &f );
+    t << "\n[autoexec]\n";
+    
+    for( int q = 0; q < dbfe->ui.lwAutoexec->count(); q++ )
+    {
+        t << dbfe->ui.lwAutoexec->item( q )->text() << "\n";
+    }
+    
+    t.flush();
+    f.close();
+
     delete settConf;
 
 }
@@ -153,13 +170,13 @@ void DB_BASE::parseAutoexecSection( const QString &dbconf, QListWidget* qlw, con
 {
     QSettings settAuto( dbconf, QSettings::IniFormat );
     settAuto.beginGroup( section );
-    
+
     QStringList execList = settAuto.allKeys();
     for( int i = 0; i < execList.size(); ++i )
     {
-	qlw->addItem( QString( execList.value(i) ) );
+        qlw->addItem( QString( execList.value(i) ) );
     }
-    
+
     settAuto.endGroup();
 }
 
