@@ -20,6 +20,7 @@
 
 #include "dboxfe.h"
 #include "dboxfe_base.h"
+#include "dboxfe_games.h"
 #include "dboxfe_gamedatabase.h"
 #include "dboxfe_profile.h"
 #include "dboxfe_profilewizard.h"
@@ -53,27 +54,33 @@ DBoxFE::DBoxFE(QWidget *parent, Qt::WFlags flags)
     connect( ui.btnSerialRemove, SIGNAL( clicked() ), this, SLOT( slotSerialRemove() ) );
     connect( ui.btnAutexecUpdate, SIGNAL( clicked() ), this, SLOT( slotAutexecUpdate() ) );
     connect( ui.btnAutexecDrive, SIGNAL( clicked() ), this, SLOT( slotAutexecDrive() ) );
+    connect( ui.btnGame, SIGNAL( clicked() ), this, SLOT( slotGame() ) );
     connect( ui.lwProfile, SIGNAL( itemClicked( QListWidgetItem* ) ), this, SLOT( slotListWidget( QListWidgetItem* ) ) );
-    
+    connect( ui.cbxDSOption, SIGNAL( currentIndexChanged( int ) ), this, SLOT( slotCbxIndexChanged( int ) ) );
+
     // windows title for the application
     titleLin = "DOSBox - Front End for Linux " + getAppVersion();
     titleWin = "DOSBox - Front End for Windows " + getAppVersion();
     titleMac = "DOSBox - Front End for Mac " + getAppVersion();
-    
+
 #ifdef Q_OS_WIN32
+
     setWindowTitle( titleWin );
     QApplication::setStyle( "windowsxp" );
 #endif
 
 #ifdef Q_OS_MACX
+
     setWindowTitle( titleMac );
 #endif
 
 #ifdef Q_OS_MAC9
+
     setWindowTitle( titleMac );
 #endif
 
 #ifdef Q_OS_UNIX
+
     setWindowTitle( titleLin );
 #endif
 
@@ -101,7 +108,7 @@ void DBoxFE::init()
     settGP.load( m_file );
 
     QStringList sList = settGP.getStringList( "Profile", "Name" );
-    ui.lwProfile->addItems( sList );    
+    ui.lwProfile->addItems( sList );
     ui.LEDbxStabel->setText( QString( settGP.getString( "DOSBox", "binary" )) );
     ui.LEDbxVersion->setText( QString( settGP.getString( "DOSBox", "version" )) );
     ui.cbxLanguage->setCurrentIndex( settGP.getInt( "DBoxFE", "Lng" ) );
@@ -135,10 +142,10 @@ void DBoxFE::slotSaveGP()
 {
     XMLPreferences settGP( "DBoxFE", "Alexander Saal" );
     settGP.setVersion( getAppVersion() );
-    
+
     m_file = QDir::homePath();
     m_file.append( "/.dboxfe/profile/profile.xml" );
-    
+
     QStringList sList;
 
     for( int a = 0; a < ui.lwProfile->count(); ++a )
@@ -151,27 +158,27 @@ void DBoxFE::slotSaveGP()
     settGP.setString( "DOSBox", "version", ui.LEDbxVersion->text() );
     settGP.setInt( "DBoxFE", "Lng", ui.cbxLanguage->currentIndex() );
     settGP.setBool( "DBoxFE", "winHide", ui.chkBoxWindowHide->isChecked() );
-    
+
     settGP.save( m_file);
-    
+
     //Save configuration
     DB_BASE gpIni;
-    
+
     gpItem = new QListWidgetItem;
     gpItem = ui.lwProfile->currentItem();
-            
+
     if ( gpItem == NULL )
     {
         QMessageBox::information( this, winTitle(), tr("No Profile was selected to save it.") );
         return;
     }
-        
+
     m_conf = QDir::homePath();
     m_conf.append( "/.dboxfe/" + gpItem->text() + ".conf" );
-    
+
     QFile f( m_conf );
     f.remove();
-    
+
     gpIni.saveConf( m_conf, this );
 }
 
@@ -285,8 +292,8 @@ void DBoxFE::slotSnapDir()
     QString strSnap = QFileDialog::getExistingDirectory( this, tr("Open snapshot directory"), QDir::homePath() );
     if ( strSnap.isEmpty() )
         return;
-    
-    ui.LESnapDir->setText( strSnap );    
+
+    ui.LESnapDir->setText( strSnap );
 }
 
 /**
@@ -301,7 +308,7 @@ void DBoxFE::slotLanguage()
 }
 
 /**
- * TODO Choose stabel binary of dosbox
+ * TODO Choose stabel binary of dosbox and return the vesions number
  **/
 void DBoxFE::slotChooseDbxBinary()
 {
@@ -317,6 +324,31 @@ void DBoxFE::slotChooseDbxBinary()
 
     while( p->waitForFinished() )
         ui.LEDbxVersion->setText( QString( tr("DOSBox Version: ") + p->readAll() ) );
+    
+    delete p;
+}
+
+/**
+ * TODO Select game from database and insert in to Autoexec section
+ **/
+void DBoxFE::slotGame()
+{
+    DBoxFE_Game *dbfe_game = new DBoxFE_Game();
+    if ( dbfe_game->exec() == QDialog::Accepted )
+    {
+	if( dbfe_game->ui.twGame->currentItem() == NULL )
+	{
+	    ui.lwAutoexec->addItem( dbfe_game->ui.LEGame->text() );
+	    if( dbfe_game->chkBoxExitDosbox->isChecked() == true )
+		ui.lwAutoexec->addItem( "exit" );
+	}
+	else
+	{
+	    ui.lwAutoexec->addItem( dbfe_game->ui.twGame->currentItem()->text( 1 ) );
+	    if( dbfe_game->chkBoxExitDosbox->isChecked() == true )
+		ui.lwAutoexec->addItem( "exit" );
+	}
+    }
 }
 
 /**
@@ -356,15 +388,75 @@ void DBoxFE::slotAutexecDrive()
  **/
 void DBoxFE::slotSerialAdd()
 {
+    // Check if the item availabel in the list then show a message and exit function
+    QList<QTreeWidgetItem *> it( ui.twSerial->findItems( ui.cbxDSSerial->currentText(), Qt::MatchExactly, 0 ) );
+    for( int a = 0; a < it.size(); ++a )
+    {
+	QTreeWidgetItem *sItem;
+	sItem = it.value( a );
+	if( sItem->text( a ) == ui.cbxDSSerial->currentText() )
+	{
+	    QMessageBox::information( this, winTitle(), tr("Can not add the same serial '") + sItem->text( a ) + tr("' port to the list.") );
+	    return;
+	}
+    }
+
+    // Check if the list count higher as 4 then show message and exit function
     if( ui.twSerial->topLevelItemCount() >= 4 )
     {
-	QMessageBox::information( this, winTitle(), tr("Can not add 5 serialports to the list, maximal 4 are allow.") );
-	return;
+        QMessageBox::information( this, winTitle(), tr("Can not add 5 serialports to the list, maximal 4 are allow.") );
+        return;
     }
-    
+
     QTreeWidgetItem *item = new QTreeWidgetItem( ui.twSerial );
     item->setText( 0, ui.cbxDSSerial->currentText() );
-    item->setText( 1, ui.cbxDSOption->currentText() ); 
+
+    QString serialOption;
+
+    switch( ui.cbxDSOption->currentIndex() )
+    {
+    case 0: // diasabled
+        item->setText( 1, ui.cbxDSOption->currentText() );
+        break;
+    case 1: // dummy
+        item->setText( 1, ui.cbxDSOption->currentText() );
+        break;
+    case 2: // modem
+        item->setText( 1, ui.cbxDSOption->currentText() );
+        /* TODO Add code*/
+
+        /*
+        ui.lblDSComPort->setEnabled( true );
+        ui.cbxDSComPort->setEnabled( true );
+        ui.lblDSDefaultBps->setEnabled( true );
+        ui.LEDSBps->setEnabled( true );
+        ui.lblDSListenPort->setEnabled( true );
+        ui.LEDSListenPort->setEnabled( true );
+        ui.lblDSIrq->setEnabled( false );
+        ui.LEDSIrq->setEnabled( false );
+        ui.lblDSRealPort->setEnabled( false );
+        ui.cbxDSRealPort->setEnabled( false );
+        ui.lblDSByteSize->setEnabled( false );
+        ui.cbxDSByteSize->setEnabled( false );
+        ui.lblDSStopBit->setEnabled( false );
+        ui.cbxDSStopBit->setEnabled( false );
+        ui.lblDSParity->setEnabled( false );
+        ui.cbxDSParity->setEnabled( false );
+               */
+
+        break;
+    case 3: // directserial
+        serialOption = ui.cbxDSOption->currentText() + " " +
+                       "realport:" + ui.cbxDSRealPort->currentText() + " " +
+                       "startbps:" + ui.LEDSBps->text() + " " +
+                       "parity:" + ui.cbxDSParity->currentText() + " " +
+                       "bytesize:" + ui.cbxDSByteSize->currentText() + " " +
+                       "stopbits:" + ui.cbxDSStopBit->currentText() + " " +
+                       "irq:" + ui.LEDSIrq->text();
+
+        item->setText( 1, serialOption );
+        break;
+    }
 }
 
 /**
@@ -372,7 +464,15 @@ void DBoxFE::slotSerialAdd()
  **/
 void DBoxFE::slotSerialRemove()
 {
-    qDebug( "void DBoxFE::slotAutexecRemove()" );
+    QTreeWidgetItem *item = ui.twSerial->currentItem();
+    
+    if( item == NULL )
+    {
+        QMessageBox::information( this, winTitle(), tr("No item was selected.") );
+        return;
+    }
+    
+    delete item;
 }
 
 /**
@@ -384,7 +484,7 @@ void DBoxFE::slotWizard()
 
     if ( dbfe_profilewizard->exec() == QDialog::Accepted )
     {
-	init();
+        init();
     }
 }
 
@@ -393,14 +493,66 @@ void DBoxFE::slotWizard()
  **/
 void DBoxFE::slotListWidget( QListWidgetItem* item )
 {
-    DB_BASE gpIni; 
-    
+    DB_BASE gpIni;
+
     QString file;
     file = QDir::homePath();
     file.append( "/.dboxfe/" + item->text() + ".conf" );
 
     // gpIni.readGPIni( file, ui.lwProfile  );
     gpIni.readConf( file, this );
+}
+
+/**
+ * TODO Disable/Enable Serial option
+ **/
+void DBoxFE::slotCbxIndexChanged( int index )
+{
+    switch( index )
+    {
+    case 0: // diasabled
+        ui.gBoxSerialOption->setEnabled( false );
+        break;
+    case 1: // dummy
+        ui.gBoxSerialOption->setEnabled( false );
+        break;
+    case 2: // modem
+        ui.gBoxSerialOption->setEnabled( true );
+        ui.lblDSComPort->setEnabled( true );
+        ui.cbxDSComPort->setEnabled( true );
+        ui.lblDSDefaultBps->setEnabled( true );
+        ui.LEDSBps->setEnabled( true );
+        ui.lblDSListenPort->setEnabled( true );
+        ui.LEDSListenPort->setEnabled( true );
+        ui.lblDSIrq->setEnabled( false );
+        ui.LEDSIrq->setEnabled( false );
+        ui.lblDSRealPort->setEnabled( false );
+        ui.cbxDSRealPort->setEnabled( false );
+        ui.lblDSByteSize->setEnabled( false );
+        ui.cbxDSByteSize->setEnabled( false );
+        ui.lblDSStopBit->setEnabled( false );
+        ui.cbxDSStopBit->setEnabled( false );
+        ui.lblDSParity->setEnabled( false );
+        ui.cbxDSParity->setEnabled( false );
+        break;
+    case 3: // directserial
+        ui.gBoxSerialOption->setEnabled( true );
+        ui.lblDSRealPort->setEnabled( true );
+        ui.cbxDSRealPort->setEnabled( true );
+        ui.lblDSIrq->setEnabled( true );
+        ui.LEDSIrq->setEnabled( true );
+        ui.lblDSDefaultBps->setEnabled( true );
+        ui.LEDSBps->setEnabled( true );
+        ui.lblDSByteSize->setEnabled( true );
+        ui.cbxDSByteSize->setEnabled( true );
+        ui.lblDSStopBit->setEnabled( true );
+        ui.cbxDSStopBit->setEnabled( true );
+        ui.lblDSParity->setEnabled( true );
+        ui.cbxDSParity->setEnabled( true );
+        ui.lblDSComPort->setEnabled( false );
+        ui.cbxDSComPort->setEnabled( false );
+        break;
+    }
 }
 
 /**
@@ -417,10 +569,10 @@ void DBoxFE::start( const QString& bin, const QString &param, const QString &con
     connect( dBox, SIGNAL( readyReadStandardOutput()), this, SLOT( readOutput() ) );
     connect( dBox, SIGNAL( finished( int, QProcess::ExitStatus ) ), this, SLOT( finish( int, QProcess::ExitStatus ) ) );
     connect( dBox, SIGNAL( error( QProcess::ProcessError ) ), this, SLOT( err( QProcess::ProcessError ) ) );
-    
+
     if( ui.chkBoxWindowHide->isChecked() == true )
     {
-	this->hide();
+        this->hide();
     }
 
     ui.btnStartDBox->setEnabled( false );
@@ -447,15 +599,17 @@ void DBoxFE::readOutput()
 void DBoxFE::finish(int exitCode, QProcess::ExitStatus exitStatus )
 {
     this->show();
-    
+
     switch( exitStatus )
     {
-	case QProcess::NormalExit: ui.lwOutPut->addItem( tr("dboxfe: dosbox process exited normally") );
-	break;
-	case QProcess::CrashExit: ui.lwOutPut->addItem( tr("dboxfe: dosbox process crashed") );
-	break;
+    case QProcess::NormalExit:
+        ui.lwOutPut->addItem( tr("dboxfe: dosbox process exited normally") );
+        break;
+    case QProcess::CrashExit:
+        ui.lwOutPut->addItem( tr("dboxfe: dosbox process crashed") );
+        break;
     }
-	
+
     ui.btnStartDBox->setEnabled( true );
 }
 
@@ -465,22 +619,28 @@ void DBoxFE::finish(int exitCode, QProcess::ExitStatus exitStatus )
 void DBoxFE::err( QProcess::ProcessError error )
 {
     this->show();
-    
+
     switch( error )
     {
-	case QProcess::FailedToStart: ui.lwOutPut->addItem( tr("dboxfe: the dosbox process failed to start") );
-	    break;
-	case QProcess::Crashed: ui.lwOutPut->addItem( tr("dboxfe: dosbox process crashed some time after starting successfully") );
-	    break;
-	case QProcess::Timedout: ui.lwOutPut->addItem( tr("dboxfe: last waitFor...() function timed out") );
-	    break;
-	case QProcess::WriteError: ui.lwOutPut->addItem( tr("dboxfe: an error occurred when attempting to write to the dosbox process") );
-	    break;
-	case QProcess::ReadError: ui.lwOutPut->addItem( tr("dboxfe: an error occurred when attempting to read from the dosbox process") );
-	    break;
-	case QProcess::UnknownError: ui.lwOutPut->addItem( tr("dboxfe: An unknown error occurred") );
-	    break;	
+    case QProcess::FailedToStart:
+        ui.lwOutPut->addItem( tr("dboxfe: the dosbox process failed to start") );
+        break;
+    case QProcess::Crashed:
+        ui.lwOutPut->addItem( tr("dboxfe: dosbox process crashed some time after starting successfully") );
+        break;
+    case QProcess::Timedout:
+        ui.lwOutPut->addItem( tr("dboxfe: last waitFor...() function timed out") );
+        break;
+    case QProcess::WriteError:
+        ui.lwOutPut->addItem( tr("dboxfe: an error occurred when attempting to write to the dosbox process") );
+        break;
+    case QProcess::ReadError:
+        ui.lwOutPut->addItem( tr("dboxfe: an error occurred when attempting to read from the dosbox process") );
+        break;
+    case QProcess::UnknownError:
+        ui.lwOutPut->addItem( tr("dboxfe: An unknown error occurred") );
+        break;
     }
-    
+
     ui.btnStartDBox->setEnabled( true );
 }

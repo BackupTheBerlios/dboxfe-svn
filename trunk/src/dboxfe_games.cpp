@@ -18,61 +18,33 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-#ifndef DBOXFE_H
-#define DBOXFE_H
+#include "dboxfe_games.h"
+#include "dboxfe_base.h"
 
-#include <QtGui>
+// Qt 4 Header
 #include <QtCore>
+#include <QtGui>
 
-#include "ui_dboxfe.h"
-
-class DBoxFE : public QWidget
+DBoxFE_Game::DBoxFE_Game(QDialog *parent, Qt::WFlags flags)
+        : QDialog(parent, flags)
 {
-    Q_OBJECT
+    // setup grafical user interface (gui)
+    ui.setupUi( this );
 
-public:
-    DBoxFE(QWidget *parent = 0, Qt::WFlags flags = 0);
-    ~DBoxFE();
+     // center the wiget on desktop screen
+    QDesktopWidget *desktop = qApp->desktop();
+    const QRect rect = desktop->availableGeometry( desktop->primaryScreen() );
+    int left = ( rect.width() - width() ) / 2;
+    int top = ( rect.height() - height() ) / 2;
+    setGeometry( left, top, width(), height() );
     
-    Ui::DBoxFE ui;
-    QString getAppVersion(){ return tr("v0.1.0"); }
-    QString winTitle(){ return tr("DBox Front End"); }
+    DB_BASE gpIni;
+    QString m_file;
+    m_file = QDir::homePath();
+    m_file.append( "/.dboxfe/profile/games.xml" );
     
-private:
-    QString titleLin, titleWin, titleMac, gpTxt, m_result, m_conf, m_file;
-    QStringList m_param;
-    QProcess *dBox;
-    QListWidgetItem *gpItem;
-    
-protected:
-    void closeEvent( QCloseEvent *e );
-    
-private slots:
-    void slotListWidget( QListWidgetItem* );
-    void slotCbxIndexChanged( int );
-    void slotAutexecDrive();
-    void slotAutexecUpdate();
-    void slotAutexecRemove();
-    void slotAutexecAdd();
-    void slotSerialRemove();
-    void slotSerialAdd();
-    void slotChooseDbxBinary();
-    void slotLanguage();
-    void slotSnapDir();
-    void slotRemoveGP();
-    void slotStartDBox();
-    void slotGame();
-    void slotCreateGP();
-    void slotSaveGP();
-    void slotWizard();
-    
-    void start( const QString& bin, const QString &param, const QString &conf );
-    void readOutput();
-    void finish(int, QProcess::ExitStatus);
-    void err( QProcess::ProcessError );
-    
-public slots:
-    void init();
-};
+    gpIni.readGameDb( m_file, ui.twGame );    
+}
 
-#endif // DBOXFE_H
+DBoxFE_Game::~DBoxFE_Game()
+{}

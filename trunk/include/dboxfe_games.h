@@ -18,61 +18,22 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-#ifndef DBOXFE_H
-#define DBOXFE_H
+#ifndef DBOXFE_GAMES_H
+#define DBOXFE_GAMES_H
+
+#include "ui_games.h"
 
 #include <QtGui>
-#include <QtCore>
 
-#include "ui_dboxfe.h"
-
-class DBoxFE : public QWidget
+class DBoxFE_Game : public QDialog
 {
     Q_OBJECT
 
 public:
-    DBoxFE(QWidget *parent = 0, Qt::WFlags flags = 0);
-    ~DBoxFE();
+    DBoxFE_Game(QDialog *parent = 0, Qt::WFlags flags = 0);
+    ~DBoxFE_Game();
     
-    Ui::DBoxFE ui;
-    QString getAppVersion(){ return tr("v0.1.0"); }
-    QString winTitle(){ return tr("DBox Front End"); }
-    
-private:
-    QString titleLin, titleWin, titleMac, gpTxt, m_result, m_conf, m_file;
-    QStringList m_param;
-    QProcess *dBox;
-    QListWidgetItem *gpItem;
-    
-protected:
-    void closeEvent( QCloseEvent *e );
-    
-private slots:
-    void slotListWidget( QListWidgetItem* );
-    void slotCbxIndexChanged( int );
-    void slotAutexecDrive();
-    void slotAutexecUpdate();
-    void slotAutexecRemove();
-    void slotAutexecAdd();
-    void slotSerialRemove();
-    void slotSerialAdd();
-    void slotChooseDbxBinary();
-    void slotLanguage();
-    void slotSnapDir();
-    void slotRemoveGP();
-    void slotStartDBox();
-    void slotGame();
-    void slotCreateGP();
-    void slotSaveGP();
-    void slotWizard();
-    
-    void start( const QString& bin, const QString &param, const QString &conf );
-    void readOutput();
-    void finish(int, QProcess::ExitStatus);
-    void err( QProcess::ProcessError );
-    
-public slots:
-    void init();
+    Ui::DBoxFE_Game ui;
 };
 
-#endif // DBOXFE_H
+#endif // DBOXFE_GAMES_H

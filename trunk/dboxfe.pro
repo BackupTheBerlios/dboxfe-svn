@@ -29,7 +29,8 @@ QT += xml network
 FORMS += ui/dboxfe.ui \
          ui/profile.ui \
          ui/profilewizard.ui \
-         ui/gamedatabase.ui 
+         ui/gamedatabase.ui \
+	 ui/games.ui
 	 
 TRANSLATIONS += lng/dboxfe_de.ts \
                 lng/dboxfe_en.ts 
@@ -41,6 +42,7 @@ DISTFILES += ChangeLog \
 HEADERS += include/dboxfe.h \
            include/dboxfe_profile.h \
            include/dboxfe_profilewizard.h \
+	   include/dboxfe_games.h \
            include/dboxfe_gamedatabase.h \
            include/dboxfe_base.h \
            include/dboxfe_splash.h \
@@ -51,6 +53,7 @@ HEADERS += include/dboxfe.h \
 SOURCES += src/dboxfe.cpp \
            src/dboxfe_profile.cpp \
            src/dboxfe_profilewizard.cpp \
+	   src/dboxfe_games.cpp \
            src/dboxfe_gamedatabase.cpp \
            src/dboxfe_base.cpp \
            src/dboxfe_splash.cpp \

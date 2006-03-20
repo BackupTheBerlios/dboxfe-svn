@@ -2536,113 +2536,11 @@
             <property name="spacing" >
              <number>6</number>
             </property>
-            <item row="1" column="0" colspan="2" >
-             <layout class="QHBoxLayout" >
-              <property name="margin" >
-               <number>0</number>
-              </property>
-              <property name="spacing" >
-               <number>6</number>
-              </property>
-              <item>
-               <widget class="QPushButton" name="btnSerialAdd" >
-                <property name="text" >
-                 <string> Add</string>
-                </property>
-                <property name="icon" >
-                 <iconset resource="../res/dboxfe.qrc" >:/pics/images/add_16.png</iconset>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <spacer>
-                <property name="orientation" >
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeHint" >
-                 <size>
-                  <width>116</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item>
-               <widget class="QPushButton" name="btnSerialRemove" >
-                <property name="text" >
-                 <string> Remove</string>
-                </property>
-                <property name="icon" >
-                 <iconset resource="../res/dboxfe.qrc" >:/pics/images/delete_16.png</iconset>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
-            <item row="3" column="0" >
-             <widget class="QComboBox" name="cbxDSSerial" >
-              <item>
-               <property name="text" >
-                <string>serial1</string>
-               </property>
-              </item>
-              <item>
-               <property name="text" >
-                <string>serial2</string>
-               </property>
-              </item>
-              <item>
-               <property name="text" >
-                <string>serial3</string>
-               </property>
-              </item>
-              <item>
-               <property name="text" >
-                <string>serial4</string>
-               </property>
-              </item>
-             </widget>
-            </item>
-            <item row="3" column="1" >
-             <widget class="QComboBox" name="cbxDSOption" >
-              <item>
-               <property name="text" >
-                <string>disabled</string>
-               </property>
-              </item>
-              <item>
-               <property name="text" >
-                <string>dummy</string>
-               </property>
-              </item>
-              <item>
-               <property name="text" >
-                <string>modem</string>
-               </property>
-              </item>
-              <item>
-               <property name="text" >
-                <string>directserial</string>
-               </property>
-              </item>
-             </widget>
-            </item>
-            <item row="0" column="0" colspan="2" >
-             <widget class="QTreeWidget" name="twSerial" >
-              <column>
-               <property name="text" >
-                <string>Serial</string>
-               </property>
-              </column>
-              <column>
-               <property name="text" >
-                <string>Option</string>
-               </property>
-              </column>
-             </widget>
-            </item>
             <item row="2" column="0" colspan="2" >
              <widget class="QGroupBox" name="gBoxSerialOption" >
+              <property name="enabled" >
+               <bool>false</bool>
+              </property>
               <property name="title" >
                <string/>
               </property>
@@ -2654,14 +2552,14 @@
                 <number>6</number>
                </property>
                <item row="0" column="1" >
-                <layout class="QGridLayout" >
+                <layout class="QHBoxLayout" >
                  <property name="margin" >
                   <number>0</number>
                  </property>
                  <property name="spacing" >
                   <number>6</number>
                  </property>
-                 <item row="0" column="0" >
+                 <item>
                   <layout class="QVBoxLayout" >
                    <property name="margin" >
                     <number>0</number>
@@ -2670,14 +2568,14 @@
                     <number>6</number>
                    </property>
                    <item>
-                    <widget class="QLabel" name="label_30" >
+                    <widget class="QLabel" name="lblDSDefaultBps" >
                      <property name="text" >
                       <string>Default bps:</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="label_27" >
+                    <widget class="QLabel" name="lblDSListenPort" >
                      <property name="text" >
                       <string>Listen Port:</string>
                      </property>
@@ -2685,7 +2583,7 @@
                    </item>
                   </layout>
                  </item>
-                 <item row="0" column="1" >
+                 <item>
                   <layout class="QVBoxLayout" >
                    <property name="margin" >
                     <number>0</number>
@@ -2701,7 +2599,128 @@
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLineEdit" name="LEDSListenPort" />
+                    <layout class="QHBoxLayout" >
+                     <property name="margin" >
+                      <number>0</number>
+                     </property>
+                     <property name="spacing" >
+                      <number>6</number>
+                     </property>
+                     <item>
+                      <widget class="QLineEdit" name="LEDSListenPort" >
+                       <property name="text" >
+                        <string>23</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="lblDSIrq" >
+                       <property name="text" >
+                        <string>IRQ:</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLineEdit" name="LEDSIrq" >
+                       <property name="text" >
+                        <string>1</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </item>
+               <item row="0" column="0" >
+                <layout class="QGridLayout" >
+                 <property name="margin" >
+                  <number>0</number>
+                 </property>
+                 <property name="spacing" >
+                  <number>6</number>
+                 </property>
+                 <item row="0" column="1" >
+                  <layout class="QVBoxLayout" >
+                   <property name="margin" >
+                    <number>0</number>
+                   </property>
+                   <property name="spacing" >
+                    <number>6</number>
+                   </property>
+                   <item>
+                    <widget class="QComboBox" name="cbxDSComPort" >
+                     <item>
+                      <property name="text" >
+                       <string>1</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text" >
+                       <string>2</string>
+                      </property>
+                     </item>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QComboBox" name="cbxDSRealPort" >
+                     <item>
+                      <property name="text" >
+                       <string>com1</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text" >
+                       <string>com2</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text" >
+                       <string>com3</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text" >
+                       <string>com4</string>
+                      </property>
+                     </item>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item row="0" column="0" >
+                  <layout class="QVBoxLayout" >
+                   <property name="margin" >
+                    <number>0</number>
+                   </property>
+                   <property name="spacing" >
+                    <number>6</number>
+                   </property>
+                   <item>
+                    <widget class="QLabel" name="lblDSComPort" >
+                     <property name="font" >
+                      <font>
+                       <family>Bitstream Vera Sans</family>
+                       <pointsize>12</pointsize>
+                       <weight>50</weight>
+                       <italic>false</italic>
+                       <bold>false</bold>
+                       <underline>false</underline>
+                       <strikeout>false</strikeout>
+                      </font>
+                     </property>
+                     <property name="text" >
+                      <string>COM Port:</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="lblDSRealPort" >
+                     <property name="text" >
+                      <string>Real Port:</string>
+                     </property>
+                    </widget>
                    </item>
                   </layout>
                  </item>
@@ -2727,17 +2746,17 @@
                     <widget class="QComboBox" name="cbxDSParity" >
                      <item>
                       <property name="text" >
-                       <string>N</string>
+                       <string>n</string>
                       </property>
                      </item>
                      <item>
                       <property name="text" >
-                       <string>E</string>
+                       <string>e</string>
                       </property>
                      </item>
                      <item>
                       <property name="text" >
-                       <string>O</string>
+                       <string>o</string>
                       </property>
                      </item>
                     </widget>
@@ -2784,21 +2803,21 @@
                     <number>6</number>
                    </property>
                    <item>
-                    <widget class="QLabel" name="label_31" >
+                    <widget class="QLabel" name="lblDSParity" >
                      <property name="text" >
                       <string>Parity:</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="label_32" >
+                    <widget class="QLabel" name="lblDSByteSize" >
                      <property name="text" >
                       <string>Bytesize:</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="label_33" >
+                    <widget class="QLabel" name="lblDSStopBit" >
                      <property name="text" >
                       <string>Stopbit:</string>
                      </property>
@@ -2808,101 +2827,113 @@
                  </item>
                 </layout>
                </item>
-               <item row="0" column="0" >
-                <layout class="QGridLayout" >
-                 <property name="margin" >
-                  <number>0</number>
-                 </property>
-                 <property name="spacing" >
-                  <number>6</number>
-                 </property>
-                 <item row="0" column="1" >
-                  <layout class="QVBoxLayout" >
-                   <property name="margin" >
-                    <number>0</number>
-                   </property>
-                   <property name="spacing" >
-                    <number>6</number>
-                   </property>
-                   <item>
-                    <widget class="QComboBox" name="cbxDSComPort" >
-                     <item>
-                      <property name="text" >
-                       <string>1</string>
-                      </property>
-                     </item>
-                     <item>
-                      <property name="text" >
-                       <string>2</string>
-                      </property>
-                     </item>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QComboBox" name="cbxDSRealPort" >
-                     <item>
-                      <property name="text" >
-                       <string>COM1</string>
-                      </property>
-                     </item>
-                     <item>
-                      <property name="text" >
-                       <string>COM2</string>
-                      </property>
-                     </item>
-                     <item>
-                      <property name="text" >
-                       <string>COM3</string>
-                      </property>
-                     </item>
-                     <item>
-                      <property name="text" >
-                       <string>COM4</string>
-                      </property>
-                     </item>
-                    </widget>
-                   </item>
-                  </layout>
-                 </item>
-                 <item row="0" column="0" >
-                  <layout class="QVBoxLayout" >
-                   <property name="margin" >
-                    <number>0</number>
-                   </property>
-                   <property name="spacing" >
-                    <number>6</number>
-                   </property>
-                   <item>
-                    <widget class="QLabel" name="label_28" >
-                     <property name="font" >
-                      <font>
-                       <family>Bitstream Vera Sans</family>
-                       <pointsize>12</pointsize>
-                       <weight>50</weight>
-                       <italic>false</italic>
-                       <bold>false</bold>
-                       <underline>false</underline>
-                       <strikeout>false</strikeout>
-                      </font>
-                     </property>
-                     <property name="text" >
-                      <string>COM Port:</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QLabel" name="label_29" >
-                     <property name="text" >
-                      <string>Real Port:</string>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </item>
-                </layout>
-               </item>
               </layout>
              </widget>
+            </item>
+            <item row="0" column="0" colspan="2" >
+             <widget class="QTreeWidget" name="twSerial" >
+              <column>
+               <property name="text" >
+                <string>Serial</string>
+               </property>
+              </column>
+              <column>
+               <property name="text" >
+                <string>Option</string>
+               </property>
+              </column>
+             </widget>
+            </item>
+            <item row="3" column="1" >
+             <widget class="QComboBox" name="cbxDSOption" >
+              <item>
+               <property name="text" >
+                <string>disabled</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>dummy</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>modem</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>directserial</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item row="3" column="0" >
+             <widget class="QComboBox" name="cbxDSSerial" >
+              <item>
+               <property name="text" >
+                <string>serial1</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>serial2</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>serial3</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>serial4</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item row="1" column="0" colspan="2" >
+             <layout class="QHBoxLayout" >
+              <property name="margin" >
+               <number>0</number>
+              </property>
+              <property name="spacing" >
+               <number>6</number>
+              </property>
+              <item>
+               <widget class="QPushButton" name="btnSerialAdd" >
+                <property name="text" >
+                 <string> Add</string>
+                </property>
+                <property name="icon" >
+                 <iconset resource="../res/dboxfe.qrc" >:/pics/images/add_16.png</iconset>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer>
+                <property name="orientation" >
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" >
+                 <size>
+                  <width>116</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnSerialRemove" >
+                <property name="text" >
+                 <string> Remove</string>
+                </property>
+                <property name="icon" >
+                 <iconset resource="../res/dboxfe.qrc" >:/pics/images/delete_16.png</iconset>
+                </property>
+               </widget>
+              </item>
+             </layout>
             </item>
            </layout>
           </widget>
@@ -3350,90 +3381,117 @@
             <property name="spacing" >
              <number>6</number>
             </property>
-            <item row="4" column="1" >
-             <widget class="QGroupBox" name="groupBox_3" >
-              <property name="title" >
-               <string/>
+            <item row="1" column="0" colspan="2" >
+             <layout class="QHBoxLayout" >
+              <property name="margin" >
+               <number>0</number>
               </property>
-              <layout class="QGridLayout" >
-               <property name="margin" >
-                <number>9</number>
-               </property>
-               <property name="spacing" >
-                <number>6</number>
-               </property>
-               <item row="0" column="0" >
-                <layout class="QVBoxLayout" >
-                 <property name="margin" >
-                  <number>0</number>
-                 </property>
-                 <property name="spacing" >
-                  <number>6</number>
-                 </property>
-                 <item>
-                  <widget class="QRadioButton" name="rbtnWin2kXPLin" >
-                   <property name="text" >
-                    <string>Windows 2000/XP and Linux CD/DVD ROM</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QRadioButton" name="rbtnWin98" >
-                   <property name="text" >
-                    <string>Windows 98 CD/DVD ROM</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-              </layout>
-             </widget>
+              <property name="spacing" >
+               <number>6</number>
+              </property>
+              <item>
+               <widget class="QPushButton" name="btnAutexecAdd" >
+                <property name="text" >
+                 <string> Add</string>
+                </property>
+                <property name="icon" >
+                 <iconset resource="../res/dboxfe.qrc" >:/pics/images/add_16.png</iconset>
+                </property>
+                <property name="flat" >
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer>
+                <property name="orientation" >
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" >
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnAutexecRemove" >
+                <property name="text" >
+                 <string> Remove</string>
+                </property>
+                <property name="icon" >
+                 <iconset resource="../res/dboxfe.qrc" >:/pics/images/delete_16.png</iconset>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer>
+                <property name="orientation" >
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" >
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnAutexecUpdate" >
+                <property name="enabled" >
+                 <bool>false</bool>
+                </property>
+                <property name="text" >
+                 <string> Update</string>
+                </property>
+                <property name="icon" >
+                 <iconset resource="../res/dboxfe.qrc" >:/pics/images/undo_16.png</iconset>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnGame" >
+                <property name="text" >
+                 <string> Game</string>
+                </property>
+                <property name="icon" >
+                 <iconset resource="../res/dboxfe.qrc" >:/pics/images/disc-media_16.png</iconset>
+                </property>
+               </widget>
+              </item>
+             </layout>
             </item>
-            <item row="4" column="0" >
-             <widget class="QGroupBox" name="groupBox" >
-              <property name="title" >
-               <string/>
+            <item row="3" column="0" colspan="2" >
+             <layout class="QVBoxLayout" >
+              <property name="margin" >
+               <number>0</number>
               </property>
-              <layout class="QGridLayout" >
-               <property name="margin" >
-                <number>9</number>
-               </property>
-               <property name="spacing" >
-                <number>6</number>
-               </property>
-               <item row="0" column="0" >
-                <layout class="QVBoxLayout" >
-                 <property name="margin" >
-                  <number>0</number>
-                 </property>
-                 <property name="spacing" >
-                  <number>6</number>
-                 </property>
-                 <item>
-                  <widget class="QRadioButton" name="rbtnCDDVD" >
-                   <property name="text" >
-                    <string>Use directory as CD/DVD ROM</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QRadioButton" name="rbtnFloppy" >
-                   <property name="text" >
-                    <string>Use directory as floppy drive</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="chkBoxLabelCDDVD" >
-                   <property name="text" >
-                    <string>Use label for CD/DVD ROM</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-              </layout>
-             </widget>
+              <property name="spacing" >
+               <number>6</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="lblDeviceName" >
+                <property name="enabled" >
+                 <bool>false</bool>
+                </property>
+                <property name="text" >
+                 <string>Label for device:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="LEDeviceLabel" >
+                <property name="enabled" >
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="0" column="0" colspan="2" >
+             <widget class="QListWidget" name="lwAutoexec" />
             </item>
             <item row="2" column="0" colspan="2" >
              <layout class="QVBoxLayout" >
@@ -3596,107 +3654,90 @@
               </item>
              </layout>
             </item>
-            <item row="1" column="0" colspan="2" >
-             <layout class="QHBoxLayout" >
-              <property name="margin" >
-               <number>0</number>
+            <item row="4" column="0" >
+             <widget class="QGroupBox" name="groupBox" >
+              <property name="title" >
+               <string/>
               </property>
-              <property name="spacing" >
-               <number>6</number>
-              </property>
-              <item>
-               <widget class="QPushButton" name="btnAutexecAdd" >
-                <property name="text" >
-                 <string> Add</string>
-                </property>
-                <property name="icon" >
-                 <iconset resource="../res/dboxfe.qrc" >:/pics/images/add_16.png</iconset>
-                </property>
-                <property name="flat" >
-                 <bool>false</bool>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <spacer>
-                <property name="orientation" >
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeHint" >
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item>
-               <widget class="QPushButton" name="btnAutexecRemove" >
-                <property name="text" >
-                 <string> Remove</string>
-                </property>
-                <property name="icon" >
-                 <iconset resource="../res/dboxfe.qrc" >:/pics/images/delete_16.png</iconset>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <spacer>
-                <property name="orientation" >
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeHint" >
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item>
-               <widget class="QPushButton" name="btnAutexecUpdate" >
-                <property name="enabled" >
-                 <bool>false</bool>
-                </property>
-                <property name="text" >
-                 <string> Update</string>
-                </property>
-                <property name="icon" >
-                 <iconset resource="../res/dboxfe.qrc" >:/pics/images/undo_16.png</iconset>
-                </property>
-               </widget>
-              </item>
-             </layout>
+              <layout class="QGridLayout" >
+               <property name="margin" >
+                <number>9</number>
+               </property>
+               <property name="spacing" >
+                <number>6</number>
+               </property>
+               <item row="0" column="0" >
+                <layout class="QVBoxLayout" >
+                 <property name="margin" >
+                  <number>0</number>
+                 </property>
+                 <property name="spacing" >
+                  <number>6</number>
+                 </property>
+                 <item>
+                  <widget class="QRadioButton" name="rbtnCDDVD" >
+                   <property name="text" >
+                    <string>Use directory as CD/DVD ROM</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QRadioButton" name="rbtnFloppy" >
+                   <property name="text" >
+                    <string>Use directory as floppy drive</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="chkBoxLabelCDDVD" >
+                   <property name="text" >
+                    <string>Use label for CD/DVD ROM</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </widget>
             </item>
-            <item row="0" column="0" colspan="2" >
-             <widget class="QListWidget" name="lwAutoexec" />
-            </item>
-            <item row="3" column="0" colspan="2" >
-             <layout class="QVBoxLayout" >
-              <property name="margin" >
-               <number>0</number>
+            <item row="4" column="1" >
+             <widget class="QGroupBox" name="groupBox_3" >
+              <property name="title" >
+               <string/>
               </property>
-              <property name="spacing" >
-               <number>6</number>
-              </property>
-              <item>
-               <widget class="QLabel" name="lblDeviceName" >
-                <property name="enabled" >
-                 <bool>false</bool>
-                </property>
-                <property name="text" >
-                 <string>Label for device:</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLineEdit" name="LEDeviceLabel" >
-                <property name="enabled" >
-                 <bool>false</bool>
-                </property>
-               </widget>
-              </item>
-             </layout>
+              <layout class="QGridLayout" >
+               <property name="margin" >
+                <number>9</number>
+               </property>
+               <property name="spacing" >
+                <number>6</number>
+               </property>
+               <item row="0" column="0" >
+                <layout class="QVBoxLayout" >
+                 <property name="margin" >
+                  <number>0</number>
+                 </property>
+                 <property name="spacing" >
+                  <number>6</number>
+                 </property>
+                 <item>
+                  <widget class="QRadioButton" name="rbtnWin2kXPLin" >
+                   <property name="text" >
+                    <string>Windows 2000/XP and Linux CD/DVD ROM</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QRadioButton" name="rbtnWin98" >
+                   <property name="text" >
+                    <string>Windows 98 CD/DVD ROM</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </widget>
             </item>
            </layout>
           </widget>
@@ -4345,12 +4386,12 @@
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel" >
-     <x>666</x>
-     <y>201</y>
+     <x>753</x>
+     <y>181</y>
     </hint>
     <hint type="destinationlabel" >
-     <x>823</x>
-     <y>215</y>
+     <x>824</x>
+     <y>185</y>
     </hint>
    </hints>
   </connection>
@@ -4361,12 +4402,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel" >
-     <x>433</x>
-     <y>463</y>
+     <x>353</x>
+     <y>99</y>
     </hint>
     <hint type="destinationlabel" >
-     <x>411</x>
-     <y>362</y>
+     <x>353</x>
+     <y>99</y>
     </hint>
    </hints>
   </connection>
@@ -4377,12 +4418,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel" >
-     <x>427</x>
-     <y>463</y>
+     <x>353</x>
+     <y>99</y>
     </hint>
     <hint type="destinationlabel" >
-     <x>411</x>
-     <y>333</y>
+     <x>353</x>
+     <y>99</y>
     </hint>
    </hints>
   </connection>
@@ -4409,12 +4450,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel" >
-     <x>786</x>
-     <y>363</y>
+     <x>342</x>
+     <y>65</y>
     </hint>
     <hint type="destinationlabel" >
-     <x>775</x>
-     <y>334</y>
+     <x>342</x>
+     <y>65</y>
     </hint>
    </hints>
   </connection>
@@ -4425,12 +4466,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel" >
-     <x>751</x>
-     <y>363</y>
+     <x>342</x>
+     <y>65</y>
     </hint>
     <hint type="destinationlabel" >
-     <x>751</x>
-     <y>297</y>
+     <x>342</x>
+     <y>65</y>
     </hint>
    </hints>
   </connection>
@@ -4441,12 +4482,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel" >
-     <x>725</x>
-     <y>360</y>
+     <x>342</x>
+     <y>65</y>
     </hint>
     <hint type="destinationlabel" >
-     <x>725</x>
-     <y>278</y>
+     <x>342</x>
+     <y>65</y>
     </hint>
    </hints>
   </connection>
@@ -4457,12 +4498,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel" >
-     <x>697</x>
-     <y>360</y>
+     <x>342</x>
+     <y>65</y>
     </hint>
     <hint type="destinationlabel" >
-     <x>701</x>
-     <y>240</y>
+     <x>342</x>
+     <y>65</y>
     </hint>
    </hints>
   </connection>
@@ -4473,12 +4514,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel" >
-     <x>676</x>
-     <y>363</y>
+     <x>342</x>
+     <y>65</y>
     </hint>
     <hint type="destinationlabel" >
-     <x>675</x>
-     <y>210</y>
+     <x>342</x>
+     <y>65</y>
     </hint>
    </hints>
   </connection>
@@ -4489,12 +4530,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel" >
-     <x>566</x>
-     <y>363</y>
+     <x>342</x>
+     <y>65</y>
     </hint>
     <hint type="destinationlabel" >
-     <x>566</x>
-     <y>299</y>
+     <x>342</x>
+     <y>65</y>
     </hint>
    </hints>
   </connection>
@@ -4505,12 +4546,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel" >
-     <x>536</x>
-     <y>363</y>
+     <x>342</x>
+     <y>65</y>
     </hint>
     <hint type="destinationlabel" >
-     <x>538</x>
-     <y>274</y>
+     <x>342</x>
+     <y>65</y>
     </hint>
    </hints>
   </connection>
@@ -4522,11 +4563,11 @@
    <hints>
     <hint type="sourcelabel" >
      <x>327</x>
-     <y>366</y>
+     <y>65</y>
     </hint>
     <hint type="destinationlabel" >
      <x>326</x>
-     <y>332</y>
+     <y>65</y>
     </hint>
    </hints>
   </connection>
@@ -4537,12 +4578,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel" >
-     <x>355</x>
-     <y>365</y>
+     <x>342</x>
+     <y>65</y>
     </hint>
     <hint type="destinationlabel" >
      <x>326</x>
-     <y>302</y>
+     <y>65</y>
     </hint>
    </hints>
   </connection>
@@ -4553,12 +4594,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel" >
-     <x>383</x>
-     <y>366</y>
+     <x>342</x>
+     <y>65</y>
     </hint>
     <hint type="destinationlabel" >
      <x>326</x>
-     <y>272</y>
+     <y>65</y>
     </hint>
    </hints>
   </connection>
@@ -4569,12 +4610,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel" >
-     <x>409</x>
-     <y>363</y>
+     <x>342</x>
+     <y>65</y>
     </hint>
     <hint type="destinationlabel" >
      <x>326</x>
-     <y>243</y>
+     <y>65</y>
     </hint>
    </hints>
   </connection>
@@ -4585,12 +4626,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel" >
-     <x>439</x>
-     <y>360</y>
+     <x>342</x>
+     <y>65</y>
     </hint>
     <hint type="destinationlabel" >
      <x>326</x>
-     <y>213</y>
+     <y>65</y>
     </hint>
    </hints>
   </connection>

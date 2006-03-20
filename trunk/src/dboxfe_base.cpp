@@ -150,7 +150,10 @@ void DB_BASE::saveConf( const QString &dbconf, DBoxFE* dbfe )
     QFile f( dbconf );
 
     if ( !f.open( QFile::Append | QFile::WriteOnly ) )
-        return;
+    {
+	delete settConf;
+	return;
+    }
     
     QTextStream t( &f );
     t << "\n[autoexec]\n";
@@ -162,7 +165,7 @@ void DB_BASE::saveConf( const QString &dbconf, DBoxFE* dbfe )
     
     t.flush();
     f.close();
-
+    
     delete settConf;
 
 }
@@ -277,14 +280,13 @@ void DB_BASE::readGameDb( const QString &file, QTreeWidget* qtw )
     gamesList = games.getStringList( "Games", "Name" );
 
     QStringList lst;
-    QTreeWidgetItem *item = new QTreeWidgetItem(qtw);
+    //QTreeWidgetItem *item = new QTreeWidgetItem(qtw);
 
-    for( int i = 0; i < gamesList.size(); ++i )
+    for( int i = 0; i < gamesList.size(); i++ )
     {
+	QTreeWidgetItem *item = new QTreeWidgetItem(qtw);
         lst = gamesList[i].split(";");
         item->setText( 0, lst.value(0) );
         item->setText( 1, lst.value(1) );
     }
-    delete qtw;
-    delete item;
 }
