@@ -2502,7 +2502,7 @@
    </widget>
    <widget class="QWidget" name="tbMiscCfg" >
     <attribute name="title" >
-     <string>Misc</string>
+     <string>Misc (I-Net, DOS, Autoexec)</string>
     </attribute>
     <layout class="QGridLayout" >
      <property name="margin" >
@@ -3381,7 +3381,141 @@
             <property name="spacing" >
              <number>6</number>
             </property>
-            <item row="1" column="0" colspan="2" >
+            <item row="3" column="0" >
+             <layout class="QVBoxLayout" >
+              <property name="margin" >
+               <number>0</number>
+              </property>
+              <property name="spacing" >
+               <number>6</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="lblDeviceName" >
+                <property name="enabled" >
+                 <bool>false</bool>
+                </property>
+                <property name="text" >
+                 <string>Label for device:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="LEDeviceLabel" >
+                <property name="enabled" >
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="chkBoxLabelCDDVD" >
+                <property name="text" >
+                 <string>Use label for CD/DVD ROM</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="4" column="0" >
+             <widget class="QGroupBox" name="groupBox_3" >
+              <property name="title" >
+               <string/>
+              </property>
+              <layout class="QGridLayout" >
+               <property name="margin" >
+                <number>9</number>
+               </property>
+               <property name="spacing" >
+                <number>6</number>
+               </property>
+               <item row="0" column="0" >
+                <layout class="QHBoxLayout" >
+                 <property name="margin" >
+                  <number>0</number>
+                 </property>
+                 <property name="spacing" >
+                  <number>6</number>
+                 </property>
+                 <item>
+                  <layout class="QVBoxLayout" >
+                   <property name="margin" >
+                    <number>0</number>
+                   </property>
+                   <property name="spacing" >
+                    <number>6</number>
+                   </property>
+                   <item>
+                    <widget class="QLabel" name="label_23" >
+                     <property name="text" >
+                      <string>Directory option:</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="label_24" >
+                     <property name="text" >
+                      <string>CDROM/DVD option:</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <layout class="QVBoxLayout" >
+                   <property name="margin" >
+                    <number>0</number>
+                   </property>
+                   <property name="spacing" >
+                    <number>6</number>
+                   </property>
+                   <item>
+                    <widget class="QComboBox" name="cbxAutoexecDirectoryOption" >
+                     <item>
+                      <property name="text" >
+                       <string>Default</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text" >
+                       <string>Use directory as CD/DVD ROM</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text" >
+                       <string>Use directory as floppy drive</string>
+                      </property>
+                     </item>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QComboBox" name="cbxAutoexecCDDVDROMOption" >
+                     <item>
+                      <property name="text" >
+                       <string>Default</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text" >
+                       <string>Windows 2000/XP and Linux CD/DVD ROM</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text" >
+                       <string>Windows 98 CD/DVD ROM</string>
+                      </property>
+                     </item>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="0" column="0" >
+             <widget class="QListWidget" name="lwAutoexec" />
+            </item>
+            <item row="1" column="0" >
              <layout class="QHBoxLayout" >
               <property name="margin" >
                <number>0</number>
@@ -3463,37 +3597,7 @@
               </item>
              </layout>
             </item>
-            <item row="3" column="0" colspan="2" >
-             <layout class="QVBoxLayout" >
-              <property name="margin" >
-               <number>0</number>
-              </property>
-              <property name="spacing" >
-               <number>6</number>
-              </property>
-              <item>
-               <widget class="QLabel" name="lblDeviceName" >
-                <property name="enabled" >
-                 <bool>false</bool>
-                </property>
-                <property name="text" >
-                 <string>Label for device:</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLineEdit" name="LEDeviceLabel" >
-                <property name="enabled" >
-                 <bool>false</bool>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
-            <item row="0" column="0" colspan="2" >
-             <widget class="QListWidget" name="lwAutoexec" />
-            </item>
-            <item row="2" column="0" colspan="2" >
+            <item row="2" column="0" >
              <layout class="QVBoxLayout" >
               <property name="margin" >
                <number>0</number>
@@ -3653,91 +3757,6 @@
                </layout>
               </item>
              </layout>
-            </item>
-            <item row="4" column="0" >
-             <widget class="QGroupBox" name="groupBox" >
-              <property name="title" >
-               <string/>
-              </property>
-              <layout class="QGridLayout" >
-               <property name="margin" >
-                <number>9</number>
-               </property>
-               <property name="spacing" >
-                <number>6</number>
-               </property>
-               <item row="0" column="0" >
-                <layout class="QVBoxLayout" >
-                 <property name="margin" >
-                  <number>0</number>
-                 </property>
-                 <property name="spacing" >
-                  <number>6</number>
-                 </property>
-                 <item>
-                  <widget class="QRadioButton" name="rbtnCDDVD" >
-                   <property name="text" >
-                    <string>Use directory as CD/DVD ROM</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QRadioButton" name="rbtnFloppy" >
-                   <property name="text" >
-                    <string>Use directory as floppy drive</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="chkBoxLabelCDDVD" >
-                   <property name="text" >
-                    <string>Use label for CD/DVD ROM</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-              </layout>
-             </widget>
-            </item>
-            <item row="4" column="1" >
-             <widget class="QGroupBox" name="groupBox_3" >
-              <property name="title" >
-               <string/>
-              </property>
-              <layout class="QGridLayout" >
-               <property name="margin" >
-                <number>9</number>
-               </property>
-               <property name="spacing" >
-                <number>6</number>
-               </property>
-               <item row="0" column="0" >
-                <layout class="QVBoxLayout" >
-                 <property name="margin" >
-                  <number>0</number>
-                 </property>
-                 <property name="spacing" >
-                  <number>6</number>
-                 </property>
-                 <item>
-                  <widget class="QRadioButton" name="rbtnWin2kXPLin" >
-                   <property name="text" >
-                    <string>Windows 2000/XP and Linux CD/DVD ROM</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QRadioButton" name="rbtnWin98" >
-                   <property name="text" >
-                    <string>Windows 98 CD/DVD ROM</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-              </layout>
-             </widget>
             </item>
            </layout>
           </widget>
@@ -4350,11 +4369,6 @@
   <tabstop>LEDrives</tabstop>
   <tabstop>btnAutexecDrive</tabstop>
   <tabstop>LEDeviceLabel</tabstop>
-  <tabstop>rbtnCDDVD</tabstop>
-  <tabstop>rbtnFloppy</tabstop>
-  <tabstop>chkBoxLabelCDDVD</tabstop>
-  <tabstop>rbtnWin2kXPLin</tabstop>
-  <tabstop>rbtnWin98</tabstop>
   <tabstop>twAbout</tabstop>
   <tabstop>txtBrowserLic</tabstop>
  </tabstops>
@@ -4392,38 +4406,6 @@
     <hint type="destinationlabel" >
      <x>824</x>
      <y>185</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>chkBoxLabelCDDVD</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>LEDeviceLabel</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel" >
-     <x>353</x>
-     <y>99</y>
-    </hint>
-    <hint type="destinationlabel" >
-     <x>353</x>
-     <y>99</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>chkBoxLabelCDDVD</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>lblDeviceName</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel" >
-     <x>353</x>
-     <y>99</y>
-    </hint>
-    <hint type="destinationlabel" >
-     <x>353</x>
-     <y>99</y>
     </hint>
    </hints>
   </connection>
@@ -4632,6 +4614,38 @@
     <hint type="destinationlabel" >
      <x>326</x>
      <y>65</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>chkBoxLabelCDDVD</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>LEDeviceLabel</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>366</x>
+     <y>378</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>368</x>
+     <y>354</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>chkBoxLabelCDDVD</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>lblDeviceName</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>318</x>
+     <y>377</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>324</x>
+     <y>331</y>
     </hint>
    </hints>
   </connection>

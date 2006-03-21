@@ -64,7 +64,7 @@
           </column>
           <column>
            <property name="text" >
-            <string>Gamefile</string>
+            <string>Executable</string>
            </property>
           </column>
          </widget>
@@ -75,7 +75,7 @@
      <item row="1" column="0" >
       <widget class="QGroupBox" name="gBoxNoGameInDb" >
        <property name="title" >
-        <string>Select game if not found in database</string>
+        <string>Select game if this not in database</string>
        </property>
        <layout class="QGridLayout" >
         <property name="margin" >

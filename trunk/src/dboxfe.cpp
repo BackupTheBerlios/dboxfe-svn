@@ -324,7 +324,7 @@ void DBoxFE::slotChooseDbxBinary()
 
     while( p->waitForFinished() )
         ui.LEDbxVersion->setText( QString( tr("DOSBox Version: ") + p->readAll() ) );
-    
+
     delete p;
 }
 
@@ -336,18 +336,18 @@ void DBoxFE::slotGame()
     DBoxFE_Game *dbfe_game = new DBoxFE_Game();
     if ( dbfe_game->exec() == QDialog::Accepted )
     {
-	if( dbfe_game->ui.twGame->currentItem() == NULL )
-	{
-	    ui.lwAutoexec->addItem( dbfe_game->ui.LEGame->text() );
-	    if( dbfe_game->chkBoxExitDosbox->isChecked() == true )
-		ui.lwAutoexec->addItem( "exit" );
-	}
-	else
-	{
-	    ui.lwAutoexec->addItem( dbfe_game->ui.twGame->currentItem()->text( 1 ) );
-	    if( dbfe_game->chkBoxExitDosbox->isChecked() == true )
-		ui.lwAutoexec->addItem( "exit" );
-	}
+        if( dbfe_game->ui.twGame->currentItem() == NULL )
+        {
+            ui.lwAutoexec->addItem( dbfe_game->ui.LEGame->text() );
+            if( dbfe_game->ui.chkBoxExitDosbox->isChecked() == true )
+                ui.lwAutoexec->addItem( "exit" );
+        }
+        else
+        {
+            ui.lwAutoexec->addItem( dbfe_game->ui.twGame->currentItem()->text( 1 ) );
+            if( dbfe_game->ui.chkBoxExitDosbox->isChecked() == true )
+                ui.lwAutoexec->addItem( "exit" );
+        }
     }
 }
 
@@ -356,7 +356,20 @@ void DBoxFE::slotGame()
  **/
 void DBoxFE::slotAutexecAdd()
 {
-    qDebug( "void DBoxFE::slotAutexecAdd()" );
+  /*if ( CheckBox_Mount_As_CDRM->isChecked() )
+    {
+        LineEdit_Directory_DOSBox->setText( "mount d " + fileName + " -t cdrom" );
+    }
+    else
+    {
+        LineEdit_Directory_DOSBox->setText( "mount c " + fileName );
+    }
+
+    if( CheckBox_Mount_As_Floppy->isChecked() )
+    {
+        LineEdit_Directory_DOSBox->setText( "mount a " + fileName + " -t floppy"  );
+    }
+   */
 }
 
 /**
@@ -364,7 +377,15 @@ void DBoxFE::slotAutexecAdd()
  **/
 void DBoxFE::slotAutexecRemove()
 {
-    qDebug( "void DBoxFE::slotSerialRemove()" );
+    QListWidgetItem *item = ui.lwAutoexec->currentItem();
+
+    if( item == NULL )
+    {
+        QMessageBox::information( this, winTitle(), tr("No item was selected.") );
+        return;
+    }
+
+    delete item;
 }
 
 /**
@@ -380,7 +401,11 @@ void DBoxFE::slotAutexecUpdate()
  **/
 void DBoxFE::slotAutexecDrive()
 {
-    qDebug( "void DBoxFE::slotAutexecDrive()" );
+    QString strAutoDrive = QFileDialog::getExistingDirectory( this, tr("Open directory for mount in dosbox"), QDir::homePath() );
+    if ( strAutoDrive.isEmpty() )
+        return;
+
+    ui.LEDrives->setText( strAutoDrive );
 }
 
 /**
@@ -392,13 +417,13 @@ void DBoxFE::slotSerialAdd()
     QList<QTreeWidgetItem *> it( ui.twSerial->findItems( ui.cbxDSSerial->currentText(), Qt::MatchExactly, 0 ) );
     for( int a = 0; a < it.size(); ++a )
     {
-	QTreeWidgetItem *sItem;
-	sItem = it.value( a );
-	if( sItem->text( a ) == ui.cbxDSSerial->currentText() )
-	{
-	    QMessageBox::information( this, winTitle(), tr("Can not add the same serial '") + sItem->text( a ) + tr("' port to the list.") );
-	    return;
-	}
+        QTreeWidgetItem *sItem;
+        sItem = it.value( a );
+        if( sItem->text( a ) == ui.cbxDSSerial->currentText() )
+        {
+            QMessageBox::information( this, winTitle(), tr("Can not add the same serial '") + sItem->text( a ) + tr("' port to the list.") );
+            return;
+        }
     }
 
     // Check if the list count higher as 4 then show message and exit function
@@ -465,13 +490,13 @@ void DBoxFE::slotSerialAdd()
 void DBoxFE::slotSerialRemove()
 {
     QTreeWidgetItem *item = ui.twSerial->currentItem();
-    
+
     if( item == NULL )
     {
         QMessageBox::information( this, winTitle(), tr("No item was selected.") );
         return;
     }
-    
+
     delete item;
 }
 
