@@ -49,7 +49,8 @@ protected:
     
 private slots:
     void slotListWidget( QListWidgetItem* );
-    void slotCbxIndexChanged( int );
+    void slotCbxSerialIndexChanged( int );
+    void slotCbxAutoexecIndexChanged( int );
     void slotAutexecDrive();
     void slotAutexecUpdate();
     void slotAutexecRemove();

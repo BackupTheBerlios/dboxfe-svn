@@ -183,104 +183,6 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="layoutWidget" >
-   <property name="geometry" >
-    <rect>
-     <x>240</x>
-     <y>520</y>
-     <width>611</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" >
-    <property name="margin" >
-     <number>0</number>
-    </property>
-    <property name="spacing" >
-     <number>6</number>
-    </property>
-    <item>
-     <widget class="QPushButton" name="btnStartDBox" >
-      <property name="toolTip" >
-       <string/>
-      </property>
-      <property name="whatsThis" >
-       <string/>
-      </property>
-      <property name="text" >
-       <string> St&amp;art</string>
-      </property>
-      <property name="icon" >
-       <iconset resource="../res/dboxfe.qrc" >:/pics/images/applications_16.png</iconset>
-      </property>
-      <property name="shortcut" >
-       <string>Alt+D</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <spacer>
-      <property name="orientation" >
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeHint" >
-       <size>
-        <width>41</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item>
-     <widget class="QPushButton" name="btnSaveGP" >
-      <property name="toolTip" >
-       <string/>
-      </property>
-      <property name="whatsThis" >
-       <string/>
-      </property>
-      <property name="text" >
-       <string> &amp;Save</string>
-      </property>
-      <property name="icon" >
-       <iconset resource="../res/dboxfe.qrc" >:/pics/images/save_16.png</iconset>
-      </property>
-      <property name="shortcut" >
-       <string>Alt+S</string>
-      </property>
-      <property name="default" >
-       <bool>false</bool>
-      </property>
-      <property name="flat" >
-       <bool>false</bool>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <spacer>
-      <property name="orientation" >
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeHint" >
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item>
-     <widget class="QPushButton" name="btnQuit" >
-      <property name="text" >
-       <string> &amp;Quit</string>
-      </property>
-      <property name="icon" >
-       <iconset resource="../res/dboxfe.qrc" >:/pics/images/delete_16.png</iconset>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
   <widget class="QTabWidget" name="twDbx" >
    <property name="geometry" >
     <rect>
@@ -3444,14 +3346,14 @@
                     <number>6</number>
                    </property>
                    <item>
-                    <widget class="QLabel" name="label_23" >
+                    <widget class="QLabel" name="lblAutoexecDirectoryOption" >
                      <property name="text" >
                       <string>Directory option:</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="label_24" >
+                    <widget class="QLabel" name="lblAutoexecCDDVDROMOption" >
                      <property name="text" >
                       <string>CDROM/DVD option:</string>
                      </property>
@@ -4262,9 +4164,15 @@
           <number>6</number>
          </property>
          <item row="0" column="0" >
-          <widget class="QTextBrowser" name="txtBrowserLic" >
+          <widget class="QTextEdit" name="txtBrowserLic" >
+           <property name="contextMenuPolicy" >
+            <enum>Qt::NoContextMenu</enum>
+           </property>
            <property name="verticalScrollBarPolicy" >
             <enum>Qt::ScrollBarAlwaysOn</enum>
+           </property>
+           <property name="readOnly" >
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -4289,9 +4197,6 @@
            <property name="text" >
             <string/>
            </property>
-           <property name="textFormat" >
-            <enum>Qt::RichText</enum>
-           </property>
           </widget>
          </item>
         </layout>
@@ -4300,6 +4205,104 @@
      </item>
     </layout>
    </widget>
+  </widget>
+  <widget class="QWidget" name="layoutWidget" >
+   <property name="geometry" >
+    <rect>
+     <x>240</x>
+     <y>520</y>
+     <width>611</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" >
+    <property name="margin" >
+     <number>0</number>
+    </property>
+    <property name="spacing" >
+     <number>6</number>
+    </property>
+    <item>
+     <widget class="QPushButton" name="btnStartDBox" >
+      <property name="toolTip" >
+       <string/>
+      </property>
+      <property name="whatsThis" >
+       <string/>
+      </property>
+      <property name="text" >
+       <string> St&amp;art</string>
+      </property>
+      <property name="icon" >
+       <iconset resource="../res/dboxfe.qrc" >:/pics/images/applications_16.png</iconset>
+      </property>
+      <property name="shortcut" >
+       <string>Alt+D</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <spacer>
+      <property name="orientation" >
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" >
+       <size>
+        <width>41</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QPushButton" name="btnSaveGP" >
+      <property name="toolTip" >
+       <string/>
+      </property>
+      <property name="whatsThis" >
+       <string/>
+      </property>
+      <property name="text" >
+       <string> &amp;Save</string>
+      </property>
+      <property name="icon" >
+       <iconset resource="../res/dboxfe.qrc" >:/pics/images/save_16.png</iconset>
+      </property>
+      <property name="shortcut" >
+       <string>Alt+S</string>
+      </property>
+      <property name="default" >
+       <bool>false</bool>
+      </property>
+      <property name="flat" >
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <spacer>
+      <property name="orientation" >
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" >
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QPushButton" name="btnQuit" >
+      <property name="text" >
+       <string> &amp;Quit</string>
+      </property>
+      <property name="icon" >
+       <iconset resource="../res/dboxfe.qrc" >:/pics/images/delete_16.png</iconset>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11" />
@@ -4370,7 +4373,6 @@
   <tabstop>btnAutexecDrive</tabstop>
   <tabstop>LEDeviceLabel</tabstop>
   <tabstop>twAbout</tabstop>
-  <tabstop>txtBrowserLic</tabstop>
  </tabstops>
  <resources>
   <include location="Resources/dboxfe.qrc" />

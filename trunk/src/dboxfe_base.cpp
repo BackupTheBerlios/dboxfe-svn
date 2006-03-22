@@ -28,6 +28,11 @@
 DB_BASE::DB_BASE()
 {}
 
+QString DB_BASE::applicationDir()
+{
+    return QCoreApplication::applicationDirPath();
+}
+
 void DB_BASE::readConf( const QString &dbconf, DBoxFE* dbfe )
 {}
 
@@ -169,6 +174,7 @@ void DB_BASE::saveConf( const QString &dbconf, DBoxFE* dbfe )
     delete settConf;
 
 }
+
 void DB_BASE::parseAutoexecSection( const QString &dbconf, QListWidget* qlw, const QString &section = QString("[autoexec]") )
 {
     QSettings settAuto( dbconf, QSettings::IniFormat );

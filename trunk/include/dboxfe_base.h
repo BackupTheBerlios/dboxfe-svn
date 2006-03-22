@@ -50,6 +50,12 @@ public:
     inline virtual ~DB_BASE(){}
     
     /**
+     * Return the absolut path of executable
+     * @since 0.1.0
+     */
+    static QString applicationDir();
+    
+    /**
      * Read dosbox configuration file
      *
      * @param dbconf  Read the dosbox configuration file

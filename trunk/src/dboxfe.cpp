@@ -56,7 +56,8 @@ DBoxFE::DBoxFE(QWidget *parent, Qt::WFlags flags)
     connect( ui.btnAutexecDrive, SIGNAL( clicked() ), this, SLOT( slotAutexecDrive() ) );
     connect( ui.btnGame, SIGNAL( clicked() ), this, SLOT( slotGame() ) );
     connect( ui.lwProfile, SIGNAL( itemClicked( QListWidgetItem* ) ), this, SLOT( slotListWidget( QListWidgetItem* ) ) );
-    connect( ui.cbxDSOption, SIGNAL( currentIndexChanged( int ) ), this, SLOT( slotCbxIndexChanged( int ) ) );
+    connect( ui.cbxDSOption, SIGNAL( currentIndexChanged( int ) ), this, SLOT( slotCbxSerialIndexChanged( int ) ) );
+    connect( ui.cbxAutoexecDirectoryOption, SIGNAL( currentIndexChanged( int ) ), this, SLOT( slotCbxAutoexecIndexChanged( int ) ) );
 
     // windows title for the application
     titleLin = "DOSBox - Front End for Linux " + getAppVersion();
@@ -64,7 +65,6 @@ DBoxFE::DBoxFE(QWidget *parent, Qt::WFlags flags)
     titleMac = "DOSBox - Front End for Mac " + getAppVersion();
 
 #ifdef Q_OS_WIN32
-
     setWindowTitle( titleWin );
     QApplication::setStyle( "windowsxp" );
 #endif
@@ -114,6 +114,20 @@ void DBoxFE::init()
     ui.cbxLanguage->setCurrentIndex( settGP.getInt( "DBoxFE", "Lng" ) );
     ui.chkBoxWindowHide->setChecked( settGP.getBool( "DBoxFE", "winHide" ) );
     ui.btnGameDb->setHidden( true );
+    
+    QString thxFile = DB_BASE::applicationDir() + "/thanks";
+    QFile f( thxFile );
+    
+    if( !f.open( QFile::ReadOnly ) )
+    {
+	QMessageBox::warning(this, winTitle(), tr("Cannot read file %1:\n%2.").arg(thxFile).arg(f.errorString()) );
+        return;
+    }
+    
+    QTextStream t(&f);
+
+    ui.lblInfoThanks->setText(t.readAll());
+    
     m_file = "";
 }
 
@@ -159,7 +173,7 @@ void DBoxFE::slotSaveGP()
     settGP.setInt( "DBoxFE", "Lng", ui.cbxLanguage->currentIndex() );
     settGP.setBool( "DBoxFE", "winHide", ui.chkBoxWindowHide->isChecked() );
 
-    settGP.save( m_file);
+    settGP.save( m_file );
 
     //Save configuration
     DB_BASE gpIni;
@@ -531,7 +545,7 @@ void DBoxFE::slotListWidget( QListWidgetItem* item )
 /**
  * TODO Disable/Enable Serial option
  **/
-void DBoxFE::slotCbxIndexChanged( int index )
+void DBoxFE::slotCbxSerialIndexChanged( int index )
 {
     switch( index )
     {
@@ -579,7 +593,24 @@ void DBoxFE::slotCbxIndexChanged( int index )
         break;
     }
 }
-
+void DBoxFE::slotCbxAutoexecIndexChanged( int index )
+{
+    switch( index )
+    {
+    case 0: // Default
+        ui.lblAutoexecCDDVDROMOption->setEnabled( false );
+        ui.cbxAutoexecCDDVDROMOption->setEnabled( false );
+        break;
+    case 1: // Use directory as CD/DVD ROM
+        ui.lblAutoexecCDDVDROMOption->setEnabled( true );
+        ui.cbxAutoexecCDDVDROMOption->setEnabled( true );
+        break;
+    case 2: // Use directory as floppy drive
+        ui.lblAutoexecCDDVDROMOption->setEnabled( false );
+        ui.cbxAutoexecCDDVDROMOption->setEnabled( false );
+        break;
+    }
+}
 /**
  * TODO Function for start dosbox and read output
  **/
