@@ -19,7 +19,6 @@
 # ***************************************************************************/
  
 TEMPLATE = app
-TARGET = bin/dboxfe
 DEPENDPATH += include res src ui 3rdparty
 INCLUDEPATH += include 3rdparty
 RESOURCES += res/dboxfe.qrc
@@ -63,9 +62,7 @@ SOURCES += src/dboxfe.cpp \
            3rdparty/XMLWriter.cpp 
 	   
 unix{
-  target.path = /usr/local/bin
-  target.files = bin/dboxfe
-  INSTALLS += target
+  TARGET = bin\dboxfe
   RCC_DIR = .unix/rcc
   MOC_DIR += .unix/moc
   OBJECTS_DIR += .unix/obj
@@ -73,10 +70,7 @@ unix{
 }
 
 win32{
-  target.path = C:\Programme\dboxfe
-  target.files = bin\dboxfe
-  INSTALLS += target
-  
+  TARGET = bin\dboxfe
   RCC_DIR = win/rcc
   MOC_DIR += win/moc
   OBJECTS_DIR += win/obj
