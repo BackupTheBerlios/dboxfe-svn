@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding = "Windows-1252"?>
+<VisualStudioProject
+	ProjectType="Visual C++"
+	Version="7.10"
+	Name="dboxfe"
+	ProjectGUID="{54D61360-7493-34C6-B4C2-8DC71D5C757F}"
+	Keyword="Qt4VSv1.0">
+	<Platforms>
+		<Platform
+			Name="Win32"/>
+	</Platforms>
+	<Configurations>
+		<Configuration
+			Name="Debug|Win32"
+			OutputDirectory="."
+			ATLMinimizesCRunTimeLibraryUsage="false"
+			ConfigurationType="1"
+			IntermediateDirectory="win\obj\"
+			UseOfMfc="0">
+			<Tool
+				Name="VCCLCompilerTool"
+				AdditionalIncludeDirectories="&quot;$(QTDIR)\include\QtCore&quot;,&quot;$(QTDIR)\include\QtNetwork&quot;,&quot;$(QTDIR)\include\QtGui&quot;,&quot;$(QTDIR)\include\QtXml&quot;,&quot;$(QTDIR)\include&quot;,&quot;include&quot;,&quot;3rdparty&quot;,&quot;$(QTDIR)\include\ActiveQt&quot;,&quot;win\moc&quot;,&quot;win\ui&quot;,C:/usr/share/qt4/mkspecs/win32-msvc.net"
+				AdditionalOptions="-Zm200 -w34100 -w34189 -EHsc -Zm200 -w34100 -w34189 -EHsc -w34100 -w34189"
+				AssemblerListingLocation="win\obj\"
+				BufferSecurityCheck="false"
+				DebugInformationFormat="3"
+				ExceptionHandling="true"
+				GeneratePreprocessedFile="0"
+				ObjectFile="win\obj\"
+				Optimization ="4"
+				PreprocessorDefinitions="_WINDOWS,UNICODE,WIN32,QT_LARGEFILE_SUPPORT,QT_DLL,QT_XML_LIB,QT_GUI_LIB,QT_NETWORK_LIB,QT_CORE_LIB,QT_THREAD_SUPPORT"
+				ProgramDataBaseFileName=".\"
+				RuntimeLibrary="3"
+				RuntimeTypeInfo="true"
+				SuppressStartupBanner="true"
+				WarningLevel="3"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalDependencies="$(QTDIR)\lib\qtmaind.lib $(QTDIR)\lib\QtXmld4.lib $(QTDIR)\lib\QtGuid4.lib $(QTDIR)\lib\QtNetworkd4.lib $(QTDIR)\lib\QtCored4.lib"
+				AdditionalLibraryDirectories="$(QTDIR)\lib"
+				GenerateDebugInformation="true"
+				IgnoreImportLibrary="true"
+				OutputFile="debug\bin\dboxfe.exe"
+				ProgramDatabaseFile=""
+				SubSystem="2"
+				SuppressStartupBanner="true"/>
+			<Tool
+				Name="VCMIDLTool"
+				DefaultCharType="0"
+				EnableErrorChecks="1"
+				WarningLevel="0"/>
+			<Tool
+				Name="VCPostBuildEventTool"/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="_WINDOWS,UNICODE,WIN32,QT_LARGEFILE_SUPPORT,QT_DLL,QT_XML_LIB,QT_GUI_LIB,QT_NETWORK_LIB,QT_CORE_LIB,QT_THREAD_SUPPORT"/>
+		</Configuration>
+		<Configuration
+			Name="Release|Win32"
+			OutputDirectory="."
+			ATLMinimizesCRunTimeLibraryUsage="false"
+			ConfigurationType="1"
+			IntermediateDirectory="win\obj\"
+			UseOfMfc="0">
+			<Tool
+				Name="VCCLCompilerTool"
+				AdditionalIncludeDirectories="&quot;$(QTDIR)\include\QtCore&quot;,&quot;$(QTDIR)\include\QtNetwork&quot;,&quot;$(QTDIR)\include\QtGui&quot;,&quot;$(QTDIR)\include\QtXml&quot;,&quot;$(QTDIR)\include&quot;,&quot;include&quot;,&quot;3rdparty&quot;,&quot;$(QTDIR)\include\ActiveQt&quot;,&quot;win\moc&quot;,&quot;win\ui&quot;,C:/usr/share/qt4/mkspecs/win32-msvc.net"
+				AdditionalOptions="-Zm200 -w34100 -w34189 -EHsc -Zm200 -w34100 -w34189 -EHsc -w34100 -w34189"
+				AssemblerListingLocation="win\obj\"
+				BufferSecurityCheck="false"
+				DebugInformationFormat="0"
+				ExceptionHandling="true"
+				GeneratePreprocessedFile="0"
+				ObjectFile="win\obj\"
+				Optimization ="2"
+				PreprocessorDefinitions="QT_NO_DEBUG,NDEBUG,_WINDOWS,UNICODE,WIN32,QT_LARGEFILE_SUPPORT,QT_DLL,QT_NO_DEBUG,QT_XML_LIB,QT_GUI_LIB,QT_NETWORK_LIB,QT_CORE_LIB,QT_THREAD_SUPPORT,NDEBUG"
+				ProgramDataBaseFileName=".\"
+				RuntimeLibrary="2"
+				RuntimeTypeInfo="true"
+				SuppressStartupBanner="true"
+				WarningLevel="3"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalDependencies="$(QTDIR)\lib\qtmain.lib $(QTDIR)\lib\QtXml4.lib $(QTDIR)\lib\QtGui4.lib $(QTDIR)\lib\QtNetwork4.lib $(QTDIR)\lib\QtCore4.lib"
+				AdditionalLibraryDirectories="$(QTDIR)\lib"
+				GenerateDebugInformation="false"
+				IgnoreImportLibrary="true"
+				LinkIncremental="2"
+				OutputFile="release\bin\dboxfe.exe"
+				ProgramDatabaseFile=""
+				SubSystem="2"
+				SuppressStartupBanner="true"/>
+			<Tool
+				Name="VCMIDLTool"
+				DefaultCharType="0"
+				EnableErrorChecks="1"
+				WarningLevel="0"/>
+			<Tool
+				Name="VCPostBuildEventTool"/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="QT_NO_DEBUG,NDEBUG,_WINDOWS,UNICODE,WIN32,QT_LARGEFILE_SUPPORT,QT_DLL,QT_NO_DEBUG,QT_XML_LIB,QT_GUI_LIB,QT_NETWORK_LIB,QT_CORE_LIB,QT_THREAD_SUPPORT"/>
+		</Configuration>
+	</Configurations>
+	<Files>
+		<Filter
+			Name="Source Files"
+			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx"
+			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}">
+			<File
+				RelativePath="3rdparty\Base64.cpp"/>
+			<File
+				RelativePath="3rdparty\XMLPreferences.cpp"/>
+			<File
+				RelativePath="3rdparty\XMLWriter.cpp"/>
+			<File
+				RelativePath="src\dboxfe.cpp"/>
+			<File
+				RelativePath="src\dboxfe_base.cpp"/>
+			<File
+				RelativePath="src\dboxfe_gamedatabase.cpp"/>
+			<File
+				RelativePath="src\dboxfe_games.cpp"/>
+			<File
+				RelativePath="src\dboxfe_profile.cpp"/>
+			<File
+				RelativePath="src\dboxfe_profilewizard.cpp"/>
+			<File
+				RelativePath="src\dboxfe_splash.cpp"/>
+			<File
+				RelativePath="src\main.cpp"/>
+		</Filter>
+		<Filter
+			Name="Header Files"
+			Filter="h;hpp;hxx;hm;inl;inc;xsd"
+			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}">
+			<File
+				RelativePath="3rdparty\Base64.h"/>
+			<File
+				RelativePath="3rdparty\XMLPreferences.h"/>
+			<File
+				RelativePath="3rdparty\XMLWriter.h"/>
+			<File
+				RelativePath="include\dboxfe.h">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="$(QTDIR)\bin\moc.exe"
+						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;win\moc&quot; -I&quot;win\ui&quot; -IC:\usr\share\qt4\mkspecs\win32-msvc.net -D_MSC_VER=1300 -DWIN32 include\dboxfe.h -o win\moc\moc_dboxfe.cpp"
+						Description="MOC include/dboxfe.h"
+						Outputs="win\moc\moc_dboxfe.cpp"
+						Path="$(QTDIR)/bin"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="$(QTDIR)\bin\moc.exe"
+						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;win\moc&quot; -I&quot;win\ui&quot; -IC:\usr\share\qt4\mkspecs\win32-msvc.net -D_MSC_VER=1300 -DWIN32 include\dboxfe.h -o win\moc\moc_dboxfe.cpp"
+						Description="MOC include/dboxfe.h"
+						Outputs="win\moc\moc_dboxfe.cpp"
+						Path="$(QTDIR)/bin"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="include\dboxfe_base.h"/>
+			<File
+				RelativePath="include\dboxfe_gamedatabase.h">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="$(QTDIR)\bin\moc.exe"
+						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;win\moc&quot; -I&quot;win\ui&quot; -IC:\usr\share\qt4\mkspecs\win32-msvc.net -D_MSC_VER=1300 -DWIN32 include\dboxfe_gamedatabase.h -o win\moc\moc_dboxfe_gamedatabase.cpp"
+						Description="MOC include/dboxfe_gamedatabase.h"
+						Outputs="win\moc\moc_dboxfe_gamedatabase.cpp"
+						Path="$(QTDIR)/bin"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="$(QTDIR)\bin\moc.exe"
+						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;win\moc&quot; -I&quot;win\ui&quot; -IC:\usr\share\qt4\mkspecs\win32-msvc.net -D_MSC_VER=1300 -DWIN32 include\dboxfe_gamedatabase.h -o win\moc\moc_dboxfe_gamedatabase.cpp"
+						Description="MOC include/dboxfe_gamedatabase.h"
+						Outputs="win\moc\moc_dboxfe_gamedatabase.cpp"
+						Path="$(QTDIR)/bin"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="include\dboxfe_games.h">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="$(QTDIR)\bin\moc.exe"
+						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;win\moc&quot; -I&quot;win\ui&quot; -IC:\usr\share\qt4\mkspecs\win32-msvc.net -D_MSC_VER=1300 -DWIN32 include\dboxfe_games.h -o win\moc\moc_dboxfe_games.cpp"
+						Description="MOC include/dboxfe_games.h"
+						Outputs="win\moc\moc_dboxfe_games.cpp"
+						Path="$(QTDIR)/bin"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="$(QTDIR)\bin\moc.exe"
+						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;win\moc&quot; -I&quot;win\ui&quot; -IC:\usr\share\qt4\mkspecs\win32-msvc.net -D_MSC_VER=1300 -DWIN32 include\dboxfe_games.h -o win\moc\moc_dboxfe_games.cpp"
+						Description="MOC include/dboxfe_games.h"
+						Outputs="win\moc\moc_dboxfe_games.cpp"
+						Path="$(QTDIR)/bin"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="include\dboxfe_profile.h">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="$(QTDIR)\bin\moc.exe"
+						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;win\moc&quot; -I&quot;win\ui&quot; -IC:\usr\share\qt4\mkspecs\win32-msvc.net -D_MSC_VER=1300 -DWIN32 include\dboxfe_profile.h -o win\moc\moc_dboxfe_profile.cpp"
+						Description="MOC include/dboxfe_profile.h"
+						Outputs="win\moc\moc_dboxfe_profile.cpp"
+						Path="$(QTDIR)/bin"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="$(QTDIR)\bin\moc.exe"
+						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;win\moc&quot; -I&quot;win\ui&quot; -IC:\usr\share\qt4\mkspecs\win32-msvc.net -D_MSC_VER=1300 -DWIN32 include\dboxfe_profile.h -o win\moc\moc_dboxfe_profile.cpp"
+						Description="MOC include/dboxfe_profile.h"
+						Outputs="win\moc\moc_dboxfe_profile.cpp"
+						Path="$(QTDIR)/bin"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="include\dboxfe_profilewizard.h">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="$(QTDIR)\bin\moc.exe"
+						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;win\moc&quot; -I&quot;win\ui&quot; -IC:\usr\share\qt4\mkspecs\win32-msvc.net -D_MSC_VER=1300 -DWIN32 include\dboxfe_profilewizard.h -o win\moc\moc_dboxfe_profilewizard.cpp"
+						Description="MOC include/dboxfe_profilewizard.h"
+						Outputs="win\moc\moc_dboxfe_profilewizard.cpp"
+						Path="$(QTDIR)/bin"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="$(QTDIR)\bin\moc.exe"
+						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;win\moc&quot; -I&quot;win\ui&quot; -IC:\usr\share\qt4\mkspecs\win32-msvc.net -D_MSC_VER=1300 -DWIN32 include\dboxfe_profilewizard.h -o win\moc\moc_dboxfe_profilewizard.cpp"
+						Description="MOC include/dboxfe_profilewizard.h"
+						Outputs="win\moc\moc_dboxfe_profilewizard.cpp"
+						Path="$(QTDIR)/bin"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="include\dboxfe_splash.h">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="$(QTDIR)\bin\moc.exe"
+						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;win\moc&quot; -I&quot;win\ui&quot; -IC:\usr\share\qt4\mkspecs\win32-msvc.net -D_MSC_VER=1300 -DWIN32 include\dboxfe_splash.h -o win\moc\moc_dboxfe_splash.cpp"
+						Description="MOC include/dboxfe_splash.h"
+						Outputs="win\moc\moc_dboxfe_splash.cpp"
+						Path="$(QTDIR)/bin"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="$(QTDIR)\bin\moc.exe"
+						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;win\moc&quot; -I&quot;win\ui&quot; -IC:\usr\share\qt4\mkspecs\win32-msvc.net -D_MSC_VER=1300 -DWIN32 include\dboxfe_splash.h -o win\moc\moc_dboxfe_splash.cpp"
+						Description="MOC include/dboxfe_splash.h"
+						Outputs="win\moc\moc_dboxfe_splash.cpp"
+						Path="$(QTDIR)/bin"/>
+				</FileConfiguration>
+			</File>
+		</Filter>
+		<Filter
+			Name="Generated Files"
+			Filter="cpp;c;cxx;moc;h;def;odl;idl;res;"
+			UniqueIdentifier="{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}">
+			<File
+				RelativePath="win\moc\moc_dboxfe.cpp"/>
+			<File
+				RelativePath="win\moc\moc_dboxfe_gamedatabase.cpp"/>
+			<File
+				RelativePath="win\moc\moc_dboxfe_games.cpp"/>
+			<File
+				RelativePath="win\moc\moc_dboxfe_profile.cpp"/>
+			<File
+				RelativePath="win\moc\moc_dboxfe_profilewizard.cpp"/>
+			<File
+				RelativePath="win\moc\moc_dboxfe_splash.cpp"/>
+			<File
+				RelativePath="win\rcc\qrc_dboxfe.cpp"/>
+			<File
+				RelativePath="win\ui\ui_dboxfe.h"/>
+			<File
+				RelativePath="win\ui\ui_gamedatabase.h"/>
+			<File
+				RelativePath="win\ui\ui_games.h"/>
+			<File
+				RelativePath="win\ui\ui_profile.h"/>
+			<File
+				RelativePath="win\ui\ui_profilewizard.h"/>
+		</Filter>
+		<Filter
+			Name="Translation Files"
+			Filter="ts"
+			UniqueIdentifier="{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}"
+			ParseFiles="false">
+			<File
+				RelativePath="lng\dboxfe_de.ts"/>
+			<File
+				RelativePath="lng\dboxfe_en.ts"/>
+		</Filter>
+		<Filter
+			Name="Form Files"
+			Filter="ui"
+			UniqueIdentifier="{99349809-55BA-4b9d-BF79-8FDBB0286EB3}"
+			ParseFiles="false">
+			<File
+				RelativePath="ui\dboxfe.ui">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="$(QTDIR)\bin\uic.exe"
+						CommandLine="$(QTDIR)\bin\uic.exe ui\dboxfe.ui -o win\ui\ui_dboxfe.h"
+						Description="UIC ui/dboxfe.ui"
+						Outputs="win\ui\ui_dboxfe.h"
+						Path="$(QTDIR)/bin"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="$(QTDIR)\bin\uic.exe"
+						CommandLine="$(QTDIR)\bin\uic.exe ui\dboxfe.ui -o win\ui\ui_dboxfe.h"
+						Description="UIC ui/dboxfe.ui"
+						Outputs="win\ui\ui_dboxfe.h"
+						Path="$(QTDIR)/bin"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="ui\gamedatabase.ui">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="$(QTDIR)\bin\uic.exe"
+						CommandLine="$(QTDIR)\bin\uic.exe ui\gamedatabase.ui -o win\ui\ui_gamedatabase.h"
+						Description="UIC ui/gamedatabase.ui"
+						Outputs="win\ui\ui_gamedatabase.h"
+						Path="$(QTDIR)/bin"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="$(QTDIR)\bin\uic.exe"
+						CommandLine="$(QTDIR)\bin\uic.exe ui\gamedatabase.ui -o win\ui\ui_gamedatabase.h"
+						Description="UIC ui/gamedatabase.ui"
+						Outputs="win\ui\ui_gamedatabase.h"
+						Path="$(QTDIR)/bin"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="ui\games.ui">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="$(QTDIR)\bin\uic.exe"
+						CommandLine="$(QTDIR)\bin\uic.exe ui\games.ui -o win\ui\ui_games.h"
+						Description="UIC ui/games.ui"
+						Outputs="win\ui\ui_games.h"
+						Path="$(QTDIR)/bin"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="$(QTDIR)\bin\uic.exe"
+						CommandLine="$(QTDIR)\bin\uic.exe ui\games.ui -o win\ui\ui_games.h"
+						Description="UIC ui/games.ui"
+						Outputs="win\ui\ui_games.h"
+						Path="$(QTDIR)/bin"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="ui\profile.ui">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="$(QTDIR)\bin\uic.exe"
+						CommandLine="$(QTDIR)\bin\uic.exe ui\profile.ui -o win\ui\ui_profile.h"
+						Description="UIC ui/profile.ui"
+						Outputs="win\ui\ui_profile.h"
+						Path="$(QTDIR)/bin"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="$(QTDIR)\bin\uic.exe"
+						CommandLine="$(QTDIR)\bin\uic.exe ui\profile.ui -o win\ui\ui_profile.h"
+						Description="UIC ui/profile.ui"
+						Outputs="win\ui\ui_profile.h"
+						Path="$(QTDIR)/bin"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="ui\profilewizard.ui">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="$(QTDIR)\bin\uic.exe"
+						CommandLine="$(QTDIR)\bin\uic.exe ui\profilewizard.ui -o win\ui\ui_profilewizard.h"
+						Description="UIC ui/profilewizard.ui"
+						Outputs="win\ui\ui_profilewizard.h"
+						Path="$(QTDIR)/bin"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="$(QTDIR)\bin\uic.exe"
+						CommandLine="$(QTDIR)\bin\uic.exe ui\profilewizard.ui -o win\ui\ui_profilewizard.h"
+						Description="UIC ui/profilewizard.ui"
+						Outputs="win\ui\ui_profilewizard.h"
+						Path="$(QTDIR)/bin"/>
+				</FileConfiguration>
+			</File>
+		</Filter>
+		<Filter
+			Name="Resource Files"
+			Filter="qrc;*"
+			UniqueIdentifier="{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}"
+			ParseFiles="false">
+			<File
+				RelativePath="res\add_16.png"/>
+			<File
+				RelativePath="res\applications_16.png"/>
+			<File
+				RelativePath="res\arrow-back_16.png"/>
+			<File
+				RelativePath="res\arrow-down_16.png"/>
+			<File
+				RelativePath="res\arrow-forward_16.png"/>
+			<File
+				RelativePath="res\arrow-up_16.png"/>
+			<File
+				RelativePath="res\computer_16.png"/>
+			<File
+				RelativePath="res\copy_16.png"/>
+			<File
+				RelativePath="res\cpu.png"/>
+			<File
+				RelativePath="res\cut_16.png"/>
+			<File
+				RelativePath="res\dboxfe.qrc">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="$(QTDIR)\bin\rcc.exe;res\dboxfe_de.qm;res\dboxfe_en.qm;res\mail_16.png;res\documents_16.png;res\wiz_internet.png;res\paste_16.png;res\cut_16.png;res\logo.png;res\undo_16.png;res\arrow-back_16.png;res\trash_16.png;res\de.png;res\delete_16.png;res\add_16.png;res\default.png;res\en.png;res\print_16.png;res\cpu.png;res\save_16.png;res\folder-closed_16.png;res\applications_16.png;res\home_16.png;res\misc.png;res\computer_16.png;res\midi.png;res\arrow-down_16.png;res\arrow-forward_16.png;res\redo_16.png;res\copy_16.png;res\folder-open_16.png;res\disc-media_16.png;res\arrow-up_16.png"
+						CommandLine="$(QTDIR)\bin\rcc.exe -name dboxfe res\dboxfe.qrc -o win\rcc\qrc_dboxfe.cpp"
+						Description="RCC res/dboxfe.qrc"
+						Outputs="win\rcc\qrc_dboxfe.cpp"
+						Path="$(QTDIR)/bin"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="$(QTDIR)\bin\rcc.exe;res\dboxfe_de.qm;res\dboxfe_en.qm;res\mail_16.png;res\documents_16.png;res\wiz_internet.png;res\paste_16.png;res\cut_16.png;res\logo.png;res\undo_16.png;res\arrow-back_16.png;res\trash_16.png;res\de.png;res\delete_16.png;res\add_16.png;res\default.png;res\en.png;res\print_16.png;res\cpu.png;res\save_16.png;res\folder-closed_16.png;res\applications_16.png;res\home_16.png;res\misc.png;res\computer_16.png;res\midi.png;res\arrow-down_16.png;res\arrow-forward_16.png;res\redo_16.png;res\copy_16.png;res\folder-open_16.png;res\disc-media_16.png;res\arrow-up_16.png"
+						CommandLine="$(QTDIR)\bin\rcc.exe -name dboxfe res\dboxfe.qrc -o win\rcc\qrc_dboxfe.cpp"
+						Description="RCC res/dboxfe.qrc"
+						Outputs="win\rcc\qrc_dboxfe.cpp"
+						Path="$(QTDIR)/bin"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="res\dboxfe_de.qm"/>
+			<File
+				RelativePath="res\dboxfe_en.qm"/>
+			<File
+				RelativePath="res\de.png"/>
+			<File
+				RelativePath="res\default.png"/>
+			<File
+				RelativePath="res\delete_16.png"/>
+			<File
+				RelativePath="res\disc-media_16.png"/>
+			<File
+				RelativePath="res\documents_16.png"/>
+			<File
+				RelativePath="res\en.png"/>
+			<File
+				RelativePath="res\folder-closed_16.png"/>
+			<File
+				RelativePath="res\folder-open_16.png"/>
+			<File
+				RelativePath="res\home_16.png"/>
+			<File
+				RelativePath="res\logo.png"/>
+			<File
+				RelativePath="res\mail_16.png"/>
+			<File
+				RelativePath="res\midi.png"/>
+			<File
+				RelativePath="res\misc.png"/>
+			<File
+				RelativePath="res\paste_16.png"/>
+			<File
+				RelativePath="res\print_16.png"/>
+			<File
+				RelativePath="res\redo_16.png"/>
+			<File
+				RelativePath="res\save_16.png"/>
+			<File
+				RelativePath="res\trash_16.png"/>
+			<File
+				RelativePath="res\undo_16.png"/>
+			<File
+				RelativePath="res\wiz_internet.png"/>
+		</Filter>
+	</Files>
+	<Globals>
+	</Globals>
+</VisualStudioProject>
