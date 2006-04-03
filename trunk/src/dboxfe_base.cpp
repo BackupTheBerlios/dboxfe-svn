@@ -64,7 +64,6 @@ void DB_BASE::readConf( const QString &dbconf, DBoxFE* dbfe )
     getConf->beginGroup( "render" );
     dbfe->ui.lcdFS->display( getConf->value( "frameskip" ).toInt() );
     dbfe->ui.sliderFS->setValue( getConf->value( "frameskip" ).toInt() );
-    dbfe->ui.LESnapDir->setText( getConf->value( "snapdir" ).toString() );
     int scaler = dbfe->ui.cbxScaler->findText( getConf->value( "scaler" ).toString() ); dbfe->ui.cbxScaler->setCurrentIndex(scaler);
     dbfe->ui.chkBoxAspect->setChecked( getConf->value( "aspect" ).toBool() );
     getConf->endGroup();
@@ -146,6 +145,8 @@ void DB_BASE::readConf( const QString &dbconf, DBoxFE* dbfe )
     QTextStream in( &f );
     QString line;
     
+    dbfe->ui.lwAutoexec->clear();
+    
     while( !in.atEnd() ) {
 	line = in.readLine();
 	if( line == "[autoexec]" ){
@@ -193,7 +194,6 @@ void DB_BASE::saveConf( const QString &dbconf, DBoxFE* dbfe )
     // Render settings
     settConf->beginGroup( "render" );
     settConf->setValue( "frameskip", dbfe->ui.lcdFS->intValue() );
-    settConf->setValue( "snapdir", dbfe->ui.LESnapDir->text() );
     settConf->setValue( "scaler", dbfe->ui.cbxScaler->currentText() );
     settConf->setValue( "aspect", dbfe->ui.chkBoxAspect->isChecked() );
     settConf->endGroup();
@@ -346,7 +346,39 @@ void DB_BASE::findGames( const QString &dirName, QListWidget* qlw )
  * Create game profiles
  */
 void DB_BASE::createGameProfiles( const QString &file, const QStringList &gamesList )
-{}
+{
+    XMLPreferences settGP( "DBoxFE", "Alexander Saal" );
+    settGP.setVersion( "v0.1.0" );
+    settGP.setStringList( "Profile", "Name", gamesList );
+    settGP.setString( "DOSBox", "binary", "" );
+    settGP.setString( "DOSBox", "version", "" );
+    settGP.setInt( "DBoxFE", "Lng", 0 );
+    settGP.setBool( "DBoxFE", "winHide", false );
+    settGP.save( file );
+    
+    QString fileName;
+    QFile *createFile;
+    
+    fileName = ":/default/default.conf";
+    QFile readFile(fileName);
+    if( !readFile.open(QIODevice::ReadOnly | QIODevice::Text )) { return; }
+    QTextStream in( &readFile );
+    
+    for( int x= 0; x < gamesList.size(); ++x ) {
+	fileName = "";
+	fileName = QDir::homePath();
+	fileName.append( "/.dboxfe/" + gamesList.value(x) + ".conf" );
+	
+	createFile = new QFile( fileName );
+	if( !createFile->open(QIODevice::WriteOnly | QIODevice::Text )) { return; }
+	
+	QTextStream out( createFile );
+	out << in.readAll();
+	out.flush();
+    }
+    createFile->close();
+    readFile.close();
+}
 
 /*
  * TODO For feature request ...... (Gamedatabase)
@@ -358,7 +390,6 @@ void DB_BASE::insertGameInToDb( const QString &name, const QString &executable, 
     QTreeWidgetItem *item = new QTreeWidgetItem( qtw );
     item->setText( 0, executable );
     item->setText( 1, name );
-    delete item;
 }
 
 /*
@@ -366,7 +397,7 @@ void DB_BASE::insertGameInToDb( const QString &name, const QString &executable, 
  */
 int DB_BASE::removeGameFromDb( QTreeWidget* qtw )
 {
-    delete qtw->currentItem();
+    if( qtw->currentItem() != NULL ) delete qtw->currentItem();
     return qtw->topLevelItemCount();
 }
 
@@ -384,8 +415,7 @@ void DB_BASE::saveGameDb( const QString &file, QTreeWidget* qtw, int col1, int c
         gamesList.append( item->text( col1 ) + ";" + item->text( col2 ) );
     }
 
-    games.save( file );
-    delete qtw;
+    games.save( file );    
 }
 
 /*
@@ -399,8 +429,7 @@ void DB_BASE::readGameDb( const QString &file, QTreeWidget* qtw )
     gamesList = games.getStringList( "Games", "Name" );
 
     QStringList lst;
-    //QTreeWidgetItem *item = new QTreeWidgetItem(qtw);
-
+    
     for( int i = 0; i < gamesList.size(); i++ )
     {
 	QTreeWidgetItem *item = new QTreeWidgetItem(qtw);

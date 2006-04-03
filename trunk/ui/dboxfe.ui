@@ -42,6 +42,104 @@
   <property name="windowIcon" >
    <iconset resource="../res/dboxfe.qrc" >:/pics/images/default.png</iconset>
   </property>
+  <widget class="QWidget" name="layoutWidget" >
+   <property name="geometry" >
+    <rect>
+     <x>240</x>
+     <y>520</y>
+     <width>611</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" >
+    <property name="margin" >
+     <number>0</number>
+    </property>
+    <property name="spacing" >
+     <number>6</number>
+    </property>
+    <item>
+     <widget class="QPushButton" name="btnStartDBox" >
+      <property name="toolTip" >
+       <string/>
+      </property>
+      <property name="whatsThis" >
+       <string/>
+      </property>
+      <property name="text" >
+       <string> St&amp;art</string>
+      </property>
+      <property name="icon" >
+       <iconset resource="../res/dboxfe.qrc" >:/pics/images/applications_16.png</iconset>
+      </property>
+      <property name="shortcut" >
+       <string>Alt+D</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <spacer>
+      <property name="orientation" >
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" >
+       <size>
+        <width>41</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QPushButton" name="btnSaveGP" >
+      <property name="toolTip" >
+       <string/>
+      </property>
+      <property name="whatsThis" >
+       <string/>
+      </property>
+      <property name="text" >
+       <string> &amp;Save</string>
+      </property>
+      <property name="icon" >
+       <iconset resource="../res/dboxfe.qrc" >:/pics/images/save_16.png</iconset>
+      </property>
+      <property name="shortcut" >
+       <string>Alt+S</string>
+      </property>
+      <property name="default" >
+       <bool>false</bool>
+      </property>
+      <property name="flat" >
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <spacer>
+      <property name="orientation" >
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" >
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QPushButton" name="btnQuit" >
+      <property name="text" >
+       <string> &amp;Quit</string>
+      </property>
+      <property name="icon" >
+       <iconset resource="../res/dboxfe.qrc" >:/pics/images/delete_16.png</iconset>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
   <widget class="QGroupBox" name="gBoxProfile" >
    <property name="geometry" >
     <rect>
@@ -203,6 +301,188 @@
      <property name="spacing" >
       <number>6</number>
      </property>
+     <item row="1" column="0" >
+      <widget class="QGroupBox" name="gBoxRender" >
+       <property name="title" >
+        <string>Render</string>
+       </property>
+       <layout class="QGridLayout" >
+        <property name="margin" >
+         <number>9</number>
+        </property>
+        <property name="spacing" >
+         <number>6</number>
+        </property>
+        <item row="0" column="0" >
+         <layout class="QHBoxLayout" >
+          <property name="margin" >
+           <number>0</number>
+          </property>
+          <property name="spacing" >
+           <number>6</number>
+          </property>
+          <item>
+           <layout class="QVBoxLayout" >
+            <property name="margin" >
+             <number>0</number>
+            </property>
+            <property name="spacing" >
+             <number>6</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="lblFrameSkip" >
+              <property name="text" >
+               <string>Frameskip:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="lblScaler" >
+              <property name="text" >
+               <string>Scaler:</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" >
+            <property name="margin" >
+             <number>0</number>
+            </property>
+            <property name="spacing" >
+             <number>6</number>
+            </property>
+            <item>
+             <widget class="QSlider" name="sliderFS" >
+              <property name="toolTip" >
+               <string/>
+              </property>
+              <property name="orientation" >
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="cbxScaler" >
+              <property name="toolTip" >
+               <string/>
+              </property>
+              <property name="whatsThis" >
+               <string/>
+              </property>
+              <property name="currentIndex" >
+               <number>1</number>
+              </property>
+              <item>
+               <property name="text" >
+                <string>none</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>normal2x</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>normal3x</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>advmame2x</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>advmame3x</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>advinterp2x</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>advinterp3x</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>interp2x</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>tv2x</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>tv3x</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>rgb2x</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>rgb3x</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>scan2x</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>scan3x</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" >
+            <property name="margin" >
+             <number>0</number>
+            </property>
+            <property name="spacing" >
+             <number>6</number>
+            </property>
+            <item>
+             <widget class="QLCDNumber" name="lcdFS" >
+              <property name="frameShape" >
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow" >
+               <enum>QFrame::Sunken</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="chkBoxAspect" >
+              <property name="toolTip" >
+               <string>Do aspect correction</string>
+              </property>
+              <property name="text" >
+               <string>Aspect</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </item>
      <item row="0" column="0" >
       <widget class="QGroupBox" name="gBoxSDL" >
        <property name="title" >
@@ -305,7 +585,7 @@
                 </property>
                 <item>
                  <property name="text" >
-                  <string>0x0</string>
+                  <string>original</string>
                  </property>
                 </item>
                 <item>
@@ -363,8 +643,13 @@
                  <string/>
                 </property>
                 <property name="currentIndex" >
-                 <number>2</number>
+                 <number>0</number>
                 </property>
+                <item>
+                 <property name="text" >
+                  <string>original</string>
+                 </property>
+                </item>
                 <item>
                  <property name="text" >
                   <string>640x480</string>
@@ -437,11 +722,11 @@
               <property name="toolTip" >
                <string/>
               </property>
-              <property name="whatsThis" >
-               <string/>
-              </property>
               <property name="text" >
                <string>Use Scancodes</string>
+              </property>
+              <property name="checked" >
+               <bool>true</bool>
               </property>
              </widget>
             </item>
@@ -709,203 +994,6 @@
        </layout>
       </widget>
      </item>
-     <item row="1" column="0" >
-      <widget class="QGroupBox" name="gBoxRender" >
-       <property name="title" >
-        <string>Render</string>
-       </property>
-       <layout class="QGridLayout" >
-        <property name="margin" >
-         <number>9</number>
-        </property>
-        <property name="spacing" >
-         <number>6</number>
-        </property>
-        <item row="0" column="0" >
-         <layout class="QGridLayout" >
-          <property name="margin" >
-           <number>0</number>
-          </property>
-          <property name="spacing" >
-           <number>6</number>
-          </property>
-          <item row="0" column="0" >
-           <layout class="QGridLayout" >
-            <property name="margin" >
-             <number>0</number>
-            </property>
-            <property name="spacing" >
-             <number>6</number>
-            </property>
-            <item row="1" column="0" >
-             <widget class="QLabel" name="lblSnapDir" >
-              <property name="text" >
-               <string>Snapdir:</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="0" >
-             <widget class="QLabel" name="lblFrameSkip" >
-              <property name="text" >
-               <string>Frameskip:</string>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="0" >
-             <widget class="QLabel" name="lblScaler" >
-              <property name="text" >
-               <string>Scaler:</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item row="0" column="2" >
-           <layout class="QGridLayout" >
-            <property name="margin" >
-             <number>0</number>
-            </property>
-            <property name="spacing" >
-             <number>6</number>
-            </property>
-            <item row="2" column="0" >
-             <widget class="QCheckBox" name="chkBoxAspect" >
-              <property name="toolTip" >
-               <string>Do aspect correction</string>
-              </property>
-              <property name="text" >
-               <string>Aspect</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="0" >
-             <widget class="QLCDNumber" name="lcdFS" >
-              <property name="frameShape" >
-               <enum>QFrame::StyledPanel</enum>
-              </property>
-              <property name="frameShadow" >
-               <enum>QFrame::Sunken</enum>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="0" >
-             <widget class="QPushButton" name="btnSnapDir" >
-              <property name="text" >
-               <string/>
-              </property>
-              <property name="icon" >
-               <iconset resource="../res/dboxfe.qrc" >:/pics/images/folder-open_16.png</iconset>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item row="0" column="1" >
-           <layout class="QGridLayout" >
-            <property name="margin" >
-             <number>0</number>
-            </property>
-            <property name="spacing" >
-             <number>6</number>
-            </property>
-            <item row="0" column="0" >
-             <widget class="QSlider" name="sliderFS" >
-              <property name="toolTip" >
-               <string/>
-              </property>
-              <property name="orientation" >
-               <enum>Qt::Horizontal</enum>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="0" >
-             <widget class="QComboBox" name="cbxScaler" >
-              <property name="toolTip" >
-               <string/>
-              </property>
-              <property name="whatsThis" >
-               <string/>
-              </property>
-              <property name="currentIndex" >
-               <number>1</number>
-              </property>
-              <item>
-               <property name="text" >
-                <string>none</string>
-               </property>
-              </item>
-              <item>
-               <property name="text" >
-                <string>normal2x</string>
-               </property>
-              </item>
-              <item>
-               <property name="text" >
-                <string>normal3x</string>
-               </property>
-              </item>
-              <item>
-               <property name="text" >
-                <string>advmame2x</string>
-               </property>
-              </item>
-              <item>
-               <property name="text" >
-                <string>advmame3x</string>
-               </property>
-              </item>
-              <item>
-               <property name="text" >
-                <string>advinterp2x</string>
-               </property>
-              </item>
-              <item>
-               <property name="text" >
-                <string>interp2x</string>
-               </property>
-              </item>
-              <item>
-               <property name="text" >
-                <string>tv2x</string>
-               </property>
-              </item>
-              <item>
-               <property name="text" >
-                <string>tv3x</string>
-               </property>
-              </item>
-              <item>
-               <property name="text" >
-                <string>rgb2x</string>
-               </property>
-              </item>
-              <item>
-               <property name="text" >
-                <string>rgb3x</string>
-               </property>
-              </item>
-              <item>
-               <property name="text" >
-                <string>scan2x</string>
-               </property>
-              </item>
-              <item>
-               <property name="text" >
-                <string>scan3x</string>
-               </property>
-              </item>
-             </widget>
-            </item>
-            <item row="1" column="0" >
-             <widget class="QLineEdit" name="LESnapDir" />
-            </item>
-           </layout>
-          </item>
-         </layout>
-        </item>
-       </layout>
-      </widget>
-     </item>
      <item row="2" column="0" >
       <widget class="QGroupBox" name="groupBox_2" >
        <property name="title" >
@@ -976,6 +1064,11 @@
                 </property>
                 <item>
                  <property name="text" >
+                  <string>simple</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
                   <string>normal</string>
                  </property>
                 </item>
@@ -1000,11 +1093,16 @@
                  <string/>
                 </property>
                 <property name="currentIndex" >
-                 <number>14</number>
+                 <number>0</number>
                 </property>
                 <property name="maxVisibleItems" >
                  <number>7</number>
                 </property>
+                <item>
+                 <property name="text" >
+                  <string>auto</string>
+                 </property>
+                </item>
                 <item>
                  <property name="text" >
                   <string>10000</string>
@@ -1446,8 +1544,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>166</width>
-          <height>138</height>
+          <width>586</width>
+          <height>292</height>
          </rect>
         </property>
         <attribute name="label" >
@@ -1563,7 +1661,14 @@
                 </widget>
                </item>
                <item>
-                <widget class="QSpinBox" name="spBoxPrebuffer" />
+                <widget class="QSpinBox" name="spBoxPrebuffer" >
+                 <property name="maximum" >
+                  <number>999</number>
+                 </property>
+                 <property name="value" >
+                  <number>10</number>
+                 </property>
+                </widget>
                </item>
               </layout>
              </item>
@@ -1749,6 +1854,9 @@
               <widget class="QCheckBox" name="chkBoxSBMixer" >
                <property name="text" >
                 <string>Mixer</string>
+               </property>
+               <property name="checked" >
+                <bool>true</bool>
                </property>
               </widget>
              </item>
@@ -3192,7 +3300,7 @@
                     <item>
                      <widget class="QComboBox" name="cbxMachine" >
                       <property name="currentIndex" >
-                       <number>3</number>
+                       <number>4</number>
                       </property>
                       <item>
                        <property name="text" >
@@ -3207,6 +3315,11 @@
                       <item>
                        <property name="text" >
                         <string>tandy</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text" >
+                        <string>pcjr</string>
                        </property>
                       </item>
                       <item>
@@ -3683,124 +3796,39 @@
      <property name="spacing" >
       <number>6</number>
      </property>
-     <item row="0" column="0" >
-      <layout class="QGridLayout" >
-       <property name="margin" >
-        <number>0</number>
+     <item row="4" column="0" >
+      <spacer>
+       <property name="orientation" >
+        <enum>Qt::Vertical</enum>
        </property>
-       <property name="spacing" >
-        <number>6</number>
+       <property name="sizeHint" >
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
        </property>
-       <item row="3" column="0" >
-        <layout class="QHBoxLayout" >
-         <property name="margin" >
-          <number>0</number>
-         </property>
-         <property name="spacing" >
-          <number>6</number>
-         </property>
-         <item>
-          <widget class="QPushButton" name="btnGameDb" >
-           <property name="enabled" >
-            <bool>false</bool>
-           </property>
-           <property name="text" >
-            <string>Gamedatabase</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <spacer>
-           <property name="orientation" >
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" >
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-        </layout>
-       </item>
-       <item row="1" column="0" >
-        <widget class="QGroupBox" name="gBoxLanguage" >
-         <property name="title" >
-          <string>Language</string>
-         </property>
+      </spacer>
+     </item>
+     <item row="2" column="0" >
+      <widget class="QGroupBox" name="groupBox_4" >
+       <property name="title" >
+        <string>Option</string>
+       </property>
+       <layout class="QGridLayout" >
+        <property name="margin" >
+         <number>9</number>
+        </property>
+        <property name="spacing" >
+         <number>6</number>
+        </property>
+        <item row="0" column="0" >
          <layout class="QGridLayout" >
           <property name="margin" >
-           <number>9</number>
+           <number>0</number>
           </property>
           <property name="spacing" >
            <number>6</number>
           </property>
-          <item row="0" column="0" >
-           <widget class="QComboBox" name="cbxLanguage" >
-            <item>
-             <property name="text" >
-              <string>English</string>
-             </property>
-             <property name="icon" >
-              <iconset resource="../res/dboxfe.qrc" >:/pics/images/en.png</iconset>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>German</string>
-             </property>
-             <property name="icon" >
-              <iconset resource="../res/dboxfe.qrc" >:/pics/images/de.png</iconset>
-             </property>
-            </item>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item row="4" column="0" >
-        <spacer>
-         <property name="orientation" >
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" >
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="2" column="0" >
-        <widget class="QGroupBox" name="groupBox_4" >
-         <property name="title" >
-          <string>Option</string>
-         </property>
-         <layout class="QGridLayout" >
-          <property name="margin" >
-           <number>9</number>
-          </property>
-          <property name="spacing" >
-           <number>6</number>
-          </property>
-          <item row="1" column="0" >
-           <widget class="QCheckBox" name="chkBoxSaveGP" >
-            <property name="text" >
-             <string>Save gameprofile if you close the application</string>
-            </property>
-            <property name="checked" >
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0" >
-           <widget class="QCheckBox" name="chkBoxStartmapper" >
-            <property name="text" >
-             <string>start Keymapper</string>
-            </property>
-           </widget>
-          </item>
           <item row="0" column="0" >
            <widget class="QCheckBox" name="chkBoxWindowHide" >
             <property name="text" >
@@ -3811,23 +3839,40 @@
             </property>
            </widget>
           </item>
+          <item row="1" column="0" >
+           <widget class="QCheckBox" name="chkBoxStartmapper" >
+            <property name="text" >
+             <string>start Keymapper</string>
+            </property>
+           </widget>
+          </item>
          </layout>
-        </widget>
-       </item>
-       <item row="0" column="0" >
-        <widget class="QGroupBox" name="gBoxExecutable" >
-         <property name="title" >
-          <string>Executable/DOSBox binary</string>
-         </property>
-         <layout class="QGridLayout" >
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item row="0" column="0" >
+      <widget class="QGroupBox" name="gBoxExecutable" >
+       <property name="title" >
+        <string>Executable/DOSBox binary</string>
+       </property>
+       <layout class="QGridLayout" >
+        <property name="margin" >
+         <number>9</number>
+        </property>
+        <property name="spacing" >
+         <number>6</number>
+        </property>
+        <item row="0" column="0" >
+         <layout class="QVBoxLayout" >
           <property name="margin" >
-           <number>9</number>
+           <number>0</number>
           </property>
           <property name="spacing" >
            <number>6</number>
           </property>
-          <item row="0" column="0" >
-           <layout class="QVBoxLayout" >
+          <item>
+           <layout class="QHBoxLayout" >
             <property name="margin" >
              <number>0</number>
             </property>
@@ -3835,56 +3880,114 @@
              <number>6</number>
             </property>
             <item>
-             <layout class="QHBoxLayout" >
-              <property name="margin" >
-               <number>0</number>
+             <widget class="QLabel" name="lblStabelVersion" >
+              <property name="text" >
+               <string>DOSBox binary:</string>
               </property>
-              <property name="spacing" >
-               <number>6</number>
-              </property>
-              <item>
-               <widget class="QLabel" name="lblStabelVersion" >
-                <property name="text" >
-                 <string>DOSBox binary:</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLineEdit" name="LEDbxStabel" >
-                <property name="text" >
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="btnDbxStable" >
-                <property name="text" >
-                 <string/>
-                </property>
-                <property name="icon" >
-                 <iconset resource="../res/dboxfe.qrc" >:/pics/images/folder-open_16.png</iconset>
-                </property>
-               </widget>
-              </item>
-             </layout>
+             </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="LEDbxVersion" >
-              <property name="enabled" >
-               <bool>false</bool>
+             <widget class="QLineEdit" name="LEDbxStabel" >
+              <property name="text" >
+               <string/>
               </property>
-              <property name="alignment" >
-               <set>Qt::AlignHCenter</set>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnDbxStable" >
+              <property name="text" >
+               <string/>
               </property>
-              <property name="readOnly" >
-               <bool>true</bool>
+              <property name="icon" >
+               <iconset resource="../res/dboxfe.qrc" >:/pics/images/folder-open_16.png</iconset>
               </property>
              </widget>
             </item>
            </layout>
           </item>
+          <item>
+           <widget class="QLineEdit" name="LEDbxVersion" >
+            <property name="enabled" >
+             <bool>false</bool>
+            </property>
+            <property name="alignment" >
+             <set>Qt::AlignHCenter</set>
+            </property>
+            <property name="readOnly" >
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
          </layout>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item row="1" column="0" >
+      <widget class="QGroupBox" name="gBoxLanguage" >
+       <property name="title" >
+        <string>Language</string>
+       </property>
+       <layout class="QGridLayout" >
+        <property name="margin" >
+         <number>9</number>
+        </property>
+        <property name="spacing" >
+         <number>6</number>
+        </property>
+        <item row="0" column="0" >
+         <widget class="QComboBox" name="cbxLanguage" >
+          <item>
+           <property name="text" >
+            <string>English</string>
+           </property>
+           <property name="icon" >
+            <iconset resource="../res/dboxfe.qrc" >:/pics/images/en.png</iconset>
+           </property>
+          </item>
+          <item>
+           <property name="text" >
+            <string>German</string>
+           </property>
+           <property name="icon" >
+            <iconset resource="../res/dboxfe.qrc" >:/pics/images/de.png</iconset>
+           </property>
+          </item>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item row="3" column="0" >
+      <layout class="QHBoxLayout" >
+       <property name="margin" >
+        <number>0</number>
+       </property>
+       <property name="spacing" >
+        <number>6</number>
+       </property>
+       <item>
+        <widget class="QPushButton" name="btnGameDb" >
+         <property name="enabled" >
+          <bool>false</bool>
+         </property>
+         <property name="text" >
+          <string>Gamedatabase</string>
+         </property>
         </widget>
+       </item>
+       <item>
+        <spacer>
+         <property name="orientation" >
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" >
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
        </item>
       </layout>
      </item>
@@ -4209,104 +4312,6 @@
     </layout>
    </widget>
   </widget>
-  <widget class="QWidget" name="layoutWidget" >
-   <property name="geometry" >
-    <rect>
-     <x>240</x>
-     <y>520</y>
-     <width>611</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" >
-    <property name="margin" >
-     <number>0</number>
-    </property>
-    <property name="spacing" >
-     <number>6</number>
-    </property>
-    <item>
-     <widget class="QPushButton" name="btnStartDBox" >
-      <property name="toolTip" >
-       <string/>
-      </property>
-      <property name="whatsThis" >
-       <string/>
-      </property>
-      <property name="text" >
-       <string> St&amp;art</string>
-      </property>
-      <property name="icon" >
-       <iconset resource="../res/dboxfe.qrc" >:/pics/images/applications_16.png</iconset>
-      </property>
-      <property name="shortcut" >
-       <string>Alt+D</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <spacer>
-      <property name="orientation" >
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeHint" >
-       <size>
-        <width>41</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item>
-     <widget class="QPushButton" name="btnSaveGP" >
-      <property name="toolTip" >
-       <string/>
-      </property>
-      <property name="whatsThis" >
-       <string/>
-      </property>
-      <property name="text" >
-       <string> &amp;Save</string>
-      </property>
-      <property name="icon" >
-       <iconset resource="../res/dboxfe.qrc" >:/pics/images/save_16.png</iconset>
-      </property>
-      <property name="shortcut" >
-       <string>Alt+S</string>
-      </property>
-      <property name="default" >
-       <bool>false</bool>
-      </property>
-      <property name="flat" >
-       <bool>false</bool>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <spacer>
-      <property name="orientation" >
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeHint" >
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item>
-     <widget class="QPushButton" name="btnQuit" >
-      <property name="text" >
-       <string> &amp;Quit</string>
-      </property>
-      <property name="icon" >
-       <iconset resource="../res/dboxfe.qrc" >:/pics/images/delete_16.png</iconset>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
  </widget>
  <layoutdefault spacing="6" margin="11" />
  <pixmapfunction></pixmapfunction>
@@ -4328,8 +4333,6 @@
   <tabstop>sliderSV</tabstop>
   <tabstop>cbxFullWightHigh</tabstop>
   <tabstop>sliderFS</tabstop>
-  <tabstop>LESnapDir</tabstop>
-  <tabstop>btnSnapDir</tabstop>
   <tabstop>cbxScaler</tabstop>
   <tabstop>chkBoxAspect</tabstop>
   <tabstop>cbxCPUCore</tabstop>

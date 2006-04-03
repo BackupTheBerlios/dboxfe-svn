@@ -59,7 +59,6 @@ private slots:
     void slotSerialAdd();
     void slotChooseDbxBinary();
     void slotLanguage();
-    void slotSnapDir();
     void slotRemoveGP();
     void slotStartDBox();
     void slotGame();

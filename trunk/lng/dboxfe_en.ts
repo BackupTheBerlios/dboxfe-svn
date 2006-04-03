@@ -46,10 +46,6 @@
         <translation>Windowresolution:</translation>
     </message>
     <message>
-        <source>0x0</source>
-        <translation></translation>
-    </message>
-    <message>
         <source>640x480</source>
         <translation></translation>
     </message>
@@ -231,7 +227,7 @@
     </message>
     <message>
         <source>Snapdir:</source>
-        <translation>Snapdir:</translation>
+        <translation type="obsolete">Snapdir:</translation>
     </message>
     <message>
         <source>Frameskip:</source>
@@ -1170,10 +1166,6 @@
         <translation></translation>
     </message>
     <message>
-        <source>Save gameprofile if you close the application</source>
-        <translation></translation>
-    </message>
-    <message>
         <source>start Keymapper</source>
         <translation></translation>
     </message>
@@ -1296,7 +1288,7 @@
     </message>
     <message>
         <source>No Profile was selected to save it.</source>
-        <translation>No Profile was selected to save it.</translation>
+        <translation type="obsolete">No Profile was selected to save it.</translation>
     </message>
     <message>
         <source>Please select profile.</source>
@@ -1343,10 +1335,6 @@ If you click &apos;No&apos; only the profile from list will be removed.</source>
         <translation></translation>
     </message>
     <message>
-        <source>Open snapshot directory</source>
-        <translation></translation>
-    </message>
-    <message>
         <source>Open language file</source>
         <translation></translation>
     </message>
@@ -1364,7 +1352,7 @@ If you click &apos;No&apos; only the profile from list will be removed.</source>
     </message>
     <message>
         <source>DOSBox Version: </source>
-        <translation>DOSBox Version:</translation>
+        <translation type="obsolete">DOSBox Version:</translation>
     </message>
     <message>
         <source>No item was selected.</source>
@@ -1421,6 +1409,26 @@ If you click &apos;No&apos; only the profile from list will be removed.</source>
     <message>
         <source>dboxfe: An unknown error occurred</source>
         <translation></translation>
+    </message>
+    <message>
+        <source>advinterp3x</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>original</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>simple</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>pcjr</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DOSBox Version:  </source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1605,6 +1613,10 @@ If you click &apos;No&apos; only the profile from list will be removed.</source>
     <message>
         <source>Unable to update the file %1: %2.</source>
         <translation>Unable to update the file %1: %2.</translation>
+    </message>
+    <message>
+        <source>Please make sure you set the autoexec option for every profile right.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

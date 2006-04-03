@@ -88,6 +88,8 @@ void DBoxFE_ProfileWizard::slotFinish()
         }
 	
         gpBase.createGameProfiles( m_gp_file, gpList );
+	//Stellen Sie sicher das für jedes erstellte Profile die Autoexec option richtig ist.
+        QMessageBox::information(this, dbfe.winTitle(), tr("Please make sure you set the autoexec option for every profile right.") );	
         QDialog::accept();
     }
     else

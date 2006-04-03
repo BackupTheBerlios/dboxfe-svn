@@ -26,10 +26,12 @@
 #include <QtCore>
 #include <QtGui>
 
-int main(int argc, char *argv[])
+int main(int argc, char **argv )
 {
     QApplication app(argc, argv);
- 
+    
+    DBoxFE w;
+    
     QTranslator translator;
     QString m_file, m_profile_dir, m_tmpl_dir, lng;
     
@@ -65,12 +67,6 @@ int main(int argc, char *argv[])
     if (splash) splash->showMessage( "Create Directory " + m_tmpl_dir +  "..." );
     
     if (splash) splash->showMessage( "Read Language settings ..." );
-    m_file = "";
-    
-    m_file = QDir::homePath();
-    m_file.append( "/.dboxfe/profile/profile.xml" );
-    
-    DBoxFE w;
     
     XMLPreferences settGP( "DBoxFE", "Alexander Saal" );
     settGP.setVersion( w.getAppVersion() );
@@ -92,8 +88,9 @@ int main(int argc, char *argv[])
     }
     else
     {
-	// TODO add code for disable message
-	if( lngIndex == -1 ) QMessageBox::information( 0, w.winTitle(), "No Language was choosed, use default language english ...");
+	lng = ":/lng/dboxfe_en.qm";
+	translator.load( lng );
+	app.installTranslator(&translator);	
     }
     
     if (splash) splash->showMessage( "Loading Profiles ..." );
