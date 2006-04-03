@@ -34,7 +34,76 @@ QString DB_BASE::applicationDir()
 }
 
 void DB_BASE::readConf( const QString &dbconf, DBoxFE* dbfe )
-{}
+{
+    QSettings *getConf = new QSettings( dbconf, QSettings::IniFormat );
+    getConf->beginGroup( "sdl" );
+    dbfe->ui.chkBoxFullScreen->setChecked( getConf->value( "fullscreen" ).toBool() );
+    dbfe->ui.chkBoxFullDouble->setChecked( getConf->value( "fulldouble" ).toBool() );
+    dbfe->ui.chkBoxFullFixed->setChecked( getConf->value( "fullfixed" ).toBool() );
+    
+    int fullresolution = dbfe->ui.cbxFullWightHigh->findText( getConf->value( "fullresolution" ).toString() );
+    dbfe->ui.cbxFullWightHigh->setCurrentIndex(fullresolution);
+    
+    int windowresolution = dbfe->ui.cbxWindowWightHigh->findText( getConf->value( "windowresolution" ).toString() );
+    dbfe->ui.cbxWindowWightHigh->setCurrentIndex(windowresolution);
+        
+    int priority = dbfe->ui.cbxFocusUnfocus->findText( getConf->value( "priority" ).toString() );
+    dbfe->ui.cbxFocusUnfocus->setCurrentIndex(priority);
+        
+    int output = dbfe->ui.cbxOutout->findText( getConf->value( "output" ).toString() );
+    dbfe->ui.cbxOutout->setCurrentIndex(output);
+    
+    dbfe->ui.chkBoxAutolock->setChecked( getConf->value( "autolock" ).toBool() );
+    dbfe->ui.chkBoxWaitOnError->setChecked( getConf->value( "waitonerror" ).toBool() );
+    dbfe->ui.chkBoxUseScanCode->setChecked( getConf->value( "usescancodes" ).toBool() );
+    dbfe->ui.lcdSV->display( getConf->value( "sensitivity" ).toInt() );
+    dbfe->ui.sliderSV->setValue( getConf->value( "sensitivity" ).toInt() );
+    /*settConf->setValue( "mapperfile", "mapper.txt" );*/
+    getConf->endGroup();
+    
+    // DOSBox settings
+    getConf->beginGroup( "dosbox" );
+    dbfe->ui.LELanguage->setText( getConf->value( "language" ).toString() );
+    
+    int machine = dbfe->ui.cbxMachine->findText( getConf->value( "machine" ).toString() );
+    dbfe->ui.cbxMachine->setCurrentIndex(machine);
+
+    int memsize = dbfe->ui.cbxMemsize->findText( getConf->value( "memsize" ).toString() );
+    dbfe->ui.cbxMemsize->setCurrentIndex(memsize);
+
+    int captures = dbfe->ui.cbxCaptures->findText( getConf->value( "captures" ).toString() );
+    dbfe->ui.cbxCaptures->setCurrentIndex(captures);
+    getConf->endGroup();
+    
+    // Render settings
+    getConf->beginGroup( "render" );
+    dbfe->ui.lcdFS->display( getConf->value( "frameskip" ).toInt() );
+    dbfe->ui.sliderFS->setValue( getConf->value( "frameskip" ).toInt() );
+    dbfe->ui.LESnapDir->setText( getConf->value( "snapdir" ).toString() );
+    
+    int scaler = dbfe->ui.cbxScaler->findText( getConf->value( "scaler" ).toString() );
+    dbfe->ui.cbxScaler->setCurrentIndex(scaler);
+    
+    dbfe->ui.chkBoxAspect->setChecked( getConf->value( "aspect" ).toBool() );
+    getConf->endGroup();
+    
+    // CPU settings
+    getConf->beginGroup( "cpu" );
+    int core = dbfe->ui.cbxCPUCore->findText( getConf->value( "core" ).toString() );
+    dbfe->ui.cbxCPUCore->setCurrentIndex(core);
+    
+    int cycles = dbfe->ui.cbxCPUCycles->findText( getConf->value( "cycles" ).toString() );
+    dbfe->ui.cbxCPUCycles->setCurrentIndex(cycles);
+    
+    int cycleup = dbfe->ui.cbxCPUCycleUp->findText( getConf->value( "cycleup" ).toString() );
+    dbfe->ui.cbxCPUCycleUp->setCurrentIndex(cycleup);
+    
+    int cycledown = dbfe->ui.cbxCPUCycleDown->findText( getConf->value( "cycledown" ).toString() );
+    dbfe->ui.cbxCPUCycleDown->setCurrentIndex(cycledown);
+    getConf->endGroup();
+    
+    // TODO add rest code for reading settings :)
+}
 
 void DB_BASE::saveConf( const QString &dbconf, DBoxFE* dbfe )
 {

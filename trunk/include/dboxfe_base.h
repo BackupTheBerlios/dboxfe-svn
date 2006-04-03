@@ -74,16 +74,6 @@ public:
     void saveConf( const QString &dbconf, DBoxFE* dbfe );
     
     /**
-     * Parse dosbox configuration file
-     *
-     * @param dbconf  Save the dosbox configuration file
-     * @param qlw     QListWidget for list information
-     * @param section Section in the configfile, default = "[autoexec]"
-     * @since 0.1.0
-     */
-    void parseAutoexecSection( const QString &dbconf, QListWidget* qlw, const QString &section );    
-    
-    /**
      * Search game executable
      *
      * @param dir        Directory for search
@@ -139,6 +129,16 @@ public:
      */
     void readGameDb( const QString &file, QTreeWidget* qtw );
     
+private:
+    /**
+     * Parse dosbox configuration file
+     *
+     * @param dbconf  Save the dosbox configuration file
+     * @param qlw     QListWidget for list information
+     * @param section Section in the configfile, default = "[autoexec]"
+     * @since 0.1.0
+     */
+    void parseAutoexecSection( const QString &dbconf, QListWidget* qlw, const QString &section );       
 };
 
 #endif // DBOXFE_BASE_H
