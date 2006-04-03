@@ -40,19 +40,10 @@ void DB_BASE::readConf( const QString &dbconf, DBoxFE* dbfe )
     dbfe->ui.chkBoxFullScreen->setChecked( getConf->value( "fullscreen" ).toBool() );
     dbfe->ui.chkBoxFullDouble->setChecked( getConf->value( "fulldouble" ).toBool() );
     dbfe->ui.chkBoxFullFixed->setChecked( getConf->value( "fullfixed" ).toBool() );
-    
-    int fullresolution = dbfe->ui.cbxFullWightHigh->findText( getConf->value( "fullresolution" ).toString() );
-    dbfe->ui.cbxFullWightHigh->setCurrentIndex(fullresolution);
-    
-    int windowresolution = dbfe->ui.cbxWindowWightHigh->findText( getConf->value( "windowresolution" ).toString() );
-    dbfe->ui.cbxWindowWightHigh->setCurrentIndex(windowresolution);
-        
-    int priority = dbfe->ui.cbxFocusUnfocus->findText( getConf->value( "priority" ).toString() );
-    dbfe->ui.cbxFocusUnfocus->setCurrentIndex(priority);
-        
-    int output = dbfe->ui.cbxOutout->findText( getConf->value( "output" ).toString() );
-    dbfe->ui.cbxOutout->setCurrentIndex(output);
-    
+    int fullresolution = dbfe->ui.cbxFullWightHigh->findText( getConf->value( "fullresolution" ).toString() ); dbfe->ui.cbxFullWightHigh->setCurrentIndex(fullresolution);
+    int windowresolution = dbfe->ui.cbxWindowWightHigh->findText( getConf->value( "windowresolution" ).toString() ); dbfe->ui.cbxWindowWightHigh->setCurrentIndex(windowresolution);
+    int priority = dbfe->ui.cbxFocusUnfocus->findText( getConf->value( "priority" ).toString() ); dbfe->ui.cbxFocusUnfocus->setCurrentIndex(priority);
+    int output = dbfe->ui.cbxOutout->findText( getConf->value( "output" ).toString() ); dbfe->ui.cbxOutout->setCurrentIndex(output);
     dbfe->ui.chkBoxAutolock->setChecked( getConf->value( "autolock" ).toBool() );
     dbfe->ui.chkBoxWaitOnError->setChecked( getConf->value( "waitonerror" ).toBool() );
     dbfe->ui.chkBoxUseScanCode->setChecked( getConf->value( "usescancodes" ).toBool() );
@@ -64,15 +55,9 @@ void DB_BASE::readConf( const QString &dbconf, DBoxFE* dbfe )
     // DOSBox settings
     getConf->beginGroup( "dosbox" );
     dbfe->ui.LELanguage->setText( getConf->value( "language" ).toString() );
-    
-    int machine = dbfe->ui.cbxMachine->findText( getConf->value( "machine" ).toString() );
-    dbfe->ui.cbxMachine->setCurrentIndex(machine);
-
-    int memsize = dbfe->ui.cbxMemsize->findText( getConf->value( "memsize" ).toString() );
-    dbfe->ui.cbxMemsize->setCurrentIndex(memsize);
-
-    int captures = dbfe->ui.cbxCaptures->findText( getConf->value( "captures" ).toString() );
-    dbfe->ui.cbxCaptures->setCurrentIndex(captures);
+    int machine = dbfe->ui.cbxMachine->findText( getConf->value( "machine" ).toString() ); dbfe->ui.cbxMachine->setCurrentIndex(machine);
+    int memsize = dbfe->ui.cbxMemsize->findText( getConf->value( "memsize" ).toString() ); dbfe->ui.cbxMemsize->setCurrentIndex(memsize);
+    int captures = dbfe->ui.cbxCaptures->findText( getConf->value( "captures" ).toString() ); dbfe->ui.cbxCaptures->setCurrentIndex(captures);
     getConf->endGroup();
     
     // Render settings
@@ -80,29 +65,100 @@ void DB_BASE::readConf( const QString &dbconf, DBoxFE* dbfe )
     dbfe->ui.lcdFS->display( getConf->value( "frameskip" ).toInt() );
     dbfe->ui.sliderFS->setValue( getConf->value( "frameskip" ).toInt() );
     dbfe->ui.LESnapDir->setText( getConf->value( "snapdir" ).toString() );
-    
-    int scaler = dbfe->ui.cbxScaler->findText( getConf->value( "scaler" ).toString() );
-    dbfe->ui.cbxScaler->setCurrentIndex(scaler);
-    
+    int scaler = dbfe->ui.cbxScaler->findText( getConf->value( "scaler" ).toString() ); dbfe->ui.cbxScaler->setCurrentIndex(scaler);
     dbfe->ui.chkBoxAspect->setChecked( getConf->value( "aspect" ).toBool() );
     getConf->endGroup();
     
     // CPU settings
     getConf->beginGroup( "cpu" );
-    int core = dbfe->ui.cbxCPUCore->findText( getConf->value( "core" ).toString() );
-    dbfe->ui.cbxCPUCore->setCurrentIndex(core);
-    
-    int cycles = dbfe->ui.cbxCPUCycles->findText( getConf->value( "cycles" ).toString() );
-    dbfe->ui.cbxCPUCycles->setCurrentIndex(cycles);
-    
-    int cycleup = dbfe->ui.cbxCPUCycleUp->findText( getConf->value( "cycleup" ).toString() );
-    dbfe->ui.cbxCPUCycleUp->setCurrentIndex(cycleup);
-    
-    int cycledown = dbfe->ui.cbxCPUCycleDown->findText( getConf->value( "cycledown" ).toString() );
-    dbfe->ui.cbxCPUCycleDown->setCurrentIndex(cycledown);
+    int core = dbfe->ui.cbxCPUCore->findText( getConf->value( "core" ).toString() ); dbfe->ui.cbxCPUCore->setCurrentIndex(core);
+    int cycles = dbfe->ui.cbxCPUCycles->findText( getConf->value( "cycles" ).toString() ); dbfe->ui.cbxCPUCycles->setCurrentIndex(cycles);
+    int cycleup = dbfe->ui.cbxCPUCycleUp->findText( getConf->value( "cycleup" ).toString() ); dbfe->ui.cbxCPUCycleUp->setCurrentIndex(cycleup);
+    int cycledown = dbfe->ui.cbxCPUCycleDown->findText( getConf->value( "cycledown" ).toString() ); dbfe->ui.cbxCPUCycleDown->setCurrentIndex(cycledown);
     getConf->endGroup();
     
-    // TODO add rest code for reading settings :)
+    // Mixer settings
+    getConf->beginGroup( "mixer" );
+    dbfe->ui.chkBoxMixerNoSound->setChecked( getConf->value( "nosound" ).toBool() );
+    int rate = dbfe->ui.cbxMixerRate->findText( getConf->value( "rate" ).toString() ); dbfe->ui.cbxMixerRate->setCurrentIndex(rate);
+    int blocksize = dbfe->ui.cbxMixerBlockSize->findText( getConf->value( "blocksize" ).toString() ); dbfe->ui.cbxMixerBlockSize->setCurrentIndex(blocksize);
+    dbfe->ui.spBoxPrebuffer->setValue( getConf->value( "prebuffer" ).toInt() );
+    getConf->endGroup();
+    
+    // Mdi settings
+    getConf->beginGroup( "midi" );
+    int mpu = dbfe->ui.cbxMDIMPU->findText( getConf->value( "mpu401" ).toString() ); dbfe->ui.cbxMDIMPU->setCurrentIndex(mpu);
+    int device = dbfe->ui.cbxMDIDevice->findText( getConf->value( "device" ).toString() ); dbfe->ui.cbxMDIDevice->setCurrentIndex(device);
+    dbfe->ui.LEMDIConfig->setText( getConf->value( "config" ).toString() );
+    getConf->endGroup();
+    
+    // Soundblaster settings
+    getConf->beginGroup( "sblaster" );
+    int sbtype = dbfe->ui.cbxSBType->findText( getConf->value( "sbtype" ).toString() ); dbfe->ui.cbxSBType->setCurrentIndex(sbtype);
+    int sbbase = dbfe->ui.cbxSBBase->findText( getConf->value( "sbbase" ).toString() ); dbfe->ui.cbxSBBase->setCurrentIndex(sbbase);
+    int irq = dbfe->ui.cbxSBIRQ->findText( getConf->value( "irq" ).toString() ); dbfe->ui.cbxSBIRQ->setCurrentIndex(irq);
+    int dma = dbfe->ui.cbxSBDMA->findText( getConf->value( "dma" ).toString() ); dbfe->ui.cbxSBDMA->setCurrentIndex(dma);
+    int hdma = dbfe->ui.cbxSBHDMA->findText( getConf->value( "hdma" ).toString() ); dbfe->ui.cbxSBHDMA->setCurrentIndex(hdma);
+    int oplrate = dbfe->ui.cbxSBOPLRate->findText( getConf->value( "oplrate" ).toString() ); dbfe->ui.cbxSBOPLRate->setCurrentIndex(oplrate);
+    int oplmode = dbfe->ui.cbxSBOplMode->findText( getConf->value( "oplmode" ).toString() ); dbfe->ui.cbxSBOplMode->setCurrentIndex(oplmode);
+    dbfe->ui.chkBoxSBMixer->setChecked( getConf->value( "mixer" ).toBool() );  
+    getConf->endGroup();
+
+    // GUS settings
+    getConf->beginGroup( "gus" );
+    dbfe->ui.chkBoxGUS->setChecked( getConf->value( "gus" ).toBool() );
+    int gusrate = dbfe->ui.cbxGUSRate->findText( getConf->value( "gusrate" ).toString() ); dbfe->ui.cbxGUSRate->setCurrentIndex(gusrate);
+    int gusbase = dbfe->ui.cbxGUSBase->findText( getConf->value( "gusbase" ).toString() ); dbfe->ui.cbxGUSBase->setCurrentIndex(gusbase);
+    int irq1 = dbfe->ui.cbxGUSIrq_1->findText( getConf->value( "irq1" ).toString() ); dbfe->ui.cbxGUSIrq_1->setCurrentIndex(irq1);
+    int irq2 = dbfe->ui.cbxGUSIrq_2->findText( getConf->value( "irq2" ).toString() ); dbfe->ui.cbxGUSIrq_2->setCurrentIndex(irq2);
+    int dma1 = dbfe->ui.cbxGUSDMA_1->findText( getConf->value( "dma1" ).toString() ); dbfe->ui.cbxGUSDMA_1->setCurrentIndex(dma1);
+    int dma2 = dbfe->ui.cbxGUSDMA_2->findText( getConf->value( "dma2" ).toString() ); dbfe->ui.cbxGUSDMA_2->setCurrentIndex(dma2);
+    dbfe->ui.LEGUSUltraDir->setText( getConf->value( "ultradir" ).toString() );
+    getConf->endGroup();
+    
+    // PC Speaker settings
+    getConf->beginGroup( "speaker" );
+    int pcspeaker = dbfe->ui.cbxSpeaker->findText( getConf->value( "pcspeaker" ).toString() ); dbfe->ui.cbxSpeaker->setCurrentIndex(pcspeaker);
+    int pcrate = dbfe->ui.cbxSpeakerRate->findText( getConf->value( "pcrate" ).toString() ); dbfe->ui.cbxSpeakerRate->setCurrentIndex(pcrate);
+    int tandy = dbfe->ui.cbxSpeakerTandy->findText( getConf->value( "tandy" ).toString() ); dbfe->ui.cbxSpeakerTandy->setCurrentIndex(tandy);
+    int tandyrate = dbfe->ui.cbxSpeakerTandyRate->findText( getConf->value( "tandyrate" ).toString() ); dbfe->ui.cbxSpeakerTandyRate->setCurrentIndex(tandyrate);
+    dbfe->ui.chkBoxDisney->setChecked( getConf->value( "disney" ).toBool() );
+    getConf->endGroup();
+    
+    // Serial settings
+    getConf->beginGroup( "serial" );
+    dbfe->ui.twSerial->clear();
+    QTreeWidgetItem *serial1 = new QTreeWidgetItem( dbfe->ui.twSerial ); serial1->setText( 0, "serial1" ); serial1->setText( 1, getConf->value( "serial1" ).toString() );
+    QTreeWidgetItem *serial2 = new QTreeWidgetItem( dbfe->ui.twSerial ); serial2->setText( 0, "serial2" ); serial2->setText( 1, getConf->value( "serial2" ).toString() );
+    QTreeWidgetItem *serial3 = new QTreeWidgetItem( dbfe->ui.twSerial ); serial3->setText( 0, "serial3" ); serial3->setText( 1, getConf->value( "serial3" ).toString() );
+    QTreeWidgetItem *serial4 = new QTreeWidgetItem( dbfe->ui.twSerial ); serial4->setText( 0, "serial4" ); serial4->setText( 1, getConf->value( "serial4" ).toString() );
+    getConf->endGroup();
+    
+    // Autoexec settings
+    QFile f( dbconf );
+
+    if ( !f.open( QIODevice::ReadOnly | QIODevice::Text ) )
+    {
+	delete getConf;
+	return;
+    }
+    
+    QTextStream in( &f );
+    QString line;
+    
+    while( !in.atEnd() ) {
+	line = in.readLine();
+	if( line == "[autoexec]" ){
+	    while( !in.atEnd() ){
+		line = in.readLine();
+		QListWidgetItem *autoexec = new QListWidgetItem( dbfe->ui.lwAutoexec );
+		autoexec->setText(line);
+	    }
+	}	
+    }
+    
+    f.close();
+    delete getConf;
 }
 
 void DB_BASE::saveConf( const QString &dbconf, DBoxFE* dbfe )
@@ -113,8 +169,10 @@ void DB_BASE::saveConf( const QString &dbconf, DBoxFE* dbfe )
     settConf->setValue( "fullscreen", dbfe->ui.chkBoxFullScreen->isChecked() );
     settConf->setValue( "fulldouble", dbfe->ui.chkBoxFullDouble->isChecked() );
     settConf->setValue( "fullfixed", dbfe->ui.chkBoxFullFixed->isChecked() );
+    
     settConf->setValue( "fullresolution", dbfe->ui.cbxFullWightHigh->currentText() );
     settConf->setValue( "windowresolution", dbfe->ui.cbxWindowWightHigh->currentText() );
+    
     settConf->setValue( "output", dbfe->ui.cbxOutout->currentText() );
     settConf->setValue( "autolock", dbfe->ui.chkBoxAutolock->isChecked() );
     settConf->setValue( "sensitivity", dbfe->ui.lcdSV->intValue() );
@@ -242,20 +300,6 @@ void DB_BASE::saveConf( const QString &dbconf, DBoxFE* dbfe )
     
     delete settConf;
 
-}
-
-void DB_BASE::parseAutoexecSection( const QString &dbconf, QListWidget* qlw, const QString &section = QString("[autoexec]") )
-{
-    QSettings settAuto( dbconf, QSettings::IniFormat );
-    settAuto.beginGroup( section );
-
-    QStringList execList = settAuto.allKeys();
-    for( int i = 0; i < execList.size(); ++i )
-    {
-        qlw->addItem( QString( execList.value(i) ) );
-    }
-
-    settAuto.endGroup();
 }
 
 void DB_BASE::findGames( const QString &dirName, QListWidget* qlw )

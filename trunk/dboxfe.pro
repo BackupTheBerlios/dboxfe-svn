@@ -64,6 +64,7 @@ SOURCES += src/dboxfe.cpp \
 	   
 unix{
   TARGET = bin/dboxfe
+  QMAKE_POST_LINK = strip -s bin/dboxfe
   RCC_DIR = .unix/rcc
   MOC_DIR += .unix/moc
   OBJECTS_DIR += .unix/obj

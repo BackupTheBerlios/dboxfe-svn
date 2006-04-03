@@ -127,18 +127,7 @@ public:
      * @param qtw       QTreeWidget to insert the readed fileinformation
      * @since 0.1.0
      */
-    void readGameDb( const QString &file, QTreeWidget* qtw );
-    
-private:
-    /**
-     * Parse dosbox configuration file
-     *
-     * @param dbconf  Save the dosbox configuration file
-     * @param qlw     QListWidget for list information
-     * @param section Section in the configfile, default = "[autoexec]"
-     * @since 0.1.0
-     */
-    void parseAutoexecSection( const QString &dbconf, QListWidget* qlw, const QString &section );       
+    void readGameDb( const QString &file, QTreeWidget* qtw );         
 };
 
 #endif // DBOXFE_BASE_H
