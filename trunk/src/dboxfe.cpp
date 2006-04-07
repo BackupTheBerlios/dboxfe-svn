@@ -40,6 +40,7 @@ DBoxFE::DBoxFE(QWidget *parent, Qt::WFlags flags)
 
     // connection
     connect( ui.btnSaveGP, SIGNAL( clicked() ), this, SLOT( slotSaveGP() ) );
+    connect( ui.btnSearchBin, SIGNAL( clicked() ), this, SLOT( slotSearchBin() ) );
     connect( ui.btnRemoveGP, SIGNAL( clicked() ), this, SLOT( slotRemoveGP() ) );
     connect( ui.btnCreateGP, SIGNAL( clicked() ), this, SLOT( slotCreateGP() ) );
     connect( ui.btnWizard, SIGNAL( clicked() ), this, SLOT( slotWizard() ) );
@@ -57,6 +58,9 @@ DBoxFE::DBoxFE(QWidget *parent, Qt::WFlags flags)
     connect( ui.cbxDSOption, SIGNAL( currentIndexChanged( int ) ), this, SLOT( slotCbxSerialIndexChanged( int ) ) );
     connect( ui.cbxAutoexecDirectoryOption, SIGNAL( currentIndexChanged( int ) ), this, SLOT( slotCbxAutoexecIndexChanged( int ) ) );
 
+    ui.btnSearchBin->setVisible( false );
+    ui.pBarSearchBin->setVisible( false );
+    
     // windows title for the application
     titleLin = "DOSBox - Front End for Linux " + getAppVersion();
     titleWin = "DOSBox - Front End for Windows " + getAppVersion();
@@ -177,6 +181,17 @@ void DBoxFE::slotSaveGP() {
         f.remove();
         gpIni.saveConf( m_conf, this );
     }
+}
+
+void DBoxFE::slotSearchBin() {
+    DB_BASE *gpIni = new DB_BASE();
+    gpIni->_dbfe_ = this;
+    QStringList dosboxBin;
+    ui.pBarSearchBin->setMaximum( 3000 );
+    gpIni->findDosbox( "/usr/bin", ui.pBarSearchBin, dosboxBin );
+    
+    QMessageBox::information( this, winTitle(), QString(dosboxBin.value(0)) + "\n" + QString(dosboxBin.value(1)) );
+    
 }
 
 /**
