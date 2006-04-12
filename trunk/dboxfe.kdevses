@@ -1,10 +1,24 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <!DOCTYPE KDevPrjSession>
 <KDevPrjSession>
- <DocsAndViews NumberOfDocuments="0" />
+ <DocsAndViews NumberOfDocuments="2" >
+  <Doc0 NumberOfViews="1" URL="file:///home/alex/project/dboxfe/src/dboxfe_base.cpp" >
+   <View0 line="401" Type="Source" />
+  </Doc0>
+  <Doc1 NumberOfViews="1" URL="file:///home/alex/project/dboxfe/src/dboxfe.cpp" >
+   <View0 line="485" Type="Source" />
+  </Doc1>
+ </DocsAndViews>
  <pluginList>
   <kdevdebugger>
-   <breakpointList/>
+   <breakpointList>
+    <breakpoint0 location="/home/alex/project/dboxfe/src/dboxfe.cpp:486" type="1" tracingFormatString="" traceFormatStringEnabled="0" condition="" tracingEnabled="0" enabled="1" >
+     <tracedExpressions/>
+    </breakpoint0>
+    <breakpoint1 location="/home/alex/project/dboxfe/src/dboxfe_base.cpp:382" type="1" tracingFormatString="" traceFormatStringEnabled="0" condition="" tracingEnabled="0" enabled="1" >
+     <tracedExpressions/>
+    </breakpoint1>
+   </breakpointList>
   </kdevdebugger>
   <kdevbookmarks>
    <bookmarks/>

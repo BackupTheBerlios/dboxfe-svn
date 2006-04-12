@@ -490,6 +490,10 @@ void DBoxFE::slotListWidget( QListWidgetItem* item ) {
     file = QDir::homePath();
     file.append( "/.dboxfe/" + item->text() + ".conf" );
 
+    QFile f( file );
+    if( !f.exists() )
+	gpIni.defaultSettings( this );
+    
     // gpIni.readGPIni( file, ui.lwProfile  );
     gpIni.readConf( file, this );
 }

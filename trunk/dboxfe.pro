@@ -19,7 +19,7 @@
 # ***************************************************************************/
  
 TEMPLATE = app
-TARGET = bin/dboxfe
+DESTDIR = bin
 DEPENDPATH += include res src ui 3rdparty
 INCLUDEPATH += include 3rdparty
 RESOURCES += res/dboxfe.qrc
@@ -63,7 +63,7 @@ SOURCES += src/dboxfe.cpp \
            3rdparty/XMLWriter.cpp 
 	   
 unix{
-  TARGET = bin/dboxfe
+  TARGET = dboxfe
   #QMAKE_POST_LINK = strip -s bin/dboxfe
   RCC_DIR = .unix/rcc
   MOC_DIR += .unix/moc

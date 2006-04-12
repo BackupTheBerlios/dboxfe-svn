@@ -75,6 +75,14 @@ public:
      * @since 0.1.0
      */
     void saveConf( const QString &dbconf, DBoxFE* dbfe );
+
+    /**
+     * Set default setting
+     *
+     * @param dbfe    QWidget (include all labels etc.)
+     * @since 0.1.0
+     */
+    void defaultSettings( DBoxFE *dbfe );
     
     /**
      * Search game executable
@@ -139,7 +147,7 @@ public:
      * @param qtw       QTreeWidget to insert the readed fileinformation
      * @since 0.1.0
      */
-    void readGameDb( const QString &file, QTreeWidget* qtw );         
+    void readGameDb( const QString &file, QTreeWidget* qtw );
 };
 
 #endif // DBOXFE_BASE_H

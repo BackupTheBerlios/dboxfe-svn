@@ -1418,6 +1418,10 @@ If you click &apos;No&apos; only the profile from list will be removed.</source>
         <source>DOSBox Version:  </source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DBoxFE_Game</name>
@@ -1604,6 +1608,57 @@ If you click &apos;No&apos; only the profile from list will be removed.</source>
     </message>
     <message>
         <source>Please make sure you set the autoexec option for every profile right.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
+        <source>Set dafault settings, based on dosbox default settings .... [sdl]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set dafault settings, based on dosbox default settings .... [dosbox]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set dafault settings, based on dosbox default settings .... [render]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set dafault settings, based on dosbox default settings .... [cpu]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set dafault settings, based on dosbox default settings .... [mixer]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set dafault settings, based on dosbox default settings .... [mdi]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set dafault settings, based on dosbox default settings .... [sblaster]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set dafault settings, based on dosbox default settings .... [gus]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set dafault settings, based on dosbox default settings .... [speaker]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set dafault settings, based on dosbox default settings .... [bios]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set dafault settings, based on dosbox default settings .... [serial]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set dafault settings, based on dosbox default settings .... [dos]</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
