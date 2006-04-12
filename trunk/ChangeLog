@@ -2,9 +2,9 @@
 * ADD:		default setting (provide by dosbox self) if file not found and profile was created and selected
 * FIXED:		the problem with save settings (tow section not saved - bios and dos)
 * FIXED:		the problem, wrong parameter if you select on/of by pcspeaker
-* FIXED: 		the problem with default settings by UMB
-* UPDATE:		the language files
-* UPDATE:		the KDevelop Projectfile
+* FIXED: 	the problem with default settings by UMB
+* UPDATE:	the language files
+* UPDATE:	the KDevelop Projectfile
 
 2006-04-03  Alexander Saal  <alex.saal@gmx.de>
 * ADD:		code for create default profiles if games was found on harddisk
@@ -15,12 +15,12 @@
 * FIXED:		the problem with dosbox start, wrong parameter
 * REMOVED:	snapshot directory (dboxfe.ui)
 * REMOVED:	strip -s from pro file (i need debug info for debug dboxfe) :)
-			- it would be add in the final version
+		- it would be add in the final version
 * COMPLETE:	gamewizard dialog is now complete (status display is missing)
 * COMPLETE:	read the config file is now complete
-* UPDATE:		main.cpp (wrong file handling)
-* UPDATE:		the language files
-* UPDATE:		the KDevelop Projectfile
+* UPDATE:	main.cpp (wrong file handling)
+* UPDATE:	the language files
+* UPDATE:	the KDevelop Projectfile
 * REMOVED:	parseAutoexecSection(...)
 
 2006-04-02  Alexander Saal  <alex.saal@gmx.de>
@@ -29,7 +29,7 @@
 2006-03-20  Alexander Saal  <alex.saal@gmx.de>
 * ADD:		game dialog to select a game for mount in dosbox
 * ADD:		correct save the autexec section (no more double entries [autoexec])
-* UPDATE:		language (untraslated)
+* UPDATE:	language (untraslated)
 
 2006-03-18  Alexander Saal  <alex.saal@gmx.de>
 * ADD:		checking for lupdate, lrelease in configure script
@@ -60,9 +60,9 @@
 * FIXED:		Layout (too small)
 * FIXED:		many minor bugs and project cleanup ;) 
 * CHANCHED:	GUI is more user friendly :) 
-* MOVED:		Preference to extra tab 
-* MOVED:		Gamedownload button to Preference tab 
-* MOVED:		Logoutput to extra tab 
+* MOVED:	Preference to extra tab 
+* MOVED:	Gamedownload button to Preference tab 
+* MOVED:	Logoutput to extra tab 
 * REMOVED:	search-game (executable)
 
 2004-12-20  Alexander Saal  <alex.saal@gmx.de>
@@ -73,8 +73,8 @@
 2004-12-15  Alexander Saal  <alex.saal@gmx.de>
 
 * ADD:		Listbox for output in GUI
-* MOVED:		CPU & Render tab to SDL tab
-* MOVED:		"Choose DOSBox version" to DosBox tab
+* MOVED:	CPU & Render tab to SDL tab
+* MOVED:	"Choose DOSBox version" to DosBox tab
 
 2004-12-14  Alexander Saal  <alex.saal@gmx.de>
 
@@ -86,8 +86,8 @@
 2004-10-03  Alexander Saal  <alex.saal@gmx.de>
 
 * ADD:		src/dboxfe_logo.ui		|
-			src/dosboxfe_logo.cpp	|---> new splashscreen :)
-			src/dosboxfe_logo.h		|
+		src/dosboxfe_logo.cpp	|---> new splashscreen :)
+		src/dosboxfe_logo.h		|
 * ADD:		src/dosboxfe.cpp -> you can now remove a savegamedir from list
 * ADD:		src/main.cpp -> splashscreen come first for init the dboxfe
 * ADD:		src/dbfe_maindlg.ui -> Games moved to first Tab
@@ -96,7 +96,7 @@
 2004-09-13/14  Alexander Saal  <alex.saal@gmx.de>
 
 * ADD:		Gamelist for select a gamefile (*.exe etc.), 
-			you can now choose a exe files for open automatical in DOSBox ( not complete )
+		you can now choose a exe files for open automatical in DOSBox ( not complete )
 * NEW:		new project hp: dboxfe.linuxmind.de
 
 2004-09-08  Alexander Saal  <alex.saal@gmx.de>
@@ -119,7 +119,7 @@
 
 2004-08-29  Alexander Saal  <alex.saal@gmx.de>
 
- * FIXED:		cms checkbox (autoChecked disabled)
+ * FIXED:	cms checkbox (autoChecked disabled)
 
 2004-07-27  Alexander Saal  <alex.saal@gmx.de>
 
@@ -132,7 +132,7 @@
 
  * ADD:     	add to cvs src/update.h
  * ADD:     	updatefuncion is now availabel
- * ADD:    		src/dosboxfe.h // slot_Download_Update(),  slot_Verify_Update(), slot_Update_Progress( .... )
+ * ADD:    	src/dosboxfe.h // slot_Download_Update(),  slot_Verify_Update(), slot_Update_Progress( .... )
 
 2004-07-23  Alexander Saal  <alex.saal@gmx.de>
 
@@ -141,8 +141,8 @@
 2004-07-22  Alexander Saal  <alex.saal@gmx.de>
 
  * ADD:     	you can now delete a dir from the autoexec listbox
- * ADD:    		it's to be loaded folder into a Autoexec ListBox now,
-      			thus local dir are loaded into DOSBox as HD or loaded as CDROM
+ * ADD:    	it's to be loaded folder into a Autoexec ListBox now,
+      		thus local dir are loaded into DOSBox as HD or loaded as CDROM
 
 2004-07-21  Alexander Saal  <alex.saal@gmx.de>
 
@@ -152,30 +152,30 @@
  * ADD:     	you can add a folder into the Autoexec ListBox (normal or as cdrom)
  * ADD:     	you can select a folder:
          		snapdir
-      			autexecdir ( for mount in the DOSBox )
+      		autexecdir ( for mount in the DOSBox )
 
 2004-07-16  Alexander Saal  <alex.saal@gmx.de>
 
- * ADD:    		game download dialog category
- * ADD:    		you can remove selected game profile now
- * ADD:    		remove button enabled
+ * ADD:    	game download dialog category
+ * ADD:    	you can remove selected game profile now
+ * ADD:    	remove button enabled
  * CHANGED:  	v0.0.3 ( CVS )
- * FIXED:  		code clean up and those configuration file of DOSBox cvs is now read
+ * FIXED:  	code clean up and those configuration file of DOSBox cvs is now read
 
 2004-07-15  Alexander Saal  <alex.saal@gmx.de>
 
  * ADD:  		one click in the listbox and a config file is loaded
- * FIXED: 		layout correct set and new info added
+ * FIXED: 	layout correct set and new info added
 
 2004-07-13  Alexander Saal  <alex.saal@gmx.de>
 
  * ADD:  		Which DOSBox version would you like to use?
- * FIXED: 		remove button and game downlad button disabled
+ * FIXED: 	remove button and game downlad button disabled
  * ADD:  		cvs version of DOSBox
 
 2004-07-12  Alexander Saal  <alex.saal@gmx.de>
 
- * FIXED: 		correct layout set
+ * FIXED: 	correct layout set
  * ADD:  		games download dialog
  * CHANGE: 	version 0.0.2
- * 			initial import into CVS tree
+ * 		initial import into CVS tree
