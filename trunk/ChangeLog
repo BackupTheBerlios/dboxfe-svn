@@ -1,14 +1,56 @@
+2006-04-12  Alexander Saal  <alex.saal@gmx.de>
+* ADD:		default setting (provide by dosbox self) if file not found and profile was created and selected
+* FIXED:		the problem with save settings (tow section not saved - bios and dos)
+* FIXED:		the problem, wrong parameter if you select on/of by pcspeaker
+* FIXED: 		the problem with default settings by UMB
+* UPDATE:		the language files
+* UPDATE:		the KDevelop Projectfile
+
+2006-04-03  Alexander Saal  <alex.saal@gmx.de>
+* ADD:		code for create default profiles if games was found on harddisk
+* ADD:		default.conf to resource (it used by create game profiles)
+* ADD:		missing items in cycle, scaler combobox (dboxfe.ui)
+* ADD:		code for reading the config settings ... not complete... (it time to sleep for me) ;-)
+* ADD:		better handling for read autoexec section
+* FIXED:		the problem with dosbox start, wrong parameter
+* REMOVED:	snapshot directory (dboxfe.ui)
+* REMOVED:	strip -s from pro file (i need debug info for debug dboxfe) :)
+			- it would be add in the final version
+* COMPLETE:	gamewizard dialog is now complete (status display is missing)
+* COMPLETE:	read the config file is now complete
+* UPDATE:		main.cpp (wrong file handling)
+* UPDATE:		the language files
+* UPDATE:		the KDevelop Projectfile
+* REMOVED:	parseAutoexecSection(...)
+
+2006-04-02  Alexander Saal  <alex.saal@gmx.de>
+* ADD:		MSVC Projectfile
+
+2006-03-20  Alexander Saal  <alex.saal@gmx.de>
+* ADD:		game dialog to select a game for mount in dosbox
+* ADD:		correct save the autexec section (no more double entries [autoexec])
+* UPDATE:		language (untraslated)
+
+2006-03-18  Alexander Saal  <alex.saal@gmx.de>
+* ADD:		checking for lupdate, lrelease in configure script
+* ADD:		checking for lupdate and lupdate version (if this the right version) in configure script
+
+2006-03-05  Alexander Saal  <alex.saal@gmx.de>
+* ADD:		logo to about tab
+* FIXED:		correct display settings
+* CHANGED:	configure script, based on the configure script of KVideoEncoder by Philipp Ludwig.
+
 2006-03-04  Alexander Saal  <alex.saal@gmx.de>
 
 * ADD:		project to SVN on developer.berlios.de
  
 2006-02-28  Alexander Saal  <alex.saal@gmx.de>
-
 * PORT:		to Qt 4.1.x (dialogs complet, code not complet)
 * CHANGE:	rewrite code (not port with qt3to4 tool)
+* CHNAGE:	change the version to 0.1.0 (it can be use for all plattforms, if qt4 supported)
 
 2005-01-30  Alexander Saal  <alex.saal@gmx.de>
-
+* VERSION:	last 0.0.5-0.63 version on linux
 * ADD:		src/gamedownload, src/searchengine, src/updatewizard (i mean i added loadable libs)
 * ADD:		source for launch updatewizard in src/dosboxfe.cpp/h 
 * ADD:		to dosboxfe_wizard.cpp/h search-game code (beta) 
