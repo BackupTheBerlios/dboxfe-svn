@@ -1,7 +1,17 @@
+2006-04-16  Alexander Saal  <alex.saal@gmx.de>
+* ADD:		2 buttons to Autoexec Tab for move down/up entries in the list
+* ADD:		you can now move items in autexec option (down or up)
+* UPDATE:	quellcode formating
+* UPDATE:	language file
+* UPDATE:	kdevelop project file
+* UPDATE:	*pro file (add debug option again)
+* UPDATE:	you can now add autoexec option
+* CHANGED:	the CDROM/DVD option (dboxfe.ui)
+
 2006-04-12  Alexander Saal  <alex.saal@gmx.de>
 * ADD:		default setting (provide by dosbox self) if file not found and profile was created and selected
-* FIXED:		the problem with save settings (tow section not saved - bios and dos)
-* FIXED:		the problem, wrong parameter if you select on/of by pcspeaker
+* FIXED:	the problem with save settings (tow section not saved - bios and dos)
+* FIXED:	the problem, wrong parameter if you select on/of by pcspeaker
 * FIXED: 	the problem with default settings by UMB
 * UPDATE:	the language files
 * UPDATE:	the KDevelop Projectfile
@@ -12,7 +22,7 @@
 * ADD:		missing items in cycle, scaler combobox (dboxfe.ui)
 * ADD:		code for reading the config settings ... not complete... (it time to sleep for me) ;-)
 * ADD:		better handling for read autoexec section
-* FIXED:		the problem with dosbox start, wrong parameter
+* FIXED:	the problem with dosbox start, wrong parameter
 * REMOVED:	snapshot directory (dboxfe.ui)
 * REMOVED:	strip -s from pro file (i need debug info for debug dboxfe) :)
 		- it would be add in the final version
@@ -37,7 +47,7 @@
 
 2006-03-05  Alexander Saal  <alex.saal@gmx.de>
 * ADD:		logo to about tab
-* FIXED:		correct display settings
+* FIXED:	correct display settings
 * CHANGED:	configure script, based on the configure script of KVideoEncoder by Philipp Ludwig.
 
 2006-03-04  Alexander Saal  <alex.saal@gmx.de>
@@ -46,8 +56,8 @@
  
 2006-02-28  Alexander Saal  <alex.saal@gmx.de>
 * PORT:		to Qt 4.1.x (dialogs complet, code not complet)
-* CHANGE:	rewrite code (not port with qt3to4 tool)
-* CHNAGE:	change the version to 0.1.0 (it can be use for all plattforms, if qt4 supported)
+* CHANGED:	rewrite code (not port with qt3to4 tool)
+* CHNAGED:	change the version to 0.1.0 (it can be use for all plattforms, if qt4 supported)
 
 2005-01-30  Alexander Saal  <alex.saal@gmx.de>
 * VERSION:	last 0.0.5-0.63 version on linux
@@ -56,9 +66,9 @@
 * ADD:		to dosboxfe_wizard.cpp/h search-game code (beta) 
 * ADD:		Splashscreensource in main.cpp 
 * ADD:		new Logo dbfe.png to cvs, install dboxfe - this picture will be install in $KDEDIR/apps/dboxfe/pics 
-* FIXED:		downloading the version file is working now. if the (new) version ist greater than the specified version, the update button will be enabled, otherwise it is disable
-* FIXED:		Layout (too small)
-* FIXED:		many minor bugs and project cleanup ;) 
+* FIXED:	downloading the version file is working now. if the (new) version ist greater than the specified version, the update button will be enabled, otherwise it is disable
+* FIXED:	Layout (too small)
+* FIXED:	many minor bugs and project cleanup ;) 
 * CHANCHED:	GUI is more user friendly :) 
 * MOVED:	Preference to extra tab 
 * MOVED:	Gamedownload button to Preference tab 
@@ -67,7 +77,7 @@
 
 2004-12-20  Alexander Saal  <alex.saal@gmx.de>
 
-* FIXED:		choose snap dir is function
+* FIXED:	choose snap dir is function
 * CHANGED:	*.conf_cvs to *.conf_curr
 
 2004-12-15  Alexander Saal  <alex.saal@gmx.de>
@@ -78,7 +88,7 @@
 
 2004-12-14  Alexander Saal  <alex.saal@gmx.de>
 
-* FIXED:		admin/cvs.sh (automake 1.9.x added)
+* FIXED:	admin/cvs.sh (automake 1.9.x added)
 * DISABLED:	Gamelist and Savegamelist (sorry guys)
 * CHANGED:	to version 0.0.5-0.63 (compatible with DOSBox 0.63)
 * REMOVED:	cvs version of DOSBox (disabled - is not funktion - code removed)
@@ -101,7 +111,7 @@
 
 2004-09-08  Alexander Saal  <alex.saal@gmx.de>
 
-* FIXED:		layout problem ( to large )
+* FIXED:	layout problem ( to large )
 
 2004-09-03  Alexander Saal  <alex.saal@gmx.de>
 
@@ -124,8 +134,8 @@
 2004-07-27  Alexander Saal  <alex.saal@gmx.de>
 
  * ADD:		add to cvs src/adventure.h gprofile.h
-        		adventure.h -> decleration of game download
-        		gprofile.h -> decleration of DOSBox current or cvs version
+        	adventure.h -> decleration of game download
+        	gprofile.h -> decleration of DOSBox current or cvs version
  * ADD:     	examine version available src/dosboxfe.cpp
 
 2004-07-26  Alexander Saal  <alex.saal@gmx.de>
@@ -151,7 +161,7 @@
  * UPDATE:   	registercard misc ( more user friendly )
  * ADD:     	you can add a folder into the Autoexec ListBox (normal or as cdrom)
  * ADD:     	you can select a folder:
-         		snapdir
+         	snapdir
       		autexecdir ( for mount in the DOSBox )
 
 2004-07-16  Alexander Saal  <alex.saal@gmx.de>
@@ -164,18 +174,18 @@
 
 2004-07-15  Alexander Saal  <alex.saal@gmx.de>
 
- * ADD:  		one click in the listbox and a config file is loaded
+ * ADD:  	one click in the listbox and a config file is loaded
  * FIXED: 	layout correct set and new info added
 
 2004-07-13  Alexander Saal  <alex.saal@gmx.de>
 
- * ADD:  		Which DOSBox version would you like to use?
+ * ADD:  	Which DOSBox version would you like to use?
  * FIXED: 	remove button and game downlad button disabled
- * ADD:  		cvs version of DOSBox
+ * ADD:  	cvs version of DOSBox
 
 2004-07-12  Alexander Saal  <alex.saal@gmx.de>
 
  * FIXED: 	correct layout set
- * ADD:  		games download dialog
+ * ADD:  	games download dialog
  * CHANGE: 	version 0.0.2
  * 		initial import into CVS tree
