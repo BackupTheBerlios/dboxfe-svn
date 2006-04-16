@@ -36,16 +36,15 @@ class QByteArray;
 
 class Base64
 {
-public:
-	static QByteArray decodeString(const QString& encoded);
-	static QBitArray decodeString(const QString& encoded, unsigned int size);
-	static QString encodeString(const QByteArray& decoded, bool limitLines = false);
-	static QString encodeString(const QBitArray& decoded, bool limitLines = false);
+    public:
+        static QByteArray decodeString(const QString& encoded);
+        static QBitArray decodeString(const QString& encoded, unsigned int size);
+        static QString encodeString(const QByteArray& decoded, bool limitLines = false);
+        static QString encodeString(const QBitArray& decoded, bool limitLines = false);
 
-private:
-	static const char mEncode[64];
-	static const char mDecode[128];
+    private:
+        static const char mEncode[64];
+        static const char mDecode[128];
 };
-
 
 #endif // BASE64_H

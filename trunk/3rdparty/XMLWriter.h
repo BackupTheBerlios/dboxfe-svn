@@ -32,39 +32,42 @@
 class XMLWriter
 {
 
-public:
-	XMLWriter(QIODevice* device, QTextCodec* codec = 0, bool writeEncoding = true);
-	~XMLWriter();
+    public:
+        XMLWriter(QIODevice* device, QTextCodec* codec = 0, bool writeEncoding = true);
+        ~XMLWriter();
 
-	enum NewLineType { CR, CRLF, LF };
+        enum NewLineType { CR, CRLF, LF };
 
-	void writeString(const QString& string);
-	void writeOpenTag(const QString& name, const QMap<QString,QString>* attrs = 0);
-	void writeCloseTag(const QString& name);
-	void writeAtomTag(const QString& name, const QMap<QString,QString>* attrs = 0);
-	void writeTaggedString(const QString& name, const QString& string, const QMap<QString,QString>* attrs = 0);
-	void writeComment(const QString& comment);
-	void startComment();
-	void endComment();
-	void newLine();
-	void setNewLine(NewLineType type);
-	void pauseIndent(bool pause);
-	void writeCurrentIndent();
-	void setIndentType(int spaces);
-	void setAutoNewLine(bool on) { mAutoNL = on; }
+        void writeString(const QString& string);
+        void writeOpenTag(const QString& name, const QMap<QString,QString>* attrs = 0);
+        void writeCloseTag(const QString& name);
+        void writeAtomTag(const QString& name, const QMap<QString,QString>* attrs = 0);
+        void writeTaggedString(const QString& name, const QString& string, const QMap<QString,QString>* attrs = 0);
+        void writeComment(const QString& comment);
+        void startComment();
+        void endComment();
+        void newLine();
+        void setNewLine(NewLineType type);
+        void pauseIndent(bool pause);
+        void writeCurrentIndent();
+        void setIndentType(int spaces);
+        void setAutoNewLine(bool on)
+        {
+            mAutoNL = on;
+        }
 
-private:
-	QString escape(const QString& str) const;
-	QString openTag(const QString& tag, const QMap<QString,QString>* attributes);
-	void writeEncoding();
+    private:
+        QString escape(const QString& str) const;
+        QString openTag(const QString& tag, const QMap<QString,QString>* attributes);
+        void writeEncoding();
 
-	QTextStream* mOut;
-	QString mNewLine;
-	QString mIndentString;
-	bool mAutoNL;
-	bool mLineStart;
-	bool mPauseIndent;
-	int mIndent;
+        QTextStream* mOut;
+        QString mNewLine;
+        QString mIndentString;
+        bool mAutoNL;
+        bool mLineStart;
+        bool mPauseIndent;
+        int mIndent;
 };
 
 #endif // XMLWRITER_H

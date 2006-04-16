@@ -35,19 +35,21 @@
  */
 XMLWriter::XMLWriter(QIODevice* device, QTextCodec* codec, bool writeEncoding)
 {
-	mOut = new QTextStream(device);
-	if (codec == 0) mOut->setCodec("UTF-8");
-	else mOut->setCodec(codec);
+    mOut = new QTextStream(device);
+    if (codec == 0)
+        mOut->setCodec("UTF-8");
+    else
+        mOut->setCodec(codec);
 
-	mIndentString = "\t";
-	mAutoNL = true;
-	mNewLine = "\r\n";
-	mIndent = 0;
-	mPauseIndent = false;
+    mIndentString = "\t";
+    mAutoNL = true;
+    mNewLine = "\r\n";
+    mIndent = 0;
+    mPauseIndent = false;
 
-	// <?xml version="1.0" encoding="SELECTED_ENCODING"?>
-	if (writeEncoding)
-		(*mOut) << "<?xml version=\"1.0\" encoding=\"" << escape(QString(mOut->codec()->name())) << "\"?>" << mNewLine << mNewLine;
+    // <?xml version="1.0" encoding="SELECTED_ENCODING"?>
+    if (writeEncoding)
+        (*mOut) << "<?xml version=\"1.0\" encoding=\"" << escape(QString(mOut->codec()->name())) << "\"?>" << mNewLine << mNewLine;
 }
 
 
@@ -57,10 +59,10 @@ XMLWriter::XMLWriter(QIODevice* device, QTextCodec* codec, bool writeEncoding)
  */
 XMLWriter::~XMLWriter()
 {
-	mOut->flush();
+    mOut->flush();
 
-	delete mOut;
-	mOut = 0;
+    delete mOut;
+    mOut = 0;
 }
 
 
@@ -70,7 +72,7 @@ XMLWriter::~XMLWriter()
  */
 void XMLWriter::writeEncoding()
 {
-	(*mOut) << "<?xml version=\"1.0\" encoding=\"" << escape(QString(mOut->codec()->name())) << "\"?>" << mNewLine << mNewLine;
+    (*mOut) << "<?xml version=\"1.0\" encoding=\"" << escape(QString(mOut->codec()->name())) << "\"?>" << mNewLine << mNewLine;
 }
 
 
@@ -79,12 +81,16 @@ void XMLWriter::writeEncoding()
  */
 void XMLWriter::setNewLine(NewLineType type)
 {
-	switch (type)
-	{
-	case CR: mNewLine = "\r"; break;
-	case CRLF: mNewLine = "\r\n"; break;
-	case LF: mNewLine = "\n";
-	}
+    switch (type) {
+        case CR:
+            mNewLine = "\r";
+            break;
+        case CRLF:
+            mNewLine = "\r\n";
+            break;
+        case LF:
+            mNewLine = "\n";
+    }
 }
 
 
@@ -93,7 +99,7 @@ void XMLWriter::setNewLine(NewLineType type)
  */
 void XMLWriter::writeString(const QString& string	)
 {
-	(*mOut) << escape(string);
+    (*mOut) << escape(string);
 }
 
 
@@ -103,14 +109,14 @@ void XMLWriter::writeString(const QString& string	)
  */
 void XMLWriter::writeOpenTag(const QString& name, const QMap<QString,QString>* attrs)
 {
-	if (!mPauseIndent)
-	for (int i=0; i<mIndent; ++i)
-		(*mOut) << mIndentString;
-	mIndent++;
+    if (!mPauseIndent)
+        for (int i=0; i<mIndent; ++i)
+            (*mOut) << mIndentString;
+    mIndent++;
 
-	(*mOut) << openTag(name, attrs);
-	if (mAutoNL)
-		(*mOut) << mNewLine;
+    (*mOut) << openTag(name, attrs);
+    if (mAutoNL)
+        (*mOut) << mNewLine;
 }
 
 
@@ -120,15 +126,15 @@ void XMLWriter::writeOpenTag(const QString& name, const QMap<QString,QString>* a
  */
 void XMLWriter::writeCloseTag(const QString& name)
 {
-	mIndent--;
+    mIndent--;
 
-	if (!mPauseIndent)
-	for (int i=0; i<mIndent; ++i)
-		(*mOut) << mIndentString;
+    if (!mPauseIndent)
+        for (int i=0; i<mIndent; ++i)
+            (*mOut) << mIndentString;
 
-	(*mOut) << "</" << escape(name) << ">";
-	if (mAutoNL)
-		(*mOut) << mNewLine;
+    (*mOut) << "</" << escape(name) << ">";
+    if (mAutoNL)
+        (*mOut) << mNewLine;
 }
 
 
@@ -138,16 +144,16 @@ void XMLWriter::writeCloseTag(const QString& name)
  */
 void XMLWriter::writeAtomTag(const QString& name, const QMap<QString,QString>* attrs)
 {
-	if (!mPauseIndent)
-    for (int i=0; i<mIndent; ++i)
-		(*mOut) << mIndentString;
+    if (!mPauseIndent)
+        for (int i=0; i<mIndent; ++i)
+            (*mOut) << mIndentString;
 
-	QString atom = openTag(name, attrs);
-	atom.truncate(atom.length() - 1);
-	(*mOut) << atom << "/>";
+    QString atom = openTag(name, attrs);
+    atom.truncate(atom.length() - 1);
+    (*mOut) << atom << "/>";
 
-	if (mAutoNL)
-		(*mOut) << mNewLine;
+    if (mAutoNL)
+        (*mOut) << mNewLine;
 }
 
 
@@ -157,14 +163,14 @@ void XMLWriter::writeAtomTag(const QString& name, const QMap<QString,QString>* a
  */
 void XMLWriter::writeTaggedString(const QString& name, const QString& string, const QMap<QString,QString>* attrs)
 {
-	if (!mPauseIndent)
-	for (int i=0; i<mIndent; ++i)
-		(*mOut) << mIndentString;
+    if (!mPauseIndent)
+        for (int i=0; i<mIndent; ++i)
+            (*mOut) << mIndentString;
 
-	(*mOut) << openTag(name, attrs) << escape(string) << "</" << escape(name) << ">";
+    (*mOut) << openTag(name, attrs) << escape(string) << "</" << escape(name) << ">";
 
-	if (mAutoNL)
-		(*mOut) << mNewLine;
+    if (mAutoNL)
+        (*mOut) << mNewLine;
 }
 
 
@@ -173,18 +179,18 @@ void XMLWriter::writeTaggedString(const QString& name, const QString& string, co
  */
 void XMLWriter::writeComment(const QString& comment)
 {
-	if (!mPauseIndent)
-	for (int i=0; i<mIndent; ++i)
-		(*mOut) << mIndentString;
+    if (!mPauseIndent)
+        for (int i=0; i<mIndent; ++i)
+            (*mOut) << mIndentString;
 
-	// we do not want the comments to end before WE want it ;)
-	QString com(comment);
-	com.replace(QString("-->"), QString("==>"));
+    // we do not want the comments to end before WE want it ;)
+    QString com(comment);
+    com.replace(QString("-->"), QString("==>"));
 
-	(*mOut) << "<!-- " << com << " -->";
+    (*mOut) << "<!-- " << com << " -->";
 
-	if (mAutoNL)
-		(*mOut) << mNewLine;
+    if (mAutoNL)
+        (*mOut) << mNewLine;
 }
 
 
@@ -193,11 +199,11 @@ void XMLWriter::writeComment(const QString& comment)
  */
 void XMLWriter::startComment()
 {
-	if (!mPauseIndent)
-	for (int i=0; i<mIndent; ++i)
-		(*mOut) << mIndentString;
+    if (!mPauseIndent)
+        for (int i=0; i<mIndent; ++i)
+            (*mOut) << mIndentString;
 
-	(*mOut) << "<!-- ";
+    (*mOut) << "<!-- ";
 }
 
 
@@ -207,7 +213,7 @@ void XMLWriter::startComment()
  */
 void XMLWriter::endComment()
 {
-	(*mOut) << " -->";
+    (*mOut) << " -->";
 }
 
 
@@ -216,7 +222,7 @@ void XMLWriter::endComment()
  */
 void XMLWriter::newLine()
 {
-	(*mOut) << mNewLine;
+    (*mOut) << mNewLine;
 }
 
 
@@ -226,8 +232,8 @@ void XMLWriter::newLine()
  */
 void XMLWriter::writeCurrentIndent()
 {
-	for (int i=0; i<mIndent; ++i)
-		(*mOut) << mIndentString;
+    for (int i=0; i<mIndent; ++i)
+        (*mOut) << mIndentString;
 }
 
 
@@ -237,7 +243,7 @@ void XMLWriter::writeCurrentIndent()
  */
 void XMLWriter::pauseIndent(bool pause)
 {
-	mPauseIndent = pause;
+    mPauseIndent = pause;
 }
 
 
@@ -246,13 +252,13 @@ void XMLWriter::pauseIndent(bool pause)
  */
 QString XMLWriter::escape(const QString& string) const
 {
-	QString s = string;
-	s.replace("&", "&amp;");
-	s.replace(">", "&gt;");
-	s.replace("<", "&lt;");
-	s.replace("\"", "&quot;");
-	s.replace("\'", "&apos;");
-	return s;
+    QString s = string;
+    s.replace("&", "&amp;");
+    s.replace(">", "&gt;");
+    s.replace("<", "&lt;");
+    s.replace("\"", "&quot;");
+    s.replace("\'", "&apos;");
+    return s;
 }
 
 
@@ -261,14 +267,17 @@ QString XMLWriter::escape(const QString& string) const
  */
 QString XMLWriter::openTag(const QString& tag, const QMap<QString,QString>* attributes)
 {
-	QString out = "<" + escape(tag);
+    QString out = "<" + escape(tag);
 
-	if (attributes != 0)
-		for (QMap<QString,QString>::ConstIterator itr=attributes->constBegin(); itr!=attributes->constEnd(); ++itr)
-			out += " " + escape(itr.key()) + "=\"" + escape(itr.value()) + "\"";
+    if (attributes != 0)
+        for (QMap<QString,QString>::ConstIterator itr=attributes->
+                constBegin();
+                itr!=attributes->constEnd();
+                ++itr)
+            out += " " + escape(itr.key()) + "=\"" + escape(itr.value()) + "\"";
 
-	out += ">";
-	return out;
+    out += ">";
+    return out;
 }
 
 
@@ -277,11 +286,10 @@ QString XMLWriter::openTag(const QString& tag, const QMap<QString,QString>* attr
  */
 void XMLWriter::setIndentType(int spaces)
 {
-	if (spaces < 0)
-		mIndentString = "\t";
-	else
-	{
-		mIndentString = "";
-		mIndentString.fill(' ', spaces);
-	}
+    if (spaces < 0)
+        mIndentString = "\t";
+    else {
+        mIndentString = "";
+        mIndentString.fill(' ', spaces);
+    }
 }
