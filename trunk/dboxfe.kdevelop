@@ -100,7 +100,7 @@
     <run>
       <directoryradio>executable</directoryradio>
       <customdirectory>/</customdirectory>
-      <mainprogram/>
+      <mainprogram>bin/dboxfe</mainprogram>
       <programargs/>
       <terminal>false</terminal>
       <autocompile>true</autocompile>
