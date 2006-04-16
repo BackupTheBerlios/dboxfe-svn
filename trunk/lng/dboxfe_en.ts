@@ -1276,7 +1276,7 @@
     </message>
     <message>
         <source>Would you realy quit?</source>
-        <translation>Would you realy quit?</translation>
+        <translation type="obsolete">Would you realy quit?</translation>
     </message>
     <message>
         <source>Yes</source>
@@ -1432,6 +1432,30 @@ If you click &apos;No&apos; only the profile from list will be removed.</source>
     </message>
     <message>
         <source>Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Would you realy quit without save the changed settings?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Can not add the same drive &apos;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&apos; to the list.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No directory was selected.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please enter a valid name for label.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

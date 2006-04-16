@@ -48,12 +48,14 @@ DBoxFE::DBoxFE( QWidget *parent, Qt::WFlags flags )
     connect( ui.btnStartDBox, SIGNAL( clicked() ), this, SLOT( slotStartDBox() ) );
     connect( ui.btnLanguage, SIGNAL( clicked() ), this, SLOT( slotLanguage() ) );
     connect( ui.btnDbxStable, SIGNAL( clicked() ), this, SLOT( slotChooseDbxBinary() ) );
-    connect( ui.btnAutexecAdd, SIGNAL( clicked() ), this, SLOT( slotAutexecAdd() ) );
-    connect( ui.btnAutexecRemove, SIGNAL( clicked() ), this, SLOT( slotAutexecRemove() ) );
+    connect( ui.btnAutoexecAdd, SIGNAL( clicked() ), this, SLOT( slotAutoexecAdd() ) );
+    connect( ui.btnAutoexecRemove, SIGNAL( clicked() ), this, SLOT( slotAutoexecRemove() ) );
     connect( ui.btnSerialAdd, SIGNAL( clicked() ), this, SLOT( slotSerialAdd() ) );
     connect( ui.btnSerialRemove, SIGNAL( clicked() ), this, SLOT( slotSerialRemove() ) );
-    connect( ui.btnAutexecUpdate, SIGNAL( clicked() ), this, SLOT( slotAutexecUpdate() ) );
-    connect( ui.btnAutexecDrive, SIGNAL( clicked() ), this, SLOT( slotAutexecDrive() ) );
+    connect( ui.btnAutoexecUpdate, SIGNAL( clicked() ), this, SLOT( slotAutoexecUpdate() ) );
+    connect( ui.btnAutoexecDrive, SIGNAL( clicked() ), this, SLOT( slotAutoexecDrive() ) );
+    connect( ui.btnAutoexecUp, SIGNAL( clicked() ), this, SLOT( slotAutoexecUp() ) );
+    connect( ui.btnAutoexecDown, SIGNAL( clicked() ), this, SLOT( slotAutoexecDown() ) );    
     connect( ui.btnGame, SIGNAL( clicked() ), this, SLOT( slotGame() ) );
     connect( ui.lwProfile, SIGNAL( itemClicked( QListWidgetItem* ) ), this, SLOT( slotListWidget( QListWidgetItem* ) ) );
     connect( ui.cbxDSOption, SIGNAL( currentIndexChanged( int ) ), this, SLOT( slotCbxSerialIndexChanged( int ) ) );
@@ -68,23 +70,19 @@ DBoxFE::DBoxFE( QWidget *parent, Qt::WFlags flags )
     titleMac = "DOSBox - Front End for Mac " + getAppVersion();
 
 #ifdef Q_OS_WIN32
-
     setWindowTitle( titleWin );
     QApplication::setStyle( "windowsxp" );
 #endif
 
 #ifdef Q_OS_MACX
-
     setWindowTitle( titleMac );
 #endif
 
 #ifdef Q_OS_MAC9
-
     setWindowTitle( titleMac );
 #endif
 
 #ifdef Q_OS_UNIX
-
     setWindowTitle( titleLin );
 #endif
 
@@ -349,14 +347,14 @@ void DBoxFE::slotGame()
 /**
  * TODO Misc (Modem, Autoexec, Dos)
  **/
-void DBoxFE::slotAutexecAdd()
+void DBoxFE::slotAutoexecAdd()
 {
     QList<QListWidgetItem *> it( ui.lwAutoexec->findItems( "mount " + ui.cbxDrive->currentText().toLower(), Qt::MatchContains ) );
     for ( int a = 0; a < it.size(); ++a ) {
         QListWidgetItem *sItem;
         sItem = it.value( a );
         if ( sItem->text().startsWith( "mount " + ui.cbxDrive->currentText().toLower() ) ) {
-            QMessageBox::information( this, winTitle(), tr( "Can not add the same drive  '" ) + ui.cbxDrive->currentText().toLower() + tr( "' to the list." ) );
+            QMessageBox::information( this, winTitle(), tr( "Can not add the same drive '" ) + ui.cbxDrive->currentText().toLower() + tr( "' to the list." ) );
             return;
         }
     }
@@ -435,7 +433,7 @@ void DBoxFE::slotAutexecAdd()
 /**
  * TODO Autoexec option
  **/
-void DBoxFE::slotAutexecRemove()
+void DBoxFE::slotAutoexecRemove()
 {
     QListWidgetItem * item = ui.lwAutoexec->currentItem();
 
@@ -450,7 +448,7 @@ void DBoxFE::slotAutexecRemove()
 /**
  * TODO Update autexec item in the list
  **/
-void DBoxFE::slotAutexecUpdate()
+void DBoxFE::slotAutoexecUpdate()
 {
     qDebug( "void DBoxFE::slotAutexecUpdate()" );
 }
@@ -458,13 +456,41 @@ void DBoxFE::slotAutexecUpdate()
 /**
  * TODO Open the autexec drive, for automaunt in dosbox
  **/
-void DBoxFE::slotAutexecDrive()
+void DBoxFE::slotAutoexecDrive()
 {
     QString strAutoDrive = QFileDialog::getExistingDirectory( this, tr( "Open directory for mount in dosbox" ), QDir::homePath() );
     if ( strAutoDrive.isEmpty() )
         return ;
 
     ui.LEDrives->setText( strAutoDrive );
+}
+
+/**
+ * TODO move autexec item up
+ **/
+void DBoxFE::slotAutoexecUp() {
+    if( ui.lwAutoexec->currentItem() == NULL )
+	return;
+	
+    if( ui.lwAutoexec->row( ui.lwAutoexec->currentItem() ) <= 0 )
+	return;
+  
+    QListWidgetItem *item = ui.lwAutoexec->currentItem();       
+    ui.lwAutoexec->insertItem( ui.lwAutoexec->row( ui.lwAutoexec->currentItem() ), ui.lwAutoexec->takeItem( ui.lwAutoexec->row( ui.lwAutoexec->currentItem() ) ) );
+    ui.lwAutoexec->setCurrentItem( item );
+}
+
+/**
+ * TODO move autexec item down
+ **/
+void DBoxFE::slotAutoexecDown() {
+    if( ui.lwAutoexec->currentItem() == NULL )
+	return;
+    
+    if( (ui.lwAutoexec->row( ui.lwAutoexec->currentItem()) + 1 ) >= ui.lwAutoexec->count() )
+	return;
+    
+    ui.lwAutoexec->insertItem( ui.lwAutoexec->row( ui.lwAutoexec->currentItem() ), ui.lwAutoexec->takeItem( ui.lwAutoexec->row( ui.lwAutoexec->currentItem() ) + 1 ) );
 }
 
 /**

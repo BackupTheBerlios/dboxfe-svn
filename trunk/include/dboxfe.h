@@ -51,10 +51,10 @@ class DBoxFE : public QWidget
         void slotListWidget( QListWidgetItem* );
         void slotCbxSerialIndexChanged( int );
         void slotCbxAutoexecIndexChanged( int );
-        void slotAutexecDrive();
-        void slotAutexecUpdate();
-        void slotAutexecRemove();
-        void slotAutexecAdd();
+        void slotAutoexecDrive();
+        void slotAutoexecUpdate();
+        void slotAutoexecRemove();
+        void slotAutoexecAdd();
         void slotSerialRemove();
         void slotSerialAdd();
         void slotChooseDbxBinary();
@@ -66,6 +66,9 @@ class DBoxFE : public QWidget
         void slotSaveGP();
         void slotWizard();
         void slotSearchBin();
+	
+	void slotAutoexecUp();
+	void slotAutoexecDown();
 
         void start( const QString& bin, const QString &param, const QString &conf );
         void readOutput();

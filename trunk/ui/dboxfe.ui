@@ -3586,7 +3586,7 @@
                <number>6</number>
               </property>
               <item>
-               <widget class="QPushButton" name="btnAutexecAdd" >
+               <widget class="QPushButton" name="btnAutoexecAdd" >
                 <property name="text" >
                  <string> Add</string>
                 </property>
@@ -3612,7 +3612,7 @@
                </spacer>
               </item>
               <item>
-               <widget class="QPushButton" name="btnAutexecRemove" >
+               <widget class="QPushButton" name="btnAutoexecRemove" >
                 <property name="text" >
                  <string> Remove</string>
                 </property>
@@ -3635,7 +3635,7 @@
                </spacer>
               </item>
               <item>
-               <widget class="QPushButton" name="btnAutexecUpdate" >
+               <widget class="QPushButton" name="btnAutoexecUpdate" >
                 <property name="enabled" >
                  <bool>false</bool>
                 </property>
@@ -3818,7 +3818,7 @@
                  <widget class="QLineEdit" name="LEDrives" />
                 </item>
                 <item>
-                 <widget class="QPushButton" name="btnAutexecDrive" >
+                 <widget class="QPushButton" name="btnAutoexecDrive" >
                   <property name="icon" >
                    <iconset resource="../res/dboxfe.qrc" >:/pics/images/folder-open_16.png</iconset>
                   </property>
@@ -4450,12 +4450,12 @@
   <tabstop>cbxDSStopBit</tabstop>
   <tabstop>chkBoxIPX</tabstop>
   <tabstop>lwAutoexec</tabstop>
-  <tabstop>btnAutexecAdd</tabstop>
-  <tabstop>btnAutexecRemove</tabstop>
-  <tabstop>btnAutexecUpdate</tabstop>
+  <tabstop>btnAutoexecAdd</tabstop>
+  <tabstop>btnAutoexecRemove</tabstop>
+  <tabstop>btnAutoexecUpdate</tabstop>
   <tabstop>cbxDrive</tabstop>
   <tabstop>LEDrives</tabstop>
-  <tabstop>btnAutexecDrive</tabstop>
+  <tabstop>btnAutoexecDrive</tabstop>
   <tabstop>LEDeviceLabel</tabstop>
   <tabstop>twAbout</tabstop>
  </tabstops>
