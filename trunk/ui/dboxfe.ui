@@ -3399,7 +3399,53 @@
             <property name="spacing" >
              <number>6</number>
             </property>
-            <item row="3" column="0" >
+            <item row="0" column="1" >
+             <layout class="QVBoxLayout" >
+              <property name="margin" >
+               <number>0</number>
+              </property>
+              <property name="spacing" >
+               <number>6</number>
+              </property>
+              <item>
+               <widget class="QPushButton" name="btnAutoexecUp" >
+                <property name="text" >
+                 <string/>
+                </property>
+                <property name="icon" >
+                 <iconset resource="../res/dboxfe.qrc" >:/pics/images/arrow-up_16.png</iconset>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer>
+                <property name="orientation" >
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" >
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnAutoexecDown" >
+                <property name="text" >
+                 <string/>
+                </property>
+                <property name="icon" >
+                 <iconset resource="../res/dboxfe.qrc" >:/pics/images/arrow-down_16.png</iconset>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="0" column="0" >
+             <widget class="QListWidget" name="lwAutoexec" />
+            </item>
+            <item row="3" column="0" colspan="2" >
              <layout class="QVBoxLayout" >
               <property name="margin" >
                <number>0</number>
@@ -3433,7 +3479,7 @@
               </item>
              </layout>
             </item>
-            <item row="4" column="0" >
+            <item row="4" column="0" colspan="2" >
              <widget class="QGroupBox" name="groupBox_3" >
               <property name="title" >
                <string/>
@@ -3470,6 +3516,9 @@
                    </item>
                    <item>
                     <widget class="QLabel" name="lblAutoexecCDDVDROMOption" >
+                     <property name="enabled" >
+                      <bool>false</bool>
+                     </property>
                      <property name="text" >
                       <string>CDROM/DVD option:</string>
                      </property>
@@ -3506,11 +3555,9 @@
                    </item>
                    <item>
                     <widget class="QComboBox" name="cbxAutoexecCDDVDROMOption" >
-                     <item>
-                      <property name="text" >
-                       <string>Default</string>
-                      </property>
-                     </item>
+                     <property name="enabled" >
+                      <bool>false</bool>
+                     </property>
                      <item>
                       <property name="text" >
                        <string>Windows 2000/XP and Linux CD/DVD ROM</string>
@@ -3530,10 +3577,7 @@
               </layout>
              </widget>
             </item>
-            <item row="0" column="0" >
-             <widget class="QListWidget" name="lwAutoexec" />
-            </item>
-            <item row="1" column="0" >
+            <item row="1" column="0" colspan="2" >
              <layout class="QHBoxLayout" >
               <property name="margin" >
                <number>0</number>
@@ -3605,6 +3649,9 @@
               </item>
               <item>
                <widget class="QPushButton" name="btnGame" >
+                <property name="enabled" >
+                 <bool>false</bool>
+                </property>
                 <property name="text" >
                  <string> Game</string>
                 </property>
@@ -3615,7 +3662,7 @@
               </item>
              </layout>
             </item>
-            <item row="2" column="0" >
+            <item row="2" column="0" colspan="2" >
              <layout class="QVBoxLayout" >
               <property name="margin" >
                <number>0</number>
@@ -3640,6 +3687,11 @@
                 </property>
                 <item>
                  <widget class="QComboBox" name="cbxDrive" >
+                  <item>
+                   <property name="text" >
+                    <string>A</string>
+                   </property>
+                  </item>
                   <item>
                    <property name="text" >
                     <string>C</string>

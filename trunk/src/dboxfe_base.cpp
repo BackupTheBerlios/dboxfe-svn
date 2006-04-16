@@ -379,7 +379,7 @@ void DB_BASE::saveConf( const QString &dbconf, DBoxFE* dbfe ) {
 
 }
 
-void DB_BASE::defaultSettings( DBoxFE *dbfe ){
+void DB_BASE::defaultSettings( DBoxFE* dbfe ){
     qDebug() << QObject::tr("Set dafault settings, based on dosbox default settings .... [sdl]");
 
     dbfe->ui.chkBoxFullScreen->setChecked( false );
