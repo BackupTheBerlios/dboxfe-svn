@@ -39,7 +39,7 @@ int main(int argc, char **argv )
     splash = new DBoxFE_Splash( QPixmap(":/pics/images/logo.png") );
     app.processEvents();
     
-    if (splash) splash->showMessage( "Create/Search application Directory ..." );
+    if (splash) splash->showMessage( QApplication::translate( "DBoxFE", "Create/Search application Directory ..." ) );
     if (splash) splash->show();
     
     // TODO Create application directory if dosn't exists    
@@ -48,7 +48,7 @@ int main(int argc, char **argv )
     QDir appDir(m_file);
     
     if( !appDir.exists( m_file ) ){ appDir.mkdir( m_file ); }
-    if (splash) splash->showMessage( "Create Directory " + m_file +  "..." );
+    if (splash) splash->showMessage( QApplication::translate( "DBoxFE", "Create Directory " ) + m_file +  "..." );
     
     // TODO Create profile directory if dosn't exists
     m_profile_dir = QDir::homePath();
@@ -56,7 +56,7 @@ int main(int argc, char **argv )
     QDir proDir(m_profile_dir);
     
     if( !proDir.exists( m_profile_dir ) ){ proDir.mkdir( m_profile_dir ); }
-    if (splash) splash->showMessage( "Create Directory " + m_profile_dir +  "..." );
+    if (splash) splash->showMessage( QApplication::translate( "DBoxFE", "Create Directory " ) + m_profile_dir +  "..." );
     
     // TODO Create Template directory if dosn't exists
     m_tmpl_dir = QDir::homePath();
@@ -64,9 +64,9 @@ int main(int argc, char **argv )
     QDir tmplDir(m_tmpl_dir);
     
     if( !tmplDir.exists( m_tmpl_dir ) ){ tmplDir.mkdir( m_tmpl_dir ); }
-    if (splash) splash->showMessage( "Create Directory " + m_tmpl_dir +  "..." );
+    if (splash) splash->showMessage( QApplication::translate( "DBoxFE", "Create Directory " ) + m_tmpl_dir +  "..." );
     
-    if (splash) splash->showMessage( "Read Language settings ..." );
+    if (splash) splash->showMessage( QApplication::translate( "DBoxFE", "Read Language settings ...") );
     
     XMLPreferences settGP( "DBoxFE", "Alexander Saal" );
     settGP.setVersion( w.getAppVersion() );
@@ -93,11 +93,11 @@ int main(int argc, char **argv )
 	app.installTranslator(&translator);	
     }
     
-    if (splash) splash->showMessage( "Loading Profiles ..." );
+    if (splash) splash->showMessage( QApplication::translate( "DBoxFE", "Loading Profiles ..." ) );
 
     w.init();
     
-    if (splash) splash->showMessage( "Starting GUI ...");
+    if (splash) splash->showMessage( QApplication::translate( "DBoxFE", "Starting GUI ..." ) );
     
     w.show();
 

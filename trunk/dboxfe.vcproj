@@ -42,7 +42,7 @@
 				AdditionalLibraryDirectories="$(QTDIR)\lib"
 				GenerateDebugInformation="true"
 				IgnoreImportLibrary="true"
-				OutputFile="debug\bin\dboxfe.exe"
+				OutputFile="bin\bin\dboxfe.exe"
 				ProgramDatabaseFile=""
 				SubSystem="2"
 				SuppressStartupBanner="true"/>
@@ -94,7 +94,7 @@
 				GenerateDebugInformation="false"
 				IgnoreImportLibrary="true"
 				LinkIncremental="2"
-				OutputFile="release\bin\dboxfe.exe"
+				OutputFile="bin\bin\dboxfe.exe"
 				ProgramDatabaseFile=""
 				SubSystem="2"
 				SuppressStartupBanner="true"/>
@@ -484,7 +484,7 @@
 					Name="Debug|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						AdditionalDependencies="$(QTDIR)\bin\rcc.exe;res\dboxfe_de.qm;res\dboxfe_en.qm;res\mail_16.png;res\documents_16.png;res\wiz_internet.png;res\paste_16.png;res\cut_16.png;res\logo.png;res\undo_16.png;res\arrow-back_16.png;res\trash_16.png;res\de.png;res\delete_16.png;res\add_16.png;res\default.png;res\en.png;res\print_16.png;res\cpu.png;res\save_16.png;res\folder-closed_16.png;res\applications_16.png;res\home_16.png;res\misc.png;res\computer_16.png;res\midi.png;res\arrow-down_16.png;res\arrow-forward_16.png;res\redo_16.png;res\copy_16.png;res\folder-open_16.png;res\disc-media_16.png;res\arrow-up_16.png"
+						AdditionalDependencies="$(QTDIR)\bin\rcc.exe;res\dboxfe_de.qm;res\dboxfe_en.qm;res\mail_16.png;res\documents_16.png;res\wiz_internet.png;res\paste_16.png;res\cut_16.png;res\logo.png;res\undo_16.png;res\arrow-back_16.png;res\trash_16.png;res\de.png;res\delete_16.png;res\add_16.png;res\default.png;res\en.png;res\print_16.png;res\cpu.png;res\save_16.png;res\folder-closed_16.png;res\applications_16.png;res\home_16.png;res\misc.png;res\computer_16.png;res\midi.png;res\arrow-down_16.png;res\arrow-forward_16.png;res\redo_16.png;res\copy_16.png;res\folder-open_16.png;res\disc-media_16.png;res\arrow-up_16.png;res\default.conf"
 						CommandLine="$(QTDIR)\bin\rcc.exe -name dboxfe res\dboxfe.qrc -o win\rcc\qrc_dboxfe.cpp"
 						Description="RCC res/dboxfe.qrc"
 						Outputs="win\rcc\qrc_dboxfe.cpp"
@@ -494,7 +494,7 @@
 					Name="Release|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						AdditionalDependencies="$(QTDIR)\bin\rcc.exe;res\dboxfe_de.qm;res\dboxfe_en.qm;res\mail_16.png;res\documents_16.png;res\wiz_internet.png;res\paste_16.png;res\cut_16.png;res\logo.png;res\undo_16.png;res\arrow-back_16.png;res\trash_16.png;res\de.png;res\delete_16.png;res\add_16.png;res\default.png;res\en.png;res\print_16.png;res\cpu.png;res\save_16.png;res\folder-closed_16.png;res\applications_16.png;res\home_16.png;res\misc.png;res\computer_16.png;res\midi.png;res\arrow-down_16.png;res\arrow-forward_16.png;res\redo_16.png;res\copy_16.png;res\folder-open_16.png;res\disc-media_16.png;res\arrow-up_16.png"
+						AdditionalDependencies="$(QTDIR)\bin\rcc.exe;res\dboxfe_de.qm;res\dboxfe_en.qm;res\mail_16.png;res\documents_16.png;res\wiz_internet.png;res\paste_16.png;res\cut_16.png;res\logo.png;res\undo_16.png;res\arrow-back_16.png;res\trash_16.png;res\de.png;res\delete_16.png;res\add_16.png;res\default.png;res\en.png;res\print_16.png;res\cpu.png;res\save_16.png;res\folder-closed_16.png;res\applications_16.png;res\home_16.png;res\misc.png;res\computer_16.png;res\midi.png;res\arrow-down_16.png;res\arrow-forward_16.png;res\redo_16.png;res\copy_16.png;res\folder-open_16.png;res\disc-media_16.png;res\arrow-up_16.png;res\default.conf"
 						CommandLine="$(QTDIR)\bin\rcc.exe -name dboxfe res\dboxfe.qrc -o win\rcc\qrc_dboxfe.cpp"
 						Description="RCC res/dboxfe.qrc"
 						Outputs="win\rcc\qrc_dboxfe.cpp"
@@ -507,6 +507,8 @@
 				RelativePath="res\dboxfe_en.qm"/>
 			<File
 				RelativePath="res\de.png"/>
+			<File
+				RelativePath="res\default.conf"/>
 			<File
 				RelativePath="res\default.png"/>
 			<File

@@ -3,34 +3,306 @@
     <name>DBoxFE</name>
     <message>
         <source>DOSBox - Front End</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Gameprofile</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>  &amp;Gamewizard</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source> &amp;Create</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Alt+C</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source> &amp;Remove</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Alt+R</source>
-        <translation type="unfinished"></translation>
+        <translation>DOSBox - Front End</translation>
     </message>
     <message>
         <source>SDL, Render &amp;&amp; CPU</source>
+        <translation>SDL, Render &amp;&amp; CPU</translation>
+    </message>
+    <message>
+        <source>CPU</source>
+        <translation>CPU</translation>
+    </message>
+    <message>
+        <source>Cycledown:</source>
+        <translation>Unterer Zyklus:</translation>
+    </message>
+    <message>
+        <source>10</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>20</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>30</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>40</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>50</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>60</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>70</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>80</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>90</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>100</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Cycleup:</source>
+        <translation>Oberer Zyklus:</translation>
+    </message>
+    <message>
+        <source>10000</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>9500</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>9000</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>8500</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>8000</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>7500</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>7000</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>6500</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>6000</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>5500</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>5000</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>4500</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>4000</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>3500</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>3000</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>2500</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>2000</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>1500</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>1000</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>950</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>900</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>850</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>800</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>750</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>700</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>650</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>600</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>550</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>500</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Cycles:</source>
+        <translation>Zyklus:</translation>
+    </message>
+    <message>
+        <source>auto</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>13000</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>12500</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>12000</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>11500</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>11000</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>10500</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Core:</source>
+        <translation>Core:</translation>
+    </message>
+    <message>
+        <source>simple</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>normal</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>full</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>dynamic</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Render</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Scaler:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>none</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>normal2x</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>normal3x</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>advmame2x</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>advmame3x</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>advinterp2x</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>advinterp3x</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>interp2x</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tv2x</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tv3x</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>rgb2x</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>rgb3x</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>scan2x</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>scan3x</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Do aspect correction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Aspect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Frameskip:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -39,38 +311,6 @@
     </message>
     <message>
         <source>Sensitivity:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Windowresolution:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>640x480</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>800x600</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>1024x768</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>1280x1024</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>1600x1200</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>2480x1600</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Full wight/height:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -83,6 +323,34 @@
     </message>
     <message>
         <source>Wait on Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Output:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>surface</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>overlay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>opengl</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>openglnb</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ddraw</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Focus/Unfocus</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -182,34 +450,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>surface</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>overlay</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>opengl</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>openglnb</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>ddraw</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Output:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Focus/Unfocus</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Full screen</source>
         <translation type="unfinished"></translation>
     </message>
@@ -222,263 +462,39 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Render</source>
+        <source>Wight x Height:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Frameskip:</source>
+        <source>original</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Scaler:</source>
+        <source>640x480</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Do aspect correction</source>
+        <source>800x600</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Aspect</source>
+        <source>1024x768</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>none</source>
+        <source>1280x1024</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>normal2x</source>
+        <source>1600x1200</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>normal3x</source>
+        <source>2480x1600</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>advmame2x</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>advmame3x</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>advinterp2x</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>interp2x</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>tv2x</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>tv3x</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>rgb2x</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>rgb3x</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>scan2x</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>scan3x</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>CPU</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Core:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cycles:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>normal</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>full</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>dynamic</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>10000</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>9500</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>9000</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>8500</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>8000</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>7500</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>7000</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>6500</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>6000</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>5500</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>5000</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>4500</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>4000</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>3500</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>3000</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>2500</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>2000</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>1500</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>1000</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>950</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>900</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>850</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>800</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>750</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>700</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>650</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>600</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>550</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>500</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cycledown:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cycleup:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>10</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>20</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>30</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>40</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>50</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>60</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>70</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>80</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>90</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>100</source>
+        <source>Windowres.:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -490,27 +506,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Rate:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Block Size:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Prebuffer:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>11050</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>22050</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>44100</source>
+        <source>No sound</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -526,7 +522,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>No sound</source>
+        <source>11050</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>22050</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>44100</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Block Size:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rate:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Prebuffer:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -534,15 +550,63 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Type:</source>
+        <source>HDMA:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>IRQ:</source>
+        <source>Base:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>OPL mode:</source>
+        <source>DMA:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>OPL Rate:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>3</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>5</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>220</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>240</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>cms</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>opl2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>dualopl2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>opl3</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>7</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>9</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -566,67 +630,15 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>5</source>
+        <source>Type:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>7</source>
+        <source>IRQ:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>9</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>auto</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>cms</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>opl2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>dualopl2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>opl3</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Base:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>DMA:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>HDMA:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>OPL Rate:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>220</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>240</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>3</source>
+        <source>OPL mode:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -634,19 +646,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Gus rate:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Gus Base:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>IRQ&apos;s:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>DMA&apos;s:</source>
+        <source>gus</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -654,11 +654,23 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>C:\ULTRASND</source>
+        <source>IRQ&apos;s:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>gus</source>
+        <source>Gus Base:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DMA&apos;s:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gus rate:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>C:\ULTRASND</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -666,7 +678,15 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Disney</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Speaker:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tandy:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -678,31 +698,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Tandy:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Disney</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Midi</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>MPU 401:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>uart</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>intelligent</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Device:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -726,6 +722,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>uart</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>intelligent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Device:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>MPU 401:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Config:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -738,11 +750,31 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>IPX</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Serial</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Default bps:</source>
+        <source> Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Option</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>COM Port:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -750,15 +782,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>9600</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>23</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>2</source>
+        <source>Real Port:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -778,11 +806,15 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>COM Port:</source>
+        <source>Default bps:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Real Port:</source>
+        <source>9600</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Parity:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -798,39 +830,15 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>8</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Parity:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Bytesize:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>8</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Stopbit:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Option</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>disabled</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>dummy</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>modem</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>directserial</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -850,47 +858,23 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source> Add</source>
+        <source>disabled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source> Remove</source>
+        <source>dummy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>IPX</source>
+        <source>modem</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>directserial</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>DOS &amp;&amp; BIOS</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>DOS</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>XMS</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>EMS</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>UMB:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>false</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>true</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>max</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -914,19 +898,35 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>DOS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>UMB:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>false</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>true</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>max</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>EMS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>XMS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>DosBox</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Language:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Captures:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Open the language file for dosbox</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -946,27 +946,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Machine:</source>
+        <source>Captures:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Memorysize:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>hercules</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>cga</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>tandy</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>vga</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -982,15 +966,35 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>128</source>
+        <source>hercules</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>256</source>
+        <source>cga</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>512</source>
+        <source>tandy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>pcjr</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>vga</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Machine:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Language:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open the language file for dosbox</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -998,19 +1002,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Label for device:</source>
+        <source> Update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Use label for CD/DVD ROM</source>
+        <source> Game</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Directory option:</source>
+        <source>CDROM/DVD:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>CDROM/DVD option:</source>
+        <source>Windows 2000/XP and Linux CD/DVD ROM</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Windows 98 CD/DVD ROM</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Directory:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1026,23 +1038,19 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Windows 2000/XP and Linux CD/DVD ROM</source>
+        <source>Use label for CD/DVD ROM</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Windows 98 CD/DVD ROM</source>
+        <source>Label for device:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source> Update</source>
+        <source>switch after dosbox is started to directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source> Game</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Directory for dosbox:</source>
+        <source>A</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1138,15 +1146,31 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Z</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Preferences</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Executable/DOSBox binary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DOSBox binary:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Gamedatabase</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide window if dosbox started</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>start Keymapper</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1162,79 +1186,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>start Keymapper</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Hide window if dosbox started</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Executable/DOSBox binary</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>DOSBox binary:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Log</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>About</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Author</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Developer:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Designer:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>(C)opyright:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>E-Mail:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>WWW:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Alexander Saal (aka ChMaster, LFreak or ChMaster|LFreak)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Alexander Saal</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message encoding="UTF-8">
-        <source>© &apos;2004 - 2006</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;/head&gt;&lt;body style=&quot; white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration: underline;&quot;&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#0000ff;&quot;&gt;alex.saal@gmx.de&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;/head&gt;&lt;body style=&quot; white-space: pre-wrap; font-family:Bitstream Vera Sans; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://chmaster.freeforge.net&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>License</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Thanks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1254,7 +1206,35 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>About</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source> &amp;Quit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gameprofile</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> &amp;Create</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alt+C</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> &amp;Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alt+R</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Gamewizard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1268,6 +1248,10 @@
     <message>
         <source>Cannot read file %1:
 %2.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Would you realy quit without save the changed settings?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1339,6 +1323,26 @@ If you click &apos;No&apos; only the profile from list will be removed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>DOSBox Version:  </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Can not add the same drive &apos;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&apos; to the list.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No directory was selected.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please enter a valid name for label.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>No item was selected.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1395,51 +1399,23 @@ If you click &apos;No&apos; only the profile from list will be removed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>advinterp3x</source>
+        <source>Create/Search application Directory ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>original</source>
+        <source>Create Directory </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>simple</source>
+        <source>Read Language settings ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>pcjr</source>
+        <source>Loading Profiles ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>DOSBox Version:  </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Search</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>A</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Would you realy quit without save the changed settings?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Can not add the same drive &apos;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&apos; to the list.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No directory was selected.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Please enter a valid name for label.</source>
+        <source>Starting GUI ...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1611,6 +1587,10 @@ If you click &apos;No&apos; only the profile from list will be removed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Please make sure you set the autoexec option for every profile right.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Not implemented yet!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1624,10 +1604,6 @@ If you click &apos;No&apos; only the profile from list will be removed.</source>
     </message>
     <message>
         <source>Unable to update the file %1: %2.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Please make sure you set the autoexec option for every profile right.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
