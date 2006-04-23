@@ -117,7 +117,9 @@
     </make>
   </kdevtrollproject>
   <kdevcppsupport>
-    <references/>
+    <references>
+      <pcs>Project Include</pcs>
+    </references>
     <codecompletion>
       <includeGlobalFunctions>true</includeGlobalFunctions>
       <includeTypes>true</includeTypes>
@@ -159,11 +161,11 @@
     <projectdoc>
       <docsystem>Doxygen-Dokumentation</docsystem>
       <docurl>dboxfe.tag</docurl>
-      <usermanualurl>/home/alex/project/dboxfe/doc/</usermanualurl>
+      <usermanualurl>/home/alex/project/dboxfe/doc</usermanualurl>
     </projectdoc>
   </kdevdocumentation>
   <ctagspart>
     <customArguments/>
-    <customTagfilePath>/home/alex/project/dboxfe/dboxfe-0.1.0/tags</customTagfilePath>
+    <customTagfilePath>/home/alex/project/dboxfe/tags</customTagfilePath>
   </ctagspart>
 </kdevelop>

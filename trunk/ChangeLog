@@ -10,8 +10,8 @@
 
 2006-04-12  Alexander Saal  <alex.saal@gmx.de>
 * ADD:		default setting (provide by dosbox self) if file not found and profile was created and selected
-* FIXED:	the problem with save settings (tow section not saved - bios and dos)
-* FIXED:	the problem, wrong parameter if you select on/of by pcspeaker
+* FIXED:		the problem with save settings (tow section not saved - bios and dos)
+* FIXED:		the problem, wrong parameter if you select on/of by pcspeaker
 * FIXED: 	the problem with default settings by UMB
 * UPDATE:	the language files
 * UPDATE:	the KDevelop Projectfile
@@ -22,7 +22,7 @@
 * ADD:		missing items in cycle, scaler combobox (dboxfe.ui)
 * ADD:		code for reading the config settings ... not complete... (it time to sleep for me) ;-)
 * ADD:		better handling for read autoexec section
-* FIXED:	the problem with dosbox start, wrong parameter
+* FIXED:		the problem with dosbox start, wrong parameter
 * REMOVED:	snapshot directory (dboxfe.ui)
 * REMOVED:	strip -s from pro file (i need debug info for debug dboxfe) :)
 		- it would be add in the final version
@@ -66,9 +66,9 @@
 * ADD:		to dosboxfe_wizard.cpp/h search-game code (beta) 
 * ADD:		Splashscreensource in main.cpp 
 * ADD:		new Logo dbfe.png to cvs, install dboxfe - this picture will be install in $KDEDIR/apps/dboxfe/pics 
-* FIXED:	downloading the version file is working now. if the (new) version ist greater than the specified version, the update button will be enabled, otherwise it is disable
-* FIXED:	Layout (too small)
-* FIXED:	many minor bugs and project cleanup ;) 
+* FIXED:		downloading the version file is working now. if the (new) version ist greater than the specified version, the update button will be enabled, otherwise it is disable
+* FIXED:		Layout (too small)
+* FIXED:		many minor bugs and project cleanup ;) 
 * CHANCHED:	GUI is more user friendly :) 
 * MOVED:	Preference to extra tab 
 * MOVED:	Gamedownload button to Preference tab 
@@ -134,8 +134,8 @@
 2004-07-27  Alexander Saal  <alex.saal@gmx.de>
 
  * ADD:		add to cvs src/adventure.h gprofile.h
-        	adventure.h -> decleration of game download
-        	gprofile.h -> decleration of DOSBox current or cvs version
+		adventure.h -> decleration of game download
+		gprofile.h -> decleration of DOSBox current or cvs version
  * ADD:     	examine version available src/dosboxfe.cpp
 
 2004-07-26  Alexander Saal  <alex.saal@gmx.de>
@@ -161,7 +161,7 @@
  * UPDATE:   	registercard misc ( more user friendly )
  * ADD:     	you can add a folder into the Autoexec ListBox (normal or as cdrom)
  * ADD:     	you can select a folder:
-         	snapdir
+		snapdir
       		autexecdir ( for mount in the DOSBox )
 
 2004-07-16  Alexander Saal  <alex.saal@gmx.de>

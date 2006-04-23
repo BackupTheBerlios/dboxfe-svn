@@ -1,22 +1,22 @@
 /***************************************************************************
- *   Copyright (C) 2006 by Alexander Saal                                  *
- *   alex.saal@gmx.de                                                      *
- *                                                                         *
- *   This program is free software; you can redistribute it and/or modify  *
- *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
- *   (at your option) any later version.                                   *
- *                                                                         *
- *   This program is distributed in the hope that it will be useful,       *
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
- *   GNU General Public License for more details.                          *
- *                                                                         *
- *   You should have received a copy of the GNU General Public License     *
- *   along with this program; if not, write to the                         *
- *   Free Software Foundation, Inc.,                                       *
- *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
- ***************************************************************************/
+*   Copyright (C) 2006 by Alexander Saal                                  *
+*   alex.saal@gmx.de                                                      *
+*                                                                         *
+*   This program is free software; you can redistribute it and/or modify  *
+*   it under the terms of the GNU General Public License as published by  *
+*   the Free Software Foundation; either version 2 of the License, or     *
+*   (at your option) any later version.                                   *
+*                                                                         *
+*   This program is distributed in the hope that it will be useful,       *
+*   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+*   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+*   GNU General Public License for more details.                          *
+*                                                                         *
+*   You should have received a copy of the GNU General Public License     *
+*   along with this program; if not, write to the                         *
+*   Free Software Foundation, Inc.,                                       *
+*   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+***************************************************************************/
 
 #include "dboxfe.h"
 #include "dboxfe_base.h"
@@ -34,19 +34,19 @@ QString DB_BASE::applicationDir() {
 }
 
 void DB_BASE::readConf( const QString &dbconf, DBoxFE* dbfe ) {
-    QSettings *getConf = new QSettings( dbconf, QSettings::IniFormat );
+    QSettings * getConf = new QSettings( dbconf, QSettings::IniFormat );
     getConf->beginGroup( "sdl" );
     dbfe->ui.chkBoxFullScreen->setChecked( getConf->value( "fullscreen" ).toBool() );
     dbfe->ui.chkBoxFullDouble->setChecked( getConf->value( "fulldouble" ).toBool() );
     dbfe->ui.chkBoxFullFixed->setChecked( getConf->value( "fullfixed" ).toBool() );
     int fullresolution = dbfe->ui.cbxFullWightHigh->findText( getConf->value( "fullresolution" ).toString() );
-    dbfe->ui.cbxFullWightHigh->setCurrentIndex(fullresolution);
+    dbfe->ui.cbxFullWightHigh->setCurrentIndex( fullresolution );
     int windowresolution = dbfe->ui.cbxWindowWightHigh->findText( getConf->value( "windowresolution" ).toString() );
-    dbfe->ui.cbxWindowWightHigh->setCurrentIndex(windowresolution);
+    dbfe->ui.cbxWindowWightHigh->setCurrentIndex( windowresolution );
     int priority = dbfe->ui.cbxFocusUnfocus->findText( getConf->value( "priority" ).toString() );
-    dbfe->ui.cbxFocusUnfocus->setCurrentIndex(priority);
+    dbfe->ui.cbxFocusUnfocus->setCurrentIndex( priority );
     int output = dbfe->ui.cbxOutout->findText( getConf->value( "output" ).toString() );
-    dbfe->ui.cbxOutout->setCurrentIndex(output);
+    dbfe->ui.cbxOutout->setCurrentIndex( output );
     dbfe->ui.chkBoxAutolock->setChecked( getConf->value( "autolock" ).toBool() );
     dbfe->ui.chkBoxWaitOnError->setChecked( getConf->value( "waitonerror" ).toBool() );
     dbfe->ui.chkBoxUseScanCode->setChecked( getConf->value( "usescancodes" ).toBool() );
@@ -59,11 +59,11 @@ void DB_BASE::readConf( const QString &dbconf, DBoxFE* dbfe ) {
     getConf->beginGroup( "dosbox" );
     dbfe->ui.LELanguage->setText( getConf->value( "language" ).toString() );
     int machine = dbfe->ui.cbxMachine->findText( getConf->value( "machine" ).toString() );
-    dbfe->ui.cbxMachine->setCurrentIndex(machine);
+    dbfe->ui.cbxMachine->setCurrentIndex( machine );
     int memsize = dbfe->ui.cbxMemsize->findText( getConf->value( "memsize" ).toString() );
-    dbfe->ui.cbxMemsize->setCurrentIndex(memsize);
+    dbfe->ui.cbxMemsize->setCurrentIndex( memsize );
     int captures = dbfe->ui.cbxCaptures->findText( getConf->value( "captures" ).toString() );
-    dbfe->ui.cbxCaptures->setCurrentIndex(captures);
+    dbfe->ui.cbxCaptures->setCurrentIndex( captures );
     getConf->endGroup();
 
     // Render settings
@@ -71,57 +71,57 @@ void DB_BASE::readConf( const QString &dbconf, DBoxFE* dbfe ) {
     dbfe->ui.lcdFS->display( getConf->value( "frameskip" ).toInt() );
     dbfe->ui.sliderFS->setValue( getConf->value( "frameskip" ).toInt() );
     int scaler = dbfe->ui.cbxScaler->findText( getConf->value( "scaler" ).toString() );
-    dbfe->ui.cbxScaler->setCurrentIndex(scaler);
+    dbfe->ui.cbxScaler->setCurrentIndex( scaler );
     dbfe->ui.chkBoxAspect->setChecked( getConf->value( "aspect" ).toBool() );
     getConf->endGroup();
 
     // CPU settings
     getConf->beginGroup( "cpu" );
     int core = dbfe->ui.cbxCPUCore->findText( getConf->value( "core" ).toString() );
-    dbfe->ui.cbxCPUCore->setCurrentIndex(core);
+    dbfe->ui.cbxCPUCore->setCurrentIndex( core );
     int cycles = dbfe->ui.cbxCPUCycles->findText( getConf->value( "cycles" ).toString() );
-    dbfe->ui.cbxCPUCycles->setCurrentIndex(cycles);
+    dbfe->ui.cbxCPUCycles->setCurrentIndex( cycles );
     int cycleup = dbfe->ui.cbxCPUCycleUp->findText( getConf->value( "cycleup" ).toString() );
-    dbfe->ui.cbxCPUCycleUp->setCurrentIndex(cycleup);
+    dbfe->ui.cbxCPUCycleUp->setCurrentIndex( cycleup );
     int cycledown = dbfe->ui.cbxCPUCycleDown->findText( getConf->value( "cycledown" ).toString() );
-    dbfe->ui.cbxCPUCycleDown->setCurrentIndex(cycledown);
+    dbfe->ui.cbxCPUCycleDown->setCurrentIndex( cycledown );
     getConf->endGroup();
 
     // Mixer settings
     getConf->beginGroup( "mixer" );
     dbfe->ui.chkBoxMixerNoSound->setChecked( getConf->value( "nosound" ).toBool() );
     int rate = dbfe->ui.cbxMixerRate->findText( getConf->value( "rate" ).toString() );
-    dbfe->ui.cbxMixerRate->setCurrentIndex(rate);
+    dbfe->ui.cbxMixerRate->setCurrentIndex( rate );
     int blocksize = dbfe->ui.cbxMixerBlockSize->findText( getConf->value( "blocksize" ).toString() );
-    dbfe->ui.cbxMixerBlockSize->setCurrentIndex(blocksize);
+    dbfe->ui.cbxMixerBlockSize->setCurrentIndex( blocksize );
     dbfe->ui.spBoxPrebuffer->setValue( getConf->value( "prebuffer" ).toInt() );
     getConf->endGroup();
 
     // Mdi settings
     getConf->beginGroup( "midi" );
     int mpu = dbfe->ui.cbxMDIMPU->findText( getConf->value( "mpu401" ).toString() );
-    dbfe->ui.cbxMDIMPU->setCurrentIndex(mpu);
+    dbfe->ui.cbxMDIMPU->setCurrentIndex( mpu );
     int device = dbfe->ui.cbxMDIDevice->findText( getConf->value( "device" ).toString() );
-    dbfe->ui.cbxMDIDevice->setCurrentIndex(device);
+    dbfe->ui.cbxMDIDevice->setCurrentIndex( device );
     dbfe->ui.LEMDIConfig->setText( getConf->value( "config" ).toString() );
     getConf->endGroup();
 
     // Soundblaster settings
     getConf->beginGroup( "sblaster" );
     int sbtype = dbfe->ui.cbxSBType->findText( getConf->value( "sbtype" ).toString() );
-    dbfe->ui.cbxSBType->setCurrentIndex(sbtype);
+    dbfe->ui.cbxSBType->setCurrentIndex( sbtype );
     int sbbase = dbfe->ui.cbxSBBase->findText( getConf->value( "sbbase" ).toString() );
-    dbfe->ui.cbxSBBase->setCurrentIndex(sbbase);
+    dbfe->ui.cbxSBBase->setCurrentIndex( sbbase );
     int irq = dbfe->ui.cbxSBIRQ->findText( getConf->value( "irq" ).toString() );
-    dbfe->ui.cbxSBIRQ->setCurrentIndex(irq);
+    dbfe->ui.cbxSBIRQ->setCurrentIndex( irq );
     int dma = dbfe->ui.cbxSBDMA->findText( getConf->value( "dma" ).toString() );
-    dbfe->ui.cbxSBDMA->setCurrentIndex(dma);
+    dbfe->ui.cbxSBDMA->setCurrentIndex( dma );
     int hdma = dbfe->ui.cbxSBHDMA->findText( getConf->value( "hdma" ).toString() );
-    dbfe->ui.cbxSBHDMA->setCurrentIndex(hdma);
+    dbfe->ui.cbxSBHDMA->setCurrentIndex( hdma );
     int oplrate = dbfe->ui.cbxSBOPLRate->findText( getConf->value( "oplrate" ).toString() );
-    dbfe->ui.cbxSBOPLRate->setCurrentIndex(oplrate);
+    dbfe->ui.cbxSBOPLRate->setCurrentIndex( oplrate );
     int oplmode = dbfe->ui.cbxSBOplMode->findText( getConf->value( "oplmode" ).toString() );
-    dbfe->ui.cbxSBOplMode->setCurrentIndex(oplmode);
+    dbfe->ui.cbxSBOplMode->setCurrentIndex( oplmode );
     dbfe->ui.chkBoxSBMixer->setChecked( getConf->value( "mixer" ).toBool() );
     getConf->endGroup();
 
@@ -129,40 +129,40 @@ void DB_BASE::readConf( const QString &dbconf, DBoxFE* dbfe ) {
     getConf->beginGroup( "gus" );
     dbfe->ui.chkBoxGUS->setChecked( getConf->value( "gus" ).toBool() );
     int gusrate = dbfe->ui.cbxGUSRate->findText( getConf->value( "gusrate" ).toString() );
-    dbfe->ui.cbxGUSRate->setCurrentIndex(gusrate);
+    dbfe->ui.cbxGUSRate->setCurrentIndex( gusrate );
     int gusbase = dbfe->ui.cbxGUSBase->findText( getConf->value( "gusbase" ).toString() );
-    dbfe->ui.cbxGUSBase->setCurrentIndex(gusbase);
+    dbfe->ui.cbxGUSBase->setCurrentIndex( gusbase );
     int irq1 = dbfe->ui.cbxGUSIrq_1->findText( getConf->value( "irq1" ).toString() );
-    dbfe->ui.cbxGUSIrq_1->setCurrentIndex(irq1);
+    dbfe->ui.cbxGUSIrq_1->setCurrentIndex( irq1 );
     int irq2 = dbfe->ui.cbxGUSIrq_2->findText( getConf->value( "irq2" ).toString() );
-    dbfe->ui.cbxGUSIrq_2->setCurrentIndex(irq2);
+    dbfe->ui.cbxGUSIrq_2->setCurrentIndex( irq2 );
     int dma1 = dbfe->ui.cbxGUSDMA_1->findText( getConf->value( "dma1" ).toString() );
-    dbfe->ui.cbxGUSDMA_1->setCurrentIndex(dma1);
+    dbfe->ui.cbxGUSDMA_1->setCurrentIndex( dma1 );
     int dma2 = dbfe->ui.cbxGUSDMA_2->findText( getConf->value( "dma2" ).toString() );
-    dbfe->ui.cbxGUSDMA_2->setCurrentIndex(dma2);
+    dbfe->ui.cbxGUSDMA_2->setCurrentIndex( dma2 );
     dbfe->ui.LEGUSUltraDir->setText( getConf->value( "ultradir" ).toString() );
     getConf->endGroup();
 
     // PC Speaker settings
     getConf->beginGroup( "speaker" );
-    if( getConf->value( "pcspeaker" ).toString() == "true" )
-	dbfe->ui.cbxSpeaker->setCurrentIndex(0);
+    if ( getConf->value( "pcspeaker" ).toString() == "true" )
+        dbfe->ui.cbxSpeaker->setCurrentIndex( 0 );
     else
-	dbfe->ui.cbxSpeaker->setCurrentIndex(1);
-    
+        dbfe->ui.cbxSpeaker->setCurrentIndex( 1 );
+
     int pcrate = dbfe->ui.cbxSpeakerRate->findText( getConf->value( "pcrate" ).toString() );
-    dbfe->ui.cbxSpeakerRate->setCurrentIndex(pcrate);
+    dbfe->ui.cbxSpeakerRate->setCurrentIndex( pcrate );
     int tandy = dbfe->ui.cbxSpeakerTandy->findText( getConf->value( "tandy" ).toString() );
-    dbfe->ui.cbxSpeakerTandy->setCurrentIndex(tandy);
+    dbfe->ui.cbxSpeakerTandy->setCurrentIndex( tandy );
     int tandyrate = dbfe->ui.cbxSpeakerTandyRate->findText( getConf->value( "tandyrate" ).toString() );
-    dbfe->ui.cbxSpeakerTandyRate->setCurrentIndex(tandyrate);
+    dbfe->ui.cbxSpeakerTandyRate->setCurrentIndex( tandyrate );
     dbfe->ui.chkBoxDisney->setChecked( getConf->value( "disney" ).toBool() );
     getConf->endGroup();
-    
+
     // BIOS settings
     getConf->beginGroup( "bios" );
     int joysticktype = dbfe->ui.cbxJoystickType->findText( getConf->value( "joysticktype" ).toString() );
-    dbfe->ui.cbxJoystickType->setCurrentIndex(joysticktype);
+    dbfe->ui.cbxJoystickType->setCurrentIndex( joysticktype );
     getConf->endGroup();
 
     // Serial settings
@@ -187,21 +187,21 @@ void DB_BASE::readConf( const QString &dbconf, DBoxFE* dbfe ) {
     dbfe->ui.chkBoxXMS->setChecked( getConf->value( "xms" ).toBool() );
     dbfe->ui.chkBoxEMS->setChecked( getConf->value( "ems" ).toBool() );
     int umb = dbfe->ui.cbxUMB->findText( getConf->value( "umb" ).toString() );
-    dbfe->ui.cbxUMB->setCurrentIndex(umb);
+    dbfe->ui.cbxUMB->setCurrentIndex( umb );
     getConf->endGroup();
-    
+
     // IPX settings
     getConf->beginGroup( "ipx" );
     dbfe->ui.chkBoxIPX->setChecked( getConf->value( "ipx" ).toBool() );
     getConf->endGroup();
-    
-    
+
+
     // Autoexec settings
     QFile f( dbconf );
 
     if ( !f.open( QIODevice::ReadOnly | QIODevice::Text ) ) {
         delete getConf;
-        return;
+        return ;
     }
 
     QTextStream in( &f );
@@ -209,13 +209,13 @@ void DB_BASE::readConf( const QString &dbconf, DBoxFE* dbfe ) {
 
     dbfe->ui.lwAutoexec->clear();
 
-    while( !in.atEnd() ) {
+    while ( !in.atEnd() ) {
         line = in.readLine();
-        if( line == "[autoexec]" ) {
-            while( !in.atEnd() ) {
+        if ( line == "[autoexec]" ) {
+            while ( !in.atEnd() ) {
                 line = in.readLine();
                 QListWidgetItem *autoexec = new QListWidgetItem( dbfe->ui.lwAutoexec );
-                autoexec->setText(line);
+                autoexec->setText( line );
             }
         }
     }
@@ -225,7 +225,7 @@ void DB_BASE::readConf( const QString &dbconf, DBoxFE* dbfe ) {
 }
 
 void DB_BASE::saveConf( const QString &dbconf, DBoxFE* dbfe ) {
-    QSettings *settConf = new QSettings( dbconf, QSettings::IniFormat );
+    QSettings * settConf = new QSettings( dbconf, QSettings::IniFormat );
     // SDL settings
     settConf->beginGroup( "sdl" );
     settConf->setValue( "fullscreen", dbfe->ui.chkBoxFullScreen->isChecked() );
@@ -243,7 +243,7 @@ void DB_BASE::saveConf( const QString &dbconf, DBoxFE* dbfe ) {
     settConf->setValue( "mapperfile", "mapper.txt" );
     settConf->setValue( "usescancodes", dbfe->ui.chkBoxUseScanCode->isChecked() );
     settConf->endGroup();
-    
+
     // DOSBox settings
     settConf->beginGroup( "dosbox" );
     settConf->setValue( "language", dbfe->ui.LELanguage->text() );
@@ -269,20 +269,20 @@ void DB_BASE::saveConf( const QString &dbconf, DBoxFE* dbfe ) {
 
     // Mixer settings
     settConf->beginGroup( "mixer" );
-    settConf->setValue( "nosound",  dbfe->ui.chkBoxMixerNoSound->isChecked() );
-    settConf->setValue( "rate",  dbfe->ui.cbxMixerRate->currentText() );
-    settConf->setValue( "blocksize",  dbfe->ui.cbxMixerBlockSize->currentText() );
-    settConf->setValue( "prebuffer",  dbfe->ui.spBoxPrebuffer->value() );
+    settConf->setValue( "nosound", dbfe->ui.chkBoxMixerNoSound->isChecked() );
+    settConf->setValue( "rate", dbfe->ui.cbxMixerRate->currentText() );
+    settConf->setValue( "blocksize", dbfe->ui.cbxMixerBlockSize->currentText() );
+    settConf->setValue( "prebuffer", dbfe->ui.spBoxPrebuffer->value() );
     settConf->endGroup();
 
     // Mdi settings
     settConf->beginGroup( "midi" );
     settConf->setValue( "mpu401", dbfe->ui.cbxMDIMPU->currentText() );
-    settConf->setValue( "device", dbfe->ui.cbxMDIDevice->currentText() );    
-    if( !dbfe->ui.LEMDIConfig->text().isEmpty() ) {
-	settConf->setValue( "config", dbfe->ui.LEMDIConfig->text() );
+    settConf->setValue( "device", dbfe->ui.cbxMDIDevice->currentText() );
+    if ( !dbfe->ui.LEMDIConfig->text().isEmpty() ) {
+        settConf->setValue( "config", dbfe->ui.LEMDIConfig->text() );
     } else {
-	settConf->setValue( "config", "" );
+        settConf->setValue( "config", "" );
     }
     settConf->endGroup();
 
@@ -312,11 +312,11 @@ void DB_BASE::saveConf( const QString &dbconf, DBoxFE* dbfe ) {
 
     // PC Speaker settings
     settConf->beginGroup( "speaker" );
-    if( dbfe->ui.cbxSpeaker->currentText() == "on" )
-	settConf->setValue( "pcspeaker", "true" );
+    if ( dbfe->ui.cbxSpeaker->currentText() == "on" )
+        settConf->setValue( "pcspeaker", "true" );
     else
-	settConf->setValue( "pcspeaker", "false" );
-    
+        settConf->setValue( "pcspeaker", "false" );
+
     settConf->setValue( "pcrate", dbfe->ui.cbxSpeakerRate->currentText() );
     settConf->setValue( "tandy", dbfe->ui.cbxSpeakerTandy->currentText() );
     settConf->setValue( "tandyrate", dbfe->ui.cbxSpeakerTandyRate->currentText() );
@@ -327,15 +327,15 @@ void DB_BASE::saveConf( const QString &dbconf, DBoxFE* dbfe ) {
     settConf->beginGroup( "bios" );
     settConf->setValue( "joysticktype", dbfe->ui.cbxJoystickType->currentText() );
     settConf->endGroup();
-    
+
     // Serial settings
     settConf->beginGroup( "serial" );
     for ( int i = 0; i < dbfe->ui.twSerial->topLevelItemCount(); i++ ) {
-        QTreeWidgetItem *item =  dbfe->ui.twSerial->topLevelItem( i );
+        QTreeWidgetItem *item = dbfe->ui.twSerial->topLevelItem( i );
         settConf->setValue( item->text( 0 ), item->text( 1 ) );
     }
 
-    if( dbfe->ui.twSerial->topLevelItemCount() <= 0 ) {
+    if ( dbfe->ui.twSerial->topLevelItemCount() <= 0 ) {
         settConf->setValue( "serial1", "dummy" );
         settConf->setValue( "serial2", "dummy" );
         settConf->setValue( "serial3", "disabled" );
@@ -349,7 +349,7 @@ void DB_BASE::saveConf( const QString &dbconf, DBoxFE* dbfe ) {
     settConf->setValue( "ems", dbfe->ui.chkBoxEMS->isChecked() );
     settConf->setValue( "umb", dbfe->ui.cbxUMB->currentText() );
     settConf->endGroup();
-    
+
     // IPX settings
     settConf->beginGroup( "ipx" );
     settConf->setValue( "ipx", dbfe->ui.chkBoxIPX->isChecked() );
@@ -362,14 +362,14 @@ void DB_BASE::saveConf( const QString &dbconf, DBoxFE* dbfe ) {
 
     if ( !f.open( QFile::Append | QFile::WriteOnly ) ) {
         delete settConf;
-        return;
+        return ;
     }
 
     QTextStream t( &f );
     t << "\n[autoexec]\n";
 
-    for( int q = 0; q < dbfe->ui.lwAutoexec->count(); q++ ) {
-        t << dbfe->ui.lwAutoexec->item( q )->text() << "\n";
+    for ( int q = 0; q < dbfe->ui.lwAutoexec->count(); q++ ) {
+        t << dbfe->ui.lwAutoexec->item( q ) ->text() << "\n";
     }
 
     t.flush();
@@ -379,144 +379,144 @@ void DB_BASE::saveConf( const QString &dbconf, DBoxFE* dbfe ) {
 
 }
 
-void DB_BASE::defaultSettings( DBoxFE* dbfe ){
-    qDebug() << QObject::tr("Set dafault settings, based on dosbox default settings .... [sdl]");
+void DB_BASE::defaultSettings( DBoxFE* dbfe ) {
+    qDebug() << QObject::tr( "Set dafault settings, based on dosbox default settings .... [sdl]" );
 
     dbfe->ui.chkBoxFullScreen->setChecked( false );
     dbfe->ui.chkBoxFullDouble->setChecked( false );
     dbfe->ui.chkBoxFullFixed->setChecked( false );
     int fullresolution = dbfe->ui.cbxFullWightHigh->findText( "original" );
-    dbfe->ui.cbxFullWightHigh->setCurrentIndex(fullresolution);
-    
+    dbfe->ui.cbxFullWightHigh->setCurrentIndex( fullresolution );
+
     int windowresolution = dbfe->ui.cbxWindowWightHigh->findText( "original" );
-    dbfe->ui.cbxWindowWightHigh->setCurrentIndex(windowresolution);
-    
+    dbfe->ui.cbxWindowWightHigh->setCurrentIndex( windowresolution );
+
     int priority = dbfe->ui.cbxFocusUnfocus->findText( "higher,normal" );
-    dbfe->ui.cbxFocusUnfocus->setCurrentIndex(priority);
-    
+    dbfe->ui.cbxFocusUnfocus->setCurrentIndex( priority );
+
     int output = dbfe->ui.cbxOutout->findText( "surface" );
-    dbfe->ui.cbxOutout->setCurrentIndex(output);
-    
+    dbfe->ui.cbxOutout->setCurrentIndex( output );
+
     dbfe->ui.chkBoxAutolock->setChecked( true );
     dbfe->ui.chkBoxWaitOnError->setChecked( true );
     dbfe->ui.chkBoxUseScanCode->setChecked( true );
     dbfe->ui.lcdSV->display( 100 );
     dbfe->ui.sliderSV->setValue( 100 );
 
-    qDebug() << QObject::tr("Set dafault settings, based on dosbox default settings .... [dosbox]");
+    qDebug() << QObject::tr( "Set dafault settings, based on dosbox default settings .... [dosbox]" );
     // DOSBox settings
     dbfe->ui.LELanguage->setText( "" );
-    
+
     int machine = dbfe->ui.cbxMachine->findText( "vga" );
-    dbfe->ui.cbxMachine->setCurrentIndex(machine);
-    
+    dbfe->ui.cbxMachine->setCurrentIndex( machine );
+
     int memsize = dbfe->ui.cbxMemsize->findText( "16" );
-    dbfe->ui.cbxMemsize->setCurrentIndex(memsize);
-    
+    dbfe->ui.cbxMemsize->setCurrentIndex( memsize );
+
     int captures = dbfe->ui.cbxCaptures->findText( "capture" );
-    dbfe->ui.cbxCaptures->setCurrentIndex(captures);
+    dbfe->ui.cbxCaptures->setCurrentIndex( captures );
 
 
-    qDebug() << QObject::tr("Set dafault settings, based on dosbox default settings .... [render]");
+    qDebug() << QObject::tr( "Set dafault settings, based on dosbox default settings .... [render]" );
     // Render settings
     dbfe->ui.lcdFS->display( 0 );
     dbfe->ui.sliderFS->setValue( 0 );
-    
+
     int scaler = dbfe->ui.cbxScaler->findText( "normal2x" );
-    dbfe->ui.cbxScaler->setCurrentIndex(scaler);
-    
+    dbfe->ui.cbxScaler->setCurrentIndex( scaler );
+
     dbfe->ui.chkBoxAspect->setChecked( false );
-    
-    qDebug() << QObject::tr("Set dafault settings, based on dosbox default settings .... [cpu]");
+
+    qDebug() << QObject::tr( "Set dafault settings, based on dosbox default settings .... [cpu]" );
     // CPU settings
     int core = dbfe->ui.cbxCPUCore->findText( "normal" );
-    dbfe->ui.cbxCPUCore->setCurrentIndex(core);
-    
+    dbfe->ui.cbxCPUCore->setCurrentIndex( core );
+
     int cycles = dbfe->ui.cbxCPUCycles->findText( "3000" );
-    dbfe->ui.cbxCPUCycles->setCurrentIndex(cycles);
-    
+    dbfe->ui.cbxCPUCycles->setCurrentIndex( cycles );
+
     int cycleup = dbfe->ui.cbxCPUCycleUp->findText( "500" );
-    dbfe->ui.cbxCPUCycleUp->setCurrentIndex(cycleup);
-    
+    dbfe->ui.cbxCPUCycleUp->setCurrentIndex( cycleup );
+
     int cycledown = dbfe->ui.cbxCPUCycleDown->findText( "20" );
-    dbfe->ui.cbxCPUCycleDown->setCurrentIndex(cycledown);
+    dbfe->ui.cbxCPUCycleDown->setCurrentIndex( cycledown );
 
 
-    qDebug() << QObject::tr("Set dafault settings, based on dosbox default settings .... [mixer]");
+    qDebug() << QObject::tr( "Set dafault settings, based on dosbox default settings .... [mixer]" );
     // Mixer settings
     dbfe->ui.chkBoxMixerNoSound->setChecked( false );
     int rate = dbfe->ui.cbxMixerRate->findText( "22050" );
-    dbfe->ui.cbxMixerRate->setCurrentIndex(rate);
+    dbfe->ui.cbxMixerRate->setCurrentIndex( rate );
     int blocksize = dbfe->ui.cbxMixerBlockSize->findText( "2048" );
-    dbfe->ui.cbxMixerBlockSize->setCurrentIndex(blocksize);
+    dbfe->ui.cbxMixerBlockSize->setCurrentIndex( blocksize );
     dbfe->ui.spBoxPrebuffer->setValue( 10 );
 
-    qDebug() << QObject::tr("Set dafault settings, based on dosbox default settings .... [mdi]");
+    qDebug() << QObject::tr( "Set dafault settings, based on dosbox default settings .... [mdi]" );
     // Mdi settings
     int mpu = dbfe->ui.cbxMDIMPU->findText( "intelligent" );
-    dbfe->ui.cbxMDIMPU->setCurrentIndex(mpu);
-    
+    dbfe->ui.cbxMDIMPU->setCurrentIndex( mpu );
+
     int device = dbfe->ui.cbxMDIDevice->findText( "default" );
-    dbfe->ui.cbxMDIDevice->setCurrentIndex(device);
-    
+    dbfe->ui.cbxMDIDevice->setCurrentIndex( device );
+
     dbfe->ui.LEMDIConfig->setText( "" );
 
-    qDebug() << QObject::tr("Set dafault settings, based on dosbox default settings .... [sblaster]");
+    qDebug() << QObject::tr( "Set dafault settings, based on dosbox default settings .... [sblaster]" );
     // Soundblaster settings
     int sbtype = dbfe->ui.cbxSBType->findText( "sb16" );
-    dbfe->ui.cbxSBType->setCurrentIndex(sbtype);    
-    int sbbase = dbfe->ui.cbxSBBase->findText("220" );
-    dbfe->ui.cbxSBBase->setCurrentIndex(sbbase);    
+    dbfe->ui.cbxSBType->setCurrentIndex( sbtype );
+    int sbbase = dbfe->ui.cbxSBBase->findText( "220" );
+    dbfe->ui.cbxSBBase->setCurrentIndex( sbbase );
     int irq = dbfe->ui.cbxSBIRQ->findText( "7" );
-    dbfe->ui.cbxSBIRQ->setCurrentIndex(irq);    
+    dbfe->ui.cbxSBIRQ->setCurrentIndex( irq );
     int dma = dbfe->ui.cbxSBDMA->findText( "1" );
-    dbfe->ui.cbxSBDMA->setCurrentIndex(dma);    
+    dbfe->ui.cbxSBDMA->setCurrentIndex( dma );
     int hdma = dbfe->ui.cbxSBHDMA->findText( "5" );
-    dbfe->ui.cbxSBHDMA->setCurrentIndex(hdma);    
+    dbfe->ui.cbxSBHDMA->setCurrentIndex( hdma );
     int oplrate = dbfe->ui.cbxSBOPLRate->findText( "22050" );
-    dbfe->ui.cbxSBOPLRate->setCurrentIndex(oplrate);    
+    dbfe->ui.cbxSBOPLRate->setCurrentIndex( oplrate );
     int oplmode = dbfe->ui.cbxSBOplMode->findText( "auto" );
-    dbfe->ui.cbxSBOplMode->setCurrentIndex(oplmode);
-    
+    dbfe->ui.cbxSBOplMode->setCurrentIndex( oplmode );
+
     dbfe->ui.chkBoxSBMixer->setChecked( true );
 
 
-    qDebug() << QObject::tr("Set dafault settings, based on dosbox default settings .... [gus]");
+    qDebug() << QObject::tr( "Set dafault settings, based on dosbox default settings .... [gus]" );
     // GUS settings
     dbfe->ui.chkBoxGUS->setChecked( true );
     int gusrate = dbfe->ui.cbxGUSRate->findText( "22050" );
-    dbfe->ui.cbxGUSRate->setCurrentIndex(gusrate);
+    dbfe->ui.cbxGUSRate->setCurrentIndex( gusrate );
     int gusbase = dbfe->ui.cbxGUSBase->findText( "240" );
-    dbfe->ui.cbxGUSBase->setCurrentIndex(gusbase);
+    dbfe->ui.cbxGUSBase->setCurrentIndex( gusbase );
     int irq1 = dbfe->ui.cbxGUSIrq_1->findText( "5" );
-    dbfe->ui.cbxGUSIrq_1->setCurrentIndex(irq1);
+    dbfe->ui.cbxGUSIrq_1->setCurrentIndex( irq1 );
     int irq2 = dbfe->ui.cbxGUSIrq_2->findText( "5" );
-    dbfe->ui.cbxGUSIrq_2->setCurrentIndex(irq2);
+    dbfe->ui.cbxGUSIrq_2->setCurrentIndex( irq2 );
     int dma1 = dbfe->ui.cbxGUSDMA_1->findText( "3" );
-    dbfe->ui.cbxGUSDMA_1->setCurrentIndex(dma1);
+    dbfe->ui.cbxGUSDMA_1->setCurrentIndex( dma1 );
     int dma2 = dbfe->ui.cbxGUSDMA_2->findText( "3" );
-    dbfe->ui.cbxGUSDMA_2->setCurrentIndex(dma2);
+    dbfe->ui.cbxGUSDMA_2->setCurrentIndex( dma2 );
     dbfe->ui.LEGUSUltraDir->setText( "C:\\ULTRASND" );
 
 
-    qDebug() << QObject::tr("Set dafault settings, based on dosbox default settings .... [speaker]");
+    qDebug() << QObject::tr( "Set dafault settings, based on dosbox default settings .... [speaker]" );
     // PC Speaker settings
     int pcspeaker = dbfe->ui.cbxSpeaker->findText( "on" );
-    dbfe->ui.cbxSpeaker->setCurrentIndex(pcspeaker);
+    dbfe->ui.cbxSpeaker->setCurrentIndex( pcspeaker );
     int pcrate = dbfe->ui.cbxSpeakerRate->findText( "22050" );
-    dbfe->ui.cbxSpeakerRate->setCurrentIndex(pcrate);
+    dbfe->ui.cbxSpeakerRate->setCurrentIndex( pcrate );
     int tandy = dbfe->ui.cbxSpeakerTandy->findText( "auto" );
-    dbfe->ui.cbxSpeakerTandy->setCurrentIndex(tandy);
+    dbfe->ui.cbxSpeakerTandy->setCurrentIndex( tandy );
     int tandyrate = dbfe->ui.cbxSpeakerTandyRate->findText( "22050" );
-    dbfe->ui.cbxSpeakerTandyRate->setCurrentIndex(tandyrate);
+    dbfe->ui.cbxSpeakerTandyRate->setCurrentIndex( tandyrate );
     dbfe->ui.chkBoxDisney->setChecked( true );
-    
-    qDebug() << QObject::tr("Set dafault settings, based on dosbox default settings .... [bios]");
+
+    qDebug() << QObject::tr( "Set dafault settings, based on dosbox default settings .... [bios]" );
     // BIOS settings
     int joysticktype = dbfe->ui.cbxJoystickType->findText( "2axis" );
-    dbfe->ui.cbxJoystickType->setCurrentIndex(joysticktype);
-    
-    qDebug() << QObject::tr("Set dafault settings, based on dosbox default settings .... [serial]");
+    dbfe->ui.cbxJoystickType->setCurrentIndex( joysticktype );
+
+    qDebug() << QObject::tr( "Set dafault settings, based on dosbox default settings .... [serial]" );
     // Serial settings
     dbfe->ui.twSerial->clear();
     QTreeWidgetItem *serial1 = new QTreeWidgetItem( dbfe->ui.twSerial );
@@ -531,16 +531,16 @@ void DB_BASE::defaultSettings( DBoxFE* dbfe ){
     QTreeWidgetItem *serial4 = new QTreeWidgetItem( dbfe->ui.twSerial );
     serial4->setText( 0, "serial4" );
     serial4->setText( 1, "disabled" );
-    
-    qDebug() << QObject::tr("Set dafault settings, based on dosbox default settings .... [dos]");
+
+    qDebug() << QObject::tr( "Set dafault settings, based on dosbox default settings .... [dos]" );
     // DOS settings
     dbfe->ui.chkBoxXMS->setChecked( true );
     dbfe->ui.chkBoxEMS->setChecked( true );
     int umb = dbfe->ui.cbxUMB->findText( "true" );
-    dbfe->ui.cbxUMB->setCurrentIndex(umb);
+    dbfe->ui.cbxUMB->setCurrentIndex( umb );
 }
-    
-void DB_BASE::findGames( const QString &dirName, QListWidget* qlw ) {
+
+void DB_BASE::findGames( const QString &dirName, QTreeWidget* qtw ) {
     QDir dir( dirName );
 
     m_file = QDir::homePath();
@@ -552,7 +552,7 @@ void DB_BASE::findGames( const QString &dirName, QListWidget* qlw ) {
 
     gameList = games.getStringList( "Games", "Name" );
 
-    const QFileInfoList fil = dir.entryInfoList(QDir::Files | QDir::Dirs, QDir::Name);
+    const QFileInfoList fil = dir.entryInfoList( QDir::Files | QDir::Dirs, QDir::Name );
     QListIterator<QFileInfo> it( fil );
     QStringList lst;
 
@@ -563,12 +563,15 @@ void DB_BASE::findGames( const QString &dirName, QListWidget* qlw ) {
             ;
         else {
             if ( fi.isDir() && fi.isReadable() )
-                findGames( fi.absoluteFilePath(), qlw );
+                findGames( fi.absoluteFilePath(), qtw );
             else {
-                for( int i = 0; i < gameList.size(); ++i ) {
-                    lst = gameList[i].split(";");
-                    if( fi.fileName() == lst.value(1) )
-                        qlw->addItem( lst.value(0) );
+                for ( int i = 0; i < gameList.size(); ++i ) {
+                    lst = gameList[ i ].split( ";" );
+                    if ( fi.fileName() == lst.value( 1 ) ) {
+                        QTreeWidgetItem * item = new QTreeWidgetItem( qtw );
+                        item->setText( 0, lst.value( 0 ) );
+                        item->setText( 1, fi.absolutePath() );
+                    }
                 }
             }
         }
@@ -578,9 +581,9 @@ void DB_BASE::findGames( const QString &dirName, QListWidget* qlw ) {
 void DB_BASE::findDosbox( const QString &dirName, QProgressBar *pBar, QStringList &lstBinary ) {
     QDir dir( dirName );
 
-    const QFileInfoList fil = dir.entryInfoList(QDir::Files | QDir::Dirs, QDir::Name);
+    const QFileInfoList fil = dir.entryInfoList( QDir::Files | QDir::Dirs, QDir::Name );
     QListIterator<QFileInfo> it( fil );
-    
+
     while ( it.hasNext() ) {
         fi = it.next();
 
@@ -589,19 +592,19 @@ void DB_BASE::findDosbox( const QString &dirName, QProgressBar *pBar, QStringLis
         else {
             if ( fi.isDir() && fi.isReadable() ) {
                 findDosbox( fi.absoluteFilePath(), pBar, lstBinary );
-	    } else {
-                if( fi.fileName() == "dosbox" ) {
-                    lstBinary <<  fi.fileName() + ";" + fi.absolutePath();
+            } else {
+                if ( fi.fileName() == "dosbox" ) {
+                    lstBinary << fi.fileName() + ";" + fi.absolutePath();
                 }
-		pBar->setValue( state += 1 );
-		pBar->update();
-		pBar->repaint();
-		_dbfe_->update();
-		_dbfe_->repaint();
+                pBar->setValue( state += 1 );
+                pBar->update();
+                pBar->repaint();
+                _dbfe_->update();
+                _dbfe_->repaint();
             }
         }
     }
-    
+
     pBar->setValue( 0 );
 }
 
@@ -623,22 +626,22 @@ void DB_BASE::createGameProfiles( const QString &file, const QStringList &gamesL
 
     fileName = ":/default/default.conf";
 
-    QFile readFile(fileName);
-    if( !readFile.open(QIODevice::ReadOnly | QIODevice::Text )) {
-        return;
+    QFile readFile( fileName );
+    if ( !readFile.open( QIODevice::ReadOnly | QIODevice::Text ) ) {
+        return ;
     }
 
     QTextStream in( &readFile );
     QString line = in.readAll();
     readFile.close();
-    for( int x= 0; x < gamesList.size(); ++x ) {
+    for ( int x = 0; x < gamesList.size(); ++x ) {
         fileName = "";
         fileName = QDir::homePath();
-        fileName.append( "/.dboxfe/" + gamesList.value(x) + ".conf" );
+        fileName.append( "/.dboxfe/" + gamesList.value( x ) + ".conf" );
 
         createFile = new QFile( fileName );
-        if( !createFile->open(QIODevice::WriteOnly | QIODevice::Text )) {
-	    return;
+        if ( !createFile->open( QIODevice::WriteOnly | QIODevice::Text ) ) {
+            return ;
         }
 
         QTextStream out( createFile );
@@ -646,7 +649,7 @@ void DB_BASE::createGameProfiles( const QString &file, const QStringList &gamesL
         out.flush();
     }
     createFile->close();
-    line="";
+    line = "";
 }
 
 /*
@@ -664,7 +667,7 @@ void DB_BASE::insertGameInToDb( const QString &name, const QString &executable, 
  * Returns current count of games
  */
 int DB_BASE::removeGameFromDb( QTreeWidget* qtw ) {
-    if( qtw->currentItem() != NULL )
+    if ( qtw->currentItem() != NULL )
         delete qtw->currentItem();
     return qtw->topLevelItemCount();
 }
@@ -677,7 +680,7 @@ void DB_BASE::saveGameDb( const QString &file, QTreeWidget* qtw, int col1, int c
     games.setVersion( "v0.1.0" );
 
     for ( int i = 0; i < qtw->topLevelItemCount(); ++i ) {
-        QTreeWidgetItem *item =  qtw->topLevelItem( i );
+        QTreeWidgetItem *item = qtw->topLevelItem( i );
         gamesList.append( item->text( col1 ) + ";" + item->text( col2 ) );
     }
 
@@ -690,15 +693,15 @@ void DB_BASE::saveGameDb( const QString &file, QTreeWidget* qtw, int col1, int c
 void DB_BASE::readGameDb( const QString &file, QTreeWidget* qtw ) {
     XMLPreferences games( "DBoxFE", "Alexander Saal" );
     games.setVersion( "v0.1.0" );
-    games.load( file);
+    games.load( file );
     gamesList = games.getStringList( "Games", "Name" );
 
     QStringList lst;
 
-    for( int i = 0; i < gamesList.size(); i++ ) {
-        QTreeWidgetItem *item = new QTreeWidgetItem(qtw);
-        lst = gamesList[i].split(";");
-        item->setText( 0, lst.value(0) );
-        item->setText( 1, lst.value(1) );
+    for ( int i = 0; i < gamesList.size(); i++ ) {
+        QTreeWidgetItem *item = new QTreeWidgetItem( qtw );
+        lst = gamesList[ i ].split( ";" );
+        item->setText( 0, lst.value( 0 ) );
+        item->setText( 1, lst.value( 1 ) );
     }
 }

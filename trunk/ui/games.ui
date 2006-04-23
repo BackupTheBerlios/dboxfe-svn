@@ -8,8 +8,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>409</width>
-    <height>381</height>
+    <width>450</width>
+    <height>388</height>
    </rect>
   </property>
   <property name="windowTitle" >
@@ -26,135 +26,173 @@
     <number>6</number>
    </property>
    <item row="0" column="0" >
-    <layout class="QGridLayout" >
+    <widget class="QGroupBox" name="gBoxGameInDb" >
+     <property name="title" >
+      <string>Games in database</string>
+     </property>
+     <layout class="QGridLayout" >
+      <property name="margin" >
+       <number>9</number>
+      </property>
+      <property name="spacing" >
+       <number>6</number>
+      </property>
+      <item row="0" column="0" >
+       <widget class="QTreeWidget" name="twGame" >
+        <column>
+         <property name="text" >
+          <string>Game</string>
+         </property>
+        </column>
+        <column>
+         <property name="text" >
+          <string>Executable</string>
+         </property>
+        </column>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="2" column="0" >
+    <widget class="QCheckBox" name="chkBoxExitDosbox" >
+     <property name="text" >
+      <string>exit the game after close dosbox</string>
+     </property>
+     <property name="checked" >
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0" >
+    <layout class="QHBoxLayout" >
      <property name="margin" >
       <number>0</number>
      </property>
      <property name="spacing" >
       <number>6</number>
      </property>
-     <item row="2" column="0" >
-      <widget class="QCheckBox" name="chkBoxExitDosbox" >
-       <property name="text" >
-        <string>exit the game after close dosbox</string>
+     <item>
+      <widget class="QPushButton" name="btnAbort" >
+       <property name="minimumSize" >
+        <size>
+         <width>110</width>
+         <height>26</height>
+        </size>
        </property>
-       <property name="checked" >
-        <bool>true</bool>
+       <property name="maximumSize" >
+        <size>
+         <width>110</width>
+         <height>26</height>
+        </size>
+       </property>
+       <property name="text" >
+        <string>Abort</string>
        </property>
       </widget>
      </item>
-     <item row="0" column="0" >
-      <widget class="QGroupBox" name="gBoxGameInDb" >
-       <property name="title" >
-        <string>Games in database</string>
+     <item>
+      <spacer>
+       <property name="orientation" >
+        <enum>Qt::Horizontal</enum>
        </property>
-       <layout class="QGridLayout" >
+       <property name="sizeHint" >
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnOk" >
+       <property name="minimumSize" >
+        <size>
+         <width>110</width>
+         <height>26</height>
+        </size>
+       </property>
+       <property name="maximumSize" >
+        <size>
+         <width>110</width>
+         <height>26</height>
+        </size>
+       </property>
+       <property name="text" >
+        <string>Ok</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="1" column="0" >
+    <widget class="QGroupBox" name="gBoxNoGameInDb" >
+     <property name="title" >
+      <string>Select game if this not in database</string>
+     </property>
+     <layout class="QGridLayout" >
+      <property name="margin" >
+       <number>9</number>
+      </property>
+      <property name="spacing" >
+       <number>6</number>
+      </property>
+      <item row="0" column="0" >
+       <layout class="QHBoxLayout" >
         <property name="margin" >
-         <number>9</number>
+         <number>0</number>
         </property>
         <property name="spacing" >
          <number>6</number>
         </property>
-        <item row="0" column="0" >
-         <widget class="QTreeWidget" name="twGame" >
-          <column>
-           <property name="text" >
-            <string>Game</string>
-           </property>
-          </column>
-          <column>
-           <property name="text" >
-            <string>Executable</string>
-           </property>
-          </column>
+        <item>
+         <widget class="QLabel" name="label" >
+          <property name="minimumSize" >
+           <size>
+            <width>110</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize" >
+           <size>
+            <width>110</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="text" >
+           <string>Game:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="LEGame" />
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnSelectGame" >
+          <property name="minimumSize" >
+           <size>
+            <width>26</width>
+            <height>26</height>
+           </size>
+          </property>
+          <property name="maximumSize" >
+           <size>
+            <width>26</width>
+            <height>26</height>
+           </size>
+          </property>
+          <property name="text" >
+           <string/>
+          </property>
+          <property name="icon" >
+           <iconset resource="../res/dboxfe.qrc" >:/pics/images/folder-open_16.png</iconset>
+          </property>
          </widget>
         </item>
        </layout>
-      </widget>
-     </item>
-     <item row="1" column="0" >
-      <widget class="QGroupBox" name="gBoxNoGameInDb" >
-       <property name="title" >
-        <string>Select game if this not in database</string>
-       </property>
-       <layout class="QGridLayout" >
-        <property name="margin" >
-         <number>9</number>
-        </property>
-        <property name="spacing" >
-         <number>6</number>
-        </property>
-        <item row="0" column="0" >
-         <layout class="QHBoxLayout" >
-          <property name="margin" >
-           <number>0</number>
-          </property>
-          <property name="spacing" >
-           <number>6</number>
-          </property>
-          <item>
-           <widget class="QLabel" name="label" >
-            <property name="text" >
-             <string>Game:</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="LEGame" />
-          </item>
-          <item>
-           <widget class="QPushButton" name="btnSelectGame" >
-            <property name="text" >
-             <string/>
-            </property>
-            <property name="icon" >
-             <iconset resource="../res/dboxfe.qrc" >:/pics/images/folder-open_16.png</iconset>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-       </layout>
-      </widget>
-     </item>
-     <item row="3" column="0" >
-      <layout class="QHBoxLayout" >
-       <property name="margin" >
-        <number>0</number>
-       </property>
-       <property name="spacing" >
-        <number>6</number>
-       </property>
-       <item>
-        <widget class="QPushButton" name="btnAbort" >
-         <property name="text" >
-          <string>Abort</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <spacer>
-         <property name="orientation" >
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" >
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QPushButton" name="btnOk" >
-         <property name="text" >
-          <string>Ok</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-    </layout>
+      </item>
+     </layout>
+    </widget>
    </item>
   </layout>
  </widget>

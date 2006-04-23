@@ -23,7 +23,7 @@ DESTDIR = bin
 DEPENDPATH += include res src ui 3rdparty
 INCLUDEPATH += include 3rdparty
 RESOURCES += res/dboxfe.qrc
-CONFIG += debug thread warn_on qt
+CONFIG += release thread warn_on qt
 QT += xml network
 
 FORMS += ui/dboxfe.ui \
@@ -64,7 +64,7 @@ SOURCES += src/dboxfe.cpp \
 	   
 unix{
   TARGET = dboxfe
-  #QMAKE_POST_LINK = strip -s bin/dboxfe
+  QMAKE_POST_LINK = strip -s bin/dboxfe
   RCC_DIR = .unix/rcc
   MOC_DIR += .unix/moc
   OBJECTS_DIR += .unix/obj
@@ -72,7 +72,7 @@ unix{
 }
 
 win32{
-  TARGET = bin\dboxfe
+  TARGET = dboxfe-win.x86
   RCC_DIR = win/rcc
   MOC_DIR += win/moc
   OBJECTS_DIR += win/obj

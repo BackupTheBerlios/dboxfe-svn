@@ -1246,15 +1246,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Cannot read file %1:
-%2.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Would you realy quit without save the changed settings?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Yes</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1418,6 +1409,18 @@ If you click &apos;No&apos; only the profile from list will be removed.</source>
         <source>Starting GUI ...</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>DOSBox - Front End for Linux </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DOSBox - Front End for Windows </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DOSBox - Front End for Mac </source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DBoxFE_Game</name>
@@ -1539,10 +1542,6 @@ If you click &apos;No&apos; only the profile from list will be removed.</source>
 <context>
     <name>DBoxFE_ProfileWizard</name>
     <message>
-        <source>Profilewizard &amp; Gamewizard</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Help</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1604,6 +1603,22 @@ If you click &apos;No&apos; only the profile from list will be removed.</source>
     </message>
     <message>
         <source>Unable to update the file %1: %2.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gamewizard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Game</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search games</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open directory</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

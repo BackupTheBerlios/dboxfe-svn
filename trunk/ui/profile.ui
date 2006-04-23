@@ -8,8 +8,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>355</width>
-    <height>91</height>
+    <width>410</width>
+    <height>97</height>
    </rect>
   </property>
   <property name="windowTitle" >
@@ -18,21 +18,61 @@
   <property name="windowIcon" >
    <iconset resource="../res/dboxfe.qrc" >:/pics/images/default.png</iconset>
   </property>
-  <layout class="QGridLayout" >
+  <layout class="QVBoxLayout" >
    <property name="margin" >
     <number>9</number>
    </property>
    <property name="spacing" >
     <number>6</number>
    </property>
-   <item row="1" column="0" >
-    <widget class="Line" name="line" >
-     <property name="orientation" >
-      <enum>Qt::Horizontal</enum>
+   <item>
+    <widget class="QGroupBox" name="groupBox" >
+     <property name="title" >
+      <string/>
      </property>
+     <layout class="QVBoxLayout" >
+      <property name="margin" >
+       <number>9</number>
+      </property>
+      <property name="spacing" >
+       <number>6</number>
+      </property>
+      <item>
+       <layout class="QHBoxLayout" >
+        <property name="margin" >
+         <number>0</number>
+        </property>
+        <property name="spacing" >
+         <number>6</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="label" >
+          <property name="minimumSize" >
+           <size>
+            <width>110</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize" >
+           <size>
+            <width>110</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="text" >
+           <string>Profilename:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="LEProfile" />
+        </item>
+       </layout>
+      </item>
+     </layout>
     </widget>
    </item>
-   <item row="2" column="0" >
+   <item>
     <layout class="QHBoxLayout" >
      <property name="margin" >
       <number>0</number>
@@ -42,6 +82,18 @@
      </property>
      <item>
       <widget class="QPushButton" name="btnAbort" >
+       <property name="minimumSize" >
+        <size>
+         <width>110</width>
+         <height>26</height>
+        </size>
+       </property>
+       <property name="maximumSize" >
+        <size>
+         <width>110</width>
+         <height>26</height>
+        </size>
+       </property>
        <property name="text" >
         <string>&amp;Abort</string>
        </property>
@@ -62,30 +114,22 @@
      </item>
      <item>
       <widget class="QPushButton" name="btnOk" >
+       <property name="minimumSize" >
+        <size>
+         <width>110</width>
+         <height>26</height>
+        </size>
+       </property>
+       <property name="maximumSize" >
+        <size>
+         <width>110</width>
+         <height>26</height>
+        </size>
+       </property>
        <property name="text" >
         <string>Ok</string>
        </property>
       </widget>
-     </item>
-    </layout>
-   </item>
-   <item row="0" column="0" >
-    <layout class="QHBoxLayout" >
-     <property name="margin" >
-      <number>0</number>
-     </property>
-     <property name="spacing" >
-      <number>6</number>
-     </property>
-     <item>
-      <widget class="QLabel" name="label" >
-       <property name="text" >
-        <string>Profilename:</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="LEProfile" />
      </item>
     </layout>
    </item>

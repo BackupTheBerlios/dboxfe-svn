@@ -1327,8 +1327,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>629</width>
-          <height>323</height>
+          <width>207</width>
+          <height>136</height>
          </rect>
         </property>
         <attribute name="label" >
@@ -2359,8 +2359,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>629</width>
-          <height>323</height>
+          <width>227</width>
+          <height>108</height>
          </rect>
         </property>
         <attribute name="label" >
@@ -4325,7 +4325,7 @@
     </layout>
    </widget>
   </widget>
-  <widget class="QWidget" name="" >
+  <widget class="QWidget" name="layoutWidget" >
    <property name="geometry" >
     <rect>
      <x>268</x>
@@ -4402,12 +4402,6 @@
       <property name="shortcut" >
        <string>Alt+S</string>
       </property>
-      <property name="default" >
-       <bool>false</bool>
-      </property>
-      <property name="flat" >
-       <bool>false</bool>
-      </property>
      </widget>
     </item>
     <item>
@@ -4440,14 +4434,11 @@
       <property name="text" >
        <string>About</string>
       </property>
+      <property name="icon" >
+       <iconset resource="../res/dboxfe.qrc" >:/pics/images/default.png</iconset>
+      </property>
       <property name="shortcut" >
        <string>Alt+S</string>
-      </property>
-      <property name="default" >
-       <bool>false</bool>
-      </property>
-      <property name="flat" >
-       <bool>false</bool>
       </property>
      </widget>
     </item>
