@@ -117,9 +117,7 @@
     </make>
   </kdevtrollproject>
   <kdevcppsupport>
-    <references>
-      <pcs>Project Include</pcs>
-    </references>
+    <references/>
     <codecompletion>
       <includeGlobalFunctions>true</includeGlobalFunctions>
       <includeTypes>true</includeTypes>

@@ -1,22 +1,20 @@
-/***************************************************************************
-*   Copyright (C) 2006 by Alexander Saal                                  *
-*   alex.saal@gmx.de                                                      *
-*                                                                         *
-*   This program is free software; you can redistribute it and/or modify  *
-*   it under the terms of the GNU General Public License as published by  *
-*   the Free Software Foundation; either version 2 of the License, or     *
-*   (at your option) any later version.                                   *
-*                                                                         *
-*   This program is distributed in the hope that it will be useful,       *
-*   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
-*   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
-*   GNU General Public License for more details.                          *
-*                                                                         *
-*   You should have received a copy of the GNU General Public License     *
-*   along with this program; if not, write to the                         *
-*   Free Software Foundation, Inc.,                                       *
-*   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
-***************************************************************************/
+/*
+*   Copyright (C) 2004/05/06 by Alexander Saal <alex.saal@gmx.de>
+*
+*   This program is free software; you can redistribute it and/or modify
+*   it under the terms of the GNU General Public License as published by
+*   the Free Software Foundation; either version 2 of the License, or (at
+*   your option) any later version.
+*
+*   This program is distributed in the hope that it will be useful, but
+*   WITHOUT ANY WARRANTY; without even the implied warranty of
+*   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+*   GNU General Public License for more details.
+*
+*   You should have received a copy of the GNU General Public License
+*   along with this program; if not, write to the Free Software Foundation,
+*   Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+*/
 
 #include "dboxfe.h"
 #include "dboxfe_base.h"
@@ -246,7 +244,7 @@ void DBoxFE::slotRemoveGP() {
         QFile f( m_file );
 
         switch ( QMessageBox::information( this, winTitle(), tr( "Would you like delete the profile and configuration file?\nIf you click 'No' only the profile from list will be removed." ), tr( "Yes" ), tr( "No" ), tr( "Cancel" ), 0, 2 ) ) {
-            case 0:     // Yes clicked
+            case 0:      // Yes clicked
                 delete ui.lwProfile->currentItem();
 
                 if ( f.exists() ) {
@@ -257,12 +255,12 @@ void DBoxFE::slotRemoveGP() {
                 ui.lwOutPut->addItem( tr( "Game configuration -> " ) + f.fileName() + tr( " was deleted" ) );
                 ui.lwOutPut->update();
                 break;
-            case 1:     // No clicked but delete profile from list
+            case 1:      // No clicked but delete profile from list
                 delete ui.lwProfile->currentItem();
                 ui.lwOutPut->addItem( tr( "Game Profile -> " ) + gpTxt + tr( " was deleted" ) );
                 ui.lwOutPut->update();
                 break;
-            case 2:     // Cancel clicked or Escape pressed
+            case 2:      // Cancel clicked or Escape pressed
                 return ;
                 break;
         }
@@ -338,7 +336,7 @@ void DBoxFE::slotAutoexecAdd() {
         return ;
     } else {
         switch ( ui.cbxAutoexecDirectoryOption->currentIndex() ) {
-            case 0:     // Default
+            case 0:      // Default
                 if ( ui.chkBoxLabelCDDVD->isChecked() ) {
                     if ( !ui.LEDeviceLabel->text().isEmpty() ) {
                         addStr = "mount " + ui.cbxDrive->currentText().toLower() + " " + ui.LEDrives->text() + " -label " + ui.LEDeviceLabel->text();
@@ -351,9 +349,9 @@ void DBoxFE::slotAutoexecAdd() {
                     addStr = "mount " + ui.cbxDrive->currentText().toLower() + " " + ui.LEDrives->text();
                 }
                 break;
-            case 1:     // Use Directory as CD/DVD
+            case 1:      // Use Directory as CD/DVD
                 switch ( ui.cbxAutoexecCDDVDROMOption->currentIndex() ) {
-                    case 0:   // Windows 2000/XP/Linux
+                    case 0:    // Windows 2000/XP/Linux
                         if ( ui.chkBoxLabelCDDVD->isChecked() ) {
                             if ( !ui.LEDeviceLabel->text().isEmpty() ) {
                                 addStr = "mount " + ui.cbxDrive->currentText().toLower() + " " + ui.LEDrives->text() + " -t cdrom -usecd 0 -ioctl -label " + ui.LEDeviceLabel->text();
@@ -366,7 +364,7 @@ void DBoxFE::slotAutoexecAdd() {
                             addStr = "mount " + ui.cbxDrive->currentText().toLower() + " " + ui.LEDrives->text() + " -t cdrom -usecd 0 -ioctl";
                         }
                         break;
-                    case 1:   // Windows 98
+                    case 1:    // Windows 98
                         if ( ui.chkBoxLabelCDDVD->isChecked() ) {
                             if ( !ui.LEDeviceLabel->text().isEmpty() ) {
                                 addStr = "mount " + ui.cbxDrive->currentText().toLower() + " " + ui.LEDrives->text() + " -t cdrom -usecd 0 -aspi -label " + ui.LEDeviceLabel->text();
@@ -381,7 +379,7 @@ void DBoxFE::slotAutoexecAdd() {
                         break;
                 }
                 break;
-            case 2:     // Use Directory as Floppy
+            case 2:      // Use Directory as Floppy
                 if ( ui.chkBoxLabelCDDVD->isChecked() ) {
                     if ( !ui.LEDeviceLabel->text().isEmpty() ) {
                         addStr = "mount " + ui.cbxDrive->currentText().toLower() + " " + ui.LEDrives->text() + " -t floppy -label " + ui.LEDeviceLabel->text();
@@ -497,13 +495,13 @@ void DBoxFE::slotSerialAdd() {
     QString serialOption;
 
     switch ( ui.cbxDSOption->currentIndex() ) {
-        case 0:     // diasabled
+        case 0:      // diasabled
             item->setText( 1, ui.cbxDSOption->currentText() );
             break;
-        case 1:     // dummy
+        case 1:      // dummy
             item->setText( 1, ui.cbxDSOption->currentText() );
             break;
-        case 2:     // modem
+        case 2:      // modem
             serialOption = ui.cbxDSOption->currentText() + " " +
                            "listenport:" + ui.LEDSListenPort->text() + " " +
                            "realport:" + ui.cbxDSRealPort->currentText() + " " +
@@ -515,7 +513,7 @@ void DBoxFE::slotSerialAdd() {
 
             item->setText( 1, serialOption );
             break;
-        case 3:     // directserial
+        case 3:      // directserial
             serialOption = ui.cbxDSOption->currentText() + " " +
                            "realport:" + ui.cbxDSRealPort->currentText() + " " +
                            "startbps:" + ui.LEDSBps->text() + " " +
@@ -577,32 +575,13 @@ void DBoxFE::slotListWidget( QListWidgetItem* item ) {
  **/
 void DBoxFE::slotCbxSerialIndexChanged( int index ) {
     switch ( index ) {
-        case 0:     // diasabled
+        case 0:      // diasabled
             ui.gBoxSerialOption->setEnabled( false );
             break;
-        case 1:     // dummy
+        case 1:      // dummy
             ui.gBoxSerialOption->setEnabled( false );
             break;
-        case 2:     // modem
-            /*ui.gBoxSerialOption->setEnabled( true );
-            ui.lblDSComPort->setEnabled( true );
-            ui.cbxDSComPort->setEnabled( true );
-            ui.lblDSDefaultBps->setEnabled( true );
-            ui.LEDSBps->setEnabled( true );
-            ui.lblDSListenPort->setEnabled( true );
-            ui.LEDSListenPort->setEnabled( true );
-            ui.lblDSIrq->setEnabled( false );
-            ui.LEDSIrq->setEnabled( false );
-            ui.lblDSRealPort->setEnabled( false );
-            ui.cbxDSRealPort->setEnabled( false );
-            ui.lblDSByteSize->setEnabled( false );
-            ui.cbxDSByteSize->setEnabled( false );
-            ui.lblDSStopBit->setEnabled( false );
-            ui.cbxDSStopBit->setEnabled( false );
-            ui.lblDSParity->setEnabled( false );
-            ui.cbxDSParity->setEnabled( false );*/
-
-
+        case 2:      // modem
             ui.gBoxSerialOption->setEnabled( true );
             ui.lblDSRealPort->setEnabled( true );
             ui.cbxDSRealPort->setEnabled( true );
@@ -619,7 +598,7 @@ void DBoxFE::slotCbxSerialIndexChanged( int index ) {
             ui.lblDSComPort->setEnabled( false );
             ui.cbxDSComPort->setEnabled( false );
             break;
-        case 3:     // directserial
+        case 3:      // directserial
             ui.gBoxSerialOption->setEnabled( true );
             ui.lblDSRealPort->setEnabled( true );
             ui.cbxDSRealPort->setEnabled( true );
@@ -640,15 +619,15 @@ void DBoxFE::slotCbxSerialIndexChanged( int index ) {
 }
 void DBoxFE::slotCbxAutoexecIndexChanged( int index ) {
     switch ( index ) {
-        case 0:     // Default
+        case 0:      // Default
             ui.lblAutoexecCDDVDROMOption->setEnabled( false );
             ui.cbxAutoexecCDDVDROMOption->setEnabled( false );
             break;
-        case 1:     // Use directory as CD/DVD ROM
+        case 1:      // Use directory as CD/DVD ROM
             ui.lblAutoexecCDDVDROMOption->setEnabled( true );
             ui.cbxAutoexecCDDVDROMOption->setEnabled( true );
             break;
-        case 2:     // Use directory as floppy drive
+        case 2:      // Use directory as floppy drive
             ui.lblAutoexecCDDVDROMOption->setEnabled( false );
             ui.cbxAutoexecCDDVDROMOption->setEnabled( false );
             break;
