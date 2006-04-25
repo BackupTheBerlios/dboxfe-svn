@@ -19,7 +19,7 @@
 #include <QtGui>
 #include <QtCore>
 
-#include "daboxfe_about.h"
+#include "dboxfe_about.h"
 
 DBoxFE_About::DBoxFE_About( QWidget *parent, Qt::WFlags flags )
         : QWidget( parent, flags ) {
@@ -33,13 +33,32 @@ DBoxFE_About::DBoxFE_About( QWidget *parent, Qt::WFlags flags )
     int left = ( rect.width() - width() ) / 2;
     int top = ( rect.height() - height() ) / 2;
     setGeometry( left, top, width(), height() );
-
+    
+    QFile thx( QString::fromUtf8(":/files/thanks") );
+    if ( !thx.open( QIODevice::ReadOnly | QIODevice::Text ) ) {
+        return ;
+    }
+    QTextStream thxIn( &thx );
+    QString lineThx = thxIn.readAll();
+    readThxFile( lineThx );
+    thx.close();
+    
+    QFile lic( QString::fromUtf8(":/files/LICENSE.GPL") );
+    if ( !lic.open( QIODevice::ReadOnly | QIODevice::Text ) ) {
+        return ;
+    }
+    QTextStream LicIn( &lic );
+    QString lineLic = LicIn.readAll();
+    readLicFile( lineLic );
+    lic.close();    
 }
 
 DBoxFE_About::~DBoxFE_About() {}
 
 void DBoxFE_About::readThxFile( const QString &thxFile ) {
+    ui.TEThanks->setPlainText( thxFile );
 }
 
 void DBoxFE_About::readLicFile( const QString &licFile ) {
+    ui.TELicense->setPlainText( licFile );
 }

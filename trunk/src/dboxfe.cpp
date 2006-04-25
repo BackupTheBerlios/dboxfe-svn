@@ -116,6 +116,8 @@ void DBoxFE::init() {
     ui.LEDbxVersion->setText( QString( settGP.getString( "DOSBox", "version" ) ) );
     ui.cbxLanguage->setCurrentIndex( settGP.getInt( "DBoxFE", "Lng" ) );
     ui.chkBoxWindowHide->setChecked( settGP.getBool( "DBoxFE", "winHide" ) );
+    ui.chkBoxStartmapper->setChecked( settGP.getBool( "DBoxFE", "keyMapper" ) );
+    ui.gBoxLanguage->setHidden( true );
     ui.btnGameDb->setHidden( true );
 
     m_file = "";
@@ -151,6 +153,7 @@ void DBoxFE::slotSaveGP() {
     settGP.setString( "DOSBox", "version", ui.LEDbxVersion->text() );
     settGP.setInt( "DBoxFE", "Lng", ui.cbxLanguage->currentIndex() );
     settGP.setBool( "DBoxFE", "winHide", ui.chkBoxWindowHide->isChecked() );
+    settGP.setBool( "DBoxFE", "keyMapper", ui.chkBoxStartmapper->isChecked() );
 
     settGP.save( m_file );
 
@@ -637,7 +640,7 @@ void DBoxFE::slotCbxAutoexecIndexChanged( int index ) {
 }
 
 void DBoxFE::slotAbout() {
-    DBoxFE_About * about = new DBoxFE_About();
+    DBoxFE_About * about = new DBoxFE_About( 0 );
     about->show();
 }
 
@@ -649,6 +652,9 @@ void DBoxFE::start( const QString& bin, const QString &param, const QString &con
 
     m_param.append( param );
     m_param.append( conf );
+    //-startmapper
+    if( ui.chkBoxStartmapper->isChecked() )
+	m_param.append( "-startmapper" );
 
     dBox->start( bin, m_param );
     connect( dBox, SIGNAL( readyReadStandardOutput() ), this, SLOT( readOutput() ) );

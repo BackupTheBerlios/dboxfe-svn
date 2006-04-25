@@ -33,7 +33,7 @@ class DBoxFE_About : public QWidget {
 
         Ui::DBoxFE_About ui;
 	
-    public slots:
+    private slots:
         void readThxFile( const QString &thxFile );
         void readLicFile( const QString &licFile );
 };
