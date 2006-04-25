@@ -17,6 +17,7 @@
 */
 
 #include "dboxfe.h"
+#include "dboxfe_about.h"
 #include "dboxfe_base.h"
 #include "dboxfe_games.h"
 #include "dboxfe_gamedatabase.h"
@@ -54,6 +55,7 @@ DBoxFE::DBoxFE( QWidget *parent, Qt::WFlags flags )
     connect( ui.btnAutoexecUp, SIGNAL( clicked() ), this, SLOT( slotAutoexecUp() ) );
     connect( ui.btnAutoexecDown, SIGNAL( clicked() ), this, SLOT( slotAutoexecDown() ) );
     connect( ui.btnGame, SIGNAL( clicked() ), this, SLOT( slotGame() ) );
+    connect( ui.btnAbout, SIGNAL( clicked() ), this, SLOT( slotAbout() ) );
     connect( ui.lwProfile, SIGNAL( itemClicked( QListWidgetItem* ) ), this, SLOT( slotListWidget( QListWidgetItem* ) ) );
     connect( ui.cbxDSOption, SIGNAL( currentIndexChanged( int ) ), this, SLOT( slotCbxSerialIndexChanged( int ) ) );
     connect( ui.cbxAutoexecDirectoryOption, SIGNAL( currentIndexChanged( int ) ), this, SLOT( slotCbxAutoexecIndexChanged( int ) ) );
@@ -633,6 +635,12 @@ void DBoxFE::slotCbxAutoexecIndexChanged( int index ) {
             break;
     }
 }
+
+void DBoxFE::slotAbout() {
+    DBoxFE_About * about = new DBoxFE_About();
+    about->show();
+}
+
 /**
  * TODO Function for start dosbox and read output
  **/

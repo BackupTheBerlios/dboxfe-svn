@@ -70,6 +70,8 @@ class DBoxFE : public QWidget {
 
         void slotAutoexecUp();
         void slotAutoexecDown();
+	
+        void slotAbout();
 
         void start( const QString& bin, const QString &param, const QString &conf );
         void readOutput();

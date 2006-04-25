@@ -3,6 +3,10 @@
         <file>dboxfe_de.qm</file>
         <file>dboxfe_en.qm</file>
     </qresource>
+    <qresource prefix="/files" >
+        <file>LICENSE.GPL</file>
+        <file>thanks</file>
+    </qresource>
     <qresource prefix="/default" >
         <file>default.conf</file>
     </qresource>

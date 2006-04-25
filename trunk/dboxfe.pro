@@ -25,6 +25,7 @@ CONFIG += release thread warn_on qt
 QT += xml network
 
 FORMS += ui/dboxfe.ui
+FORMS += ui/about.ui
 FORMS += ui/profile.ui
 FORMS += ui/profilewizard.ui
 FORMS += ui/gamedatabase.ui
@@ -37,6 +38,7 @@ DISTFILES += ChangeLog
 DISTFILES += LICENSE.GPL
 	     
 HEADERS += include/dboxfe.h
+HEADERS += include/dboxfe_about.h
 HEADERS += include/dboxfe_profile.h
 HEADERS += include/dboxfe_profilewizard.h
 HEADERS += include/dboxfe_games.h
@@ -48,6 +50,7 @@ HEADERS += 3rdparty/XMLWriter.h
 HEADERS += 3rdparty/XMLPreferences.h 
 	   
 SOURCES += src/dboxfe.cpp
+SOURCES += src/dboxfe_about.cpp
 SOURCES += src/dboxfe_profile.cpp
 SOURCES += src/dboxfe_profilewizard.cpp
 SOURCES += src/dboxfe_games.cpp
