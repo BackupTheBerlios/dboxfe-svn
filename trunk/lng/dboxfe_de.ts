@@ -1425,6 +1425,73 @@ Wenn Sie &apos;Nein&apos; wählen wird nur das Profile gelöscht.</translation>
     </message>
 </context>
 <context>
+    <name>DBoxFE_About</name>
+    <message>
+        <source>About DBoxFE</source>
+        <translation>Über DBoxFE</translation>
+    </message>
+    <message>
+        <source>About</source>
+        <translation>Über</translation>
+    </message>
+    <message>
+        <source>DBoxFE - Front End for Linux/Windows/Mac</source>
+        <translation>DBoxFE - Front End für Linux/Windows/Mac</translation>
+    </message>
+    <message>
+        <source>Author:</source>
+        <translation>Author:</translation>
+    </message>
+    <message>
+        <source>Alexander Saal</source>
+        <translation>Alexander Saal</translation>
+    </message>
+    <message>
+        <source>(C)opyright:</source>
+        <translation>(C)opyright:</translation>
+    </message>
+    <message encoding="UTF-8">
+        <source>© &apos;2004/05/06 by Alexander Saal</source>
+        <translation>© &apos;2004/05/06 bei Alexander Saal</translation>
+    </message>
+    <message>
+        <source>URL:</source>
+        <translation>URL:</translation>
+    </message>
+    <message>
+        <source>http://chmaster.freeforge.net/</source>
+        <translation>http://chmaster.freeforge.net/</translation>
+    </message>
+    <message>
+        <source>eMail:</source>
+        <translation>eMail:</translation>
+    </message>
+    <message>
+        <source>alex.saal@gmx.de</source>
+        <translation>alex.saal@gmx.de</translation>
+    </message>
+    <message>
+        <source>Thanks</source>
+        <translation>Danksagung</translation>
+    </message>
+    <message>
+        <source>License</source>
+        <translation>Lizenz</translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;/head&gt;&lt;body style=&quot; white-space: pre-wrap; font-family:Verdana; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;/head&gt;&lt;body style=&quot; white-space: pre-wrap; font-family:Verdana; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <source>&amp;About Qt</source>
+        <translation>&amp;Über Qt</translation>
+    </message>
+    <message>
+        <source>&amp;Ok</source>
+        <translation>&amp;Ok</translation>
+    </message>
+</context>
+<context>
     <name>DBoxFE_Game</name>
     <message>
         <source>Games</source>

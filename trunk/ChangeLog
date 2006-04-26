@@ -1,3 +1,31 @@
+2006-04-26  Alexander Saal  <alex.saal@gmx.de>
+* FIXED:	you can now start dosbox with keymapper if the checkbox 'start Keymapper' is checked ...
+* ADD:		thanks and license text is now diplay on about dialog
+* FIXED:	the size of about dialog (no resize)
+* FIXED:	the settings (you can now save the option 'start Keymapper')
+* UPDATE:	disabeld language option (i work on german translation)
+* UPDATE:	kdevelop project file
+* UPDATE:	release the first BETA 0.1.0 version
+
+2006-04-25  Alexander Saal  <alex.saal@gmx.de>
+* UPDATE:	header
+* UPDATE:	LICENSE.GPL (wrong text in this file)
+* CHANGED:	from QPL/GPL to complete GPL
+* REMOVED:	LICENSE.QPL
+
+2006-04-18  Alexander Saal  <alex.saal@gmx.de>
+* ADD:		translation to main.cpp
+* FIXED:	minor bug
+* FIXED:	porblem if you click on profile and the fields are empty
+* FIXED:	problem with modem option (you can now select option and add this to list)
+* REMOVED:	message if you quit
+* CHANGED:	the position of autexec/serial list
+* CHANGED:	layout in mainwindow (set the correct size of labels/buttons/widgets)
+* UPDATE:	release day of 0.1.0 is very nearly :)
+* UPDATE:	vcproj file
+* UPDATE:	language file
+* UPDATE:	kdevelop project file
+
 2006-04-16  Alexander Saal  <alex.saal@gmx.de>
 * ADD:		2 buttons to Autoexec Tab for move down/up entries in the list
 * ADD:		you can now move items in autexec option (down or up)
