@@ -286,18 +286,33 @@ void DBoxFE::slotLanguage() {
  * TODO Choose stabel binary of dosbox and return the vesions number
  **/
 void DBoxFE::slotChooseDbxBinary() {
-    QString strDbxStabel = QFileDialog::getOpenFileName( this, tr( "Open DOSBox binary" ), QDir::currentPath(), tr( "DOSBox binary (dosbox)" ) );
+    QString strDbxStabel = QFileDialog::getOpenFileName( this, tr( "Open DOSBox binary" ), QDir::currentPath(), tr( "DOSBox binary (dosbox);;DOSBox binary (*.exe)" ) );
 
     if ( strDbxStabel.isEmpty() )
         return ;
 
-    ui.LEDbxStabel->setText( strDbxStabel );
-
     QProcess *p = new QProcess( this );
     p->start( strDbxStabel, QStringList() << "-version" );
 
-    while ( p->waitForFinished() )
-        ui.LEDbxVersion->setText( QString( tr( "DOSBox Version:  " ) + p->readAll() ) );
+    while ( p->waitForFinished() ) {
+	QString dboxVersion =  p->readAll();
+	
+	if( QString(dboxVersion.simplified()).trimmed().isEmpty() ) {
+	    QMessageBox::information( this, winTitle(), tr( "This is not a valid dosbox binary." ) );
+	    delete p;
+	    return;
+	}
+	
+	if( QString(dboxVersion.simplified()).trimmed() == "0.65" ) {
+	    ui.LEDbxStabel->setText( strDbxStabel );	    
+	    ui.LEDbxVersion->setText( QString( tr( "DOSBox Version:  " ) + dboxVersion ) );
+	} else {
+	    QMessageBox::information( this, winTitle(), tr( "Wrong dosbox version: " ) + QString(dboxVersion.simplified()).trimmed() + tr( ", i need 0.65" ) );
+	    delete p;
+	    return;
+	}
+	
+    }
 
     delete p;
 }
