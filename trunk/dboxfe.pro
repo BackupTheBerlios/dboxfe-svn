@@ -72,6 +72,7 @@ unix{
 }
 
 win32{
+  RC_FILE = dboxfe.rc
   TARGET = dboxfe
   RCC_DIR = win/rcc
   MOC_DIR += win/moc
