@@ -71,7 +71,7 @@ DBoxFE::DBoxFE( QWidget *parent, Qt::WFlags flags )
 #ifdef Q_OS_WIN32
 
     setWindowTitle( titleWin );
-    QApplication::setStyle( "windowsxp" );
+    QApplication::setStyle( "plastique" );
 #endif
 
 #ifdef Q_OS_MACX
@@ -80,12 +80,10 @@ DBoxFE::DBoxFE( QWidget *parent, Qt::WFlags flags )
 #endif
 
 #ifdef Q_OS_MAC9
-
     setWindowTitle( titleMac );
 #endif
 
 #ifdef Q_OS_UNIX
-
     setWindowTitle( titleLin );
 #endif
 
@@ -291,30 +289,70 @@ void DBoxFE::slotChooseDbxBinary() {
     if ( strDbxStabel.isEmpty() )
         return ;
 
-    QProcess *p = new QProcess( this );
-    p->start( strDbxStabel, QStringList() << "-version" );
+#ifdef Q_OS_WIN32
+	QFileInfo dboxBin( strDbxStabel );
+
+	QProcess *p = new QProcess( this );
+	m_param.append( "-version" );
+
+	p->setWorkingDirectory( dboxBin.absolutePath() );
+    p->start( strDbxStabel, m_param );
 
     while ( p->waitForFinished() ) {
-	QString dboxVersion =  p->readAll();
-	
-	if( QString(dboxVersion.simplified()).trimmed().isEmpty() ) {
-	    QMessageBox::information( this, winTitle(), tr( "This is not a valid dosbox binary." ) );
-	    delete p;
-	    return;
-	}
-	
-	if( QString(dboxVersion.simplified()).trimmed() == "0.65" ) {
-	    ui.LEDbxStabel->setText( strDbxStabel );	    
-	    ui.LEDbxVersion->setText( QString( tr( "DOSBox Version:  " ) + dboxVersion ) );
-	} else {
-	    QMessageBox::information( this, winTitle(), tr( "Wrong dosbox version: " ) + QString(dboxVersion.simplified()).trimmed() + tr( ", i need 0.65" ) );
-	    delete p;
-	    return;
-	}
-	
-    }
+		QFile dboxOutFile( dboxBin.absolutePath() + "/stdout.txt" );
 
-    delete p;
+		if( !dboxOutFile.open( QFile::ReadOnly | QFile::Text ) ) {
+			QMessageBox::information( this, winTitle(), tr( "Can not read " ) + dboxOutFile.fileName() );
+			delete p;
+			return;
+		}
+
+		QTextStream t( &dboxOutFile );
+		QString dboxVersion =  t.readAll();
+
+		if( QString(dboxVersion.simplified()).trimmed().isEmpty() ) {
+			QMessageBox::information( this, winTitle(), tr( "This is not a valid dosbox binary." ) );
+			delete p;
+			return;
+		}
+
+		if( QString(dboxVersion.simplified()).trimmed() == "0.65" ) {
+			ui.LEDbxStabel->setText( strDbxStabel );
+			ui.LEDbxVersion->setText( QString( tr( "DOSBox Version:  " ) + dboxVersion ) );
+		} else {
+			QMessageBox::information( this, winTitle(), tr( "Wrong dosbox version: " ) + QString(dboxVersion.simplified()).trimmed() + tr( ", i need 0.65" ) );
+			delete p;
+			return;
+		}
+	}
+	
+	m_param.clear();
+	delete p;
+#else
+	QProcess *p = new QProcess( this );
+    p->start( strDbxStabel, QStringList() << "-version" );
+	
+    while ( p->waitForFinished() ) {
+		QString dboxVersion =  p->readAll();
+
+		if( QString(dboxVersion.simplified()).trimmed().isEmpty() ) {
+			QMessageBox::information( this, winTitle(), tr( "This is not a valid dosbox binary." ) );
+			delete p;
+			return;
+		}
+
+		if( QString(dboxVersion.simplified()).trimmed() == "0.65" ) {
+			ui.LEDbxStabel->setText( strDbxStabel );
+			ui.LEDbxVersion->setText( QString( tr( "DOSBox Version:  " ) + dboxVersion ) );
+		} else {
+			QMessageBox::information( this, winTitle(), tr( "Wrong dosbox version: " ) + QString(dboxVersion.simplified()).trimmed() + tr( ", i need 0.65" ) );
+			delete p;
+			return;
+		}
+	}
+
+	delete p;
+#endif
 }
 
 /**
@@ -665,13 +703,23 @@ void DBoxFE::slotAbout() {
 void DBoxFE::start( const QString& bin, const QString &param, const QString &conf ) {
     dBox = new QProcess( this );
 
-    m_param.append( param );
+#ifdef Q_OS_WIN32
+	m_param.append( "-noconsole" );
+#endif
+	
+	m_param.append( param );
     m_param.append( conf );
-    //-startmapper
+
     if( ui.chkBoxStartmapper->isChecked() )
-	m_param.append( "-startmapper" );
+		m_param.append( "-startmapper" );
+
+#ifdef Q_OS_WIN32	
+	QFileInfo dboxBin( conf );
+	dBox->setWorkingDirectory( dboxBin.absolutePath() );
+#endif
 
     dBox->start( bin, m_param );
+
     connect( dBox, SIGNAL( readyReadStandardOutput() ), this, SLOT( readOutput() ) );
     connect( dBox, SIGNAL( finished( int, QProcess::ExitStatus ) ), this, SLOT( finish( int, QProcess::ExitStatus ) ) );
     connect( dBox, SIGNAL( error( QProcess::ProcessError ) ), this, SLOT( err( QProcess::ProcessError ) ) );
@@ -687,7 +735,7 @@ void DBoxFE::start( const QString& bin, const QString &param, const QString &con
 }
 
 /**
- * TODO Function for start dosbox and read output
+ * TODO Function for start dosbox and read output 
  **/
 void DBoxFE::readOutput() {
     while ( dBox->canReadLine() ) {
@@ -702,6 +750,29 @@ void DBoxFE::readOutput() {
  **/
 void DBoxFE::finish( int exitCode, QProcess::ExitStatus exitStatus ) {
     this->show();
+
+#ifdef Q_OS_WIN32
+	QString path, outLine;
+	path = QDir::homePath();
+	path.append("/.dboxfe/stdout.txt");
+
+	QFile outFile( path );
+
+	if( !outFile.open( QFile::ReadOnly | QFile::Text ) ) {
+		QMessageBox::information( this, winTitle(), tr( "Can not read file " ) + path );
+		outFile.close();
+		return;
+	}
+
+	QTextStream t( &outFile );
+	while( !t.atEnd() ){
+		outLine = t.readLine();
+		ui.lwOutPut->addItem( tr( "dosbox cmd output -> " ) + outLine.mid( outLine.indexOf( ":" ) + 1 ) );
+		ui.lwOutPut->update();
+	}
+
+	outFile.close();
+#endif
 
     switch ( exitStatus ) {
         case QProcess::NormalExit:
