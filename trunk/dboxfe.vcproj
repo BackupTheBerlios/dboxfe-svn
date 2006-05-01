@@ -191,21 +191,21 @@
 					Name="Release|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="MOC include/dboxfe.h"
-						CommandLine="$(QTDIR)\bin\moc.exe  -DQT_NO_DEBUG -DNDEBUG -D_WINDOWS -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -DNDEBUG -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;.\include&quot; -I&quot;.\3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;.\win\moc&quot; -I&quot;.\win\ui&quot; -I&quot;$(QTDIR)\mkspecs\win32-msvc.net&quot; &quot;include\dboxfe.h&quot; -o &quot;win\moc\moc_dboxfe.cpp&quot;
+						Description="Moc&apos;ing dboxfe.h..."
+						CommandLine="$(QTDIR)\bin\moc.exe  -DQT_NO_DEBUG -DNDEBUG -D_WINDOWS -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -DNDEBUG -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;.\include&quot; -I&quot;.\3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;.\win\moc&quot; -I&quot;.\win\ui&quot; -I&quot;$(QTDIR)\mkspecs\win32-msvc.net&quot; &quot;include\dboxfe.h&quot; -o &quot;.\win\moc\moc_dboxfe.cpp&quot;
 "
-						AdditionalDependencies="$(QTDIR)\bin\moc.exe"
-						Outputs="win\moc\moc_dboxfe.cpp"/>
+						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\dboxfe.h"
+						Outputs="&quot;.\win\moc\moc_dboxfe.cpp&quot;"/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Debug|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="MOC include/dboxfe.h"
-						CommandLine="$(QTDIR)\bin\moc.exe  -D_WINDOWS -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;.\include&quot; -I&quot;.\3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;.\win\moc&quot; -I&quot;.\win\ui&quot; -I&quot;$(QTDIR)\mkspecs\win32-msvc.net&quot; &quot;include\dboxfe.h&quot; -o &quot;win\moc\moc_dboxfe.cpp&quot;
+						Description="Moc&apos;ing dboxfe.h..."
+						CommandLine="$(QTDIR)\bin\moc.exe  -D_WINDOWS -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;.\include&quot; -I&quot;.\3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;.\win\moc&quot; -I&quot;.\win\ui&quot; -I&quot;$(QTDIR)\mkspecs\win32-msvc.net&quot; &quot;include\dboxfe.h&quot; -o &quot;.\win\moc\moc_dboxfe.cpp&quot;
 "
-						AdditionalDependencies="$(QTDIR)\bin\moc.exe"
-						Outputs="win\moc\moc_dboxfe.cpp"/>
+						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\dboxfe.h"
+						Outputs="&quot;.\win\moc\moc_dboxfe.cpp&quot;"/>
 				</FileConfiguration>
 			</File>
 			<File
@@ -365,6 +365,16 @@
 			</File>
 			<File
 				RelativePath="win\moc\moc_dboxfe.cpp">
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"/>
+				</FileConfiguration>
 			</File>
 			<File
 				RelativePath="win\moc\moc_dboxfe_about.cpp">

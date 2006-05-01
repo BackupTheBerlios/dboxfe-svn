@@ -30,6 +30,312 @@
   <property name="windowIcon" >
    <iconset resource="../res/dboxfe.qrc" >:/pics/images/default.png</iconset>
   </property>
+  <widget class="QWidget" name="layoutWidget" >
+   <property name="geometry" >
+    <rect>
+     <x>268</x>
+     <y>544</y>
+     <width>651</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" >
+    <property name="margin" >
+     <number>0</number>
+    </property>
+    <property name="spacing" >
+     <number>6</number>
+    </property>
+    <item>
+     <widget class="QPushButton" name="btnStartDBox" >
+      <property name="minimumSize" >
+       <size>
+        <width>110</width>
+        <height>26</height>
+       </size>
+      </property>
+      <property name="maximumSize" >
+       <size>
+        <width>110</width>
+        <height>26</height>
+       </size>
+      </property>
+      <property name="text" >
+       <string> St&amp;art</string>
+      </property>
+      <property name="icon" >
+       <iconset resource="../res/dboxfe.qrc" >:/pics/images/applications_16.png</iconset>
+      </property>
+      <property name="shortcut" >
+       <string>Alt+D</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <spacer>
+      <property name="orientation" >
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" >
+       <size>
+        <width>148</width>
+        <height>30</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QPushButton" name="btnSaveGP" >
+      <property name="minimumSize" >
+       <size>
+        <width>110</width>
+        <height>26</height>
+       </size>
+      </property>
+      <property name="maximumSize" >
+       <size>
+        <width>110</width>
+        <height>26</height>
+       </size>
+      </property>
+      <property name="text" >
+       <string> &amp;Save</string>
+      </property>
+      <property name="icon" >
+       <iconset resource="../res/dboxfe.qrc" >:/pics/images/save_16.png</iconset>
+      </property>
+      <property name="shortcut" >
+       <string>Alt+S</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <spacer>
+      <property name="orientation" >
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" >
+       <size>
+        <width>16</width>
+        <height>30</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QPushButton" name="btnAbout" >
+      <property name="minimumSize" >
+       <size>
+        <width>110</width>
+        <height>26</height>
+       </size>
+      </property>
+      <property name="maximumSize" >
+       <size>
+        <width>110</width>
+        <height>26</height>
+       </size>
+      </property>
+      <property name="text" >
+       <string>About</string>
+      </property>
+      <property name="icon" >
+       <iconset resource="../res/dboxfe.qrc" >:/pics/images/default.png</iconset>
+      </property>
+      <property name="shortcut" >
+       <string>Alt+S</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <spacer>
+      <property name="orientation" >
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" >
+       <size>
+        <width>16</width>
+        <height>30</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QPushButton" name="btnQuit" >
+      <property name="minimumSize" >
+       <size>
+        <width>110</width>
+        <height>26</height>
+       </size>
+      </property>
+      <property name="maximumSize" >
+       <size>
+        <width>110</width>
+        <height>26</height>
+       </size>
+      </property>
+      <property name="text" >
+       <string> &amp;Quit</string>
+      </property>
+      <property name="icon" >
+       <iconset resource="../res/dboxfe.qrc" >:/pics/images/delete_16.png</iconset>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QGroupBox" name="gBoxProfile" >
+   <property name="geometry" >
+    <rect>
+     <x>9</x>
+     <y>9</y>
+     <width>252</width>
+     <height>567</height>
+    </rect>
+   </property>
+   <property name="title" >
+    <string>Gameprofile</string>
+   </property>
+   <layout class="QGridLayout" >
+    <property name="margin" >
+     <number>9</number>
+    </property>
+    <property name="spacing" >
+     <number>6</number>
+    </property>
+    <item row="1" column="0" >
+     <layout class="QVBoxLayout" >
+      <property name="margin" >
+       <number>0</number>
+      </property>
+      <property name="spacing" >
+       <number>6</number>
+      </property>
+      <item>
+       <layout class="QHBoxLayout" >
+        <property name="margin" >
+         <number>0</number>
+        </property>
+        <property name="spacing" >
+         <number>6</number>
+        </property>
+        <item>
+         <widget class="QPushButton" name="btnCreateGP" >
+          <property name="minimumSize" >
+           <size>
+            <width>110</width>
+            <height>26</height>
+           </size>
+          </property>
+          <property name="maximumSize" >
+           <size>
+            <width>110</width>
+            <height>26</height>
+           </size>
+          </property>
+          <property name="text" >
+           <string> &amp;Create</string>
+          </property>
+          <property name="icon" >
+           <iconset resource="../res/dboxfe.qrc" >:/pics/images/copy_16.png</iconset>
+          </property>
+          <property name="shortcut" >
+           <string>Alt+C</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnRemoveGP" >
+          <property name="minimumSize" >
+           <size>
+            <width>110</width>
+            <height>26</height>
+           </size>
+          </property>
+          <property name="maximumSize" >
+           <size>
+            <width>110</width>
+            <height>26</height>
+           </size>
+          </property>
+          <property name="text" >
+           <string> &amp;Remove</string>
+          </property>
+          <property name="icon" >
+           <iconset resource="../res/dboxfe.qrc" >:/pics/images/cut_16.png</iconset>
+          </property>
+          <property name="shortcut" >
+           <string>Alt+R</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" >
+        <property name="margin" >
+         <number>0</number>
+        </property>
+        <property name="spacing" >
+         <number>6</number>
+        </property>
+        <item>
+         <spacer>
+          <property name="orientation" >
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" >
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnWizard" >
+          <property name="minimumSize" >
+           <size>
+            <width>110</width>
+            <height>26</height>
+           </size>
+          </property>
+          <property name="maximumSize" >
+           <size>
+            <width>110</width>
+            <height>26</height>
+           </size>
+          </property>
+          <property name="text" >
+           <string>&amp;Gamewizard</string>
+          </property>
+          <property name="icon" >
+           <iconset resource="../res/dboxfe.qrc" >:/pics/images/misc.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer>
+          <property name="orientation" >
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" >
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+    <item row="0" column="0" >
+     <widget class="QListWidget" name="lwProfile" />
+    </item>
+   </layout>
+  </widget>
   <widget class="QTabWidget" name="twDbx" >
    <property name="geometry" >
     <rect>
@@ -50,6 +356,683 @@
      <property name="spacing" >
       <number>6</number>
      </property>
+     <item row="0" column="0" >
+      <widget class="QGroupBox" name="gBoxSDL" >
+       <property name="title" >
+        <string>SDL</string>
+       </property>
+       <layout class="QGridLayout" >
+        <property name="margin" >
+         <number>9</number>
+        </property>
+        <property name="spacing" >
+         <number>6</number>
+        </property>
+        <item rowspan="2" row="0" column="0" >
+         <layout class="QGridLayout" >
+          <property name="margin" >
+           <number>0</number>
+          </property>
+          <property name="spacing" >
+           <number>6</number>
+          </property>
+          <item row="0" column="0" >
+           <widget class="QCheckBox" name="chkBoxFullScreen" >
+            <property name="text" >
+             <string>Full screen</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1" >
+           <widget class="QCheckBox" name="chkBoxWaitOnError" >
+            <property name="text" >
+             <string>Wait on Error</string>
+            </property>
+            <property name="checked" >
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1" >
+           <widget class="QCheckBox" name="chkBoxAutolock" >
+            <property name="text" >
+             <string>Autolock</string>
+            </property>
+            <property name="checked" >
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0" colspan="2" >
+           <widget class="QCheckBox" name="chkBoxUseScanCode" >
+            <property name="text" >
+             <string>Use Scancodes</string>
+            </property>
+            <property name="checked" >
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0" >
+           <widget class="QCheckBox" name="chkBoxFullDouble" >
+            <property name="text" >
+             <string>Full double</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="3" column="0" colspan="2" >
+         <layout class="QHBoxLayout" >
+          <property name="margin" >
+           <number>0</number>
+          </property>
+          <property name="spacing" >
+           <number>6</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="lblWindowResolution" >
+            <property name="minimumSize" >
+             <size>
+              <width>110</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize" >
+             <size>
+              <width>110</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text" >
+             <string>Windowresolution.:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="cbxWindowWightHigh" >
+            <property name="currentIndex" >
+             <number>0</number>
+            </property>
+            <item>
+             <property name="text" >
+              <string>original</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>640x480</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>800x600</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>1024x768</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>1280x1024</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>1600x1200</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>2480x1600</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="4" column="0" colspan="2" >
+         <layout class="QHBoxLayout" >
+          <property name="margin" >
+           <number>0</number>
+          </property>
+          <property name="spacing" >
+           <number>6</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="lblFullHW" >
+            <property name="minimumSize" >
+             <size>
+              <width>110</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize" >
+             <size>
+              <width>110</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text" >
+             <string>Width x Height:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="cbxFullWightHigh" >
+            <property name="currentIndex" >
+             <number>0</number>
+            </property>
+            <item>
+             <property name="text" >
+              <string>original</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>640x480</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>800x600</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>1024x768</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>1280x1024</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>1600x1200</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>2480x1600</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="1" column="1" >
+         <layout class="QHBoxLayout" >
+          <property name="margin" >
+           <number>0</number>
+          </property>
+          <property name="spacing" >
+           <number>6</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="lblFoucUnfous" >
+            <property name="minimumSize" >
+             <size>
+              <width>110</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize" >
+             <size>
+              <width>110</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text" >
+             <string>Focus/Unfocus</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="cbxFocusUnfocus" >
+            <property name="currentIndex" >
+             <number>17</number>
+            </property>
+            <item>
+             <property name="text" >
+              <string>lowest,lowest</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>lowest,lower</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>lowest,normal</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>lowest,higher</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>lowest,highest</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>lower,lowest</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>lower,lower</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>lower,normal</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>lower,higher</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>lower,highest</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>normal,lowest</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>normal,lower</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>normal,normal</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>normal,higher</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>normal,higher</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>higher,lowest</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>higher,lower</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>higher,normal</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>higher,higher</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>higher,highest</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>highest,lowest</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>highest,lower</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>highest,normal</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>highest,higher</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>highest,highest</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="0" column="1" >
+         <layout class="QHBoxLayout" >
+          <property name="margin" >
+           <number>0</number>
+          </property>
+          <property name="spacing" >
+           <number>6</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="lblOutPut" >
+            <property name="minimumSize" >
+             <size>
+              <width>110</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize" >
+             <size>
+              <width>110</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text" >
+             <string>Output:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="cbxOutout" >
+            <item>
+             <property name="text" >
+              <string>surface</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>overlay</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>opengl</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>openglnb</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>ddraw</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="2" column="0" colspan="2" >
+         <layout class="QHBoxLayout" >
+          <property name="margin" >
+           <number>0</number>
+          </property>
+          <property name="spacing" >
+           <number>6</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="lblSensitivity" >
+            <property name="minimumSize" >
+             <size>
+              <width>110</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize" >
+             <size>
+              <width>110</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text" >
+             <string>Sensitivity:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSlider" name="sliderSV" >
+            <property name="maximum" >
+             <number>512</number>
+            </property>
+            <property name="value" >
+             <number>100</number>
+            </property>
+            <property name="sliderPosition" >
+             <number>100</number>
+            </property>
+            <property name="orientation" >
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLCDNumber" name="lcdSV" >
+            <property name="frameShape" >
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow" >
+             <enum>QFrame::Sunken</enum>
+            </property>
+            <property name="value" stdset="0" >
+             <double>100</double>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item row="1" column="0" >
+      <widget class="QGroupBox" name="gBoxRender" >
+       <property name="title" >
+        <string>Render</string>
+       </property>
+       <layout class="QGridLayout" >
+        <property name="margin" >
+         <number>9</number>
+        </property>
+        <property name="spacing" >
+         <number>6</number>
+        </property>
+        <item row="1" column="0" >
+         <layout class="QHBoxLayout" >
+          <property name="margin" >
+           <number>0</number>
+          </property>
+          <property name="spacing" >
+           <number>6</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="lblScaler" >
+            <property name="minimumSize" >
+             <size>
+              <width>110</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize" >
+             <size>
+              <width>110</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text" >
+             <string>Scaler:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="cbxScaler" >
+            <property name="currentIndex" >
+             <number>1</number>
+            </property>
+            <item>
+             <property name="text" >
+              <string>none</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>normal2x</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>normal3x</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>advmame2x</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>advmame3x</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>advinterp2x</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>advinterp3x</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>interp2x</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>tv2x</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>tv3x</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>rgb2x</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>rgb3x</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>scan2x</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>scan3x</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="2" column="0" >
+         <widget class="QCheckBox" name="chkBoxAspect" >
+          <property name="minimumSize" >
+           <size>
+            <width>110</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize" >
+           <size>
+            <width>110</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="toolTip" >
+           <string>Do aspect correction</string>
+          </property>
+          <property name="text" >
+           <string>Aspect</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0" >
+         <layout class="QHBoxLayout" >
+          <property name="margin" >
+           <number>0</number>
+          </property>
+          <property name="spacing" >
+           <number>6</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="lblFrameSkip" >
+            <property name="minimumSize" >
+             <size>
+              <width>110</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize" >
+             <size>
+              <width>110</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text" >
+             <string>Frameskip:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSlider" name="sliderFS" >
+            <property name="orientation" >
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLCDNumber" name="lcdFS" >
+            <property name="frameShape" >
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow" >
+             <enum>QFrame::Sunken</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </item>
      <item row="2" column="0" >
       <widget class="QGroupBox" name="groupBox_2" >
        <property name="title" >
@@ -96,6 +1079,9 @@
             </property>
             <property name="whatsThis" >
              <string/>
+            </property>
+            <property name="currentIndex" >
+             <number>1</number>
             </property>
             <item>
              <property name="text" >
@@ -365,7 +1351,7 @@
           <item>
            <widget class="QComboBox" name="cbxCPUCycles" >
             <property name="currentIndex" >
-             <number>0</number>
+             <number>21</number>
             </property>
             <property name="maxVisibleItems" >
              <number>7</number>
@@ -589,6 +1575,9 @@
             <property name="whatsThis" >
              <string/>
             </property>
+            <property name="currentIndex" >
+             <number>1</number>
+            </property>
             <item>
              <property name="text" >
               <string>simple</string>
@@ -607,697 +1596,6 @@
             <item>
              <property name="text" >
               <string>dynamic</string>
-             </property>
-            </item>
-           </widget>
-          </item>
-         </layout>
-        </item>
-       </layout>
-      </widget>
-     </item>
-     <item row="1" column="0" >
-      <widget class="QGroupBox" name="gBoxRender" >
-       <property name="title" >
-        <string>Render</string>
-       </property>
-       <layout class="QGridLayout" >
-        <property name="margin" >
-         <number>9</number>
-        </property>
-        <property name="spacing" >
-         <number>6</number>
-        </property>
-        <item row="1" column="0" >
-         <layout class="QHBoxLayout" >
-          <property name="margin" >
-           <number>0</number>
-          </property>
-          <property name="spacing" >
-           <number>6</number>
-          </property>
-          <item>
-           <widget class="QLabel" name="lblScaler" >
-            <property name="minimumSize" >
-             <size>
-              <width>110</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="maximumSize" >
-             <size>
-              <width>110</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="text" >
-             <string>Scaler:</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QComboBox" name="cbxScaler" >
-            <property name="currentIndex" >
-             <number>1</number>
-            </property>
-            <item>
-             <property name="text" >
-              <string>none</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>normal2x</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>normal3x</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>advmame2x</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>advmame3x</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>advinterp2x</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>advinterp3x</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>interp2x</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>tv2x</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>tv3x</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>rgb2x</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>rgb3x</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>scan2x</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>scan3x</string>
-             </property>
-            </item>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item row="2" column="0" >
-         <widget class="QCheckBox" name="chkBoxAspect" >
-          <property name="minimumSize" >
-           <size>
-            <width>110</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="maximumSize" >
-           <size>
-            <width>110</width>
-            <height>16777215</height>
-           </size>
-          </property>
-          <property name="toolTip" >
-           <string>Do aspect correction</string>
-          </property>
-          <property name="text" >
-           <string>Aspect</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="0" >
-         <layout class="QHBoxLayout" >
-          <property name="margin" >
-           <number>0</number>
-          </property>
-          <property name="spacing" >
-           <number>6</number>
-          </property>
-          <item>
-           <widget class="QLabel" name="lblFrameSkip" >
-            <property name="minimumSize" >
-             <size>
-              <width>110</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="maximumSize" >
-             <size>
-              <width>110</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="text" >
-             <string>Frameskip:</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QSlider" name="sliderFS" >
-            <property name="orientation" >
-             <enum>Qt::Horizontal</enum>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLCDNumber" name="lcdFS" >
-            <property name="frameShape" >
-             <enum>QFrame::StyledPanel</enum>
-            </property>
-            <property name="frameShadow" >
-             <enum>QFrame::Sunken</enum>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-       </layout>
-      </widget>
-     </item>
-     <item row="0" column="0" >
-      <widget class="QGroupBox" name="gBoxSDL" >
-       <property name="title" >
-        <string>SDL</string>
-       </property>
-       <layout class="QGridLayout" >
-        <property name="margin" >
-         <number>9</number>
-        </property>
-        <property name="spacing" >
-         <number>6</number>
-        </property>
-        <item row="2" column="0" colspan="3" >
-         <layout class="QHBoxLayout" >
-          <property name="margin" >
-           <number>0</number>
-          </property>
-          <property name="spacing" >
-           <number>6</number>
-          </property>
-          <item>
-           <widget class="QLabel" name="lblSensitivity" >
-            <property name="minimumSize" >
-             <size>
-              <width>110</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="maximumSize" >
-             <size>
-              <width>110</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="text" >
-             <string>Sensitivity:</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QSlider" name="sliderSV" >
-            <property name="maximum" >
-             <number>512</number>
-            </property>
-            <property name="value" >
-             <number>100</number>
-            </property>
-            <property name="sliderPosition" >
-             <number>100</number>
-            </property>
-            <property name="orientation" >
-             <enum>Qt::Horizontal</enum>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLCDNumber" name="lcdSV" >
-            <property name="frameShape" >
-             <enum>QFrame::StyledPanel</enum>
-            </property>
-            <property name="frameShadow" >
-             <enum>QFrame::Sunken</enum>
-            </property>
-            <property name="value" stdset="0" >
-             <double>100</double>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item rowspan="2" row="0" column="1" >
-         <layout class="QGridLayout" >
-          <property name="margin" >
-           <number>0</number>
-          </property>
-          <property name="spacing" >
-           <number>6</number>
-          </property>
-          <item row="0" column="0" >
-           <widget class="QCheckBox" name="chkBoxAutolock" >
-            <property name="text" >
-             <string>Autolock</string>
-            </property>
-            <property name="checked" >
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0" >
-           <widget class="QCheckBox" name="chkBoxUseScanCode" >
-            <property name="text" >
-             <string>Use Scancodes</string>
-            </property>
-            <property name="checked" >
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0" >
-           <widget class="QCheckBox" name="chkBoxWaitOnError" >
-            <property name="text" >
-             <string>Wait on Error</string>
-            </property>
-            <property name="checked" >
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item row="0" column="2" >
-         <layout class="QHBoxLayout" >
-          <property name="margin" >
-           <number>0</number>
-          </property>
-          <property name="spacing" >
-           <number>6</number>
-          </property>
-          <item>
-           <widget class="QLabel" name="lblOutPut" >
-            <property name="minimumSize" >
-             <size>
-              <width>110</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="maximumSize" >
-             <size>
-              <width>110</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="text" >
-             <string>Output:</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QComboBox" name="cbxOutout" >
-            <item>
-             <property name="text" >
-              <string>surface</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>overlay</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>opengl</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>openglnb</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>ddraw</string>
-             </property>
-            </item>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item row="1" column="2" >
-         <layout class="QHBoxLayout" >
-          <property name="margin" >
-           <number>0</number>
-          </property>
-          <property name="spacing" >
-           <number>6</number>
-          </property>
-          <item>
-           <widget class="QLabel" name="lblFoucUnfous" >
-            <property name="minimumSize" >
-             <size>
-              <width>110</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="maximumSize" >
-             <size>
-              <width>110</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="text" >
-             <string>Focus/Unfocus</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QComboBox" name="cbxFocusUnfocus" >
-            <item>
-             <property name="text" >
-              <string>lowest,lowest</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>lowest,lower</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>lowest,normal</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>lowest,higher</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>lowest,highest</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>lower,lowest</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>lower,lower</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>lower,normal</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>lower,higher</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>lower,highest</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>normal,lowest</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>normal,lower</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>normal,normal</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>normal,higher</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>normal,higher</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>higher,lowest</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>higher,lower</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>higher,normal</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>higher,higher</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>higher,highest</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>highest,lowest</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>highest,lower</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>highest,normal</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>highest,higher</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>highest,highest</string>
-             </property>
-            </item>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item rowspan="2" row="0" column="0" >
-         <layout class="QGridLayout" >
-          <property name="margin" >
-           <number>0</number>
-          </property>
-          <property name="spacing" >
-           <number>6</number>
-          </property>
-          <item row="0" column="0" >
-           <widget class="QCheckBox" name="chkBoxFullScreen" >
-            <property name="text" >
-             <string>Full screen</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0" >
-           <widget class="QCheckBox" name="chkBoxFullDouble" >
-            <property name="text" >
-             <string>Full double</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0" >
-           <widget class="QCheckBox" name="chkBoxFullFixed" >
-            <property name="text" >
-             <string>Full fixed</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item row="4" column="0" colspan="3" >
-         <layout class="QHBoxLayout" >
-          <property name="margin" >
-           <number>0</number>
-          </property>
-          <property name="spacing" >
-           <number>6</number>
-          </property>
-          <item>
-           <widget class="QLabel" name="lblFullHW" >
-            <property name="minimumSize" >
-             <size>
-              <width>110</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="maximumSize" >
-             <size>
-              <width>110</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="text" >
-             <string>Wight x Height:</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QComboBox" name="cbxFullWightHigh" >
-            <property name="currentIndex" >
-             <number>0</number>
-            </property>
-            <item>
-             <property name="text" >
-              <string>original</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>640x480</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>800x600</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>1024x768</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>1280x1024</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>1600x1200</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>2480x1600</string>
-             </property>
-            </item>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item row="3" column="0" colspan="3" >
-         <layout class="QHBoxLayout" >
-          <property name="margin" >
-           <number>0</number>
-          </property>
-          <property name="spacing" >
-           <number>6</number>
-          </property>
-          <item>
-           <widget class="QLabel" name="lblWindowResolution" >
-            <property name="minimumSize" >
-             <size>
-              <width>110</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="maximumSize" >
-             <size>
-              <width>110</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="text" >
-             <string>Windowres.:</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QComboBox" name="cbxWindowWightHigh" >
-            <property name="currentIndex" >
-             <number>0</number>
-            </property>
-            <item>
-             <property name="text" >
-              <string>original</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>640x480</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>800x600</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>1024x768</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>1280x1024</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>1600x1200</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>2480x1600</string>
              </property>
             </item>
            </widget>
@@ -1327,8 +1625,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>207</width>
-          <height>136</height>
+          <width>195</width>
+          <height>116</height>
          </rect>
         </property>
         <attribute name="label" >
@@ -1378,6 +1676,9 @@
              </property>
              <item row="1" column="0" >
               <widget class="QComboBox" name="cbxMixerBlockSize" >
+               <property name="currentIndex" >
+                <number>1</number>
+               </property>
                <item>
                 <property name="text" >
                  <string>1024</string>
@@ -1407,6 +1708,9 @@
              </item>
              <item row="0" column="0" >
               <widget class="QComboBox" name="cbxMixerRate" >
+               <property name="currentIndex" >
+                <number>1</number>
+               </property>
                <item>
                 <property name="text" >
                  <string>11050</string>
@@ -1620,6 +1924,9 @@
                </property>
                <item row="2" column="0" >
                 <widget class="QComboBox" name="cbxSBHDMA" >
+                 <property name="currentIndex" >
+                  <number>2</number>
+                 </property>
                  <item>
                   <property name="text" >
                    <string>1</string>
@@ -1667,6 +1974,9 @@
                </item>
                <item row="3" column="0" >
                 <widget class="QComboBox" name="cbxSBOPLRate" >
+                 <property name="currentIndex" >
+                  <number>1</number>
+                 </property>
                  <item>
                   <property name="text" >
                    <string>11050</string>
@@ -1735,6 +2045,9 @@
                </item>
                <item row="1" column="0" >
                 <widget class="QComboBox" name="cbxSBIRQ" >
+                 <property name="currentIndex" >
+                  <number>1</number>
+                 </property>
                  <item>
                   <property name="text" >
                    <string>5</string>
@@ -1759,6 +2072,9 @@
                </item>
                <item row="0" column="0" >
                 <widget class="QComboBox" name="cbxSBType" >
+                 <property name="currentIndex" >
+                  <number>5</number>
+                 </property>
                  <item>
                   <property name="text" >
                    <string>none</string>
@@ -2044,6 +2360,9 @@
              </property>
              <item row="3" column="1" >
               <widget class="QComboBox" name="cbxGUSDMA_2" >
+               <property name="currentIndex" >
+                <number>1</number>
+               </property>
                <item>
                 <property name="text" >
                  <string>1</string>
@@ -2082,6 +2401,9 @@
              </item>
              <item row="1" column="0" colspan="2" >
               <widget class="QComboBox" name="cbxGUSBase" >
+               <property name="currentIndex" >
+                <number>1</number>
+               </property>
                <item>
                 <property name="text" >
                  <string>220</string>
@@ -2096,6 +2418,9 @@
              </item>
              <item row="0" column="0" colspan="2" >
               <widget class="QComboBox" name="cbxGUSRate" >
+               <property name="currentIndex" >
+                <number>1</number>
+               </property>
                <item>
                 <property name="text" >
                  <string>11050</string>
@@ -2115,6 +2440,9 @@
              </item>
              <item row="3" column="0" >
               <widget class="QComboBox" name="cbxGUSDMA_1" >
+               <property name="currentIndex" >
+                <number>1</number>
+               </property>
                <item>
                 <property name="text" >
                  <string>1</string>
@@ -2263,6 +2591,9 @@
              </property>
              <item row="0" column="0" >
               <widget class="QComboBox" name="cbxSpeakerRate" >
+               <property name="currentIndex" >
+                <number>1</number>
+               </property>
                <item>
                 <property name="text" >
                  <string>11050</string>
@@ -2359,8 +2690,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>227</width>
-          <height>108</height>
+          <width>210</width>
+          <height>94</height>
          </rect>
         </property>
         <attribute name="label" >
@@ -2681,6 +3012,38 @@
                 <string>Option</string>
                </property>
               </column>
+              <item>
+               <property name="text" >
+                <string>serial1</string>
+               </property>
+               <property name="text" >
+                <string>dummy</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>serial2</string>
+               </property>
+               <property name="text" >
+                <string>dummy</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>serial3</string>
+               </property>
+               <property name="text" >
+                <string>disabled</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>serial4</string>
+               </property>
+               <property name="text" >
+                <string>disabled</string>
+               </property>
+              </item>
              </widget>
             </item>
             <item row="1" column="0" >
@@ -3076,6 +3439,9 @@
               </item>
               <item>
                <widget class="QComboBox" name="cbxDSOption" >
+                <property name="currentIndex" >
+                 <number>1</number>
+                </property>
                 <item>
                  <property name="text" >
                   <string>disabled</string>
@@ -3204,6 +3570,9 @@
               </item>
               <item row="0" column="1" >
                <widget class="QComboBox" name="cbxUMB" >
+                <property name="currentIndex" >
+                 <number>1</number>
+                </property>
                 <item>
                  <property name="text" >
                   <string>false</string>
@@ -4275,7 +4644,7 @@
             <string>English</string>
            </property>
            <property name="icon" >
-            <iconset resource="../res/dboxfe.qrc" >:/pics/images/en.png</iconset>
+            <iconset resource="..\res\dboxfe.qrc" >:/pics/images/en.png</iconset>
            </property>
           </item>
           <item>
@@ -4283,7 +4652,7 @@
             <string>German</string>
            </property>
            <property name="icon" >
-            <iconset resource="../res/dboxfe.qrc" >:/pics/images/de.png</iconset>
+            <iconset resource="..\res\dboxfe.qrc" >:/pics/images/de.png</iconset>
            </property>
           </item>
          </widget>
@@ -4325,312 +4694,6 @@
     </layout>
    </widget>
   </widget>
-  <widget class="QWidget" name="layoutWidget" >
-   <property name="geometry" >
-    <rect>
-     <x>268</x>
-     <y>544</y>
-     <width>651</width>
-     <height>32</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" >
-    <property name="margin" >
-     <number>0</number>
-    </property>
-    <property name="spacing" >
-     <number>6</number>
-    </property>
-    <item>
-     <widget class="QPushButton" name="btnStartDBox" >
-      <property name="minimumSize" >
-       <size>
-        <width>110</width>
-        <height>26</height>
-       </size>
-      </property>
-      <property name="maximumSize" >
-       <size>
-        <width>110</width>
-        <height>26</height>
-       </size>
-      </property>
-      <property name="text" >
-       <string> St&amp;art</string>
-      </property>
-      <property name="icon" >
-       <iconset resource="../res/dboxfe.qrc" >:/pics/images/applications_16.png</iconset>
-      </property>
-      <property name="shortcut" >
-       <string>Alt+D</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <spacer>
-      <property name="orientation" >
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeHint" >
-       <size>
-        <width>148</width>
-        <height>30</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item>
-     <widget class="QPushButton" name="btnSaveGP" >
-      <property name="minimumSize" >
-       <size>
-        <width>110</width>
-        <height>26</height>
-       </size>
-      </property>
-      <property name="maximumSize" >
-       <size>
-        <width>110</width>
-        <height>26</height>
-       </size>
-      </property>
-      <property name="text" >
-       <string> &amp;Save</string>
-      </property>
-      <property name="icon" >
-       <iconset resource="../res/dboxfe.qrc" >:/pics/images/save_16.png</iconset>
-      </property>
-      <property name="shortcut" >
-       <string>Alt+S</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <spacer>
-      <property name="orientation" >
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeHint" >
-       <size>
-        <width>16</width>
-        <height>30</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item>
-     <widget class="QPushButton" name="btnAbout" >
-      <property name="minimumSize" >
-       <size>
-        <width>110</width>
-        <height>26</height>
-       </size>
-      </property>
-      <property name="maximumSize" >
-       <size>
-        <width>110</width>
-        <height>26</height>
-       </size>
-      </property>
-      <property name="text" >
-       <string>About</string>
-      </property>
-      <property name="icon" >
-       <iconset resource="../res/dboxfe.qrc" >:/pics/images/default.png</iconset>
-      </property>
-      <property name="shortcut" >
-       <string>Alt+S</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <spacer>
-      <property name="orientation" >
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeHint" >
-       <size>
-        <width>16</width>
-        <height>30</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item>
-     <widget class="QPushButton" name="btnQuit" >
-      <property name="minimumSize" >
-       <size>
-        <width>110</width>
-        <height>26</height>
-       </size>
-      </property>
-      <property name="maximumSize" >
-       <size>
-        <width>110</width>
-        <height>26</height>
-       </size>
-      </property>
-      <property name="text" >
-       <string> &amp;Quit</string>
-      </property>
-      <property name="icon" >
-       <iconset resource="../res/dboxfe.qrc" >:/pics/images/delete_16.png</iconset>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QGroupBox" name="gBoxProfile" >
-   <property name="geometry" >
-    <rect>
-     <x>9</x>
-     <y>9</y>
-     <width>252</width>
-     <height>567</height>
-    </rect>
-   </property>
-   <property name="title" >
-    <string>Gameprofile</string>
-   </property>
-   <layout class="QGridLayout" >
-    <property name="margin" >
-     <number>9</number>
-    </property>
-    <property name="spacing" >
-     <number>6</number>
-    </property>
-    <item row="1" column="0" >
-     <layout class="QVBoxLayout" >
-      <property name="margin" >
-       <number>0</number>
-      </property>
-      <property name="spacing" >
-       <number>6</number>
-      </property>
-      <item>
-       <layout class="QHBoxLayout" >
-        <property name="margin" >
-         <number>0</number>
-        </property>
-        <property name="spacing" >
-         <number>6</number>
-        </property>
-        <item>
-         <widget class="QPushButton" name="btnCreateGP" >
-          <property name="minimumSize" >
-           <size>
-            <width>110</width>
-            <height>26</height>
-           </size>
-          </property>
-          <property name="maximumSize" >
-           <size>
-            <width>110</width>
-            <height>26</height>
-           </size>
-          </property>
-          <property name="text" >
-           <string> &amp;Create</string>
-          </property>
-          <property name="icon" >
-           <iconset resource="../res/dboxfe.qrc" >:/pics/images/copy_16.png</iconset>
-          </property>
-          <property name="shortcut" >
-           <string>Alt+C</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="btnRemoveGP" >
-          <property name="minimumSize" >
-           <size>
-            <width>110</width>
-            <height>26</height>
-           </size>
-          </property>
-          <property name="maximumSize" >
-           <size>
-            <width>110</width>
-            <height>26</height>
-           </size>
-          </property>
-          <property name="text" >
-           <string> &amp;Remove</string>
-          </property>
-          <property name="icon" >
-           <iconset resource="../res/dboxfe.qrc" >:/pics/images/cut_16.png</iconset>
-          </property>
-          <property name="shortcut" >
-           <string>Alt+R</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" >
-        <property name="margin" >
-         <number>0</number>
-        </property>
-        <property name="spacing" >
-         <number>6</number>
-        </property>
-        <item>
-         <spacer>
-          <property name="orientation" >
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" >
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="QPushButton" name="btnWizard" >
-          <property name="minimumSize" >
-           <size>
-            <width>110</width>
-            <height>26</height>
-           </size>
-          </property>
-          <property name="maximumSize" >
-           <size>
-            <width>110</width>
-            <height>26</height>
-           </size>
-          </property>
-          <property name="text" >
-           <string>&amp;Gamewizard</string>
-          </property>
-          <property name="icon" >
-           <iconset resource="../res/dboxfe.qrc" >:/pics/images/misc.png</iconset>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer>
-          <property name="orientation" >
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" >
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-       </layout>
-      </item>
-     </layout>
-    </item>
-    <item row="0" column="0" >
-     <widget class="QListWidget" name="lwProfile" />
-    </item>
-   </layout>
-  </widget>
  </widget>
  <layoutdefault spacing="6" margin="11" />
  <pixmapfunction></pixmapfunction>
@@ -4643,7 +4706,6 @@
   <tabstop>twDbx</tabstop>
   <tabstop>chkBoxFullScreen</tabstop>
   <tabstop>chkBoxFullDouble</tabstop>
-  <tabstop>chkBoxFullFixed</tabstop>
   <tabstop>chkBoxAutolock</tabstop>
   <tabstop>chkBoxWaitOnError</tabstop>
   <tabstop>chkBoxUseScanCode</tabstop>

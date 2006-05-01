@@ -1,4 +1,5 @@
 2006-05-01  Alexander Saal  <alex.saal@gmx.de>
+* FIXED:	Bug #7343, Bug #7344, Bug #7345
 * FIXED:	you can now choose dosbox binary on windows (only windows)
 * FIXED:	version is now displayed of dosbox on windows (only windows)
 * FIXED:	dosbox starts now with costum configuration file (only windows)

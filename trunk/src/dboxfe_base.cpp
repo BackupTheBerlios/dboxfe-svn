@@ -36,7 +36,6 @@ void DB_BASE::readConf( const QString &dbconf, DBoxFE* dbfe ) {
     getConf->beginGroup( "sdl" );
     dbfe->ui.chkBoxFullScreen->setChecked( getConf->value( "fullscreen" ).toBool() );
     dbfe->ui.chkBoxFullDouble->setChecked( getConf->value( "fulldouble" ).toBool() );
-    dbfe->ui.chkBoxFullFixed->setChecked( getConf->value( "fullfixed" ).toBool() );
     int fullresolution = dbfe->ui.cbxFullWightHigh->findText( getConf->value( "fullresolution" ).toString() );
     dbfe->ui.cbxFullWightHigh->setCurrentIndex( fullresolution );
     int windowresolution = dbfe->ui.cbxWindowWightHigh->findText( getConf->value( "windowresolution" ).toString() );
@@ -228,7 +227,6 @@ void DB_BASE::saveConf( const QString &dbconf, DBoxFE* dbfe ) {
     settConf->beginGroup( "sdl" );
     settConf->setValue( "fullscreen", dbfe->ui.chkBoxFullScreen->isChecked() );
     settConf->setValue( "fulldouble", dbfe->ui.chkBoxFullDouble->isChecked() );
-    settConf->setValue( "fullfixed", dbfe->ui.chkBoxFullFixed->isChecked() );
 
     settConf->setValue( "fullresolution", dbfe->ui.cbxFullWightHigh->currentText() );
     settConf->setValue( "windowresolution", dbfe->ui.cbxWindowWightHigh->currentText() );
@@ -382,7 +380,6 @@ void DB_BASE::defaultSettings( DBoxFE* dbfe ) {
 
     dbfe->ui.chkBoxFullScreen->setChecked( false );
     dbfe->ui.chkBoxFullDouble->setChecked( false );
-    dbfe->ui.chkBoxFullFixed->setChecked( false );
     int fullresolution = dbfe->ui.cbxFullWightHigh->findText( "original" );
     dbfe->ui.cbxFullWightHigh->setCurrentIndex( fullresolution );
 
