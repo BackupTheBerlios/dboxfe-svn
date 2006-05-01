@@ -1,3 +1,12 @@
+2006-05-01  Alexander Saal  <alex.saal@gmx.de>
+* FIXED:	you can now choose dosbox binary on windows (only windows)
+* FIXED:	version is now displayed of dosbox on windows (only windows)
+* FIXED:	dosbox starts now with costum configuration file (only windows)
+* FIXED:	dosbox output is now displayed on log tab (only windows)
+* ADD:		rc file for icon in dboxfe.exe (only windows)
+* UPDATE:	dboxfe.pro
+* UPDATE:	release the BETA 0.1.1 version
+
 2006-04-26  Alexander Saal  <alex.saal@gmx.de>
 * FIXED:	you can now start dosbox with keymapper if the checkbox 'start Keymapper' is checked ...
 * ADD:		thanks and license text is now diplay on about dialog
