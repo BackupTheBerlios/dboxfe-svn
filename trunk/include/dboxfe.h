@@ -32,12 +32,8 @@ class DBoxFE : public QWidget {
         ~DBoxFE();
 
         Ui::DBoxFE ui;
-        QString getAppVersion() {
-            return tr( "v0.1.0" );
-        }
-        QString winTitle() {
-            return tr( "DBox Front End" );
-        }
+        QString getAppVersion() {  return tr( "v0.1.1" ); }
+        QString winTitle() { return tr( "DBox Front End" ); }
 
     private:
         QString titleLin, titleWin, titleMac, gpTxt, m_result, m_conf, m_file;
@@ -50,6 +46,7 @@ class DBoxFE : public QWidget {
 
     private slots:
         void slotListWidget( QListWidgetItem* );
+        void slotListWidgetOutPut( QContextMenuEvent*  );
         void slotCbxSerialIndexChanged( int );
         void slotCbxAutoexecIndexChanged( int );
         void slotAutoexecDrive();

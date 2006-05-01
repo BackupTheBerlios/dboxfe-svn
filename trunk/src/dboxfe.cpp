@@ -57,6 +57,7 @@ DBoxFE::DBoxFE( QWidget *parent, Qt::WFlags flags )
     connect( ui.btnGame, SIGNAL( clicked() ), this, SLOT( slotGame() ) );
     connect( ui.btnAbout, SIGNAL( clicked() ), this, SLOT( slotAbout() ) );
     connect( ui.lwProfile, SIGNAL( itemClicked( QListWidgetItem* ) ), this, SLOT( slotListWidget( QListWidgetItem* ) ) );
+    connect( ui.lwOutPut, SIGNAL( contextMenuEvent( QContextMenuEvent* ) ), this, SLOT( slotListWidgetOutPut( QContextMenuEvent* ) ) );
     connect( ui.cbxDSOption, SIGNAL( currentIndexChanged( int ) ), this, SLOT( slotCbxSerialIndexChanged( int ) ) );
     connect( ui.cbxAutoexecDirectoryOption, SIGNAL( currentIndexChanged( int ) ), this, SLOT( slotCbxAutoexecIndexChanged( int ) ) );
 
@@ -69,13 +70,11 @@ DBoxFE::DBoxFE( QWidget *parent, Qt::WFlags flags )
     titleMac = tr( "DOSBox - Front End for Mac " ) + getAppVersion();
 
 #ifdef Q_OS_WIN32
-
     setWindowTitle( titleWin );
     QApplication::setStyle( "plastique" );
 #endif
 
 #ifdef Q_OS_MACX
-
     setWindowTitle( titleMac );
 #endif
 
@@ -178,7 +177,6 @@ void DBoxFE::slotSearchBin() {
     gpIni->findDosbox( "/usr/bin", ui.pBarSearchBin, dosboxBin );
 
     QMessageBox::information( this, winTitle(), QString( dosboxBin.value( 0 ) ) + "\n" + QString( dosboxBin.value( 1 ) ) );
-
 }
 
 /**
@@ -247,7 +245,7 @@ void DBoxFE::slotRemoveGP() {
         QFile f( m_file );
 
         switch ( QMessageBox::information( this, winTitle(), tr( "Would you like delete the profile and configuration file?\nIf you click 'No' only the profile from list will be removed." ), tr( "Yes" ), tr( "No" ), tr( "Cancel" ), 0, 2 ) ) {
-            case 0:      // Yes clicked
+            case 0:       // Yes clicked
                 delete ui.lwProfile->currentItem();
 
                 if ( f.exists() ) {
@@ -258,12 +256,12 @@ void DBoxFE::slotRemoveGP() {
                 ui.lwOutPut->addItem( tr( "Game configuration -> " ) + f.fileName() + tr( " was deleted" ) );
                 ui.lwOutPut->update();
                 break;
-            case 1:      // No clicked but delete profile from list
+            case 1:       // No clicked but delete profile from list
                 delete ui.lwProfile->currentItem();
                 ui.lwOutPut->addItem( tr( "Game Profile -> " ) + gpTxt + tr( " was deleted" ) );
                 ui.lwOutPut->update();
                 break;
-            case 2:      // Cancel clicked or Escape pressed
+            case 2:       // Cancel clicked or Escape pressed
                 return ;
                 break;
         }
@@ -290,68 +288,68 @@ void DBoxFE::slotChooseDbxBinary() {
         return ;
 
 #ifdef Q_OS_WIN32
-	QFileInfo dboxBin( strDbxStabel );
+    QFileInfo dboxBin( strDbxStabel );
 
-	QProcess *p = new QProcess( this );
-	m_param.append( "-version" );
+    QProcess *p = new QProcess( this );
+    m_param.append( "-version" );
 
-	p->setWorkingDirectory( dboxBin.absolutePath() );
+    p->setWorkingDirectory( dboxBin.absolutePath() );
     p->start( strDbxStabel, m_param );
 
     while ( p->waitForFinished() ) {
-		QFile dboxOutFile( dboxBin.absolutePath() + "/stdout.txt" );
+        QFile dboxOutFile( dboxBin.absolutePath() + "/stdout.txt" );
 
-		if( !dboxOutFile.open( QFile::ReadOnly | QFile::Text ) ) {
-			QMessageBox::information( this, winTitle(), tr( "Can not read " ) + dboxOutFile.fileName() );
-			delete p;
-			return;
-		}
+        if ( !dboxOutFile.open( QFile::ReadOnly | QFile::Text ) ) {
+            QMessageBox::information( this, winTitle(), tr( "Can not read " ) + dboxOutFile.fileName() );
+            delete p;
+            return ;
+        }
 
-		QTextStream t( &dboxOutFile );
-		QString dboxVersion =  t.readAll();
+        QTextStream t( &dboxOutFile );
+        QString dboxVersion = t.readAll();
 
-		if( QString(dboxVersion.simplified()).trimmed().isEmpty() ) {
-			QMessageBox::information( this, winTitle(), tr( "This is not a valid dosbox binary." ) );
-			delete p;
-			return;
-		}
+        if ( QString( dboxVersion.simplified() ).trimmed().isEmpty() ) {
+            QMessageBox::information( this, winTitle(), tr( "This is not a valid dosbox binary." ) );
+            delete p;
+            return ;
+        }
 
-		if( QString(dboxVersion.simplified()).trimmed() == "0.65" ) {
-			ui.LEDbxStabel->setText( strDbxStabel );
-			ui.LEDbxVersion->setText( QString( tr( "DOSBox Version:  " ) + dboxVersion ) );
-		} else {
-			QMessageBox::information( this, winTitle(), tr( "Wrong dosbox version: " ) + QString(dboxVersion.simplified()).trimmed() + tr( ", i need 0.65" ) );
-			delete p;
-			return;
-		}
-	}
-	
-	m_param.clear();
-	delete p;
+        if ( QString( dboxVersion.simplified() ).trimmed() == "0.65" ) {
+            ui.LEDbxStabel->setText( strDbxStabel );
+            ui.LEDbxVersion->setText( QString( tr( "DOSBox Version:  " ) + dboxVersion ) );
+        } else {
+            QMessageBox::information( this, winTitle(), tr( "Wrong dosbox version: " ) + QString( dboxVersion.simplified() ).trimmed() + tr( ", i need 0.65" ) );
+            delete p;
+            return ;
+        }
+    }
+
+    m_param.clear();
+    delete p;
 #else
-	QProcess *p = new QProcess( this );
+    QProcess *p = new QProcess( this );
     p->start( strDbxStabel, QStringList() << "-version" );
-	
+
     while ( p->waitForFinished() ) {
-		QString dboxVersion =  p->readAll();
+        QString dboxVersion = p->readAll();
 
-		if( QString(dboxVersion.simplified()).trimmed().isEmpty() ) {
-			QMessageBox::information( this, winTitle(), tr( "This is not a valid dosbox binary." ) );
-			delete p;
-			return;
-		}
+        if ( QString( dboxVersion.simplified() ).trimmed().isEmpty() ) {
+            QMessageBox::information( this, winTitle(), tr( "This is not a valid dosbox binary." ) );
+            delete p;
+            return ;
+        }
 
-		if( QString(dboxVersion.simplified()).trimmed() == "0.65" ) {
-			ui.LEDbxStabel->setText( strDbxStabel );
-			ui.LEDbxVersion->setText( QString( tr( "DOSBox Version:  " ) + dboxVersion ) );
-		} else {
-			QMessageBox::information( this, winTitle(), tr( "Wrong dosbox version: " ) + QString(dboxVersion.simplified()).trimmed() + tr( ", i need 0.65" ) );
-			delete p;
-			return;
-		}
-	}
+        if ( QString( dboxVersion.simplified() ).trimmed() == "0.65" ) {
+            ui.LEDbxStabel->setText( strDbxStabel );
+            ui.LEDbxVersion->setText( QString( tr( "DOSBox Version:  " ) + dboxVersion ) );
+        } else {
+            QMessageBox::information( this, winTitle(), tr( "Wrong dosbox version: " ) + QString( dboxVersion.simplified() ).trimmed() + tr( ", i need 0.65" ) );
+            delete p;
+            return ;
+        }
+    }
 
-	delete p;
+    delete p;
 #endif
 }
 
@@ -394,7 +392,7 @@ void DBoxFE::slotAutoexecAdd() {
         return ;
     } else {
         switch ( ui.cbxAutoexecDirectoryOption->currentIndex() ) {
-            case 0:      // Default
+            case 0:       // Default
                 if ( ui.chkBoxLabelCDDVD->isChecked() ) {
                     if ( !ui.LEDeviceLabel->text().isEmpty() ) {
                         addStr = "mount " + ui.cbxDrive->currentText().toLower() + " " + ui.LEDrives->text() + " -label " + ui.LEDeviceLabel->text();
@@ -407,9 +405,9 @@ void DBoxFE::slotAutoexecAdd() {
                     addStr = "mount " + ui.cbxDrive->currentText().toLower() + " " + ui.LEDrives->text();
                 }
                 break;
-            case 1:      // Use Directory as CD/DVD
+            case 1:       // Use Directory as CD/DVD
                 switch ( ui.cbxAutoexecCDDVDROMOption->currentIndex() ) {
-                    case 0:    // Windows 2000/XP/Linux
+                    case 0:     // Windows 2000/XP/Linux
                         if ( ui.chkBoxLabelCDDVD->isChecked() ) {
                             if ( !ui.LEDeviceLabel->text().isEmpty() ) {
                                 addStr = "mount " + ui.cbxDrive->currentText().toLower() + " " + ui.LEDrives->text() + " -t cdrom -usecd 0 -ioctl -label " + ui.LEDeviceLabel->text();
@@ -422,7 +420,7 @@ void DBoxFE::slotAutoexecAdd() {
                             addStr = "mount " + ui.cbxDrive->currentText().toLower() + " " + ui.LEDrives->text() + " -t cdrom -usecd 0 -ioctl";
                         }
                         break;
-                    case 1:    // Windows 98
+                    case 1:     // Windows 98
                         if ( ui.chkBoxLabelCDDVD->isChecked() ) {
                             if ( !ui.LEDeviceLabel->text().isEmpty() ) {
                                 addStr = "mount " + ui.cbxDrive->currentText().toLower() + " " + ui.LEDrives->text() + " -t cdrom -usecd 0 -aspi -label " + ui.LEDeviceLabel->text();
@@ -437,7 +435,7 @@ void DBoxFE::slotAutoexecAdd() {
                         break;
                 }
                 break;
-            case 2:      // Use Directory as Floppy
+            case 2:       // Use Directory as Floppy
                 if ( ui.chkBoxLabelCDDVD->isChecked() ) {
                     if ( !ui.LEDeviceLabel->text().isEmpty() ) {
                         addStr = "mount " + ui.cbxDrive->currentText().toLower() + " " + ui.LEDrives->text() + " -t floppy -label " + ui.LEDeviceLabel->text();
@@ -553,13 +551,13 @@ void DBoxFE::slotSerialAdd() {
     QString serialOption;
 
     switch ( ui.cbxDSOption->currentIndex() ) {
-        case 0:      // diasabled
+        case 0:       // diasabled
             item->setText( 1, ui.cbxDSOption->currentText() );
             break;
-        case 1:      // dummy
+        case 1:       // dummy
             item->setText( 1, ui.cbxDSOption->currentText() );
             break;
-        case 2:      // modem
+        case 2:       // modem
             serialOption = ui.cbxDSOption->currentText() + " " +
                            "listenport:" + ui.LEDSListenPort->text() + " " +
                            "realport:" + ui.cbxDSRealPort->currentText() + " " +
@@ -571,7 +569,7 @@ void DBoxFE::slotSerialAdd() {
 
             item->setText( 1, serialOption );
             break;
-        case 3:      // directserial
+        case 3:       // directserial
             serialOption = ui.cbxDSOption->currentText() + " " +
                            "realport:" + ui.cbxDSRealPort->currentText() + " " +
                            "startbps:" + ui.LEDSBps->text() + " " +
@@ -629,17 +627,36 @@ void DBoxFE::slotListWidget( QListWidgetItem* item ) {
 }
 
 /**
+ * TODO Clear Log output or save it ....
+ **/
+void DBoxFE::slotListWidgetOutPut( QContextMenuEvent* event ) {
+    QMenu menu( this );
+
+    QAction *acClear = new QAction( tr( "&Clear" ), this );
+    acClear->setShortcut( tr( "Ctrl+C" ) );
+    //connect(acClear, SIGNAL(triggered()), this, SLOT(paste()));
+
+    QAction *acSave = new QAction( tr( "&Save" ), this );
+    acSave->setShortcut( tr( "Ctrl+S" ) );
+    //connect(acSave, SIGNAL(triggered()), this, SLOT(paste()));
+
+    menu.addAction( acClear );
+    menu.addAction( acSave );
+    menu.exec( event->globalPos() );
+}
+
+/**
  * TODO Disable/Enable Serial option
  **/
 void DBoxFE::slotCbxSerialIndexChanged( int index ) {
     switch ( index ) {
-        case 0:      // diasabled
+        case 0:       // diasabled
             ui.gBoxSerialOption->setEnabled( false );
             break;
-        case 1:      // dummy
+        case 1:       // dummy
             ui.gBoxSerialOption->setEnabled( false );
             break;
-        case 2:      // modem
+        case 2:       // modem
             ui.gBoxSerialOption->setEnabled( true );
             ui.lblDSRealPort->setEnabled( true );
             ui.cbxDSRealPort->setEnabled( true );
@@ -656,7 +673,7 @@ void DBoxFE::slotCbxSerialIndexChanged( int index ) {
             ui.lblDSComPort->setEnabled( false );
             ui.cbxDSComPort->setEnabled( false );
             break;
-        case 3:      // directserial
+        case 3:       // directserial
             ui.gBoxSerialOption->setEnabled( true );
             ui.lblDSRealPort->setEnabled( true );
             ui.cbxDSRealPort->setEnabled( true );
@@ -677,15 +694,15 @@ void DBoxFE::slotCbxSerialIndexChanged( int index ) {
 }
 void DBoxFE::slotCbxAutoexecIndexChanged( int index ) {
     switch ( index ) {
-        case 0:      // Default
+        case 0:       // Default
             ui.lblAutoexecCDDVDROMOption->setEnabled( false );
             ui.cbxAutoexecCDDVDROMOption->setEnabled( false );
             break;
-        case 1:      // Use directory as CD/DVD ROM
+        case 1:       // Use directory as CD/DVD ROM
             ui.lblAutoexecCDDVDROMOption->setEnabled( true );
             ui.cbxAutoexecCDDVDROMOption->setEnabled( true );
             break;
-        case 2:      // Use directory as floppy drive
+        case 2:       // Use directory as floppy drive
             ui.lblAutoexecCDDVDROMOption->setEnabled( false );
             ui.cbxAutoexecCDDVDROMOption->setEnabled( false );
             break;
@@ -704,18 +721,18 @@ void DBoxFE::start( const QString& bin, const QString &param, const QString &con
     dBox = new QProcess( this );
 
 #ifdef Q_OS_WIN32
-	m_param.append( "-noconsole" );
+    m_param.append( "-noconsole" );
 #endif
-	
-	m_param.append( param );
+
+    m_param.append( param );
     m_param.append( conf );
 
-    if( ui.chkBoxStartmapper->isChecked() )
-		m_param.append( "-startmapper" );
+    if ( ui.chkBoxStartmapper->isChecked() )
+        m_param.append( "-startmapper" );
 
-#ifdef Q_OS_WIN32	
-	QFileInfo dboxBin( conf );
-	dBox->setWorkingDirectory( dboxBin.absolutePath() );
+#ifdef Q_OS_WIN32
+    QFileInfo dboxBin( conf );
+    dBox->setWorkingDirectory( dboxBin.absolutePath() );
 #endif
 
     dBox->start( bin, m_param );
@@ -752,26 +769,26 @@ void DBoxFE::finish( int exitCode, QProcess::ExitStatus exitStatus ) {
     this->show();
 
 #ifdef Q_OS_WIN32
-	QString path, outLine;
-	path = QDir::homePath();
-	path.append("/.dboxfe/stdout.txt");
+    QString path, outLine;
+    path = QDir::homePath();
+    path.append( "/.dboxfe/stdout.txt" );
 
-	QFile outFile( path );
+    QFile outFile( path );
 
-	if( !outFile.open( QFile::ReadOnly | QFile::Text ) ) {
-		QMessageBox::information( this, winTitle(), tr( "Can not read file " ) + path );
-		outFile.close();
-		return;
-	}
+    if ( !outFile.open( QFile::ReadOnly | QFile::Text ) ) {
+        QMessageBox::information( this, winTitle(), tr( "Can not read file " ) + path );
+        outFile.close();
+        return ;
+    }
 
-	QTextStream t( &outFile );
-	while( !t.atEnd() ){
-		outLine = t.readLine();
-		ui.lwOutPut->addItem( tr( "dosbox cmd output -> " ) + outLine.mid( outLine.indexOf( ":" ) + 1 ) );
-		ui.lwOutPut->update();
-	}
+    QTextStream t( &outFile );
+    while ( !t.atEnd() ) {
+        outLine = t.readLine();
+        ui.lwOutPut->addItem( tr( "dosbox cmd output -> " ) + outLine.mid( outLine.indexOf( ":" ) + 1 ) );
+        ui.lwOutPut->update();
+    }
 
-	outFile.close();
+    outFile.close();
 #endif
 
     switch ( exitStatus ) {
