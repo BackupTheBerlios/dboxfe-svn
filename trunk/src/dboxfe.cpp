@@ -169,15 +169,7 @@ void DBoxFE::slotSaveGP() {
     }
 }
 
-void DBoxFE::slotSearchBin() {
-    DB_BASE * gpIni = new DB_BASE();
-    gpIni->_dbfe_ = this;
-    QStringList dosboxBin;
-    ui.pBarSearchBin->setMaximum( 3000 );
-    gpIni->findDosbox( "/usr/bin", ui.pBarSearchBin, dosboxBin );
-
-    QMessageBox::information( this, winTitle(), QString( dosboxBin.value( 0 ) ) + "\n" + QString( dosboxBin.value( 1 ) ) );
-}
+void DBoxFE::slotSearchBin() {}
 
 /**
  * TODO Create game profile file
@@ -327,6 +319,7 @@ void DBoxFE::slotChooseDbxBinary() {
     m_param.clear();
     delete p;
 #else
+
     QProcess *p = new QProcess( this );
     p->start( strDbxStabel, QStringList() << "-version" );
 

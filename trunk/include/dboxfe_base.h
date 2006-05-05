@@ -40,13 +40,11 @@ class DB_BASE {
         QStringList gameList, gamesList;
         QString m_file, m_gameName;
         QFileInfo fi;
-        int state;
+        QFile *createFile;
 
     public:
         DB_BASE();
         inline virtual ~DB_BASE() {}
-
-        DBoxFE *_dbfe_;
 
         /**
          * Return the absolut path of executable
@@ -88,15 +86,6 @@ class DB_BASE {
          * @since 0.1.0
          */
         void findGames( const QString &dirName, QTreeWidget* qlw );
-
-        /**
-         * Search dosbox executable
-         *
-         * @param dirName    Directory for search
-         * @param pBar       for Progressinformation
-         * @since 0.1.0
-         */
-        void findDosbox( const QString &dirName, QProgressBar *pBar, QStringList &lstBinary );
 
         /**
          * Create game profiles

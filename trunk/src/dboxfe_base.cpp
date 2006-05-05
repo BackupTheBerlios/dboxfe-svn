@@ -23,13 +23,9 @@
 #include <QtCore>
 #include <QtGui>
 
-DB_BASE::DB_BASE() {
-    state = 0;
-}
+DB_BASE::DB_BASE() {}
 
-QString DB_BASE::applicationDir() {
-    return QCoreApplication::applicationDirPath();
-}
+QString DB_BASE::applicationDir() {  return QCoreApplication::applicationDirPath(); }
 
 void DB_BASE::readConf( const QString &dbconf, DBoxFE* dbfe ) {
     QSettings * getConf = new QSettings( dbconf, QSettings::IniFormat );
@@ -573,36 +569,6 @@ void DB_BASE::findGames( const QString &dirName, QTreeWidget* qtw ) {
     }
 }
 
-void DB_BASE::findDosbox( const QString &dirName, QProgressBar *pBar, QStringList &lstBinary ) {
-    QDir dir( dirName );
-
-    const QFileInfoList fil = dir.entryInfoList( QDir::Files | QDir::Dirs, QDir::Name );
-    QListIterator<QFileInfo> it( fil );
-
-    while ( it.hasNext() ) {
-        fi = it.next();
-
-        if ( fi.fileName() == "." || fi.fileName() == ".." )
-            ;
-        else {
-            if ( fi.isDir() && fi.isReadable() ) {
-                findDosbox( fi.absoluteFilePath(), pBar, lstBinary );
-            } else {
-                if ( fi.fileName() == "dosbox" ) {
-                    lstBinary << fi.fileName() + ";" + fi.absolutePath();
-                }
-                pBar->setValue( state += 1 );
-                pBar->update();
-                pBar->repaint();
-                _dbfe_->update();
-                _dbfe_->repaint();
-            }
-        }
-    }
-
-    pBar->setValue( 0 );
-}
-
 /*
  * Create game profiles
  */
@@ -617,7 +583,6 @@ void DB_BASE::createGameProfiles( const QString &file, const QStringList &gamesL
     settGP.save( file );
 
     QString fileName;
-    QFile *createFile;
 
     fileName = ":/default/default.conf";
 
