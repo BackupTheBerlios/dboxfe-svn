@@ -46,7 +46,7 @@ class DBoxFE : public QWidget {
 
     private slots:
         void slotListWidget( QListWidgetItem* );
-        void slotListWidgetOutPut( QContextMenuEvent*  );
+        void slotListWidgetOutPut( QPoint  );
         void slotCbxSerialIndexChanged( int );
         void slotCbxAutoexecIndexChanged( int );
         void slotAutoexecDrive();

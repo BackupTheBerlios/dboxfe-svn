@@ -39,7 +39,6 @@ DBoxFE::DBoxFE( QWidget *parent, Qt::WFlags flags )
 
     // connection
     connect( ui.btnSaveGP, SIGNAL( clicked() ), this, SLOT( slotSaveGP() ) );
-    connect( ui.btnSearchBin, SIGNAL( clicked() ), this, SLOT( slotSearchBin() ) );
     connect( ui.btnRemoveGP, SIGNAL( clicked() ), this, SLOT( slotRemoveGP() ) );
     connect( ui.btnCreateGP, SIGNAL( clicked() ), this, SLOT( slotCreateGP() ) );
     connect( ui.btnWizard, SIGNAL( clicked() ), this, SLOT( slotWizard() ) );
@@ -57,17 +56,14 @@ DBoxFE::DBoxFE( QWidget *parent, Qt::WFlags flags )
     connect( ui.btnGame, SIGNAL( clicked() ), this, SLOT( slotGame() ) );
     connect( ui.btnAbout, SIGNAL( clicked() ), this, SLOT( slotAbout() ) );
     connect( ui.lwProfile, SIGNAL( itemClicked( QListWidgetItem* ) ), this, SLOT( slotListWidget( QListWidgetItem* ) ) );
-    connect( ui.lwOutPut, SIGNAL( contextMenuEvent( QContextMenuEvent* ) ), this, SLOT( slotListWidgetOutPut( QContextMenuEvent* ) ) );
+    connect( ui.lwOutPut, SIGNAL( customContextMenuRequested( QPoint ) ), this, SLOT( slotListWidgetOutPut( QPoint ) ) );
     connect( ui.cbxDSOption, SIGNAL( currentIndexChanged( int ) ), this, SLOT( slotCbxSerialIndexChanged( int ) ) );
     connect( ui.cbxAutoexecDirectoryOption, SIGNAL( currentIndexChanged( int ) ), this, SLOT( slotCbxAutoexecIndexChanged( int ) ) );
 
-    ui.btnSearchBin->setVisible( false );
-    ui.pBarSearchBin->setVisible( false );
-
     // windows title for the application
-    titleLin = tr( "DOSBox - Front End for Linux " ) + getAppVersion();
-    titleWin = tr( "DOSBox - Front End for Windows " ) + getAppVersion();
-    titleMac = tr( "DOSBox - Front End for Mac " ) + getAppVersion();
+    titleLin = tr( "DBoxFE - Front End for DOSBox 0.65 - Linux Version " ) + getAppVersion();
+    titleWin = tr( "DBoxFE - Front End for DOSBox 0.65 - Windows Version " ) + getAppVersion();
+    titleMac = tr( "DBoxFE - Front End for DOSBox 0.65 - Mac Version " ) + getAppVersion();
 
 #ifdef Q_OS_WIN32
     setWindowTitle( titleWin );
@@ -92,6 +88,8 @@ DBoxFE::DBoxFE( QWidget *parent, Qt::WFlags flags )
     int left = ( rect.width() - width() ) / 2;
     int top = ( rect.height() - height() ) / 2;
     setGeometry( left, top, width(), height() );
+    
+    //setMouseTracking( true );
 }
 
 DBoxFE::~DBoxFE() {}
@@ -622,7 +620,7 @@ void DBoxFE::slotListWidget( QListWidgetItem* item ) {
 /**
  * TODO Clear Log output or save it ....
  **/
-void DBoxFE::slotListWidgetOutPut( QContextMenuEvent* event ) {
+void DBoxFE::slotListWidgetOutPut( QPoint point ) {
     QMenu menu( this );
 
     QAction *acClear = new QAction( tr( "&Clear" ), this );
@@ -635,7 +633,11 @@ void DBoxFE::slotListWidgetOutPut( QContextMenuEvent* event ) {
 
     menu.addAction( acClear );
     menu.addAction( acSave );
-    menu.exec( event->globalPos() );
+    QMouseEvent *mevent = new QMouseEvent( QEvent::MouseButtonPress, point, Qt::RightButton, Qt::RightButton, Qt::NoModifier );
+    //mousePressEvent ( mevent )
+	
+    QAction *mnu = menu.exec( mevent->globalPos() );
+    
 }
 
 /**
