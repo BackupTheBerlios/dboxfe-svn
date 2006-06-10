@@ -44,19 +44,19 @@ HEADERS += include/dboxfe_about.h
 HEADERS += include/dboxfe_profile.h
 HEADERS += include/dboxfe_profilewizard.h
 HEADERS += include/dboxfe_games.h
-HEADERS += include/dboxfe_gamedatabase.h
+HEADERS += include/dboxfe_gamesettings.h
 HEADERS += include/dboxfe_base.h
 HEADERS += include/dboxfe_splash.h
 HEADERS += 3rdparty/Base64.h
 HEADERS += 3rdparty/XMLWriter.h
 HEADERS += 3rdparty/XMLPreferences.h 
-	   
+
 SOURCES += src/dboxfe.cpp
 SOURCES += src/dboxfe_about.cpp
 SOURCES += src/dboxfe_profile.cpp
 SOURCES += src/dboxfe_profilewizard.cpp
 SOURCES += src/dboxfe_games.cpp
-SOURCES += src/dboxfe_gamedatabase.cpp
+SOURCES += src/dboxfe_gamesettings.cpp
 SOURCES += src/dboxfe_base.cpp
 SOURCES += src/dboxfe_splash.cpp
 SOURCES += src/main.cpp

@@ -24,11 +24,16 @@
 #include <QtCore>
 #include <QtGui>
 
-DB_BASE::DB_BASE() {}
+DB_BASE::DB_BASE()
+{}
 
-QString DB_BASE::applicationDir() {  return QCoreApplication::applicationDirPath(); }
+QString DB_BASE::applicationDir()
+{
+    return QCoreApplication::applicationDirPath();
+}
 
-void DB_BASE::readConf( const QString &dbconf, DBoxFE* dbfe ) {
+void DB_BASE::readConf( const QString &dbconf, DBoxFE* dbfe )
+{
     QSettings * getConf = new QSettings( dbconf, QSettings::IniFormat );
     getConf->beginGroup( "sdl" );
     dbfe->ui.chkBoxFullScreen->setChecked( getConf->value( "fullscreen" ).toBool() );
@@ -218,7 +223,8 @@ void DB_BASE::readConf( const QString &dbconf, DBoxFE* dbfe ) {
     delete getConf;
 }
 
-void DB_BASE::saveConf( const QString &dbconf, DBoxFE* dbfe ) {
+void DB_BASE::saveConf( const QString &dbconf, DBoxFE* dbfe )
+{
     QSettings * settConf = new QSettings( dbconf, QSettings::IniFormat );
     // SDL settings
     settConf->beginGroup( "sdl" );
@@ -372,7 +378,8 @@ void DB_BASE::saveConf( const QString &dbconf, DBoxFE* dbfe ) {
 
 }
 
-void DB_BASE::defaultSettings( DBoxFE* dbfe ) {
+void DB_BASE::defaultSettings( DBoxFE* dbfe )
+{
     qDebug() << QObject::tr( "Set dafault settings, based on dosbox default settings .... [sdl]" );
 
     dbfe->ui.chkBoxFullScreen->setChecked( false );
@@ -532,14 +539,15 @@ void DB_BASE::defaultSettings( DBoxFE* dbfe ) {
     dbfe->ui.cbxUMB->setCurrentIndex( umb );
 }
 
-void DB_BASE::findGames( const QString &dirName, QTreeWidget* qtw ) {
+void DB_BASE::findGames( const QString &dirName, QTreeWidget* qtw )
+{
     QDir dir( dirName );
 
     m_file = QDir::homePath();
     m_file.append( "/.dboxfe/profile/games.xml" );
 
     XMLPreferences games( "DBoxFE", "Alexander Saal" );
-    games.setVersion( "v0.1.0" );
+    games.setVersion( "v0.1.2" );
     games.load( m_file );
 
     gameList = games.getStringList( "Games", "Name" );
@@ -573,14 +581,15 @@ void DB_BASE::findGames( const QString &dirName, QTreeWidget* qtw ) {
 /*
  * Create game profiles
  */
-void DB_BASE::createGameProfiles( const QString &file, const QStringList &gamesList, DBoxFE* dbfe, DBoxFE_ProfileWizard* dbfe_pw ) {
+void DB_BASE::createGameProfiles( const QString &file, const QStringList &gamesList, DBoxFE* dbfe, DBoxFE_ProfileWizard* dbfe_pw )
+{
     /* init settings from mainwindow */
     dbfe->init();
-    
+
     XMLPreferences settGP( "DBoxFE", "Alexander Saal" );
     settGP.setVersion( dbfe->getAppVersion() );
-    
-    settGP.setStringList( "Profile", "Name", gamesList );    
+
+    settGP.setStringList( "Profile", "Name", gamesList );
     settGP.setString( "DOSBox", "binary", dbfe->ui.LEDbxStabel->text() );
     settGP.setString( "DOSBox", "version", dbfe->ui.LEDbxVersion->text() );
     settGP.setInt( "DBoxFE", "Lng", dbfe->ui.cbxLanguage->currentIndex() );
@@ -619,9 +628,49 @@ void DB_BASE::createGameProfiles( const QString &file, const QStringList &gamesL
 }
 
 /*
+ * TODO Load image files from directory
+ */
+void DB_BASE::loadImage( const QString &imageDirectory, QListWidget* qlw )
+{
+    QDir dir( imageDirectory );
+
+    m_file = QDir::homePath();
+    m_file.append( "/.dboxfe/images/gamesettings.xml" );
+
+    XMLPreferences gamesettings( "DBoxFE", "Alexander Saal" );
+    gamesettings.setVersion( "v0.1.2" );
+
+    const QFileInfoList fil = dir.entryInfoList( QDir::Files | QDir::Dirs, QDir::Name );
+    QListIterator<QFileInfo> it( fil );
+    QStringList lstImages;
+
+    while ( it.hasNext() ) {
+        fi = it.next();
+
+        if ( fi.fileName() == "." || fi.fileName() == ".." )
+            ;
+        else {
+            if ( fi.isDir() && fi.isReadable() )
+                loadImage( fi.absoluteFilePath(), qlw );
+            else {
+                if ( fi.suffix() == "jpg" or fi.suffix() == "jpeg" or fi.suffix() == "png" or fi.suffix() == "bmp" or fi.suffix() == "gif" ) {
+                    QListWidgetItem * qlwItem = new QListWidgetItem( qlw );
+                    qlwItem->setText( fi.baseName() );
+	        lstImages += fi.baseName() + ";" + fi.absoluteFilePath();	    
+                }
+            }
+        }
+    }
+
+    gamesettings.setStringList( "Gamesettings", "imagefiles", lstImages );
+    gamesettings.save( m_file );
+}
+
+/*
  * TODO For feature request ...... (Gamedatabase)
  */
-void DB_BASE::insertGameInToDb( const QString &name, const QString &executable, QTreeWidget* qtw ) {
+void DB_BASE::insertGameInToDb( const QString &name, const QString &executable, QTreeWidget* qtw )
+{
     qtw->setColumnCount( qtw->columnCount() );
 
     QTreeWidgetItem *item = new QTreeWidgetItem( qtw );
@@ -632,7 +681,8 @@ void DB_BASE::insertGameInToDb( const QString &name, const QString &executable, 
 /*
  * Returns current count of games
  */
-int DB_BASE::removeGameFromDb( QTreeWidget* qtw ) {
+int DB_BASE::removeGameFromDb( QTreeWidget* qtw )
+{
     if ( qtw->currentItem() != NULL )
         delete qtw->currentItem();
     return qtw->topLevelItemCount();
@@ -641,9 +691,10 @@ int DB_BASE::removeGameFromDb( QTreeWidget* qtw ) {
 /*
  * Save the gamedatabase file
  */
-void DB_BASE::saveGameDb( const QString &file, QTreeWidget* qtw, int col1, int col2 ) {
+void DB_BASE::saveGameDb( const QString &file, QTreeWidget* qtw, int col1, int col2 )
+{
     XMLPreferences games( "DBoxFE", "Alexander Saal" );
-    games.setVersion( "v0.1.0" );
+    games.setVersion( "v0.1.2" );
 
     for ( int i = 0; i < qtw->topLevelItemCount(); ++i ) {
         QTreeWidgetItem *item = qtw->topLevelItem( i );
@@ -656,9 +707,10 @@ void DB_BASE::saveGameDb( const QString &file, QTreeWidget* qtw, int col1, int c
 /*
  * Read the gamedatabase file and list the items in to QTreeWidget
  */
-void DB_BASE::readGameDb( const QString &file, QTreeWidget* qtw ) {
+void DB_BASE::readGameDb( const QString &file, QTreeWidget* qtw )
+{
     XMLPreferences games( "DBoxFE", "Alexander Saal" );
-    games.setVersion( "v0.1.0" );
+    games.setVersion( "v0.1.2" );
     games.load( file );
     gamesList = games.getStringList( "Games", "Name" );
 

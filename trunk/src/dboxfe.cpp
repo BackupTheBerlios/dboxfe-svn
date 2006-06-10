@@ -20,6 +20,7 @@
 #include "dboxfe_about.h"
 #include "dboxfe_base.h"
 #include "dboxfe_games.h"
+#include "dboxfe_gamesettings.h"
 #include "dboxfe_profile.h"
 #include "dboxfe_profilewizard.h"
 
@@ -55,6 +56,7 @@ DBoxFE::DBoxFE( QWidget *parent, Qt::WFlags flags )
         connect( ui.btnAutoexecDown, SIGNAL( clicked() ), this, SLOT( slotAutoexecDown() ) );
         connect( ui.btnGame, SIGNAL( clicked() ), this, SLOT( slotGame() ) );
         connect( ui.btnAbout, SIGNAL( clicked() ), this, SLOT( slotAbout() ) );
+        connect( ui.btnGamesettings, SIGNAL( clicked() ), this, SLOT( slotGameSettings() ) );
         connect( ui.lwProfile, SIGNAL( itemClicked( QListWidgetItem* ) ), this, SLOT( slotListWidget( QListWidgetItem* ) ) );
         connect( ui.lwOutPut, SIGNAL( customContextMenuRequested( QPoint ) ), this, SLOT( slotListWidgetOutPut( QPoint ) ) );
         connect( ui.cbxDSOption, SIGNAL( currentIndexChanged( int ) ), this, SLOT( slotCbxSerialIndexChanged( int ) ) );
@@ -622,6 +624,15 @@ void DBoxFE::slotWizard()
         if ( dbfe_profilewizard->exec() == QDialog::Accepted ) {
                 init();
         }
+}
+
+/**
+ * TODO Gamepreferences
+ **/
+void DBoxFE::slotGameSettings()
+{
+    DBoxFE_GameSettings * dbfe_gamesettings = new DBoxFE_GameSettings();
+    dbfe_gamesettings->show();
 }
 
 /**
