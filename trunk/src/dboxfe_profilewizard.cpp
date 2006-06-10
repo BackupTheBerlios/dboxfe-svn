@@ -26,6 +26,7 @@
 
 DBoxFE_ProfileWizard::DBoxFE_ProfileWizard( QDialog *parent, Qt::WFlags flags )
         : QDialog( parent, flags ) {
+    ui.setupUi( this );
     // setup grafical user interface (gui)
     ui.setupUi( this );
 
@@ -85,11 +86,11 @@ void DBoxFE_ProfileWizard::slotFinish() {
 
         ui.lblCreateGP->setEnabled( true );
 
-        gpBase.createGameProfiles( m_gp_file, gpList );
+        gpBase.createGameProfiles( m_gp_file, gpList, dbfe, this );
 
         ui.lblFinish->setEnabled( true );
 
-        QMessageBox::information( this, dbfe.winTitle(), tr( "Please make sure you set the autoexec option for every profile right." ) );
+        QMessageBox::information( this, dbfe->winTitle(), tr( "Please make sure you set the autoexec option for every profile right." ) );
         QDialog::accept();
     } else {
         ui.btnNext->setText( tr( "&Next" ) );
@@ -159,8 +160,7 @@ void DBoxFE_ProfileWizard::httpRequestFinished( int requestId, bool error ) {
     if ( httpRequestAborted ) {
         if ( m_file ) {
             m_file->close();
-            m_file->remove
-            ();
+            m_file->remove();
             delete m_file;
             m_file = 0;
         }
@@ -175,9 +175,8 @@ void DBoxFE_ProfileWizard::httpRequestFinished( int requestId, bool error ) {
     m_file->close();
 
     if ( error ) {
-        m_file->remove
-        ();
-        QMessageBox::information( this, dbfe.winTitle(), tr( "Download failed: %1." ).arg( m_http->errorString() ) );
+        m_file->remove();
+        QMessageBox::information( this, dbfe->winTitle(), tr( "Download failed: %1." ).arg( m_http->errorString() ) );
     }
 
     delete m_file;
@@ -186,7 +185,7 @@ void DBoxFE_ProfileWizard::httpRequestFinished( int requestId, bool error ) {
 
 void DBoxFE_ProfileWizard::readResponseHeader( const QHttpResponseHeader &responseHeader ) {
     if ( responseHeader.statusCode() != 200 ) {
-        QMessageBox::information( this, dbfe.winTitle(), tr( "Download failed: %1." ).arg( responseHeader.reasonPhrase() ) );
+        QMessageBox::information( this, dbfe->winTitle(), tr( "Download failed: %1." ).arg( responseHeader.reasonPhrase() ) );
         httpRequestAborted = true;
         m_http->abort();
         return ;
@@ -208,7 +207,7 @@ void DBoxFE_ProfileWizard::downloadFile() {
     m_file = new QFile( fileName );
 
     if ( !m_file->open( QIODevice::WriteOnly ) ) {
-        QMessageBox::information( this, dbfe.winTitle(), tr( "Unable to update the file %1: %2." ).arg( fileName ).arg( m_file->errorString() ) );
+        QMessageBox::information( this, dbfe->winTitle(), tr( "Unable to update the file %1: %2." ).arg( fileName ).arg( m_file->errorString() ) );
         delete m_file;
         m_file = 0;
         return ;

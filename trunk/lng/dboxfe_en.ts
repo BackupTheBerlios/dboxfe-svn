@@ -458,14 +458,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Full fixed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Wight x Height:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>original</source>
         <translation type="unfinished"></translation>
     </message>
@@ -491,10 +483,6 @@
     </message>
     <message>
         <source>2480x1600</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Windowres.:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1154,10 +1142,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Search</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>DOSBox binary:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1238,10 +1222,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>v0.1.0</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>DBox Front End</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1307,10 +1287,6 @@ If you click &apos;No&apos; only the profile from list will be removed.</source>
     </message>
     <message>
         <source>Open DOSBox binary</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>DOSBox binary (dosbox)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1410,15 +1386,55 @@ If you click &apos;No&apos; only the profile from list will be removed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>DOSBox - Front End for Linux </source>
+        <source>Windowresolution.:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>DOSBox - Front End for Windows </source>
+        <source>Width x Height:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>DOSBox - Front End for Mac </source>
+        <source>v0.1.1-beta2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DBoxFE - Front End for DOSBox 0.65 - Linux Version </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DBoxFE - Front End for DOSBox 0.65 - Windows Version </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DBoxFE - Front End for DOSBox 0.65 - Mac Version </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DOSBox binary (dosbox);;DOSBox binary (*.exe)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Can not read </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This is not a valid dosbox binary.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wrong dosbox version: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>, i need 0.65</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Can not read file </source>
         <translation type="unfinished"></translation>
     </message>
 </context>

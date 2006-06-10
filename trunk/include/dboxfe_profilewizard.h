@@ -36,12 +36,10 @@ class DBoxFE_ProfileWizard : public QDialog {
     public:
         DBoxFE_ProfileWizard( QDialog *parent = 0, Qt::WFlags flags = 0 );
         ~DBoxFE_ProfileWizard();
-
-    private:
+    
         Ui::DBoxFE_ProfileWizard ui;
-
-        DBoxFE dbfe;
-
+        DBoxFE *dbfe;
+    private:
         QStringList gpList;
         QString m_gp_file;
         QHttp *m_http;

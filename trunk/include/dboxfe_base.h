@@ -19,6 +19,7 @@
 #define DBOXFE_BASE_H
 
 #include "dboxfe.h"
+#include "dboxfe_profilewizard.h"
 #include "XMLPreferences.h"
 
 #include <QtCore>
@@ -94,7 +95,7 @@ class DB_BASE {
          * @param gamesList   QListWidget for list information
          * @since 0.1.0
          */
-        void createGameProfiles( const QString &file, const QStringList &gamesList );
+        void createGameProfiles( const QString &file, const QStringList &gamesList, DBoxFE* dbfe, DBoxFE_ProfileWizard* dbfe_pw  );
 
         /**
          * Insert game in to database (xml file)

@@ -459,11 +459,11 @@
     </message>
     <message>
         <source>Full fixed</source>
-        <translation>Vollbreite</translation>
+        <translation type="obsolete">Vollbreite</translation>
     </message>
     <message>
         <source>Wight x Height:</source>
-        <translation>Breite x Höhe:</translation>
+        <translation type="obsolete">Breite x Höhe:</translation>
     </message>
     <message>
         <source>original</source>
@@ -495,7 +495,7 @@
     </message>
     <message>
         <source>Windowres.:</source>
-        <translation>Windowres.:</translation>
+        <translation type="obsolete">Windowres.:</translation>
     </message>
     <message>
         <source>Sound</source>
@@ -1155,7 +1155,7 @@
     </message>
     <message>
         <source>Search</source>
-        <translation>Suchen</translation>
+        <translation type="obsolete">Suchen</translation>
     </message>
     <message>
         <source>DOSBox binary:</source>
@@ -1239,7 +1239,7 @@
     </message>
     <message>
         <source>v0.1.0</source>
-        <translation>v0.1.0</translation>
+        <translation type="obsolete">v0.1.0</translation>
     </message>
     <message>
         <source>DBox Front End</source>
@@ -1313,7 +1313,7 @@ Wenn Sie &apos;Nein&apos; wählen wird nur das Profile gelöscht.</translation>
     </message>
     <message>
         <source>DOSBox binary (dosbox)</source>
-        <translation>DOSBoxdatei (dosbox)</translation>
+        <translation type="obsolete">DOSBoxdatei (dosbox)</translation>
     </message>
     <message>
         <source>DOSBox Version:  </source>
@@ -1413,15 +1413,67 @@ Wenn Sie &apos;Nein&apos; wählen wird nur das Profile gelöscht.</translation>
     </message>
     <message>
         <source>DOSBox - Front End for Linux </source>
-        <translation>DOSBox - Front End für Linux</translation>
+        <translation type="obsolete">DOSBox - Front End für Linux</translation>
     </message>
     <message>
         <source>DOSBox - Front End for Windows </source>
-        <translation>DOSBox - Front End für Windows</translation>
+        <translation type="obsolete">DOSBox - Front End für Windows</translation>
     </message>
     <message>
         <source>DOSBox - Front End for Mac </source>
-        <translation>DOSBox - Front End für Mac</translation>
+        <translation type="obsolete">DOSBox - Front End für Mac</translation>
+    </message>
+    <message>
+        <source>Windowresolution.:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Width x Height:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>v0.1.1-beta2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DBoxFE - Front End for DOSBox 0.65 - Linux Version </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DBoxFE - Front End for DOSBox 0.65 - Windows Version </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DBoxFE - Front End for DOSBox 0.65 - Mac Version </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DOSBox binary (dosbox);;DOSBox binary (*.exe)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Can not read </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This is not a valid dosbox binary.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wrong dosbox version: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>, i need 0.65</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Can not read file </source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

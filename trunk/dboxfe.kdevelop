@@ -9,10 +9,12 @@
     <keywords>
       <keyword>Qt</keyword>
     </keywords>
+    <projectname>dboxfe</projectname>
+    <ignoreparts/>
     <projectdirectory>.</projectdirectory>
     <absoluteprojectpath>false</absoluteprojectpath>
     <description/>
-    <ignoreparts/>
+    <defaultencoding/>
     <versioncontrol/>
   </general>
   <kdevfileview>
@@ -100,7 +102,7 @@
     <run>
       <directoryradio>executable</directoryradio>
       <customdirectory>/</customdirectory>
-      <mainprogram>bin/dboxfe</mainprogram>
+      <mainprogram/>
       <programargs/>
       <terminal>false</terminal>
       <autocompile>true</autocompile>
@@ -116,8 +118,18 @@
       <envvars/>
     </make>
   </kdevtrollproject>
+  <cppsupportpart>
+    <filetemplates>
+      <interfacesuffix>.h</interfacesuffix>
+      <implementationsuffix>.cpp</implementationsuffix>
+    </filetemplates>
+  </cppsupportpart>
   <kdevcppsupport>
-    <references/>
+    <qt>
+      <used>true</used>
+      <version>4</version>
+      <root/>
+    </qt>
     <codecompletion>
       <includeGlobalFunctions>true</includeGlobalFunctions>
       <includeTypes>true</includeTypes>
@@ -126,15 +138,10 @@
       <automaticCodeCompletion>true</automaticCodeCompletion>
       <automaticArgumentsHint>true</automaticArgumentsHint>
       <automaticHeaderCompletion>true</automaticHeaderCompletion>
-      <codeCompletionDelay>400</codeCompletionDelay>
-      <argumentsHintDelay>1000</argumentsHintDelay>
+      <codeCompletionDelay>250</codeCompletionDelay>
+      <argumentsHintDelay>400</argumentsHintDelay>
       <headerCompletionDelay>250</headerCompletionDelay>
     </codecompletion>
-    <qt>
-      <used>true</used>
-      <version>4</version>
-      <root>/usr/share/qt4</root>
-    </qt>
     <creategettersetter>
       <prefixGet/>
       <prefixSet>set</prefixSet>
@@ -148,22 +155,20 @@
       <synchronize>true</synchronize>
       <orientation>Vertical</orientation>
     </splitheadersource>
+    <references>
+      <pcs>Qt4</pcs>
+    </references>
   </kdevcppsupport>
-  <cppsupportpart>
-    <filetemplates>
-      <interfacesuffix>.h</interfacesuffix>
-      <implementationsuffix>.cpp</implementationsuffix>
-    </filetemplates>
-  </cppsupportpart>
   <kdevdocumentation>
     <projectdoc>
-      <docsystem>Doxygen-Dokumentation</docsystem>
-      <docurl>dboxfe.tag</docurl>
-      <usermanualurl>/home/alex/project/dboxfe/doc</usermanualurl>
+      <docsystem/>
+      <docurl/>
+      <usermanualurl/>
     </projectdoc>
   </kdevdocumentation>
   <ctagspart>
     <customArguments/>
     <customTagfilePath>/home/alex/project/dboxfe/tags</customTagfilePath>
+    <activeTagsFiles/>
   </ctagspart>
 </kdevelop>

@@ -6,8 +6,18 @@ echo "Usage: configure"
 exit 0
 fi
 
+if [ "$1" = "-help" ]; then
+echo "Usage: configure"
+exit 0
+fi
+
 if [ "$1" = "--v" ]; then
-echo "DBoxFE v0.1.0"
+echo "DBoxFE v0.1.1-beta2"
+exit 0
+fi
+
+if [ "$1" = "-v" ]; then
+echo "DBoxFE v0.1.1-beta2"
 exit 0
 fi
 
@@ -16,13 +26,15 @@ echo
 printf "Checking for qmake... "
 qmake="`which qmake-qt4`"
 if [ "$qmake" = "" ]; then
-echo "not found!"
-echo
-echo "Make sure you have the Qt development packages installed!"
-exit 1
+    echo "not found!"
+    echo
+    echo "Make sure you have the Qt development packages installed!"
+    exit 1
 else
-echo $qmake;
+    echo $qmake;
 fi
+
+
 printf "Checking for lupdate... "
 lupdate="`which lupdate-qt4`"
 if [ "$lupdate" = "" ]; then
@@ -75,7 +87,7 @@ $lupdate dboxfe.pro
 rm -rf lupdate.ver
 fi
 
-printf "Checking for lupdate version... "
+printf "Checking for lrelease version... "
 $lrelease -version &>lrelease.ver
 ver=`sed 's/[a-z,A-Z].//g' lrelease.ver | sed -n '1,1p'`
 if [ "$ver" = "3.3.6" ]; then

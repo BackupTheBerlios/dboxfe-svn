@@ -18,6 +18,7 @@
 
 #include "dboxfe.h"
 #include "dboxfe_base.h"
+#include "dboxfe_profilewizard.h"
 #include "XMLPreferences.h"
 
 #include <QtCore>
@@ -572,14 +573,19 @@ void DB_BASE::findGames( const QString &dirName, QTreeWidget* qtw ) {
 /*
  * Create game profiles
  */
-void DB_BASE::createGameProfiles( const QString &file, const QStringList &gamesList ) {
+void DB_BASE::createGameProfiles( const QString &file, const QStringList &gamesList, DBoxFE* dbfe, DBoxFE_ProfileWizard* dbfe_pw ) {
+    /* init settings from mainwindow */
+    dbfe->init();
+    
     XMLPreferences settGP( "DBoxFE", "Alexander Saal" );
-    settGP.setVersion( "v0.1.0" );
-    settGP.setStringList( "Profile", "Name", gamesList );
-    settGP.setString( "DOSBox", "binary", "" );
-    settGP.setString( "DOSBox", "version", "" );
-    settGP.setInt( "DBoxFE", "Lng", 0 );
-    settGP.setBool( "DBoxFE", "winHide", false );
+    settGP.setVersion( dbfe->getAppVersion() );
+    
+    settGP.setStringList( "Profile", "Name", gamesList );    
+    settGP.setString( "DOSBox", "binary", dbfe->ui.LEDbxStabel->text() );
+    settGP.setString( "DOSBox", "version", dbfe->ui.LEDbxVersion->text() );
+    settGP.setInt( "DBoxFE", "Lng", dbfe->ui.cbxLanguage->currentIndex() );
+    settGP.setBool( "DBoxFE", "winHide", dbfe->ui.chkBoxWindowHide->isChecked() );
+    settGP.setBool( "DBoxFE", "keyMapper", dbfe->ui.chkBoxStartmapper->isChecked() );
     settGP.save( file );
 
     QString fileName;

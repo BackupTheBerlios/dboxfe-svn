@@ -1,14 +1,18 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <!DOCTYPE KDevPrjSession>
 <KDevPrjSession>
- <DocsAndViews NumberOfDocuments="1" >
+ <DocsAndViews NumberOfDocuments="2" >
   <Doc0 NumberOfViews="1" URL="file:///home/alex/project/dboxfe/src/dboxfe.cpp" >
-   <View0 line="639" Type="Source" />
+   <View0 line="22" Type="Source" />
   </Doc0>
+  <Doc1 NumberOfViews="1" URL="file:///home/alex/project/dboxfe/include/dboxfe_gamedatabase.h" >
+   <View0 line="0" Type="Source" />
+  </Doc1>
  </DocsAndViews>
  <pluginList>
   <kdevdebugger>
    <breakpointList/>
+   <showInternalCommands value="0" />
   </kdevdebugger>
   <kdevbookmarks>
    <bookmarks/>

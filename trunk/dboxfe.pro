@@ -21,14 +21,16 @@ DESTDIR = bin
 DEPENDPATH += include res src ui 3rdparty
 INCLUDEPATH += include 3rdparty
 RESOURCES += res/dboxfe.qrc
-CONFIG += release thread warn_on qt
+CONFIG += debug thread warn_on qt
 QT += xml network
 
 FORMS += ui/dboxfe.ui
 FORMS += ui/about.ui
 FORMS += ui/profile.ui
 FORMS += ui/profilewizard.ui
-FORMS += ui/gamedatabase.ui
+FORMS += ui/gamepreview.ui
+FORMS += ui/gamesettings.ui
+
 FORMS += ui/games.ui
 
 TRANSLATIONS += lng/dboxfe_de.ts
@@ -64,7 +66,7 @@ SOURCES += 3rdparty/XMLWriter.cpp
 	   
 unix{
   TARGET = dboxfe
-  QMAKE_POST_LINK = strip -s bin/dboxfe
+  #QMAKE_POST_LINK = strip -s bin/dboxfe
   RCC_DIR = .unix/rcc
   MOC_DIR += .unix/moc
   OBJECTS_DIR += .unix/obj
