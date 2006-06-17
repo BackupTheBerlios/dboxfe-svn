@@ -16,14 +16,17 @@
 *   Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+#include "dboxfe_base.h"
+#include "dboxfe_images.h"
 #include "dboxfe_gamesettings.h"
+#include "dboxfe_gamepreview.h"
 
 // 3rdparty library
 #include "XMLPreferences.h"
 
 // Qt 4 Header
-#include <QtCore>
 #include <QtGui>
+#include <QtCore>
 
 DBoxFE_GameSettings::DBoxFE_GameSettings( QWidget *parent, Qt::WFlags flags ) : QWidget( parent, flags )
 {
@@ -36,6 +39,7 @@ DBoxFE_GameSettings::DBoxFE_GameSettings( QWidget *parent, Qt::WFlags flags ) : 
     connect( ui.btnPreview, SIGNAL( clicked() ), this, SLOT( slotPreview() ) );
     connect( ui.btnSave, SIGNAL( clicked() ), this, SLOT( slotSave() ) );
     connect( ui.btnImage, SIGNAL( clicked() ), this, SLOT( slotImage() ) );
+    connect( ui.twGameSettings, SIGNAL( itemClicked( QTreeWidgetItem*, int ) ), this, SLOT( slotItemClicked( QTreeWidgetItem*, int ) ) );
 
     // center the application on desktop screen
     QDesktopWidget *desktop = qApp->desktop();
@@ -54,19 +58,126 @@ void DBoxFE_GameSettings::closeEvent( QCloseEvent *e )
 }
 
 void DBoxFE_GameSettings::slotAdd()
-{}
+{
+    QTreeWidgetItem * qwtItem = new QTreeWidgetItem( ui.twGameSettings );
+    if ( !ui.LEGame->text().isEmpty() ) {
+        qwtItem->setText( 0, ui.LEGame->text() );
+    } else {
+        QMessageBox::information( this, "DBox Front End", "Enter a valid game name." );
+        return;
+    }
+
+    if ( !ui.cbxGameCategory->currentText().isEmpty() ) {
+        qwtItem->setText( 1, ui.cbxGameCategory->currentText() );
+    } else {
+        QMessageBox::information( this, "DBox Front End", "Choose a category for the game." );
+        return;
+    }
+
+    if ( !ui.LEGameDeveloper->text().isEmpty() )
+        qwtItem->setText( 2, ui.LEGameDeveloper->text() );
+    else
+        qwtItem->setText( 2, "" );
+
+    if ( !ui.LEGamePublisher->text().isEmpty() ) 
+        qwtItem->setText( 3, ui.LEGamePublisher->text() );
+    else
+        qwtItem->setText( 3, "" );
+
+    if ( ui.dateEditGameYear->isEnabled() )
+        qwtItem->setText( 4, ui.dateEditGameYear->text() );
+    else
+        qwtItem->setText( 4, "" );
+}
 
 void DBoxFE_GameSettings::slotRemove()
-{}
+{
+    QTreeWidgetItem * qwtItem = ui.twGameSettings->currentItem();
+    if ( qwtItem != NULL )
+        delete qwtItem;
+    else
+        QMessageBox::information( this, "DBox Front End", "No item was selected." );
+}
 
 void DBoxFE_GameSettings::slotChange()
-{}
+{
+    QTreeWidgetItem * selectedItem = ui.twGameSettings->currentItem();
+    if ( selectedItem != NULL ) {
+	
+    }
+}
 
 void DBoxFE_GameSettings::slotPreview()
 {}
 
 void DBoxFE_GameSettings::slotSave()
-{}
+{
+    /*
+                m_file = QDir::homePath();
+        m_file.append( "/.dboxfe/images/gamesettings.xml" );
+     
+        XMLPreferences gamesettings( "DBoxFE", "Alexander Saal" );
+        gamesettings.setVersion( "v0.1.2" );
+                        QListWidgetItem * qlwItem = new QListWidgetItem( qlw );
+                        qlwItem->setText( fi.baseName() );
+        gamesettings.setStringList( "Gamesettings", "imagefiles", lstTmp );
+        gamesettings.save( m_file );
+    */
+    DB_BASE gbBase;
+    QString imageDir;
+    QStringList imageList;
+
+    imageDir = QDir::homePath();
+    imageDir.append( "/.dboxfe/images" );
+
+    DBoxFE_Image * dbfe_image = new DBoxFE_Image();
+
+    if ( dbfe_image->exec() == QDialog::Accepted ) {
+        //	QListWidgetItem *qlwItem = dbfe_image->ui.lwImage->currentItem();
+    }
+}
 
 void DBoxFE_GameSettings::slotImage()
-{}
+{
+    QTreeWidgetItem * item = ui.twGameSettings->currentItem();
+    if ( item != NULL ) {
+        QString imageDir;
+        QStringList imageList, lstTmp;
+
+        DB_BASE gbBase;
+
+        imageDir = QDir::homePath();
+        imageDir.append( "/.dboxfe/images" );
+
+        imageList = gbBase.loadImage( imageDir );
+
+        DBoxFE_Image * dbfe_image = new DBoxFE_Image();
+
+        for ( int x = 0; x < imageList.size(); x++ ) {
+            lstTmp = imageList.value( x ).split( ";" );
+
+            QListWidgetItem *qlwItem = new QListWidgetItem( dbfe_image->ui.lwImage );
+            qlwItem->setText( lstTmp.value( 0 ) );
+
+            lstTmp.clear();
+        }
+
+        if ( dbfe_image->exec() == QDialog::Accepted ) {}
+    } else {
+        QMessageBox::information( this, "DBox Front End", "No item was selected." );
+    }
+}
+
+void DBoxFE_GameSettings::slotItemClicked( QTreeWidgetItem* item, int column )
+{
+    if ( item != NULL ) {
+        //QStringList lst = item->text( 4 ).split( "." );
+        ui.LEGame->setText( item->text( 0 ) );
+        ui.cbxGameCategory->setCurrentIndex( ui.cbxGameCategory->findText( item->text( 1 ), Qt::MatchExactly | Qt::MatchCaseSensitive ) );
+        ui.LEGameDeveloper->setText( item->text( 2 ) );
+        ui.LEGamePublisher->setText( item->text( 3 ) );
+        //ui.dateEditGameYear->setDate( QDate( lst.value(0).toInt(), lst.value(1).toInt(), lst.value(2).toInt() ) );
+    } else {
+        return ;
+    }
+}

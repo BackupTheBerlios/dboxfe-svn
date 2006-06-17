@@ -1,11 +1,9 @@
-The XMLPreferences files are Copyright (C) 2005 Angius Fabrizio (blue_death@users.sourceforge.net)
+The xmlpreferences.h and xmlpreferences.cpp files are Copyright (C) 2005 Angius Fabrizio (blue_death@users.sourceforge.net)
 
-You may use, distribute and copy the XMLPreferences files under the terms of
+You may use, distribute and copy the files under the terms of
 GNU General Public License version 2 (see the file LICENSE.GPL for details)
 
 -------------------------------------------------------------------------
-
-The XMLPreferences class has been written during the development of the OSDaB Project.
 
 Website: http://osdab.sourceforge.net/
 SourceForge.net project page: https://sourceforge.net/projects/osdab/
@@ -31,11 +29,12 @@ The following data types are currently supported:
  - QPoint
  - QSize
 
-The following data types are NOT available if the QT_CORE_ONLY has been defined:
+The following data types are NOT available if the QT_CORE_ONLY macro has been defined:
  - QColor
 
 history
 -------
+09/06/2006 - Minor improvements and API changes; updated to use latest XMLWriter
 09/01/2006 - First public release
 
 features

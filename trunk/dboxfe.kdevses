@@ -1,17 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <!DOCTYPE KDevPrjSession>
 <KDevPrjSession>
- <DocsAndViews NumberOfDocuments="3" >
-  <Doc0 NumberOfViews="1" URL="file:///home/alex/project/dboxfe/src/dboxfe.cpp" >
-   <View0 line="22" Type="Source" />
-  </Doc0>
-  <Doc1 NumberOfViews="1" URL="file:///home/alex/project/dboxfe/include/dboxfe_profilewizard.h" >
-   <View0 line="0" Type="Source" />
-  </Doc1>
-  <Doc2 NumberOfViews="1" URL="file:///home/alex/project/dboxfe/src/dboxfe_profilewizard.cpp" >
-   <View0 line="0" Type="Source" />
-  </Doc2>
- </DocsAndViews>
+ <DocsAndViews NumberOfDocuments="0" />
  <pluginList>
   <kdevdebugger>
    <breakpointList/>

@@ -3,7 +3,7 @@
   <general>
     <author>Alexander Saal</author>
     <email>alex.saal@gmx.de</email>
-    <version>0.1.0</version>
+    <version>0.1.2</version>
     <projectmanagement>KDevTrollProject</projectmanagement>
     <primarylanguage>C++</primarylanguage>
     <keywords>
@@ -13,8 +13,8 @@
     <ignoreparts/>
     <projectdirectory>.</projectdirectory>
     <absoluteprojectpath>false</absoluteprojectpath>
-    <description></description>
-    <defaultencoding></defaultencoding>
+    <description/>
+    <defaultencoding/>
     <versioncontrol/>
   </general>
   <kdevfileview>
@@ -71,12 +71,12 @@
   </kdevdoctreeview>
   <kdevdebugger>
     <general>
-      <dbgshell></dbgshell>
-      <programargs></programargs>
-      <gdbpath></gdbpath>
-      <configGdbScript></configGdbScript>
-      <runShellScript></runShellScript>
-      <runGdbScript></runGdbScript>
+      <dbgshell/>
+      <programargs/>
+      <gdbpath/>
+      <configGdbScript/>
+      <runShellScript/>
+      <runGdbScript/>
       <breakonloadinglibs>true</breakonloadinglibs>
       <separatetty>false</separatetty>
       <floatingtoolbar>false</floatingtoolbar>
@@ -102,8 +102,8 @@
     <run>
       <directoryradio>executable</directoryradio>
       <customdirectory>/</customdirectory>
-      <mainprogram></mainprogram>
-      <programargs></programargs>
+      <mainprogram/>
+      <programargs/>
       <terminal>false</terminal>
       <autocompile>true</autocompile>
       <envvars/>
@@ -113,7 +113,7 @@
       <runmultiplejobs>false</runmultiplejobs>
       <numberofjobs>1</numberofjobs>
       <dontact>false</dontact>
-      <makebin></makebin>
+      <makebin/>
       <prio>0</prio>
       <envvars/>
     </make>
@@ -126,15 +126,11 @@
   </cppsupportpart>
   <kdevcppsupport>
     <qt>
-      <used>true</used>
+      <used>false</used>
       <version>4</version>
-      <root></root>
+      <root/>
     </qt>
     <codecompletion>
-      <includeGlobalFunctions>true</includeGlobalFunctions>
-      <includeTypes>true</includeTypes>
-      <includeEnums>true</includeEnums>
-      <includeTypedefs>false</includeTypedefs>
       <automaticCodeCompletion>false</automaticCodeCompletion>
       <automaticArgumentsHint>true</automaticArgumentsHint>
       <automaticHeaderCompletion>true</automaticHeaderCompletion>
@@ -143,7 +139,7 @@
       <headerCompletionDelay>250</headerCompletionDelay>
     </codecompletion>
     <creategettersetter>
-      <prefixGet></prefixGet>
+      <prefixGet/>
       <prefixSet>set</prefixSet>
       <prefixVariable>m_,_</prefixVariable>
       <parameterName>theValue</parameterName>
@@ -166,9 +162,4 @@
       <usermanualurl/>
     </projectdoc>
   </kdevdocumentation>
-  <ctagspart>
-    <customArguments/>
-    <customTagfilePath>/home/alex/project/dboxfe/tags</customTagfilePath>
-    <activeTagsFiles/>
-  </ctagspart>
 </kdevelop>

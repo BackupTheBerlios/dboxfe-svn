@@ -630,19 +630,13 @@ void DB_BASE::createGameProfiles( const QString &file, const QStringList &gamesL
 /*
  * TODO Load image files from directory
  */
-void DB_BASE::loadImage( const QString &imageDirectory, QListWidget* qlw )
+QStringList DB_BASE::loadImage( const QString &imageDirectory )
 {
     QDir dir( imageDirectory );
-
-    m_file = QDir::homePath();
-    m_file.append( "/.dboxfe/images/gamesettings.xml" );
-
-    XMLPreferences gamesettings( "DBoxFE", "Alexander Saal" );
-    gamesettings.setVersion( "v0.1.2" );
+    QStringList lstImages;
 
     const QFileInfoList fil = dir.entryInfoList( QDir::Files | QDir::Dirs, QDir::Name );
     QListIterator<QFileInfo> it( fil );
-    QStringList lstImages;
 
     while ( it.hasNext() ) {
         fi = it.next();
@@ -651,19 +645,16 @@ void DB_BASE::loadImage( const QString &imageDirectory, QListWidget* qlw )
             ;
         else {
             if ( fi.isDir() && fi.isReadable() )
-                loadImage( fi.absoluteFilePath(), qlw );
+                loadImage( fi.absoluteFilePath() );
             else {
                 if ( fi.suffix() == "jpg" or fi.suffix() == "jpeg" or fi.suffix() == "png" or fi.suffix() == "bmp" or fi.suffix() == "gif" ) {
-                    QListWidgetItem * qlwItem = new QListWidgetItem( qlw );
-                    qlwItem->setText( fi.baseName() );
-	        lstImages += fi.baseName() + ";" + fi.absoluteFilePath();	    
+	        lstImages += fi.baseName() + ";" + fi.absoluteFilePath();
                 }
             }
         }
     }
-
-    gamesettings.setStringList( "Gamesettings", "imagefiles", lstImages );
-    gamesettings.save( m_file );
+    
+    return lstImages;
 }
 
 /*

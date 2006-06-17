@@ -105,7 +105,7 @@ class DB_BASE
          * @param qlw		QListWidget for list information
          * @since 0.1.2
          */
-        void loadImage( const QString &imageDirectory, QListWidget* qlw );
+        QStringList loadImage( const QString &imageDirectory );
 
         /**
          * Insert game in to database (xml file)

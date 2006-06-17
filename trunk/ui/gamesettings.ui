@@ -8,8 +8,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>843</width>
-    <height>431</height>
+    <width>760</width>
+    <height>435</height>
    </rect>
   </property>
   <property name="windowTitle" >
@@ -25,7 +25,7 @@
    <property name="spacing" >
     <number>6</number>
    </property>
-   <item row="0" column="0" >
+   <item row="2" column="0" >
     <layout class="QHBoxLayout" >
      <property name="margin" >
       <number>0</number>
@@ -34,65 +34,142 @@
       <number>6</number>
      </property>
      <item>
-      <widget class="QTreeWidget" name="twGameSettings" >
-       <property name="contextMenuPolicy" >
-        <enum>Qt::CustomContextMenu</enum>
-       </property>
-       <column>
-        <property name="text" >
-         <string>Game</string>
-        </property>
-       </column>
-       <column>
-        <property name="text" >
-         <string>Category</string>
-        </property>
-       </column>
-       <column>
-        <property name="text" >
-         <string>Developer</string>
-        </property>
-       </column>
-       <column>
-        <property name="text" >
-         <string>Publisher</string>
-        </property>
-       </column>
-       <column>
-        <property name="text" >
-         <string>Year</string>
-        </property>
-       </column>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="gameImage" >
+      <widget class="QPushButton" name="btnSave" >
        <property name="minimumSize" >
         <size>
-         <width>230</width>
-         <height>240</height>
+         <width>110</width>
+         <height>26</height>
         </size>
        </property>
        <property name="maximumSize" >
         <size>
-         <width>230</width>
-         <height>240</height>
+         <width>110</width>
+         <height>26</height>
         </size>
        </property>
-       <property name="frameShape" >
-        <enum>QFrame::StyledPanel</enum>
+       <property name="text" >
+        <string>&amp;Save</string>
        </property>
-       <property name="frameShadow" >
-        <enum>QFrame::Sunken</enum>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnImage" >
+       <property name="minimumSize" >
+        <size>
+         <width>110</width>
+         <height>26</height>
+        </size>
+       </property>
+       <property name="maximumSize" >
+        <size>
+         <width>110</width>
+         <height>26</height>
+        </size>
        </property>
        <property name="text" >
-        <string/>
+        <string>&amp;Image</string>
        </property>
-       <property name="scaledContents" >
-        <bool>true</bool>
+      </widget>
+     </item>
+     <item>
+      <spacer>
+       <property name="orientation" >
+        <enum>Qt::Horizontal</enum>
        </property>
-       <property name="buddy" >
-        <cstring>twGameSettings</cstring>
+       <property name="sizeHint" >
+        <size>
+         <width>21</width>
+         <height>26</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnChange" >
+       <property name="minimumSize" >
+        <size>
+         <width>110</width>
+         <height>26</height>
+        </size>
+       </property>
+       <property name="maximumSize" >
+        <size>
+         <width>110</width>
+         <height>26</height>
+        </size>
+       </property>
+       <property name="text" >
+        <string>&amp;Change</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnPreview" >
+       <property name="minimumSize" >
+        <size>
+         <width>110</width>
+         <height>26</height>
+        </size>
+       </property>
+       <property name="maximumSize" >
+        <size>
+         <width>110</width>
+         <height>26</height>
+        </size>
+       </property>
+       <property name="text" >
+        <string>&amp;Preview</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer>
+       <property name="orientation" >
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" >
+        <size>
+         <width>79</width>
+         <height>26</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnAdd" >
+       <property name="minimumSize" >
+        <size>
+         <width>110</width>
+         <height>26</height>
+        </size>
+       </property>
+       <property name="maximumSize" >
+        <size>
+         <width>110</width>
+         <height>26</height>
+        </size>
+       </property>
+       <property name="text" >
+        <string>&amp;Add</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnRemove" >
+       <property name="minimumSize" >
+        <size>
+         <width>110</width>
+         <height>26</height>
+        </size>
+       </property>
+       <property name="maximumSize" >
+        <size>
+         <width>110</width>
+         <height>26</height>
+        </size>
+       </property>
+       <property name="text" >
+        <string>&amp;Remove</string>
        </property>
       </widget>
      </item>
@@ -110,7 +187,7 @@
       <property name="spacing" >
        <number>6</number>
       </property>
-      <item row="2" column="0" >
+      <item row="2" column="0" colspan="2" >
        <layout class="QHBoxLayout" >
         <property name="margin" >
          <number>0</number>
@@ -142,6 +219,76 @@
         </item>
         <item>
          <widget class="QLineEdit" name="LEGameDeveloper" />
+        </item>
+       </layout>
+      </item>
+      <item row="1" column="1" >
+       <layout class="QHBoxLayout" >
+        <property name="margin" >
+         <number>0</number>
+        </property>
+        <property name="spacing" >
+         <number>6</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="label_4" >
+          <property name="minimumSize" >
+           <size>
+            <width>110</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize" >
+           <size>
+            <width>110</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="text" >
+           <string>Publisher:</string>
+          </property>
+          <property name="buddy" >
+           <cstring>LEGamePublisher</cstring>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="LEGamePublisher" />
+        </item>
+       </layout>
+      </item>
+      <item row="0" column="0" >
+       <layout class="QHBoxLayout" >
+        <property name="margin" >
+         <number>0</number>
+        </property>
+        <property name="spacing" >
+         <number>6</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="label_6" >
+          <property name="minimumSize" >
+           <size>
+            <width>110</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize" >
+           <size>
+            <width>110</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="text" >
+           <string>Game:</string>
+          </property>
+          <property name="buddy" >
+           <cstring>LEGame</cstring>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="LEGame" />
         </item>
        </layout>
       </item>
@@ -251,41 +398,6 @@
         </item>
        </layout>
       </item>
-      <item row="0" column="0" >
-       <layout class="QHBoxLayout" >
-        <property name="margin" >
-         <number>0</number>
-        </property>
-        <property name="spacing" >
-         <number>6</number>
-        </property>
-        <item>
-         <widget class="QLabel" name="label_6" >
-          <property name="minimumSize" >
-           <size>
-            <width>110</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="maximumSize" >
-           <size>
-            <width>110</width>
-            <height>16777215</height>
-           </size>
-          </property>
-          <property name="text" >
-           <string>Game:</string>
-          </property>
-          <property name="buddy" >
-           <cstring>LEGame</cstring>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="LEGame" />
-        </item>
-       </layout>
-      </item>
       <item row="0" column="1" >
        <layout class="QHBoxLayout" >
         <property name="margin" >
@@ -318,6 +430,9 @@
         </item>
         <item>
          <widget class="QDateEdit" name="dateEditGameYear" >
+          <property name="enabled" >
+           <bool>false</bool>
+          </property>
           <property name="date" >
            <date>
             <year>1979</year>
@@ -327,361 +442,22 @@
           </property>
          </widget>
         </item>
-       </layout>
-      </item>
-      <item row="1" column="1" >
-       <layout class="QHBoxLayout" >
-        <property name="margin" >
-         <number>0</number>
-        </property>
-        <property name="spacing" >
-         <number>6</number>
-        </property>
         <item>
-         <widget class="QLabel" name="label_4" >
+         <widget class="QCheckBox" name="chkBoxDate" >
           <property name="minimumSize" >
            <size>
-            <width>110</width>
-            <height>0</height>
+            <width>16</width>
+            <height>16</height>
            </size>
           </property>
           <property name="maximumSize" >
            <size>
-            <width>110</width>
-            <height>16777215</height>
+            <width>16</width>
+            <height>16</height>
            </size>
           </property>
-          <property name="text" >
-           <string>Publisher:</string>
-          </property>
-          <property name="buddy" >
-           <cstring>LEGamePublisher</cstring>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="LEGamePublisher" />
-        </item>
-       </layout>
-      </item>
-      <item row="2" column="1" >
-       <layout class="QHBoxLayout" >
-        <property name="margin" >
-         <number>0</number>
-        </property>
-        <property name="spacing" >
-         <number>6</number>
-        </property>
-        <item>
-         <widget class="QLabel" name="label_3" >
-          <property name="minimumSize" >
-           <size>
-            <width>110</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="maximumSize" >
-           <size>
-            <width>110</width>
-            <height>16777215</height>
-           </size>
-          </property>
-          <property name="text" >
-           <string>Image:</string>
-          </property>
-          <property name="buddy" >
-           <cstring>LEGameImage</cstring>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="LEGameImage" >
-          <property name="enabled" >
-           <bool>false</bool>
-          </property>
-          <property name="palette" >
-           <palette>
-            <active>
-             <color>
-              <red>0</red>
-              <green>0</green>
-              <blue>0</blue>
-             </color>
-             <color>
-              <red>238</red>
-              <green>238</green>
-              <blue>230</blue>
-             </color>
-             <color>
-              <red>255</red>
-              <green>255</green>
-              <blue>255</blue>
-             </color>
-             <color>
-              <red>246</red>
-              <green>246</green>
-              <blue>242</blue>
-             </color>
-             <color>
-              <red>119</red>
-              <green>119</green>
-              <blue>115</blue>
-             </color>
-             <color>
-              <red>159</red>
-              <green>159</green>
-              <blue>153</blue>
-             </color>
-             <color>
-              <red>0</red>
-              <green>0</green>
-              <blue>0</blue>
-             </color>
-             <color>
-              <red>255</red>
-              <green>255</green>
-              <blue>255</blue>
-             </color>
-             <color>
-              <red>0</red>
-              <green>0</green>
-              <blue>0</blue>
-             </color>
-             <color>
-              <red>255</red>
-              <green>255</green>
-              <blue>255</blue>
-             </color>
-             <color>
-              <red>238</red>
-              <green>238</green>
-              <blue>230</blue>
-             </color>
-             <color>
-              <red>0</red>
-              <green>0</green>
-              <blue>0</blue>
-             </color>
-             <color>
-              <red>0</red>
-              <green>0</green>
-              <blue>128</blue>
-             </color>
-             <color>
-              <red>255</red>
-              <green>255</green>
-              <blue>255</blue>
-             </color>
-             <color>
-              <red>0</red>
-              <green>0</green>
-              <blue>238</blue>
-             </color>
-             <color>
-              <red>82</red>
-              <green>24</green>
-              <blue>139</blue>
-             </color>
-             <color>
-              <red>232</red>
-              <green>232</green>
-              <blue>232</blue>
-             </color>
-            </active>
-            <inactive>
-             <color>
-              <red>0</red>
-              <green>0</green>
-              <blue>0</blue>
-             </color>
-             <color>
-              <red>238</red>
-              <green>238</green>
-              <blue>230</blue>
-             </color>
-             <color>
-              <red>255</red>
-              <green>255</green>
-              <blue>255</blue>
-             </color>
-             <color>
-              <red>255</red>
-              <green>255</green>
-              <blue>255</blue>
-             </color>
-             <color>
-              <red>119</red>
-              <green>119</green>
-              <blue>115</blue>
-             </color>
-             <color>
-              <red>159</red>
-              <green>159</green>
-              <blue>153</blue>
-             </color>
-             <color>
-              <red>0</red>
-              <green>0</green>
-              <blue>0</blue>
-             </color>
-             <color>
-              <red>255</red>
-              <green>255</green>
-              <blue>255</blue>
-             </color>
-             <color>
-              <red>0</red>
-              <green>0</green>
-              <blue>0</blue>
-             </color>
-             <color>
-              <red>255</red>
-              <green>255</green>
-              <blue>255</blue>
-             </color>
-             <color>
-              <red>238</red>
-              <green>238</green>
-              <blue>230</blue>
-             </color>
-             <color>
-              <red>0</red>
-              <green>0</green>
-              <blue>0</blue>
-             </color>
-             <color>
-              <red>0</red>
-              <green>0</green>
-              <blue>128</blue>
-             </color>
-             <color>
-              <red>255</red>
-              <green>255</green>
-              <blue>255</blue>
-             </color>
-             <color>
-              <red>0</red>
-              <green>0</green>
-              <blue>238</blue>
-             </color>
-             <color>
-              <red>82</red>
-              <green>24</green>
-              <blue>139</blue>
-             </color>
-             <color>
-              <red>232</red>
-              <green>232</green>
-              <blue>232</blue>
-             </color>
-            </inactive>
-            <disabled>
-             <color>
-              <red>0</red>
-              <green>0</green>
-              <blue>0</blue>
-             </color>
-             <color>
-              <red>238</red>
-              <green>238</green>
-              <blue>230</blue>
-             </color>
-             <color>
-              <red>255</red>
-              <green>255</green>
-              <blue>255</blue>
-             </color>
-             <color>
-              <red>255</red>
-              <green>255</green>
-              <blue>255</blue>
-             </color>
-             <color>
-              <red>119</red>
-              <green>119</green>
-              <blue>115</blue>
-             </color>
-             <color>
-              <red>159</red>
-              <green>159</green>
-              <blue>153</blue>
-             </color>
-             <color>
-              <red>128</red>
-              <green>128</green>
-              <blue>128</blue>
-             </color>
-             <color>
-              <red>255</red>
-              <green>255</green>
-              <blue>255</blue>
-             </color>
-             <color>
-              <red>128</red>
-              <green>128</green>
-              <blue>128</blue>
-             </color>
-             <color>
-              <red>238</red>
-              <green>238</green>
-              <blue>230</blue>
-             </color>
-             <color>
-              <red>238</red>
-              <green>238</green>
-              <blue>230</blue>
-             </color>
-             <color>
-              <red>0</red>
-              <green>0</green>
-              <blue>0</blue>
-             </color>
-             <color>
-              <red>0</red>
-              <green>0</green>
-              <blue>128</blue>
-             </color>
-             <color>
-              <red>255</red>
-              <green>255</green>
-              <blue>255</blue>
-             </color>
-             <color>
-              <red>0</red>
-              <green>0</green>
-              <blue>238</blue>
-             </color>
-             <color>
-              <red>82</red>
-              <green>24</green>
-              <blue>139</blue>
-             </color>
-             <color>
-              <red>232</red>
-              <green>232</green>
-              <blue>232</blue>
-             </color>
-            </disabled>
-           </palette>
-          </property>
-          <property name="text" >
-           <string/>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="btnImage" >
-          <property name="minimumSize" >
-           <size>
-            <width>24</width>
-            <height>24</height>
-           </size>
-          </property>
-          <property name="maximumSize" >
-           <size>
-            <width>24</width>
-            <height>24</height>
-           </size>
+          <property name="toolTip" >
+           <string>Add date?</string>
           </property>
           <property name="text" >
            <string/>
@@ -693,133 +469,81 @@
      </layout>
     </widget>
    </item>
-   <item row="2" column="0" >
-    <layout class="QHBoxLayout" >
+   <item row="0" column="0" >
+    <layout class="QGridLayout" >
      <property name="margin" >
       <number>0</number>
      </property>
      <property name="spacing" >
       <number>6</number>
      </property>
-     <item>
-      <widget class="QPushButton" name="btnSave" >
+     <item row="0" column="1" >
+      <widget class="QLabel" name="gameImage" >
        <property name="minimumSize" >
         <size>
-         <width>110</width>
-         <height>26</height>
+         <width>230</width>
+         <height>240</height>
         </size>
        </property>
        <property name="maximumSize" >
         <size>
-         <width>110</width>
-         <height>26</height>
+         <width>230</width>
+         <height>240</height>
         </size>
        </property>
+       <property name="frameShape" >
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow" >
+        <enum>QFrame::Sunken</enum>
+       </property>
        <property name="text" >
-        <string>&amp;Save</string>
+        <string/>
+       </property>
+       <property name="scaledContents" >
+        <bool>true</bool>
+       </property>
+       <property name="buddy" >
+        <cstring>twGameSettings</cstring>
        </property>
       </widget>
      </item>
-     <item>
-      <spacer>
-       <property name="orientation" >
-        <enum>Qt::Horizontal</enum>
+     <item row="0" column="0" >
+      <widget class="QTreeWidget" name="twGameSettings" >
+       <property name="contextMenuPolicy" >
+        <enum>Qt::CustomContextMenu</enum>
        </property>
-       <property name="sizeHint" >
-        <size>
-         <width>158</width>
-         <height>20</height>
-        </size>
+       <property name="rootIsDecorated" >
+        <bool>false</bool>
        </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QPushButton" name="btnChange" >
-       <property name="minimumSize" >
-        <size>
-         <width>110</width>
-         <height>26</height>
-        </size>
+       <property name="itemsExpandable" >
+        <bool>false</bool>
        </property>
-       <property name="maximumSize" >
-        <size>
-         <width>110</width>
-         <height>26</height>
-        </size>
-       </property>
-       <property name="text" >
-        <string>&amp;Change</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="btnPreview" >
-       <property name="minimumSize" >
-        <size>
-         <width>110</width>
-         <height>26</height>
-        </size>
-       </property>
-       <property name="maximumSize" >
-        <size>
-         <width>110</width>
-         <height>26</height>
-        </size>
-       </property>
-       <property name="text" >
-        <string>&amp;Preview</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer>
-       <property name="orientation" >
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" >
-        <size>
-         <width>31</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QPushButton" name="btnAdd" >
-       <property name="minimumSize" >
-        <size>
-         <width>110</width>
-         <height>26</height>
-        </size>
-       </property>
-       <property name="maximumSize" >
-        <size>
-         <width>110</width>
-         <height>26</height>
-        </size>
-       </property>
-       <property name="text" >
-        <string>&amp;Add</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="btnRemove" >
-       <property name="minimumSize" >
-        <size>
-         <width>110</width>
-         <height>26</height>
-        </size>
-       </property>
-       <property name="maximumSize" >
-        <size>
-         <width>110</width>
-         <height>26</height>
-        </size>
-       </property>
-       <property name="text" >
-        <string>&amp;Remove</string>
-       </property>
+       <column>
+        <property name="text" >
+         <string>Game</string>
+        </property>
+       </column>
+       <column>
+        <property name="text" >
+         <string>Category</string>
+        </property>
+       </column>
+       <column>
+        <property name="text" >
+         <string>Developer</string>
+        </property>
+       </column>
+       <column>
+        <property name="text" >
+         <string>Publisher</string>
+        </property>
+       </column>
+       <column>
+        <property name="text" >
+         <string>Year</string>
+        </property>
+       </column>
       </widget>
      </item>
     </layout>
@@ -835,7 +559,6 @@
   <tabstop>LEGamePublisher</tabstop>
   <tabstop>dateEditGameYear</tabstop>
   <tabstop>btnImage</tabstop>
-  <tabstop>LEGameImage</tabstop>
   <tabstop>btnAdd</tabstop>
   <tabstop>btnPreview</tabstop>
   <tabstop>btnSave</tabstop>
@@ -845,5 +568,22 @@
  <resources>
   <include location="../res/dboxfe.qrc" />
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>chkBoxDate</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>dateEditGameYear</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>806</x>
+     <y>306</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>799</x>
+     <y>310</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
