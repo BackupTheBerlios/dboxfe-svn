@@ -24,7 +24,8 @@
 #include <QtCore>
 #include <QtGui>
 
-int main( int argc, char **argv ) {
+int main( int argc, char **argv )
+{
     QApplication app( argc, argv );
 
     DBoxFE w;

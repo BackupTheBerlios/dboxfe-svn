@@ -23,7 +23,8 @@
 #include <QtGui>
 
 DBoxFE_Profile::DBoxFE_Profile( QDialog *parent, Qt::WFlags flags )
-        : QDialog( parent, flags ) {
+        : QDialog( parent, flags )
+{
     // setup grafical user interface (gui)
     ui.setupUi( this );
 
@@ -40,7 +41,8 @@ DBoxFE_Profile::DBoxFE_Profile( QDialog *parent, Qt::WFlags flags )
 
 DBoxFE_Profile::~DBoxFE_Profile() {}
 
-void DBoxFE_Profile::slotAdd() {
+void DBoxFE_Profile::slotAdd()
+{
     if ( ui.LEProfile->text().isEmpty() ) {
         QMessageBox::information( this, "DOSBox Front End", "Please enter a profile name." );
     } else {

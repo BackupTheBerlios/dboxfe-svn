@@ -41,7 +41,7 @@ class DBoxFE_GameSettings : public QWidget
         void slotPreview();
         void slotSave();
         void slotImage();
-        void slotItemClicked( QTreeWidgetItem*,  int );
+        void slotItemClicked( QTreeWidgetItem*, int );
 
     protected:
         void closeEvent( QCloseEvent *e );

@@ -46,7 +46,7 @@ class DB_BASE
 
     public:
         DB_BASE();
-        inline virtual ~DB_BASE(){}
+        inline virtual ~DB_BASE() {}
 
         /**
          * Return the absolut path of executable

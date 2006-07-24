@@ -24,7 +24,8 @@
 #include <Qt>
 
 
-DBoxFE_Splash::DBoxFE_Splash( const QPixmap& pixmap, Qt::WFlags f ) : QSplashScreen( pixmap, f ) {
+DBoxFE_Splash::DBoxFE_Splash( const QPixmap& pixmap, Qt::WFlags f ) : QSplashScreen( pixmap, f )
+{
     QTimer * timer = new QTimer( this );
     QObject::connect( timer, SIGNAL( timeout() ), this, SLOT( animate() ) );
     timer->start( 150 );
@@ -37,20 +38,23 @@ DBoxFE_Splash::DBoxFE_Splash( const QPixmap& pixmap, Qt::WFlags f ) : QSplashScr
 DBoxFE_Splash::~DBoxFE_Splash() {}
 
 
-void DBoxFE_Splash::animate() {
+void DBoxFE_Splash::animate()
+{
     state = ( ( state + 1 ) % ( 2 * progress_bar_size - 1 ) );
     repaint();
 }
 
 
-void DBoxFE_Splash::showMessage( const QString &str, int flags, const QColor &color ) {
+void DBoxFE_Splash::showMessage( const QString &str, int flags, const QColor &color )
+{
     QSplashScreen::showMessage( str, flags, color );
     animate();
     m_string = str;
 }
 
 
-void DBoxFE_Splash::drawContents ( QPainter* painter ) {
+void DBoxFE_Splash::drawContents ( QPainter* painter )
+{
     int position;
     QColor base_color ( 255, 255, 255 );
 

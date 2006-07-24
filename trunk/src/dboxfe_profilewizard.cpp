@@ -25,12 +25,13 @@
 #include <QtNetwork>
 
 DBoxFE_ProfileWizard::DBoxFE_ProfileWizard( QDialog *parent, Qt::WFlags flags )
-        : QDialog( parent, flags ) {
+        : QDialog( parent, flags )
+{
 
-	// setup grafical user interface (gui)
+    // setup grafical user interface (gui)
     ui.setupUi( this );
 
-	page = 0;
+    page = 0;
 
     // for download game database file
     m_http = new QHttp( this );
@@ -60,12 +61,14 @@ DBoxFE_ProfileWizard::DBoxFE_ProfileWizard( QDialog *parent, Qt::WFlags flags )
     downloadFile();
 }
 
-DBoxFE_ProfileWizard::~DBoxFE_ProfileWizard() {
+DBoxFE_ProfileWizard::~DBoxFE_ProfileWizard()
+{
     delete m_http;
     delete m_file;
 }
 
-void DBoxFE_ProfileWizard::slotFinish() {
+void DBoxFE_ProfileWizard::slotFinish()
+{
     DB_BASE gpBase;
 
     m_gp_file = QDir::homePath();
@@ -93,70 +96,47 @@ void DBoxFE_ProfileWizard::slotFinish() {
     }
 }
 
-void DBoxFE_ProfileWizard::slotBack() {
+void DBoxFE_ProfileWizard::slotBack()
+{
 
-	if ( page == 1 )
-		ui.btnBack->setEnabled( false );
+    if ( page == 1 )
+        ui.btnBack->setEnabled( false );
 
-	if ( page == 0 || page == 1 ) {
-		ui.btnNext->setText( "&Next" );
-	}
+    if ( page == 0 || page == 1 ) {
+        ui.btnNext->setText( "&Next" );
+    }
 
     ui.sWidgetGameWizard->setCurrentIndex( --page );
-
-
-
-    /*if ( ui.pageCreateProfiles->isVisible() ) {
-        ui.pageCreateProfiles->setVisible( false );
-
-        ui.pageSearchGame->setVisible( true );
-        ui.pageSearchGame->setGeometry( 190, 10, 531, 321 );
-
-        ui.btnNext->setEnabled( true );
-        ui.btnBack->setEnabled( false );
-    } else {
-        ui.btnNext->setText( tr( "&Next" ) );
-    }*/
 }
 
-void DBoxFE_ProfileWizard::slotNext() {
+void DBoxFE_ProfileWizard::slotNext()
+{
 
-	if ( page == 1 ) {
+    if ( page == 1 ) {
         ui.btnNext->setText( tr( "&Finish" ) );
-	} else {
+    } else {
         ui.btnNext->setText( tr( "&Next" ) );
-	}
+    }
 
-	ui.btnBack->setEnabled( true );
+    ui.btnBack->setEnabled( true );
     ui.sWidgetGameWizard->setCurrentIndex( ++page );
 
     if ( page > 2 )
-		page = 2;
-
-
-
-    /*if ( ui.pageSearchGame->isVisible() ) {
-        ui.pageSearchGame->setVisible( false );
-
-        ui.pageCreateProfiles->setVisible( true );
-        ui.pageCreateProfiles->setGeometry( 190, 10, 531, 321 );
-
-        ui.btnNext->setEnabled( true );
-        ui.btnBack->setEnabled( true );
-    } else {
-        ui.btnNext->setText( tr( "&Finish" ) );
-    }*/
+        page = 2;
 }
 
-void DBoxFE_ProfileWizard::slotHelp() {
+void DBoxFE_ProfileWizard::slotHelp()
+{
     qDebug() << tr( "Not implemented yet!" );
 }
 
-void DBoxFE_ProfileWizard::slotAbort() {
+void DBoxFE_ProfileWizard::slotAbort()
+{
     QDialog::reject();
 }
 
-void DBoxFE_ProfileWizard::slotSelectDir() {
+void DBoxFE_ProfileWizard::slotSelectDir()
+{
     QString strDir = QFileDialog::getExistingDirectory( this, tr( "Open search directory" ), QDir::homePath() );
     if ( strDir.isEmpty() )
         return ;
@@ -164,7 +144,8 @@ void DBoxFE_ProfileWizard::slotSelectDir() {
     ui.LEDirectory->setText( strDir );
 }
 
-void DBoxFE_ProfileWizard::slotSearch() {
+void DBoxFE_ProfileWizard::slotSearch()
+{
     DB_BASE base;
 
     QString path = ui.LEDirectory->text();
@@ -178,7 +159,8 @@ void DBoxFE_ProfileWizard::slotSearch() {
 }
 
 
-void DBoxFE_ProfileWizard::httpRequestFinished( int requestId, bool error ) {
+void DBoxFE_ProfileWizard::httpRequestFinished( int requestId, bool error )
+{
     if ( httpRequestAborted ) {
         if ( m_file ) {
             m_file->close();
@@ -205,7 +187,8 @@ void DBoxFE_ProfileWizard::httpRequestFinished( int requestId, bool error ) {
     m_file = 0;
 }
 
-void DBoxFE_ProfileWizard::readResponseHeader( const QHttpResponseHeader &responseHeader ) {
+void DBoxFE_ProfileWizard::readResponseHeader( const QHttpResponseHeader &responseHeader )
+{
     if ( responseHeader.statusCode() != 200 ) {
         QMessageBox::information( this, dbfe->winTitle(), tr( "Download failed: %1." ).arg( responseHeader.reasonPhrase() ) );
         httpRequestAborted = true;
@@ -214,7 +197,8 @@ void DBoxFE_ProfileWizard::readResponseHeader( const QHttpResponseHeader &respon
     }
 }
 
-void DBoxFE_ProfileWizard::downloadFile() {
+void DBoxFE_ProfileWizard::downloadFile()
+{
     QUrl url( "http://chmaster.freeforge.net/update/dboxfe/games.xml" );
     QFileInfo fileInfo( url.path() );
     QString fileName;

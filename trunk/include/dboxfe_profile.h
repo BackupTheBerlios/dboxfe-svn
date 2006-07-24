@@ -23,7 +23,8 @@
 
 #include "ui_profile.h"
 
-class DBoxFE_Profile : public QDialog {
+class DBoxFE_Profile : public QDialog
+{
         Q_OBJECT
 
     public:

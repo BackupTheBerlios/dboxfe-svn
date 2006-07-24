@@ -23,7 +23,8 @@
 
 #include <QtGui>
 
-class DBoxFE_Game : public QDialog {
+class DBoxFE_Game : public QDialog
+{
         Q_OBJECT
 
     public:

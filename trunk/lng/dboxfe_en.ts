@@ -1218,10 +1218,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&amp;Gamewizard</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>DBox Front End</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1394,10 +1390,6 @@ If you click &apos;No&apos; only the profile from list will be removed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>v0.1.1-beta2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>DBoxFE - Front End for DOSBox 0.65 - Linux Version </source>
         <translation type="unfinished"></translation>
     </message>
@@ -1435,6 +1427,18 @@ If you click &apos;No&apos; only the profile from list will be removed.</source>
     </message>
     <message>
         <source>Can not read file </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Wizard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Games</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>v0.1.2</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1546,12 +1550,19 @@ If you click &apos;No&apos; only the profile from list will be removed.</source>
 </context>
 <context>
     <name>DBoxFE_GameDatabase</name>
+</context>
+<context>
+    <name>DBoxFE_GameSettings</name>
     <message>
-        <source>Gamedatabase</source>
+        <source>Gamepreferences</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&amp;Add</source>
+        <source>&amp;Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1559,47 +1570,138 @@ If you click &apos;No&apos; only the profile from list will be removed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>&amp;Preview</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>&amp;Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Cl&amp;ose</source>
+        <source>Gameoption</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Games</source>
+        <source>Developer:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Name</source>
+        <source>Publisher:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Gamefile</source>
+        <source>Game:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Games in database:</source>
+        <source>Category:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>0</source>
+        <source>Adventure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Option</source>
+        <source>Brick</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Gamename:</source>
+        <source>Fight</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Gamebinary</source>
+        <source>Flight</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Open search directory</source>
+        <source>Misc</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Platform</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Progs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Puzzle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Race</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>RPG</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spaceshooter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sport</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Strategy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>War</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Year:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add date?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Game</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Category</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Developer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Publisher</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Year</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>DBoxFE_Images</name>
+    <message>
+        <source>Choose Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A&amp;bort</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1702,6 +1804,41 @@ If you click &apos;No&apos; only the profile from list will be removed.</source>
     </message>
     <message>
         <source>Open directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>add Game/s to autexec section</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Form</name>
+    <message>
+        <source>Gameinformation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Year:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>****</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Game:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Category:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Developer:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Publisher:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

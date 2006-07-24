@@ -24,7 +24,8 @@
 #include <QtCore>
 #include <Qt>
 
-class DBoxFE_Splash : public QSplashScreen {
+class DBoxFE_Splash : public QSplashScreen
+{
         Q_OBJECT
 
     public:

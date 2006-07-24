@@ -30,13 +30,14 @@ class QFile;
 class QHttp;
 class QHttpResponseHeader;
 
-class DBoxFE_ProfileWizard : public QDialog {
+class DBoxFE_ProfileWizard : public QDialog
+{
         Q_OBJECT
 
     public:
         DBoxFE_ProfileWizard( QDialog *parent = 0, Qt::WFlags flags = 0 );
         ~DBoxFE_ProfileWizard();
-    
+
         Ui::DBoxFE_ProfileWizard ui;
         DBoxFE *dbfe;
     private:
@@ -47,8 +48,7 @@ class DBoxFE_ProfileWizard : public QDialog {
 
         int httpGetId;
         bool httpRequestAborted;
-		
-		int page;
+        int page;
 
     private slots:
         void slotBack();

@@ -24,7 +24,8 @@
 #include <QtGui>
 
 DBoxFE_Game::DBoxFE_Game( QDialog *parent, Qt::WFlags flags )
-        : QDialog( parent, flags ) {
+        : QDialog( parent, flags )
+{
     // setup grafical user interface (gui)
     ui.setupUi( this );
 

@@ -24,7 +24,8 @@
 
 #include "ui_about.h"
 
-class DBoxFE_About : public QWidget {
+class DBoxFE_About : public QWidget
+{
         Q_OBJECT
 
     public:
@@ -32,7 +33,7 @@ class DBoxFE_About : public QWidget {
         ~DBoxFE_About();
 
         Ui::DBoxFE_About ui;
-	
+
     private slots:
         void readThxFile( const QString &thxFile );
         void readLicFile( const QString &licFile );

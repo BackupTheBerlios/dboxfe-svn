@@ -64,14 +64,14 @@ void DBoxFE_GameSettings::slotAdd()
         qwtItem->setText( 0, ui.LEGame->text() );
     } else {
         QMessageBox::information( this, "DBox Front End", "Enter a valid game name." );
-        return;
+        return ;
     }
 
     if ( !ui.cbxGameCategory->currentText().isEmpty() ) {
         qwtItem->setText( 1, ui.cbxGameCategory->currentText() );
     } else {
         QMessageBox::information( this, "DBox Front End", "Choose a category for the game." );
-        return;
+        return ;
     }
 
     if ( !ui.LEGameDeveloper->text().isEmpty() )
@@ -79,7 +79,7 @@ void DBoxFE_GameSettings::slotAdd()
     else
         qwtItem->setText( 2, "" );
 
-    if ( !ui.LEGamePublisher->text().isEmpty() ) 
+    if ( !ui.LEGamePublisher->text().isEmpty() )
         qwtItem->setText( 3, ui.LEGamePublisher->text() );
     else
         qwtItem->setText( 3, "" );
@@ -103,7 +103,6 @@ void DBoxFE_GameSettings::slotChange()
 {
     QTreeWidgetItem * selectedItem = ui.twGameSettings->currentItem();
     if ( selectedItem != NULL ) {
-	
     }
 }
 
@@ -162,8 +161,8 @@ void DBoxFE_GameSettings::slotImage()
             lstTmp.clear();
         }
 
-        if ( dbfe_image->exec() == QDialog::Accepted ) {}
-    } else {
+        if ( dbfe_image->exec() == QDialog::Accepted ) {}}
+    else {
         QMessageBox::information( this, "DBox Front End", "No item was selected." );
     }
 }

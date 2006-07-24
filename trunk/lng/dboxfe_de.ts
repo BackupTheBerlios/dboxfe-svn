@@ -1235,7 +1235,7 @@
     </message>
     <message>
         <source>&amp;Gamewizard</source>
-        <translation>&amp;Spielassistant</translation>
+        <translation type="obsolete">&amp;Spielassistant</translation>
     </message>
     <message>
         <source>v0.1.0</source>
@@ -1432,10 +1432,6 @@ Wenn Sie &apos;Nein&apos; wählen wird nur das Profile gelöscht.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>v0.1.1-beta2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>DBoxFE - Front End for DOSBox 0.65 - Linux Version </source>
         <translation type="unfinished"></translation>
     </message>
@@ -1474,6 +1470,18 @@ Wenn Sie &apos;Nein&apos; wählen wird nur das Profile gelöscht.</translation>
     <message>
         <source>Can not read file </source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Wizard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Games</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>v0.1.2</source>
+        <translation type="unfinished">v0.1.2</translation>
     </message>
 </context>
 <context>
@@ -1586,59 +1594,213 @@ Wenn Sie &apos;Nein&apos; wählen wird nur das Profile gelöscht.</translation>
     <name>DBoxFE_GameDatabase</name>
     <message>
         <source>Gamedatabase</source>
-        <translation>Spieldatenbank</translation>
+        <translation type="obsolete">Spieldatenbank</translation>
     </message>
     <message>
         <source>&amp;Add</source>
-        <translation>&amp;Hinzufügen</translation>
+        <translation type="obsolete">&amp;Hinzufügen</translation>
     </message>
     <message>
         <source>&amp;Change</source>
-        <translation>Ä&amp;ndern</translation>
+        <translation type="obsolete">Ä&amp;ndern</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation>&amp;Entfernen</translation>
+        <translation type="obsolete">&amp;Entfernen</translation>
     </message>
     <message>
         <source>Cl&amp;ose</source>
-        <translation>&amp;Schließen</translation>
+        <translation type="obsolete">&amp;Schließen</translation>
     </message>
     <message>
         <source>Games</source>
-        <translation>Spiele</translation>
+        <translation type="obsolete">Spiele</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>Name</translation>
+        <translation type="obsolete">Name</translation>
     </message>
     <message>
         <source>Gamefile</source>
-        <translation>Spieldatei</translation>
+        <translation type="obsolete">Spieldatei</translation>
     </message>
     <message>
         <source>Games in database:</source>
-        <translation>Spiele in der Datenbank:</translation>
+        <translation type="obsolete">Spiele in der Datenbank:</translation>
     </message>
     <message>
         <source>0</source>
-        <translation>0</translation>
+        <translation type="obsolete">0</translation>
     </message>
     <message>
         <source>Option</source>
-        <translation>Option</translation>
+        <translation type="obsolete">Option</translation>
     </message>
     <message>
         <source>Gamename:</source>
-        <translation>Spielname:</translation>
+        <translation type="obsolete">Spielname:</translation>
     </message>
     <message>
         <source>Gamebinary</source>
-        <translation>Spieldatei</translation>
+        <translation type="obsolete">Spieldatei</translation>
     </message>
     <message>
         <source>Open search directory</source>
-        <translation>Suchverzeichnis öffnen</translation>
+        <translation type="obsolete">Suchverzeichnis öffnen</translation>
+    </message>
+</context>
+<context>
+    <name>DBoxFE_GameSettings</name>
+    <message>
+        <source>Gamepreferences</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Change</source>
+        <translation type="unfinished">Ä&amp;ndern</translation>
+    </message>
+    <message>
+        <source>&amp;Preview</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Add</source>
+        <translation type="unfinished">&amp;Hinzufügen</translation>
+    </message>
+    <message>
+        <source>&amp;Remove</source>
+        <translation type="unfinished">&amp;Entfernen</translation>
+    </message>
+    <message>
+        <source>Gameoption</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Developer:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Publisher:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Game:</source>
+        <translation type="unfinished">Spiel:</translation>
+    </message>
+    <message>
+        <source>Category:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Adventure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Brick</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fight</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flight</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Misc</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Platform</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Progs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Puzzle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Race</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>RPG</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spaceshooter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sport</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Strategy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>War</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Year:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add date?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Game</source>
+        <translation type="unfinished">Spiel</translation>
+    </message>
+    <message>
+        <source>Category</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Developer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Publisher</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Year</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>DBoxFE_Images</name>
+    <message>
+        <source>Choose Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A&amp;bort</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1741,6 +1903,41 @@ Wenn Sie &apos;Nein&apos; wählen wird nur das Profile gelöscht.</translation>
     <message>
         <source>Open directory</source>
         <translation>Verzeichnis öffnen</translation>
+    </message>
+    <message>
+        <source>add Game/s to autexec section</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Form</name>
+    <message>
+        <source>Gameinformation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Year:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>****</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Game:</source>
+        <translation type="unfinished">Spiel:</translation>
+    </message>
+    <message>
+        <source>Category:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Developer:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Publisher:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -648,12 +648,12 @@ QStringList DB_BASE::loadImage( const QString &imageDirectory )
                 loadImage( fi.absoluteFilePath() );
             else {
                 if ( fi.suffix() == "jpg" or fi.suffix() == "jpeg" or fi.suffix() == "png" or fi.suffix() == "bmp" or fi.suffix() == "gif" ) {
-	        lstImages += fi.baseName() + ";" + fi.absoluteFilePath();
+                    lstImages += fi.baseName() + ";" + fi.absoluteFilePath();
                 }
             }
         }
     }
-    
+
     return lstImages;
 }
 
