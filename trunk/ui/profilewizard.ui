@@ -8,20 +8,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>731</width>
-    <height>391</height>
+    <width>720</width>
+    <height>380</height>
    </rect>
   </property>
   <property name="minimumSize" >
    <size>
-    <width>731</width>
-    <height>391</height>
+    <width>720</width>
+    <height>380</height>
    </size>
   </property>
   <property name="maximumSize" >
    <size>
-    <width>731</width>
-    <height>391</height>
+    <width>720</width>
+    <height>380</height>
    </size>
   </property>
   <property name="windowTitle" >
@@ -30,12 +30,324 @@
   <property name="windowIcon" >
    <iconset resource="../res/dboxfe.qrc" >:/pics/images/default.png</iconset>
   </property>
+  <widget class="QStackedWidget" name="sWidgetGameWizard" >
+   <property name="geometry" >
+    <rect>
+     <x>180</x>
+     <y>10</y>
+     <width>531</width>
+     <height>311</height>
+    </rect>
+   </property>
+   <property name="currentIndex" >
+    <number>0</number>
+   </property>
+   <widget class="QWidget" name="pageSearch" >
+    <widget class="QGroupBox" name="gBoxGames" >
+     <property name="geometry" >
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>531</width>
+       <height>211</height>
+      </rect>
+     </property>
+     <property name="title" >
+      <string>Games found</string>
+     </property>
+     <layout class="QGridLayout" >
+      <property name="margin" >
+       <number>9</number>
+      </property>
+      <property name="spacing" >
+       <number>6</number>
+      </property>
+      <item row="1" column="1" >
+       <widget class="QCheckBox" name="chkBoxAddGameToAutexec" >
+        <property name="text" >
+         <string>add Game/s to autexec section</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0" >
+       <widget class="QCheckBox" name="chkBoxSelectAll" >
+        <property name="text" >
+         <string>select all Games</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0" colspan="2" >
+       <widget class="QTreeWidget" name="lwGames" >
+        <property name="selectionMode" >
+         <enum>QAbstractItemView::MultiSelection</enum>
+        </property>
+        <column>
+         <property name="text" >
+          <string>Game</string>
+         </property>
+        </column>
+        <column>
+         <property name="text" >
+          <string>Directory</string>
+         </property>
+        </column>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="groupBoxDirectory" >
+     <property name="geometry" >
+      <rect>
+       <x>0</x>
+       <y>210</y>
+       <width>531</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <property name="title" >
+      <string>Directory</string>
+     </property>
+     <layout class="QGridLayout" >
+      <property name="margin" >
+       <number>9</number>
+      </property>
+      <property name="spacing" >
+       <number>6</number>
+      </property>
+      <item row="0" column="0" >
+       <layout class="QVBoxLayout" >
+        <property name="margin" >
+         <number>0</number>
+        </property>
+        <property name="spacing" >
+         <number>6</number>
+        </property>
+        <item>
+         <widget class="QLineEdit" name="LEDirectory" />
+        </item>
+        <item>
+         <layout class="QHBoxLayout" >
+          <property name="margin" >
+           <number>0</number>
+          </property>
+          <property name="spacing" >
+           <number>6</number>
+          </property>
+          <item>
+           <widget class="QPushButton" name="btnSearch" >
+            <property name="minimumSize" >
+             <size>
+              <width>24</width>
+              <height>24</height>
+             </size>
+            </property>
+            <property name="maximumSize" >
+             <size>
+              <width>24</width>
+              <height>24</height>
+             </size>
+            </property>
+            <property name="toolTip" >
+             <string>Search games</string>
+            </property>
+            <property name="whatsThis" >
+             <string>Search games</string>
+            </property>
+            <property name="icon" >
+             <iconset resource="../res/dboxfe.qrc" >:/pics/images/misc.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer>
+            <property name="orientation" >
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" >
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnSelectDir" >
+            <property name="minimumSize" >
+             <size>
+              <width>24</width>
+              <height>24</height>
+             </size>
+            </property>
+            <property name="maximumSize" >
+             <size>
+              <width>24</width>
+              <height>24</height>
+             </size>
+            </property>
+            <property name="toolTip" >
+             <string>Open directory</string>
+            </property>
+            <property name="whatsThis" >
+             <string>Open directory</string>
+            </property>
+            <property name="icon" >
+             <iconset resource="../res/dboxfe.qrc" >:/pics/images/folder-open_16.png</iconset>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="pageFinish" >
+    <widget class="QGroupBox" name="gBoxFinish" >
+     <property name="geometry" >
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>531</width>
+       <height>311</height>
+      </rect>
+     </property>
+     <property name="title" >
+      <string>Finish</string>
+     </property>
+     <layout class="QGridLayout" >
+      <property name="margin" >
+       <number>9</number>
+      </property>
+      <property name="spacing" >
+       <number>6</number>
+      </property>
+      <item row="0" column="0" >
+       <layout class="QGridLayout" >
+        <property name="margin" >
+         <number>0</number>
+        </property>
+        <property name="spacing" >
+         <number>6</number>
+        </property>
+        <item row="0" column="0" >
+         <layout class="QVBoxLayout" >
+          <property name="margin" >
+           <number>0</number>
+          </property>
+          <property name="spacing" >
+           <number>6</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="lblSaveCfg" >
+            <property name="enabled" >
+             <bool>false</bool>
+            </property>
+            <property name="text" >
+             <string/>
+            </property>
+            <property name="pixmap" >
+             <pixmap resource="../res/dboxfe.qrc" >:/pics/images/arrow-forward_16.png</pixmap>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="lblCreateGP" >
+            <property name="enabled" >
+             <bool>false</bool>
+            </property>
+            <property name="text" >
+             <string/>
+            </property>
+            <property name="pixmap" >
+             <pixmap resource="../res/dboxfe.qrc" >:/pics/images/arrow-forward_16.png</pixmap>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="lblFinish" >
+            <property name="enabled" >
+             <bool>false</bool>
+            </property>
+            <property name="text" >
+             <string/>
+            </property>
+            <property name="pixmap" >
+             <pixmap resource="../res/dboxfe.qrc" >:/pics/images/arrow-forward_16.png</pixmap>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="0" column="1" >
+         <layout class="QVBoxLayout" >
+          <property name="margin" >
+           <number>0</number>
+          </property>
+          <property name="spacing" >
+           <number>6</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="label_2" >
+            <property name="text" >
+             <string>Save configuration</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_3" >
+            <property name="text" >
+             <string>Create game profiles</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_4" >
+            <property name="text" >
+             <string>Finish</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QLabel" name="lblPicture" >
+   <property name="geometry" >
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>166</width>
+     <height>316</height>
+    </rect>
+   </property>
+   <property name="frameShape" >
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow" >
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="text" >
+    <string/>
+   </property>
+   <property name="pixmap" >
+    <pixmap resource="../res/dboxfe.qrc" >:/pics/images/wiz_internet.png</pixmap>
+   </property>
+   <property name="alignment" >
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
   <widget class="QGroupBox" name="groupBox_2" >
    <property name="geometry" >
     <rect>
      <x>10</x>
-     <y>340</y>
-     <width>711</width>
+     <y>330</y>
+     <width>701</width>
      <height>18</height>
     </rect>
    </property>
@@ -47,8 +359,8 @@
    <property name="geometry" >
     <rect>
      <x>10</x>
-     <y>350</y>
-     <width>711</width>
+     <y>340</y>
+     <width>701</width>
      <height>32</height>
     </rect>
    </property>
@@ -174,333 +486,6 @@
      </widget>
     </item>
    </layout>
-  </widget>
-  <widget class="QFrame" name="pageSearchGame" >
-   <property name="geometry" >
-    <rect>
-     <x>190</x>
-     <y>10</y>
-     <width>531</width>
-     <height>321</height>
-    </rect>
-   </property>
-   <property name="frameShape" >
-    <enum>QFrame::NoFrame</enum>
-   </property>
-   <property name="frameShadow" >
-    <enum>QFrame::Raised</enum>
-   </property>
-   <widget class="QGroupBox" name="groupBox" >
-    <property name="geometry" >
-     <rect>
-      <x>0</x>
-      <y>213</y>
-      <width>531</width>
-      <height>102</height>
-     </rect>
-    </property>
-    <property name="title" >
-     <string>Directory</string>
-    </property>
-    <layout class="QGridLayout" >
-     <property name="margin" >
-      <number>9</number>
-     </property>
-     <property name="spacing" >
-      <number>6</number>
-     </property>
-     <item row="0" column="0" >
-      <layout class="QVBoxLayout" >
-       <property name="margin" >
-        <number>0</number>
-       </property>
-       <property name="spacing" >
-        <number>6</number>
-       </property>
-       <item>
-        <widget class="QLineEdit" name="LEDirectory" />
-       </item>
-       <item>
-        <layout class="QHBoxLayout" >
-         <property name="margin" >
-          <number>0</number>
-         </property>
-         <property name="spacing" >
-          <number>6</number>
-         </property>
-         <item>
-          <widget class="QPushButton" name="btnSearch" >
-           <property name="minimumSize" >
-            <size>
-             <width>24</width>
-             <height>24</height>
-            </size>
-           </property>
-           <property name="maximumSize" >
-            <size>
-             <width>24</width>
-             <height>24</height>
-            </size>
-           </property>
-           <property name="toolTip" >
-            <string>Search games</string>
-           </property>
-           <property name="whatsThis" >
-            <string>Search games</string>
-           </property>
-           <property name="icon" >
-            <iconset resource="../res/dboxfe.qrc" >:/pics/images/misc.png</iconset>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <spacer>
-           <property name="orientation" >
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" >
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
-          <widget class="QPushButton" name="btnSelectDir" >
-           <property name="minimumSize" >
-            <size>
-             <width>24</width>
-             <height>24</height>
-            </size>
-           </property>
-           <property name="maximumSize" >
-            <size>
-             <width>24</width>
-             <height>24</height>
-            </size>
-           </property>
-           <property name="toolTip" >
-            <string>Open directory</string>
-           </property>
-           <property name="whatsThis" >
-            <string>Open directory</string>
-           </property>
-           <property name="icon" >
-            <iconset resource="../res/dboxfe.qrc" >:/pics/images/folder-open_16.png</iconset>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-      </layout>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QGroupBox" name="gBoxGames" >
-    <property name="geometry" >
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>531</width>
-      <height>211</height>
-     </rect>
-    </property>
-    <property name="title" >
-     <string>Games found</string>
-    </property>
-    <layout class="QGridLayout" >
-     <property name="margin" >
-      <number>9</number>
-     </property>
-     <property name="spacing" >
-      <number>6</number>
-     </property>
-     <item row="1" column="1" >
-      <widget class="QCheckBox" name="chkBoxAddGameToAutexec" >
-       <property name="text" >
-        <string>add Game/s to autexec section</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0" >
-      <widget class="QCheckBox" name="chkBoxSelectAll" >
-       <property name="text" >
-        <string>select all Games</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="0" colspan="2" >
-      <widget class="QTreeWidget" name="lwGames" >
-       <property name="selectionMode" >
-        <enum>QAbstractItemView::MultiSelection</enum>
-       </property>
-       <column>
-        <property name="text" >
-         <string>Game</string>
-        </property>
-       </column>
-       <column>
-        <property name="text" >
-         <string>Directory</string>
-        </property>
-       </column>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-  </widget>
-  <widget class="QFrame" name="pageCreateProfiles" >
-   <property name="geometry" >
-    <rect>
-     <x>170</x>
-     <y>410</y>
-     <width>531</width>
-     <height>321</height>
-    </rect>
-   </property>
-   <property name="frameShape" >
-    <enum>QFrame::NoFrame</enum>
-   </property>
-   <property name="frameShadow" >
-    <enum>QFrame::Raised</enum>
-   </property>
-   <widget class="QGroupBox" name="gBoxFinish" >
-    <property name="geometry" >
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>531</width>
-      <height>311</height>
-     </rect>
-    </property>
-    <property name="title" >
-     <string>Finish</string>
-    </property>
-    <layout class="QGridLayout" >
-     <property name="margin" >
-      <number>9</number>
-     </property>
-     <property name="spacing" >
-      <number>6</number>
-     </property>
-     <item row="0" column="0" >
-      <layout class="QGridLayout" >
-       <property name="margin" >
-        <number>0</number>
-       </property>
-       <property name="spacing" >
-        <number>6</number>
-       </property>
-       <item row="0" column="0" >
-        <layout class="QVBoxLayout" >
-         <property name="margin" >
-          <number>0</number>
-         </property>
-         <property name="spacing" >
-          <number>6</number>
-         </property>
-         <item>
-          <widget class="QLabel" name="lblSaveCfg" >
-           <property name="enabled" >
-            <bool>false</bool>
-           </property>
-           <property name="text" >
-            <string/>
-           </property>
-           <property name="pixmap" >
-            <pixmap resource="../res/dboxfe.qrc" >:/pics/images/arrow-forward_16.png</pixmap>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="lblCreateGP" >
-           <property name="enabled" >
-            <bool>false</bool>
-           </property>
-           <property name="text" >
-            <string/>
-           </property>
-           <property name="pixmap" >
-            <pixmap resource="../res/dboxfe.qrc" >:/pics/images/arrow-forward_16.png</pixmap>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="lblFinish" >
-           <property name="enabled" >
-            <bool>false</bool>
-           </property>
-           <property name="text" >
-            <string/>
-           </property>
-           <property name="pixmap" >
-            <pixmap resource="../res/dboxfe.qrc" >:/pics/images/arrow-forward_16.png</pixmap>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item row="0" column="1" >
-        <layout class="QVBoxLayout" >
-         <property name="margin" >
-          <number>0</number>
-         </property>
-         <property name="spacing" >
-          <number>6</number>
-         </property>
-         <item>
-          <widget class="QLabel" name="label_2" >
-           <property name="text" >
-            <string>Save configuration</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_3" >
-           <property name="text" >
-            <string>Create game profiles</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_4" >
-           <property name="text" >
-            <string>Finish</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-      </layout>
-     </item>
-    </layout>
-   </widget>
-  </widget>
-  <widget class="QLabel" name="lblPicture" >
-   <property name="geometry" >
-    <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>168</width>
-     <height>318</height>
-    </rect>
-   </property>
-   <property name="frameShape" >
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow" >
-    <enum>QFrame::Sunken</enum>
-   </property>
-   <property name="text" >
-    <string/>
-   </property>
-   <property name="pixmap" >
-    <pixmap resource="../res/dboxfe.qrc" >:/pics/images/wiz_internet.png</pixmap>
-   </property>
-   <property name="alignment" >
-    <set>Qt::AlignCenter</set>
-   </property>
   </widget>
  </widget>
  <pixmapfunction></pixmapfunction>

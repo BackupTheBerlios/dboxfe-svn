@@ -26,9 +26,11 @@
 
 DBoxFE_ProfileWizard::DBoxFE_ProfileWizard( QDialog *parent, Qt::WFlags flags )
         : QDialog( parent, flags ) {
+
+	// setup grafical user interface (gui)
     ui.setupUi( this );
-    // setup grafical user interface (gui)
-    ui.setupUi( this );
+
+	page = 0;
 
     // for download game database file
     m_http = new QHttp( this );
@@ -44,13 +46,6 @@ DBoxFE_ProfileWizard::DBoxFE_ProfileWizard( QDialog *parent, Qt::WFlags flags )
     connect( ui.btnAbort, SIGNAL( clicked() ), this, SLOT( slotAbort() ) );
     connect( ui.btnSelectDir, SIGNAL( clicked() ), this, SLOT( slotSelectDir() ) );
     connect( ui.btnSearch, SIGNAL( clicked() ), this, SLOT( slotSearch() ) );
-
-    // visible page
-    ui.pageSearchGame->setVisible( true );
-    ui.pageSearchGame->setGeometry( 190, 10, 531, 321 );
-
-    ui.pageCreateProfiles->setVisible( false );
-    ui.pageCreateProfiles->setGeometry( 190, 10, 531, 321 );
 
     // enable button
     ui.btnNext->setEnabled( true );
@@ -99,7 +94,19 @@ void DBoxFE_ProfileWizard::slotFinish() {
 }
 
 void DBoxFE_ProfileWizard::slotBack() {
-    if ( ui.pageCreateProfiles->isVisible() ) {
+
+	if ( page == 1 )
+		ui.btnBack->setEnabled( false );
+
+	if ( page == 0 || page == 1 ) {
+		ui.btnNext->setText( "&Next" );
+	}
+
+    ui.sWidgetGameWizard->setCurrentIndex( --page );
+
+
+
+    /*if ( ui.pageCreateProfiles->isVisible() ) {
         ui.pageCreateProfiles->setVisible( false );
 
         ui.pageSearchGame->setVisible( true );
@@ -109,11 +116,26 @@ void DBoxFE_ProfileWizard::slotBack() {
         ui.btnBack->setEnabled( false );
     } else {
         ui.btnNext->setText( tr( "&Next" ) );
-    }
+    }*/
 }
 
 void DBoxFE_ProfileWizard::slotNext() {
-    if ( ui.pageSearchGame->isVisible() ) {
+
+	if ( page == 1 ) {
+        ui.btnNext->setText( tr( "&Finish" ) );
+	} else {
+        ui.btnNext->setText( tr( "&Next" ) );
+	}
+
+	ui.btnBack->setEnabled( true );
+    ui.sWidgetGameWizard->setCurrentIndex( ++page );
+
+    if ( page > 2 )
+		page = 2;
+
+
+
+    /*if ( ui.pageSearchGame->isVisible() ) {
         ui.pageSearchGame->setVisible( false );
 
         ui.pageCreateProfiles->setVisible( true );
@@ -123,7 +145,7 @@ void DBoxFE_ProfileWizard::slotNext() {
         ui.btnBack->setEnabled( true );
     } else {
         ui.btnNext->setText( tr( "&Finish" ) );
-    }
+    }*/
 }
 
 void DBoxFE_ProfileWizard::slotHelp() {

@@ -47,6 +47,8 @@ class DBoxFE_ProfileWizard : public QDialog {
 
         int httpGetId;
         bool httpRequestAborted;
+		
+		int page;
 
     private slots:
         void slotBack();
