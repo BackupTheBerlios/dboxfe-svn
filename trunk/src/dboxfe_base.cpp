@@ -622,8 +622,8 @@ void DB_BASE::createGameProfiles( const QString &file, const QStringList &gamesL
         QTextStream out( createFile );
         out << line;
         out.flush();
-    }
-    createFile->close();
+		createFile->close();
+    }    
     line = "";
 }
 
@@ -647,9 +647,17 @@ QStringList DB_BASE::loadImage( const QString &imageDirectory )
             if ( fi.isDir() && fi.isReadable() )
                 loadImage( fi.absoluteFilePath() );
             else {
-                if ( fi.suffix() == "jpg" or fi.suffix() == "jpeg" or fi.suffix() == "png" or fi.suffix() == "bmp" or fi.suffix() == "gif" ) {
+                if ( fi.suffix() == "jpg" ) {
                     lstImages += fi.baseName() + ";" + fi.absoluteFilePath();
-                }
+				} else if ( fi.suffix() == "jpeg" ) {
+                    lstImages += fi.baseName() + ";" + fi.absoluteFilePath();
+				} else if ( fi.suffix() == "png" ) {
+                    lstImages += fi.baseName() + ";" + fi.absoluteFilePath();
+				} else if ( fi.suffix() == "bmp" ) {
+                    lstImages += fi.baseName() + ";" + fi.absoluteFilePath();
+				} else if ( fi.suffix() == "gif" ) {
+                    lstImages += fi.baseName() + ";" + fi.absoluteFilePath();
+				}
             }
         }
     }
