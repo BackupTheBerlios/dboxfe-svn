@@ -20,6 +20,7 @@
 
 #include "dboxfe.h"
 #include "dboxfe_profilewizard.h"
+#include "dboxfe_gamesettings.h"
 #include "XMLPreferences.h"
 
 #include <QtCore>
@@ -102,7 +103,7 @@ class DB_BASE
          * Load image from directory
          *
          * @parm imageDirectory	Imagedirectory
-         * @param qlw		QListWidget for list information
+         * @param qlw			QListWidget for list information
          * @since 0.1.2
          */
         QStringList loadImage( const QString &imageDirectory );
@@ -110,9 +111,9 @@ class DB_BASE
         /**
          * Insert game in to database (xml file)
          *
-         * @param name		Game name
+         * @param name			Game name
          * @param executable	Executabel of game
-         * @param QTreeWidget	QTreeWidget for list information
+         * @param qtw			QTreeWidget for list information
          * @since 0.1.0
          */
         void insertGameInToDb( const QString &name, const QString &executable, QTreeWidget* qtw );
@@ -136,14 +137,15 @@ class DB_BASE
          */
         void saveGameDb( const QString &file, QTreeWidget* qtw, int col1, int col2 );
 
-        /**
-         * Load game database file
+		/**
+         * Read game xml 
          *
-         * @param file		file to read
-         * @param qtw		QTreeWidget to insert the readed fileinformation
-         * @since 0.1.0
+         * @param file			Game name
+         * @param dbfe_gs		Executabel of game
+         * @param qtw			QTreeWidget for list information
+         * @since 0.1.2
          */
-        void readGameDb( const QString &file, QTreeWidget* qtw );
+        void readGameDb( const QString &file, QTreeWidget* qtw, DBoxFE_GameSettings* dbfe_gs );
 };
 
 #endif // DBOXFE_BASE_H

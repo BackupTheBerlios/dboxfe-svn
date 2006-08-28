@@ -19,6 +19,7 @@
 #include "dboxfe.h"
 #include "dboxfe_base.h"
 #include "dboxfe_profilewizard.h"
+#include "dboxfe_gamesettings.h"
 #include "XMLPreferences.h"
 
 #include <QtCore>
@@ -623,7 +624,7 @@ void DB_BASE::createGameProfiles( const QString &file, const QStringList &gamesL
         out << line;
         out.flush();
 		createFile->close();
-    }    
+    }
     line = "";
 }
 
@@ -704,21 +705,8 @@ void DB_BASE::saveGameDb( const QString &file, QTreeWidget* qtw, int col1, int c
 }
 
 /*
- * Read the gamedatabase file and list the items in to QTreeWidget
+ * TODO For feature request ...... (Gamedatabase)
  */
-void DB_BASE::readGameDb( const QString &file, QTreeWidget* qtw )
+void DB_BASE::readGameDb( const QString &file, QTreeWidget* qtw, DBoxFE_GameSettings* dbfe_gs )
 {
-    XMLPreferences games( "DBoxFE", "Alexander Saal" );
-    games.setVersion( "v0.1.2" );
-    games.load( file );
-    gamesList = games.getStringList( "Games", "Name" );
-
-    QStringList lst;
-
-    for ( int i = 0; i < gamesList.size(); i++ ) {
-        QTreeWidgetItem *item = new QTreeWidgetItem( qtw );
-        lst = gamesList[ i ].split( ";" );
-        item->setText( 0, lst.value( 0 ) );
-        item->setText( 1, lst.value( 1 ) );
-    }
 }

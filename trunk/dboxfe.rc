@@ -48,11 +48,11 @@ BEGIN
         BLOCK "040904b0"
         BEGIN
             VALUE "Comments", "DBoxFE - DOSBox Front End\0"
-            VALUE "CompanyName", "ASaal\0"
+            VALUE "CompanyName", "Privat\0"
             VALUE "FileDescription", "DBoxFE\0"
             VALUE "FileVersion", "0.1.2.0\0"
             VALUE "InternalName", "dboxfe\0"
-            VALUE "LegalCopyright", "Copyright © 2004/05/06 by Alexander Saal\0"
+            VALUE "LegalCopyright", "Copyright © 2004 - 06 by Alexander Saal\0"
             VALUE "OriginalFilename", "dboxfe.exe\0"
             VALUE "ProductName", "DBoxFE\0"
             VALUE "ProductVersion", "0.1.2.0\0"

@@ -1,3 +1,41 @@
+2006-08-28  Alexander Saal  <alex.saal@gmx.de>
+* ADD:		missing files
+* FIXED:	crash, if you click finish on Gamewizard
+* FIXED:	compile error in dboxfe_base.cpp
+* UDPATE:	vcproj file (more project files included)
+* UPDATE:	dboxfe.pro
+* UPDATE:	ChangeLog
+
+2006-07-24  Alexander Saal  <alex.saal@gmx.de>
+* FIXED:	problem with layout in Gamewizard dialog
+* UDPATE:	language file
+* CHANGED:	quelcode format
+
+2006-06-17/18 Alexander Saal  <alex.saal@gmx.de>
+* FIXED:	a small bug in XMLPreferences.cpp (I tell this bug to the Author of XMLPreferences - was fixed)
+* NEW:		new XMLPreferences Class from OsDab project
+
+2006-06-10  Alexander Saal  <alex.saal@gmx.de>
+* ADD:		header/source file for gamesettings
+* ADD:		dboxfe.h / dboxfe.cpp ( add slot - slotGameSettings() )
+* ADD:		dboxfe_base.h / dboxfe_base.cpp ( new function - loadImage(...) )
+* ADD:		new widgets (gamesattings and gamepreview)
+* UDPATE:	dboxfe.pro ( add header/source )
+* UDPATE:	header/source
+* UDPATE:	gamesettings.ui and gampreview.ui
+* UDPATE:	kdevelop projectfile
+* REMOVED:	unused gamedatabase ....
+
+2006-05-08  Alexander Saal  <alex.saal@gmx.de>
+* UPDATE:	vcproj
+
+2006-05-06  Alexander Saal  <alex.saal@gmx.de>
+* ADD:		custom menu in autexec list (save or clear)
+* CHANGED:	clean up code (removed unused ode)
+* REMOVED:	unused controls ...
+* UDPATE:	rc file (change versions number to 0.1.1.2 - is equal to 0.1.1-beta2)
+* UDPATE:	0.1.1-beta2
+
 2006-05-01  Alexander Saal  <alex.saal@gmx.de>
 * FIXED:	Bug #7343, Bug #7344, Bug #7345
 * FIXED:	you can now choose dosbox binary on windows (only windows)
@@ -42,14 +80,14 @@
 * UPDATE:	quellcode formating
 * UPDATE:	language file
 * UPDATE:	kdevelop project file
-* UPDATE:	*pro file (add debug option again)
+* UPDATE:	pro file (add debug option again)
 * UPDATE:	you can now add autoexec option
 * CHANGED:	the CDROM/DVD option (dboxfe.ui)
 
 2006-04-12  Alexander Saal  <alex.saal@gmx.de>
 * ADD:		default setting (provide by dosbox self) if file not found and profile was created and selected
-* FIXED:		the problem with save settings (tow section not saved - bios and dos)
-* FIXED:		the problem, wrong parameter if you select on/of by pcspeaker
+* FIXED:	the problem with save settings (tow section not saved - bios and dos)
+* FIXED:	the problem, wrong parameter if you select on/of by pcspeaker
 * FIXED: 	the problem with default settings by UMB
 * UPDATE:	the language files
 * UPDATE:	the KDevelop Projectfile

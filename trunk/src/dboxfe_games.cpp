@@ -41,7 +41,7 @@ DBoxFE_Game::DBoxFE_Game( QDialog *parent, Qt::WFlags flags )
     m_file = QDir::homePath();
     m_file.append( "/.dboxfe/profile/games.xml" );
 
-    gpIni.readGameDb( m_file, ui.twGame );
+    //gpIni.readGameDb( m_file, ui.twGame );
 }
 
 DBoxFE_Game::~DBoxFE_Game() {}
