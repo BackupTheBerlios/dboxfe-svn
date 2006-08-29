@@ -15,9 +15,9 @@
 *   along with this program; if not, write to the Free Software Foundation,
 *   Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
-
 #include "dboxfe.h"
 #include "dboxfe_base.h"
+#include "dboxfe_gamefile.h"
 #include "dboxfe_gamesettings.h"
 
 // Qt 4 Header
@@ -87,7 +87,7 @@ void DBoxFE_GameFile::parseGameFile( const QString &file, DBoxFE_GameSettings *d
 {
  		 DB_BASE db_base;
  		 ui.pBarParseStatus->setValue( 0 );
- 		 db_base.readGameDb( file, ui.pBarParseStatus, dbfe_gs->ui_gs.twGameSettings );
+ 		 db_base.readGameDb( file, ui.pBarParseStatus, dbfe_gs->ui.twGameSettings );
 }
 
 void DBoxFE_GameFile::httpDataReadProgress( int done, int total  )

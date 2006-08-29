@@ -19,6 +19,7 @@
 #define DBOXFE_GAMEFILE_H
 
 #include "ui_gamefile.h"
+#include "dboxfe.h"
 #include "dboxfe_gamesettings.h"
 
 #include <QtGui>
@@ -41,12 +42,13 @@ class DBoxFE_GameFile : public QWidget
     private:
         QHttp *m_http;
         QFile *m_file;
+        DBoxFE *dbfe;
 
         int httpGetId;
         bool httpRequestAborted;
 				
     public slots:
-        void loadGameFile( const QString &url );
+        void loadGameFile( const QString &urlPath );
         void parseGameFile( const QString &file, DBoxFE_GameSettings *dbfe_gs );
 
     private slots:

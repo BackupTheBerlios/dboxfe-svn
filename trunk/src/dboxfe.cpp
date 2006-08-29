@@ -19,6 +19,7 @@
 #include "dboxfe.h"
 #include "dboxfe_about.h"
 #include "dboxfe_base.h"
+#include "dboxfe_gamefile.h"
 #include "dboxfe_games.h"
 #include "dboxfe_gamesettings.h"
 #include "dboxfe_profile.h"
