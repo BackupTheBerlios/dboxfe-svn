@@ -22,7 +22,7 @@ DESTDIR = bin
 DEPENDPATH += include res src ui 3rdparty
 INCLUDEPATH += include 3rdparty
 RESOURCES += res/dboxfe.qrc
-CONFIG += debug thread warn_on qt
+CONFIG += release thread warn_on qt
 QT += xml network
 
 # Project Ui files
@@ -30,6 +30,7 @@ FORMS += ui/dboxfe.ui
 FORMS += ui/about.ui
 FORMS += ui/profile.ui
 FORMS += ui/games.ui
+FORMS += ui/gamefile.ui
 FORMS += ui/gamesettings.ui
 FORMS += ui/gamepreview.ui
 FORMS += ui/images.ui
@@ -47,6 +48,7 @@ DISTFILES += LICENSE.GPL
 HEADERS += include/dboxfe.h
 HEADERS += include/dboxfe_about.h
 HEADERS += include/dboxfe_base.h
+HEADERS += include/dboxfe_gamefile.h
 HEADERS += include/dboxfe_games.h
 HEADERS += include/dboxfe_gamesettings.h
 HEADERS += include/dboxfe_images.h
@@ -59,6 +61,7 @@ SOURCES += src/main.cpp
 SOURCES += src/dboxfe.cpp
 SOURCES += src/dboxfe_about.cpp
 SOURCES += src/dboxfe_base.cpp
+SOURCES += src/dboxfe_gamefile.cpp
 SOURCES += src/dboxfe_games.cpp
 SOURCES += src/dboxfe_gamesettings.cpp
 SOURCES += src/dboxfe_images.cpp
@@ -89,7 +92,7 @@ unix{
 
 # Windows settings
 win32{
-  RC_FILE = dboxfe.rc
+  #RC_FILE = dboxfe.rc
   TARGET = dboxfe
   RCC_DIR = win/rcc
   MOC_DIR += win/moc

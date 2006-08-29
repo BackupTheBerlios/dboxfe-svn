@@ -32,7 +32,7 @@ class DBoxFE_GameSettings : public QWidget
         DBoxFE_GameSettings( QWidget *parent = 0, Qt::WFlags flags = 0 );
         ~DBoxFE_GameSettings();
 
-        Ui::DBoxFE_GameSettings ui;
+        Ui::DBoxFE_GameSettings ui_gs;
 
     private slots:
         void slotAdd();

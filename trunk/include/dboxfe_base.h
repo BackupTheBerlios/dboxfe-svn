@@ -137,15 +137,14 @@ class DB_BASE
          */
         void saveGameDb( const QString &file, QTreeWidget* qtw, int col1, int col2 );
 
-		/**
+				/**
          * Read game xml 
          *
          * @param file			Game name
-         * @param dbfe_gs		Executabel of game
          * @param qtw			QTreeWidget for list information
          * @since 0.1.2
          */
-        void readGameDb( const QString &file, QTreeWidget* qtw, DBoxFE_GameSettings* dbfe_gs );
+        void readGameDb( const QString &file, QProgressBar *pBar, QTreeWidget* qtw );
 };
 
 #endif // DBOXFE_BASE_H

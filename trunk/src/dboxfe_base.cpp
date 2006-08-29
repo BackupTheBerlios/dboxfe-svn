@@ -707,6 +707,6 @@ void DB_BASE::saveGameDb( const QString &file, QTreeWidget* qtw, int col1, int c
 /*
  * TODO For feature request ...... (Gamedatabase)
  */
-void DB_BASE::readGameDb( const QString &file, QTreeWidget* qtw, DBoxFE_GameSettings* dbfe_gs )
+void DB_BASE::readGameDb( const QString &file, QProgressBar *pBar, QTreeWidget* qtw )
 {
 }
