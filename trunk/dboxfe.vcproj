@@ -3,7 +3,7 @@
 	ProjectType="Visual C++"
 	Version="8,00"
 	Name="dboxfe"
-	ProjectGUID="{EA1E76F0-628E-33EF-90C5-1A8104DF0AC4}"
+	ProjectGUID="{D735EE8B-F264-3209-9529-FF38D151B342}"
 	Keyword="Qt4VSv1.0">
 	<Platforms>
 		<Platform
@@ -134,6 +134,8 @@
 			<File
 				RelativePath="src\dboxfe_base.cpp"/>
 			<File
+				RelativePath="src\dboxfe_gamefile.cpp"/>
+			<File
 				RelativePath="src\dboxfe_games.cpp"/>
 			<File
 				RelativePath="src\dboxfe_gamesettings.cpp"/>
@@ -206,6 +208,29 @@
 			</File>
 			<File
 				RelativePath="include\dboxfe_base.h"/>
+			<File
+				RelativePath="include\dboxfe_gamefile.h">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="$(QTDIR)\bin\moc.exe"
+						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;win\moc&quot; -I&quot;win\ui&quot; -I..\..\..\Libs\qt4\mkspecs\win32-msvc2005 -D_MSC_VER=1400 -DWIN32 include\dboxfe_gamefile.h -o win\moc\moc_dboxfe_gamefile.cpp"
+						Description="MOC include/dboxfe_gamefile.h"
+						Outputs="win\moc\moc_dboxfe_gamefile.cpp"
+						Path="$(QTDIR)/bin"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="$(QTDIR)\bin\moc.exe"
+						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;win\moc&quot; -I&quot;win\ui&quot; -I..\..\..\Libs\qt4\mkspecs\win32-msvc2005 -D_MSC_VER=1400 -DWIN32 include\dboxfe_gamefile.h -o win\moc\moc_dboxfe_gamefile.cpp"
+						Description="MOC include/dboxfe_gamefile.h"
+						Outputs="win\moc\moc_dboxfe_gamefile.cpp"
+						Path="$(QTDIR)/bin"/>
+				</FileConfiguration>
+			</File>
 			<File
 				RelativePath="include\dboxfe_games.h">
 				<FileConfiguration
@@ -350,11 +375,11 @@
 			Filter="cpp;c;cxx;moc;h;def;odl;idl;res;"
 			UniqueIdentifier="{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}">
 			<File
-				RelativePath="win\obj\dboxfe.res"/>
-			<File
 				RelativePath="win\moc\moc_dboxfe.cpp"/>
 			<File
 				RelativePath="win\moc\moc_dboxfe_about.cpp"/>
+			<File
+				RelativePath="win\moc\moc_dboxfe_gamefile.cpp"/>
 			<File
 				RelativePath="win\moc\moc_dboxfe_games.cpp"/>
 			<File
@@ -373,6 +398,8 @@
 				RelativePath="win\ui\ui_about.h"/>
 			<File
 				RelativePath="win\ui\ui_dboxfe.h"/>
+			<File
+				RelativePath="win\ui\ui_gamefile.h"/>
 			<File
 				RelativePath="win\ui\ui_gamepreview.h"/>
 			<File
@@ -444,6 +471,29 @@
 						CommandLine="$(QTDIR)\bin\uic.exe ui\dboxfe.ui -o win\ui\ui_dboxfe.h"
 						Description="UIC ui/dboxfe.ui"
 						Outputs="win\ui\ui_dboxfe.h"
+						Path="$(QTDIR)/bin"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="ui\gamefile.ui">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="$(QTDIR)\bin\uic.exe"
+						CommandLine="$(QTDIR)\bin\uic.exe ui\gamefile.ui -o win\ui\ui_gamefile.h"
+						Description="UIC ui/gamefile.ui"
+						Outputs="win\ui\ui_gamefile.h"
+						Path="$(QTDIR)/bin"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="$(QTDIR)\bin\uic.exe"
+						CommandLine="$(QTDIR)\bin\uic.exe ui\gamefile.ui -o win\ui\ui_gamefile.h"
+						Description="UIC ui/gamefile.ui"
+						Outputs="win\ui\ui_gamefile.h"
 						Path="$(QTDIR)/bin"/>
 				</FileConfiguration>
 			</File>
@@ -685,8 +735,6 @@
 			<File
 				RelativePath="res\wiz_internet.png"/>
 		</Filter>
-		<File
-			RelativePath="dboxfe.rc"/>
 	</Files>
 	<Globals>
 	</Globals>
