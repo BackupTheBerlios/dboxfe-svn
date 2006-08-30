@@ -3,7 +3,7 @@
 	ProjectType="Visual C++"
 	Version="8,00"
 	Name="dboxfe"
-	ProjectGUID="{D735EE8B-F264-3209-9529-FF38D151B342}"
+	ProjectGUID="{EA1E76F0-628E-33EF-90C5-1A8104DF0AC4}"
 	Keyword="Qt4VSv1.0">
 	<Platforms>
 		<Platform

@@ -28,14 +28,14 @@
 
 class DBoxFE_GameFile : public QWidget
 {
-        Q_OBJECT
+	Q_OBJECT
 
-    public:
-        DBoxFE_GameFile( QWidget *parent = 0, Qt::WFlags flags = 0 );
+	public:
+		DBoxFE_GameFile( QWidget *parent = 0, Qt::WFlags flags = 0 );
         ~DBoxFE_GameFile();
 
         Ui::DBoxFE_GameFile ui;
-                
+
     protected:
         void closeEvent( QCloseEvent *e );
 
@@ -52,7 +52,7 @@ class DBoxFE_GameFile : public QWidget
         void parseGameFile( const QString &file, DBoxFE_GameSettings *dbfe_gs );
 
     private slots:
-				void httpDataReadProgress( int done, int total  );
+		void httpDataReadProgress( int done, int total  );
         void httpRequestFinished( int requestId, bool error );
         void readResponseHeader( const QHttpResponseHeader &responseHeader );
 };

@@ -22,7 +22,7 @@ DESTDIR = bin
 DEPENDPATH += include res src ui 3rdparty
 INCLUDEPATH += include 3rdparty
 RESOURCES += res/dboxfe.qrc
-CONFIG += release thread warn_on qt
+CONFIG += debug thread warn_on qt
 QT += xml network
 
 # Project Ui files

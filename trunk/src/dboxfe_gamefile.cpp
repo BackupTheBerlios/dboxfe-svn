@@ -96,7 +96,7 @@ void DBoxFE_GameFile::httpDataReadProgress( int done, int total  )
  		 ui.pBarParseStatus->setValue( done );
  		 
  		 if( ui.pBarParseStatus->value() == ui.pBarParseStatus->maximum() ) {
-		 		 ui.pBarParseStatus->setValue( 0 );
+			 ui.pBarParseStatus->setValue( 0 );
  		 }
 }
 				

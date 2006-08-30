@@ -24,6 +24,7 @@
 
 #include <QtCore>
 #include <QtGui>
+#include <QtXml>
 
 DB_BASE::DB_BASE()
 {}
@@ -709,4 +710,70 @@ void DB_BASE::saveGameDb( const QString &file, QTreeWidget* qtw, int col1, int c
  */
 void DB_BASE::readGameDb( const QString &file, QProgressBar *pBar, QTreeWidget* qtw )
 {
+	int i;
+	QFile xmlFile( file );
+
+	if( !xmlFile.open( QIODevice::ReadOnly ) ){
+		return;
+	}
+
+    QDomDocument doc;
+    doc.setContent( &xmlFile );
+    xmlFile.close();
+    QDomNode item = doc.documentElement().firstChild();
+
+	if( pBar != NULL ) {
+		i = 0;
+		pBar->setMaximum( item.childNodes().count() );
+	}
+
+	while ( !item.isNull() ) {
+      if ( item.isElement() && item.nodeName() == "game" ) {
+        QDomNode subitem = item.toElement().firstChild();
+
+		QTreeWidgetItem *qtwItem = new QTreeWidgetItem( qtw );
+        while ( !subitem.isNull() ) {			
+/*
+		<title>007: License to kill</title>
+		<year>1989</year>
+		<sw_house>Domark</sw_house>
+		<link>http://dosbox.sourceforge.net/comp_list.php?showID=426</link>
+		<dosbox>
+			<info version="0.58" comp_percent="80"/>
+			<info version="0.63" comp_percent="100"/>
+		</dosbox>
+*/
+			if ( subitem.toElement().tagName() == "title" ) {
+				qtwItem->setText( 0, subitem.toElement().text() );
+
+			} else if ( subitem.toElement().tagName() == "year" ) {
+				qtwItem->setText( 3, subitem.toElement().text() );
+
+			} else if ( subitem.toElement().tagName() == "sw_house" ) {
+				qtwItem->setText( 2, subitem.toElement().text() );
+
+			} else if ( subitem.toElement().tagName() == "link" ) {
+				qtwItem->setText( 6, subitem.toElement().text() );
+
+			} else if ( subitem.toElement().tagName() == "dosbox" ) {
+				QDomNode subSubItem = subitem.toElement().firstChild();
+				while ( !subSubItem.isNull() ) {
+					if ( subSubItem.toElement().tagName() == "info" ) {
+
+
+					}
+					subSubItem = subSubItem.nextSibling();
+				}
+			}
+			subitem = subitem.nextSibling();
+		}
+	  }
+	  
+	  if( pBar != NULL ) {
+		  i = i + 1;
+		  pBar->setValue( i );
+	  }
+
+      item = item.nextSibling();
+    }
 }

@@ -18,6 +18,7 @@
 
 #include "dboxfe_base.h"
 #include "dboxfe_images.h"
+#include "dboxfe_gamefile.h"
 #include "dboxfe_gamesettings.h"
 #include "dboxfe_gamepreview.h"
 
@@ -79,15 +80,18 @@ void DBoxFE_GameSettings::slotAdd()
     else
         qwtItem->setText( 2, "" );
 
-    if ( !ui.LEGamePublisher->text().isEmpty() )
-        qwtItem->setText( 3, ui.LEGamePublisher->text() );
-    else
-        qwtItem->setText( 3, "" );
-
-    if ( ui.dateEditGameYear->isEnabled() )
-        qwtItem->setText( 4, ui.dateEditGameYear->text() );
+    if ( !ui.LEGameCompatibility->text().isEmpty() )
+        qwtItem->setText( 4, ui.LEGameCompatibility->text() );
     else
         qwtItem->setText( 4, "" );
+
+	if ( ui.LEGamYear->isEnabled() ) {
+		if ( !ui.LEGamYear->text().isEmpty() ){
+			qwtItem->setText( 3, ui.LEGamYear->text() );
+		} else {
+			qwtItem->setText( 3, "" );
+		}
+	}        
 }
 
 void DBoxFE_GameSettings::slotRemove()
@@ -107,7 +111,19 @@ void DBoxFE_GameSettings::slotChange()
 }
 
 void DBoxFE_GameSettings::slotPreview()
-{}
+{
+	DBoxFE_GameFile *dbfe_gf = new DBoxFE_GameFile();
+	dbfe_gf->show();
+	dbfe_gf->loadGameFile("http://dosbox.sourceforge.net/game_database.xml?begaming_website_session=c715af45518f8e4dea01bd4900d5d14e");
+
+	QString fileName;
+    fileName = QDir::homePath();
+    fileName.append( "/.dboxfe/profile/game_database.xml" );
+	dbfe_gf->parseGameFile( fileName, this);
+
+	//DB_BASE gbBase;
+	//gbBase.readGameDb("D:\\Projekte\\cplusplus\\dboxfe\\bin\\game_database.xml", NULL, this->ui.twGameSettings );
+}
 
 void DBoxFE_GameSettings::slotSave()
 {
@@ -161,7 +177,10 @@ void DBoxFE_GameSettings::slotImage()
             lstTmp.clear();
         }
 
-        if ( dbfe_image->exec() == QDialog::Accepted ) {}}
+        if ( dbfe_image->exec() == QDialog::Accepted ) {
+			// TODO .... DBoxFE_Image ....
+		}
+	}
     else {
         QMessageBox::information( this, "DBox Front End", "No item was selected." );
     }
@@ -170,13 +189,12 @@ void DBoxFE_GameSettings::slotImage()
 void DBoxFE_GameSettings::slotItemClicked( QTreeWidgetItem* item, int column )
 {
     if ( item != NULL ) {
-        //QStringList lst = item->text( 4 ).split( "." );
         ui.LEGame->setText( item->text( 0 ) );
         ui.cbxGameCategory->setCurrentIndex( ui.cbxGameCategory->findText( item->text( 1 ), Qt::MatchExactly | Qt::MatchCaseSensitive ) );
         ui.LEGameDeveloper->setText( item->text( 2 ) );
-        ui.LEGamePublisher->setText( item->text( 3 ) );
-        //ui.dateEditGameYear->setDate( QDate( lst.value(0).toInt(), lst.value(1).toInt(), lst.value(2).toInt() ) );
+        ui.LEGameCompatibility->setText( item->text( 4 ) );
+        ui.LEGamYear->setText( item->text( 3 ) );
     } else {
-        return ;
+        return;
     }
 }
