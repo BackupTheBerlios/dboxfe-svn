@@ -35,6 +35,7 @@ class DBoxFE_GameFile : public QWidget
         ~DBoxFE_GameFile();
 
         Ui::DBoxFE_GameFile ui;
+		DBoxFE_GameSettings *dbfe_gs;
 
     protected:
         void closeEvent( QCloseEvent *e );
@@ -42,16 +43,17 @@ class DBoxFE_GameFile : public QWidget
     private:
         QHttp *m_http;
         QFile *m_file;
-        DBoxFE *dbfe;
+        QString pFileName;
+		DBoxFE *dbfe;
 
         int httpGetId;
         bool httpRequestAborted;
 				
     public slots:
-        void loadGameFile( const QString &urlPath );
-        void parseGameFile( const QString &file, DBoxFE_GameSettings *dbfe_gs );
+        void loadGameFile( const QString &urlPath );        
 
     private slots:
+		void parseGameFile( const QString &file );
 		void httpDataReadProgress( int done, int total  );
         void httpRequestFinished( int requestId, bool error );
         void readResponseHeader( const QHttpResponseHeader &responseHeader );

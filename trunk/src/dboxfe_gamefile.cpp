@@ -30,7 +30,7 @@ DBoxFE_GameFile::DBoxFE_GameFile( QWidget *parent, Qt::WFlags flags )
 {
     ui.setupUi( this );
 
-    m_http = new QHttp( this );
+    m_http = new QHttp( this );	
     connect( m_http, SIGNAL( dataReadProgress( int, int  ) ), this, SLOT( httpDataReadProgress( int, int ) ) );
     connect( m_http, SIGNAL( requestFinished( int, bool ) ), this, SLOT( httpRequestFinished( int, bool ) ) );
     connect( m_http, SIGNAL( responseHeaderReceived( const QHttpResponseHeader & ) ), this, SLOT( readResponseHeader( const QHttpResponseHeader & ) ) );
@@ -48,6 +48,8 @@ DBoxFE_GameFile::~DBoxFE_GameFile()
 {
     delete m_http;
     delete m_file;
+	pFileName = "";
+	dbfe_gs = NULL;
 }
 
 void DBoxFE_GameFile::closeEvent( QCloseEvent *e )
@@ -61,10 +63,12 @@ void DBoxFE_GameFile::loadGameFile( const QString &urlPath )
     QString fileName;
     fileName = QDir::homePath();
     fileName.append( "/.dboxfe/profile/" + fileInfo.fileName() );
-
-    if ( QFile::exists( fileName ) ) {
+	
+	if ( QFile::exists( fileName ) ) {
         QFile::remove( fileName );
     }
+
+	pFileName = fileName;
 
     m_file = new QFile( fileName );
 
@@ -83,11 +87,11 @@ void DBoxFE_GameFile::loadGameFile( const QString &urlPath )
     httpGetId = m_http->get( url.path(), m_file );
 }
 
-void DBoxFE_GameFile::parseGameFile( const QString &file, DBoxFE_GameSettings *dbfe_gs )
+void DBoxFE_GameFile::parseGameFile( const QString &file )
 {
  		 DB_BASE db_base;
  		 ui.pBarParseStatus->setValue( 0 );
- 		 db_base.readGameDb( file, ui.pBarParseStatus, dbfe_gs->ui.twGameSettings );
+ 		 db_base.readGameDb( file, ui.pBarParseStatus, this->dbfe_gs->ui.twGameSettings );
 }
 
 void DBoxFE_GameFile::httpDataReadProgress( int done, int total  )
@@ -126,6 +130,8 @@ void DBoxFE_GameFile::httpRequestFinished( int requestId, bool error )
 
     delete m_file;
     m_file = 0;
+
+	this->parseGameFile( pFileName );
 }
 
 void DBoxFE_GameFile::readResponseHeader( const QHttpResponseHeader &responseHeader )

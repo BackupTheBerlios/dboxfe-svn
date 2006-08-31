@@ -113,13 +113,9 @@ void DBoxFE_GameSettings::slotChange()
 void DBoxFE_GameSettings::slotPreview()
 {
 	DBoxFE_GameFile *dbfe_gf = new DBoxFE_GameFile();
+	dbfe_gf->dbfe_gs = this;
 	dbfe_gf->show();
-	dbfe_gf->loadGameFile("http://dosbox.sourceforge.net/game_database.xml?begaming_website_session=c715af45518f8e4dea01bd4900d5d14e");
-
-	QString fileName;
-    fileName = QDir::homePath();
-    fileName.append( "/.dboxfe/profile/game_database.xml" );
-	dbfe_gf->parseGameFile( fileName, this);
+	dbfe_gf->loadGameFile( "http://dosbox.sourceforge.net/game_database.xml?begaming_website_session=c715af45518f8e4dea01bd4900d5d14e" );
 
 	//DB_BASE gbBase;
 	//gbBase.readGameDb("D:\\Projekte\\cplusplus\\dboxfe\\bin\\game_database.xml", NULL, this->ui.twGameSettings );

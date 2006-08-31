@@ -722,17 +722,16 @@ void DB_BASE::readGameDb( const QString &file, QProgressBar *pBar, QTreeWidget* 
     xmlFile.close();
     QDomNode item = doc.documentElement().firstChild();
 
-	if( pBar != NULL ) {
-		i = 0;
-		pBar->setMaximum( item.childNodes().count() );
-	}
-
 	while ( !item.isNull() ) {
       if ( item.isElement() && item.nodeName() == "game" ) {
         QDomNode subitem = item.toElement().firstChild();
 
 		QTreeWidgetItem *qtwItem = new QTreeWidgetItem( qtw );
-        while ( !subitem.isNull() ) {			
+        while ( !subitem.isNull() ) {
+			if( pBar != NULL ) {
+				i = 0;
+				pBar->setMaximum( subitem.childNodes().count() );
+			}
 /*
 		<title>007: License to kill</title>
 		<year>1989</year>
@@ -766,14 +765,14 @@ void DB_BASE::readGameDb( const QString &file, QProgressBar *pBar, QTreeWidget* 
 				}
 			}
 			subitem = subitem.nextSibling();
+			
+			if( pBar != NULL ) {
+				i = i + 1;
+				pBar->setValue( i );
+			}
 		}
 	  }
 	  
-	  if( pBar != NULL ) {
-		  i = i + 1;
-		  pBar->setValue( i );
-	  }
-
       item = item.nextSibling();
     }
 }
