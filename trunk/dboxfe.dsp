@@ -42,7 +42,7 @@ BSC32=bscmake.exe
 # PROP Output_Dir "bin"
 # PROP Intermediate_Dir "win\obj"
 # PROP Target_Dir ""
-# ADD CPP /I"$(QTDIR)/include/QtCore" /I"$(QTDIR)/include/QtNetwork" /I"$(QTDIR)/include/QtGui" /I"$(QTDIR)/include/QtXml" /I"$(QTDIR)/include" /I"include" /I"3rdparty" /I"$(QTDIR)/include/ActiveQt" /I"win\moc" /I"win\ui" /I"..\..\..\Libs\qt4\mkspecs\win32-msvc" /c /FD -nologo -Zm200 -O1 -MD -O1 -MD -W3 -GR -GX  /D "_WINDOWS"  /D UNICODE /D QT_LARGEFILE_SUPPORT /D QT_DLL /D QT_NO_DEBUG /D QT_XML_LIB /D QT_GUI_LIB /D QT_NETWORK_LIB /D QT_CORE_LIB /D QT_THREAD_SUPPORT  /D "WIN32"   /D "QT_THREAD_SUPPORT" 
+# ADD CPP /I"$(QTDIR)/include/QtCore" /I"$(QTDIR)/include/QtNetwork" /I"$(QTDIR)/include/QtGui" /I"$(QTDIR)/include/QtXml" /I"$(QTDIR)/include" /I"include" /I"3rdparty" /I"$(QTDIR)/include/ActiveQt" /I"win\moc" /I"win\ui" /I"..\..\..\Lib\qt4\mkspecs\win32-msvc" /c /FD -nologo -Zm200 -O1 -MD -O1 -MD -W3 -GR -GX  /D "_WINDOWS"  /D UNICODE /D QT_LARGEFILE_SUPPORT /D QT_DLL /D QT_NO_DEBUG /D QT_XML_LIB /D QT_GUI_LIB /D QT_NETWORK_LIB /D QT_CORE_LIB /D QT_THREAD_SUPPORT  /D "WIN32"   /D "QT_THREAD_SUPPORT" 
 # ADD MTL /nologo /mktyplib203 /win32 /D "NDEBUG"
 # ADD RSC /l 0x409 /d "NDEBUG"
 # ADD BSC32 /nologo
@@ -61,7 +61,7 @@ LINK32=link
 # PROP Output_Dir "bin"
 # PROP Intermediate_Dir "win\obj"
 # PROP Target_Dir ""
-# ADD CPP /I"$(QTDIR)/include/QtCore" /I"$(QTDIR)/include/QtNetwork" /I"$(QTDIR)/include/QtGui" /I"$(QTDIR)/include/QtXml" /I"$(QTDIR)/include" /I"include" /I"3rdparty" /I"$(QTDIR)/include/ActiveQt" /I"win\moc" /I"win\ui" /I"..\..\..\Libs\qt4\mkspecs\win32-msvc" /c /FD -nologo -Zm200 -Zi -MDd -Zi -MDd -W3 -GR -GX  /D "_WINDOWS"  /D UNICODE /D QT_LARGEFILE_SUPPORT /D QT_DLL /D QT_XML_LIB /D QT_GUI_LIB /D QT_NETWORK_LIB /D QT_CORE_LIB /D QT_THREAD_SUPPORT  /D "WIN32"   /D "QT_THREAD_SUPPORT" 
+# ADD CPP /I"$(QTDIR)/include/QtCore" /I"$(QTDIR)/include/QtNetwork" /I"$(QTDIR)/include/QtGui" /I"$(QTDIR)/include/QtXml" /I"$(QTDIR)/include" /I"include" /I"3rdparty" /I"$(QTDIR)/include/ActiveQt" /I"win\moc" /I"win\ui" /I"..\..\..\Lib\qt4\mkspecs\win32-msvc" /c /FD -nologo -Zm200 -Zi -MDd -Zi -MDd -W3 -GR -GX  /D "_WINDOWS"  /D UNICODE /D QT_LARGEFILE_SUPPORT /D QT_DLL /D QT_XML_LIB /D QT_GUI_LIB /D QT_NETWORK_LIB /D QT_CORE_LIB /D QT_THREAD_SUPPORT  /D "WIN32"   /D "QT_THREAD_SUPPORT" 
 # ADD MTL /nologo /mktyplib203 /win32 /D "_DEBUG"
 # ADD RSC /l 0x409 /d "_DEBUG"
 # ADD BSC32 /nologo
@@ -158,7 +158,7 @@ USERDEP_include\dboxfe.h=
 # Begin Custom Build - Running MOC on include\dboxfe.h
 InputPath=include\dboxfe.h
 BuildCmds=  \
-	$(QTDIR)\bin\moc.exe  -DUNICODE -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I"$(QTDIR)/include/QtCore" -I"$(QTDIR)/include/QtNetwork" -I"$(QTDIR)/include/QtGui" -I"$(QTDIR)/include/QtXml" -I"$(QTDIR)/include" -I"include" -I"3rdparty" -I"$(QTDIR)/include/ActiveQt" -I"win\moc" -I"win\ui" -I"..\..\..\Libs\qt4\mkspecs\win32-msvc" -D_MSC_VER=1200 -DWIN32 $(InputPath) -o win\moc\moc_dboxfe.cpp
+	$(QTDIR)\bin\moc.exe  -DUNICODE -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I"$(QTDIR)/include/QtCore" -I"$(QTDIR)/include/QtNetwork" -I"$(QTDIR)/include/QtGui" -I"$(QTDIR)/include/QtXml" -I"$(QTDIR)/include" -I"include" -I"3rdparty" -I"$(QTDIR)/include/ActiveQt" -I"win\moc" -I"win\ui" -I"..\..\..\Lib\qt4\mkspecs\win32-msvc" -D_MSC_VER=1200 -DWIN32 $(InputPath) -o win\moc\moc_dboxfe.cpp
 "win\moc\moc_dboxfe.cpp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	$(BuildCmds)
 
@@ -171,7 +171,7 @@ USERDEP_include\dboxfe.h=
 # Begin Custom Build - Running MOC on include\dboxfe.h
 InputPath=include\dboxfe.h
 BuildCmds=  \
-	$(QTDIR)\bin\moc.exe  -DUNICODE -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I"$(QTDIR)/include/QtCore" -I"$(QTDIR)/include/QtNetwork" -I"$(QTDIR)/include/QtGui" -I"$(QTDIR)/include/QtXml" -I"$(QTDIR)/include" -I"include" -I"3rdparty" -I"$(QTDIR)/include/ActiveQt" -I"win\moc" -I"win\ui" -I"..\..\..\Libs\qt4\mkspecs\win32-msvc" -D_MSC_VER=1200 -DWIN32 $(InputPath) -o win\moc\moc_dboxfe.cpp
+	$(QTDIR)\bin\moc.exe  -DUNICODE -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I"$(QTDIR)/include/QtCore" -I"$(QTDIR)/include/QtNetwork" -I"$(QTDIR)/include/QtGui" -I"$(QTDIR)/include/QtXml" -I"$(QTDIR)/include" -I"include" -I"3rdparty" -I"$(QTDIR)/include/ActiveQt" -I"win\moc" -I"win\ui" -I"..\..\..\Lib\qt4\mkspecs\win32-msvc" -D_MSC_VER=1200 -DWIN32 $(InputPath) -o win\moc\moc_dboxfe.cpp
 "win\moc\moc_dboxfe.cpp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	$(BuildCmds)
 
@@ -189,7 +189,7 @@ USERDEP_include\dboxfe_about.h=
 # Begin Custom Build - Running MOC on include\dboxfe_about.h
 InputPath=include\dboxfe_about.h
 BuildCmds=  \
-	$(QTDIR)\bin\moc.exe  -DUNICODE -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I"$(QTDIR)/include/QtCore" -I"$(QTDIR)/include/QtNetwork" -I"$(QTDIR)/include/QtGui" -I"$(QTDIR)/include/QtXml" -I"$(QTDIR)/include" -I"include" -I"3rdparty" -I"$(QTDIR)/include/ActiveQt" -I"win\moc" -I"win\ui" -I"..\..\..\Libs\qt4\mkspecs\win32-msvc" -D_MSC_VER=1200 -DWIN32 $(InputPath) -o win\moc\moc_dboxfe_about.cpp
+	$(QTDIR)\bin\moc.exe  -DUNICODE -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I"$(QTDIR)/include/QtCore" -I"$(QTDIR)/include/QtNetwork" -I"$(QTDIR)/include/QtGui" -I"$(QTDIR)/include/QtXml" -I"$(QTDIR)/include" -I"include" -I"3rdparty" -I"$(QTDIR)/include/ActiveQt" -I"win\moc" -I"win\ui" -I"..\..\..\Lib\qt4\mkspecs\win32-msvc" -D_MSC_VER=1200 -DWIN32 $(InputPath) -o win\moc\moc_dboxfe_about.cpp
 "win\moc\moc_dboxfe_about.cpp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	$(BuildCmds)
 
@@ -202,7 +202,7 @@ USERDEP_include\dboxfe_about.h=
 # Begin Custom Build - Running MOC on include\dboxfe_about.h
 InputPath=include\dboxfe_about.h
 BuildCmds=  \
-	$(QTDIR)\bin\moc.exe  -DUNICODE -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I"$(QTDIR)/include/QtCore" -I"$(QTDIR)/include/QtNetwork" -I"$(QTDIR)/include/QtGui" -I"$(QTDIR)/include/QtXml" -I"$(QTDIR)/include" -I"include" -I"3rdparty" -I"$(QTDIR)/include/ActiveQt" -I"win\moc" -I"win\ui" -I"..\..\..\Libs\qt4\mkspecs\win32-msvc" -D_MSC_VER=1200 -DWIN32 $(InputPath) -o win\moc\moc_dboxfe_about.cpp
+	$(QTDIR)\bin\moc.exe  -DUNICODE -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I"$(QTDIR)/include/QtCore" -I"$(QTDIR)/include/QtNetwork" -I"$(QTDIR)/include/QtGui" -I"$(QTDIR)/include/QtXml" -I"$(QTDIR)/include" -I"include" -I"3rdparty" -I"$(QTDIR)/include/ActiveQt" -I"win\moc" -I"win\ui" -I"..\..\..\Lib\qt4\mkspecs\win32-msvc" -D_MSC_VER=1200 -DWIN32 $(InputPath) -o win\moc\moc_dboxfe_about.cpp
 "win\moc\moc_dboxfe_about.cpp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	$(BuildCmds)
 
@@ -224,7 +224,7 @@ USERDEP_include\dboxfe_gamefile.h=
 # Begin Custom Build - Running MOC on include\dboxfe_gamefile.h
 InputPath=include\dboxfe_gamefile.h
 BuildCmds=  \
-	$(QTDIR)\bin\moc.exe  -DUNICODE -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I"$(QTDIR)/include/QtCore" -I"$(QTDIR)/include/QtNetwork" -I"$(QTDIR)/include/QtGui" -I"$(QTDIR)/include/QtXml" -I"$(QTDIR)/include" -I"include" -I"3rdparty" -I"$(QTDIR)/include/ActiveQt" -I"win\moc" -I"win\ui" -I"..\..\..\Libs\qt4\mkspecs\win32-msvc" -D_MSC_VER=1200 -DWIN32 $(InputPath) -o win\moc\moc_dboxfe_gamefile.cpp
+	$(QTDIR)\bin\moc.exe  -DUNICODE -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I"$(QTDIR)/include/QtCore" -I"$(QTDIR)/include/QtNetwork" -I"$(QTDIR)/include/QtGui" -I"$(QTDIR)/include/QtXml" -I"$(QTDIR)/include" -I"include" -I"3rdparty" -I"$(QTDIR)/include/ActiveQt" -I"win\moc" -I"win\ui" -I"..\..\..\Lib\qt4\mkspecs\win32-msvc" -D_MSC_VER=1200 -DWIN32 $(InputPath) -o win\moc\moc_dboxfe_gamefile.cpp
 "win\moc\moc_dboxfe_gamefile.cpp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	$(BuildCmds)
 
@@ -237,7 +237,7 @@ USERDEP_include\dboxfe_gamefile.h=
 # Begin Custom Build - Running MOC on include\dboxfe_gamefile.h
 InputPath=include\dboxfe_gamefile.h
 BuildCmds=  \
-	$(QTDIR)\bin\moc.exe  -DUNICODE -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I"$(QTDIR)/include/QtCore" -I"$(QTDIR)/include/QtNetwork" -I"$(QTDIR)/include/QtGui" -I"$(QTDIR)/include/QtXml" -I"$(QTDIR)/include" -I"include" -I"3rdparty" -I"$(QTDIR)/include/ActiveQt" -I"win\moc" -I"win\ui" -I"..\..\..\Libs\qt4\mkspecs\win32-msvc" -D_MSC_VER=1200 -DWIN32 $(InputPath) -o win\moc\moc_dboxfe_gamefile.cpp
+	$(QTDIR)\bin\moc.exe  -DUNICODE -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I"$(QTDIR)/include/QtCore" -I"$(QTDIR)/include/QtNetwork" -I"$(QTDIR)/include/QtGui" -I"$(QTDIR)/include/QtXml" -I"$(QTDIR)/include" -I"include" -I"3rdparty" -I"$(QTDIR)/include/ActiveQt" -I"win\moc" -I"win\ui" -I"..\..\..\Lib\qt4\mkspecs\win32-msvc" -D_MSC_VER=1200 -DWIN32 $(InputPath) -o win\moc\moc_dboxfe_gamefile.cpp
 "win\moc\moc_dboxfe_gamefile.cpp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	$(BuildCmds)
 
@@ -255,7 +255,7 @@ USERDEP_include\dboxfe_games.h=
 # Begin Custom Build - Running MOC on include\dboxfe_games.h
 InputPath=include\dboxfe_games.h
 BuildCmds=  \
-	$(QTDIR)\bin\moc.exe  -DUNICODE -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I"$(QTDIR)/include/QtCore" -I"$(QTDIR)/include/QtNetwork" -I"$(QTDIR)/include/QtGui" -I"$(QTDIR)/include/QtXml" -I"$(QTDIR)/include" -I"include" -I"3rdparty" -I"$(QTDIR)/include/ActiveQt" -I"win\moc" -I"win\ui" -I"..\..\..\Libs\qt4\mkspecs\win32-msvc" -D_MSC_VER=1200 -DWIN32 $(InputPath) -o win\moc\moc_dboxfe_games.cpp
+	$(QTDIR)\bin\moc.exe  -DUNICODE -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I"$(QTDIR)/include/QtCore" -I"$(QTDIR)/include/QtNetwork" -I"$(QTDIR)/include/QtGui" -I"$(QTDIR)/include/QtXml" -I"$(QTDIR)/include" -I"include" -I"3rdparty" -I"$(QTDIR)/include/ActiveQt" -I"win\moc" -I"win\ui" -I"..\..\..\Lib\qt4\mkspecs\win32-msvc" -D_MSC_VER=1200 -DWIN32 $(InputPath) -o win\moc\moc_dboxfe_games.cpp
 "win\moc\moc_dboxfe_games.cpp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	$(BuildCmds)
 
@@ -268,7 +268,7 @@ USERDEP_include\dboxfe_games.h=
 # Begin Custom Build - Running MOC on include\dboxfe_games.h
 InputPath=include\dboxfe_games.h
 BuildCmds=  \
-	$(QTDIR)\bin\moc.exe  -DUNICODE -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I"$(QTDIR)/include/QtCore" -I"$(QTDIR)/include/QtNetwork" -I"$(QTDIR)/include/QtGui" -I"$(QTDIR)/include/QtXml" -I"$(QTDIR)/include" -I"include" -I"3rdparty" -I"$(QTDIR)/include/ActiveQt" -I"win\moc" -I"win\ui" -I"..\..\..\Libs\qt4\mkspecs\win32-msvc" -D_MSC_VER=1200 -DWIN32 $(InputPath) -o win\moc\moc_dboxfe_games.cpp
+	$(QTDIR)\bin\moc.exe  -DUNICODE -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I"$(QTDIR)/include/QtCore" -I"$(QTDIR)/include/QtNetwork" -I"$(QTDIR)/include/QtGui" -I"$(QTDIR)/include/QtXml" -I"$(QTDIR)/include" -I"include" -I"3rdparty" -I"$(QTDIR)/include/ActiveQt" -I"win\moc" -I"win\ui" -I"..\..\..\Lib\qt4\mkspecs\win32-msvc" -D_MSC_VER=1200 -DWIN32 $(InputPath) -o win\moc\moc_dboxfe_games.cpp
 "win\moc\moc_dboxfe_games.cpp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	$(BuildCmds)
 
@@ -286,7 +286,7 @@ USERDEP_include\dboxfe_gamesettings.h=
 # Begin Custom Build - Running MOC on include\dboxfe_gamesettings.h
 InputPath=include\dboxfe_gamesettings.h
 BuildCmds=  \
-	$(QTDIR)\bin\moc.exe  -DUNICODE -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I"$(QTDIR)/include/QtCore" -I"$(QTDIR)/include/QtNetwork" -I"$(QTDIR)/include/QtGui" -I"$(QTDIR)/include/QtXml" -I"$(QTDIR)/include" -I"include" -I"3rdparty" -I"$(QTDIR)/include/ActiveQt" -I"win\moc" -I"win\ui" -I"..\..\..\Libs\qt4\mkspecs\win32-msvc" -D_MSC_VER=1200 -DWIN32 $(InputPath) -o win\moc\moc_dboxfe_gamesettings.cpp
+	$(QTDIR)\bin\moc.exe  -DUNICODE -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I"$(QTDIR)/include/QtCore" -I"$(QTDIR)/include/QtNetwork" -I"$(QTDIR)/include/QtGui" -I"$(QTDIR)/include/QtXml" -I"$(QTDIR)/include" -I"include" -I"3rdparty" -I"$(QTDIR)/include/ActiveQt" -I"win\moc" -I"win\ui" -I"..\..\..\Lib\qt4\mkspecs\win32-msvc" -D_MSC_VER=1200 -DWIN32 $(InputPath) -o win\moc\moc_dboxfe_gamesettings.cpp
 "win\moc\moc_dboxfe_gamesettings.cpp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	$(BuildCmds)
 
@@ -299,7 +299,7 @@ USERDEP_include\dboxfe_gamesettings.h=
 # Begin Custom Build - Running MOC on include\dboxfe_gamesettings.h
 InputPath=include\dboxfe_gamesettings.h
 BuildCmds=  \
-	$(QTDIR)\bin\moc.exe  -DUNICODE -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I"$(QTDIR)/include/QtCore" -I"$(QTDIR)/include/QtNetwork" -I"$(QTDIR)/include/QtGui" -I"$(QTDIR)/include/QtXml" -I"$(QTDIR)/include" -I"include" -I"3rdparty" -I"$(QTDIR)/include/ActiveQt" -I"win\moc" -I"win\ui" -I"..\..\..\Libs\qt4\mkspecs\win32-msvc" -D_MSC_VER=1200 -DWIN32 $(InputPath) -o win\moc\moc_dboxfe_gamesettings.cpp
+	$(QTDIR)\bin\moc.exe  -DUNICODE -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I"$(QTDIR)/include/QtCore" -I"$(QTDIR)/include/QtNetwork" -I"$(QTDIR)/include/QtGui" -I"$(QTDIR)/include/QtXml" -I"$(QTDIR)/include" -I"include" -I"3rdparty" -I"$(QTDIR)/include/ActiveQt" -I"win\moc" -I"win\ui" -I"..\..\..\Lib\qt4\mkspecs\win32-msvc" -D_MSC_VER=1200 -DWIN32 $(InputPath) -o win\moc\moc_dboxfe_gamesettings.cpp
 "win\moc\moc_dboxfe_gamesettings.cpp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	$(BuildCmds)
 
@@ -317,7 +317,7 @@ USERDEP_include\dboxfe_images.h=
 # Begin Custom Build - Running MOC on include\dboxfe_images.h
 InputPath=include\dboxfe_images.h
 BuildCmds=  \
-	$(QTDIR)\bin\moc.exe  -DUNICODE -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I"$(QTDIR)/include/QtCore" -I"$(QTDIR)/include/QtNetwork" -I"$(QTDIR)/include/QtGui" -I"$(QTDIR)/include/QtXml" -I"$(QTDIR)/include" -I"include" -I"3rdparty" -I"$(QTDIR)/include/ActiveQt" -I"win\moc" -I"win\ui" -I"..\..\..\Libs\qt4\mkspecs\win32-msvc" -D_MSC_VER=1200 -DWIN32 $(InputPath) -o win\moc\moc_dboxfe_images.cpp
+	$(QTDIR)\bin\moc.exe  -DUNICODE -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I"$(QTDIR)/include/QtCore" -I"$(QTDIR)/include/QtNetwork" -I"$(QTDIR)/include/QtGui" -I"$(QTDIR)/include/QtXml" -I"$(QTDIR)/include" -I"include" -I"3rdparty" -I"$(QTDIR)/include/ActiveQt" -I"win\moc" -I"win\ui" -I"..\..\..\Lib\qt4\mkspecs\win32-msvc" -D_MSC_VER=1200 -DWIN32 $(InputPath) -o win\moc\moc_dboxfe_images.cpp
 "win\moc\moc_dboxfe_images.cpp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	$(BuildCmds)
 
@@ -330,7 +330,7 @@ USERDEP_include\dboxfe_images.h=
 # Begin Custom Build - Running MOC on include\dboxfe_images.h
 InputPath=include\dboxfe_images.h
 BuildCmds=  \
-	$(QTDIR)\bin\moc.exe  -DUNICODE -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I"$(QTDIR)/include/QtCore" -I"$(QTDIR)/include/QtNetwork" -I"$(QTDIR)/include/QtGui" -I"$(QTDIR)/include/QtXml" -I"$(QTDIR)/include" -I"include" -I"3rdparty" -I"$(QTDIR)/include/ActiveQt" -I"win\moc" -I"win\ui" -I"..\..\..\Libs\qt4\mkspecs\win32-msvc" -D_MSC_VER=1200 -DWIN32 $(InputPath) -o win\moc\moc_dboxfe_images.cpp
+	$(QTDIR)\bin\moc.exe  -DUNICODE -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I"$(QTDIR)/include/QtCore" -I"$(QTDIR)/include/QtNetwork" -I"$(QTDIR)/include/QtGui" -I"$(QTDIR)/include/QtXml" -I"$(QTDIR)/include" -I"include" -I"3rdparty" -I"$(QTDIR)/include/ActiveQt" -I"win\moc" -I"win\ui" -I"..\..\..\Lib\qt4\mkspecs\win32-msvc" -D_MSC_VER=1200 -DWIN32 $(InputPath) -o win\moc\moc_dboxfe_images.cpp
 "win\moc\moc_dboxfe_images.cpp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	$(BuildCmds)
 
@@ -348,7 +348,7 @@ USERDEP_include\dboxfe_profile.h=
 # Begin Custom Build - Running MOC on include\dboxfe_profile.h
 InputPath=include\dboxfe_profile.h
 BuildCmds=  \
-	$(QTDIR)\bin\moc.exe  -DUNICODE -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I"$(QTDIR)/include/QtCore" -I"$(QTDIR)/include/QtNetwork" -I"$(QTDIR)/include/QtGui" -I"$(QTDIR)/include/QtXml" -I"$(QTDIR)/include" -I"include" -I"3rdparty" -I"$(QTDIR)/include/ActiveQt" -I"win\moc" -I"win\ui" -I"..\..\..\Libs\qt4\mkspecs\win32-msvc" -D_MSC_VER=1200 -DWIN32 $(InputPath) -o win\moc\moc_dboxfe_profile.cpp
+	$(QTDIR)\bin\moc.exe  -DUNICODE -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I"$(QTDIR)/include/QtCore" -I"$(QTDIR)/include/QtNetwork" -I"$(QTDIR)/include/QtGui" -I"$(QTDIR)/include/QtXml" -I"$(QTDIR)/include" -I"include" -I"3rdparty" -I"$(QTDIR)/include/ActiveQt" -I"win\moc" -I"win\ui" -I"..\..\..\Lib\qt4\mkspecs\win32-msvc" -D_MSC_VER=1200 -DWIN32 $(InputPath) -o win\moc\moc_dboxfe_profile.cpp
 "win\moc\moc_dboxfe_profile.cpp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	$(BuildCmds)
 
@@ -361,7 +361,7 @@ USERDEP_include\dboxfe_profile.h=
 # Begin Custom Build - Running MOC on include\dboxfe_profile.h
 InputPath=include\dboxfe_profile.h
 BuildCmds=  \
-	$(QTDIR)\bin\moc.exe  -DUNICODE -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I"$(QTDIR)/include/QtCore" -I"$(QTDIR)/include/QtNetwork" -I"$(QTDIR)/include/QtGui" -I"$(QTDIR)/include/QtXml" -I"$(QTDIR)/include" -I"include" -I"3rdparty" -I"$(QTDIR)/include/ActiveQt" -I"win\moc" -I"win\ui" -I"..\..\..\Libs\qt4\mkspecs\win32-msvc" -D_MSC_VER=1200 -DWIN32 $(InputPath) -o win\moc\moc_dboxfe_profile.cpp
+	$(QTDIR)\bin\moc.exe  -DUNICODE -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I"$(QTDIR)/include/QtCore" -I"$(QTDIR)/include/QtNetwork" -I"$(QTDIR)/include/QtGui" -I"$(QTDIR)/include/QtXml" -I"$(QTDIR)/include" -I"include" -I"3rdparty" -I"$(QTDIR)/include/ActiveQt" -I"win\moc" -I"win\ui" -I"..\..\..\Lib\qt4\mkspecs\win32-msvc" -D_MSC_VER=1200 -DWIN32 $(InputPath) -o win\moc\moc_dboxfe_profile.cpp
 "win\moc\moc_dboxfe_profile.cpp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	$(BuildCmds)
 
@@ -379,7 +379,7 @@ USERDEP_include\dboxfe_profilewizard.h=
 # Begin Custom Build - Running MOC on include\dboxfe_profilewizard.h
 InputPath=include\dboxfe_profilewizard.h
 BuildCmds=  \
-	$(QTDIR)\bin\moc.exe  -DUNICODE -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I"$(QTDIR)/include/QtCore" -I"$(QTDIR)/include/QtNetwork" -I"$(QTDIR)/include/QtGui" -I"$(QTDIR)/include/QtXml" -I"$(QTDIR)/include" -I"include" -I"3rdparty" -I"$(QTDIR)/include/ActiveQt" -I"win\moc" -I"win\ui" -I"..\..\..\Libs\qt4\mkspecs\win32-msvc" -D_MSC_VER=1200 -DWIN32 $(InputPath) -o win\moc\moc_dboxfe_profilewizard.cpp
+	$(QTDIR)\bin\moc.exe  -DUNICODE -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I"$(QTDIR)/include/QtCore" -I"$(QTDIR)/include/QtNetwork" -I"$(QTDIR)/include/QtGui" -I"$(QTDIR)/include/QtXml" -I"$(QTDIR)/include" -I"include" -I"3rdparty" -I"$(QTDIR)/include/ActiveQt" -I"win\moc" -I"win\ui" -I"..\..\..\Lib\qt4\mkspecs\win32-msvc" -D_MSC_VER=1200 -DWIN32 $(InputPath) -o win\moc\moc_dboxfe_profilewizard.cpp
 "win\moc\moc_dboxfe_profilewizard.cpp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	$(BuildCmds)
 
@@ -392,7 +392,7 @@ USERDEP_include\dboxfe_profilewizard.h=
 # Begin Custom Build - Running MOC on include\dboxfe_profilewizard.h
 InputPath=include\dboxfe_profilewizard.h
 BuildCmds=  \
-	$(QTDIR)\bin\moc.exe  -DUNICODE -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I"$(QTDIR)/include/QtCore" -I"$(QTDIR)/include/QtNetwork" -I"$(QTDIR)/include/QtGui" -I"$(QTDIR)/include/QtXml" -I"$(QTDIR)/include" -I"include" -I"3rdparty" -I"$(QTDIR)/include/ActiveQt" -I"win\moc" -I"win\ui" -I"..\..\..\Libs\qt4\mkspecs\win32-msvc" -D_MSC_VER=1200 -DWIN32 $(InputPath) -o win\moc\moc_dboxfe_profilewizard.cpp
+	$(QTDIR)\bin\moc.exe  -DUNICODE -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I"$(QTDIR)/include/QtCore" -I"$(QTDIR)/include/QtNetwork" -I"$(QTDIR)/include/QtGui" -I"$(QTDIR)/include/QtXml" -I"$(QTDIR)/include" -I"include" -I"3rdparty" -I"$(QTDIR)/include/ActiveQt" -I"win\moc" -I"win\ui" -I"..\..\..\Lib\qt4\mkspecs\win32-msvc" -D_MSC_VER=1200 -DWIN32 $(InputPath) -o win\moc\moc_dboxfe_profilewizard.cpp
 "win\moc\moc_dboxfe_profilewizard.cpp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	$(BuildCmds)
 
@@ -410,7 +410,7 @@ USERDEP_include\dboxfe_splash.h=
 # Begin Custom Build - Running MOC on include\dboxfe_splash.h
 InputPath=include\dboxfe_splash.h
 BuildCmds=  \
-	$(QTDIR)\bin\moc.exe  -DUNICODE -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I"$(QTDIR)/include/QtCore" -I"$(QTDIR)/include/QtNetwork" -I"$(QTDIR)/include/QtGui" -I"$(QTDIR)/include/QtXml" -I"$(QTDIR)/include" -I"include" -I"3rdparty" -I"$(QTDIR)/include/ActiveQt" -I"win\moc" -I"win\ui" -I"..\..\..\Libs\qt4\mkspecs\win32-msvc" -D_MSC_VER=1200 -DWIN32 $(InputPath) -o win\moc\moc_dboxfe_splash.cpp
+	$(QTDIR)\bin\moc.exe  -DUNICODE -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I"$(QTDIR)/include/QtCore" -I"$(QTDIR)/include/QtNetwork" -I"$(QTDIR)/include/QtGui" -I"$(QTDIR)/include/QtXml" -I"$(QTDIR)/include" -I"include" -I"3rdparty" -I"$(QTDIR)/include/ActiveQt" -I"win\moc" -I"win\ui" -I"..\..\..\Lib\qt4\mkspecs\win32-msvc" -D_MSC_VER=1200 -DWIN32 $(InputPath) -o win\moc\moc_dboxfe_splash.cpp
 "win\moc\moc_dboxfe_splash.cpp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	$(BuildCmds)
 
@@ -423,7 +423,7 @@ USERDEP_include\dboxfe_splash.h=
 # Begin Custom Build - Running MOC on include\dboxfe_splash.h
 InputPath=include\dboxfe_splash.h
 BuildCmds=  \
-	$(QTDIR)\bin\moc.exe  -DUNICODE -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I"$(QTDIR)/include/QtCore" -I"$(QTDIR)/include/QtNetwork" -I"$(QTDIR)/include/QtGui" -I"$(QTDIR)/include/QtXml" -I"$(QTDIR)/include" -I"include" -I"3rdparty" -I"$(QTDIR)/include/ActiveQt" -I"win\moc" -I"win\ui" -I"..\..\..\Libs\qt4\mkspecs\win32-msvc" -D_MSC_VER=1200 -DWIN32 $(InputPath) -o win\moc\moc_dboxfe_splash.cpp
+	$(QTDIR)\bin\moc.exe  -DUNICODE -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I"$(QTDIR)/include/QtCore" -I"$(QTDIR)/include/QtNetwork" -I"$(QTDIR)/include/QtGui" -I"$(QTDIR)/include/QtXml" -I"$(QTDIR)/include" -I"include" -I"3rdparty" -I"$(QTDIR)/include/ActiveQt" -I"win\moc" -I"win\ui" -I"..\..\..\Lib\qt4\mkspecs\win32-msvc" -D_MSC_VER=1200 -DWIN32 $(InputPath) -o win\moc\moc_dboxfe_splash.cpp
 "win\moc\moc_dboxfe_splash.cpp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	$(BuildCmds)
 
