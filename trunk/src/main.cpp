@@ -30,44 +30,31 @@ int main( int argc, char **argv )
 
     DBoxFE w;
 
-    QTranslator *translator;
-    QString m_file, m_profile_dir, m_tmpl_dir, lng;
+	QString m_file, m_profile_dir, m_tmpl_dir, lng;
 
     DBoxFE_Splash *splash;
     splash = new DBoxFE_Splash( QPixmap( ":/pics/images/logo.png" ) );
     app.processEvents();
 
     if ( splash )
-        splash->showMessage( QApplication::translate( "DBoxFE", "Read Language settings ..." ) );
-    if ( splash )
         splash->show();
 
-    m_file = "";
-    m_file = QDir::homePath();
-    m_file.append( "/.dboxfe/profile/profile.xml" );
+    if ( splash )
+        splash->showMessage( QApplication::translate( "DBoxFE", "Read Language settings ..." ) );
 
-    XMLPreferences settGP( "DBoxFE", "Alexander Saal" );
-    settGP.setVersion( w.getAppVersion() );
-    settGP.load( m_file );
+	QTranslator translator;
+	QString trFile = QLocale::languageToString( QLocale::system().language() );
 
-    int lngIndex = settGP.getInt( "DBoxFE", "Lng" );
+	if( trFile == "German" )
+		trFile = "de";
+	else
+		trFile = "en";
 
-    if ( lngIndex == 0 ) {
-        lng = ":/lng/dboxfe_en.qm";
-        translator = new QTranslator();
-        bool loaded = translator->load( lng );
-        app.installTranslator( translator );
-    } else if ( lngIndex == 1 ) {
-        translator = new QTranslator();
-        lng = ":/lng/dboxfe_de.qm";
-        bool loaded = translator->load( lng );
-        app.installTranslator( translator );
-    } else {
-        translator = new QTranslator();
-        lng = ":/lng/dboxfe_en.qm";
-        bool loaded = translator->load( lng );
-        app.installTranslator( translator );
-    }
+	trFile = ":/lng/dboxfe_" + trFile + ".qm";
+
+	qApp->processEvents();
+	translator.load( trFile );
+	app.installTranslator( &translator );
 
     if ( splash )
         splash->showMessage( QApplication::translate( "DBoxFE", "Create/Search application Directory ..." ) );
