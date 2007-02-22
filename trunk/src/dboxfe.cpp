@@ -69,24 +69,22 @@ DBoxFE::DBoxFE( QWidget *parent, Qt::WFlags flags )
     titleMac = tr( "DBoxFE - Front End for DOSBox 0.65 - Mac Version " ) + getAppVersion();
 
 #ifdef Q_OS_WIN32
-
     setWindowTitle( titleWin );
-    QApplication::setStyle( "plastique" );
 #endif
 
 #ifdef Q_OS_MACX
-
     setWindowTitle( titleMac );
+    QApplication::setStyle( "plastique" );
 #endif
 
 #ifdef Q_OS_MAC9
-
     setWindowTitle( titleMac );
+    QApplication::setStyle( "plastique" );
 #endif
 
 #ifdef Q_OS_UNIX
-
     setWindowTitle( titleLin );
+    QApplication::setStyle( "plastique" );
 #endif
 
     // center the application on desktop screen
