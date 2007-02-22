@@ -92,7 +92,7 @@ unix{
 
 # Windows settings
 win32{
-  #RC_FILE = dboxfe.rc
+  RC_FILE = res/dboxfe.rc
   TARGET = dboxfe
   RCC_DIR = win/rcc
   MOC_DIR += win/moc
