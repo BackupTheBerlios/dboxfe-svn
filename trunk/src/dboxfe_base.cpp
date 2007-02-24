@@ -217,6 +217,13 @@ void DB_BASE::readConf( const QString &dbconf, DBoxFE* dbfe )
                 line = in.readLine();
                 QListWidgetItem *autoexec = new QListWidgetItem( dbfe->ui.lwAutoexec );
                 autoexec->setText( line );
+
+				// if comes after section [autoexec] a another section, then exit method
+				if( line != "[autoexec]" ) {
+					f.close();
+					delete getConf;
+					return;
+				}					
             }
         }
     }
@@ -370,7 +377,7 @@ void DB_BASE::saveConf( const QString &dbconf, DBoxFE* dbfe )
     t << "\n[autoexec]\n";
 
     for ( int q = 0; q < dbfe->ui.lwAutoexec->count(); q++ ) {
-        t << dbfe->ui.lwAutoexec->item( q ) ->text() << "\n";
+        t << dbfe->ui.lwAutoexec->item( q )->text() << "\n";
     }
 
     t.flush();
@@ -616,14 +623,17 @@ void DB_BASE::createGameProfiles( const QString &file, const QStringList &gamesL
         fileName = QDir::homePath();
         fileName.append( "/.dboxfe/" + gamesList.value( x ) + ".conf" );
 
-        createFile = new QFile( fileName );
-        if ( !createFile->open( QIODevice::WriteOnly | QIODevice::Text ) ) {
-            return ;
-        }
+		createFile = new QFile( fileName );
 
-        QTextStream out( createFile );
-        out << line;
-        out.flush();
+		if( !createFile->exists() ) {
+			if ( !createFile->open( QIODevice::WriteOnly | QIODevice::Text ) )
+				return;
+
+			QTextStream out( createFile );
+			out << line;
+			out.flush();
+		}
+		
 		createFile->close();
     }
     line = "";

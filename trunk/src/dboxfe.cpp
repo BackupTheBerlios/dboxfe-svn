@@ -188,6 +188,17 @@ void DBoxFE::slotCreateGP()
     DBoxFE_Profile *dbfe_profile = new DBoxFE_Profile();
 
     if ( dbfe_profile->exec() == QDialog::Accepted ) {
+
+	    QList<QListWidgetItem *> it( ui.lwProfile->findItems( dbfe_profile->ui.LEProfile->text(), Qt::MatchExactly ) );
+		for ( int a = 0; a < it.size(); ++a ) {
+			QListWidgetItem *sItem;
+			sItem = it.value( a );
+			if( sItem->text() == dbfe_profile->ui.LEProfile->text() ) {
+				QMessageBox::information( this, winTitle(), tr( "Can not add the same profilename: '" ) + sItem->text() + tr( "' to the list." ) );
+				return;
+			}
+		}
+
         gpItem->setText( dbfe_profile->ui.LEProfile->text() );
         ui.lwProfile->addItem( gpItem );
     }
