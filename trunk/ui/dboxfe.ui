@@ -1,7 +1,5 @@
 <ui version="4.0" >
  <author>Alexander Saal - alex.saal@gmx.de</author>
- <comment></comment>
- <exportmacro></exportmacro>
  <class>DBoxFE</class>
  <widget class="QWidget" name="DBoxFE" >
   <property name="geometry" >
@@ -69,28 +67,6 @@
         <property name="spacing" >
          <number>6</number>
         </property>
-        <item row="1" column="0" >
-         <widget class="QPushButton" name="btnWizard" >
-          <property name="minimumSize" >
-           <size>
-            <width>110</width>
-            <height>26</height>
-           </size>
-          </property>
-          <property name="maximumSize" >
-           <size>
-            <width>110</width>
-            <height>26</height>
-           </size>
-          </property>
-          <property name="text" >
-           <string>&amp;Wizard</string>
-          </property>
-          <property name="icon" >
-           <iconset resource="../res/dboxfe.qrc" >:/pics/images/misc.png</iconset>
-          </property>
-         </widget>
-        </item>
         <item row="0" column="0" >
          <widget class="QPushButton" name="btnCreateGP" >
           <property name="minimumSize" >
@@ -113,28 +89,6 @@
           </property>
           <property name="shortcut" >
            <string>Alt+C</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1" >
-         <widget class="QPushButton" name="btnGamesettings" >
-          <property name="minimumSize" >
-           <size>
-            <width>110</width>
-            <height>26</height>
-           </size>
-          </property>
-          <property name="maximumSize" >
-           <size>
-            <width>110</width>
-            <height>26</height>
-           </size>
-          </property>
-          <property name="text" >
-           <string>&amp;Games</string>
-          </property>
-          <property name="icon" >
-           <iconset resource="../res/dboxfe.qrc" >:/pics/images/computer_16.png</iconset>
           </property>
          </widget>
         </item>
@@ -163,6 +117,69 @@
           </property>
          </widget>
         </item>
+        <item row="1" column="0" >
+         <widget class="QPushButton" name="btnWizard" >
+          <property name="minimumSize" >
+           <size>
+            <width>110</width>
+            <height>26</height>
+           </size>
+          </property>
+          <property name="maximumSize" >
+           <size>
+            <width>110</width>
+            <height>26</height>
+           </size>
+          </property>
+          <property name="text" >
+           <string>&amp;Wizard</string>
+          </property>
+          <property name="icon" >
+           <iconset resource="../res/dboxfe.qrc" >:/pics/images/misc.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1" >
+         <widget class="QPushButton" name="btnGamesettings" >
+          <property name="minimumSize" >
+           <size>
+            <width>110</width>
+            <height>26</height>
+           </size>
+          </property>
+          <property name="maximumSize" >
+           <size>
+            <width>110</width>
+            <height>26</height>
+           </size>
+          </property>
+          <property name="text" >
+           <string>&amp;Games</string>
+          </property>
+          <property name="icon" >
+           <iconset resource="../res/dboxfe.qrc" >:/pics/images/computer_16.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0" colspan="2" >
+         <widget class="QPushButton" name="btnImpExpDFenPrfile" >
+          <property name="minimumSize" >
+           <size>
+            <width>0</width>
+            <height>26</height>
+           </size>
+          </property>
+          <property name="maximumSize" >
+           <size>
+            <width>16777215</width>
+            <height>26</height>
+           </size>
+          </property>
+          <property name="text" >
+           <string>Import / Export DFend Profile</string>
+          </property>
+         </widget>
+        </item>
        </layout>
       </item>
       <item row="0" column="0" >
@@ -170,152 +187,6 @@
       </item>
      </layout>
     </widget>
-   </item>
-   <item row="1" column="1" >
-    <layout class="QHBoxLayout" >
-     <property name="margin" >
-      <number>0</number>
-     </property>
-     <property name="spacing" >
-      <number>6</number>
-     </property>
-     <item>
-      <widget class="QPushButton" name="btnStartDBox" >
-       <property name="minimumSize" >
-        <size>
-         <width>110</width>
-         <height>26</height>
-        </size>
-       </property>
-       <property name="maximumSize" >
-        <size>
-         <width>110</width>
-         <height>26</height>
-        </size>
-       </property>
-       <property name="text" >
-        <string> St&amp;art</string>
-       </property>
-       <property name="icon" >
-        <iconset resource="../res/dboxfe.qrc" >:/pics/images/applications_16.png</iconset>
-       </property>
-       <property name="shortcut" >
-        <string>Alt+D</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer>
-       <property name="orientation" >
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" >
-        <size>
-         <width>148</width>
-         <height>30</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QPushButton" name="btnSaveGP" >
-       <property name="minimumSize" >
-        <size>
-         <width>110</width>
-         <height>26</height>
-        </size>
-       </property>
-       <property name="maximumSize" >
-        <size>
-         <width>110</width>
-         <height>26</height>
-        </size>
-       </property>
-       <property name="text" >
-        <string> &amp;Save</string>
-       </property>
-       <property name="icon" >
-        <iconset resource="../res/dboxfe.qrc" >:/pics/images/save_16.png</iconset>
-       </property>
-       <property name="shortcut" >
-        <string>Alt+S</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer>
-       <property name="orientation" >
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" >
-        <size>
-         <width>16</width>
-         <height>30</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QPushButton" name="btnAbout" >
-       <property name="minimumSize" >
-        <size>
-         <width>110</width>
-         <height>26</height>
-        </size>
-       </property>
-       <property name="maximumSize" >
-        <size>
-         <width>110</width>
-         <height>26</height>
-        </size>
-       </property>
-       <property name="text" >
-        <string>About</string>
-       </property>
-       <property name="icon" >
-        <iconset resource="../res/dboxfe.qrc" >:/pics/images/default.png</iconset>
-       </property>
-       <property name="shortcut" >
-        <string>Alt+S</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer>
-       <property name="orientation" >
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" >
-        <size>
-         <width>16</width>
-         <height>30</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QPushButton" name="btnQuit" >
-       <property name="minimumSize" >
-        <size>
-         <width>110</width>
-         <height>26</height>
-        </size>
-       </property>
-       <property name="maximumSize" >
-        <size>
-         <width>110</width>
-         <height>26</height>
-        </size>
-       </property>
-       <property name="text" >
-        <string> &amp;Quit</string>
-       </property>
-       <property name="icon" >
-        <iconset resource="../res/dboxfe.qrc" >:/pics/images/delete_16.png</iconset>
-       </property>
-      </widget>
-     </item>
-    </layout>
    </item>
    <item row="0" column="1" >
     <widget class="QTabWidget" name="twDbx" >
@@ -812,7 +683,7 @@
                <enum>QFrame::Sunken</enum>
               </property>
               <property name="value" stdset="0" >
-               <double>100</double>
+               <double>100.000000000000000</double>
               </property>
              </widget>
             </item>
@@ -1602,8 +1473,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>629</width>
-            <height>324</height>
+            <width>195</width>
+            <height>116</height>
            </rect>
           </property>
           <attribute name="label" >
@@ -1779,6 +1650,14 @@
           </layout>
          </widget>
          <widget class="QWidget" name="pageSB" >
+          <property name="geometry" >
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>390</width>
+            <height>114</height>
+           </rect>
+          </property>
           <attribute name="label" >
            <string>Soundblaster</string>
           </attribute>
@@ -2182,6 +2061,14 @@
           </layout>
          </widget>
          <widget class="QWidget" name="pageGUS" >
+          <property name="geometry" >
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>220</width>
+            <height>164</height>
+           </rect>
+          </property>
           <attribute name="label" >
            <string>GUS</string>
           </attribute>
@@ -2470,6 +2357,14 @@
           </layout>
          </widget>
          <widget class="QWidget" name="pageSpeaker" >
+          <property name="geometry" >
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>250</width>
+            <height>90</height>
+           </rect>
+          </property>
           <attribute name="label" >
            <string>PC Speaker</string>
           </attribute>
@@ -2667,8 +2562,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>227</width>
-            <height>108</height>
+            <width>210</width>
+            <height>94</height>
            </rect>
           </property>
           <attribute name="label" >
@@ -4643,10 +4538,155 @@
      </widget>
     </widget>
    </item>
+   <item row="1" column="1" >
+    <layout class="QHBoxLayout" >
+     <property name="margin" >
+      <number>0</number>
+     </property>
+     <property name="spacing" >
+      <number>6</number>
+     </property>
+     <item>
+      <widget class="QPushButton" name="btnStartDBox" >
+       <property name="minimumSize" >
+        <size>
+         <width>110</width>
+         <height>26</height>
+        </size>
+       </property>
+       <property name="maximumSize" >
+        <size>
+         <width>110</width>
+         <height>26</height>
+        </size>
+       </property>
+       <property name="text" >
+        <string> St&amp;art</string>
+       </property>
+       <property name="icon" >
+        <iconset resource="../res/dboxfe.qrc" >:/pics/images/applications_16.png</iconset>
+       </property>
+       <property name="shortcut" >
+        <string>Alt+D</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer>
+       <property name="orientation" >
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" >
+        <size>
+         <width>148</width>
+         <height>30</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnSaveGP" >
+       <property name="minimumSize" >
+        <size>
+         <width>110</width>
+         <height>26</height>
+        </size>
+       </property>
+       <property name="maximumSize" >
+        <size>
+         <width>110</width>
+         <height>26</height>
+        </size>
+       </property>
+       <property name="text" >
+        <string> &amp;Save</string>
+       </property>
+       <property name="icon" >
+        <iconset resource="../res/dboxfe.qrc" >:/pics/images/save_16.png</iconset>
+       </property>
+       <property name="shortcut" >
+        <string>Alt+S</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer>
+       <property name="orientation" >
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" >
+        <size>
+         <width>16</width>
+         <height>30</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnAbout" >
+       <property name="minimumSize" >
+        <size>
+         <width>110</width>
+         <height>26</height>
+        </size>
+       </property>
+       <property name="maximumSize" >
+        <size>
+         <width>110</width>
+         <height>26</height>
+        </size>
+       </property>
+       <property name="text" >
+        <string>About</string>
+       </property>
+       <property name="icon" >
+        <iconset resource="../res/dboxfe.qrc" >:/pics/images/default.png</iconset>
+       </property>
+       <property name="shortcut" >
+        <string>Alt+S</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer>
+       <property name="orientation" >
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" >
+        <size>
+         <width>16</width>
+         <height>30</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnQuit" >
+       <property name="minimumSize" >
+        <size>
+         <width>110</width>
+         <height>26</height>
+        </size>
+       </property>
+       <property name="maximumSize" >
+        <size>
+         <width>110</width>
+         <height>26</height>
+        </size>
+       </property>
+       <property name="text" >
+        <string> &amp;Quit</string>
+       </property>
+       <property name="icon" >
+        <iconset resource="../res/dboxfe.qrc" >:/pics/images/delete_16.png</iconset>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11" />
- <pixmapfunction></pixmapfunction>
  <tabstops>
   <tabstop>lwProfile</tabstop>
   <tabstop>btnCreateGP</tabstop>
