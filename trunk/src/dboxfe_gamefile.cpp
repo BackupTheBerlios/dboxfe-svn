@@ -28,7 +28,7 @@
 DBoxFE_GameFile::DBoxFE_GameFile( QWidget *parent, Qt::WFlags flags )
         : QWidget( parent, flags )
 {
-    ui.setupUi( this );
+    setupUi( this );
 
     m_http = new QHttp( this );	
     connect( m_http, SIGNAL( dataReadProgress( int, int  ) ), this, SLOT( httpDataReadProgress( int, int ) ) );
@@ -90,17 +90,17 @@ void DBoxFE_GameFile::loadGameFile( const QString &urlPath )
 void DBoxFE_GameFile::parseGameFile( const QString &file )
 {
  		 DB_BASE db_base;
- 		 ui.pBarParseStatus->setValue( 0 );
- 		 db_base.readGameDb( file, ui.pBarParseStatus, this->dbfe_gs->ui.twGameSettings );
+ 		 pBarParseStatus->setValue( 0 );
+ 		 db_base.readGameDb( file, pBarParseStatus, this->dbfe_gs->twGameSettings );
 }
 
 void DBoxFE_GameFile::httpDataReadProgress( int done, int total  )
 {
- 		 ui.pBarParseStatus->setMaximum( total );
- 		 ui.pBarParseStatus->setValue( done );
+ 		 pBarParseStatus->setMaximum( total );
+ 		 pBarParseStatus->setValue( done );
  		 
- 		 if( ui.pBarParseStatus->value() == ui.pBarParseStatus->maximum() ) {
-			 ui.pBarParseStatus->setValue( 0 );
+ 		 if( pBarParseStatus->value() == pBarParseStatus->maximum() ) {
+			 pBarParseStatus->setValue( 0 );
  		 }
 }
 				

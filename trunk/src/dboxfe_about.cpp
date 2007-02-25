@@ -25,9 +25,9 @@ DBoxFE_About::DBoxFE_About( QWidget *parent, Qt::WFlags flags )
         : QWidget( parent, flags )
 {
 
-    ui.setupUi( this );
+    setupUi( this );
 
-    connect( ui.btnAboutQt, SIGNAL( clicked() ), qApp, SLOT( aboutQt() ) );
+    connect( btnAboutQt, SIGNAL( clicked() ), qApp, SLOT( aboutQt() ) );
 
     QDesktopWidget *desktop = qApp->desktop();
     const QRect rect = desktop->availableGeometry( desktop->primaryScreen() );
@@ -58,10 +58,10 @@ DBoxFE_About::~DBoxFE_About() {}
 
 void DBoxFE_About::readThxFile( const QString &thxFile )
 {
-    ui.TEThanks->setPlainText( thxFile );
+    TEThanks->setPlainText( thxFile );
 }
 
 void DBoxFE_About::readLicFile( const QString &licFile )
 {
-    ui.TELicense->setPlainText( licFile );
+    TELicense->setPlainText( licFile );
 }

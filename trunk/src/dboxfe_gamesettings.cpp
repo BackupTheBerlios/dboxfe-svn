@@ -31,16 +31,16 @@
 
 DBoxFE_GameSettings::DBoxFE_GameSettings( QWidget *parent, Qt::WFlags flags ) : QWidget( parent, flags )
 {
-    ui.setupUi( this );
+    setupUi( this );
 
     // connection
-    connect( ui.btnAdd, SIGNAL( clicked() ), this, SLOT( slotAdd() ) );
-    connect( ui.btnRemove, SIGNAL( clicked() ), this, SLOT( slotRemove() ) );
-    connect( ui.btnChange, SIGNAL( clicked() ), this, SLOT( slotChange() ) );
-    connect( ui.btnPreview, SIGNAL( clicked() ), this, SLOT( slotPreview() ) );
-    connect( ui.btnSave, SIGNAL( clicked() ), this, SLOT( slotSave() ) );
-    connect( ui.btnImage, SIGNAL( clicked() ), this, SLOT( slotImage() ) );
-    connect( ui.twGameSettings, SIGNAL( itemClicked( QTreeWidgetItem*, int ) ), this, SLOT( slotItemClicked( QTreeWidgetItem*, int ) ) );
+    connect( btnAdd, SIGNAL( clicked() ), this, SLOT( slotAdd() ) );
+    connect( btnRemove, SIGNAL( clicked() ), this, SLOT( slotRemove() ) );
+    connect( btnChange, SIGNAL( clicked() ), this, SLOT( slotChange() ) );
+    connect( btnPreview, SIGNAL( clicked() ), this, SLOT( slotPreview() ) );
+    connect( btnSave, SIGNAL( clicked() ), this, SLOT( slotSave() ) );
+    connect( btnImage, SIGNAL( clicked() ), this, SLOT( slotImage() ) );
+    connect( twGameSettings, SIGNAL( itemClicked( QTreeWidgetItem*, int ) ), this, SLOT( slotItemClicked( QTreeWidgetItem*, int ) ) );
 
     // center the application on desktop screen
     QDesktopWidget *desktop = qApp->desktop();
@@ -60,34 +60,34 @@ void DBoxFE_GameSettings::closeEvent( QCloseEvent *e )
 
 void DBoxFE_GameSettings::slotAdd()
 {
-    QTreeWidgetItem * qwtItem = new QTreeWidgetItem( ui.twGameSettings );
-    if ( !ui.LEGame->text().isEmpty() ) {
-        qwtItem->setText( 0, ui.LEGame->text() );
+    QTreeWidgetItem * qwtItem = new QTreeWidgetItem( twGameSettings );
+    if ( !LEGame->text().isEmpty() ) {
+        qwtItem->setText( 0, LEGame->text() );
     } else {
         QMessageBox::information( this, "DBox Front End", "Enter a valid game name." );
         return ;
     }
 
-    if ( !ui.cbxGameCategory->currentText().isEmpty() ) {
-        qwtItem->setText( 1, ui.cbxGameCategory->currentText() );
+    if ( !cbxGameCategory->currentText().isEmpty() ) {
+        qwtItem->setText( 1, cbxGameCategory->currentText() );
     } else {
         QMessageBox::information( this, "DBox Front End", "Choose a category for the game." );
         return ;
     }
 
-    if ( !ui.LEGameDeveloper->text().isEmpty() )
-        qwtItem->setText( 2, ui.LEGameDeveloper->text() );
+    if ( !LEGameDeveloper->text().isEmpty() )
+        qwtItem->setText( 2, LEGameDeveloper->text() );
     else
         qwtItem->setText( 2, "" );
 
-    if ( !ui.LEGameCompatibility->text().isEmpty() )
-        qwtItem->setText( 4, ui.LEGameCompatibility->text() );
+    if ( !LEGameCompatibility->text().isEmpty() )
+        qwtItem->setText( 4, LEGameCompatibility->text() );
     else
         qwtItem->setText( 4, "" );
 
-	if ( ui.LEGamYear->isEnabled() ) {
-		if ( !ui.LEGamYear->text().isEmpty() ){
-			qwtItem->setText( 3, ui.LEGamYear->text() );
+	if ( LEGamYear->isEnabled() ) {
+		if ( !LEGamYear->text().isEmpty() ){
+			qwtItem->setText( 3, LEGamYear->text() );
 		} else {
 			qwtItem->setText( 3, "" );
 		}
@@ -96,7 +96,7 @@ void DBoxFE_GameSettings::slotAdd()
 
 void DBoxFE_GameSettings::slotRemove()
 {
-    QTreeWidgetItem * qwtItem = ui.twGameSettings->currentItem();
+    QTreeWidgetItem * qwtItem = twGameSettings->currentItem();
     if ( qwtItem != NULL )
         delete qwtItem;
     else
@@ -105,7 +105,7 @@ void DBoxFE_GameSettings::slotRemove()
 
 void DBoxFE_GameSettings::slotChange()
 {
-    QTreeWidgetItem * selectedItem = ui.twGameSettings->currentItem();
+    QTreeWidgetItem * selectedItem = twGameSettings->currentItem();
     if ( selectedItem != NULL ) {
     }
 }
@@ -118,7 +118,7 @@ void DBoxFE_GameSettings::slotPreview()
 	dbfe_gf->loadGameFile( "http://dosbox.sourceforge.net/game_database.xml?begaming_website_session=c715af45518f8e4dea01bd4900d5d14e" );
 
 	//DB_BASE gbBase;
-	//gbBase.readGameDb("D:\\Projekte\\cplusplus\\dboxfe\\bin\\game_database.xml", NULL, this->ui.twGameSettings );
+	//gbBase.readGameDb("D:\\Projekte\\cplusplus\\dboxfe\\bin\\game_database.xml", NULL, this->twGameSettings );
 }
 
 void DBoxFE_GameSettings::slotSave()
@@ -144,13 +144,13 @@ void DBoxFE_GameSettings::slotSave()
     DBoxFE_Image * dbfe_image = new DBoxFE_Image();
 
     if ( dbfe_image->exec() == QDialog::Accepted ) {
-        //	QListWidgetItem *qlwItem = dbfe_image->ui.lwImage->currentItem();
+        //	QListWidgetItem *qlwItem = dbfe_image->lwImage->currentItem();
     }
 }
 
 void DBoxFE_GameSettings::slotImage()
 {
-    QTreeWidgetItem * item = ui.twGameSettings->currentItem();
+    QTreeWidgetItem * item = twGameSettings->currentItem();
     if ( item != NULL ) {
         QString imageDir;
         QStringList imageList, lstTmp;
@@ -167,7 +167,7 @@ void DBoxFE_GameSettings::slotImage()
         for ( int x = 0; x < imageList.size(); x++ ) {
             lstTmp = imageList.value( x ).split( ";" );
 
-            QListWidgetItem *qlwItem = new QListWidgetItem( dbfe_image->ui.lwImage );
+            QListWidgetItem *qlwItem = new QListWidgetItem( dbfe_image->lwImage );
             qlwItem->setText( lstTmp.value( 0 ) );
 
             lstTmp.clear();
@@ -185,11 +185,11 @@ void DBoxFE_GameSettings::slotImage()
 void DBoxFE_GameSettings::slotItemClicked( QTreeWidgetItem* item, int column )
 {
     if ( item != NULL ) {
-        ui.LEGame->setText( item->text( 0 ) );
-        ui.cbxGameCategory->setCurrentIndex( ui.cbxGameCategory->findText( item->text( 1 ), Qt::MatchExactly | Qt::MatchCaseSensitive ) );
-        ui.LEGameDeveloper->setText( item->text( 2 ) );
-        ui.LEGameCompatibility->setText( item->text( 4 ) );
-        ui.LEGamYear->setText( item->text( 3 ) );
+        LEGame->setText( item->text( 0 ) );
+        cbxGameCategory->setCurrentIndex( cbxGameCategory->findText( item->text( 1 ), Qt::MatchExactly | Qt::MatchCaseSensitive ) );
+        LEGameDeveloper->setText( item->text( 2 ) );
+        LEGameCompatibility->setText( item->text( 4 ) );
+        LEGamYear->setText( item->text( 3 ) );
     } else {
         return;
     }

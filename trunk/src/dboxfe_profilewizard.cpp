@@ -29,7 +29,7 @@ DBoxFE_ProfileWizard::DBoxFE_ProfileWizard( QDialog *parent, Qt::WFlags flags )
 {
 
     // setup grafical user interface (gui)
-    ui.setupUi( this );
+    setupUi( this );
 
     page = 0;
 
@@ -39,17 +39,17 @@ DBoxFE_ProfileWizard::DBoxFE_ProfileWizard( QDialog *parent, Qt::WFlags flags )
     connect( m_http, SIGNAL( responseHeaderReceived( const QHttpResponseHeader & ) ), this, SLOT( readResponseHeader( const QHttpResponseHeader & ) ) );
 
     // connection
-    connect( ui.btnBack, SIGNAL( clicked() ), this, SLOT( slotBack() ) );
-    connect( ui.btnNext, SIGNAL( clicked() ), this, SLOT( slotNext() ) );
-    connect( ui.btnNext, SIGNAL( clicked() ), this, SLOT( slotFinish() ) );
+    connect( btnBack, SIGNAL( clicked() ), this, SLOT( slotBack() ) );
+    connect( btnNext, SIGNAL( clicked() ), this, SLOT( slotNext() ) );
+    connect( btnNext, SIGNAL( clicked() ), this, SLOT( slotFinish() ) );
 
-    connect( ui.btnHelp, SIGNAL( clicked() ), this, SLOT( slotHelp() ) );
-    connect( ui.btnAbort, SIGNAL( clicked() ), this, SLOT( slotAbort() ) );
-    connect( ui.btnSelectDir, SIGNAL( clicked() ), this, SLOT( slotSelectDir() ) );
-    connect( ui.btnSearch, SIGNAL( clicked() ), this, SLOT( slotSearch() ) );
+    connect( btnHelp, SIGNAL( clicked() ), this, SLOT( slotHelp() ) );
+    connect( btnAbort, SIGNAL( clicked() ), this, SLOT( slotAbort() ) );
+    connect( btnSelectDir, SIGNAL( clicked() ), this, SLOT( slotSelectDir() ) );
+    connect( btnSearch, SIGNAL( clicked() ), this, SLOT( slotSearch() ) );
 
     // enable button
-    ui.btnNext->setEnabled( true );
+    btnNext->setEnabled( true );
 
     // center the wiget on desktop screen
     QDesktopWidget *desktop = qApp->desktop();
@@ -74,24 +74,24 @@ void DBoxFE_ProfileWizard::slotFinish()
     m_gp_file = QDir::homePath();
     m_gp_file.append( "/.dboxfe/profile/profile.xml" );
 
-    if ( ui.btnNext->text() == tr( "&Finish" ) ) {
-        ui.lblSaveCfg->setEnabled( true );
+    if ( btnNext->text() == tr( "&Finish" ) ) {
+        lblSaveCfg->setEnabled( true );
 
-        for ( int a = 0; a < ui.lwGames->topLevelItemCount(); ++a ) {
-            QTreeWidgetItem *item = ui.lwGames->topLevelItem( a );
+        for ( int a = 0; a < lwGames->topLevelItemCount(); ++a ) {
+            QTreeWidgetItem *item = lwGames->topLevelItem( a );
             gpList.append( item->text( 0 ) );
         }
 
-        ui.lblCreateGP->setEnabled( true );
+        lblCreateGP->setEnabled( true );
 
         gpBase.createGameProfiles( m_gp_file, gpList, dbfe, this );
 
-        ui.lblFinish->setEnabled( true );
+        lblFinish->setEnabled( true );
 
         QMessageBox::information( this, dbfe->winTitle(), tr( "Please make sure you set the autoexec option for every profile right." ) );
         QDialog::accept();
     } else {
-        ui.btnNext->setText( tr( "&Next" ) );
+        btnNext->setText( tr( "&Next" ) );
         return ;
     }
 }
@@ -100,26 +100,26 @@ void DBoxFE_ProfileWizard::slotBack()
 {
 
     if ( page == 1 )
-        ui.btnBack->setEnabled( false );
+        btnBack->setEnabled( false );
 
     if ( page == 0 || page == 1 ) {
-        ui.btnNext->setText( "&Next" );
+        btnNext->setText( "&Next" );
     }
 
-    ui.sWidgetGameWizard->setCurrentIndex( --page );
+    sWidgetGameWizard->setCurrentIndex( --page );
 }
 
 void DBoxFE_ProfileWizard::slotNext()
 {
 
     if ( page == 1 ) {
-        ui.btnNext->setText( tr( "&Finish" ) );
+        btnNext->setText( tr( "&Finish" ) );
     } else {
-        ui.btnNext->setText( tr( "&Next" ) );
+        btnNext->setText( tr( "&Next" ) );
     }
 
-    ui.btnBack->setEnabled( true );
-    ui.sWidgetGameWizard->setCurrentIndex( ++page );
+    btnBack->setEnabled( true );
+    sWidgetGameWizard->setCurrentIndex( ++page );
 
     if ( page > 2 )
         page = 2;
@@ -141,21 +141,21 @@ void DBoxFE_ProfileWizard::slotSelectDir()
     if ( strDir.isEmpty() )
         return ;
 
-    ui.LEDirectory->setText( strDir );
+    LEDirectory->setText( strDir );
 }
 
 void DBoxFE_ProfileWizard::slotSearch()
 {
     DB_BASE base;
 
-    QString path = ui.LEDirectory->text();
+    QString path = LEDirectory->text();
     QStringList files;
 
     if ( path.isEmpty() )
         return ;
 
-    ui.lwGames->clear();
-    base.findGames( path, ui.lwGames );
+    lwGames->clear();
+    base.findGames( path, lwGames );
 }
 
 

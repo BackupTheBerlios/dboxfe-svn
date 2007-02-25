@@ -26,10 +26,10 @@ DBoxFE_Profile::DBoxFE_Profile( QDialog *parent, Qt::WFlags flags )
         : QDialog( parent, flags )
 {
     // setup grafical user interface (gui)
-    ui.setupUi( this );
+    setupUi( this );
 
     // connection
-    connect( ui.btnOk, SIGNAL( clicked() ), this, SLOT( slotAdd() ) );
+    connect( btnOk, SIGNAL( clicked() ), this, SLOT( slotAdd() ) );
 
     // center the wiget on desktop screen
     QDesktopWidget *desktop = qApp->desktop();
@@ -43,7 +43,7 @@ DBoxFE_Profile::~DBoxFE_Profile() {}
 
 void DBoxFE_Profile::slotAdd()
 {
-    if ( ui.LEProfile->text().isEmpty() ) {
+    if ( LEProfile->text().isEmpty() ) {
         QMessageBox::information( this, "DOSBox Front End", "Please enter a profile name." );
     } else {
         QDialog::accept();

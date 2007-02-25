@@ -33,35 +33,34 @@
 #include <QtGui>
 
 
-DBoxFE::DBoxFE( QWidget *parent, Qt::WFlags flags )
-        : QWidget( parent, flags )
+DBoxFE::DBoxFE( QWidget *parent, Qt::WFlags flags ) : QWidget( parent, flags )
 {
 
-    ui.setupUi( this );
+    setupUi( this );
 
     // connection
-    connect( ui.btnSaveGP, SIGNAL( clicked() ), this, SLOT( slotSaveGP() ) );
-    connect( ui.btnRemoveGP, SIGNAL( clicked() ), this, SLOT( slotRemoveGP() ) );
-    connect( ui.btnCreateGP, SIGNAL( clicked() ), this, SLOT( slotCreateGP() ) );
-    connect( ui.btnWizard, SIGNAL( clicked() ), this, SLOT( slotWizard() ) );
-    connect( ui.btnStartDBox, SIGNAL( clicked() ), this, SLOT( slotStartDBox() ) );
-    connect( ui.btnLanguage, SIGNAL( clicked() ), this, SLOT( slotLanguage() ) );
-    connect( ui.btnDbxStable, SIGNAL( clicked() ), this, SLOT( slotChooseDbxBinary() ) );
-    connect( ui.btnAutoexecAdd, SIGNAL( clicked() ), this, SLOT( slotAutoexecAdd() ) );
-    connect( ui.btnAutoexecRemove, SIGNAL( clicked() ), this, SLOT( slotAutoexecRemove() ) );
-    connect( ui.btnSerialAdd, SIGNAL( clicked() ), this, SLOT( slotSerialAdd() ) );
-    connect( ui.btnSerialRemove, SIGNAL( clicked() ), this, SLOT( slotSerialRemove() ) );
-    connect( ui.btnAutoexecUpdate, SIGNAL( clicked() ), this, SLOT( slotAutoexecUpdate() ) );
-    connect( ui.btnAutoexecDrive, SIGNAL( clicked() ), this, SLOT( slotAutoexecDrive() ) );
-    connect( ui.btnAutoexecUp, SIGNAL( clicked() ), this, SLOT( slotAutoexecUp() ) );
-    connect( ui.btnAutoexecDown, SIGNAL( clicked() ), this, SLOT( slotAutoexecDown() ) );
-    connect( ui.btnGame, SIGNAL( clicked() ), this, SLOT( slotGame() ) );
-    connect( ui.btnAbout, SIGNAL( clicked() ), this, SLOT( slotAbout() ) );
-    connect( ui.btnGamesettings, SIGNAL( clicked() ), this, SLOT( slotGameSettings() ) );
-    connect( ui.lwProfile, SIGNAL( itemClicked( QListWidgetItem* ) ), this, SLOT( slotListWidget( QListWidgetItem* ) ) );
-    connect( ui.lwOutPut, SIGNAL( customContextMenuRequested( QPoint ) ), this, SLOT( slotListWidgetOutPut( QPoint ) ) );
-    connect( ui.cbxDSOption, SIGNAL( currentIndexChanged( int ) ), this, SLOT( slotCbxSerialIndexChanged( int ) ) );
-    connect( ui.cbxAutoexecDirectoryOption, SIGNAL( currentIndexChanged( int ) ), this, SLOT( slotCbxAutoexecIndexChanged( int ) ) );
+    connect( btnSaveGP, SIGNAL( clicked() ), this, SLOT( slotSaveGP() ) );
+    connect( btnRemoveGP, SIGNAL( clicked() ), this, SLOT( slotRemoveGP() ) );
+    connect( btnCreateGP, SIGNAL( clicked() ), this, SLOT( slotCreateGP() ) );
+    connect( btnWizard, SIGNAL( clicked() ), this, SLOT( slotWizard() ) );
+    connect( btnStartDBox, SIGNAL( clicked() ), this, SLOT( slotStartDBox() ) );
+    connect( btnLanguage, SIGNAL( clicked() ), this, SLOT( slotLanguage() ) );
+    connect( btnDbxStable, SIGNAL( clicked() ), this, SLOT( slotChooseDbxBinary() ) );
+    connect( btnAutoexecAdd, SIGNAL( clicked() ), this, SLOT( slotAutoexecAdd() ) );
+    connect( btnAutoexecRemove, SIGNAL( clicked() ), this, SLOT( slotAutoexecRemove() ) );
+    connect( btnSerialAdd, SIGNAL( clicked() ), this, SLOT( slotSerialAdd() ) );
+    connect( btnSerialRemove, SIGNAL( clicked() ), this, SLOT( slotSerialRemove() ) );
+    connect( btnAutoexecUpdate, SIGNAL( clicked() ), this, SLOT( slotAutoexecUpdate() ) );
+    connect( btnAutoexecDrive, SIGNAL( clicked() ), this, SLOT( slotAutoexecDrive() ) );
+    connect( btnAutoexecUp, SIGNAL( clicked() ), this, SLOT( slotAutoexecUp() ) );
+    connect( btnAutoexecDown, SIGNAL( clicked() ), this, SLOT( slotAutoexecDown() ) );
+    connect( btnGame, SIGNAL( clicked() ), this, SLOT( slotGame() ) );
+    connect( btnAbout, SIGNAL( clicked() ), this, SLOT( slotAbout() ) );
+    connect( btnGamesettings, SIGNAL( clicked() ), this, SLOT( slotGameSettings() ) );
+    connect( lwProfile, SIGNAL( itemClicked( QListWidgetItem* ) ), this, SLOT( slotListWidget( QListWidgetItem* ) ) );
+    connect( lwOutPut, SIGNAL( customContextMenuRequested( QPoint ) ), this, SLOT( slotListWidgetOutPut( QPoint ) ) );
+    connect( cbxDSOption, SIGNAL( currentIndexChanged( int ) ), this, SLOT( slotCbxSerialIndexChanged( int ) ) );
+    connect( cbxAutoexecDirectoryOption, SIGNAL( currentIndexChanged( int ) ), this, SLOT( slotCbxAutoexecIndexChanged( int ) ) );
 
     // windows title for the application
     titleLin = tr( "DBoxFE - Front End for DOSBox 0.65 - Linux Version " ) + getAppVersion();
@@ -113,14 +112,14 @@ void DBoxFE::init()
     settGP.load( m_file );
 
     QStringList sList = settGP.getStringList( "Profile", "Name" );
-    ui.lwProfile->addItems( sList );
-    ui.LEDbxStabel->setText( QString( settGP.getString( "DOSBox", "binary" ) ) );
-    ui.LEDbxVersion->setText( QString( settGP.getString( "DOSBox", "version" ) ) );
-    ui.cbxLanguage->setCurrentIndex( settGP.getInt( "DBoxFE", "Lng" ) );
-    ui.chkBoxWindowHide->setChecked( settGP.getBool( "DBoxFE", "winHide" ) );
-    ui.chkBoxStartmapper->setChecked( settGP.getBool( "DBoxFE", "keyMapper" ) );
-    ui.gBoxLanguage->setHidden( true );
-    ui.btnGameDb->setHidden( true );
+    lwProfile->addItems( sList );
+    LEDbxStabel->setText( QString( settGP.getString( "DOSBox", "binary" ) ) );
+    LEDbxVersion->setText( QString( settGP.getString( "DOSBox", "version" ) ) );
+    cbxLanguage->setCurrentIndex( settGP.getInt( "DBoxFE", "Lng" ) );
+    chkBoxWindowHide->setChecked( settGP.getBool( "DBoxFE", "winHide" ) );
+    chkBoxStartmapper->setChecked( settGP.getBool( "DBoxFE", "keyMapper" ) );
+    gBoxLanguage->setHidden( true );
+    btnGameDb->setHidden( true );
 
     m_file = "";
 }
@@ -148,22 +147,22 @@ void DBoxFE::slotSaveGP()
 
     QStringList sList;
 
-    for ( int a = 0; a < ui.lwProfile->count(); ++a ) {
-        sList.append( ui.lwProfile->item( a ) ->text() );
+    for ( int a = 0; a < lwProfile->count(); ++a ) {
+        sList.append( lwProfile->item( a ) ->text() );
     }
 
     settGP.setStringList( "Profile", "Name", sList );
-    settGP.setString( "DOSBox", "binary", ui.LEDbxStabel->text() );
-    settGP.setString( "DOSBox", "version", ui.LEDbxVersion->text() );
-    settGP.setInt( "DBoxFE", "Lng", ui.cbxLanguage->currentIndex() );
-    settGP.setBool( "DBoxFE", "winHide", ui.chkBoxWindowHide->isChecked() );
-    settGP.setBool( "DBoxFE", "keyMapper", ui.chkBoxStartmapper->isChecked() );
+    settGP.setString( "DOSBox", "binary", LEDbxStabel->text() );
+    settGP.setString( "DOSBox", "version", LEDbxVersion->text() );
+    settGP.setInt( "DBoxFE", "Lng", cbxLanguage->currentIndex() );
+    settGP.setBool( "DBoxFE", "winHide", chkBoxWindowHide->isChecked() );
+    settGP.setBool( "DBoxFE", "keyMapper", chkBoxStartmapper->isChecked() );
 
     settGP.save( m_file );
 
     //Save configuration
     gpItem = new QListWidgetItem;
-    gpItem = ui.lwProfile->currentItem();
+    gpItem = lwProfile->currentItem();
 
     if ( gpItem != NULL ) {
         DB_BASE gpIni;
@@ -189,18 +188,14 @@ void DBoxFE::slotCreateGP()
 
     if ( dbfe_profile->exec() == QDialog::Accepted ) {
 
-	    QList<QListWidgetItem *> it( ui.lwProfile->findItems( dbfe_profile->ui.LEProfile->text(), Qt::MatchExactly ) );
-		for ( int a = 0; a < it.size(); ++a ) {
-			QListWidgetItem *sItem;
-			sItem = it.value( a );
-			if( sItem->text() == dbfe_profile->ui.LEProfile->text() ) {
-				QMessageBox::information( this, winTitle(), tr( "Can not add the same profilename: '" ) + sItem->text() + tr( "' to the list." ) );
-				return;
-			}
+		DB_BASE gpIni;
+		if( gpIni.isDoubleEntry( dbfe_profile->LEProfile->text(), this ) ) {
+			QMessageBox::information( this, winTitle(), tr( "Can not add the same profilename: '" ) + dbfe_profile->LEProfile->text() + tr( "' to the list." ) );
+			return;
 		}
 
-        gpItem->setText( dbfe_profile->ui.LEProfile->text() );
-        ui.lwProfile->addItem( gpItem );
+        gpItem->setText( dbfe_profile->LEProfile->text() );
+        lwProfile->addItem( gpItem );
     }
 }
 
@@ -210,7 +205,7 @@ void DBoxFE::slotCreateGP()
 void DBoxFE::slotStartDBox()
 {
     gpItem = new QListWidgetItem;
-    gpItem = ui.lwProfile->currentItem();
+    gpItem = lwProfile->currentItem();
 
     if ( gpItem == NULL ) {
         QMessageBox::information( this, winTitle(), tr( "Please select profile." ) );
@@ -227,12 +222,12 @@ void DBoxFE::slotStartDBox()
         return ;
     }
 
-    if ( ui.LEDbxStabel->text().isEmpty() ) {
+    if ( LEDbxStabel->text().isEmpty() ) {
         QMessageBox::information( this, winTitle(), tr( "Can not start dosbox, no dosbox binary was selected.\nPlease choose dosbox binary." ) );
-        ui.twDbx->setCurrentIndex( 3 );
+        twDbx->setCurrentIndex( 3 );
         return ;
     }
-    start( ui.LEDbxStabel->text(), "-conf", """" + m_conf + """" );
+    start( LEDbxStabel->text(), "-conf", """" + m_conf + """" );
 }
 
 /**
@@ -242,7 +237,7 @@ void DBoxFE::slotRemoveGP()
 {
     gpItem = new QListWidgetItem;
 
-    gpItem = ui.lwProfile->currentItem();
+    gpItem = lwProfile->currentItem();
 
     if ( gpItem == NULL ) {
         QMessageBox::information( this, winTitle(), tr( "Please select profile for remove from list!" ) );
@@ -260,20 +255,20 @@ void DBoxFE::slotRemoveGP()
 
         switch ( QMessageBox::information( this, winTitle(), tr( "Would you like delete the profile and configuration file?\nIf you click 'No' only the profile from list will be removed." ), tr( "Yes" ), tr( "No" ), tr( "Cancel" ), 0, 2 ) ) {
             case 0:               // Yes clicked
-                delete ui.lwProfile->currentItem();
+                delete lwProfile->currentItem();
 
                 if ( f.exists() ) {
                     f.remove();
                 }
 
-                ui.lwOutPut->addItem( tr( "Game Profile -> " ) + gpTxt + tr( " was deleted" ) );
-                ui.lwOutPut->addItem( tr( "Game configuration -> " ) + f.fileName() + tr( " was deleted" ) );
-                ui.lwOutPut->update();
+                lwOutPut->addItem( tr( "Game Profile -> " ) + gpTxt + tr( " was deleted" ) );
+                lwOutPut->addItem( tr( "Game configuration -> " ) + f.fileName() + tr( " was deleted" ) );
+                lwOutPut->update();
                 break;
             case 1:               // No clicked but delete profile from list
-                delete ui.lwProfile->currentItem();
-                ui.lwOutPut->addItem( tr( "Game Profile -> " ) + gpTxt + tr( " was deleted" ) );
-                ui.lwOutPut->update();
+                delete lwProfile->currentItem();
+                lwOutPut->addItem( tr( "Game Profile -> " ) + gpTxt + tr( " was deleted" ) );
+                lwOutPut->update();
                 break;
             case 2:               // Cancel clicked or Escape pressed
                 return ;
@@ -290,7 +285,7 @@ void DBoxFE::slotLanguage()
     QString strLng = QFileDialog::getOpenFileName( this, tr( "Open language file" ), QDir::homePath(), tr( "Language file (*.*)" ) );
     if ( strLng.isEmpty() )
         return ;
-    ui.LELanguage->setText( strLng );
+    LELanguage->setText( strLng );
 }
 
 /**
@@ -332,8 +327,8 @@ void DBoxFE::slotChooseDbxBinary()
         }
 
         if ( QString( dboxVersion.simplified() ).trimmed() == "0.65" ) {
-            ui.LEDbxStabel->setText( strDbxStabel );
-            ui.LEDbxVersion->setText( QString( tr( "DOSBox Version:  " ) + dboxVersion ) );
+            LEDbxStabel->setText( strDbxStabel );
+            LEDbxVersion->setText( QString( tr( "DOSBox Version:  " ) + dboxVersion ) );
         } else {
             QMessageBox::information( this, winTitle(), tr( "Wrong dosbox version: " ) + QString( dboxVersion.simplified() ).trimmed() + tr( ", i need 0.65" ) );
             delete p;
@@ -358,8 +353,8 @@ void DBoxFE::slotChooseDbxBinary()
         }
 
         if ( QString( dboxVersion.simplified() ).trimmed() == "0.65" ) {
-            ui.LEDbxStabel->setText( strDbxStabel );
-            ui.LEDbxVersion->setText( QString( tr( "DOSBox Version:  " ) + dboxVersion ) );
+            LEDbxStabel->setText( strDbxStabel );
+            LEDbxVersion->setText( QString( tr( "DOSBox Version:  " ) + dboxVersion ) );
         } else {
             QMessageBox::information( this, winTitle(), tr( "Wrong dosbox version: " ) + QString( dboxVersion.simplified() ).trimmed() + tr( ", i need 0.65" ) );
             delete p;
@@ -378,14 +373,14 @@ void DBoxFE::slotGame()
 {
     DBoxFE_Game * dbfe_game = new DBoxFE_Game();
     if ( dbfe_game->exec() == QDialog::Accepted ) {
-        if ( dbfe_game->ui.twGame->currentItem() == NULL ) {
-            ui.lwAutoexec->addItem( dbfe_game->ui.LEGame->text() );
-            if ( dbfe_game->ui.chkBoxExitDosbox->isChecked() == true )
-                ui.lwAutoexec->addItem( "exit" );
+        if ( dbfe_game->twGame->currentItem() == NULL ) {
+            lwAutoexec->addItem( dbfe_game->LEGame->text() );
+            if ( dbfe_game->chkBoxExitDosbox->isChecked() == true )
+                lwAutoexec->addItem( "exit" );
         } else {
-            ui.lwAutoexec->addItem( dbfe_game->ui.twGame->currentItem() ->text( 1 ) );
-            if ( dbfe_game->ui.chkBoxExitDosbox->isChecked() == true )
-                ui.lwAutoexec->addItem( "exit" );
+            lwAutoexec->addItem( dbfe_game->twGame->currentItem() ->text( 1 ) );
+            if ( dbfe_game->chkBoxExitDosbox->isChecked() == true )
+                lwAutoexec->addItem( "exit" );
         }
     }
 }
@@ -395,90 +390,90 @@ void DBoxFE::slotGame()
  **/
 void DBoxFE::slotAutoexecAdd()
 {
-    QList<QListWidgetItem *> it( ui.lwAutoexec->findItems( "mount " + ui.cbxDrive->currentText().toLower(), Qt::MatchContains ) );
+    QList<QListWidgetItem *> it( lwAutoexec->findItems( "mount " + cbxDrive->currentText().toLower(), Qt::MatchContains ) );
     for ( int a = 0; a < it.size(); ++a ) {
         QListWidgetItem *sItem;
         sItem = it.value( a );
-        if ( sItem->text().startsWith( "mount " + ui.cbxDrive->currentText().toLower() ) ) {
-            QMessageBox::information( this, winTitle(), tr( "Can not add the same drive '" ) + ui.cbxDrive->currentText().toLower() + tr( "' to the list." ) );
+        if ( sItem->text().startsWith( "mount " + cbxDrive->currentText().toLower() ) ) {
+            QMessageBox::information( this, winTitle(), tr( "Can not add the same drive '" ) + cbxDrive->currentText().toLower() + tr( "' to the list." ) );
             return ;
         }
     }
 
     QString addStr;
 
-    if ( ui.LEDrives->text().isEmpty() ) {
+    if ( LEDrives->text().isEmpty() ) {
         QMessageBox::information( this, winTitle(), tr( "No directory was selected." ) );
         return ;
     } else {
-        switch ( ui.cbxAutoexecDirectoryOption->currentIndex() ) {
+        switch ( cbxAutoexecDirectoryOption->currentIndex() ) {
             case 0:               // Default
-                if ( ui.chkBoxLabelCDDVD->isChecked() ) {
-                    if ( !ui.LEDeviceLabel->text().isEmpty() ) {
-                        addStr = "mount " + ui.cbxDrive->currentText().toLower() + " " + ui.LEDrives->text() + " -label " + ui.LEDeviceLabel->text();
+                if ( chkBoxLabelCDDVD->isChecked() ) {
+                    if ( !LEDeviceLabel->text().isEmpty() ) {
+                        addStr = "mount " + cbxDrive->currentText().toLower() + " " + LEDrives->text() + " -label " + LEDeviceLabel->text();
                     } else {
                         QMessageBox::information( this, winTitle(), tr( "Please enter a valid name for label." ) );
                         return ;
                     }
                 } else {
-                    ui.LEDeviceLabel->setText( "" );
-                    addStr = "mount " + ui.cbxDrive->currentText().toLower() + " " + ui.LEDrives->text();
+                    LEDeviceLabel->setText( "" );
+                    addStr = "mount " + cbxDrive->currentText().toLower() + " " + LEDrives->text();
                 }
                 break;
             case 1:               // Use Directory as CD/DVD
-                switch ( ui.cbxAutoexecCDDVDROMOption->currentIndex() ) {
+                switch ( cbxAutoexecCDDVDROMOption->currentIndex() ) {
                     case 0:             // Windows 2000/XP/Linux
-                        if ( ui.chkBoxLabelCDDVD->isChecked() ) {
-                            if ( !ui.LEDeviceLabel->text().isEmpty() ) {
-                                addStr = "mount " + ui.cbxDrive->currentText().toLower() + " " + ui.LEDrives->text() + " -t cdrom -usecd 0 -ioctl -label " + ui.LEDeviceLabel->text();
+                        if ( chkBoxLabelCDDVD->isChecked() ) {
+                            if ( !LEDeviceLabel->text().isEmpty() ) {
+                                addStr = "mount " + cbxDrive->currentText().toLower() + " " + LEDrives->text() + " -t cdrom -usecd 0 -ioctl -label " + LEDeviceLabel->text();
                             } else {
                                 QMessageBox::information( this, winTitle(), tr( "Please enter a valid name for label." ) );
                                 return ;
                             }
                         } else {
-                            ui.LEDeviceLabel->setText( "" );
-                            addStr = "mount " + ui.cbxDrive->currentText().toLower() + " " + ui.LEDrives->text() + " -t cdrom -usecd 0 -ioctl";
+                            LEDeviceLabel->setText( "" );
+                            addStr = "mount " + cbxDrive->currentText().toLower() + " " + LEDrives->text() + " -t cdrom -usecd 0 -ioctl";
                         }
                         break;
                     case 1:             // Windows 98
-                        if ( ui.chkBoxLabelCDDVD->isChecked() ) {
-                            if ( !ui.LEDeviceLabel->text().isEmpty() ) {
-                                addStr = "mount " + ui.cbxDrive->currentText().toLower() + " " + ui.LEDrives->text() + " -t cdrom -usecd 0 -aspi -label " + ui.LEDeviceLabel->text();
+                        if ( chkBoxLabelCDDVD->isChecked() ) {
+                            if ( !LEDeviceLabel->text().isEmpty() ) {
+                                addStr = "mount " + cbxDrive->currentText().toLower() + " " + LEDrives->text() + " -t cdrom -usecd 0 -aspi -label " + LEDeviceLabel->text();
                             } else {
                                 QMessageBox::information( this, winTitle(), tr( "Please enter a valid name for label." ) );
                                 return ;
                             }
                         } else {
-                            ui.LEDeviceLabel->setText( "" );
-                            addStr = "mount " + ui.cbxDrive->currentText().toLower() + " " + ui.LEDrives->text() + " -t cdrom -usecd 0 -aspi";
+                            LEDeviceLabel->setText( "" );
+                            addStr = "mount " + cbxDrive->currentText().toLower() + " " + LEDrives->text() + " -t cdrom -usecd 0 -aspi";
                         }
                         break;
                 }
                 break;
             case 2:               // Use Directory as Floppy
-                if ( ui.chkBoxLabelCDDVD->isChecked() ) {
-                    if ( !ui.LEDeviceLabel->text().isEmpty() ) {
-                        addStr = "mount " + ui.cbxDrive->currentText().toLower() + " " + ui.LEDrives->text() + " -t floppy -label " + ui.LEDeviceLabel->text();
+                if ( chkBoxLabelCDDVD->isChecked() ) {
+                    if ( !LEDeviceLabel->text().isEmpty() ) {
+                        addStr = "mount " + cbxDrive->currentText().toLower() + " " + LEDrives->text() + " -t floppy -label " + LEDeviceLabel->text();
                     } else {
                         QMessageBox::information( this, winTitle(), tr( "Please enter a valid name for label." ) );
                         return ;
                     }
                 } else {
-                    ui.LEDeviceLabel->setText( "" );
-                    addStr = "mount " + ui.cbxDrive->currentText().toLower() + " " + ui.LEDrives->text() + " -t floppy";
+                    LEDeviceLabel->setText( "" );
+                    addStr = "mount " + cbxDrive->currentText().toLower() + " " + LEDrives->text() + " -t floppy";
                 }
                 break;
         }
     }
 
-    if ( ui.chkBoxSwitchDir->isChecked() ) {
-        QListWidgetItem * item = new QListWidgetItem( ui.lwAutoexec );
+    if ( chkBoxSwitchDir->isChecked() ) {
+        QListWidgetItem * item = new QListWidgetItem( lwAutoexec );
         item->setText( addStr );
-        QListWidgetItem *itemDir = new QListWidgetItem( ui.lwAutoexec );
-        itemDir->setText( ui.cbxDrive->currentText().toLower() + ":" );
-        ui.chkBoxSwitchDir->setChecked( false );
+        QListWidgetItem *itemDir = new QListWidgetItem( lwAutoexec );
+        itemDir->setText( cbxDrive->currentText().toLower() + ":" );
+        chkBoxSwitchDir->setChecked( false );
     } else {
-        QListWidgetItem *item = new QListWidgetItem( ui.lwAutoexec );
+        QListWidgetItem *item = new QListWidgetItem( lwAutoexec );
         item->setText( addStr );
     }
     addStr = "";
@@ -489,7 +484,7 @@ void DBoxFE::slotAutoexecAdd()
  **/
 void DBoxFE::slotAutoexecRemove()
 {
-    QListWidgetItem * item = ui.lwAutoexec->currentItem();
+    QListWidgetItem * item = lwAutoexec->currentItem();
 
     if ( item == NULL ) {
         QMessageBox::information( this, winTitle(), tr( "No item was selected." ) );
@@ -516,7 +511,7 @@ void DBoxFE::slotAutoexecDrive()
     if ( strAutoDrive.isEmpty() )
         return ;
 
-    ui.LEDrives->setText( strAutoDrive );
+    LEDrives->setText( strAutoDrive );
 }
 
 /**
@@ -524,15 +519,15 @@ void DBoxFE::slotAutoexecDrive()
  **/
 void DBoxFE::slotAutoexecUp()
 {
-    if ( ui.lwAutoexec->currentItem() == NULL )
+    if ( lwAutoexec->currentItem() == NULL )
         return ;
 
-    if ( ui.lwAutoexec->row( ui.lwAutoexec->currentItem() ) <= 0 )
+    if ( lwAutoexec->row( lwAutoexec->currentItem() ) <= 0 )
         return ;
 
-    QListWidgetItem *item = ui.lwAutoexec->currentItem();
-    ui.lwAutoexec->insertItem( ui.lwAutoexec->row( ui.lwAutoexec->currentItem() ), ui.lwAutoexec->takeItem( ui.lwAutoexec->row( ui.lwAutoexec->currentItem() ) ) );
-    ui.lwAutoexec->setCurrentItem( item );
+    QListWidgetItem *item = lwAutoexec->currentItem();
+    lwAutoexec->insertItem( lwAutoexec->row( lwAutoexec->currentItem() ), lwAutoexec->takeItem( lwAutoexec->row( lwAutoexec->currentItem() ) ) );
+    lwAutoexec->setCurrentItem( item );
 }
 
 /**
@@ -540,13 +535,13 @@ void DBoxFE::slotAutoexecUp()
  **/
 void DBoxFE::slotAutoexecDown()
 {
-    if ( ui.lwAutoexec->currentItem() == NULL )
+    if ( lwAutoexec->currentItem() == NULL )
         return ;
 
-    if ( ( ui.lwAutoexec->row( ui.lwAutoexec->currentItem() ) + 1 ) >= ui.lwAutoexec->count() )
+    if ( ( lwAutoexec->row( lwAutoexec->currentItem() ) + 1 ) >= lwAutoexec->count() )
         return ;
 
-    ui.lwAutoexec->insertItem( ui.lwAutoexec->row( ui.lwAutoexec->currentItem() ), ui.lwAutoexec->takeItem( ui.lwAutoexec->row( ui.lwAutoexec->currentItem() ) + 1 ) );
+    lwAutoexec->insertItem( lwAutoexec->row( lwAutoexec->currentItem() ), lwAutoexec->takeItem( lwAutoexec->row( lwAutoexec->currentItem() ) + 1 ) );
 }
 
 /**
@@ -555,54 +550,54 @@ void DBoxFE::slotAutoexecDown()
 void DBoxFE::slotSerialAdd()
 {
     // Check if the item availabel in the list then show a message and exit function
-    QList<QTreeWidgetItem *> it( ui.twSerial->findItems( ui.cbxDSSerial->currentText(), Qt::MatchExactly, 0 ) );
+    QList<QTreeWidgetItem *> it( twSerial->findItems( cbxDSSerial->currentText(), Qt::MatchExactly, 0 ) );
     for ( int a = 0; a < it.size(); ++a ) {
         QTreeWidgetItem *sItem;
         sItem = it.value( a );
-        if ( sItem->text( a ) == ui.cbxDSSerial->currentText() ) {
+        if ( sItem->text( a ) == cbxDSSerial->currentText() ) {
             QMessageBox::information( this, winTitle(), tr( "Can not add the same serial '" ) + sItem->text( a ) + tr( "' port to the list." ) );
             return ;
         }
     }
 
     // Check if the list count higher as 4 then show message and exit function
-    if ( ui.twSerial->topLevelItemCount() >= 4 ) {
+    if ( twSerial->topLevelItemCount() >= 4 ) {
         QMessageBox::information( this, winTitle(), tr( "Can not add 5 serialports to the list, maximal 4 are allow." ) );
         return ;
     }
 
-    QTreeWidgetItem *item = new QTreeWidgetItem( ui.twSerial );
-    item->setText( 0, ui.cbxDSSerial->currentText() );
+    QTreeWidgetItem *item = new QTreeWidgetItem( twSerial );
+    item->setText( 0, cbxDSSerial->currentText() );
 
     QString serialOption;
 
-    switch ( ui.cbxDSOption->currentIndex() ) {
+    switch ( cbxDSOption->currentIndex() ) {
         case 0:               // diasabled
-            item->setText( 1, ui.cbxDSOption->currentText() );
+            item->setText( 1, cbxDSOption->currentText() );
             break;
         case 1:               // dummy
-            item->setText( 1, ui.cbxDSOption->currentText() );
+            item->setText( 1, cbxDSOption->currentText() );
             break;
         case 2:               // modem
-            serialOption = ui.cbxDSOption->currentText() + " " +
-                           "listenport:" + ui.LEDSListenPort->text() + " " +
-                           "realport:" + ui.cbxDSRealPort->currentText() + " " +
-                           "startbps:" + ui.LEDSBps->text() + " " +
-                           "parity:" + ui.cbxDSParity->currentText() + " " +
-                           "bytesize:" + ui.cbxDSByteSize->currentText() + " " +
-                           "stopbits:" + ui.cbxDSStopBit->currentText() + " " +
-                           "irq:" + ui.LEDSIrq->text();
+            serialOption = cbxDSOption->currentText() + " " +
+                           "listenport:" + LEDSListenPort->text() + " " +
+                           "realport:" + cbxDSRealPort->currentText() + " " +
+                           "startbps:" + LEDSBps->text() + " " +
+                           "parity:" + cbxDSParity->currentText() + " " +
+                           "bytesize:" + cbxDSByteSize->currentText() + " " +
+                           "stopbits:" + cbxDSStopBit->currentText() + " " +
+                           "irq:" + LEDSIrq->text();
 
             item->setText( 1, serialOption );
             break;
         case 3:               // directserial
-            serialOption = ui.cbxDSOption->currentText() + " " +
-                           "realport:" + ui.cbxDSRealPort->currentText() + " " +
-                           "startbps:" + ui.LEDSBps->text() + " " +
-                           "parity:" + ui.cbxDSParity->currentText() + " " +
-                           "bytesize:" + ui.cbxDSByteSize->currentText() + " " +
-                           "stopbits:" + ui.cbxDSStopBit->currentText() + " " +
-                           "irq:" + ui.LEDSIrq->text();
+            serialOption = cbxDSOption->currentText() + " " +
+                           "realport:" + cbxDSRealPort->currentText() + " " +
+                           "startbps:" + LEDSBps->text() + " " +
+                           "parity:" + cbxDSParity->currentText() + " " +
+                           "bytesize:" + cbxDSByteSize->currentText() + " " +
+                           "stopbits:" + cbxDSStopBit->currentText() + " " +
+                           "irq:" + LEDSIrq->text();
 
             item->setText( 1, serialOption );
             break;
@@ -614,7 +609,7 @@ void DBoxFE::slotSerialAdd()
  **/
 void DBoxFE::slotSerialRemove()
 {
-    QTreeWidgetItem * item = ui.twSerial->currentItem();
+    QTreeWidgetItem * item = twSerial->currentItem();
 
     if ( item == NULL ) {
         QMessageBox::information( this, winTitle(), tr( "No item was selected." ) );
@@ -660,7 +655,7 @@ void DBoxFE::slotListWidget( QListWidgetItem* item )
     if ( !f.exists() )
         return ;
 
-    // gpIni.readGPIni( file, ui.lwProfile  );
+    // gpIni.readGPIni( file, lwProfile  );
     gpIni.readConf( file, this );
 }
 
@@ -705,8 +700,8 @@ void DBoxFE::slotListWidgetOutPut( QPoint point )
         QTextStream t( &f1 );
         t << "**** " << QDateTime::currentDateTime().toString( "dd.MM.yyyy : hh:mm:ss" ) << " ****\n";
 
-        for ( int i = 0; i < ui.lwOutPut->count(); i++ ) {
-            t << ui.lwOutPut->item( i ) ->text();
+        for ( int i = 0; i < lwOutPut->count(); i++ ) {
+            t << lwOutPut->item( i ) ->text();
         }
 
         t << "\n**** " << QDateTime::currentDateTime().toString( "dd.MM.yyyy : hh:mm:ss" ) << " ****\n\n";
@@ -714,7 +709,7 @@ void DBoxFE::slotListWidgetOutPut( QPoint point )
         t.flush();
         f1.close();
 
-        ui.lwOutPut->clear();
+        lwOutPut->clear();
         return ;
     }
 }
@@ -726,44 +721,44 @@ void DBoxFE::slotCbxSerialIndexChanged( int index )
 {
     switch ( index ) {
         case 0:               // diasabled
-            ui.gBoxSerialOption->setEnabled( false );
+            gBoxSerialOption->setEnabled( false );
             break;
         case 1:               // dummy
-            ui.gBoxSerialOption->setEnabled( false );
+            gBoxSerialOption->setEnabled( false );
             break;
         case 2:               // modem
-            ui.gBoxSerialOption->setEnabled( true );
-            ui.lblDSRealPort->setEnabled( true );
-            ui.cbxDSRealPort->setEnabled( true );
-            ui.lblDSIrq->setEnabled( true );
-            ui.LEDSIrq->setEnabled( true );
-            ui.lblDSDefaultBps->setEnabled( true );
-            ui.LEDSBps->setEnabled( true );
-            ui.lblDSByteSize->setEnabled( true );
-            ui.cbxDSByteSize->setEnabled( true );
-            ui.lblDSStopBit->setEnabled( true );
-            ui.cbxDSStopBit->setEnabled( true );
-            ui.lblDSParity->setEnabled( true );
-            ui.cbxDSParity->setEnabled( true );
-            ui.lblDSComPort->setEnabled( false );
-            ui.cbxDSComPort->setEnabled( false );
+            gBoxSerialOption->setEnabled( true );
+            lblDSRealPort->setEnabled( true );
+            cbxDSRealPort->setEnabled( true );
+            lblDSIrq->setEnabled( true );
+            LEDSIrq->setEnabled( true );
+            lblDSDefaultBps->setEnabled( true );
+            LEDSBps->setEnabled( true );
+            lblDSByteSize->setEnabled( true );
+            cbxDSByteSize->setEnabled( true );
+            lblDSStopBit->setEnabled( true );
+            cbxDSStopBit->setEnabled( true );
+            lblDSParity->setEnabled( true );
+            cbxDSParity->setEnabled( true );
+            lblDSComPort->setEnabled( false );
+            cbxDSComPort->setEnabled( false );
             break;
         case 3:               // directserial
-            ui.gBoxSerialOption->setEnabled( true );
-            ui.lblDSRealPort->setEnabled( true );
-            ui.cbxDSRealPort->setEnabled( true );
-            ui.lblDSIrq->setEnabled( true );
-            ui.LEDSIrq->setEnabled( true );
-            ui.lblDSDefaultBps->setEnabled( true );
-            ui.LEDSBps->setEnabled( true );
-            ui.lblDSByteSize->setEnabled( true );
-            ui.cbxDSByteSize->setEnabled( true );
-            ui.lblDSStopBit->setEnabled( true );
-            ui.cbxDSStopBit->setEnabled( true );
-            ui.lblDSParity->setEnabled( true );
-            ui.cbxDSParity->setEnabled( true );
-            ui.lblDSComPort->setEnabled( false );
-            ui.cbxDSComPort->setEnabled( false );
+            gBoxSerialOption->setEnabled( true );
+            lblDSRealPort->setEnabled( true );
+            cbxDSRealPort->setEnabled( true );
+            lblDSIrq->setEnabled( true );
+            LEDSIrq->setEnabled( true );
+            lblDSDefaultBps->setEnabled( true );
+            LEDSBps->setEnabled( true );
+            lblDSByteSize->setEnabled( true );
+            cbxDSByteSize->setEnabled( true );
+            lblDSStopBit->setEnabled( true );
+            cbxDSStopBit->setEnabled( true );
+            lblDSParity->setEnabled( true );
+            cbxDSParity->setEnabled( true );
+            lblDSComPort->setEnabled( false );
+            cbxDSComPort->setEnabled( false );
             break;
     }
 }
@@ -771,16 +766,16 @@ void DBoxFE::slotCbxAutoexecIndexChanged( int index )
 {
     switch ( index ) {
         case 0:               // Default
-            ui.lblAutoexecCDDVDROMOption->setEnabled( false );
-            ui.cbxAutoexecCDDVDROMOption->setEnabled( false );
+            lblAutoexecCDDVDROMOption->setEnabled( false );
+            cbxAutoexecCDDVDROMOption->setEnabled( false );
             break;
         case 1:               // Use directory as CD/DVD ROM
-            ui.lblAutoexecCDDVDROMOption->setEnabled( true );
-            ui.cbxAutoexecCDDVDROMOption->setEnabled( true );
+            lblAutoexecCDDVDROMOption->setEnabled( true );
+            cbxAutoexecCDDVDROMOption->setEnabled( true );
             break;
         case 2:               // Use directory as floppy drive
-            ui.lblAutoexecCDDVDROMOption->setEnabled( false );
-            ui.cbxAutoexecCDDVDROMOption->setEnabled( false );
+            lblAutoexecCDDVDROMOption->setEnabled( false );
+            cbxAutoexecCDDVDROMOption->setEnabled( false );
             break;
     }
 }
@@ -807,7 +802,7 @@ void DBoxFE::start( const QString& bin, const QString &param, const QString &con
     m_param.append( param );
     m_param.append( conf );
 
-    if ( ui.chkBoxStartmapper->isChecked() )
+    if ( chkBoxStartmapper->isChecked() )
         m_param.append( "-startmapper" );
 
 #ifdef Q_OS_WIN32
@@ -823,11 +818,11 @@ void DBoxFE::start( const QString& bin, const QString &param, const QString &con
     connect( dBox, SIGNAL( error( QProcess::ProcessError ) ), this, SLOT( err( QProcess::ProcessError ) ) );
 
 
-    if ( ui.chkBoxWindowHide->isChecked() == true ) {
+    if ( chkBoxWindowHide->isChecked() == true ) {
         this->hide();
     }
 
-    ui.btnStartDBox->setEnabled( false );
+    btnStartDBox->setEnabled( false );
 
     m_param.clear();
 }
@@ -839,8 +834,8 @@ void DBoxFE::readOutput()
 {
     while ( dBox->canReadLine() ) {
         m_result = dBox->readLine();
-        ui.lwOutPut->addItem( tr( "dosbox cmd output -> " ) + m_result.mid( m_result.indexOf( ":" ) + 1 ) );
-        ui.lwOutPut->update();
+        lwOutPut->addItem( tr( "dosbox cmd output -> " ) + m_result.mid( m_result.indexOf( ":" ) + 1 ) );
+        lwOutPut->update();
     }
 }
 
@@ -868,8 +863,8 @@ void DBoxFE::finish( int exitCode, QProcess::ExitStatus exitStatus )
     QTextStream t( &outFile );
     while ( !t.atEnd() ) {
         outLine = t.readLine();
-        ui.lwOutPut->addItem( tr( "dosbox cmd output -> " ) + outLine.mid( outLine.indexOf( ":" ) + 1 ) );
-        ui.lwOutPut->update();
+        lwOutPut->addItem( tr( "dosbox cmd output -> " ) + outLine.mid( outLine.indexOf( ":" ) + 1 ) );
+        lwOutPut->update();
     }
 
     outFile.close();
@@ -877,16 +872,16 @@ void DBoxFE::finish( int exitCode, QProcess::ExitStatus exitStatus )
 
     switch ( exitStatus ) {
         case QProcess::NormalExit:
-            ui.lwOutPut->addItem( tr( "dboxfe: dosbox process exited normally" ) );
+            lwOutPut->addItem( tr( "dboxfe: dosbox process exited normally" ) );
             qDebug() << exitCode;
             break;
         case QProcess::CrashExit:
-            ui.lwOutPut->addItem( tr( "dboxfe: dosbox process crashed" ) );
+            lwOutPut->addItem( tr( "dboxfe: dosbox process crashed" ) );
             qDebug() << exitCode;
             break;
     }
 
-    ui.btnStartDBox->setEnabled( true );
+    btnStartDBox->setEnabled( true );
 }
 
 /**
@@ -898,24 +893,24 @@ void DBoxFE::err( QProcess::ProcessError error )
 
     switch ( error ) {
         case QProcess::FailedToStart:
-            ui.lwOutPut->addItem( tr( "dboxfe: the dosbox process failed to start" ) );
+            lwOutPut->addItem( tr( "dboxfe: the dosbox process failed to start" ) );
             break;
         case QProcess::Crashed:
-            ui.lwOutPut->addItem( tr( "dboxfe: dosbox process crashed some time after starting successfully" ) );
+            lwOutPut->addItem( tr( "dboxfe: dosbox process crashed some time after starting successfully" ) );
             break;
         case QProcess::Timedout:
-            ui.lwOutPut->addItem( tr( "dboxfe: last waitFor...() function timed out" ) );
+            lwOutPut->addItem( tr( "dboxfe: last waitFor...() function timed out" ) );
             break;
         case QProcess::WriteError:
-            ui.lwOutPut->addItem( tr( "dboxfe: an error occurred when attempting to write to the dosbox process" ) );
+            lwOutPut->addItem( tr( "dboxfe: an error occurred when attempting to write to the dosbox process" ) );
             break;
         case QProcess::ReadError:
-            ui.lwOutPut->addItem( tr( "dboxfe: an error occurred when attempting to read from the dosbox process" ) );
+            lwOutPut->addItem( tr( "dboxfe: an error occurred when attempting to read from the dosbox process" ) );
             break;
         case QProcess::UnknownError:
-            ui.lwOutPut->addItem( tr( "dboxfe: An unknown error occurred" ) );
+            lwOutPut->addItem( tr( "dboxfe: An unknown error occurred" ) );
             break;
     }
 
-    ui.btnStartDBox->setEnabled( true );
+    btnStartDBox->setEnabled( true );
 }

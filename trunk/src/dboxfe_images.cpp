@@ -28,11 +28,11 @@
 
 DBoxFE_Image::DBoxFE_Image( QDialog *parent, Qt::WFlags flags ) : QDialog( parent, flags )
 {
-    ui.setupUi( this );
+    setupUi( this );
 
     // connection
-    connect( ui.btnApply, SIGNAL( clicked() ), this, SLOT( slotApply() ) );
-    connect( ui.btnAbort, SIGNAL( clicked() ), this, SLOT( slotAbort() ) );
+    connect( btnApply, SIGNAL( clicked() ), this, SLOT( slotApply() ) );
+    connect( btnAbort, SIGNAL( clicked() ), this, SLOT( slotAbort() ) );
 
     // center the wiget on desktop screen
     QDesktopWidget *desktop = qApp->desktop();
@@ -46,7 +46,7 @@ DBoxFE_Image::~DBoxFE_Image() {}
 
 void DBoxFE_Image::slotApply()
 {
-    QListWidgetItem * qlwItem = ui.lwImage->currentItem();
+    QListWidgetItem * qlwItem = lwImage->currentItem();
     if ( qlwItem == NULL ) {
         QMessageBox::information( this, "DBox Front End", "No item was selected." );
     }
