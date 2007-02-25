@@ -30,7 +30,7 @@ class QFile;
 class QHttp;
 class QHttpResponseHeader;
 
-class DBoxFE_ProfileWizard : public QDialog
+class DBoxFE_ProfileWizard : public QDialog, public Ui::DBoxFE_ProfileWizard
 {
         Q_OBJECT
 
@@ -38,8 +38,8 @@ class DBoxFE_ProfileWizard : public QDialog
         DBoxFE_ProfileWizard( QDialog *parent = 0, Qt::WFlags flags = 0 );
         ~DBoxFE_ProfileWizard();
 
-        Ui::DBoxFE_ProfileWizard ui;
-        DBoxFE *dbfe;
+		DBoxFE *dbfe;
+
     private:
         QStringList gpList;
         QString m_gp_file;

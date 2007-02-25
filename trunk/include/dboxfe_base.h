@@ -137,7 +137,7 @@ class DB_BASE
          */
         void saveGameDb( const QString &file, QTreeWidget* qtw, int col1, int col2 );
 
-				/**
+		/**
          * Read game xml 
          *
          * @param file			Game name
@@ -145,6 +145,23 @@ class DB_BASE
          * @since 0.1.2
          */
         void readGameDb( const QString &file, QProgressBar *pBar, QTreeWidget* qtw );
+
+		/**
+         * Import DFend - Profile :)
+         *
+         * @param file			DFEnd - Profil file
+         * @since 0.1.2
+         */
+        void importDFendProfile( const QString &file, DBoxFE *dbfe );
+
+		/**
+         * Check for double entryies in profillist
+         *
+         * @param dbfe			...
+		 * @param name			Name of profile
+         * @since 0.1.2
+         */
+		bool isDoubleEntry( const QString &name, DBoxFE* dbfe );
 };
 
 #endif // DBOXFE_BASE_H

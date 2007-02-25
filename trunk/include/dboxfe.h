@@ -24,7 +24,7 @@
 
 #include "ui_dboxfe.h"
 
-class DBoxFE : public QWidget
+class DBoxFE : public QWidget, public Ui::DBoxFE
 {
         Q_OBJECT
 
@@ -32,7 +32,6 @@ class DBoxFE : public QWidget
         DBoxFE( QWidget *parent = 0, Qt::WFlags flags = 0 );
         ~DBoxFE();
 
-        Ui::DBoxFE ui;
         QString getAppVersion() { return tr( "v0.1.2" ); }
         QString winTitle() { return tr( "DBox Front End" ); }
 

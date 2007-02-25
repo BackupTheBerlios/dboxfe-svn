@@ -24,15 +24,13 @@
 
 #include "ui_gamesettings.h"
 
-class DBoxFE_GameSettings : public QWidget
+class DBoxFE_GameSettings : public QWidget, public Ui::DBoxFE_GameSettings
 {
         Q_OBJECT
 
     public:
         DBoxFE_GameSettings( QWidget *parent = 0, Qt::WFlags flags = 0 );
-        ~DBoxFE_GameSettings();
-
-        Ui::DBoxFE_GameSettings ui;
+        ~DBoxFE_GameSettings();        
 
     private slots:
         void slotAdd();

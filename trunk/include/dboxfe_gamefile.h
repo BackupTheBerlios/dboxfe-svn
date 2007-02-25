@@ -26,7 +26,7 @@
 #include <QtCore>
 #include <QtNetwork>
 
-class DBoxFE_GameFile : public QWidget
+class DBoxFE_GameFile : public QWidget, public Ui::DBoxFE_GameFile
 {
 	Q_OBJECT
 
@@ -34,7 +34,6 @@ class DBoxFE_GameFile : public QWidget
 		DBoxFE_GameFile( QWidget *parent = 0, Qt::WFlags flags = 0 );
         ~DBoxFE_GameFile();
 
-        Ui::DBoxFE_GameFile ui;
 		DBoxFE_GameSettings *dbfe_gs;
 
     protected:

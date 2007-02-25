@@ -23,15 +23,13 @@
 
 #include "ui_profile.h"
 
-class DBoxFE_Profile : public QDialog
+class DBoxFE_Profile : public QDialog, public Ui::DBoxFE_Profile
 {
         Q_OBJECT
 
     public:
         DBoxFE_Profile( QDialog *parent = 0, Qt::WFlags flags = 0 );
         ~DBoxFE_Profile();
-
-        Ui::DBoxFE_Profile ui;
 
     private slots:
         void slotAdd();

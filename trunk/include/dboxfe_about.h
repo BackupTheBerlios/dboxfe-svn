@@ -24,15 +24,13 @@
 
 #include "ui_about.h"
 
-class DBoxFE_About : public QWidget
+class DBoxFE_About : public QWidget, public Ui::DBoxFE_About
 {
         Q_OBJECT
 
     public:
         DBoxFE_About( QWidget *parent = 0, Qt::WFlags flags = 0 );
-        ~DBoxFE_About();
-
-        Ui::DBoxFE_About ui;
+        ~DBoxFE_About();        
 
     private slots:
         void readThxFile( const QString &thxFile );
