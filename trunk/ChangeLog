@@ -1,9 +1,9 @@
 2007-02-25  Alexander Saal  <alex.saal@gmx.de>
- * FIXED:	problems with double profile entries (Thanks to Obi-Wahn (Tobias Henze - obi-wahn [at] osnanet.de))
+ * ADD:		new function, to return true or false if profile exists and fixed problems with double profile entries (Thanks to Obi-Wahn (Tobias Henze - obi-wahn [at] osnanet.de))
  * UPDATE:	clean up unused code
  * UPDATE:	german language file
  * UPDATE:	ChangeLog
-
+ 
 2007-02-22  Alexander Saal  <alex.saal@gmx.de>
  * ADD:		rc file again
  * ADD:		native Windows Look & Feel (better performance)     
