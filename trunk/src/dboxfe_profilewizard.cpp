@@ -74,12 +74,14 @@ void DBoxFE_ProfileWizard::slotFinish()
     m_gp_file = QDir::homePath();
     m_gp_file.append( "/.dboxfe/profile/profile.xml" );
 
+	gpList.clear();
+
     if ( btnNext->text() == tr( "&Finish" ) ) {
-        lblSaveCfg->setEnabled( true );
+        lblSaveCfg->setEnabled( true );		
 
         for ( int a = 0; a < lwGames->topLevelItemCount(); ++a ) {
             QTreeWidgetItem *item = lwGames->topLevelItem( a );
-            gpList.append( item->text( 0 ) );
+			gpList.append( item->text( 0 ) );
         }
 
         lblCreateGP->setEnabled( true );
@@ -149,7 +151,6 @@ void DBoxFE_ProfileWizard::slotSearch()
     DB_BASE base;
 
     QString path = LEDirectory->text();
-    QStringList files;
 
     if ( path.isEmpty() )
         return ;

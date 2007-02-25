@@ -701,7 +701,7 @@ void DBoxFE::slotListWidgetOutPut( QPoint point )
         t << "**** " << QDateTime::currentDateTime().toString( "dd.MM.yyyy : hh:mm:ss" ) << " ****\n";
 
         for ( int i = 0; i < lwOutPut->count(); i++ ) {
-            t << lwOutPut->item( i ) ->text();
+            t << lwOutPut->item( i )->text() << "\n";
         }
 
         t << "\n**** " << QDateTime::currentDateTime().toString( "dd.MM.yyyy : hh:mm:ss" ) << " ****\n\n";

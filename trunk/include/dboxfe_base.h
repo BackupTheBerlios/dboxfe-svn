@@ -97,7 +97,7 @@ class DB_BASE
          * @param gamesList	QStrinList with all selected games
          * @since 0.1.0
          */
-        void createGameProfiles( const QString &file, const QStringList &gamesList, DBoxFE* dbfe, DBoxFE_ProfileWizard* dbfe_pw );
+        void createGameProfiles( const QString &file, QStringList &gamesList, DBoxFE* dbfe, DBoxFE_ProfileWizard* dbfe_pw );
 
         /**
          * Load image from directory

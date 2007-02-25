@@ -590,25 +590,33 @@ void DB_BASE::findGames( const QString &dirName, QTreeWidget* qtw )
 /*
  * Create game profiles
  */
-void DB_BASE::createGameProfiles( const QString &file, const QStringList &gamesList, DBoxFE* dbfe, DBoxFE_ProfileWizard* dbfe_pw )
+void DB_BASE::createGameProfiles( const QString &file, QStringList &gamesList, DBoxFE* dbfe, DBoxFE_ProfileWizard* dbfe_pw )
 {
+
     /* init settings from mainwindow */
+	dbfe->lwProfile->clear();
     dbfe->init();
+
+	/* remove double entries from list */
+	for ( int x = 0; x < gamesList.size(); ++x ) {
+		if( isDoubleEntry( gamesList.value( x ), dbfe ) ) {
+			gamesList.removeAt( x );
+		}
+	}
+
+	QString fileName;
+    fileName = ":/default/default.conf";
 
     XMLPreferences settGP( "DBoxFE", "Alexander Saal" );
     settGP.setVersion( dbfe->getAppVersion() );
 
-    settGP.setStringList( "Profile", "Name", gamesList );
-    settGP.setString( "DOSBox", "binary", dbfe->LEDbxStabel->text() );
+	settGP.setStringList( "Profile", "Name", gamesList );
+	settGP.setString( "DOSBox", "binary", dbfe->LEDbxStabel->text() );
     settGP.setString( "DOSBox", "version", dbfe->LEDbxVersion->text() );
     settGP.setInt( "DBoxFE", "Lng", dbfe->cbxLanguage->currentIndex() );
     settGP.setBool( "DBoxFE", "winHide", dbfe->chkBoxWindowHide->isChecked() );
     settGP.setBool( "DBoxFE", "keyMapper", dbfe->chkBoxStartmapper->isChecked() );
-    settGP.save( file );
-
-    QString fileName;
-
-    fileName = ":/default/default.conf";
+	settGP.save( file );
 
     QFile readFile( fileName );
     if ( !readFile.open( QIODevice::ReadOnly | QIODevice::Text ) ) {
@@ -618,6 +626,7 @@ void DB_BASE::createGameProfiles( const QString &file, const QStringList &gamesL
     QTextStream in( &readFile );
     QString line = in.readAll();
     readFile.close();
+
     for ( int x = 0; x < gamesList.size(); ++x ) {
         fileName = "";
         fileName = QDir::homePath();
@@ -625,20 +634,15 @@ void DB_BASE::createGameProfiles( const QString &file, const QStringList &gamesL
 
 		createFile = new QFile( fileName );
 
-		if( !createFile->exists() ) {
-			if( isDoubleEntry( gamesList.value( x ), dbfe ) )
-				return;
+		if ( !createFile->open( QIODevice::WriteOnly | QIODevice::Text ) )
+			return;
 
-			if ( !createFile->open( QIODevice::WriteOnly | QIODevice::Text ) )
-				return;
-
-			QTextStream out( createFile );
-			out << line;
-			out.flush();
-		}
-		
+		QTextStream out( createFile );
+		out << line;
+		out.flush();
 		createFile->close();
     }
+
     line = "";
 }
 
