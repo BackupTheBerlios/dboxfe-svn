@@ -1,5 +1,5 @@
 /*
-*   Copyright (C) 2004/05/06 by Alexander Saal <alex.saal@gmx.de>
+*   Copyright (C) 2004 - 2007 by Alexander Saal <alex.saal@gmx.de>
 *
 *   This program is free software; you can redistribute it and/or modify
 *   it under the terms of the GNU General Public License as published by
@@ -63,9 +63,9 @@ DBoxFE::DBoxFE( QWidget *parent, Qt::WFlags flags ) : QWidget( parent, flags )
     connect( cbxAutoexecDirectoryOption, SIGNAL( currentIndexChanged( int ) ), this, SLOT( slotCbxAutoexecIndexChanged( int ) ) );
 
     // windows title for the application
-    titleLin = tr( "DBoxFE - Front End for DOSBox 0.65 - Linux Version " ) + getAppVersion();
-    titleWin = tr( "DBoxFE - Front End for DOSBox 0.65 - Windows Version " ) + getAppVersion();
-    titleMac = tr( "DBoxFE - Front End for DOSBox 0.65 - Mac Version " ) + getAppVersion();
+    titleLin = tr( "DBoxFE - Front End for DOSBox 0.70 - Linux Version " ) + getAppVersion();
+    titleWin = tr( "DBoxFE - Front End for DOSBox 0.70 - Windows Version " ) + getAppVersion();
+    titleMac = tr( "DBoxFE - Front End for DOSBox 0.70 - Mac Version " ) + getAppVersion();
 
 #ifdef Q_OS_WIN32
     setWindowTitle( titleWin );
@@ -115,10 +115,8 @@ void DBoxFE::init()
     lwProfile->addItems( sList );
     LEDbxStabel->setText( QString( settGP.getString( "DOSBox", "binary" ) ) );
     LEDbxVersion->setText( QString( settGP.getString( "DOSBox", "version" ) ) );
-    cbxLanguage->setCurrentIndex( settGP.getInt( "DBoxFE", "Lng" ) );
     chkBoxWindowHide->setChecked( settGP.getBool( "DBoxFE", "winHide" ) );
     chkBoxStartmapper->setChecked( settGP.getBool( "DBoxFE", "keyMapper" ) );
-    gBoxLanguage->setHidden( true );
     btnGameDb->setHidden( true );
 
     m_file = "";
@@ -154,7 +152,6 @@ void DBoxFE::slotSaveGP()
     settGP.setStringList( "Profile", "Name", sList );
     settGP.setString( "DOSBox", "binary", LEDbxStabel->text() );
     settGP.setString( "DOSBox", "version", LEDbxVersion->text() );
-    settGP.setInt( "DBoxFE", "Lng", cbxLanguage->currentIndex() );
     settGP.setBool( "DBoxFE", "winHide", chkBoxWindowHide->isChecked() );
     settGP.setBool( "DBoxFE", "keyMapper", chkBoxStartmapper->isChecked() );
 
@@ -326,11 +323,11 @@ void DBoxFE::slotChooseDbxBinary()
             return ;
         }
 
-        if ( QString( dboxVersion.simplified() ).trimmed() == "0.65" ) {
+        if ( QString( dboxVersion.simplified() ).trimmed() <= "0.65" ) {
             LEDbxStabel->setText( strDbxStabel );
             LEDbxVersion->setText( QString( tr( "DOSBox Version:  " ) + dboxVersion ) );
         } else {
-            QMessageBox::information( this, winTitle(), tr( "Wrong dosbox version: " ) + QString( dboxVersion.simplified() ).trimmed() + tr( ", i need 0.65" ) );
+            QMessageBox::information( this, winTitle(), tr( "Wrong dosbox version: " ) + QString( dboxVersion.simplified() ).trimmed() + tr( ", i need 0.65 or higher." ) );
             delete p;
             return ;
         }
@@ -352,11 +349,11 @@ void DBoxFE::slotChooseDbxBinary()
             return ;
         }
 
-        if ( QString( dboxVersion.simplified() ).trimmed() == "0.65" ) {
+        if ( QString( dboxVersion.simplified() ).trimmed() >= "0.65" ) {
             LEDbxStabel->setText( strDbxStabel );
             LEDbxVersion->setText( QString( tr( "DOSBox Version:  " ) + dboxVersion ) );
         } else {
-            QMessageBox::information( this, winTitle(), tr( "Wrong dosbox version: " ) + QString( dboxVersion.simplified() ).trimmed() + tr( ", i need 0.65" ) );
+            QMessageBox::information( this, winTitle(), tr( "Wrong dosbox version: " ) + QString( dboxVersion.simplified() ).trimmed() + tr( ", i need 0.65 or higher." ) );
             delete p;
             return ;
         }
