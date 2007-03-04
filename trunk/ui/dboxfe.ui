@@ -35,159 +35,6 @@
    <property name="spacing" >
     <number>6</number>
    </property>
-   <item rowspan="2" row="0" column="0" >
-    <widget class="QGroupBox" name="gBoxProfile" >
-     <property name="minimumSize" >
-      <size>
-       <width>253</width>
-       <height>571</height>
-      </size>
-     </property>
-     <property name="maximumSize" >
-      <size>
-       <width>253</width>
-       <height>571</height>
-      </size>
-     </property>
-     <property name="title" >
-      <string>Gameprofile</string>
-     </property>
-     <layout class="QGridLayout" >
-      <property name="margin" >
-       <number>9</number>
-      </property>
-      <property name="spacing" >
-       <number>6</number>
-      </property>
-      <item row="1" column="0" >
-       <layout class="QGridLayout" >
-        <property name="margin" >
-         <number>0</number>
-        </property>
-        <property name="spacing" >
-         <number>6</number>
-        </property>
-        <item row="0" column="0" >
-         <widget class="QPushButton" name="btnCreateGP" >
-          <property name="minimumSize" >
-           <size>
-            <width>110</width>
-            <height>26</height>
-           </size>
-          </property>
-          <property name="maximumSize" >
-           <size>
-            <width>110</width>
-            <height>26</height>
-           </size>
-          </property>
-          <property name="text" >
-           <string> &amp;Create</string>
-          </property>
-          <property name="icon" >
-           <iconset resource="../res/dboxfe.qrc" >:/pics/images/copy_16.png</iconset>
-          </property>
-          <property name="shortcut" >
-           <string>Alt+C</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1" >
-         <widget class="QPushButton" name="btnRemoveGP" >
-          <property name="minimumSize" >
-           <size>
-            <width>110</width>
-            <height>26</height>
-           </size>
-          </property>
-          <property name="maximumSize" >
-           <size>
-            <width>110</width>
-            <height>26</height>
-           </size>
-          </property>
-          <property name="text" >
-           <string> &amp;Remove</string>
-          </property>
-          <property name="icon" >
-           <iconset resource="../res/dboxfe.qrc" >:/pics/images/cut_16.png</iconset>
-          </property>
-          <property name="shortcut" >
-           <string>Alt+R</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="0" >
-         <widget class="QPushButton" name="btnWizard" >
-          <property name="minimumSize" >
-           <size>
-            <width>110</width>
-            <height>26</height>
-           </size>
-          </property>
-          <property name="maximumSize" >
-           <size>
-            <width>110</width>
-            <height>26</height>
-           </size>
-          </property>
-          <property name="text" >
-           <string>&amp;Wizard</string>
-          </property>
-          <property name="icon" >
-           <iconset resource="../res/dboxfe.qrc" >:/pics/images/misc.png</iconset>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1" >
-         <widget class="QPushButton" name="btnGamesettings" >
-          <property name="minimumSize" >
-           <size>
-            <width>110</width>
-            <height>26</height>
-           </size>
-          </property>
-          <property name="maximumSize" >
-           <size>
-            <width>110</width>
-            <height>26</height>
-           </size>
-          </property>
-          <property name="text" >
-           <string>&amp;Games</string>
-          </property>
-          <property name="icon" >
-           <iconset resource="../res/dboxfe.qrc" >:/pics/images/computer_16.png</iconset>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="0" colspan="2" >
-         <widget class="QPushButton" name="btnImpExpDFenPrfile" >
-          <property name="minimumSize" >
-           <size>
-            <width>0</width>
-            <height>26</height>
-           </size>
-          </property>
-          <property name="maximumSize" >
-           <size>
-            <width>16777215</width>
-            <height>26</height>
-           </size>
-          </property>
-          <property name="text" >
-           <string>Import / Export DFend Profile</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item row="0" column="0" >
-       <widget class="QListWidget" name="lwProfile" />
-      </item>
-     </layout>
-    </widget>
-   </item>
    <item row="0" column="1" >
     <widget class="QTabWidget" name="twDbx" >
      <property name="currentIndex" >
@@ -1199,7 +1046,7 @@
             <item>
              <widget class="QComboBox" name="cbxCPUCycles" >
               <property name="currentIndex" >
-               <number>21</number>
+               <number>0</number>
               </property>
               <property name="maxVisibleItems" >
                <number>7</number>
@@ -1207,6 +1054,41 @@
               <item>
                <property name="text" >
                 <string>auto</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>20000</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>19000</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>18000</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>17000</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>16000</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>15000</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>14000</string>
                </property>
               </item>
               <item>
@@ -1424,8 +1306,13 @@
                <string/>
               </property>
               <property name="currentIndex" >
-               <number>1</number>
+               <number>0</number>
               </property>
+              <item>
+               <property name="text" >
+                <string>auto</string>
+               </property>
+              </item>
               <item>
                <property name="text" >
                 <string>simple</string>
@@ -1473,8 +1360,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>195</width>
-            <height>116</height>
+            <width>629</width>
+            <height>348</height>
            </rect>
           </property>
           <attribute name="label" >
@@ -1654,8 +1541,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>390</width>
-            <height>114</height>
+            <width>629</width>
+            <height>348</height>
            </rect>
           </property>
           <attribute name="label" >
@@ -2065,8 +1952,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>220</width>
-            <height>164</height>
+            <width>629</width>
+            <height>348</height>
            </rect>
           </property>
           <attribute name="label" >
@@ -2361,8 +2248,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>250</width>
-            <height>90</height>
+            <width>254</width>
+            <height>94</height>
            </rect>
           </property>
           <attribute name="label" >
@@ -2562,8 +2449,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>210</width>
-            <height>94</height>
+            <width>629</width>
+            <height>348</height>
            </rect>
           </property>
           <attribute name="label" >
@@ -2763,6 +2650,9 @@
        </property>
        <item row="0" column="0" >
         <widget class="QTabWidget" name="twMisc" >
+         <property name="currentIndex" >
+          <number>0</number>
+         </property>
          <widget class="QWidget" name="tbInternetCfg" >
           <attribute name="title" >
            <string>Internet</string>
@@ -3345,7 +3235,7 @@
          </widget>
          <widget class="QWidget" name="tbDosBios" >
           <attribute name="title" >
-           <string>DOS &amp;&amp; BIOS</string>
+           <string>DOS, BIOS &amp;&amp; Joystick</string>
           </attribute>
           <layout class="QGridLayout" >
            <property name="margin" >
@@ -3354,52 +3244,18 @@
            <property name="spacing" >
             <number>6</number>
            </property>
-           <item row="1" column="1" >
-            <widget class="QGroupBox" name="gBoxJoystickType" >
-             <property name="title" >
-              <string>Joysticktype</string>
+           <item row="2" column="0" colspan="2" >
+            <spacer>
+             <property name="orientation" >
+              <enum>Qt::Vertical</enum>
              </property>
-             <layout class="QGridLayout" >
-              <property name="margin" >
-               <number>9</number>
-              </property>
-              <property name="spacing" >
-               <number>6</number>
-              </property>
-              <item row="0" column="0" >
-               <widget class="QComboBox" name="cbxJoystickType" >
-                <property name="currentIndex" >
-                 <number>1</number>
-                </property>
-                <item>
-                 <property name="text" >
-                  <string>none</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text" >
-                  <string>2axis</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text" >
-                  <string>4axis</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text" >
-                  <string>fcs</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text" >
-                  <string>ch</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-             </layout>
-            </widget>
+             <property name="sizeHint" >
+              <size>
+               <width>551</width>
+               <height>252</height>
+              </size>
+             </property>
+            </spacer>
            </item>
            <item row="1" column="0" >
             <widget class="QGroupBox" name="gBoxDOS" >
@@ -3413,6 +3269,127 @@
               <property name="spacing" >
                <number>6</number>
               </property>
+              <item row="2" column="0" colspan="2" >
+               <layout class="QGridLayout" >
+                <property name="margin" >
+                 <number>0</number>
+                </property>
+                <property name="spacing" >
+                 <number>6</number>
+                </property>
+                <item row="0" column="0" >
+                 <widget class="QLabel" name="lblKeyboardLayout" >
+                  <property name="minimumSize" >
+                   <size>
+                    <width>110</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize" >
+                   <size>
+                    <width>110</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="text" >
+                   <string>Keybordlayot:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1" >
+                 <widget class="QComboBox" name="cbxKeyboardLayout" >
+                  <property name="currentIndex" >
+                   <number>0</number>
+                  </property>
+                  <item>
+                   <property name="text" >
+                    <string>none</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>BG</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>CZ243</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>FR</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>GK</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>GR</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>HR</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>HU</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>IT</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>NL</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>NO</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>PL</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>RU</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>SK</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>SP</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>SU</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>SV</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
+              </item>
               <item row="1" column="0" colspan="2" >
                <layout class="QGridLayout" >
                 <property name="margin" >
@@ -3464,6 +3441,28 @@
                 </item>
                </layout>
               </item>
+              <item row="0" column="0" >
+               <widget class="QCheckBox" name="chkBoxXMS" >
+                <property name="minimumSize" >
+                 <size>
+                  <width>110</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize" >
+                 <size>
+                  <width>110</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="text" >
+                 <string>XMS</string>
+                </property>
+                <property name="checked" >
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
               <item row="0" column="1" >
                <widget class="QCheckBox" name="chkBoxEMS" >
                 <property name="minimumSize" >
@@ -3486,25 +3485,83 @@
                 </property>
                </widget>
               </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="1" column="1" >
+            <widget class="QGroupBox" name="gBoxJoystickType" >
+             <property name="title" >
+              <string>Joysticktype</string>
+             </property>
+             <layout class="QGridLayout" >
+              <property name="margin" >
+               <number>9</number>
+              </property>
+              <property name="spacing" >
+               <number>6</number>
+              </property>
               <item row="0" column="0" >
-               <widget class="QCheckBox" name="chkBoxXMS" >
-                <property name="minimumSize" >
-                 <size>
-                  <width>110</width>
-                  <height>0</height>
-                 </size>
+               <widget class="QComboBox" name="cbxJoystickType" >
+                <property name="currentIndex" >
+                 <number>0</number>
                 </property>
-                <property name="maximumSize" >
-                 <size>
-                  <width>110</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
+                <item>
+                 <property name="text" >
+                  <string>auto</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>none</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>2axis</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>4axis</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>fcs</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>ch</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="1" column="0" >
+               <widget class="QCheckBox" name="chkBoxTimed" >
                 <property name="text" >
-                 <string>XMS</string>
+                 <string>Timed</string>
                 </property>
-                <property name="checked" >
-                 <bool>true</bool>
+               </widget>
+              </item>
+              <item row="2" column="0" >
+               <widget class="QCheckBox" name="chkBoxAutofire" >
+                <property name="text" >
+                 <string>Autofire</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="0" >
+               <widget class="QCheckBox" name="chkBoxButtonWrap" >
+                <property name="text" >
+                 <string>Button wrap</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0" >
+               <widget class="QCheckBox" name="chkBoxSwap34" >
+                <property name="text" >
+                 <string>Swap 34</string>
                 </property>
                </widget>
               </item>
@@ -3747,19 +3804,6 @@
               </item>
              </layout>
             </widget>
-           </item>
-           <item row="2" column="0" colspan="2" >
-            <spacer>
-             <property name="orientation" >
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" >
-              <size>
-               <width>551</width>
-               <height>252</height>
-              </size>
-             </property>
-            </spacer>
            </item>
           </layout>
          </widget>
@@ -4310,6 +4354,94 @@
        <property name="spacing" >
         <number>6</number>
        </property>
+       <item row="1" column="0" >
+        <widget class="QGroupBox" name="groupBox_4" >
+         <property name="title" >
+          <string>Option</string>
+         </property>
+         <layout class="QGridLayout" >
+          <property name="margin" >
+           <number>9</number>
+          </property>
+          <property name="spacing" >
+           <number>6</number>
+          </property>
+          <item row="0" column="0" >
+           <layout class="QGridLayout" >
+            <property name="margin" >
+             <number>0</number>
+            </property>
+            <property name="spacing" >
+             <number>6</number>
+            </property>
+            <item row="0" column="0" >
+             <widget class="QCheckBox" name="chkBoxWindowHide" >
+              <property name="text" >
+               <string>Hide window if dosbox started</string>
+              </property>
+              <property name="checked" >
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0" >
+             <widget class="QCheckBox" name="chkBoxStartmapper" >
+              <property name="text" >
+               <string>start Keymapper</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="2" column="0" >
+        <layout class="QHBoxLayout" >
+         <property name="margin" >
+          <number>0</number>
+         </property>
+         <property name="spacing" >
+          <number>6</number>
+         </property>
+         <item>
+          <widget class="QPushButton" name="btnGameDb" >
+           <property name="enabled" >
+            <bool>false</bool>
+           </property>
+           <property name="text" >
+            <string>Gamedatabase</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer>
+           <property name="orientation" >
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" >
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+       <item row="3" column="0" >
+        <spacer>
+         <property name="orientation" >
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" >
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
        <item row="0" column="0" >
         <widget class="QGroupBox" name="gBoxExecutable" >
          <property name="title" >
@@ -4382,123 +4514,6 @@
          </layout>
         </widget>
        </item>
-       <item row="1" column="0" >
-        <widget class="QGroupBox" name="gBoxLanguage" >
-         <property name="title" >
-          <string>Language</string>
-         </property>
-         <layout class="QGridLayout" >
-          <property name="margin" >
-           <number>9</number>
-          </property>
-          <property name="spacing" >
-           <number>6</number>
-          </property>
-          <item row="0" column="0" >
-           <widget class="QComboBox" name="cbxLanguage" >
-            <item>
-             <property name="text" >
-              <string>English</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>German</string>
-             </property>
-            </item>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item row="2" column="0" >
-        <widget class="QGroupBox" name="groupBox_4" >
-         <property name="title" >
-          <string>Option</string>
-         </property>
-         <layout class="QGridLayout" >
-          <property name="margin" >
-           <number>9</number>
-          </property>
-          <property name="spacing" >
-           <number>6</number>
-          </property>
-          <item row="0" column="0" >
-           <layout class="QGridLayout" >
-            <property name="margin" >
-             <number>0</number>
-            </property>
-            <property name="spacing" >
-             <number>6</number>
-            </property>
-            <item row="0" column="0" >
-             <widget class="QCheckBox" name="chkBoxWindowHide" >
-              <property name="text" >
-               <string>Hide window if dosbox started</string>
-              </property>
-              <property name="checked" >
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="0" >
-             <widget class="QCheckBox" name="chkBoxStartmapper" >
-              <property name="text" >
-               <string>start Keymapper</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item row="4" column="0" >
-        <spacer>
-         <property name="orientation" >
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" >
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="3" column="0" >
-        <layout class="QHBoxLayout" >
-         <property name="margin" >
-          <number>0</number>
-         </property>
-         <property name="spacing" >
-          <number>6</number>
-         </property>
-         <item>
-          <widget class="QPushButton" name="btnGameDb" >
-           <property name="enabled" >
-            <bool>false</bool>
-           </property>
-           <property name="text" >
-            <string>Gamedatabase</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <spacer>
-           <property name="orientation" >
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" >
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-        </layout>
-       </item>
       </layout>
      </widget>
      <widget class="QWidget" name="tbLog" >
@@ -4536,6 +4551,168 @@
        </item>
       </layout>
      </widget>
+    </widget>
+   </item>
+   <item rowspan="2" row="0" column="0" >
+    <widget class="QGroupBox" name="gBoxProfile" >
+     <property name="minimumSize" >
+      <size>
+       <width>253</width>
+       <height>571</height>
+      </size>
+     </property>
+     <property name="maximumSize" >
+      <size>
+       <width>253</width>
+       <height>571</height>
+      </size>
+     </property>
+     <property name="title" >
+      <string>Gameprofile</string>
+     </property>
+     <layout class="QGridLayout" >
+      <property name="margin" >
+       <number>9</number>
+      </property>
+      <property name="spacing" >
+       <number>6</number>
+      </property>
+      <item row="1" column="0" >
+       <layout class="QGridLayout" >
+        <property name="margin" >
+         <number>0</number>
+        </property>
+        <property name="spacing" >
+         <number>6</number>
+        </property>
+        <item row="0" column="0" >
+         <widget class="QPushButton" name="btnCreateGP" >
+          <property name="minimumSize" >
+           <size>
+            <width>110</width>
+            <height>26</height>
+           </size>
+          </property>
+          <property name="maximumSize" >
+           <size>
+            <width>110</width>
+            <height>26</height>
+           </size>
+          </property>
+          <property name="text" >
+           <string> &amp;Create</string>
+          </property>
+          <property name="icon" >
+           <iconset resource="../res/dboxfe.qrc" >:/pics/images/copy_16.png</iconset>
+          </property>
+          <property name="shortcut" >
+           <string>Alt+C</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1" >
+         <widget class="QPushButton" name="btnRemoveGP" >
+          <property name="minimumSize" >
+           <size>
+            <width>110</width>
+            <height>26</height>
+           </size>
+          </property>
+          <property name="maximumSize" >
+           <size>
+            <width>110</width>
+            <height>26</height>
+           </size>
+          </property>
+          <property name="text" >
+           <string> &amp;Remove</string>
+          </property>
+          <property name="icon" >
+           <iconset resource="../res/dboxfe.qrc" >:/pics/images/cut_16.png</iconset>
+          </property>
+          <property name="shortcut" >
+           <string>Alt+R</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0" >
+         <widget class="QPushButton" name="btnWizard" >
+          <property name="enabled" >
+           <bool>false</bool>
+          </property>
+          <property name="minimumSize" >
+           <size>
+            <width>110</width>
+            <height>26</height>
+           </size>
+          </property>
+          <property name="maximumSize" >
+           <size>
+            <width>110</width>
+            <height>26</height>
+           </size>
+          </property>
+          <property name="text" >
+           <string>&amp;Wizard</string>
+          </property>
+          <property name="icon" >
+           <iconset resource="../res/dboxfe.qrc" >:/pics/images/misc.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1" >
+         <widget class="QPushButton" name="btnGamesettings" >
+          <property name="enabled" >
+           <bool>false</bool>
+          </property>
+          <property name="minimumSize" >
+           <size>
+            <width>110</width>
+            <height>26</height>
+           </size>
+          </property>
+          <property name="maximumSize" >
+           <size>
+            <width>110</width>
+            <height>26</height>
+           </size>
+          </property>
+          <property name="text" >
+           <string>&amp;Games</string>
+          </property>
+          <property name="icon" >
+           <iconset resource="../res/dboxfe.qrc" >:/pics/images/computer_16.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0" colspan="2" >
+         <widget class="QPushButton" name="btnImpExpDFenPrfile" >
+          <property name="enabled" >
+           <bool>false</bool>
+          </property>
+          <property name="minimumSize" >
+           <size>
+            <width>0</width>
+            <height>26</height>
+           </size>
+          </property>
+          <property name="maximumSize" >
+           <size>
+            <width>16777215</width>
+            <height>26</height>
+           </size>
+          </property>
+          <property name="text" >
+           <string>Import / Export DFend Profile</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="0" column="0" >
+       <widget class="QListWidget" name="lwProfile" />
+      </item>
+     </layout>
     </widget>
    </item>
    <item row="1" column="1" >
