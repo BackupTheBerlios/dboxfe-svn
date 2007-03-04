@@ -1,5 +1,5 @@
 /*
-*   Copyright (C) 2004/05/06 by Alexander Saal <alex.saal@gmx.de>
+*   Copyright (C) 2004 - 2007 by Alexander Saal <alex.saal@gmx.de>
 *
 *   This program is free software; you can redistribute it and/or modify
 *   it under the terms of the GNU General Public License as published by
@@ -15,6 +15,7 @@
 *   along with this program; if not, write to the Free Software Foundation,
 *   Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
+
 #ifndef DBOXFE_BASE_H
 #define DBOXFE_BASE_H
 
@@ -56,6 +57,15 @@ class DB_BASE
         static QString applicationDir();
 
         /**
+         * Save dosbox configuration file
+         *
+         * @param dbconf	Save the dosbox configuration file
+         * @param dbfe		QWidget (include all labels etc.)
+         * @since 0.1.0
+         */
+		void saveConf( const QString &dbconf, DBoxFE* dbfe );
+
+        /**
          * Read dosbox configuration file
          *
          * @param dbconf	Read the dosbox configuration file
@@ -63,23 +73,6 @@ class DB_BASE
          * @since 0.1.0
          */
         void readConf( const QString &dbconf, DBoxFE* dbfe );
-
-        /**
-         * Save dosbox configuration file
-         *
-         * @param dbconf	Save the dosbox configuration file
-         * @param dbfe		QWidget (include all labels etc.)
-         * @since 0.1.0
-         */
-        void saveConf( const QString &dbconf, DBoxFE* dbfe );
-
-        /**
-         * Set default setting
-         *
-         * @param dbfe		QWidget (include all labels etc.)
-         * @since 0.1.0
-         */
-        void defaultSettings( DBoxFE *dbfe );
 
         /**
          * Search game executable
