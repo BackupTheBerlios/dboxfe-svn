@@ -1,7 +1,4 @@
 <ui version="4.0" >
- <author></author>
- <comment></comment>
- <exportmacro></exportmacro>
  <class>DBoxFE_About</class>
  <widget class="QWidget" name="DBoxFE_About" >
   <property name="geometry" >
@@ -216,7 +213,7 @@
            <item>
             <widget class="QLabel" name="label_11" >
              <property name="text" >
-              <string>© '2004/05/06 by Alexander Saal</string>
+              <string>© '2004 - 07 by Alexander Saal</string>
              </property>
             </widget>
            </item>
@@ -367,7 +364,10 @@
           <bool>true</bool>
          </property>
          <property name="html" >
-          <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:Verdana; font-size:12pt; font-weight:400; font-style:normal; text-decoration:none;">&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;/p>&lt;/body>&lt;/html></string>
+          <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+p, li { white-space: pre-wrap; }
+&lt;/style>&lt;/head>&lt;body style=" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal; text-decoration:none;">
+&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Verdana'; font-size:12pt;">&lt;/p>&lt;/body>&lt;/html></string>
          </property>
         </widget>
        </item>
@@ -438,7 +438,6 @@
    </item>
   </layout>
  </widget>
- <pixmapfunction></pixmapfunction>
  <resources>
   <include location="../res/dboxfe.qrc" />
  </resources>
