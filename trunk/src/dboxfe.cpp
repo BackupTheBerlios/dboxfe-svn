@@ -61,6 +61,7 @@ DBoxFE::DBoxFE( QWidget *parent, Qt::WFlags flags ) : QWidget( parent, flags )
     connect( lwOutPut, SIGNAL( customContextMenuRequested( QPoint ) ), this, SLOT( slotListWidgetOutPut( QPoint ) ) );
     connect( cbxDSOption, SIGNAL( currentIndexChanged( int ) ), this, SLOT( slotCbxSerialIndexChanged( int ) ) );
     connect( cbxAutoexecDirectoryOption, SIGNAL( currentIndexChanged( int ) ), this, SLOT( slotCbxAutoexecIndexChanged( int ) ) );
+	connect( cbxKeyboardLayout, SIGNAL( currentIndexChanged( int ) ), this, SLOT( slotCbxKeyboardLayoutIndexChanged( int ) ) );
 
     // windows title for the application
     titleLin = tr( "DBoxFE - Front End for DOSBox 0.70 - Linux Version " ) + getAppVersion();
@@ -759,6 +760,11 @@ void DBoxFE::slotCbxSerialIndexChanged( int index )
             break;
     }
 }
+
+
+/**
+ * TODO Disable/Enable Serial option
+ **/
 void DBoxFE::slotCbxAutoexecIndexChanged( int index )
 {
     switch ( index ) {
@@ -775,6 +781,67 @@ void DBoxFE::slotCbxAutoexecIndexChanged( int index )
             cbxAutoexecCDDVDROMOption->setEnabled( false );
             break;
     }
+}
+
+/**
+ * TODO Set Text for varios keyboardlayouts.
+ **/
+void DBoxFE::slotCbxKeyboardLayoutIndexChanged( int index ) 
+{
+	lblKeyboardLayoutInfo->setText( "******" );
+	switch( index ) {
+		case 0:
+			lblKeyboardLayoutInfo->setText( tr("No keyboardlayot") );			/* none	 */
+			break;
+		case 1:
+			lblKeyboardLayoutInfo->setText( tr("Bulgaria") );				/* BG	 */
+			break;
+		case 2:
+			lblKeyboardLayoutInfo->setText( tr("Czech Republic") );			/* CZ243 */
+			break;
+		case 3:
+			lblKeyboardLayoutInfo->setText( tr("France") );					/* FR	 */
+			break;
+		case 4:
+			lblKeyboardLayoutInfo->setText( tr("Greece") );					/* GK	 */
+			break;
+		case 5:
+			lblKeyboardLayoutInfo->setText( tr("Germany") );				/* GR	 */
+			break;
+		case 6:
+			lblKeyboardLayoutInfo->setText( tr("Croatia") );				/* HR	 */
+			break;
+		case 7:
+			lblKeyboardLayoutInfo->setText( tr("Hungary") );				/* HU	 */
+			break;
+		case 8:
+			lblKeyboardLayoutInfo->setText( tr("Italy") );					/* IT	 */
+			break;
+		case 9:
+			lblKeyboardLayoutInfo->setText( tr("Netherlands") );			/* NL	 */
+			break;
+		case 10:
+			lblKeyboardLayoutInfo->setText( tr("Norway") );				/* NO	 */
+			break;
+		case 11:
+			lblKeyboardLayoutInfo->setText( tr("Poland") );				/* PL	 */
+			break;
+		case 12:
+			lblKeyboardLayoutInfo->setText( tr("Russian Federation") );	/* RU	 */
+			break;
+		case 13:
+			lblKeyboardLayoutInfo->setText( tr("Slovakia") );				/* SK	 */
+			break;
+		case 14:
+			lblKeyboardLayoutInfo->setText( tr("Spain") );					/* SP	 */
+			break;
+		case 15:
+			lblKeyboardLayoutInfo->setText( tr("Finland") );				/* SU	 */
+			break;
+		case 16:
+			lblKeyboardLayoutInfo->setText( tr("Sweden") );				/* SV	 */
+			break;
+	}
 }
 
 void DBoxFE::slotAbout()
