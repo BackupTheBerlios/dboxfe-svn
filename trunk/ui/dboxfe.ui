@@ -576,6 +576,9 @@
               <property name="text" >
                <string>Scaler:</string>
               </property>
+              <property name="buddy" >
+               <cstring>cbxScaler</cstring>
+              </property>
              </widget>
             </item>
             <item>
@@ -724,6 +727,9 @@
               <property name="text" >
                <string>Frameskip:</string>
               </property>
+              <property name="buddy" >
+               <cstring>sliderFS</cstring>
+              </property>
              </widget>
             </item>
             <item>
@@ -784,6 +790,9 @@
               </property>
               <property name="text" >
                <string>Cycledown:</string>
+              </property>
+              <property name="buddy" >
+               <cstring>cbxCPUCycleDown</cstring>
               </property>
              </widget>
             </item>
@@ -876,6 +885,9 @@
               </property>
               <property name="text" >
                <string>Cycleup:</string>
+              </property>
+              <property name="buddy" >
+               <cstring>cbxCPUCycleUp</cstring>
               </property>
              </widget>
             </item>
@@ -1060,6 +1072,9 @@
               </property>
               <property name="text" >
                <string>Cycles:</string>
+              </property>
+              <property name="buddy" >
+               <cstring>cbxCPUCycles</cstring>
               </property>
              </widget>
             </item>
@@ -1315,6 +1330,9 @@
               <property name="text" >
                <string>Core:</string>
               </property>
+              <property name="buddy" >
+               <cstring>cbxCPUCore</cstring>
+              </property>
              </widget>
             </item>
             <item>
@@ -1510,6 +1528,9 @@
                  <property name="text" >
                   <string>Block Size:</string>
                  </property>
+                 <property name="buddy" >
+                  <cstring>cbxMixerBlockSize</cstring>
+                 </property>
                 </widget>
                </item>
                <item row="0" column="0" >
@@ -1529,6 +1550,9 @@
                  <property name="text" >
                   <string>Rate:</string>
                  </property>
+                 <property name="buddy" >
+                  <cstring>cbxMixerRate</cstring>
+                 </property>
                 </widget>
                </item>
                <item row="2" column="0" >
@@ -1547,6 +1571,9 @@
                  </property>
                  <property name="text" >
                   <string>Prebuffer:</string>
+                 </property>
+                 <property name="buddy" >
+                  <cstring>spBoxPrebuffer</cstring>
                  </property>
                 </widget>
                </item>
@@ -1616,6 +1643,9 @@
                    <property name="text" >
                     <string>HDMA:</string>
                    </property>
+                   <property name="buddy" >
+                    <cstring>cbxSBHDMA</cstring>
+                   </property>
                   </widget>
                  </item>
                  <item row="0" column="0" >
@@ -1634,6 +1664,9 @@
                    </property>
                    <property name="text" >
                     <string>Base:</string>
+                   </property>
+                   <property name="buddy" >
+                    <cstring>cbxSBBase</cstring>
                    </property>
                   </widget>
                  </item>
@@ -1654,6 +1687,9 @@
                    <property name="text" >
                     <string>DMA:</string>
                    </property>
+                   <property name="buddy" >
+                    <cstring>cbxSBDMA</cstring>
+                   </property>
                   </widget>
                  </item>
                  <item row="3" column="0" >
@@ -1672,6 +1708,9 @@
                    </property>
                    <property name="text" >
                     <string>OPL Rate:</string>
+                   </property>
+                   <property name="buddy" >
+                    <cstring>cbxSBOPLRate</cstring>
                    </property>
                   </widget>
                  </item>
@@ -1897,6 +1936,9 @@
                    <property name="text" >
                     <string>Type:</string>
                    </property>
+                   <property name="buddy" >
+                    <cstring>cbxSBType</cstring>
+                   </property>
                   </widget>
                  </item>
                  <item row="1" column="0" >
@@ -1916,6 +1958,9 @@
                    <property name="text" >
                     <string>IRQ:</string>
                    </property>
+                   <property name="buddy" >
+                    <cstring>cbxSBIRQ</cstring>
+                   </property>
                   </widget>
                  </item>
                  <item row="2" column="0" >
@@ -1934,6 +1979,9 @@
                    </property>
                    <property name="text" >
                     <string>OPL mode:</string>
+                   </property>
+                   <property name="buddy" >
+                    <cstring>cbxSBOplMode</cstring>
                    </property>
                   </widget>
                  </item>
@@ -2041,6 +2089,9 @@
                  <property name="text" >
                   <string>Ultra dir:</string>
                  </property>
+                 <property name="buddy" >
+                  <cstring>LEGUSUltraDir</cstring>
+                 </property>
                 </widget>
                </item>
                <item row="2" column="0" >
@@ -2059,6 +2110,9 @@
                  </property>
                  <property name="text" >
                   <string>IRQ's:</string>
+                 </property>
+                 <property name="buddy" >
+                  <cstring>cbxGUSIrq_1</cstring>
                  </property>
                 </widget>
                </item>
@@ -2079,6 +2133,9 @@
                  <property name="text" >
                   <string>Gus Base:</string>
                  </property>
+                 <property name="buddy" >
+                  <cstring>cbxGUSBase</cstring>
+                 </property>
                 </widget>
                </item>
                <item row="3" column="0" >
@@ -2098,6 +2155,9 @@
                  <property name="text" >
                   <string>DMA's:</string>
                  </property>
+                 <property name="buddy" >
+                  <cstring>cbxGUSDMA_1</cstring>
+                 </property>
                 </widget>
                </item>
                <item row="0" column="0" >
@@ -2116,6 +2176,9 @@
                  </property>
                  <property name="text" >
                   <string>Gus rate:</string>
+                 </property>
+                 <property name="buddy" >
+                  <cstring>cbxGUSRate</cstring>
                  </property>
                 </widget>
                </item>
@@ -2337,6 +2400,9 @@
                  <property name="text" >
                   <string>Speaker:</string>
                  </property>
+                 <property name="buddy" >
+                  <cstring>cbxSpeaker</cstring>
+                 </property>
                 </widget>
                </item>
                <item row="1" column="0" >
@@ -2355,6 +2421,9 @@
                  </property>
                  <property name="text" >
                   <string>Tandy:</string>
+                 </property>
+                 <property name="buddy" >
+                  <cstring>cbxSpeakerTandy</cstring>
                  </property>
                 </widget>
                </item>
@@ -2609,6 +2678,9 @@
                <property name="text" >
                 <string>Device:</string>
                </property>
+               <property name="buddy" >
+                <cstring>cbxMDIDevice</cstring>
+               </property>
               </widget>
              </item>
              <item row="0" column="0" >
@@ -2628,6 +2700,9 @@
                <property name="text" >
                 <string>MPU 401:</string>
                </property>
+               <property name="buddy" >
+                <cstring>cbxMDIMPU</cstring>
+               </property>
               </widget>
              </item>
              <item row="2" column="0" >
@@ -2646,6 +2721,9 @@
                </property>
                <property name="text" >
                 <string>Config:</string>
+               </property>
+               <property name="buddy" >
+                <cstring>LEMDIConfig</cstring>
                </property>
               </widget>
              </item>
@@ -2868,6 +2946,9 @@
                      <property name="text" >
                       <string>COM Port:</string>
                      </property>
+                     <property name="buddy" >
+                      <cstring>cbxDSComPort</cstring>
+                     </property>
                     </widget>
                    </item>
                    <item>
@@ -2911,6 +2992,9 @@
                      <property name="text" >
                       <string>Listen Port:</string>
                      </property>
+                     <property name="buddy" >
+                      <cstring>LEDSListenPort</cstring>
+                     </property>
                     </widget>
                    </item>
                    <item>
@@ -2946,6 +3030,9 @@
                      </property>
                      <property name="text" >
                       <string>Real Port:</string>
+                     </property>
+                     <property name="buddy" >
+                      <cstring>cbxDSRealPort</cstring>
                      </property>
                     </widget>
                    </item>
@@ -3000,6 +3087,9 @@
                      <property name="text" >
                       <string>IRQ:</string>
                      </property>
+                     <property name="buddy" >
+                      <cstring>LEDSIrq</cstring>
+                     </property>
                     </widget>
                    </item>
                    <item>
@@ -3036,6 +3126,9 @@
                      <property name="text" >
                       <string>Default bps:</string>
                      </property>
+                     <property name="buddy" >
+                      <cstring>LEDSBps</cstring>
+                     </property>
                     </widget>
                    </item>
                    <item>
@@ -3071,6 +3164,9 @@
                      </property>
                      <property name="text" >
                       <string>Parity:</string>
+                     </property>
+                     <property name="buddy" >
+                      <cstring>cbxDSParity</cstring>
                      </property>
                     </widget>
                    </item>
@@ -3120,6 +3216,9 @@
                      <property name="text" >
                       <string>Bytesize:</string>
                      </property>
+                     <property name="buddy" >
+                      <cstring>cbxDSByteSize</cstring>
+                     </property>
                     </widget>
                    </item>
                    <item>
@@ -3165,6 +3264,9 @@
                      </property>
                      <property name="text" >
                       <string>Stopbit:</string>
+                     </property>
+                     <property name="buddy" >
+                      <cstring>cbxDSStopBit</cstring>
                      </property>
                     </widget>
                    </item>
@@ -3289,45 +3391,55 @@
               <property name="spacing" >
                <number>6</number>
               </property>
-              <item row="0" column="2" >
-               <widget class="QCheckBox" name="chkBoxUMB" >
-                <property name="text" >
-                 <string>UMB</string>
-                </property>
-                <property name="checked" >
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="1" >
-               <widget class="QCheckBox" name="chkBoxEMS" >
-                <property name="text" >
-                 <string>EMS</string>
-                </property>
-                <property name="checked" >
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
               <item row="0" column="0" >
-               <widget class="QCheckBox" name="chkBoxXMS" >
-                <property name="text" >
-                 <string>XMS</string>
-                </property>
-                <property name="checked" >
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0" colspan="3" >
-               <layout class="QGridLayout" >
+               <layout class="QHBoxLayout" >
                 <property name="margin" >
                  <number>0</number>
                 </property>
                 <property name="spacing" >
                  <number>6</number>
                 </property>
-                <item row="0" column="0" >
+                <item>
+                 <widget class="QCheckBox" name="chkBoxXMS" >
+                  <property name="text" >
+                   <string>XMS</string>
+                  </property>
+                  <property name="checked" >
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="chkBoxEMS" >
+                  <property name="text" >
+                   <string>EMS</string>
+                  </property>
+                  <property name="checked" >
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="chkBoxUMB" >
+                  <property name="text" >
+                   <string>UMB</string>
+                  </property>
+                  <property name="checked" >
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item row="1" column="0" >
+               <layout class="QHBoxLayout" >
+                <property name="margin" >
+                 <number>0</number>
+                </property>
+                <property name="spacing" >
+                 <number>6</number>
+                </property>
+                <item>
                  <widget class="QLabel" name="lblKeyboardLayout" >
                   <property name="minimumSize" >
                    <size>
@@ -3344,9 +3456,12 @@
                   <property name="text" >
                    <string>Keybordlayot:</string>
                   </property>
+                  <property name="buddy" >
+                   <cstring>cbxKeyboardLayout</cstring>
+                  </property>
                  </widget>
                 </item>
-                <item row="0" column="1" >
+                <item>
                  <widget class="QComboBox" name="cbxKeyboardLayout" >
                   <property name="currentIndex" >
                    <number>0</number>
@@ -3440,6 +3555,135 @@
                 </item>
                </layout>
               </item>
+              <item row="2" column="0" >
+               <widget class="QLabel" name="lblKeyboardLayoutInfo" >
+                <property name="text" >
+                 <string>******</string>
+                </property>
+                <property name="alignment" >
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="buddy" >
+                 <cstring>cbxKeyboardLayout</cstring>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0" >
+               <spacer>
+                <property name="orientation" >
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" >
+                 <size>
+                  <width>31</width>
+                  <height>22</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="1" column="1" >
+            <widget class="QGroupBox" name="gBoxJoystickType" >
+             <property name="title" >
+              <string>Joysticktype</string>
+             </property>
+             <layout class="QGridLayout" >
+              <property name="margin" >
+               <number>9</number>
+              </property>
+              <property name="spacing" >
+               <number>6</number>
+              </property>
+              <item row="1" column="0" >
+               <widget class="QComboBox" name="cbxJoystickType" >
+                <property name="currentIndex" >
+                 <number>0</number>
+                </property>
+                <item>
+                 <property name="text" >
+                  <string>auto</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>none</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>2axis</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>4axis</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>fcs</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>ch</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="2" column="0" >
+               <spacer>
+                <property name="orientation" >
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" >
+                 <size>
+                  <width>291</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item row="0" column="0" >
+               <layout class="QHBoxLayout" >
+                <property name="margin" >
+                 <number>0</number>
+                </property>
+                <property name="spacing" >
+                 <number>6</number>
+                </property>
+                <item>
+                 <widget class="QCheckBox" name="chkBoxTimed" >
+                  <property name="text" >
+                   <string>Timed</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="chkBoxAutofire" >
+                  <property name="text" >
+                   <string>Autofire</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="chkBoxSwap34" >
+                  <property name="text" >
+                   <string>Swap 34</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="chkBoxButtonWrap" >
+                  <property name="text" >
+                   <string>Button wrap</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
              </layout>
             </widget>
            </item>
@@ -3507,6 +3751,9 @@
                   <property name="text" >
                    <string>Captures:</string>
                   </property>
+                  <property name="buddy" >
+                   <cstring>cbxCaptures</cstring>
+                  </property>
                  </widget>
                 </item>
                </layout>
@@ -3535,6 +3782,9 @@
                   </property>
                   <property name="text" >
                    <string>Memorysize:</string>
+                  </property>
+                  <property name="buddy" >
+                   <cstring>cbxMemsize</cstring>
                   </property>
                  </widget>
                 </item>
@@ -3616,6 +3866,9 @@
                   <property name="text" >
                    <string>Machine:</string>
                   </property>
+                  <property name="buddy" >
+                   <cstring>cbxMachine</cstring>
+                  </property>
                  </widget>
                 </item>
                </layout>
@@ -3644,6 +3897,9 @@
                   </property>
                   <property name="text" >
                    <string>Language:</string>
+                  </property>
+                  <property name="buddy" >
+                   <cstring>LELanguage</cstring>
                   </property>
                  </widget>
                 </item>
@@ -3676,86 +3932,6 @@
                  <widget class="QLineEdit" name="LELanguage" />
                 </item>
                </layout>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item row="1" column="1" >
-            <widget class="QGroupBox" name="gBoxJoystickType" >
-             <property name="title" >
-              <string>Joysticktype</string>
-             </property>
-             <layout class="QGridLayout" >
-              <property name="margin" >
-               <number>9</number>
-              </property>
-              <property name="spacing" >
-               <number>6</number>
-              </property>
-              <item row="0" column="0" >
-               <widget class="QComboBox" name="cbxJoystickType" >
-                <property name="currentIndex" >
-                 <number>0</number>
-                </property>
-                <item>
-                 <property name="text" >
-                  <string>auto</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text" >
-                  <string>none</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text" >
-                  <string>2axis</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text" >
-                  <string>4axis</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text" >
-                  <string>fcs</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text" >
-                  <string>ch</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-              <item row="1" column="0" >
-               <widget class="QCheckBox" name="chkBoxTimed" >
-                <property name="text" >
-                 <string>Timed</string>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="0" >
-               <widget class="QCheckBox" name="chkBoxAutofire" >
-                <property name="text" >
-                 <string>Autofire</string>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="0" >
-               <widget class="QCheckBox" name="chkBoxButtonWrap" >
-                <property name="text" >
-                 <string>Button wrap</string>
-                </property>
-               </widget>
-              </item>
-              <item row="3" column="0" >
-               <widget class="QCheckBox" name="chkBoxSwap34" >
-                <property name="text" >
-                 <string>Swap 34</string>
-                </property>
-               </widget>
               </item>
              </layout>
             </widget>
@@ -4001,6 +4177,9 @@
                <property name="text" >
                 <string>CDROM/DVD:</string>
                </property>
+               <property name="buddy" >
+                <cstring>cbxAutoexecCDDVDROMOption</cstring>
+               </property>
               </widget>
              </item>
              <item row="0" column="1" >
@@ -4046,6 +4225,9 @@
                </property>
                <property name="text" >
                 <string>Directory:</string>
+               </property>
+               <property name="buddy" >
+                <cstring>cbxAutoexecDirectoryOption</cstring>
                </property>
               </widget>
              </item>
@@ -4104,6 +4286,9 @@
                </property>
                <property name="text" >
                 <string>Label for device:</string>
+               </property>
+               <property name="buddy" >
+                <cstring>LEDeviceLabel</cstring>
                </property>
               </widget>
              </item>
@@ -4429,6 +4614,9 @@
                <widget class="QLabel" name="lblStabelVersion" >
                 <property name="text" >
                  <string>DOSBox binary:</string>
+                </property>
+                <property name="buddy" >
+                 <cstring>LEDbxStabel</cstring>
                 </property>
                </widget>
               </item>
@@ -4822,36 +5010,40 @@
  <tabstops>
   <tabstop>lwProfile</tabstop>
   <tabstop>btnCreateGP</tabstop>
-  <tabstop>btnSaveGP</tabstop>
-  <tabstop>btnStartDBox</tabstop>
   <tabstop>btnRemoveGP</tabstop>
+  <tabstop>btnWizard</tabstop>
+  <tabstop>btnGamesettings</tabstop>
+  <tabstop>btnImpExpDFenPrfile</tabstop>
   <tabstop>twDbx</tabstop>
   <tabstop>chkBoxFullScreen</tabstop>
   <tabstop>chkBoxFullDouble</tabstop>
+  <tabstop>chkBoxUseScanCode</tabstop>
   <tabstop>chkBoxAutolock</tabstop>
   <tabstop>chkBoxWaitOnError</tabstop>
-  <tabstop>chkBoxUseScanCode</tabstop>
   <tabstop>cbxOutout</tabstop>
   <tabstop>cbxFocusUnfocus</tabstop>
   <tabstop>sliderSV</tabstop>
+  <tabstop>cbxWindowWightHigh</tabstop>
   <tabstop>cbxFullWightHigh</tabstop>
   <tabstop>sliderFS</tabstop>
   <tabstop>cbxScaler</tabstop>
   <tabstop>chkBoxAspect</tabstop>
   <tabstop>cbxCPUCore</tabstop>
   <tabstop>cbxCPUCycleUp</tabstop>
+  <tabstop>cbxCPUCycles</tabstop>
   <tabstop>cbxCPUCycleDown</tabstop>
   <tabstop>cbxMixerRate</tabstop>
   <tabstop>cbxMixerBlockSize</tabstop>
+  <tabstop>spBoxPrebuffer</tabstop>
   <tabstop>chkBoxMixerNoSound</tabstop>
   <tabstop>cbxSBType</tabstop>
-  <tabstop>cbxSBIRQ</tabstop>
-  <tabstop>cbxSBOplMode</tabstop>
   <tabstop>cbxSBBase</tabstop>
+  <tabstop>cbxSBIRQ</tabstop>
   <tabstop>cbxSBDMA</tabstop>
+  <tabstop>cbxSBOplMode</tabstop>
   <tabstop>cbxSBHDMA</tabstop>
-  <tabstop>cbxSBOPLRate</tabstop>
   <tabstop>chkBoxSBMixer</tabstop>
+  <tabstop>cbxSBOPLRate</tabstop>
   <tabstop>cbxGUSRate</tabstop>
   <tabstop>cbxGUSBase</tabstop>
   <tabstop>cbxGUSIrq_1</tabstop>
@@ -4862,25 +5054,68 @@
   <tabstop>chkBoxGUS</tabstop>
   <tabstop>cbxSpeaker</tabstop>
   <tabstop>cbxSpeakerRate</tabstop>
+  <tabstop>cbxSpeakerTandy</tabstop>
+  <tabstop>cbxSpeakerTandyRate</tabstop>
   <tabstop>chkBoxDisney</tabstop>
+  <tabstop>cbxMDIMPU</tabstop>
   <tabstop>cbxMDIDevice</tabstop>
+  <tabstop>btnConfig</tabstop>
   <tabstop>LEMDIConfig</tabstop>
   <tabstop>twMisc</tabstop>
+  <tabstop>cbxDSSerial</tabstop>
+  <tabstop>cbxDSOption</tabstop>
   <tabstop>cbxDSComPort</tabstop>
-  <tabstop>cbxDSRealPort</tabstop>
   <tabstop>LEDSBps</tabstop>
+  <tabstop>cbxDSRealPort</tabstop>
+  <tabstop>LEDSListenPort</tabstop>
+  <tabstop>LEDSIrq</tabstop>
   <tabstop>cbxDSParity</tabstop>
   <tabstop>cbxDSByteSize</tabstop>
   <tabstop>cbxDSStopBit</tabstop>
+  <tabstop>twSerial</tabstop>
+  <tabstop>btnSerialAdd</tabstop>
+  <tabstop>btnSerialRemove</tabstop>
   <tabstop>chkBoxIPX</tabstop>
-  <tabstop>lwAutoexec</tabstop>
-  <tabstop>btnAutoexecAdd</tabstop>
-  <tabstop>btnAutoexecRemove</tabstop>
-  <tabstop>btnAutoexecUpdate</tabstop>
+  <tabstop>btnLanguage</tabstop>
+  <tabstop>LELanguage</tabstop>
+  <tabstop>cbxCaptures</tabstop>
+  <tabstop>cbxMachine</tabstop>
+  <tabstop>cbxMemsize</tabstop>
+  <tabstop>chkBoxXMS</tabstop>
+  <tabstop>chkBoxEMS</tabstop>
+  <tabstop>chkBoxUMB</tabstop>
+  <tabstop>cbxKeyboardLayout</tabstop>
+  <tabstop>chkBoxTimed</tabstop>
+  <tabstop>chkBoxAutofire</tabstop>
+  <tabstop>chkBoxSwap34</tabstop>
+  <tabstop>chkBoxButtonWrap</tabstop>
+  <tabstop>cbxJoystickType</tabstop>
   <tabstop>cbxDrive</tabstop>
   <tabstop>LEDrives</tabstop>
   <tabstop>btnAutoexecDrive</tabstop>
+  <tabstop>chkBoxSwitchDir</tabstop>
   <tabstop>LEDeviceLabel</tabstop>
+  <tabstop>chkBoxLabelCDDVD</tabstop>
+  <tabstop>cbxAutoexecDirectoryOption</tabstop>
+  <tabstop>cbxAutoexecCDDVDROMOption</tabstop>
+  <tabstop>lwAutoexec</tabstop>
+  <tabstop>btnAutoexecAdd</tabstop>
+  <tabstop>btnAutoexecUpdate</tabstop>
+  <tabstop>btnGame</tabstop>
+  <tabstop>btnAutoexecRemove</tabstop>
+  <tabstop>btnAutoexecUp</tabstop>
+  <tabstop>btnAutoexecDown</tabstop>
+  <tabstop>btnDbxStable</tabstop>
+  <tabstop>LEDbxStabel</tabstop>
+  <tabstop>LEDbxVersion</tabstop>
+  <tabstop>chkBoxWindowHide</tabstop>
+  <tabstop>chkBoxStartmapper</tabstop>
+  <tabstop>btnGameDb</tabstop>
+  <tabstop>lwOutPut</tabstop>
+  <tabstop>btnSaveGP</tabstop>
+  <tabstop>btnStartDBox</tabstop>
+  <tabstop>btnAbout</tabstop>
+  <tabstop>btnQuit</tabstop>
  </tabstops>
  <resources>
   <include location="../res/dboxfe.qrc" />
@@ -4893,12 +5128,12 @@
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel" >
-     <x>746</x>
-     <y>306</y>
+     <x>825</x>
+     <y>290</y>
     </hint>
     <hint type="destinationlabel" >
-     <x>774</x>
-     <y>306</y>
+     <x>895</x>
+     <y>294</y>
     </hint>
    </hints>
   </connection>
@@ -4909,12 +5144,12 @@
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel" >
-     <x>753</x>
-     <y>180</y>
+     <x>825</x>
+     <y>160</y>
     </hint>
     <hint type="destinationlabel" >
-     <x>824</x>
-     <y>180</y>
+     <x>895</x>
+     <y>164</y>
     </hint>
    </hints>
   </connection>
@@ -4925,8 +5160,8 @@
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel" >
-     <x>849</x>
-     <y>549</y>
+     <x>917</x>
+     <y>572</y>
     </hint>
     <hint type="destinationlabel" >
      <x>853</x>
@@ -4941,12 +5176,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel" >
-     <x>342</x>
-     <y>65</y>
+     <x>388</x>
+     <y>127</y>
     </hint>
     <hint type="destinationlabel" >
-     <x>342</x>
-     <y>65</y>
+     <x>378</x>
+     <y>127</y>
     </hint>
    </hints>
   </connection>
@@ -4957,12 +5192,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel" >
-     <x>342</x>
-     <y>65</y>
+     <x>388</x>
+     <y>127</y>
     </hint>
     <hint type="destinationlabel" >
-     <x>342</x>
-     <y>65</y>
+     <x>378</x>
+     <y>127</y>
     </hint>
    </hints>
   </connection>
@@ -4973,12 +5208,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel" >
-     <x>342</x>
-     <y>65</y>
+     <x>388</x>
+     <y>127</y>
     </hint>
     <hint type="destinationlabel" >
-     <x>342</x>
-     <y>65</y>
+     <x>378</x>
+     <y>127</y>
     </hint>
    </hints>
   </connection>
@@ -4989,12 +5224,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel" >
-     <x>342</x>
-     <y>65</y>
+     <x>388</x>
+     <y>127</y>
     </hint>
     <hint type="destinationlabel" >
-     <x>342</x>
-     <y>65</y>
+     <x>378</x>
+     <y>127</y>
     </hint>
    </hints>
   </connection>
@@ -5005,12 +5240,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel" >
-     <x>342</x>
-     <y>65</y>
+     <x>388</x>
+     <y>127</y>
     </hint>
     <hint type="destinationlabel" >
-     <x>342</x>
-     <y>65</y>
+     <x>378</x>
+     <y>127</y>
     </hint>
    </hints>
   </connection>
@@ -5021,12 +5256,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel" >
-     <x>342</x>
-     <y>65</y>
+     <x>388</x>
+     <y>127</y>
     </hint>
     <hint type="destinationlabel" >
-     <x>342</x>
-     <y>65</y>
+     <x>378</x>
+     <y>127</y>
     </hint>
    </hints>
   </connection>
@@ -5037,12 +5272,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel" >
-     <x>342</x>
-     <y>65</y>
+     <x>388</x>
+     <y>127</y>
     </hint>
     <hint type="destinationlabel" >
-     <x>342</x>
-     <y>65</y>
+     <x>378</x>
+     <y>127</y>
     </hint>
    </hints>
   </connection>
@@ -5053,12 +5288,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel" >
-     <x>327</x>
-     <y>65</y>
+     <x>388</x>
+     <y>127</y>
     </hint>
     <hint type="destinationlabel" >
-     <x>326</x>
-     <y>65</y>
+     <x>388</x>
+     <y>127</y>
     </hint>
    </hints>
   </connection>
@@ -5069,12 +5304,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel" >
-     <x>342</x>
-     <y>65</y>
+     <x>388</x>
+     <y>127</y>
     </hint>
     <hint type="destinationlabel" >
-     <x>326</x>
-     <y>65</y>
+     <x>388</x>
+     <y>127</y>
     </hint>
    </hints>
   </connection>
@@ -5085,12 +5320,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel" >
-     <x>342</x>
-     <y>65</y>
+     <x>388</x>
+     <y>127</y>
     </hint>
     <hint type="destinationlabel" >
-     <x>326</x>
-     <y>65</y>
+     <x>388</x>
+     <y>127</y>
     </hint>
    </hints>
   </connection>
@@ -5101,12 +5336,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel" >
-     <x>342</x>
-     <y>65</y>
+     <x>388</x>
+     <y>127</y>
     </hint>
     <hint type="destinationlabel" >
-     <x>326</x>
-     <y>65</y>
+     <x>388</x>
+     <y>127</y>
     </hint>
    </hints>
   </connection>
@@ -5117,12 +5352,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel" >
-     <x>342</x>
-     <y>65</y>
+     <x>388</x>
+     <y>127</y>
     </hint>
     <hint type="destinationlabel" >
-     <x>326</x>
-     <y>65</y>
+     <x>388</x>
+     <y>127</y>
     </hint>
    </hints>
   </connection>
@@ -5133,12 +5368,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel" >
-     <x>342</x>
-     <y>66</y>
+     <x>380</x>
+     <y>91</y>
     </hint>
     <hint type="destinationlabel" >
-     <x>342</x>
-     <y>66</y>
+     <x>380</x>
+     <y>91</y>
     </hint>
    </hints>
   </connection>
@@ -5149,12 +5384,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel" >
-     <x>320</x>
-     <y>66</y>
+     <x>380</x>
+     <y>91</y>
     </hint>
     <hint type="destinationlabel" >
-     <x>326</x>
-     <y>66</y>
+     <x>390</x>
+     <y>91</y>
     </hint>
    </hints>
   </connection>
