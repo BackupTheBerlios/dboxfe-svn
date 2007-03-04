@@ -1,5 +1,5 @@
 /*
-*   Copyright (C) 2004/05/06 by Alexander Saal <alex.saal@gmx.de>
+*   Copyright (C) 2004 - 2007 by Alexander Saal <alex.saal@gmx.de>
 *
 *   This program is free software; you can redistribute it and/or modify
 *   it under the terms of the GNU General Public License as published by
@@ -160,11 +160,16 @@ void DB_BASE::readConf( const QString &dbconf, DBoxFE* dbfe )
     dbfe->chkBoxDisney->setChecked( getConf->value( "disney" ).toBool() );
     getConf->endGroup();
 
-    // BIOS settings
-    getConf->beginGroup( "bios" );
+    // joystick settings
+    getConf->beginGroup( "joystick" );
     int joysticktype = dbfe->cbxJoystickType->findText( getConf->value( "joysticktype" ).toString() );
     dbfe->cbxJoystickType->setCurrentIndex( joysticktype );
-    getConf->endGroup();
+    
+	dbfe->chkBoxTimed->setChecked( getConf->value( "timed" ).toBool() );
+	dbfe->chkBoxAutofire->setChecked( getConf->value( "autofire" ).toBool() );
+	dbfe->chkBoxSwap34->setChecked( getConf->value( "swap34" ).toBool() );
+	dbfe->chkBoxButtonWrap->setChecked( getConf->value( "buttonwrap" ).toBool() );
+	getConf->endGroup();
 
     // Serial settings
     getConf->beginGroup( "serial" );
@@ -189,6 +194,11 @@ void DB_BASE::readConf( const QString &dbconf, DBoxFE* dbfe )
     dbfe->chkBoxEMS->setChecked( getConf->value( "ems" ).toBool() );
     int umb = dbfe->cbxUMB->findText( getConf->value( "umb" ).toString() );
     dbfe->cbxUMB->setCurrentIndex( umb );
+    int kbdl = dbfe->cbxKeyboardLayout->findText( getConf->value( "keyboardlayout" ).toString() );
+    dbfe->cbxKeyboardLayout->setCurrentIndex( kbdl );
+
+
+
     getConf->endGroup();
 
     // IPX settings
@@ -331,9 +341,13 @@ void DB_BASE::saveConf( const QString &dbconf, DBoxFE* dbfe )
     settConf->setValue( "disney", dbfe->chkBoxDisney->isChecked() );
     settConf->endGroup();
 
-    // BIOS settings
-    settConf->beginGroup( "bios" );
+    // Joystick settings
+    settConf->beginGroup( "joystick" );
     settConf->setValue( "joysticktype", dbfe->cbxJoystickType->currentText() );
+	settConf->setValue( "timed", dbfe->chkBoxTimed->isChecked() );
+	settConf->setValue( "autofire", dbfe->chkBoxAutofire->isChecked() );
+	settConf->setValue( "swap34", dbfe->chkBoxSwap34->isChecked() );
+	settConf->setValue( "buttonwrap", dbfe->chkBoxButtonWrap->isChecked() );
     settConf->endGroup();
 
     // Serial settings
@@ -356,6 +370,7 @@ void DB_BASE::saveConf( const QString &dbconf, DBoxFE* dbfe )
     settConf->setValue( "xms", dbfe->chkBoxXMS->isChecked() );
     settConf->setValue( "ems", dbfe->chkBoxEMS->isChecked() );
     settConf->setValue( "umb", dbfe->cbxUMB->currentText() );
+    settConf->setValue( "keyboardlayout", dbfe->cbxKeyboardLayout->currentText() );
     settConf->endGroup();
 
     // IPX settings
@@ -385,167 +400,6 @@ void DB_BASE::saveConf( const QString &dbconf, DBoxFE* dbfe )
 
     delete settConf;
 
-}
-
-void DB_BASE::defaultSettings( DBoxFE* dbfe )
-{
-    qDebug() << QObject::tr( "Set dafault settings, based on dosbox default settings .... [sdl]" );
-
-    dbfe->chkBoxFullScreen->setChecked( false );
-    dbfe->chkBoxFullDouble->setChecked( false );
-    int fullresolution = dbfe->cbxFullWightHigh->findText( "original" );
-    dbfe->cbxFullWightHigh->setCurrentIndex( fullresolution );
-
-    int windowresolution = dbfe->cbxWindowWightHigh->findText( "original" );
-    dbfe->cbxWindowWightHigh->setCurrentIndex( windowresolution );
-
-    int priority = dbfe->cbxFocusUnfocus->findText( "higher,normal" );
-    dbfe->cbxFocusUnfocus->setCurrentIndex( priority );
-
-    int output = dbfe->cbxOutout->findText( "surface" );
-    dbfe->cbxOutout->setCurrentIndex( output );
-
-    dbfe->chkBoxAutolock->setChecked( true );
-    dbfe->chkBoxWaitOnError->setChecked( true );
-    dbfe->chkBoxUseScanCode->setChecked( true );
-    dbfe->lcdSV->display( 100 );
-    dbfe->sliderSV->setValue( 100 );
-
-    qDebug() << QObject::tr( "Set dafault settings, based on dosbox default settings .... [dosbox]" );
-    // DOSBox settings
-    dbfe->LELanguage->setText( "" );
-
-    int machine = dbfe->cbxMachine->findText( "vga" );
-    dbfe->cbxMachine->setCurrentIndex( machine );
-
-    int memsize = dbfe->cbxMemsize->findText( "16" );
-    dbfe->cbxMemsize->setCurrentIndex( memsize );
-
-    int captures = dbfe->cbxCaptures->findText( "capture" );
-    dbfe->cbxCaptures->setCurrentIndex( captures );
-
-
-    qDebug() << QObject::tr( "Set dafault settings, based on dosbox default settings .... [render]" );
-    // Render settings
-    dbfe->lcdFS->display( 0 );
-    dbfe->sliderFS->setValue( 0 );
-
-    int scaler = dbfe->cbxScaler->findText( "normal2x" );
-    dbfe->cbxScaler->setCurrentIndex( scaler );
-
-    dbfe->chkBoxAspect->setChecked( false );
-
-    qDebug() << QObject::tr( "Set dafault settings, based on dosbox default settings .... [cpu]" );
-    // CPU settings
-    int core = dbfe->cbxCPUCore->findText( "normal" );
-    dbfe->cbxCPUCore->setCurrentIndex( core );
-
-    int cycles = dbfe->cbxCPUCycles->findText( "3000" );
-    dbfe->cbxCPUCycles->setCurrentIndex( cycles );
-
-    int cycleup = dbfe->cbxCPUCycleUp->findText( "500" );
-    dbfe->cbxCPUCycleUp->setCurrentIndex( cycleup );
-
-    int cycledown = dbfe->cbxCPUCycleDown->findText( "20" );
-    dbfe->cbxCPUCycleDown->setCurrentIndex( cycledown );
-
-
-    qDebug() << QObject::tr( "Set dafault settings, based on dosbox default settings .... [mixer]" );
-    // Mixer settings
-    dbfe->chkBoxMixerNoSound->setChecked( false );
-    int rate = dbfe->cbxMixerRate->findText( "22050" );
-    dbfe->cbxMixerRate->setCurrentIndex( rate );
-    int blocksize = dbfe->cbxMixerBlockSize->findText( "2048" );
-    dbfe->cbxMixerBlockSize->setCurrentIndex( blocksize );
-    dbfe->spBoxPrebuffer->setValue( 10 );
-
-    qDebug() << QObject::tr( "Set dafault settings, based on dosbox default settings .... [mdi]" );
-    // Mdi settings
-    int mpu = dbfe->cbxMDIMPU->findText( "intelligent" );
-    dbfe->cbxMDIMPU->setCurrentIndex( mpu );
-
-    int device = dbfe->cbxMDIDevice->findText( "default" );
-    dbfe->cbxMDIDevice->setCurrentIndex( device );
-
-    dbfe->LEMDIConfig->setText( "" );
-
-    qDebug() << QObject::tr( "Set dafault settings, based on dosbox default settings .... [sblaster]" );
-    // Soundblaster settings
-    int sbtype = dbfe->cbxSBType->findText( "sb16" );
-    dbfe->cbxSBType->setCurrentIndex( sbtype );
-    int sbbase = dbfe->cbxSBBase->findText( "220" );
-    dbfe->cbxSBBase->setCurrentIndex( sbbase );
-    int irq = dbfe->cbxSBIRQ->findText( "7" );
-    dbfe->cbxSBIRQ->setCurrentIndex( irq );
-    int dma = dbfe->cbxSBDMA->findText( "1" );
-    dbfe->cbxSBDMA->setCurrentIndex( dma );
-    int hdma = dbfe->cbxSBHDMA->findText( "5" );
-    dbfe->cbxSBHDMA->setCurrentIndex( hdma );
-    int oplrate = dbfe->cbxSBOPLRate->findText( "22050" );
-    dbfe->cbxSBOPLRate->setCurrentIndex( oplrate );
-    int oplmode = dbfe->cbxSBOplMode->findText( "auto" );
-    dbfe->cbxSBOplMode->setCurrentIndex( oplmode );
-
-    dbfe->chkBoxSBMixer->setChecked( true );
-
-
-    qDebug() << QObject::tr( "Set dafault settings, based on dosbox default settings .... [gus]" );
-    // GUS settings
-    dbfe->chkBoxGUS->setChecked( true );
-    int gusrate = dbfe->cbxGUSRate->findText( "22050" );
-    dbfe->cbxGUSRate->setCurrentIndex( gusrate );
-    int gusbase = dbfe->cbxGUSBase->findText( "240" );
-    dbfe->cbxGUSBase->setCurrentIndex( gusbase );
-    int irq1 = dbfe->cbxGUSIrq_1->findText( "5" );
-    dbfe->cbxGUSIrq_1->setCurrentIndex( irq1 );
-    int irq2 = dbfe->cbxGUSIrq_2->findText( "5" );
-    dbfe->cbxGUSIrq_2->setCurrentIndex( irq2 );
-    int dma1 = dbfe->cbxGUSDMA_1->findText( "3" );
-    dbfe->cbxGUSDMA_1->setCurrentIndex( dma1 );
-    int dma2 = dbfe->cbxGUSDMA_2->findText( "3" );
-    dbfe->cbxGUSDMA_2->setCurrentIndex( dma2 );
-    dbfe->LEGUSUltraDir->setText( "C:\\ULTRASND" );
-
-
-    qDebug() << QObject::tr( "Set dafault settings, based on dosbox default settings .... [speaker]" );
-    // PC Speaker settings
-    int pcspeaker = dbfe->cbxSpeaker->findText( "on" );
-    dbfe->cbxSpeaker->setCurrentIndex( pcspeaker );
-    int pcrate = dbfe->cbxSpeakerRate->findText( "22050" );
-    dbfe->cbxSpeakerRate->setCurrentIndex( pcrate );
-    int tandy = dbfe->cbxSpeakerTandy->findText( "auto" );
-    dbfe->cbxSpeakerTandy->setCurrentIndex( tandy );
-    int tandyrate = dbfe->cbxSpeakerTandyRate->findText( "22050" );
-    dbfe->cbxSpeakerTandyRate->setCurrentIndex( tandyrate );
-    dbfe->chkBoxDisney->setChecked( true );
-
-    qDebug() << QObject::tr( "Set dafault settings, based on dosbox default settings .... [bios]" );
-    // BIOS settings
-    int joysticktype = dbfe->cbxJoystickType->findText( "2axis" );
-    dbfe->cbxJoystickType->setCurrentIndex( joysticktype );
-
-    qDebug() << QObject::tr( "Set dafault settings, based on dosbox default settings .... [serial]" );
-    // Serial settings
-    dbfe->twSerial->clear();
-    QTreeWidgetItem *serial1 = new QTreeWidgetItem( dbfe->twSerial );
-    serial1->setText( 0, "serial1" );
-    serial1->setText( 1, "dummy" );
-    QTreeWidgetItem *serial2 = new QTreeWidgetItem( dbfe->twSerial );
-    serial2->setText( 0, "serial2" );
-    serial2->setText( 1, "dummy" );
-    QTreeWidgetItem *serial3 = new QTreeWidgetItem( dbfe->twSerial );
-    serial3->setText( 0, "serial3" );
-    serial3->setText( 1, "disabled" );
-    QTreeWidgetItem *serial4 = new QTreeWidgetItem( dbfe->twSerial );
-    serial4->setText( 0, "serial4" );
-    serial4->setText( 1, "disabled" );
-
-    qDebug() << QObject::tr( "Set dafault settings, based on dosbox default settings .... [dos]" );
-    // DOS settings
-    dbfe->chkBoxXMS->setChecked( true );
-    dbfe->chkBoxEMS->setChecked( true );
-    int umb = dbfe->cbxUMB->findText( "true" );
-    dbfe->cbxUMB->setCurrentIndex( umb );
 }
 
 void DB_BASE::findGames( const QString &dirName, QTreeWidget* qtw )
@@ -613,7 +467,6 @@ void DB_BASE::createGameProfiles( const QString &file, QStringList &gamesList, D
 	settGP.setStringList( "Profile", "Name", gamesList );
 	settGP.setString( "DOSBox", "binary", dbfe->LEDbxStabel->text() );
     settGP.setString( "DOSBox", "version", dbfe->LEDbxVersion->text() );
-    settGP.setInt( "DBoxFE", "Lng", dbfe->cbxLanguage->currentIndex() );
     settGP.setBool( "DBoxFE", "winHide", dbfe->chkBoxWindowHide->isChecked() );
     settGP.setBool( "DBoxFE", "keyMapper", dbfe->chkBoxStartmapper->isChecked() );
 	settGP.save( file );
