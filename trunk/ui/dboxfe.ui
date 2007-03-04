@@ -610,17 +610,37 @@
               </item>
               <item>
                <property name="text" >
+                <string>hq2x</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>hq3x</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>2xsai</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>super2xsai</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>supereagle</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
                 <string>advinterp2x</string>
                </property>
               </item>
               <item>
                <property name="text" >
                 <string>advinterp3x</string>
-               </property>
-              </item>
-              <item>
-               <property name="text" >
-                <string>interp2x</string>
                </property>
               </item>
               <item>
