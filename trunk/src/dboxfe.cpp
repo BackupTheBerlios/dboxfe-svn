@@ -323,7 +323,7 @@ void DBoxFE::slotChooseDbxBinary()
             return ;
         }
 
-        if ( QString( dboxVersion.simplified() ).trimmed() <= "0.65" ) {
+        if ( QString( dboxVersion.simplified() ).trimmed() >= "0.65" ) {
             LEDbxStabel->setText( strDbxStabel );
             LEDbxVersion->setText( QString( tr( "DOSBox Version:  " ) + dboxVersion ) );
         } else {
