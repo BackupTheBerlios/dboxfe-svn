@@ -192,8 +192,7 @@ void DB_BASE::readConf( const QString &dbconf, DBoxFE* dbfe )
     getConf->beginGroup( "dos" );
     dbfe->chkBoxXMS->setChecked( getConf->value( "xms" ).toBool() );
     dbfe->chkBoxEMS->setChecked( getConf->value( "ems" ).toBool() );
-    int umb = dbfe->cbxUMB->findText( getConf->value( "umb" ).toString() );
-    dbfe->cbxUMB->setCurrentIndex( umb );
+    dbfe->chkBoxUMB->setChecked( getConf->value( "umb" ).toBool() );
     int kbdl = dbfe->cbxKeyboardLayout->findText( getConf->value( "keyboardlayout" ).toString() );
     dbfe->cbxKeyboardLayout->setCurrentIndex( kbdl );
 
@@ -369,7 +368,7 @@ void DB_BASE::saveConf( const QString &dbconf, DBoxFE* dbfe )
     settConf->beginGroup( "dos" );
     settConf->setValue( "xms", dbfe->chkBoxXMS->isChecked() );
     settConf->setValue( "ems", dbfe->chkBoxEMS->isChecked() );
-    settConf->setValue( "umb", dbfe->cbxUMB->currentText() );
+    settConf->setValue( "umb", dbfe->chkBoxUMB->isChecked() );
     settConf->setValue( "keyboardlayout", dbfe->cbxKeyboardLayout->currentText() );
     settConf->endGroup();
 
