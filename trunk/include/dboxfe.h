@@ -50,6 +50,7 @@ class DBoxFE : public QWidget, public Ui::DBoxFE
         void slotCbxSerialIndexChanged( int );
         void slotCbxAutoexecIndexChanged( int );
 		void slotCbxKeyboardLayoutIndexChanged( int );
+		void slotChkBoxStartTrayIconToggled( bool );
         void slotAutoexecDrive();
         void slotAutoexecUpdate();
         void slotAutoexecRemove();

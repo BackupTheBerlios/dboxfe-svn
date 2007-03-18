@@ -62,6 +62,7 @@ DBoxFE::DBoxFE( QWidget *parent, Qt::WFlags flags ) : QWidget( parent, flags )
     connect( cbxDSOption, SIGNAL( currentIndexChanged( int ) ), this, SLOT( slotCbxSerialIndexChanged( int ) ) );
     connect( cbxAutoexecDirectoryOption, SIGNAL( currentIndexChanged( int ) ), this, SLOT( slotCbxAutoexecIndexChanged( int ) ) );
 	connect( cbxKeyboardLayout, SIGNAL( currentIndexChanged( int ) ), this, SLOT( slotCbxKeyboardLayoutIndexChanged( int ) ) );
+	connect( chkBoxStartTrayIcon, SIGNAL( toggled( bool ) ), this, SLOT( slotChkBoxStartTrayIconToggled( bool ) ) );
 
     // windows title for the application
     titleLin = tr( "DBoxFE - Front End for DOSBox 0.70 - Linux Version " ) + getAppVersion();
@@ -841,6 +842,30 @@ void DBoxFE::slotCbxKeyboardLayoutIndexChanged( int index )
 		case 16:
 			lblKeyboardLayoutInfo->setText( tr("Sweden") );				/* SV	 */
 			break;
+	}
+}
+
+/**
+ * TODO Function for create symlink into autostart from windowmanager....
+ **/
+void DBoxFE::slotChkBoxStartTrayIconToggled( bool toggle )
+{
+	if( toggle ) {
+		#ifdef Q_OS_WIN32
+			QString autostart;
+			QSettings *autostart_cfg = new QSettings( "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer", QSettings::NativeFormat );
+			autostart_cfg->beginGroup( "Shell Folders" );
+			autostart = autostart_cfg->value( "Startup" ).toString();
+			autostart = autostart.replace("\\", "/" );
+			autostart_cfg->endGroup();
+
+			//if( QFile::link( QCoreApplication::applicationDirPath() + "/dboxfetray.exe", autostart + "/DBoxFE - TrayIcon v0.1.2 (SVN)" ) )
+			//	QMessageBox::information( this, winTitle(), tr( "Can not create autostart link." ) );
+
+			delete autostart_cfg;
+		#else
+		#endif
+	} else {
 	}
 }
 
