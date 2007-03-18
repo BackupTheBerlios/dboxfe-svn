@@ -29,10 +29,11 @@ DBoxFE_TrayIcon::DBoxFE_TrayIcon()
 	
 	setWindowIcon(QIcon( QString::fromUtf8( ":/dboxfetray.png") ) );
 	setWindowTitle( getAppTitel() );
-	
-	QTimer *timer = new QTimer( this );
-    connect( timer, SIGNAL( timeout() ), this, SLOT( reloadMenu() ) );
-    timer->start( 60000 );
+
+	update = new QTimer( this );
+	connect( update, SIGNAL( timeout() ), this, SLOT( reloadMenu() ) );
+	update->thread()->setPriority( QThread::NormalPriority );
+	update->start( 30000 );	
 }
 
 void DBoxFE_TrayIcon::setVisible( bool visible )
@@ -91,15 +92,17 @@ void DBoxFE_TrayIcon::createMenu()
 	dbfe_trayIcon->setContextMenu( dbfe_trayIconMenu );
 
 	dbfe_trayIcon->setIcon( QIcon( QString::fromUtf8( ":/dboxfetray.png" ) ) );	
-	dbfe_trayIcon->show();
+	dbfe_trayIcon->setToolTip("DBoxFE - TrayIcon v0.1.2 (SVN)");
+	dbfe_trayIcon->show();	
 }
 
 void DBoxFE_TrayIcon::reloadMenu()
 {
-	qApp->processEvents();
+	update->stop();
 	delete dbfe_trayIconMenu;
 	delete dbfe_trayIcon;
 	createMenu();
+	update->start(5000);
 }
 
 void DBoxFE_TrayIcon::startGame()

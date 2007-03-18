@@ -41,6 +41,7 @@ class DBoxFE_TrayIcon : public QWidget {
 		QProcess *dBox;
 		QProcess *dboxfe;
 		QStringList m_param;
+		QTimer *update;
 
     protected:
         void closeEvent( QCloseEvent *e );
