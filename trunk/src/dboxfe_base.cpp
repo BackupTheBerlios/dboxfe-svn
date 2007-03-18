@@ -226,13 +226,6 @@ void DB_BASE::readConf( const QString &dbconf, DBoxFE* dbfe )
                 line = in.readLine();
                 QListWidgetItem *autoexec = new QListWidgetItem( dbfe->lwAutoexec );
                 autoexec->setText( line );
-
-				// if comes after section [autoexec] a another section, then exit method
-				if( line != "[autoexec]" ) {
-					f.close();
-					delete getConf;
-					return;
-				}					
             }
         }
     }
