@@ -1398,8 +1398,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>197</width>
-            <height>122</height>
+            <width>195</width>
+            <height>116</height>
            </rect>
           </property>
           <attribute name="label" >
@@ -1588,8 +1588,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>394</width>
-            <height>121</height>
+            <width>390</width>
+            <height>114</height>
            </rect>
           </property>
           <attribute name="label" >
@@ -2020,8 +2020,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>224</width>
-            <height>174</height>
+            <width>220</width>
+            <height>164</height>
            </rect>
           </property>
           <attribute name="label" >
@@ -2331,8 +2331,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>254</width>
-            <height>94</height>
+            <width>250</width>
+            <height>90</height>
            </rect>
           </property>
           <attribute name="label" >
@@ -2538,8 +2538,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>212</width>
-            <height>98</height>
+            <width>210</width>
+            <height>94</height>
            </rect>
           </property>
           <attribute name="label" >
@@ -4494,47 +4494,18 @@
        <property name="spacing" >
         <number>6</number>
        </property>
-       <item row="1" column="0" >
-        <widget class="QGroupBox" name="groupBox_4" >
-         <property name="title" >
-          <string>Option</string>
+       <item row="3" column="0" >
+        <spacer>
+         <property name="orientation" >
+          <enum>Qt::Vertical</enum>
          </property>
-         <layout class="QGridLayout" >
-          <property name="margin" >
-           <number>9</number>
-          </property>
-          <property name="spacing" >
-           <number>6</number>
-          </property>
-          <item row="0" column="0" >
-           <layout class="QGridLayout" >
-            <property name="margin" >
-             <number>0</number>
-            </property>
-            <property name="spacing" >
-             <number>6</number>
-            </property>
-            <item row="0" column="0" >
-             <widget class="QCheckBox" name="chkBoxWindowHide" >
-              <property name="text" >
-               <string>Hide window if dosbox started</string>
-              </property>
-              <property name="checked" >
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="0" >
-             <widget class="QCheckBox" name="chkBoxStartmapper" >
-              <property name="text" >
-               <string>start Keymapper</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-         </layout>
-        </widget>
+         <property name="sizeHint" >
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
        </item>
        <item row="2" column="0" >
         <layout class="QHBoxLayout" >
@@ -4568,19 +4539,6 @@
           </spacer>
          </item>
         </layout>
-       </item>
-       <item row="3" column="0" >
-        <spacer>
-         <property name="orientation" >
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" >
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
        </item>
        <item row="0" column="0" >
         <widget class="QGroupBox" name="gBoxExecutable" >
@@ -4657,6 +4615,55 @@
          </layout>
         </widget>
        </item>
+       <item row="1" column="0" >
+        <widget class="QGroupBox" name="groupBox_4" >
+         <property name="title" >
+          <string>Option</string>
+         </property>
+         <layout class="QGridLayout" >
+          <property name="margin" >
+           <number>9</number>
+          </property>
+          <property name="spacing" >
+           <number>6</number>
+          </property>
+          <item row="0" column="0" >
+           <layout class="QGridLayout" >
+            <property name="margin" >
+             <number>0</number>
+            </property>
+            <property name="spacing" >
+             <number>6</number>
+            </property>
+            <item row="0" column="0" >
+             <widget class="QCheckBox" name="chkBoxStartTrayIcon" >
+              <property name="text" >
+               <string>start "DBoxFE - TrayIcon" with you windowmanager</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0" >
+             <widget class="QCheckBox" name="chkBoxWindowHide" >
+              <property name="text" >
+               <string>Hide window if dosbox started</string>
+              </property>
+              <property name="checked" >
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0" >
+             <widget class="QCheckBox" name="chkBoxStartmapper" >
+              <property name="text" >
+               <string>start Keymapper</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
       </layout>
      </widget>
      <widget class="QWidget" name="tbLog" >
@@ -4695,152 +4702,6 @@
       </layout>
      </widget>
     </widget>
-   </item>
-   <item row="1" column="1" >
-    <layout class="QHBoxLayout" >
-     <property name="margin" >
-      <number>0</number>
-     </property>
-     <property name="spacing" >
-      <number>6</number>
-     </property>
-     <item>
-      <widget class="QPushButton" name="btnStartDBox" >
-       <property name="minimumSize" >
-        <size>
-         <width>110</width>
-         <height>26</height>
-        </size>
-       </property>
-       <property name="maximumSize" >
-        <size>
-         <width>110</width>
-         <height>26</height>
-        </size>
-       </property>
-       <property name="text" >
-        <string> St&amp;art</string>
-       </property>
-       <property name="icon" >
-        <iconset resource="../res/dboxfe.qrc" >:/pics/images/applications_16.png</iconset>
-       </property>
-       <property name="shortcut" >
-        <string>Alt+D</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer>
-       <property name="orientation" >
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" >
-        <size>
-         <width>148</width>
-         <height>30</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QPushButton" name="btnSaveGP" >
-       <property name="minimumSize" >
-        <size>
-         <width>110</width>
-         <height>26</height>
-        </size>
-       </property>
-       <property name="maximumSize" >
-        <size>
-         <width>110</width>
-         <height>26</height>
-        </size>
-       </property>
-       <property name="text" >
-        <string> &amp;Save</string>
-       </property>
-       <property name="icon" >
-        <iconset resource="../res/dboxfe.qrc" >:/pics/images/save_16.png</iconset>
-       </property>
-       <property name="shortcut" >
-        <string>Alt+S</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer>
-       <property name="orientation" >
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" >
-        <size>
-         <width>16</width>
-         <height>30</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QPushButton" name="btnAbout" >
-       <property name="minimumSize" >
-        <size>
-         <width>110</width>
-         <height>26</height>
-        </size>
-       </property>
-       <property name="maximumSize" >
-        <size>
-         <width>110</width>
-         <height>26</height>
-        </size>
-       </property>
-       <property name="text" >
-        <string>About</string>
-       </property>
-       <property name="icon" >
-        <iconset resource="../res/dboxfe.qrc" >:/pics/images/default.png</iconset>
-       </property>
-       <property name="shortcut" >
-        <string>Alt+S</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer>
-       <property name="orientation" >
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" >
-        <size>
-         <width>16</width>
-         <height>30</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QPushButton" name="btnQuit" >
-       <property name="minimumSize" >
-        <size>
-         <width>110</width>
-         <height>26</height>
-        </size>
-       </property>
-       <property name="maximumSize" >
-        <size>
-         <width>110</width>
-         <height>26</height>
-        </size>
-       </property>
-       <property name="text" >
-        <string> &amp;Quit</string>
-       </property>
-       <property name="icon" >
-        <iconset resource="../res/dboxfe.qrc" >:/pics/images/delete_16.png</iconset>
-       </property>
-      </widget>
-     </item>
-    </layout>
    </item>
    <item rowspan="2" row="0" column="0" >
     <widget class="QGroupBox" name="gBoxProfile" >
@@ -5004,6 +4865,152 @@
      </layout>
     </widget>
    </item>
+   <item row="1" column="1" >
+    <layout class="QHBoxLayout" >
+     <property name="margin" >
+      <number>0</number>
+     </property>
+     <property name="spacing" >
+      <number>6</number>
+     </property>
+     <item>
+      <widget class="QPushButton" name="btnStartDBox" >
+       <property name="minimumSize" >
+        <size>
+         <width>110</width>
+         <height>26</height>
+        </size>
+       </property>
+       <property name="maximumSize" >
+        <size>
+         <width>110</width>
+         <height>26</height>
+        </size>
+       </property>
+       <property name="text" >
+        <string> St&amp;art</string>
+       </property>
+       <property name="icon" >
+        <iconset resource="../res/dboxfe.qrc" >:/pics/images/applications_16.png</iconset>
+       </property>
+       <property name="shortcut" >
+        <string>Alt+D</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer>
+       <property name="orientation" >
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" >
+        <size>
+         <width>148</width>
+         <height>30</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnSaveGP" >
+       <property name="minimumSize" >
+        <size>
+         <width>110</width>
+         <height>26</height>
+        </size>
+       </property>
+       <property name="maximumSize" >
+        <size>
+         <width>110</width>
+         <height>26</height>
+        </size>
+       </property>
+       <property name="text" >
+        <string> &amp;Save</string>
+       </property>
+       <property name="icon" >
+        <iconset resource="../res/dboxfe.qrc" >:/pics/images/save_16.png</iconset>
+       </property>
+       <property name="shortcut" >
+        <string>Alt+S</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer>
+       <property name="orientation" >
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" >
+        <size>
+         <width>16</width>
+         <height>30</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnAbout" >
+       <property name="minimumSize" >
+        <size>
+         <width>110</width>
+         <height>26</height>
+        </size>
+       </property>
+       <property name="maximumSize" >
+        <size>
+         <width>110</width>
+         <height>26</height>
+        </size>
+       </property>
+       <property name="text" >
+        <string>About</string>
+       </property>
+       <property name="icon" >
+        <iconset resource="../res/dboxfe.qrc" >:/pics/images/default.png</iconset>
+       </property>
+       <property name="shortcut" >
+        <string>Alt+S</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer>
+       <property name="orientation" >
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" >
+        <size>
+         <width>16</width>
+         <height>30</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnQuit" >
+       <property name="minimumSize" >
+        <size>
+         <width>110</width>
+         <height>26</height>
+        </size>
+       </property>
+       <property name="maximumSize" >
+        <size>
+         <width>110</width>
+         <height>26</height>
+        </size>
+       </property>
+       <property name="text" >
+        <string> &amp;Quit</string>
+       </property>
+       <property name="icon" >
+        <iconset resource="../res/dboxfe.qrc" >:/pics/images/delete_16.png</iconset>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11" />
@@ -5128,12 +5135,12 @@
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel" >
-     <x>825</x>
-     <y>290</y>
+     <x>378</x>
+     <y>260</y>
     </hint>
     <hint type="destinationlabel" >
-     <x>895</x>
-     <y>294</y>
+     <x>378</x>
+     <y>260</y>
     </hint>
    </hints>
   </connection>
@@ -5144,12 +5151,12 @@
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel" >
-     <x>825</x>
-     <y>160</y>
+     <x>378</x>
+     <y>70</y>
     </hint>
     <hint type="destinationlabel" >
-     <x>895</x>
-     <y>164</y>
+     <x>378</x>
+     <y>70</y>
     </hint>
    </hints>
   </connection>
@@ -5177,11 +5184,11 @@
    <hints>
     <hint type="sourcelabel" >
      <x>388</x>
-     <y>127</y>
+     <y>70</y>
     </hint>
     <hint type="destinationlabel" >
      <x>378</x>
-     <y>127</y>
+     <y>70</y>
     </hint>
    </hints>
   </connection>
@@ -5193,11 +5200,11 @@
    <hints>
     <hint type="sourcelabel" >
      <x>388</x>
-     <y>127</y>
+     <y>70</y>
     </hint>
     <hint type="destinationlabel" >
      <x>378</x>
-     <y>127</y>
+     <y>70</y>
     </hint>
    </hints>
   </connection>
@@ -5209,11 +5216,11 @@
    <hints>
     <hint type="sourcelabel" >
      <x>388</x>
-     <y>127</y>
+     <y>70</y>
     </hint>
     <hint type="destinationlabel" >
      <x>378</x>
-     <y>127</y>
+     <y>70</y>
     </hint>
    </hints>
   </connection>
@@ -5225,11 +5232,11 @@
    <hints>
     <hint type="sourcelabel" >
      <x>388</x>
-     <y>127</y>
+     <y>70</y>
     </hint>
     <hint type="destinationlabel" >
      <x>378</x>
-     <y>127</y>
+     <y>70</y>
     </hint>
    </hints>
   </connection>
@@ -5241,11 +5248,11 @@
    <hints>
     <hint type="sourcelabel" >
      <x>388</x>
-     <y>127</y>
+     <y>70</y>
     </hint>
     <hint type="destinationlabel" >
      <x>378</x>
-     <y>127</y>
+     <y>70</y>
     </hint>
    </hints>
   </connection>
@@ -5257,11 +5264,11 @@
    <hints>
     <hint type="sourcelabel" >
      <x>388</x>
-     <y>127</y>
+     <y>70</y>
     </hint>
     <hint type="destinationlabel" >
      <x>378</x>
-     <y>127</y>
+     <y>70</y>
     </hint>
    </hints>
   </connection>
@@ -5273,11 +5280,11 @@
    <hints>
     <hint type="sourcelabel" >
      <x>388</x>
-     <y>127</y>
+     <y>70</y>
     </hint>
     <hint type="destinationlabel" >
      <x>378</x>
-     <y>127</y>
+     <y>70</y>
     </hint>
    </hints>
   </connection>
@@ -5289,11 +5296,11 @@
    <hints>
     <hint type="sourcelabel" >
      <x>388</x>
-     <y>127</y>
+     <y>70</y>
     </hint>
     <hint type="destinationlabel" >
      <x>388</x>
-     <y>127</y>
+     <y>70</y>
     </hint>
    </hints>
   </connection>
@@ -5305,11 +5312,11 @@
    <hints>
     <hint type="sourcelabel" >
      <x>388</x>
-     <y>127</y>
+     <y>70</y>
     </hint>
     <hint type="destinationlabel" >
      <x>388</x>
-     <y>127</y>
+     <y>70</y>
     </hint>
    </hints>
   </connection>
@@ -5321,11 +5328,11 @@
    <hints>
     <hint type="sourcelabel" >
      <x>388</x>
-     <y>127</y>
+     <y>70</y>
     </hint>
     <hint type="destinationlabel" >
      <x>388</x>
-     <y>127</y>
+     <y>70</y>
     </hint>
    </hints>
   </connection>
@@ -5337,11 +5344,11 @@
    <hints>
     <hint type="sourcelabel" >
      <x>388</x>
-     <y>127</y>
+     <y>70</y>
     </hint>
     <hint type="destinationlabel" >
      <x>388</x>
-     <y>127</y>
+     <y>70</y>
     </hint>
    </hints>
   </connection>
@@ -5353,11 +5360,11 @@
    <hints>
     <hint type="sourcelabel" >
      <x>388</x>
-     <y>127</y>
+     <y>70</y>
     </hint>
     <hint type="destinationlabel" >
      <x>388</x>
-     <y>127</y>
+     <y>70</y>
     </hint>
    </hints>
   </connection>
@@ -5368,12 +5375,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel" >
-     <x>380</x>
-     <y>91</y>
+     <x>369</x>
+     <y>61</y>
     </hint>
     <hint type="destinationlabel" >
-     <x>380</x>
-     <y>91</y>
+     <x>369</x>
+     <y>61</y>
     </hint>
    </hints>
   </connection>
@@ -5384,12 +5391,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel" >
-     <x>380</x>
-     <y>91</y>
+     <x>369</x>
+     <y>61</y>
     </hint>
     <hint type="destinationlabel" >
-     <x>390</x>
-     <y>91</y>
+     <x>379</x>
+     <y>61</y>
     </hint>
    </hints>
   </connection>
