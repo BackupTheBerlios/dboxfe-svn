@@ -26,14 +26,14 @@
 DBoxFE_TrayIcon::DBoxFE_TrayIcon()
 {
     createMenu();
-	
+
 	setWindowIcon(QIcon( QString::fromUtf8( ":/dboxfetray.png") ) );
 	setWindowTitle( getAppTitel() );
 
 	update = new QTimer( this );
 	connect( update, SIGNAL( timeout() ), this, SLOT( reloadMenu() ) );
 	update->thread()->setPriority( QThread::NormalPriority );
-	update->start( 30000 );	
+	update->start( 30000 );
 }
 
 void DBoxFE_TrayIcon::setVisible( bool visible )
@@ -53,7 +53,7 @@ void DBoxFE_TrayIcon::createMenu()
 	dbfe_trayIconMenu = new QMenu( this );
 	QAction *infoAction = new QAction( getAppTitel(), this );
 	infoAction->setEnabled( FALSE );
-	dbfe_trayIconMenu->addAction( infoAction );	
+	dbfe_trayIconMenu->addAction( infoAction );
 	dbfe_trayIconMenu->addSeparator();
 
     m_file = QDir::homePath();
@@ -72,7 +72,7 @@ void DBoxFE_TrayIcon::createMenu()
 		qApp->processEvents();
 		dbfe_trayAction = new QAction( sList.value( i ), this );
 		connect( dbfe_trayAction, SIGNAL( triggered() ), this, SLOT( startGame() ) );
-		dbfe_trayIconMenu->addAction( dbfe_trayAction );				
+		dbfe_trayIconMenu->addAction( dbfe_trayAction );
 	}
 
 	/* Create action after profile menus */
@@ -84,16 +84,16 @@ void DBoxFE_TrayIcon::createMenu()
     QAction *quitAction = new QAction( tr("&Quit"), this );
     connect(quitAction, SIGNAL(triggered()), qApp, SLOT(quit()));
 
-	/* Create trayicon now and set the context menu */	
+	/* Create trayicon now and set the context menu */
 	dbfe_trayIconMenu->addAction( dboxfeAction );
 	dbfe_trayIconMenu->addAction( quitAction );
 
 	dbfe_trayIcon = new QSystemTrayIcon( this );
 	dbfe_trayIcon->setContextMenu( dbfe_trayIconMenu );
 
-	dbfe_trayIcon->setIcon( QIcon( QString::fromUtf8( ":/dboxfetray.png" ) ) );	
+	dbfe_trayIcon->setIcon( QIcon( QString::fromUtf8( ":/dboxfetray.png" ) ) );
 	dbfe_trayIcon->setToolTip("DBoxFE - TrayIcon v0.1.2 (SVN)");
-	dbfe_trayIcon->show();	
+	dbfe_trayIcon->show();
 }
 
 void DBoxFE_TrayIcon::reloadMenu()
@@ -142,6 +142,14 @@ void DBoxFE_TrayIcon::start( const QString& bin, const QString &param, const QSt
 
 void DBoxFE_TrayIcon::startdboxfe()
 {
+	 QString dbfeBin;
 	 dboxfe = new QProcess( this );
-	 dboxfe->start(QCoreApplication::applicationDirPath() + "/dboxfe.exe", QStringList());
+
+	 #ifdef Q_OS_WIN32
+	 	dbfeBin = QCoreApplication::applicationDirPath() + "/dboxfe.exe";
+	 #else
+	 	dbfeBin = QCoreApplication::applicationDirPath() + "/dboxfe";
+	 #endif
+
+	 dboxfe->start( dbfeBin, QStringList());
 }
