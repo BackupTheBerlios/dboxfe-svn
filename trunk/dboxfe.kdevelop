@@ -3,7 +3,7 @@
   <general>
     <author>Alexander Saal</author>
     <email>alex.saal@gmx.de</email>
-    <version>0.1.2</version>
+    <version>0.1.2svn</version>
     <projectmanagement>KDevTrollProject</projectmanagement>
     <primarylanguage>C++</primarylanguage>
     <keywords>
@@ -15,7 +15,7 @@
     <absoluteprojectpath>false</absoluteprojectpath>
     <description/>
     <defaultencoding/>
-    <versioncontrol/>
+    <versioncontrol>kdevsubversion</versioncontrol>
   </general>
   <kdevfileview>
     <groups>
@@ -29,6 +29,7 @@
     <tree>
       <hidepatterns>*.o,*.lo,CVS</hidepatterns>
       <hidenonprojectfiles>false</hidenonprojectfiles>
+      <showvcsfields>false</showvcsfields>
     </tree>
   </kdevfileview>
   <kdevdoctreeview>
@@ -72,7 +73,6 @@
   <kdevdebugger>
     <general>
       <dbgshell/>
-      <programargs/>
       <gdbpath/>
       <configGdbScript/>
       <runShellScript/>
@@ -87,49 +87,18 @@
       <outputradix>10</outputradix>
     </display>
   </kdevdebugger>
-  <kdevfilecreate>
-    <filetypes/>
-    <useglobaltypes>
-      <type ext="ui" />
-      <type ext="cpp" />
-      <type ext="h" />
-    </useglobaltypes>
-  </kdevfilecreate>
-  <kdevtrollproject>
-    <general>
-      <activedir></activedir>
-    </general>
-    <run>
-      <directoryradio>executable</directoryradio>
-      <customdirectory>/</customdirectory>
-      <mainprogram/>
-      <programargs/>
-      <terminal>false</terminal>
-      <autocompile>true</autocompile>
-      <envvars/>
-    </run>
-    <make>
-      <abortonerror>true</abortonerror>
-      <runmultiplejobs>false</runmultiplejobs>
-      <numberofjobs>1</numberofjobs>
-      <dontact>false</dontact>
-      <makebin/>
-      <prio>0</prio>
-      <envvars/>
-    </make>
-  </kdevtrollproject>
-  <cppsupportpart>
-    <filetemplates>
-      <interfacesuffix>.h</interfacesuffix>
-      <implementationsuffix>.cpp</implementationsuffix>
-    </filetemplates>
-  </cppsupportpart>
   <kdevcppsupport>
     <qt>
-      <used>false</used>
       <version>4</version>
-      <root/>
+      <used>true</used>
+      <includestyle>4</includestyle>
+      <designerintegration>ExternalDesigner</designerintegration>
+      <root>/usr/lib/qt4</root>
+      <qmake>/usr/bin/qmake</qmake>
+      <designer>/usr/bin/designer</designer>
+      <designerpluginpaths/>
     </qt>
+    <references/>
     <codecompletion>
       <automaticCodeCompletion>false</automaticCodeCompletion>
       <automaticArgumentsHint>true</automaticArgumentsHint>
@@ -137,6 +106,21 @@
       <codeCompletionDelay>250</codeCompletionDelay>
       <argumentsHintDelay>400</argumentsHintDelay>
       <headerCompletionDelay>250</headerCompletionDelay>
+      <showOnlyAccessibleItems>false</showOnlyAccessibleItems>
+      <completionBoxItemOrder>0</completionBoxItemOrder>
+      <howEvaluationContextMenu>true</howEvaluationContextMenu>
+      <showCommentWithArgumentHint>true</showCommentWithArgumentHint>
+      <statusBarTypeEvaluation>false</statusBarTypeEvaluation>
+      <namespaceAliases>std=_GLIBCXX_STD;__gnu_cxx=std</namespaceAliases>
+      <processPrimaryTypes>true</processPrimaryTypes>
+      <processFunctionArguments>false</processFunctionArguments>
+      <preProcessAllHeaders>false</preProcessAllHeaders>
+      <parseMissingHeaders>false</parseMissingHeaders>
+      <resolveIncludePaths>true</resolveIncludePaths>
+      <alwaysParseInBackground>true</alwaysParseInBackground>
+      <usePermanentCaching>true</usePermanentCaching>
+      <alwaysIncludeNamespaces>false</alwaysIncludeNamespaces>
+      <includePaths>.;</includePaths>
     </codecompletion>
     <creategettersetter>
       <prefixGet/>
@@ -151,10 +135,53 @@
       <synchronize>true</synchronize>
       <orientation>Vertical</orientation>
     </splitheadersource>
-    <references>
-      <pcs>Qt4</pcs>
-    </references>
   </kdevcppsupport>
+  <kdevfilecreate>
+    <filetypes/>
+    <useglobaltypes>
+      <type ext="ui" />
+      <type ext="cpp" />
+      <type ext="h" />
+    </useglobaltypes>
+  </kdevfilecreate>
+  <kdevtrollproject>
+    <general>
+      <activedir></activedir>
+    </general>
+    <run>
+      <directoryradio>executable</directoryradio>
+      <mainprogram>/home/alex/projekte/dboxfe</mainprogram>
+      <programargs/>
+      <globaldebugarguments/>
+      <globalcwd>/home/alex/projekte/dboxfe</globalcwd>
+      <useglobalprogram>false</useglobalprogram>
+      <terminal>false</terminal>
+      <autocompile>false</autocompile>
+      <autoinstall>false</autoinstall>
+      <autokdesu>false</autokdesu>
+      <envvars/>
+    </run>
+    <make>
+      <abortonerror>true</abortonerror>
+      <runmultiplejobs>false</runmultiplejobs>
+      <numberofjobs>1</numberofjobs>
+      <dontact>false</dontact>
+      <makebin/>
+      <prio>0</prio>
+      <envvars/>
+    </make>
+    <qmake>
+      <savebehaviour>2</savebehaviour>
+      <replacePaths>false</replacePaths>
+      <disableDefaultOpts>true</disableDefaultOpts>
+    </qmake>
+  </kdevtrollproject>
+  <cppsupportpart>
+    <filetemplates>
+      <interfacesuffix>.h</interfacesuffix>
+      <implementationsuffix>.cpp</implementationsuffix>
+    </filetemplates>
+  </cppsupportpart>
   <kdevdocumentation>
     <projectdoc>
       <docsystem/>
@@ -162,4 +189,9 @@
       <usermanualurl/>
     </projectdoc>
   </kdevdocumentation>
+  <ctagspart>
+    <customArguments/>
+    <customTagfilePath>/home/alex/projekte/dboxfe/tags</customTagfilePath>
+    <activeTagsFiles/>
+  </ctagspart>
 </kdevelop>
