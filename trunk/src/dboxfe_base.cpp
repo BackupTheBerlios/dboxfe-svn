@@ -226,6 +226,9 @@ void DB_BASE::readConf( const QString &dbconf, DBoxFE* dbfe )
                 line = in.readLine();
                 QListWidgetItem *autoexec = new QListWidgetItem( dbfe->lwAutoexec );
                 autoexec->setText( line );
+
+				if( line.startsWith("[") && line.endsWith("]") )
+					break;
             }
         }
     }
