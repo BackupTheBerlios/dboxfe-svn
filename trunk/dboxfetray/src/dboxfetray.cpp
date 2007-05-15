@@ -102,7 +102,7 @@ void DBoxFE_TrayIcon::reloadMenu()
 	delete dbfe_trayIconMenu;
 	delete dbfe_trayIcon;
 	createMenu();
-	update->start(5000);
+	update->start(15000);
 }
 
 void DBoxFE_TrayIcon::startGame()
