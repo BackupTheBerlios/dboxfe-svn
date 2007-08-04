@@ -2,7 +2,7 @@
 cls
 
 echo ***************************************************************************
-echo *   Copyright (C) 2006 by Alexander Saal                                  *
+echo *   Copyright (C) 2004-2007 by Alexander Saal                             *
 echo *   alex.saal@gmx.de                                                      *
 echo *                                                                         *
 echo *   This program is free software; you can redistribute it and/or modify  *
