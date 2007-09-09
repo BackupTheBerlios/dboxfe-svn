@@ -30,7 +30,7 @@ class DBoxFE_TrayIcon : public QWidget {
 		void setVisible(bool visible);
 
     private:
-		QString getAppVersion() { return tr( "v0.1.2 (SVN)" ); }
+		QString getAppVersion() { return tr( "v0.1.3 (SVN)" ); }
 		QString getAppTitel() { return tr( "DBoxFE - TrayIcon" ); }
 
 		QSystemTrayIcon *dbfe_trayIcon;
