@@ -27,11 +27,11 @@ fi
 echo "Configurescript for DBoxFE 0.1.3 (SVN)"
 echo
 printf "Checking for qmake... "
-qmake="`which qmake`"
-qmake_qt4="`which qmake-qt4`"
+qmake=`which qmake`
+qmake_qt4=`which qmake-qt4`
 tmp_qmake=""
 
-if [ "$qmake" = "" ] && [ "$qmake_qt4" = "" ]; then
+if [ "$qmake" = "" ] || [ "$qmake_qt4" = "" ]; then
 	echo "not found!"
 	echo
 	echo "Make sure you have the Qt development packages installed!"
@@ -43,6 +43,7 @@ elif [ "$qmake_qt4" != "" ]; then
 	tmp_qmake=$qmake_qt4
 	echo $tmp_qmake
 fi
+
 
 printf "Checking for lupdate... "
 lupdate_qt4="`which lupdate-qt4`"
