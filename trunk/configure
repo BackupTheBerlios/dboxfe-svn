@@ -1,6 +1,8 @@
 #!/bin/sh
 # Configure script for dboxfe, this script is based on KVideoEncoder by Philipp Ludwig
- 
+
+clear
+
 if [ "$1" = "--help" ]; then
 echo "Usage: configure"
 exit 0
@@ -12,99 +14,141 @@ exit 0
 fi
 
 if [ "$1" = "--v" ]; then
-echo "DBoxFE v0.1.1-beta2"
+echo "DBoxFE v0.1.3 (SVN)"
 exit 0
 fi
 
 if [ "$1" = "-v" ]; then
-echo "DBoxFE v0.1.1-beta2"
+echo "DBoxFE v0.1.3 (SVN)"
 exit 0
 fi
 
 # Checking for Qt...
+echo "Configurescript for DBoxFE 0.1.3 (SVN)"
 echo
 printf "Checking for qmake... "
-qmake="`which qmake-qt4`"
+qmake="`which qmake`"
+qmake_qt4="`which qmake-qt4`"
+tmp_qmake=""
+
 if [ "$qmake" = "" ]; then
     echo "not found!"
     echo
     echo "Make sure you have the Qt development packages installed!"
     exit 1
+elif [ "$qmake_qt4" = "" ]; then
+    echo "not found!"
+    echo
+    echo "Make sure you have the Qt development packages installed!"
+    exit 1
 else
-    echo $qmake;
+	if [ "$qmake" != "" ]; then
+		tmp_qmake=$qmake
+		echo $tmp_qmake
+	elif [ "$qmake_qt4" != "" ]; then
+		tmp_qmake=$qmake_qt4
+		echo $tmp_qmake
+	fi
 fi
 
 
 printf "Checking for lupdate... "
-lupdate="`which lupdate-qt4`"
+lupdate_qt4="`which lupdate-qt4`"
+lupdate="`which lupdate`"
+tmp_lupdate=""
+
 if [ "$lupdate" = "" ]; then
-echo "not found!"
-echo
-echo "Make sure you have the Qt development packages installed!"
-exit 1
+	echo "not found!"
+	echo
+	echo "Make sure you have the Qt development packages installed!"
+	exit 1
+elif [ "$lupdate_qt4" = "" ]; then
+	echo "not found!"
+	echo
+	echo "Make sure you have the Qt development packages installed!"
+	exit 1
 else
-echo $lupdate;
+	if [ "$lupdate" != "" ]; then
+		tmp_lupdate=$lupdate
+		echo $tmp_lupdate
+	elif [ "$lupdate_qt4" != "" ]; then
+		tmp_lupdate=$lupdate_qt4
+		echo $tmp_lupdate
+	fi
 fi
 
 printf "Checking for lrelease... "
-lrelease="`which lrelease-qt4`"
+lrelease_qt4="`which lrelease-qt4`"
+lrelease="`which lrelease`"
+tmp_lrelease=""
+
 if [ "$lrelease" = "" ]; then
-echo "not found!"
-echo
-echo "Make sure you have the Qt development packages installed!"
-exit 1
+	echo "not found!"
+	echo
+	echo "Make sure you have the Qt development packages installed!"
+	exit 1
+elif [ "$lrelease_qt4" = "" ]; then
+	echo "not found!"
+	echo
+	echo "Make sure you have the Qt development packages installed!"
+	exit 1
 else
-echo $lrelease;
-rm -rf lrelease.ver
+	if [ "$lrelease" != "" ]; then
+		tmp_lreleasee=$lrelease
+		echo $tmp_lreleasee
+	elif [ "$lrelease_qt4" != "" ]; then
+		tmp_lreleasee=$lrelease_qt4
+		echo $tmp_lreleasee
+	fi
 fi
 
 printf "Checking for qmake version... "
-$qmake -v &>qmake.ver
+$tmp_qmake -v &>qmake.ver
 ver=`sed 's/[a-z,A-Z].//g' qmake.ver | sed -n '1,1p'`
 if [ "$ver" = " 1.07( 3.3.6)" ]; then
-echo "1.07a (Qt 3.3.6)";
-echo
-echo "version too old! Make sure you have the Qt 4.1.x installed!"
-rm -rf qmake.ver
-exit 1
+	echo "1.07a (Qt 3.3.x)";
+	echo
+	echo "version too old! Make sure you have the Qt 4.3.x installed!"
+	rm -rf qmake.ver
+	exit 1
 else
-echo $ver;
-rm -rf qmake.ver
+	echo $ver;
+	rm -rf qmake.ver
 fi
 
 printf "Checking for lupdate version... "
-$lupdate -version &>lupdate.ver
+$tmp_lupdate -version &>lupdate.ver
 ver=`sed 's/[a-z,A-Z].//g' lupdate.ver | sed -n '1,1p'`
 if [ "$ver" = "3.3.6" ]; then
-echo $ver;
-echo
-echo "version too old! Make sure you have the Qt 4.1.x installed!"
-rm -rf lupdate.ver
-exit 1
+	echo $ver;
+	echo
+	echo "version too old! Make sure you have the Qt 4.3.x installed!"
+	rm -rf lupdate.ver
+	exit 1
 else
-echo $ver;
-$lupdate dboxfe.pro
-rm -rf lupdate.ver
+	echo $ver;
+	# $tmp_lupdate dboxfe.pro
+	rm -rf lupdate.ver
 fi
 
 printf "Checking for lrelease version... "
-$lrelease -version &>lrelease.ver
+$tmp_lreleasee -version &>lrelease.ver
 ver=`sed 's/[a-z,A-Z].//g' lrelease.ver | sed -n '1,1p'`
 if [ "$ver" = "3.3.6" ]; then
-echo $ver;
-echo
-echo "version too old! Make sure you have the Qt 4.1.x installed!"
-rm -rf lrealse.ver
-exit 1
+	echo $ver;
+	echo
+	echo "version too old! Make sure you have the Qt 4.3.x installed!"
+	rm -rf lrealse.ver
+	exit 1
 else
-echo $ver;
-#$lrealse dboxfe.pro
-rm -rf lrelease.ver
+	echo $ver;
+	#$lrealse dboxfe.pro
+	rm -rf lrelease.ver
 fi
 
 # Now create the makefile
 printf "Creating Makefile... "
-$qmake -o Makefile dboxfe.pro
+$tmp_qmake -o Makefile dboxfe.pro
 if [ $? -eq 0 ]; then
     echo ok
 else 
