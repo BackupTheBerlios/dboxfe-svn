@@ -57,10 +57,10 @@ if [ "$lupdate" = "" ] || [ "$lupdate_qt4" = "" ]; then
 	exit 1
 elif [ "$lupdate" != "" ]; then
 	tmp_lupdate=$lupdate
-	echo $tmp_qmake
+	echo $tmp_lupdate
 elif [ "$lupdate_qt4" != "" ]; then
 	tmp_lupdate=$lupdate_qt4
-	echo $tmp_qmake
+	echo $tmp_lupdate
 fi
 
 printf "Checking for lrelease... "
@@ -73,12 +73,12 @@ if [ "$lrelease" = "" ] || [ "$lrelease_qt4" = "" ]; then
 	echo
 	echo "Make sure you have the Qt development packages installed!"
 	exit 1
-elif [ "$lupdate" != "" ]; then
-	$tmp_lrelease=$lupdate
-	echo $tmp_qmake
-elif [ "$lupdate_qt4" != "" ]; then
-	$tmp_lrelease=$lupdate_qt4
-	echo $tmp_qmake
+elif [ "$lrelease" != "" ]; then
+	tmp_lrelease=$lrelease
+	echo $tmp_lrelease
+elif [ "$lrelease_qt4" != "" ]; then
+	tmp_lrelease=$lrelease_qt4
+	echo $tmp_lrelease
 fi
 
 printf "Checking for qmake version... "
