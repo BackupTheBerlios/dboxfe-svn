@@ -3,316 +3,296 @@
 <context>
     <name>DBoxFE</name>
     <message>
-        <location filename="../src/dboxfe.cpp" line="67"/>
-        <source>DBoxFE - Front End for DOSBox 0.70 - Linux Version </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/dboxfe.cpp" line="68"/>
-        <source>DBoxFE - Front End for DOSBox 0.70 - Windows Version </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/dboxfe.cpp" line="69"/>
-        <source>DBoxFE - Front End for DOSBox 0.70 - Mac Version </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/dboxfe.cpp" line="191"/>
+        <location filename="../src/dboxfe.cpp" line="196"/>
         <source>Can not add the same profilename: &apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="396"/>
+        <location filename="../src/dboxfe.cpp" line="432"/>
         <source>&apos; to the list.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="209"/>
+        <location filename="../src/dboxfe.cpp" line="215"/>
         <source>Please select profile.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="219"/>
+        <location filename="../src/dboxfe.cpp" line="226"/>
         <source>Configuration file not found!
 
 &apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="219"/>
+        <location filename="../src/dboxfe.cpp" line="226"/>
         <source>&apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="224"/>
+        <location filename="../src/dboxfe.cpp" line="232"/>
         <source>Can not start dosbox, no dosbox binary was selected.
 Please choose dosbox binary.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="248"/>
+        <location filename="../src/dboxfe.cpp" line="258"/>
         <source>Please select profile for remove from list!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="254"/>
+        <location filename="../src/dboxfe.cpp" line="266"/>
         <source>Would you like delete the profile and configuration file?
 If you click &apos;No&apos; only the profile from list will be removed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="254"/>
+        <location filename="../src/dboxfe.cpp" line="266"/>
         <source>Yes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="254"/>
+        <location filename="../src/dboxfe.cpp" line="266"/>
         <source>No</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="254"/>
+        <location filename="../src/dboxfe.cpp" line="266"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="268"/>
+        <location filename="../src/dboxfe.cpp" line="282"/>
         <source>Game Profile -&gt; </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="268"/>
+        <location filename="../src/dboxfe.cpp" line="282"/>
         <source> was deleted</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="263"/>
+        <location filename="../src/dboxfe.cpp" line="277"/>
         <source>Game configuration -&gt; </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="283"/>
+        <location filename="../src/dboxfe.cpp" line="297"/>
         <source>Open language file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="283"/>
+        <location filename="../src/dboxfe.cpp" line="297"/>
         <source>Language file (*.*)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="294"/>
+        <location filename="../src/dboxfe.cpp" line="308"/>
         <source>Open DOSBox binary</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="294"/>
+        <location filename="../src/dboxfe.cpp" line="308"/>
         <source>DOSBox binary (dosbox);;DOSBox binary (*.exe)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="313"/>
+        <location filename="../src/dboxfe.cpp" line="330"/>
         <source>Can not read </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="348"/>
+        <location filename="../src/dboxfe.cpp" line="375"/>
         <source>This is not a valid dosbox binary.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="355"/>
+        <location filename="../src/dboxfe.cpp" line="383"/>
         <source>DOSBox Version:  </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="357"/>
+        <location filename="../src/dboxfe.cpp" line="387"/>
         <source>Wrong dosbox version: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="357"/>
-        <source>, i need 0.65 or higher.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/dboxfe.cpp" line="396"/>
+        <location filename="../src/dboxfe.cpp" line="432"/>
         <source>Can not add the same drive &apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="404"/>
+        <location filename="../src/dboxfe.cpp" line="441"/>
         <source>No directory was selected.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="456"/>
+        <location filename="../src/dboxfe.cpp" line="519"/>
         <source>Please enter a valid name for label.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="613"/>
+        <location filename="../src/dboxfe.cpp" line="687"/>
         <source>No item was selected.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="508"/>
+        <location filename="../src/dboxfe.cpp" line="577"/>
         <source>Open directory for mount in dosbox</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="556"/>
+        <location filename="../src/dboxfe.cpp" line="627"/>
         <source>Can not add the same serial &apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="556"/>
+        <location filename="../src/dboxfe.cpp" line="627"/>
         <source>&apos; port to the list.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="563"/>
+        <location filename="../src/dboxfe.cpp" line="635"/>
         <source>Can not add 5 serialports to the list, maximal 4 are allow.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="683"/>
+        <location filename="../src/dboxfe.cpp" line="758"/>
         <source>Clear</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="794"/>
+        <location filename="../src/dboxfe.cpp" line="875"/>
         <source>No keyboardlayot</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="797"/>
+        <location filename="../src/dboxfe.cpp" line="878"/>
         <source>Bulgaria</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="800"/>
+        <location filename="../src/dboxfe.cpp" line="881"/>
         <source>Czech Republic</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="803"/>
+        <location filename="../src/dboxfe.cpp" line="884"/>
         <source>France</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="806"/>
+        <location filename="../src/dboxfe.cpp" line="887"/>
         <source>Greece</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="809"/>
+        <location filename="../src/dboxfe.cpp" line="890"/>
         <source>Germany</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="812"/>
+        <location filename="../src/dboxfe.cpp" line="893"/>
         <source>Croatia</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="815"/>
+        <location filename="../src/dboxfe.cpp" line="896"/>
         <source>Hungary</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="818"/>
+        <location filename="../src/dboxfe.cpp" line="899"/>
         <source>Italy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="821"/>
+        <location filename="../src/dboxfe.cpp" line="902"/>
         <source>Netherlands</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="824"/>
+        <location filename="../src/dboxfe.cpp" line="905"/>
         <source>Norway</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="827"/>
+        <location filename="../src/dboxfe.cpp" line="908"/>
         <source>Poland</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="830"/>
+        <location filename="../src/dboxfe.cpp" line="911"/>
         <source>Russian Federation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="833"/>
+        <location filename="../src/dboxfe.cpp" line="914"/>
         <source>Slovakia</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="836"/>
+        <location filename="../src/dboxfe.cpp" line="917"/>
         <source>Spain</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="839"/>
+        <location filename="../src/dboxfe.cpp" line="920"/>
         <source>Finland</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="842"/>
+        <location filename="../src/dboxfe.cpp" line="923"/>
         <source>Sweden</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="930"/>
+        <location filename="../src/dboxfe.cpp" line="1040"/>
         <source>dosbox cmd output -&gt; </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="922"/>
+        <location filename="../src/dboxfe.cpp" line="1031"/>
         <source>Can not read file </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="939"/>
+        <location filename="../src/dboxfe.cpp" line="1050"/>
         <source>dboxfe: dosbox process exited normally</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="943"/>
+        <location filename="../src/dboxfe.cpp" line="1054"/>
         <source>dboxfe: dosbox process crashed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="960"/>
+        <location filename="../src/dboxfe.cpp" line="1072"/>
         <source>dboxfe: the dosbox process failed to start</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="963"/>
+        <location filename="../src/dboxfe.cpp" line="1075"/>
         <source>dboxfe: dosbox process crashed some time after starting successfully</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="966"/>
+        <location filename="../src/dboxfe.cpp" line="1078"/>
         <source>dboxfe: last waitFor...() function timed out</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="969"/>
+        <location filename="../src/dboxfe.cpp" line="1081"/>
         <source>dboxfe: an error occurred when attempting to write to the dosbox process</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="972"/>
+        <location filename="../src/dboxfe.cpp" line="1084"/>
         <source>dboxfe: an error occurred when attempting to read from the dosbox process</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe.cpp" line="975"/>
+        <location filename="../src/dboxfe.cpp" line="1087"/>
         <source>dboxfe: An unknown error occurred</source>
         <translation type="unfinished"></translation>
     </message>
@@ -327,17 +307,17 @@ If you click &apos;No&apos; only the profile from list will be removed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="93"/>
+        <location filename="../src/main.cpp" line="96"/>
         <source>Create Directory </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="97"/>
+        <location filename="../src/main.cpp" line="100"/>
         <source>Loading Profiles ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="102"/>
+        <location filename="../src/main.cpp" line="105"/>
         <source>Starting GUI ...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -347,1678 +327,1718 @@ If you click &apos;No&apos; only the profile from list will be removed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="45"/>
+        <location filename="../ui/dboxfe.ui" line="57"/>
         <source>SDL, Render &amp;&amp; CPU</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="57"/>
+        <location filename="../ui/dboxfe.ui" line="81"/>
         <source>SDL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="77"/>
+        <location filename="../ui/dboxfe.ui" line="125"/>
         <source>Full screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="84"/>
+        <location filename="../ui/dboxfe.ui" line="132"/>
         <source>Wait on Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="94"/>
+        <location filename="../ui/dboxfe.ui" line="142"/>
         <source>Autolock</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="104"/>
+        <location filename="../ui/dboxfe.ui" line="152"/>
         <source>Use Scancodes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="114"/>
+        <location filename="../ui/dboxfe.ui" line="162"/>
         <source>Full double</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="143"/>
+        <location filename="../ui/dboxfe.ui" line="200"/>
         <source>Windowresolution.:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="225"/>
+        <location filename="../ui/dboxfe.ui" line="291"/>
         <source>original</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="230"/>
+        <location filename="../ui/dboxfe.ui" line="296"/>
         <source>640x480</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="235"/>
+        <location filename="../ui/dboxfe.ui" line="301"/>
         <source>800x600</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="240"/>
+        <location filename="../ui/dboxfe.ui" line="306"/>
         <source>1024x768</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="245"/>
+        <location filename="../ui/dboxfe.ui" line="311"/>
         <source>1280x1024</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="250"/>
+        <location filename="../ui/dboxfe.ui" line="316"/>
         <source>1600x1200</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="255"/>
+        <location filename="../ui/dboxfe.ui" line="321"/>
         <source>2480x1600</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="214"/>
+        <location filename="../ui/dboxfe.ui" line="280"/>
         <source>Width x Height:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="285"/>
+        <location filename="../ui/dboxfe.ui" line="360"/>
         <source>Focus/Unfocus</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="296"/>
+        <location filename="../ui/dboxfe.ui" line="371"/>
         <source>lowest,lowest</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="301"/>
+        <location filename="../ui/dboxfe.ui" line="376"/>
         <source>lowest,lower</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="306"/>
+        <location filename="../ui/dboxfe.ui" line="381"/>
         <source>lowest,normal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="311"/>
+        <location filename="../ui/dboxfe.ui" line="386"/>
         <source>lowest,higher</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="316"/>
+        <location filename="../ui/dboxfe.ui" line="391"/>
         <source>lowest,highest</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="321"/>
+        <location filename="../ui/dboxfe.ui" line="396"/>
         <source>lower,lowest</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="326"/>
+        <location filename="../ui/dboxfe.ui" line="401"/>
         <source>lower,lower</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="331"/>
+        <location filename="../ui/dboxfe.ui" line="406"/>
         <source>lower,normal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="336"/>
+        <location filename="../ui/dboxfe.ui" line="411"/>
         <source>lower,higher</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="341"/>
+        <location filename="../ui/dboxfe.ui" line="416"/>
         <source>lower,highest</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="346"/>
+        <location filename="../ui/dboxfe.ui" line="421"/>
         <source>normal,lowest</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="351"/>
+        <location filename="../ui/dboxfe.ui" line="426"/>
         <source>normal,lower</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="356"/>
+        <location filename="../ui/dboxfe.ui" line="431"/>
         <source>normal,normal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="366"/>
+        <location filename="../ui/dboxfe.ui" line="441"/>
         <source>normal,higher</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="371"/>
+        <location filename="../ui/dboxfe.ui" line="446"/>
         <source>higher,lowest</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="376"/>
+        <location filename="../ui/dboxfe.ui" line="451"/>
         <source>higher,lower</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="381"/>
+        <location filename="../ui/dboxfe.ui" line="456"/>
         <source>higher,normal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="386"/>
+        <location filename="../ui/dboxfe.ui" line="461"/>
         <source>higher,higher</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="391"/>
+        <location filename="../ui/dboxfe.ui" line="466"/>
         <source>higher,highest</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="396"/>
+        <location filename="../ui/dboxfe.ui" line="471"/>
         <source>highest,lowest</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="401"/>
+        <location filename="../ui/dboxfe.ui" line="476"/>
         <source>highest,lower</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="406"/>
+        <location filename="../ui/dboxfe.ui" line="481"/>
         <source>highest,normal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="411"/>
+        <location filename="../ui/dboxfe.ui" line="486"/>
         <source>highest,higher</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="416"/>
+        <location filename="../ui/dboxfe.ui" line="491"/>
         <source>highest,highest</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="446"/>
+        <location filename="../ui/dboxfe.ui" line="530"/>
         <source>Output:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="454"/>
+        <location filename="../ui/dboxfe.ui" line="538"/>
         <source>surface</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="459"/>
+        <location filename="../ui/dboxfe.ui" line="543"/>
         <source>overlay</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="464"/>
+        <location filename="../ui/dboxfe.ui" line="548"/>
         <source>opengl</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="469"/>
+        <location filename="../ui/dboxfe.ui" line="553"/>
         <source>openglnb</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="474"/>
+        <location filename="../ui/dboxfe.ui" line="558"/>
         <source>ddraw</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="504"/>
+        <location filename="../ui/dboxfe.ui" line="597"/>
         <source>Sensitivity:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="545"/>
+        <location filename="../ui/dboxfe.ui" line="638"/>
         <source>Render</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="577"/>
+        <location filename="../ui/dboxfe.ui" line="691"/>
         <source>Scaler:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3611"/>
+        <location filename="../ui/dboxfe.ui" line="4286"/>
         <source>none</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="596"/>
+        <location filename="../ui/dboxfe.ui" line="710"/>
         <source>normal2x</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="601"/>
+        <location filename="../ui/dboxfe.ui" line="715"/>
         <source>normal3x</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="606"/>
+        <location filename="../ui/dboxfe.ui" line="720"/>
         <source>advmame2x</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="611"/>
+        <location filename="../ui/dboxfe.ui" line="725"/>
         <source>advmame3x</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="616"/>
+        <location filename="../ui/dboxfe.ui" line="730"/>
         <source>hq2x</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="621"/>
+        <location filename="../ui/dboxfe.ui" line="735"/>
         <source>hq3x</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="626"/>
+        <location filename="../ui/dboxfe.ui" line="740"/>
         <source>2xsai</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="631"/>
+        <location filename="../ui/dboxfe.ui" line="745"/>
         <source>super2xsai</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="636"/>
+        <location filename="../ui/dboxfe.ui" line="750"/>
         <source>supereagle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="641"/>
+        <location filename="../ui/dboxfe.ui" line="755"/>
         <source>advinterp2x</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="646"/>
+        <location filename="../ui/dboxfe.ui" line="760"/>
         <source>advinterp3x</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="651"/>
+        <location filename="../ui/dboxfe.ui" line="765"/>
         <source>tv2x</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="656"/>
+        <location filename="../ui/dboxfe.ui" line="770"/>
         <source>tv3x</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="661"/>
+        <location filename="../ui/dboxfe.ui" line="775"/>
         <source>rgb2x</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="666"/>
+        <location filename="../ui/dboxfe.ui" line="780"/>
         <source>rgb3x</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="671"/>
+        <location filename="../ui/dboxfe.ui" line="785"/>
         <source>scan2x</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="676"/>
+        <location filename="../ui/dboxfe.ui" line="790"/>
         <source>scan3x</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="698"/>
+        <location filename="../ui/dboxfe.ui" line="812"/>
         <source>Do aspect correction</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="701"/>
+        <location filename="../ui/dboxfe.ui" line="815"/>
         <source>Aspect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="728"/>
+        <location filename="../ui/dboxfe.ui" line="851"/>
         <source>Frameskip:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="760"/>
+        <location filename="../ui/dboxfe.ui" line="883"/>
         <source>CPU</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="792"/>
+        <location filename="../ui/dboxfe.ui" line="936"/>
         <source>Cycledown:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="2311"/>
+        <location filename="../ui/dboxfe.ui" line="2686"/>
         <source>10</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="817"/>
+        <location filename="../ui/dboxfe.ui" line="961"/>
         <source>20</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="822"/>
+        <location filename="../ui/dboxfe.ui" line="966"/>
         <source>30</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="827"/>
+        <location filename="../ui/dboxfe.ui" line="971"/>
         <source>40</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="832"/>
+        <location filename="../ui/dboxfe.ui" line="976"/>
         <source>50</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="837"/>
+        <location filename="../ui/dboxfe.ui" line="981"/>
         <source>60</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="842"/>
+        <location filename="../ui/dboxfe.ui" line="986"/>
         <source>70</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="847"/>
+        <location filename="../ui/dboxfe.ui" line="991"/>
         <source>80</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="852"/>
+        <location filename="../ui/dboxfe.ui" line="996"/>
         <source>90</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="857"/>
+        <location filename="../ui/dboxfe.ui" line="1001"/>
         <source>100</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="887"/>
+        <location filename="../ui/dboxfe.ui" line="1040"/>
         <source>Cycleup:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1161"/>
+        <location filename="../ui/dboxfe.ui" line="1323"/>
         <source>10000</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1166"/>
+        <location filename="../ui/dboxfe.ui" line="1328"/>
         <source>9500</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1171"/>
+        <location filename="../ui/dboxfe.ui" line="1333"/>
         <source>9000</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1176"/>
+        <location filename="../ui/dboxfe.ui" line="1338"/>
         <source>8500</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1181"/>
+        <location filename="../ui/dboxfe.ui" line="1343"/>
         <source>8000</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1186"/>
+        <location filename="../ui/dboxfe.ui" line="1348"/>
         <source>7500</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1191"/>
+        <location filename="../ui/dboxfe.ui" line="1353"/>
         <source>7000</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1196"/>
+        <location filename="../ui/dboxfe.ui" line="1358"/>
         <source>6500</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1201"/>
+        <location filename="../ui/dboxfe.ui" line="1363"/>
         <source>6000</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1206"/>
+        <location filename="../ui/dboxfe.ui" line="1368"/>
         <source>5500</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1211"/>
+        <location filename="../ui/dboxfe.ui" line="1373"/>
         <source>5000</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1216"/>
+        <location filename="../ui/dboxfe.ui" line="1378"/>
         <source>4500</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1221"/>
+        <location filename="../ui/dboxfe.ui" line="1383"/>
         <source>4000</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1226"/>
+        <location filename="../ui/dboxfe.ui" line="1388"/>
         <source>3500</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1231"/>
+        <location filename="../ui/dboxfe.ui" line="1393"/>
         <source>3000</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1236"/>
+        <location filename="../ui/dboxfe.ui" line="1398"/>
         <source>2500</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1241"/>
+        <location filename="../ui/dboxfe.ui" line="1403"/>
         <source>2000</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1246"/>
+        <location filename="../ui/dboxfe.ui" line="1408"/>
         <source>1500</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1251"/>
+        <location filename="../ui/dboxfe.ui" line="1413"/>
         <source>1000</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1256"/>
+        <location filename="../ui/dboxfe.ui" line="1418"/>
         <source>950</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1261"/>
+        <location filename="../ui/dboxfe.ui" line="1423"/>
         <source>900</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1266"/>
+        <location filename="../ui/dboxfe.ui" line="1428"/>
         <source>850</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1271"/>
+        <location filename="../ui/dboxfe.ui" line="1433"/>
         <source>800</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1276"/>
+        <location filename="../ui/dboxfe.ui" line="1438"/>
         <source>750</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1281"/>
+        <location filename="../ui/dboxfe.ui" line="1443"/>
         <source>700</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1286"/>
+        <location filename="../ui/dboxfe.ui" line="1448"/>
         <source>650</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1291"/>
+        <location filename="../ui/dboxfe.ui" line="1453"/>
         <source>600</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1296"/>
+        <location filename="../ui/dboxfe.ui" line="1458"/>
         <source>550</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1301"/>
+        <location filename="../ui/dboxfe.ui" line="1463"/>
         <source>500</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1074"/>
+        <location filename="../ui/dboxfe.ui" line="1236"/>
         <source>Cycles:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3606"/>
+        <location filename="../ui/dboxfe.ui" line="4281"/>
         <source>auto</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1096"/>
+        <location filename="../ui/dboxfe.ui" line="1258"/>
         <source>20000</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1101"/>
+        <location filename="../ui/dboxfe.ui" line="1263"/>
         <source>19000</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1106"/>
+        <location filename="../ui/dboxfe.ui" line="1268"/>
         <source>18000</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1111"/>
+        <location filename="../ui/dboxfe.ui" line="1273"/>
         <source>17000</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1116"/>
+        <location filename="../ui/dboxfe.ui" line="1278"/>
         <source>16000</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1121"/>
+        <location filename="../ui/dboxfe.ui" line="1283"/>
         <source>15000</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1126"/>
+        <location filename="../ui/dboxfe.ui" line="1288"/>
         <source>14000</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1131"/>
+        <location filename="../ui/dboxfe.ui" line="1293"/>
         <source>13000</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1136"/>
+        <location filename="../ui/dboxfe.ui" line="1298"/>
         <source>12500</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1141"/>
+        <location filename="../ui/dboxfe.ui" line="1303"/>
         <source>12000</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1146"/>
+        <location filename="../ui/dboxfe.ui" line="1308"/>
         <source>11500</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1151"/>
+        <location filename="../ui/dboxfe.ui" line="1313"/>
         <source>11000</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1156"/>
+        <location filename="../ui/dboxfe.ui" line="1318"/>
         <source>10500</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1331"/>
+        <location filename="../ui/dboxfe.ui" line="1502"/>
         <source>Core:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1356"/>
+        <location filename="../ui/dboxfe.ui" line="1527"/>
         <source>simple</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1361"/>
+        <location filename="../ui/dboxfe.ui" line="1532"/>
         <source>normal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1366"/>
+        <location filename="../ui/dboxfe.ui" line="1537"/>
         <source>full</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1371"/>
+        <location filename="../ui/dboxfe.ui" line="1542"/>
         <source>dynamic</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1385"/>
+        <location filename="../ui/dboxfe.ui" line="1556"/>
         <source>Sound</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="2007"/>
+        <location filename="../ui/dboxfe.ui" line="2334"/>
         <source>Mixer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1438"/>
+        <location filename="../ui/dboxfe.ui" line="1645"/>
         <source>No sound</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1457"/>
+        <location filename="../ui/dboxfe.ui" line="1676"/>
         <source>1024</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1462"/>
+        <location filename="../ui/dboxfe.ui" line="1681"/>
         <source>2048</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1467"/>
+        <location filename="../ui/dboxfe.ui" line="1686"/>
         <source>4096</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="2469"/>
+        <location filename="../ui/dboxfe.ui" line="2892"/>
         <source>11050</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="2474"/>
+        <location filename="../ui/dboxfe.ui" line="2897"/>
         <source>22050</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="2479"/>
+        <location filename="../ui/dboxfe.ui" line="2902"/>
         <source>44100</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1529"/>
+        <location filename="../ui/dboxfe.ui" line="1760"/>
         <source>Block Size:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1551"/>
+        <location filename="../ui/dboxfe.ui" line="1782"/>
         <source>Rate:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1573"/>
+        <location filename="../ui/dboxfe.ui" line="1804"/>
         <source>Prebuffer:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1596"/>
+        <location filename="../ui/dboxfe.ui" line="1827"/>
         <source>Soundblaster</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1644"/>
+        <location filename="../ui/dboxfe.ui" line="1923"/>
         <source>HDMA:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1666"/>
+        <location filename="../ui/dboxfe.ui" line="1945"/>
         <source>Base:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1688"/>
+        <location filename="../ui/dboxfe.ui" line="1967"/>
         <source>DMA:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1710"/>
+        <location filename="../ui/dboxfe.ui" line="1989"/>
         <source>OPL Rate:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3277"/>
+        <location filename="../ui/dboxfe.ui" line="3889"/>
         <source>1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="2287"/>
+        <location filename="../ui/dboxfe.ui" line="2662"/>
         <source>3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3231"/>
+        <location filename="../ui/dboxfe.ui" line="3834"/>
         <source>5</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="2243"/>
+        <location filename="../ui/dboxfe.ui" line="2618"/>
         <source>220</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="2248"/>
+        <location filename="../ui/dboxfe.ui" line="2623"/>
         <source>240</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1828"/>
+        <location filename="../ui/dboxfe.ui" line="2143"/>
         <source>cms</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1833"/>
+        <location filename="../ui/dboxfe.ui" line="2148"/>
         <source>opl2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1838"/>
+        <location filename="../ui/dboxfe.ui" line="2153"/>
         <source>dualopl2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1843"/>
+        <location filename="../ui/dboxfe.ui" line="2158"/>
         <source>opl3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="2301"/>
+        <location filename="../ui/dboxfe.ui" line="2676"/>
         <source>7</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="2306"/>
+        <location filename="../ui/dboxfe.ui" line="2681"/>
         <source>9</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1887"/>
+        <location filename="../ui/dboxfe.ui" line="2202"/>
         <source>sb1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1892"/>
+        <location filename="../ui/dboxfe.ui" line="2207"/>
         <source>sb2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1897"/>
+        <location filename="../ui/dboxfe.ui" line="2212"/>
         <source>sbpro1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1902"/>
+        <location filename="../ui/dboxfe.ui" line="2217"/>
         <source>sbpro2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1907"/>
+        <location filename="../ui/dboxfe.ui" line="2222"/>
         <source>sb16</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1937"/>
+        <location filename="../ui/dboxfe.ui" line="2264"/>
         <source>Type:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3088"/>
+        <location filename="../ui/dboxfe.ui" line="3664"/>
         <source>IRQ:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="1981"/>
+        <location filename="../ui/dboxfe.ui" line="2308"/>
         <source>OPL mode:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="2028"/>
+        <location filename="../ui/dboxfe.ui" line="2355"/>
         <source>GUS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="2060"/>
+        <location filename="../ui/dboxfe.ui" line="2411"/>
         <source>gus</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="2090"/>
+        <location filename="../ui/dboxfe.ui" line="2453"/>
         <source>Ultra dir:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="2112"/>
+        <location filename="../ui/dboxfe.ui" line="2475"/>
         <source>IRQ&apos;s:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="2134"/>
+        <location filename="../ui/dboxfe.ui" line="2497"/>
         <source>Gus Base:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="2156"/>
+        <location filename="../ui/dboxfe.ui" line="2519"/>
         <source>DMA&apos;s:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="2178"/>
+        <location filename="../ui/dboxfe.ui" line="2541"/>
         <source>Gus rate:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="2319"/>
+        <location filename="../ui/dboxfe.ui" line="2694"/>
         <source>C:\ULTRASND</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="2339"/>
+        <location filename="../ui/dboxfe.ui" line="2714"/>
         <source>PC Speaker</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="2371"/>
+        <location filename="../ui/dboxfe.ui" line="2770"/>
         <source>Disney</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="2401"/>
+        <location filename="../ui/dboxfe.ui" line="2812"/>
         <source>Speaker:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="2423"/>
+        <location filename="../ui/dboxfe.ui" line="2834"/>
         <source>Tandy:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="2515"/>
+        <location filename="../ui/dboxfe.ui" line="2950"/>
         <source>on</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="2520"/>
+        <location filename="../ui/dboxfe.ui" line="2955"/>
         <source>off</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="2546"/>
+        <location filename="../ui/dboxfe.ui" line="2981"/>
         <source>Midi</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="2567"/>
+        <location filename="../ui/dboxfe.ui" line="3026"/>
         <source>default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="2572"/>
+        <location filename="../ui/dboxfe.ui" line="3031"/>
         <source>alsa</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="2577"/>
+        <location filename="../ui/dboxfe.ui" line="3036"/>
         <source>oss</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="2582"/>
+        <location filename="../ui/dboxfe.ui" line="3041"/>
         <source>win32</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="2587"/>
+        <location filename="../ui/dboxfe.ui" line="3046"/>
         <source>coreaudio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="2609"/>
+        <location filename="../ui/dboxfe.ui" line="3068"/>
         <source>uart</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="2614"/>
+        <location filename="../ui/dboxfe.ui" line="3073"/>
         <source>intelligent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="2679"/>
+        <location filename="../ui/dboxfe.ui" line="3162"/>
         <source>Device:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="2701"/>
+        <location filename="../ui/dboxfe.ui" line="3184"/>
         <source>MPU 401:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="2723"/>
+        <location filename="../ui/dboxfe.ui" line="3206"/>
         <source>Config:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="2740"/>
+        <location filename="../ui/dboxfe.ui" line="3223"/>
         <source>Misc (I-Net, DOS, Autoexec)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="2756"/>
+        <location filename="../ui/dboxfe.ui" line="3251"/>
         <source>Internet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="2780"/>
+        <location filename="../ui/dboxfe.ui" line="3287"/>
         <source>IPX</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="2867"/>
+        <location filename="../ui/dboxfe.ui" line="3395"/>
         <source>Serial</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3975"/>
+        <location filename="../ui/dboxfe.ui" line="4745"/>
         <source> Add</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4013"/>
+        <location filename="../ui/dboxfe.ui" line="4783"/>
         <source> Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4500"/>
+        <location filename="../ui/dboxfe.ui" line="5514"/>
         <source>Option</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3304"/>
+        <location filename="../ui/dboxfe.ui" line="3925"/>
         <source>serial1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3336"/>
+        <location filename="../ui/dboxfe.ui" line="3957"/>
         <source>dummy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3309"/>
+        <location filename="../ui/dboxfe.ui" line="3930"/>
         <source>serial2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3314"/>
+        <location filename="../ui/dboxfe.ui" line="3935"/>
         <source>serial3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3331"/>
+        <location filename="../ui/dboxfe.ui" line="3952"/>
         <source>disabled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3319"/>
+        <location filename="../ui/dboxfe.ui" line="3940"/>
         <source>serial4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="2947"/>
+        <location filename="../ui/dboxfe.ui" line="3496"/>
         <source>COM Port:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3282"/>
+        <location filename="../ui/dboxfe.ui" line="3894"/>
         <source>2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="2993"/>
+        <location filename="../ui/dboxfe.ui" line="3551"/>
         <source>Listen Port:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3003"/>
+        <location filename="../ui/dboxfe.ui" line="3561"/>
         <source>23</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3032"/>
+        <location filename="../ui/dboxfe.ui" line="3599"/>
         <source>Real Port:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3043"/>
+        <location filename="../ui/dboxfe.ui" line="3610"/>
         <source>com1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3048"/>
+        <location filename="../ui/dboxfe.ui" line="3615"/>
         <source>com2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3053"/>
+        <location filename="../ui/dboxfe.ui" line="3620"/>
         <source>com3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3058"/>
+        <location filename="../ui/dboxfe.ui" line="3625"/>
         <source>com4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3127"/>
+        <location filename="../ui/dboxfe.ui" line="3712"/>
         <source>Default bps:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3137"/>
+        <location filename="../ui/dboxfe.ui" line="3722"/>
         <source>9600</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3166"/>
+        <location filename="../ui/dboxfe.ui" line="3760"/>
         <source>Parity:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3177"/>
+        <location filename="../ui/dboxfe.ui" line="3771"/>
         <source>n</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3182"/>
+        <location filename="../ui/dboxfe.ui" line="3776"/>
         <source>e</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3187"/>
+        <location filename="../ui/dboxfe.ui" line="3781"/>
         <source>o</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3217"/>
+        <location filename="../ui/dboxfe.ui" line="3820"/>
         <source>Bytesize:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3236"/>
+        <location filename="../ui/dboxfe.ui" line="3839"/>
         <source>8</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3266"/>
+        <location filename="../ui/dboxfe.ui" line="3878"/>
         <source>Stopbit:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3341"/>
+        <location filename="../ui/dboxfe.ui" line="3962"/>
         <source>modem</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3346"/>
+        <location filename="../ui/dboxfe.ui" line="3967"/>
         <source>directserial</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3360"/>
+        <location filename="../ui/dboxfe.ui" line="3981"/>
         <source>DOS, BIOS &amp;&amp; Joystick</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3385"/>
+        <location filename="../ui/dboxfe.ui" line="4018"/>
         <source>DOS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3405"/>
+        <location filename="../ui/dboxfe.ui" line="4059"/>
         <source>XMS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3415"/>
+        <location filename="../ui/dboxfe.ui" line="4069"/>
         <source>EMS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3425"/>
+        <location filename="../ui/dboxfe.ui" line="4079"/>
         <source>UMB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3457"/>
+        <location filename="../ui/dboxfe.ui" line="4120"/>
         <source>Keybordlayot:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3476"/>
+        <location filename="../ui/dboxfe.ui" line="4139"/>
         <source>BG</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3481"/>
+        <location filename="../ui/dboxfe.ui" line="4144"/>
         <source>CZ243</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3486"/>
+        <location filename="../ui/dboxfe.ui" line="4149"/>
         <source>FR</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3491"/>
+        <location filename="../ui/dboxfe.ui" line="4154"/>
         <source>GK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3496"/>
+        <location filename="../ui/dboxfe.ui" line="4159"/>
         <source>GR</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3501"/>
+        <location filename="../ui/dboxfe.ui" line="4164"/>
         <source>HR</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3506"/>
+        <location filename="../ui/dboxfe.ui" line="4169"/>
         <source>HU</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3511"/>
+        <location filename="../ui/dboxfe.ui" line="4174"/>
         <source>IT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3516"/>
+        <location filename="../ui/dboxfe.ui" line="4179"/>
         <source>NL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3521"/>
+        <location filename="../ui/dboxfe.ui" line="4184"/>
         <source>NO</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3526"/>
+        <location filename="../ui/dboxfe.ui" line="4189"/>
         <source>PL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3531"/>
+        <location filename="../ui/dboxfe.ui" line="4194"/>
         <source>RU</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3536"/>
+        <location filename="../ui/dboxfe.ui" line="4199"/>
         <source>SK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3541"/>
+        <location filename="../ui/dboxfe.ui" line="4204"/>
         <source>SP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3546"/>
+        <location filename="../ui/dboxfe.ui" line="4209"/>
         <source>SU</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3551"/>
+        <location filename="../ui/dboxfe.ui" line="4214"/>
         <source>SV</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3561"/>
+        <location filename="../ui/dboxfe.ui" line="4224"/>
         <source>******</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3590"/>
+        <location filename="../ui/dboxfe.ui" line="4253"/>
         <source>Joysticktype</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3616"/>
+        <location filename="../ui/dboxfe.ui" line="4291"/>
         <source>2axis</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3621"/>
+        <location filename="../ui/dboxfe.ui" line="4296"/>
         <source>4axis</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3626"/>
+        <location filename="../ui/dboxfe.ui" line="4306"/>
         <source>fcs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3631"/>
+        <location filename="../ui/dboxfe.ui" line="4311"/>
         <source>ch</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3660"/>
+        <location filename="../ui/dboxfe.ui" line="4349"/>
         <source>Timed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3667"/>
+        <location filename="../ui/dboxfe.ui" line="4356"/>
         <source>Autofire</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3674"/>
+        <location filename="../ui/dboxfe.ui" line="4363"/>
         <source>Swap 34</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3681"/>
+        <location filename="../ui/dboxfe.ui" line="4370"/>
         <source>Button wrap</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3693"/>
+        <location filename="../ui/dboxfe.ui" line="4382"/>
         <source>DosBox</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3717"/>
+        <location filename="../ui/dboxfe.ui" line="4430"/>
         <source>wave</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3722"/>
+        <location filename="../ui/dboxfe.ui" line="4435"/>
         <source>midi</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3727"/>
+        <location filename="../ui/dboxfe.ui" line="4440"/>
         <source>capture</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3732"/>
+        <location filename="../ui/dboxfe.ui" line="4445"/>
         <source>screenshot</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3752"/>
+        <location filename="../ui/dboxfe.ui" line="4465"/>
         <source>Captures:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3784"/>
+        <location filename="../ui/dboxfe.ui" line="4509"/>
         <source>Memorysize:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3795"/>
+        <location filename="../ui/dboxfe.ui" line="4520"/>
         <source>16</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3800"/>
+        <location filename="../ui/dboxfe.ui" line="4525"/>
         <source>32</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3805"/>
+        <location filename="../ui/dboxfe.ui" line="4530"/>
         <source>64</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3827"/>
+        <location filename="../ui/dboxfe.ui" line="4564"/>
         <source>hercules</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3832"/>
+        <location filename="../ui/dboxfe.ui" line="4569"/>
         <source>cga</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3837"/>
+        <location filename="../ui/dboxfe.ui" line="4574"/>
         <source>tandy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3842"/>
+        <location filename="../ui/dboxfe.ui" line="4579"/>
         <source>pcjr</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3847"/>
+        <location filename="../ui/dboxfe.ui" line="4584"/>
         <source>vga</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3867"/>
+        <location filename="../ui/dboxfe.ui" line="4604"/>
         <source>Machine:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3899"/>
+        <location filename="../ui/dboxfe.ui" line="4648"/>
         <source>Language:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3921"/>
+        <location filename="../ui/dboxfe.ui" line="4670"/>
         <source>Open the language file for dosbox</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="3943"/>
+        <location filename="../ui/dboxfe.ui" line="4692"/>
         <source>Autoexec</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4051"/>
+        <location filename="../ui/dboxfe.ui" line="4821"/>
         <source> Update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4076"/>
+        <location filename="../ui/dboxfe.ui" line="4846"/>
         <source> Game</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4178"/>
+        <location filename="../ui/dboxfe.ui" line="4972"/>
         <source>CDROM/DVD:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4192"/>
+        <location filename="../ui/dboxfe.ui" line="4986"/>
         <source>Windows 2000/XP and Linux CD/DVD ROM</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4197"/>
+        <location filename="../ui/dboxfe.ui" line="4991"/>
         <source>Windows 98 CD/DVD ROM</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4227"/>
+        <location filename="../ui/dboxfe.ui" line="5033"/>
         <source>Directory:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4238"/>
+        <location filename="../ui/dboxfe.ui" line="5044"/>
         <source>Default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4243"/>
+        <location filename="../ui/dboxfe.ui" line="5049"/>
         <source>Use directory as CD/DVD ROM</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4248"/>
+        <location filename="../ui/dboxfe.ui" line="5054"/>
         <source>Use directory as floppy drive</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4266"/>
+        <location filename="../ui/dboxfe.ui" line="5084"/>
         <source>Use label for CD/DVD ROM</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4288"/>
+        <location filename="../ui/dboxfe.ui" line="5106"/>
         <source>Label for device:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4315"/>
+        <location filename="../ui/dboxfe.ui" line="5145"/>
         <source>switch after dosbox is started to directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4350"/>
+        <location filename="../ui/dboxfe.ui" line="5192"/>
         <source>A</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4355"/>
+        <location filename="../ui/dboxfe.ui" line="5197"/>
         <source>C</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4360"/>
+        <location filename="../ui/dboxfe.ui" line="5202"/>
         <source>D</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4365"/>
+        <location filename="../ui/dboxfe.ui" line="5207"/>
         <source>E</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4370"/>
+        <location filename="../ui/dboxfe.ui" line="5212"/>
         <source>F</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4375"/>
+        <location filename="../ui/dboxfe.ui" line="5217"/>
         <source>G</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4380"/>
+        <location filename="../ui/dboxfe.ui" line="5222"/>
         <source>H</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4385"/>
+        <location filename="../ui/dboxfe.ui" line="5227"/>
         <source>I</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4390"/>
+        <location filename="../ui/dboxfe.ui" line="5232"/>
         <source>J</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4395"/>
+        <location filename="../ui/dboxfe.ui" line="5237"/>
         <source>K</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4400"/>
+        <location filename="../ui/dboxfe.ui" line="5242"/>
         <source>L</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4405"/>
+        <location filename="../ui/dboxfe.ui" line="5247"/>
         <source>M</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4410"/>
+        <location filename="../ui/dboxfe.ui" line="5252"/>
         <source>N</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4415"/>
+        <location filename="../ui/dboxfe.ui" line="5257"/>
         <source>O</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4420"/>
+        <location filename="../ui/dboxfe.ui" line="5262"/>
         <source>P</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4425"/>
+        <location filename="../ui/dboxfe.ui" line="5267"/>
         <source>Q</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4430"/>
+        <location filename="../ui/dboxfe.ui" line="5272"/>
         <source>R</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4435"/>
+        <location filename="../ui/dboxfe.ui" line="5277"/>
         <source>S</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4440"/>
+        <location filename="../ui/dboxfe.ui" line="5282"/>
         <source>T</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4445"/>
+        <location filename="../ui/dboxfe.ui" line="5287"/>
         <source>U</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4450"/>
+        <location filename="../ui/dboxfe.ui" line="5292"/>
         <source>V</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4455"/>
+        <location filename="../ui/dboxfe.ui" line="5297"/>
         <source>W</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4460"/>
+        <location filename="../ui/dboxfe.ui" line="5302"/>
         <source>X</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4465"/>
+        <location filename="../ui/dboxfe.ui" line="5307"/>
         <source>Y</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4488"/>
+        <location filename="../ui/dboxfe.ui" line="5330"/>
         <source>Preferences</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4520"/>
+        <location filename="../ui/dboxfe.ui" line="5565"/>
         <source>Hide window if dosbox started</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4530"/>
+        <location filename="../ui/dboxfe.ui" line="5575"/>
         <source>start Keymapper</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4553"/>
+        <location filename="../ui/dboxfe.ui" line="5387"/>
         <source>Gamedatabase</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4588"/>
+        <location filename="../ui/dboxfe.ui" line="5409"/>
         <source>Executable/DOSBox binary</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4616"/>
+        <location filename="../ui/dboxfe.ui" line="5467"/>
         <source>DOSBox binary:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4664"/>
+        <location filename="../ui/dboxfe.ui" line="5588"/>
         <source>Log</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4722"/>
+        <location filename="../ui/dboxfe.ui" line="5865"/>
         <source> St&amp;art</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4728"/>
+        <location filename="../ui/dboxfe.ui" line="5871"/>
         <source>Alt+D</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4760"/>
+        <location filename="../ui/dboxfe.ui" line="5903"/>
         <source> &amp;Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4804"/>
+        <location filename="../ui/dboxfe.ui" line="5947"/>
         <source>Alt+S</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4798"/>
+        <location filename="../ui/dboxfe.ui" line="5941"/>
         <source>About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4836"/>
+        <location filename="../ui/dboxfe.ui" line="5979"/>
         <source> &amp;Quit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4860"/>
+        <location filename="../ui/dboxfe.ui" line="5662"/>
         <source>Gameprofile</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4892"/>
+        <location filename="../ui/dboxfe.ui" line="5718"/>
         <source> &amp;Create</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4898"/>
+        <location filename="../ui/dboxfe.ui" line="5724"/>
         <source>Alt+C</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4917"/>
+        <location filename="../ui/dboxfe.ui" line="5743"/>
         <source> &amp;Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4923"/>
+        <location filename="../ui/dboxfe.ui" line="5749"/>
         <source>Alt+R</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4945"/>
+        <location filename="../ui/dboxfe.ui" line="5771"/>
         <source>&amp;Wizard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4970"/>
+        <location filename="../ui/dboxfe.ui" line="5796"/>
         <source>&amp;Games</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dboxfe.ui" line="4995"/>
+        <location filename="../ui/dboxfe.ui" line="5821"/>
         <source>Import / Export DFend Profile</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../include/dboxfe.h" line="35"/>
+        <source>v0.1.3 (SVN)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../include/dboxfe.h" line="36"/>
+        <source>DBox Front End</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dboxfe.cpp" line="68"/>
+        <source>DBoxFE - Front End for DOSBox 0.7x - Linux Version </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dboxfe.cpp" line="69"/>
+        <source>DBoxFE - Front End for DOSBox 0.7x - Windows Version </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dboxfe.cpp" line="70"/>
+        <source>DBoxFE - Front End for DOSBox 0.7x - Mac Version </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/dboxfe.cpp" line="387"/>
+        <source>, i need 0.7x or higher.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/dboxfe.ui" line="4301"/>
+        <source>4axis_2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/dboxfe.ui" line="5558"/>
+        <source>start &quot;DBoxFE - TrayIcon&quot; with you windowmanager</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2159,12 +2179,12 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>DBoxFE_GameFile</name>
     <message>
-        <location filename="../src/dboxfe_gamefile.cpp" line="77"/>
+        <location filename="../src/dboxfe_gamefile.cpp" line="78"/>
         <source>Unable to update the file %1: %2.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe_gamefile.cpp" line="141"/>
+        <location filename="../src/dboxfe_gamefile.cpp" line="147"/>
         <source>Download failed: %1.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2406,12 +2426,12 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>DBoxFE_ProfileWizard</name>
     <message>
-        <location filename="../src/dboxfe_profilewizard.cpp" line="118"/>
+        <location filename="../src/dboxfe_profilewizard.cpp" line="124"/>
         <source>&amp;Finish</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe_profilewizard.cpp" line="93"/>
+        <location filename="../src/dboxfe_profilewizard.cpp" line="95"/>
         <source>Please make sure you set the autoexec option for every profile right.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2421,22 +2441,22 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe_profilewizard.cpp" line="132"/>
+        <location filename="../src/dboxfe_profilewizard.cpp" line="140"/>
         <source>Not implemented yet!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe_profilewizard.cpp" line="142"/>
+        <location filename="../src/dboxfe_profilewizard.cpp" line="150"/>
         <source>Open search directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe_profilewizard.cpp" line="194"/>
+        <location filename="../src/dboxfe_profilewizard.cpp" line="206"/>
         <source>Download failed: %1.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe_profilewizard.cpp" line="217"/>
+        <location filename="../src/dboxfe_profilewizard.cpp" line="231"/>
         <source>Unable to update the file %1: %2.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2552,26 +2572,13 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/dboxfe_base.cpp" line="659"/>
+        <location filename="../src/dboxfe_base.cpp" line="655"/>
         <source>Can not add the same profilename: &apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/dboxfe_base.cpp" line="659"/>
+        <location filename="../src/dboxfe_base.cpp" line="655"/>
         <source>&apos; to the list.</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Ui</name>
-    <message>
-        <location filename="../include/dboxfe.h" line="35"/>
-        <source>v0.1.2 (SVN)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../include/dboxfe.h" line="36"/>
-        <source>DBox Front End</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
