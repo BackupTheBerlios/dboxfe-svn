@@ -32,7 +32,7 @@ qmake_qt4=`which qmake-qt4`
 tmp_qmake=""
 
 
-if [ "$qmake" = "" ] || [ "$qmake_qt4" = "" ]; then
+if [ "$qmake" = "" ] && [ "$qmake_qt4" = "" ]; then
 	echo "not found!"
 	echo
 	echo "Make sure you have the Qt development packages installed!"
@@ -50,7 +50,7 @@ lupdate_qt4="`which lupdate-qt4`"
 lupdate="`which lupdate`"
 tmp_lupdate=""
 
-if [ "$lupdate" = "" ] || [ "$lupdate_qt4" = "" ]; then
+if [ "$lupdate" = "" ] && [ "$lupdate_qt4" = "" ]; then
 	echo "not found!"
 	echo
 	echo "Make sure you have the Qt development packages installed!"
@@ -68,7 +68,7 @@ lrelease_qt4="`which lrelease-qt4`"
 lrelease="`which lrelease`"
 tmp_lrelease=""
 
-if [ "$lrelease" = "" ] || [ "$lrelease_qt4" = "" ]; then
+if [ "$lrelease" = "" ] && [ "$lrelease_qt4" = "" ]; then
 	echo "not found!"
 	echo
 	echo "Make sure you have the Qt development packages installed!"
@@ -85,7 +85,7 @@ printf "Checking for qmake version... "
 $tmp_qmake -v &>qmake.ver
 ver=`sed 's/[a-z,A-Z].//g' qmake.ver | sed -n '1,1p'`
 if [ "$ver" = " 1.07( 3.3.6)" ]; then
-	echo "1.07a (Qt 3.3.x)";
+	echo $ver;
 	echo
 	echo "version too old! Make sure you have the Qt 4.3.x installed!"
 	rm -rf qmake.ver
@@ -106,12 +106,12 @@ if [ "$ver" = "3.3.6" ]; then
 	exit 1
 else
 	echo $ver;
-	# $tmp_lupdate dboxfe.pro
+	#$tmp_lupdate dboxfe.pro
 	rm -rf lupdate.ver
 fi
 
 printf "Checking for lrelease version... "
-$tmp_lreleasee -version &>lrelease.ver
+$tmp_lrelease -version &>lrelease.ver
 ver=`sed 's/[a-z,A-Z].//g' lrelease.ver | sed -n '1,1p'`
 if [ "$ver" = "3.3.6" ]; then
 	echo $ver;
@@ -121,7 +121,7 @@ if [ "$ver" = "3.3.6" ]; then
 	exit 1
 else
 	echo $ver;
-	#$lrealse dboxfe.pro
+	#$tmp_lrelease dboxfe.pro
 	rm -rf lrelease.ver
 fi
 
