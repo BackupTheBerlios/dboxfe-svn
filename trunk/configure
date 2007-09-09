@@ -80,7 +80,7 @@ fi
 printf "Checking for lrelease... "
 lrelease_qt4="`which lrelease-qt4`"
 lrelease="`which lrelease`"
-tmp_lrelease=""
+tmp_lrelease="" 
 
 if [ "$lrelease" = "" ]; then
 	echo "not found!"
