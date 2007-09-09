@@ -29,34 +29,34 @@
 
 class DBoxFE_GameFile : public QWidget, public Ui::DBoxFE_GameFile
 {
-	Q_OBJECT
+		Q_OBJECT
 
 	public:
-		DBoxFE_GameFile( QWidget *parent = 0, Qt::WFlags flags = 0 );
-        ~DBoxFE_GameFile();
+		DBoxFE_GameFile ( QWidget *parent = 0, Qt::WFlags flags = 0 );
+		~DBoxFE_GameFile();
 
 		DBoxFE_GameSettings *dbfe_gs;
 
-    protected:
-        void closeEvent( QCloseEvent *e );
+	protected:
+		void closeEvent ( QCloseEvent *e );
 
-    private:
-        QHttp *m_http;
-        QFile *m_file;
-        QString pFileName;
+	private:
+		QHttp *m_http;
+		QFile *m_file;
+		QString pFileName;
 		DBoxFE *dbfe;
 
-        int httpGetId;
-        bool httpRequestAborted;
-				
-    public slots:
-        void loadGameFile( const QString &urlPath );        
+		int httpGetId;
+		bool httpRequestAborted;
 
-    private slots:
-		void parseGameFile( const QString &file );
-		void httpDataReadProgress( int done, int total  );
-        void httpRequestFinished( int requestId, bool error );
-        void readResponseHeader( const QHttpResponseHeader &responseHeader );
+	public slots:
+		void loadGameFile ( const QString &urlPath );
+
+	private slots:
+		void parseGameFile ( const QString &file );
+		void httpDataReadProgress ( int done, int total );
+		void httpRequestFinished ( int requestId, bool error );
+		void readResponseHeader ( const QHttpResponseHeader &responseHeader );
 };
 
 #endif // DBOXFE_GAMEFILE_H

@@ -26,15 +26,15 @@
 
 class DBoxFE_Image : public QDialog, public Ui::DBoxFE_Images
 {
-        Q_OBJECT
+	Q_OBJECT
 
-    public:
-        DBoxFE_Image( QDialog *parent = 0, Qt::WFlags flags = 0 );
-        ~DBoxFE_Image();
+	public:
+		DBoxFE_Image ( QDialog *parent = 0, Qt::WFlags flags = 0 );
+		~DBoxFE_Image();
 
-    private slots:
-        void slotApply();
-        void slotAbort();
+	private slots:
+		void slotApply();
+		void slotAbort();
 };
 
 #endif // DBOXFE_IMAGES_H
