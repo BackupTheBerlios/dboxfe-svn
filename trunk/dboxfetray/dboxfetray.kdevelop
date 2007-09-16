@@ -3,7 +3,7 @@
   <general>
     <author>Alexander Saal</author>
     <email>alex.saal@gmx.de</email>
-    <version>$VERSION$</version>
+    <version>1</version>
     <projectmanagement>KDevTrollProject</projectmanagement>
     <primarylanguage>C++</primarylanguage>
     <keywords>
@@ -11,6 +11,11 @@
     </keywords>
     <projectname>dboxfetray</projectname>
     <ignoreparts/>
+    <projectdirectory>.</projectdirectory>
+    <absoluteprojectpath>false</absoluteprojectpath>
+    <description></description>
+    <defaultencoding></defaultencoding>
+    <versioncontrol></versioncontrol>
   </general>
   <kdevfileview>
     <groups>
@@ -66,8 +71,20 @@
   </kdevdoctreeview>
   <kdevdebugger>
     <general>
-      <dbgshell/>
+      <dbgshell></dbgshell>
+      <gdbpath></gdbpath>
+      <configGdbScript></configGdbScript>
+      <runShellScript></runShellScript>
+      <runGdbScript></runGdbScript>
+      <breakonloadinglibs>true</breakonloadinglibs>
+      <separatetty>false</separatetty>
+      <floatingtoolbar>false</floatingtoolbar>
     </general>
+    <display>
+      <staticmembers>false</staticmembers>
+      <demanglenames>true</demanglenames>
+      <outputradix>10</outputradix>
+    </display>
   </kdevdebugger>
   <kdevcppsupport>
     <qt>
@@ -76,13 +93,12 @@
       <includestyle>4</includestyle>
       <designerintegration>ExternalDesigner</designerintegration>
       <root>/usr/lib/qt4</root>
-      <qmake>/usr/bin/qmake</qmake>
-      <designer>/usr/bin/designer</designer>
+      <qmake>/usr/bin/qmake-qt4</qmake>
+      <designer>/usr/bin/designer-qt4</designer>
       <designerpluginpaths/>
     </qt>
-    <references/>
     <codecompletion>
-      <automaticCodeCompletion>false</automaticCodeCompletion>
+      <automaticCodeCompletion>true</automaticCodeCompletion>
       <automaticArgumentsHint>true</automaticArgumentsHint>
       <automaticHeaderCompletion>true</automaticHeaderCompletion>
       <codeCompletionDelay>250</codeCompletionDelay>
@@ -97,13 +113,29 @@
       <processPrimaryTypes>true</processPrimaryTypes>
       <processFunctionArguments>false</processFunctionArguments>
       <preProcessAllHeaders>false</preProcessAllHeaders>
-      <parseMissingHeaders>false</parseMissingHeaders>
-      <resolveIncludePaths>true</resolveIncludePaths>
+      <parseMissingHeadersExperimental>false</parseMissingHeadersExperimental>
+      <resolveIncludePathsUsingMakeExperimental>false</resolveIncludePathsUsingMakeExperimental>
       <alwaysParseInBackground>true</alwaysParseInBackground>
       <usePermanentCaching>true</usePermanentCaching>
-      <alwaysIncludeNamespaces>false</alwaysIncludeNamespaces>
+      <alwaysIncludeNamespaces>true</alwaysIncludeNamespaces>
       <includePaths>.;</includePaths>
     </codecompletion>
+    <creategettersetter>
+      <prefixGet></prefixGet>
+      <prefixSet>set</prefixSet>
+      <prefixVariable>m_,_</prefixVariable>
+      <parameterName>theValue</parameterName>
+      <inlineGet>true</inlineGet>
+      <inlineSet>true</inlineSet>
+    </creategettersetter>
+    <splitheadersource>
+      <enabled>false</enabled>
+      <synchronize>true</synchronize>
+      <orientation>Vertical</orientation>
+    </splitheadersource>
+    <references>
+      <pcs>Qt4</pcs>
+    </references>
   </kdevcppsupport>
   <kdevfilecreate>
     <useglobaltypes>
@@ -119,6 +151,43 @@
     </general>
     <run>
       <directoryradio>executable</directoryradio>
+      <mainprogram>/home/asaal/projekte/dboxfe/dboxfetray</mainprogram>
+      <programargs></programargs>
+      <globaldebugarguments></globaldebugarguments>
+      <globalcwd>/home/asaal/projekte/dboxfe/dboxfetray</globalcwd>
+      <useglobalprogram>false</useglobalprogram>
+      <terminal>false</terminal>
+      <autocompile>false</autocompile>
+      <autoinstall>false</autoinstall>
+      <autokdesu>false</autokdesu>
+      <envvars/>
     </run>
+    <make>
+      <abortonerror>true</abortonerror>
+      <runmultiplejobs>false</runmultiplejobs>
+      <numberofjobs>1</numberofjobs>
+      <dontact>false</dontact>
+      <makebin></makebin>
+      <prio>0</prio>
+      <envvars/>
+    </make>
+    <qmake>
+      <savebehaviour>2</savebehaviour>
+      <replacePaths>false</replacePaths>
+      <disableDefaultOpts>true</disableDefaultOpts>
+    </qmake>
   </kdevtrollproject>
+  <cppsupportpart>
+    <filetemplates>
+      <interfacesuffix>.h</interfacesuffix>
+      <implementationsuffix>.cpp</implementationsuffix>
+    </filetemplates>
+  </cppsupportpart>
+  <kdevdocumentation>
+    <projectdoc>
+      <docsystem></docsystem>
+      <docurl></docurl>
+      <usermanualurl></usermanualurl>
+    </projectdoc>
+  </kdevdocumentation>
 </kdevelop>
