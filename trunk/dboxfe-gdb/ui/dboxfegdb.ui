@@ -1,0 +1,350 @@
+<ui version="4.0" >
+ <class>GameDatabaseDialog</class>
+ <widget class="QDialog" name="GameDatabaseDialog" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>728</width>
+    <height>476</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>Game Database</string>
+  </property>
+  <property name="windowIcon" >
+   <iconset resource="../res/dboxfe-gdb.qrc" >:/images/disc-media.png</iconset>
+  </property>
+  <layout class="QGridLayout" >
+   <item row="0" column="0" colspan="3" >
+    <widget class="QTreeWidget" name="treeWidget" >
+     <column>
+      <property name="text" >
+       <string>Name</string>
+      </property>
+     </column>
+     <column>
+      <property name="text" >
+       <string>Executable</string>
+      </property>
+     </column>
+     <column>
+      <property name="text" >
+       <string>Template</string>
+      </property>
+     </column>
+    </widget>
+   </item>
+   <item row="1" column="0" colspan="3" >
+    <widget class="QGroupBox" name="groupBoxGamePreferences" >
+     <property name="title" >
+      <string>Gamepreferences</string>
+     </property>
+     <layout class="QGridLayout" >
+      <item row="0" column="0" >
+       <layout class="QHBoxLayout" >
+        <item>
+         <widget class="QLabel" name="lblGameName" >
+          <property name="minimumSize" >
+           <size>
+            <width>110</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="text" >
+           <string>Game:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="lineEditGame" />
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnGame" >
+          <property name="minimumSize" >
+           <size>
+            <width>26</width>
+            <height>26</height>
+           </size>
+          </property>
+          <property name="maximumSize" >
+           <size>
+            <width>26</width>
+            <height>26</height>
+           </size>
+          </property>
+          <property name="text" >
+           <string/>
+          </property>
+          <property name="icon" >
+           <iconset resource="../res/dboxfe-gdb.qrc" >:/images/copy.png</iconset>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="1" column="0" >
+       <layout class="QHBoxLayout" >
+        <item>
+         <widget class="QLabel" name="lblGameExecutable" >
+          <property name="minimumSize" >
+           <size>
+            <width>110</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="text" >
+           <string>Executable:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="lineEditExecutable" />
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnExecutable" >
+          <property name="minimumSize" >
+           <size>
+            <width>26</width>
+            <height>26</height>
+           </size>
+          </property>
+          <property name="maximumSize" >
+           <size>
+            <width>26</width>
+            <height>26</height>
+           </size>
+          </property>
+          <property name="text" >
+           <string/>
+          </property>
+          <property name="icon" >
+           <iconset resource="../res/dboxfe-gdb.qrc" >:/images/applications.png</iconset>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="2" column="0" >
+       <layout class="QHBoxLayout" >
+        <item>
+         <widget class="QLabel" name="lblTemplate" >
+          <property name="minimumSize" >
+           <size>
+            <width>110</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="text" >
+           <string>Template:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="lineEditTemplate" />
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnTemplate" >
+          <property name="minimumSize" >
+           <size>
+            <width>26</width>
+            <height>26</height>
+           </size>
+          </property>
+          <property name="maximumSize" >
+           <size>
+            <width>26</width>
+            <height>26</height>
+           </size>
+          </property>
+          <property name="text" >
+           <string/>
+          </property>
+          <property name="icon" >
+           <iconset resource="../res/dboxfe-gdb.qrc" >:/images/paste.png</iconset>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="3" column="0" >
+       <layout class="QHBoxLayout" >
+        <item>
+         <widget class="QPushButton" name="btnAdd" >
+          <property name="minimumSize" >
+           <size>
+            <width>110</width>
+            <height>26</height>
+           </size>
+          </property>
+          <property name="maximumSize" >
+           <size>
+            <width>110</width>
+            <height>26</height>
+           </size>
+          </property>
+          <property name="text" >
+           <string>&amp;Add</string>
+          </property>
+          <property name="icon" >
+           <iconset resource="../res/dboxfe-gdb.qrc" >:/images/add.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer>
+          <property name="orientation" >
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" >
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnUpdate" >
+          <property name="minimumSize" >
+           <size>
+            <width>110</width>
+            <height>26</height>
+           </size>
+          </property>
+          <property name="maximumSize" >
+           <size>
+            <width>110</width>
+            <height>26</height>
+           </size>
+          </property>
+          <property name="text" >
+           <string>&amp;Update</string>
+          </property>
+          <property name="icon" >
+           <iconset resource="../res/dboxfe-gdb.qrc" >:/images/undo.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer>
+          <property name="orientation" >
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" >
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnDelete" >
+          <property name="minimumSize" >
+           <size>
+            <width>110</width>
+            <height>26</height>
+           </size>
+          </property>
+          <property name="maximumSize" >
+           <size>
+            <width>110</width>
+            <height>26</height>
+           </size>
+          </property>
+          <property name="text" >
+           <string>&amp;Delete</string>
+          </property>
+          <property name="icon" >
+           <iconset resource="../res/dboxfe-gdb.qrc" >:/images/trash.png</iconset>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="2" column="0" colspan="3" >
+    <widget class="Line" name="line" >
+     <property name="orientation" >
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0" >
+    <widget class="QPushButton" name="btnSave" >
+     <property name="minimumSize" >
+      <size>
+       <width>110</width>
+       <height>26</height>
+      </size>
+     </property>
+     <property name="maximumSize" >
+      <size>
+       <width>110</width>
+       <height>26</height>
+      </size>
+     </property>
+     <property name="text" >
+      <string>&amp;Save</string>
+     </property>
+     <property name="icon" >
+      <iconset resource="../res/dboxfe-gdb.qrc" >:/images/save.png</iconset>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1" >
+    <spacer>
+     <property name="orientation" >
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" >
+      <size>
+       <width>470</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="3" column="2" >
+    <widget class="QPushButton" name="btnCancel" >
+     <property name="minimumSize" >
+      <size>
+       <width>110</width>
+       <height>26</height>
+      </size>
+     </property>
+     <property name="maximumSize" >
+      <size>
+       <width>110</width>
+       <height>26</height>
+      </size>
+     </property>
+     <property name="text" >
+      <string>&amp;Cancel</string>
+     </property>
+     <property name="icon" >
+      <iconset resource="../res/dboxfe-gdb.qrc" >:/images/delete.png</iconset>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>lineEditGame</tabstop>
+  <tabstop>btnGame</tabstop>
+  <tabstop>lineEditExecutable</tabstop>
+  <tabstop>btnExecutable</tabstop>
+  <tabstop>btnAdd</tabstop>
+  <tabstop>btnUpdate</tabstop>
+  <tabstop>btnDelete</tabstop>
+  <tabstop>btnSave</tabstop>
+  <tabstop>btnCancel</tabstop>
+ </tabstops>
+ <resources>
+  <include location="../res/dboxfe-gdb.qrc" />
+ </resources>
+ <connections/>
+</ui>
