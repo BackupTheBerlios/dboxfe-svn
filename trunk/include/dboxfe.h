@@ -32,7 +32,7 @@ class DBoxFE : public QWidget, public Ui::DBoxFE
 		DBoxFE ( QWidget *parent = 0, Qt::WFlags flags = 0 );
 		~DBoxFE();
 
-		QString getAppVersion() { return tr ( "v0.1.3 (SVN)" ); }
+		QString getAppVersion() { return tr ( "v0.1.3" ); }
 		QString winTitle() { return tr ( "DBox Front End" ); }
 
 	private:
