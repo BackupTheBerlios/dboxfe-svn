@@ -95,7 +95,8 @@ DBoxFE::DBoxFE ( QWidget *parent, Qt::WFlags flags ) : QWidget ( parent, flags )
 	int top = ( rect.height() - height() ) / 2;
 	setGeometry ( left, top, width(), height() );
 
-	//setMouseTracking( true );
+	//for future release :)
+	chkBoxStartTrayIcon->setVisible( false );
 }
 
 DBoxFE::~DBoxFE()
