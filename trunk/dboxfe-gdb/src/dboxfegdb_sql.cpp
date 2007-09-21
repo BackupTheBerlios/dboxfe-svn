@@ -82,68 +82,68 @@ bool GameDatabaseSql::importDosBoxGameList( const QMap< QString, QMap< QString, 
 		return false;
 
 	gameDosBoxList = list;
-	
+
 	QMap< QString, QMap< QString, QString> >::const_iterator gameIt = gameDosBoxList.begin();
 	while( gameIt != gameDosBoxList.end() ) {
 		QSqlQuery query( gamedb );
 		query.exec( "SELECT TITLE FROM DOSBOXINFO WHERE TITLE = '" + gameIt.key() + "';" );
 		if( query.isActive() )
 		{
-			 _title = query.value( 0 ).toString();
-			 if( !_title.isNull() || !_title.isEmpty() )
-			 {
-				 if( (_title.toLower() == gameIt.key().toLower()) )
-				 {
-					 QMap< QString, QString>::const_iterator valueIt = gameIt.value().begin();
-					 while( valueIt != gameIt.value().end() )
-					 {
-						 if( valueIt.key() == "year" )
-							 _year = valueIt.value();
-						 if( valueIt.key() == "sw_house" )
-							 _sw_house = valueIt.value();
-						 if( valueIt.key() == "link" )
-							 _link = valueIt.value();
-						 if( valueIt.key() == "comp_percent" )
-							 _comp_percent = valueIt.value();
-						 if( valueIt.key() == "version" )
-							 _version = valueIt.value();						 
-					 }
+			_title = query.value( 0 ).toString();
+			if( !_title.isNull() || !_title.isEmpty() )
+			{
+				if( (_title.toLower() == gameIt.key().toLower()) )
+				{
+					QMap< QString, QString>::const_iterator valueIt = gameIt.value().begin();
+					while( valueIt != gameIt.value().end() )
+					{
+						if( valueIt.key() == "year" )
+							_year = valueIt.value();
+						if( valueIt.key() == "sw_house" )
+							_sw_house = valueIt.value();
+						if( valueIt.key() == "link" )
+							_link = valueIt.value();
+						if( valueIt.key() == "comp_percent" )
+							_comp_percent = valueIt.value();
+						if( valueIt.key() == "version" )
+							_version = valueIt.value();						 
+					}
 
-					 bool up = updateDosBoxGames( _version, _title, _year, _sw_house, _link, _comp_percent );
+					bool up = updateDosBoxGames( _version, _title, _year, _sw_house, _link, _comp_percent );
 
-					 if( !up )
-						 qWarning() << "Failed to update a query  to game database:\t" + query.lastError().text();
-				 }
-				 else
-				 {
-					 QMap< QString, QString>::const_iterator valueIt = gameIt.value().begin();
-					 while( valueIt != gameIt.value().end() )
-					 {
-						 if( valueIt.key() == "year" )
-							 _year = valueIt.value();
-						 if( valueIt.key() == "sw_house" )
-							 _sw_house = valueIt.value();
-						 if( valueIt.key() == "link" )
-							 _link = valueIt.value();
-						 if( valueIt.key() == "comp_percent" )
-							 _comp_percent = valueIt.value();
-						 if( valueIt.key() == "version" )
-							 _version = valueIt.value();						 
-					 }
+					if( !up )
+						qWarning() << "Failed to update a query  to game database:\t" + query.lastError().text();
+				}
+				else
+				{
+					QMap< QString, QString>::const_iterator valueIt = gameIt.value().begin();
+					while( valueIt != gameIt.value().end() )
+					{
+						if( valueIt.key() == "year" )
+							_year = valueIt.value();
+						if( valueIt.key() == "sw_house" )
+							_sw_house = valueIt.value();
+						if( valueIt.key() == "link" )
+							_link = valueIt.value();
+						if( valueIt.key() == "comp_percent" )
+							_comp_percent = valueIt.value();
+						if( valueIt.key() == "version" )
+							_version = valueIt.value();						 
+					}
 
-					 bool in = insertDosBoxGames( _version, _title, _year, _sw_house, _link, _comp_percent );
+					bool in = insertDosBoxGames( _version, _title, _year, _sw_house, _link, _comp_percent );
 
-					 if( !in )
-						 qWarning() << "Failed to insert a query to game database:\t" + query.lastError().text();
-				 }
-			 }
+					if( !in )
+						qWarning() << "Failed to insert a query to game database:\t" + query.lastError().text();
+				}
+			}
 		}
 		else
 			qWarning() << "Failed to query game database:\t" + query.lastError().text();
-			
+
 		++gameIt;
 	}
-	
+
 	return true;
 }
 
@@ -151,7 +151,7 @@ bool GameDatabaseSql::importGameList( const QStringList &list )
 {
 	if( list.isEmpty() )
 		return false;
-	
+
 	if( !isOpen() )
 		return false;
 
@@ -164,7 +164,7 @@ bool GameDatabaseSql::importGameList( const QStringList &list )
 		QString exec = games.value( 1 ); // Game executable
 
 		QSqlQuery query( gamedb );
-		
+
 		QString sqlQuery;
 		sqlQuery.clear();
 		sqlQuery = "";
@@ -239,7 +239,7 @@ bool GameDatabaseSql::importGameTemplateList( const QStringList &list )
 {
 	if( list.isEmpty() )
 		return false;
-	
+
 	if( !isOpen() )
 		return false;
 
@@ -249,11 +249,11 @@ bool GameDatabaseSql::importGameTemplateList( const QStringList &list )
 	for( int i = 0; i < gameList.size(); i++ )
 	{
 		QStringList games = gameList.value( i ).split( ";" );
-		
+
 		query.exec( "SELECT ID FROM GAME WHERE NAME = '" +  games.value( 0 ) + "';" );
 		QString gameId = query.value( 0 ).toString();
 		QString templates = games.value( 1 ); // Game executable
-		
+
 		QString sqlQuery;
 		sqlQuery = "";
 		sqlQuery += "INSERT INTO GAMETEMPLATE\n";
@@ -266,7 +266,7 @@ bool GameDatabaseSql::importGameTemplateList( const QStringList &list )
 		sqlQuery += "\t'" + gameId + "',\n";
 		sqlQuery += "\t'" + templates + "'\n";
 		sqlQuery += ");";
-		
+
 		query.exec( sqlQuery );
 
 		if( !query.isActive() )
@@ -296,7 +296,7 @@ bool GameDatabaseSql::updateGames( const QString &name, const QString &executabl
 
 bool GameDatabaseSql::insertGames( const QString &name, const QString &executable, const QString &templates )
 {
-	if( name.isNull() || name.isEmpty()
+	if( name.isNull() || name.isEmpty() )
 		return false;
 
 	if( !isOpen() )
@@ -314,7 +314,7 @@ bool GameDatabaseSql::deleteGames( const QString &name, bool withTemplate )
 {
 	if( name.isNull() || name.isEmpty() )
 		return false;
-	
+
 	if( !isOpen() )
 		return false;
 
@@ -331,7 +331,7 @@ bool GameDatabaseSql::deleteGames( const QString &name, bool withTemplate )
 			qWarning() << "Can't delete game from table 'GAME': " + query.lastError().text();
 			return false;
 		}
-		
+
 		if( withTemplate )
 		{
 			query.exec( "DELETE FROM GAMETEMPLATE WHERE ID = '" + gameId + "';" );
