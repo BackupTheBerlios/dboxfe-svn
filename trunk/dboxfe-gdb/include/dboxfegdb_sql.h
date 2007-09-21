@@ -87,6 +87,7 @@ class GameDatabaseSql : public QObject
 		 * @return true if update successfull
 		 */
 		bool updateGames( const QString &name,
+						  const QString &version,
 						  const QString &executable = QString(),
 						  const QString &templates = QString()
 						);
@@ -99,6 +100,7 @@ class GameDatabaseSql : public QObject
 		 * @return true if insert successfull
 		 */
 		bool insertGames( const QString &name,
+						  const QString &version,
 						  const QString &executable = QString(),
 						  const QString &templates = QString()
 						);

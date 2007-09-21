@@ -289,14 +289,17 @@ bool GameDatabaseSql::insertDosBoxGames( const QString &version, const QString &
 }
 
 
-bool GameDatabaseSql::updateGames( const QString &name, const QString &executable, const QString &templates )
+bool GameDatabaseSql::updateGames( const QString &name, const QString &version, const QString &executable, const QString &templates )
 {
 	return false;
 }
 
-bool GameDatabaseSql::insertGames( const QString &name, const QString &executable, const QString &templates )
+bool GameDatabaseSql::insertGames( const QString &name, const QString &version, const QString &executable, const QString &templates )
 {
 	if( name.isNull() || name.isEmpty() )
+		return false;
+
+	if( executable.isNull() || executable.isEmpty() )
 		return false;
 
 	if( !isOpen() )
@@ -304,8 +307,18 @@ bool GameDatabaseSql::insertGames( const QString &name, const QString &executabl
 
 	QSqlQuery query( gamedb );
 
-	query.exec( "" );
+	if( !templates.isNull() || !templates.isEmpty() )
+	{
+		QString sqlQuery;
+		sqlQuery = "";
+		sqlQuery += "INSERT INTO GAME\n";
+		sqlQuery += "(\n";
+		sqlQuery += "\tNAME\n";
+		sqlQuery += "\tDB_ID\n";
+		sqlQuery += "\n";
 
+		query.exec( "" );		
+	}
 
 	return false;
 }
