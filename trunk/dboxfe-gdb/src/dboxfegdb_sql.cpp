@@ -276,7 +276,7 @@ bool GameDatabaseSql::importGameTemplateList( const QStringList &list )
 
 		if( !query.isActive() )
 		{
-			qWarning() << "Failed to insert game into database:\t" + query.lastError().text();
+			qWarning() << "Failed to import templates into database:\t" + query.lastError().text();
 			return false;
 		}		
 	}
@@ -327,7 +327,7 @@ bool GameDatabaseSql::insertGames( const QString &name, const QString &version, 
 	QSqlQuery query( gamedb );
 	
 	// Select dosbox id form dosbox
-	query.exec( "SELECT ID FROM DOSBOX WHERE VERSION = '" + version + "'" );
+	query.exec( "SELECT ID FROM DOSBOX WHERE VERSION = '" + version + "';" );
 
 	if( query.isActive() )
 	{
@@ -337,10 +337,18 @@ bool GameDatabaseSql::insertGames( const QString &name, const QString &version, 
 	if( _id_dosbox.isNull() || _id_dosbox.isEmpty() )
 		return false;
 	
+	
+	QString _id_template = QString( "" );
 
 	// Select id from game template
-	query.exec( "SELECT ID FROM GAME WHERE ID = '" + templates + "'" );
+	query.exec( "SELECT ID FROM GAME WHERE ID = '" + templates + "';" );
+	if( query.isActive() )
+	{
+		_id_template = query.value( 0 ).toString();
+	}
 	
+	if( _id_template.isNull() || _id_template.isEmpty() )
+		return false;	
 
 	if( !templates.isNull() || !templates.isEmpty() )
 	{
@@ -352,19 +360,25 @@ bool GameDatabaseSql::insertGames( const QString &name, const QString &version, 
 		sqlQuery += "\tDB_ID\n";
 		sqlQuery += "\tNAME\n";
 		sqlQuery += "\tEXEC\n";
+		sqlQuery += "\tTEMPLATE\n";
 		sqlQuery += ")\n";
 		sqlQuery += "VALUES\n";
 		sqlQuery += "(\n";
 		sqlQuery += "\t" + name + "\n";
 		sqlQuery += "\t" + _id_dosbox + "\n";
-		sqlQuery += "\t\n";
-		sqlQuery += "\t\n";
-		sqlQuery += "\n";
+		sqlQuery += "\t" + executable + "\n";
+		sqlQuery += "\t" + _id_template + "\n";
+		sqlQuery += ");\n";
 
-		query.exec( "" );		
+		query.exec( sqlQuery );
+		if( !query.isActive() )
+		{
+			qWarning() << "Failed to insert game into database:\t" + query.lastError().text();
+			return false;			
+		}
 	}
 
-	return false;
+	return true;
 }
 
 bool GameDatabaseSql::deleteGames( const QString &name, bool withTemplate )
