@@ -47,6 +47,7 @@ QMap< QString, QMap<QString, QString> > GameDatabaseXml::parseDosBoxGameXml( con
 	QDomNode item = doc.documentElement().firstChild();
 
 	gameDosBoxList.clear();
+	attributes.clear();
 
 	while ( !item.isNull() )
 	{
@@ -71,8 +72,7 @@ QMap< QString, QMap<QString, QString> > GameDatabaseXml::parseDosBoxGameXml( con
 				{
 					attributes.insert( "link", subitem.toElement().text() );
 				}
-
-				if ( subitem.toElement().tagName() == "dosbox" )
+				else if ( subitem.toElement().tagName() == "dosbox" )
 				{
 					QDomNode attrib = subitem.toElement().firstChild();
 					while ( !attrib.isNull() )
@@ -102,26 +102,24 @@ QMap< QString, QMap<QString, QString> > GameDatabaseXml::parseDosBoxGameXml( con
 
 QStringList GameDatabaseXml::parseGameXml( const QString &xml )
 {
-	if ( ((XMLPreferences)getPreferenceInstance()).load( xml ) )
-		;
-	else
-		((XMLPreferences)getPreferenceInstance()).load( xml );
-
+	if( xml.isNull() || xml.isEmpty() )
+		return QStringList();
+	
 	xmlFile = xml;
-
-	gameList = ((XMLPreferences)getPreferenceInstance()).getStringList( "Games", "Name" );
+	
+	getPreferenceInstance().load( xml );
+	gameList = getPreferenceInstance().getStringList( "Games", "Name" );
 
 	return gameList;
 }
 
 QStringList GameDatabaseXml::getGameTemplates( const QString &xml )
 {
-	if ( ((XMLPreferences)getPreferenceInstance()).load( xml ) )
-		;
-	else
-		((XMLPreferences)getPreferenceInstance()).load( xml );
-
-	gameTemplateList = ((XMLPreferences)getPreferenceInstance()).getStringList( "ConfigTemplate", "Name" );
+	if( xml.isNull() || xml.isEmpty() )
+		return QStringList();
+	
+	getPreferenceInstance().load( xml );
+	gameTemplateList = getPreferenceInstance().getStringList( "ConfigTemplate", "Name" );
 
 	return gameTemplateList;
 }
@@ -168,7 +166,11 @@ QStringList GameDatabaseXml::update( const QString &name, const QString &templat
 		QStringList _gameList = gameList.value( i ).split( ";" );
 
 		if ( QString( _gameList.value( 0 ) ).toLower() == name.toLower() )
-			gameList.replace( i, name + ";" + "" );
+			if( templateName.isNull() || templateName.isEmpty() )
+				gameList.replace( i, name + ";" + "" );
+			else
+				gameList.replace( i, name + ";" + templateName );
+			
 	}
 
 	return gameList;
@@ -208,16 +210,17 @@ QStringList GameDatabaseXml::remove( const QString &name )
 
 void GameDatabaseXml::save( const QString &xml )
 {
-	((XMLPreferences)getPreferenceInstance()).setStringList( "Games", "Name", gameList );
-	((XMLPreferences)getPreferenceInstance()).setStringList( "ConfigTemplate", "Name", gameTemplateList );
+	getPreferenceInstance().setStringList( "Games", "Name", gameList );
+	getPreferenceInstance().setStringList( "ConfigTemplate", "Name", gameTemplateList );
 
-	if ( xml.isNull() || xml.isEmpty() || xml == "" )
-		((XMLPreferences)getPreferenceInstance()).save( xmlFile );
+	if ( !xml.isNull() || !xml.isEmpty() || xml != "" )
+		getPreferenceInstance().save( xmlFile );
 	else
 	{
 		xmlFile = xml;
-		((XMLPreferences)getPreferenceInstance()).save( xml );
+		getPreferenceInstance().save( xml );
 	}
+	
 }
 
 XMLPreferences GameDatabaseXml::getPreferenceInstance()

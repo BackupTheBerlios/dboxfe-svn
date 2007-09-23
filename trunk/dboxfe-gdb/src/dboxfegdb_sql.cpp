@@ -49,8 +49,6 @@ bool GameDatabaseSql::createDatabase( const QString &name )
 	if ( !f.open( QIODevice::ReadOnly | QIODevice::Text ) )
 		return false;
 
-	QString sql = f.readAll();
-
 	gamedb = QSqlDatabase::addDatabase( "QSQLITE" );
 	gamedb.setDatabaseName( sqlDatabase );
 	gamedb.setUserName( "" );
@@ -64,13 +62,16 @@ bool GameDatabaseSql::createDatabase( const QString &name )
 	}
 
 	QSqlQuery query( gamedb );
-
-	query.exec( sql );
-
-	if( !query.isActive() )
+	
+	while( !f.atEnd() )
 	{
-		qWarning() << "Failed to create tables on " + sqlDatabase + " (exists?): " + query.lastError().text();
-		return false;
+		QString sql = f.readLine();
+		query.exec( sql );
+
+		if( !query.isActive() )
+		{
+			qWarning() << "Failed to create tables on " + sqlDatabase + " (exists?): " + query.lastError().text();
+		}
 	}
 
 	return true;
@@ -112,13 +113,17 @@ bool GameDatabaseSql::importDosBoxGameList( const QMap< QString, QMap< QString, 
 					bool up = updateDosBoxGames( _version, _title, _year, _sw_house, _link, _comp_percent );
 
 					if( !up )
-						qWarning() << "Failed to update a query  to game database:\t" + query.lastError().text();
+						qWarning() << "Failed to update a dosbox version in the database:\t" + query.lastError().text();
 				}
 				else
 				{
 					QMap< QString, QString>::const_iterator valueIt = gameIt.value().begin();
+					QString _id;
+
 					while( valueIt != gameIt.value().end() )
 					{
+						_id = QUuid::createUuid().toString();						
+						
 						if( valueIt.key() == "year" )
 							_year = valueIt.value();
 						if( valueIt.key() == "sw_house" )
@@ -131,10 +136,10 @@ bool GameDatabaseSql::importDosBoxGameList( const QMap< QString, QMap< QString, 
 							_version = valueIt.value();						 
 					}
 
-					bool in = insertDosBoxGames( _version, _title, _year, _sw_house, _link, _comp_percent );
+					bool in = insertDosBoxGames( _id, _version, _title, _year, _sw_house, _link, _comp_percent );
 
 					if( !in )
-						qWarning() << "Failed to insert a query to game database:\t" + query.lastError().text();
+						qWarning() << "Failed to insert a dosbox version to database:\t" + query.lastError().text();
 				}
 			}
 		}
@@ -280,12 +285,24 @@ bool GameDatabaseSql::importGameTemplateList( const QStringList &list )
 
 bool GameDatabaseSql::updateDosBoxGames( const QString &version, const QString &title, const QString &year, const QString &sw_house, const QString &link, const QString &comp_percent )
 {
-	return false;
+	return true;
 }
 
-bool GameDatabaseSql::insertDosBoxGames( const QString &version, const QString &title, const QString &year, const QString &sw_house, const QString &link, const QString &comp_percent )
+bool GameDatabaseSql::insertDosBoxGames( const QString &id, const QString &version, const QString &title, const QString &year, const QString &sw_house, const QString &link, const QString &comp_percent )
 {
-	return false;
+	if( id.isNull() || id.isEmpty() )
+		return false;
+	
+	if( version.isNull() || version.isEmpty() )
+		return false;
+	
+	if( title.isNull() || title.isEmpty() )
+		return false;
+	
+	QSqlQuery query( gamedb );
+	query.exec( "" );
+
+	return true;
 }
 
 
@@ -305,7 +322,25 @@ bool GameDatabaseSql::insertGames( const QString &name, const QString &version, 
 	if( !isOpen() )
 		return false;
 
+	QString _id_dosbox = QString( "" );
+
 	QSqlQuery query( gamedb );
+	
+	// Select dosbox id form dosbox
+	query.exec( "SELECT ID FROM DOSBOX WHERE VERSION = '" + version + "'" );
+
+	if( query.isActive() )
+	{
+		_id_dosbox = query.value( 0 ).toString();
+	}
+	
+	if( _id_dosbox.isNull() || _id_dosbox.isEmpty() )
+		return false;
+	
+
+	// Select id from game template
+	query.exec( "SELECT ID FROM GAME WHERE ID = '" + templates + "'" );
+	
 
 	if( !templates.isNull() || !templates.isEmpty() )
 	{
@@ -315,6 +350,15 @@ bool GameDatabaseSql::insertGames( const QString &name, const QString &version, 
 		sqlQuery += "(\n";
 		sqlQuery += "\tNAME\n";
 		sqlQuery += "\tDB_ID\n";
+		sqlQuery += "\tNAME\n";
+		sqlQuery += "\tEXEC\n";
+		sqlQuery += ")\n";
+		sqlQuery += "VALUES\n";
+		sqlQuery += "(\n";
+		sqlQuery += "\t" + name + "\n";
+		sqlQuery += "\t" + _id_dosbox + "\n";
+		sqlQuery += "\t\n";
+		sqlQuery += "\t\n";
 		sqlQuery += "\n";
 
 		query.exec( "" );		

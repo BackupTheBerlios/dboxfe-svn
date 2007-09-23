@@ -117,7 +117,7 @@ class GameDatabaseSql : public QObject
 		void init();
 
 	private:		
-		bool updateDosBoxGames( const QString &version,
+		bool updateDosBoxGames(	const QString &version,
 								const QString &title,
 								const QString &year = QString(),
 								const QString &sw_house = QString(),
@@ -125,7 +125,8 @@ class GameDatabaseSql : public QObject
 								const QString &comp_percent = QString()
 							  );
 
-		bool insertDosBoxGames( const QString &version,
+		bool insertDosBoxGames( const QString &id,
+								const QString &version,
 								const QString &title,
 								const QString &year = QString(),
 								const QString &sw_house = QString(),

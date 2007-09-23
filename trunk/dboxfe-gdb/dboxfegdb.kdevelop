@@ -29,6 +29,7 @@
     <tree>
       <hidepatterns>*.o,*.lo,CVS</hidepatterns>
       <hidenonprojectfiles>false</hidenonprojectfiles>
+      <showvcsfields>false</showvcsfields>
     </tree>
   </kdevfileview>
   <kdevdoctreeview>
@@ -157,10 +158,10 @@
     </general>
     <run>
       <directoryradio>executable</directoryradio>
-      <mainprogram>/home/asaal/projects/dboxfe-gdb</mainprogram>
+      <mainprogram>/home/asaal/projekte/dboxfe/dboxfe-gdb</mainprogram>
       <programargs/>
       <globaldebugarguments/>
-      <globalcwd>/home/asaal/projects/dboxfe-gdb</globalcwd>
+      <globalcwd>/home/asaal/projekte/dboxfe/dboxfe-gdb</globalcwd>
       <useglobalprogram>false</useglobalprogram>
       <terminal>false</terminal>
       <autocompile>true</autocompile>
@@ -198,9 +199,9 @@
   </kdevdocumentation>
   <ctagspart>
     <customArguments/>
-    <customTagfilePath>/home/asaal/projekte/dboxfe-gdb/tags</customTagfilePath>
+    <customTagfilePath>/home/asaal/projekte/dboxfe/dboxfe-gdb/tags</customTagfilePath>
     <activeTagsFiles>
-      <file>/home/asaal/projects/dboxfe-gdb/qt4tags</file>
+      <file>/usr/include/qt4/qt4tags</file>
     </activeTagsFiles>
   </ctagspart>
 </kdevelop>
