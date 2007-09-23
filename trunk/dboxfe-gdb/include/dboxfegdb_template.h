@@ -23,11 +23,11 @@
 #include <QtCore>
 #include <QtGui>
 
-class GameTemplate : public QDialog, public Ui::GameTemplateDialog
+class GameTemplateDialog : public QDialog, public Ui::GameTemplateDialog
 {
 	public:
-		GameTemplate( QDialog *parent, Qt::WFlags flags = 0 );
-		~GameTemplate();
+		GameTemplateDialog( QDialog *parent, Qt::WFlags flags = 0 );
+		~GameTemplateDialog();
 
 	private:
 		QDialog *object;

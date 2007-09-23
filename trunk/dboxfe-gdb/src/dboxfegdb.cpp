@@ -32,14 +32,49 @@ GameDatabaseDialog::GameDatabaseDialog( QDialog *parent, Qt::WFlags flags ) : QD
 	
 	gd_sql = new GameDatabaseSql( this );
 	gd_xml = new GameDatabaseXml( this );
+
+	gd_template = new GameTemplate();
+
+	connect( btnAdd, SIGNAL ( clicked() ), this, SLOT ( addGame() ) );
+	connect( btnUpdate, SIGNAL ( clicked() ), this, SLOT ( updateGame() ) );
+	connect( btnDelete, SIGNAL ( clicked() ), this, SLOT ( deleteGame() ) );
+	connect( btnGame, SIGNAL ( clicked() ), this, SLOT ( chooseGame() ) );
+	connect( btnExecutable, SIGNAL ( clicked() ), this, SLOT ( chooseExec() ) );
+	connect( btnTemplate, SIGNAL ( clicked() ), this, SLOT ( chooseTempl() ) );
+	connect( btnSave, SIGNAL ( clicked() ), this, SLOT ( save() ) );
+	connect( btnCancel, SIGNAL ( clicked() ), this, SLOT ( cancel() ) );
+
+#ifdef Q_OS_MACX
+	QApplication::setStyle ( "plastique" );
+#endif
+
+#ifdef Q_OS_MAC9
+	QApplication::setStyle ( "plastique" );
+#endif
+
+#ifdef Q_OS_UNIX
+	QApplication::setStyle ( "plastique" );
+#endif
+
+	QDesktopWidget *desktop = qApp->desktop();
+	const QRect rect = desktop->availableGeometry ( desktop->primaryScreen() );
+	int left = ( rect.width() - width() ) / 2;
+	int top = ( rect.height() - height() ) / 2;
+	setGeometry ( left, top, width(), height() );
 }
 
 GameDatabaseDialog::~GameDatabaseDialog()
 {
+	gd_sql = NULL;
+	gd_xml = NULL;
+	gd_template = NULL;
 }
 
 void GameDatabaseDialog::closeEvent ( QCloseEvent *e )
 {
+	gd_sql = NULL;
+	gd_xml = NULL;
+	gd_template = NULL;
 }
 
 void GameDatabaseDialog::addGame()
@@ -59,6 +94,10 @@ void GameDatabaseDialog::chooseGame()
 }
 
 void GameDatabaseDialog::chooseExec()
+{
+}
+
+void GameDatabaseDialog::chooseTempl();
 {
 }
 

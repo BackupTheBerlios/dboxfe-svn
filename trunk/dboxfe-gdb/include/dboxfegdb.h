@@ -43,6 +43,7 @@ class GameDatabaseDialog : public QDialog, public Ui::GameDatabaseDialog
 		
 		void chooseGame();
 		void chooseExec();
+		void chooseTempl();
 		
 		void save();
 		void cancel();
@@ -51,6 +52,9 @@ class GameDatabaseDialog : public QDialog, public Ui::GameDatabaseDialog
 		GameTemplate *gd_template;
 		GameDatabaseSql *gd_sql;
 		GameDatabaseXml *gd_xml;
+
+		QStringList gameTemplateList;
+		QStringList gameList;
 
 	protected:
 		void closeEvent ( QCloseEvent *e );

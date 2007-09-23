@@ -308,6 +308,7 @@ bool GameDatabaseSql::insertDosBoxGames( const QString &id, const QString &versi
 
 bool GameDatabaseSql::updateGames( const QString &name, const QString &version, const QString &executable, const QString &templates )
 {
+	qWarning() << "Not yet implementet ==> updateGames( ... ); ==> TODO: FIX THIS";
 	return false;
 }
 

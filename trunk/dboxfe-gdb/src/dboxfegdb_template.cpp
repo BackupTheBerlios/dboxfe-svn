@@ -22,12 +22,12 @@
 #include <QtCore>
 #include <QtSql>
 
-GameTemplate::GameTemplate( QDialog *parent, Qt::WFlags flags ) : QDialog( parent, flags )
+GameTemplateDialog::GameTemplateDialog( QDialog *parent, Qt::WFlags flags ) : QDialog( parent, flags )
 {
 	setupUi( this );
 	object = parent;
 }
 
-GameTemplate::~GameTemplate()
+GameTemplateDialog::~GameTemplateDialog()
 {
 }
