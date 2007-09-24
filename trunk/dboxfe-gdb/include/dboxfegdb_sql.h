@@ -43,6 +43,9 @@ class GameDatabaseSql : public QObject
 		GameDatabaseSql( QObject *parent = 0 );
 		~GameDatabaseSql();
 
+		bool connect();
+		bool disconnect();
+
 		/**
 		 * Create database
 		 * @param name the Database name
@@ -113,26 +116,12 @@ class GameDatabaseSql : public QObject
 		 */
 		bool deleteGames( const QString &name, bool withTemplate );
 
-	private slots:
-		void init();
+	public slots:
+		void selectDosBoxGames( const QString &version, const QTreeWidget *qtw );
+		void selectGames( const QTreeWidget *qtw );
+
 
 	private:		
-		bool updateDosBoxGames(	const QString &version,
-								const QString &title,
-								const QString &year = QString(),
-								const QString &sw_house = QString(),
-								const QString &link = QString(),
-								const QString &comp_percent = QString()
-							  );
-
-		bool insertDosBoxGames( const QString &id,
-								const QString &version,
-								const QString &title,
-								const QString &year = QString(),
-								const QString &sw_house = QString(),
-								const QString &link = QString(),
-								const QString &comp_percent = QString()
-							  );
 		bool isOpen();
 
 		QMap< QString, QMap< QString, QString> > gameDosBoxList;

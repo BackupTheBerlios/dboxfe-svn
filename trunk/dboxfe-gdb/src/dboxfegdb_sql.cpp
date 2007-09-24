@@ -31,8 +31,41 @@ GameDatabaseSql::GameDatabaseSql( QObject *parent ) : QObject( parent )
 GameDatabaseSql::~GameDatabaseSql()
 {}
 
-void GameDatabaseSql::init()
+
+bool GameDatabaseSql::connect()
 {
+	if( !isOpen() )
+	{
+		if( sqlDatabase.isNull() || sqlDatabase.isEmpty() )
+			return false;
+
+		gamedb = QSqlDatabase::addDatabase( "QSQLITE" );
+		gamedb.setDatabaseName( sqlDatabase );
+		gamedb.setUserName( "" );
+		gamedb.setPassword( "" );
+		gamedb.setHostName( "" );
+
+		if ( !gamedb.open() )
+		{
+			qWarning() << "Failed to open game database: " + gamedb.lastError().text();
+			return false;
+		}
+	}
+
+	return true;
+}
+
+bool GameDatabaseSql::disconnect()
+{
+	if( isOpen() )
+	{
+		if( sqlDatabase.isNull() || sqlDatabase.isEmpty() )
+			return false;
+
+		gamedb.close();
+	}
+
+	return true;
 }
 
 bool GameDatabaseSql::createDatabase( const QString &name )
@@ -62,7 +95,7 @@ bool GameDatabaseSql::createDatabase( const QString &name )
 	}
 
 	QSqlQuery query( gamedb );
-	
+
 	while( !f.atEnd() )
 	{
 		QString sql = f.readLine();
@@ -71,6 +104,7 @@ bool GameDatabaseSql::createDatabase( const QString &name )
 		if( !query.isActive() )
 		{
 			qWarning() << "Failed to create tables on " + sqlDatabase + " (exists?): " + query.lastError().text();
+			return false;
 		}
 	}
 
@@ -84,67 +118,85 @@ bool GameDatabaseSql::importDosBoxGameList( const QMap< QString, QMap< QString, 
 
 	gameDosBoxList = list;
 
+	QSqlQuery query( gamedb );
+
 	QMap< QString, QMap< QString, QString> >::const_iterator gameIt = gameDosBoxList.begin();
 	while( gameIt != gameDosBoxList.end() ) {
-		QSqlQuery query( gamedb );
-		query.exec( "SELECT TITLE FROM DOSBOXINFO WHERE TITLE = '" + gameIt.key() + "';" );
-		if( query.isActive() )
+		_title = gameIt.key();
+		if( !_title.isNull() || !_title.isEmpty() )
 		{
-			_title = query.value( 0 ).toString();
-			if( !_title.isNull() || !_title.isEmpty() )
+			QMap< QString, QString>::const_iterator valueIt = gameIt.value().begin();
+			QString _id;
+			_id = QUuid::createUuid().toString();	
+
+			while( valueIt != gameIt.value().end() )
 			{
-				if( (_title.toLower() == gameIt.key().toLower()) )
-				{
-					QMap< QString, QString>::const_iterator valueIt = gameIt.value().begin();
-					while( valueIt != gameIt.value().end() )
-					{
-						if( valueIt.key() == "year" )
-							_year = valueIt.value();
-						if( valueIt.key() == "sw_house" )
-							_sw_house = valueIt.value();
-						if( valueIt.key() == "link" )
-							_link = valueIt.value();
-						if( valueIt.key() == "comp_percent" )
-							_comp_percent = valueIt.value();
-						if( valueIt.key() == "version" )
-							_version = valueIt.value();						 
-					}
-
-					bool up = updateDosBoxGames( _version, _title, _year, _sw_house, _link, _comp_percent );
-
-					if( !up )
-						qWarning() << "Failed to update a dosbox version in the database:\t" + query.lastError().text();
-				}
-				else
-				{
-					QMap< QString, QString>::const_iterator valueIt = gameIt.value().begin();
-					QString _id;
-
-					while( valueIt != gameIt.value().end() )
-					{
-						_id = QUuid::createUuid().toString();						
-						
-						if( valueIt.key() == "year" )
-							_year = valueIt.value();
-						if( valueIt.key() == "sw_house" )
-							_sw_house = valueIt.value();
-						if( valueIt.key() == "link" )
-							_link = valueIt.value();
-						if( valueIt.key() == "comp_percent" )
-							_comp_percent = valueIt.value();
-						if( valueIt.key() == "version" )
-							_version = valueIt.value();						 
-					}
-
-					bool in = insertDosBoxGames( _id, _version, _title, _year, _sw_house, _link, _comp_percent );
-
-					if( !in )
-						qWarning() << "Failed to insert a dosbox version to database:\t" + query.lastError().text();
-				}
+				if( valueIt.key() == "year" )
+					_year = valueIt.value();
+				if( valueIt.key() == "sw_house" )
+					_sw_house = valueIt.value();
+				if( valueIt.key() == "link" )
+					_link = valueIt.value();
+				if( valueIt.key() == "comp_percent" )
+					_comp_percent = valueIt.value();
+				if( valueIt.key() == "version" )
+					_version = valueIt.value();	
+				
+				++valueIt;
 			}
+
+			QString sqlQuery;
+			sqlQuery.clear();
+			sqlQuery = "";
+			sqlQuery += "INSERT INTO DOSBOX\n";
+			sqlQuery += "(\n";
+			sqlQuery += "\tID,\n";
+			sqlQuery += "\tVERSION\n";
+			sqlQuery += ")\n";
+			sqlQuery += "VALUES\n";
+			sqlQuery += "(\n";
+			sqlQuery += "\t'" + _id + "',\n";
+			sqlQuery += "\t'" + _version + "'\n";
+			sqlQuery += ");";
+
+			qDebug() << sqlQuery;
+
+			query.exec( sqlQuery );
+			if( !query.isActive() )
+			{
+				qWarning() << "Failed to import dosbox information:\t" << query.lastError().text();
+			}
+			sqlQuery.clear();
+			sqlQuery = "";
+			sqlQuery += "INSERT INTO DOSBOXINFO\n";
+			sqlQuery += "(\n";
+			sqlQuery += "\tID,\n";
+			sqlQuery += "\tTITLE,\n";
+			sqlQuery += "\tYEAR,\n";
+			sqlQuery += "\tSW_HOUSE,\n";
+			sqlQuery += "\tLINK,\n";
+			sqlQuery += "\tCOMP_PERSENT\n";
+			sqlQuery += ")\n";
+			sqlQuery += "VALUES\n";
+			sqlQuery += "(\n";
+			sqlQuery += "\t'" + _id + "',\n";
+			sqlQuery += "\t'" + _title + "',\n";
+			sqlQuery += "\t'" + _year + "',\n";
+			sqlQuery += "\t'" + _sw_house + "',\n";
+			sqlQuery += "\t'" + _link + "',\n";
+			sqlQuery += "\t'" + _comp_percent + "'\n";
+			sqlQuery += ");";
+			qDebug() << sqlQuery;
+
+			query.exec( sqlQuery );
+			if( !query.isActive() )
+			{
+				qWarning() << "Failed to import dosbox information:\t" << query.lastError().text();
+			}
+
 		}
 		else
-			qWarning() << "Failed to query game database:\t" + query.lastError().text();
+			qWarning() << "Failed to import dosbox information";
 
 		++gameIt;
 	}
@@ -283,29 +335,6 @@ bool GameDatabaseSql::importGameTemplateList( const QStringList &list )
 	return true;
 }
 
-bool GameDatabaseSql::updateDosBoxGames( const QString &version, const QString &title, const QString &year, const QString &sw_house, const QString &link, const QString &comp_percent )
-{
-	return true;
-}
-
-bool GameDatabaseSql::insertDosBoxGames( const QString &id, const QString &version, const QString &title, const QString &year, const QString &sw_house, const QString &link, const QString &comp_percent )
-{
-	if( id.isNull() || id.isEmpty() )
-		return false;
-	
-	if( version.isNull() || version.isEmpty() )
-		return false;
-	
-	if( title.isNull() || title.isEmpty() )
-		return false;
-	
-	QSqlQuery query( gamedb );
-	query.exec( "" );
-
-	return true;
-}
-
-
 bool GameDatabaseSql::updateGames( const QString &name, const QString &version, const QString &executable, const QString &templates )
 {
 	qWarning() << "Not yet implementet ==> updateGames( ... ); ==> TODO: FIX THIS";
@@ -326,7 +355,7 @@ bool GameDatabaseSql::insertGames( const QString &name, const QString &version, 
 	QString _id_dosbox = QString( "" );
 
 	QSqlQuery query( gamedb );
-	
+
 	// Select dosbox id form dosbox
 	query.exec( "SELECT ID FROM DOSBOX WHERE VERSION = '" + version + "';" );
 
@@ -334,11 +363,11 @@ bool GameDatabaseSql::insertGames( const QString &name, const QString &version, 
 	{
 		_id_dosbox = query.value( 0 ).toString();
 	}
-	
+
 	if( _id_dosbox.isNull() || _id_dosbox.isEmpty() )
 		return false;
-	
-	
+
+
 	QString _id_template = QString( "" );
 
 	// Select id from game template
@@ -347,7 +376,7 @@ bool GameDatabaseSql::insertGames( const QString &name, const QString &version, 
 	{
 		_id_template = query.value( 0 ).toString();
 	}
-	
+
 	if( _id_template.isNull() || _id_template.isEmpty() )
 		return false;	
 
@@ -417,6 +446,21 @@ bool GameDatabaseSql::deleteGames( const QString &name, bool withTemplate )
 
 	return true;
 }
+
+
+void GameDatabaseSql::selectDosBoxGames( const QString &version, const QTreeWidget *qtw )
+{
+	if( version.isNull() || version.isEmpty() )
+		return;
+
+	qtw->clear();
+
+	if( !isOpen() )
+		return;
+}
+
+void GameDatabaseSql::selectGames( const QTreeWidget *qtw )
+{}
 
 bool GameDatabaseSql::isOpen()
 {

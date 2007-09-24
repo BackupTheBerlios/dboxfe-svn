@@ -82,16 +82,12 @@ QMap< QString, QMap<QString, QString> > GameDatabaseXml::parseDosBoxGameXml( con
 							attributes.insert( "version", attrib.toElement().attribute( "version" ) );
 							attributes.insert( "comp_percent", attrib.toElement().attribute( "comp_percent" ) );
 						}
-					}
-
-					attrib = attrib.nextSibling();					
+						attrib = attrib.nextSibling();	
+					}				
 				}
-				
-				gameDosBoxList.insert( title, attributes );
-
 				subitem = subitem.nextSibling();
-
 			}
+			gameDosBoxList.insert( title, attributes );
 		}
 
 		item = item.nextSibling();

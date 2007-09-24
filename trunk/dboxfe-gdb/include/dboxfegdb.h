@@ -49,12 +49,13 @@ class GameDatabaseDialog : public QDialog, public Ui::GameDatabaseDialog
 		void cancel();
 
 	private:
-		GameTemplate *gd_template;
+		GameTemplateDialog *gd_template;
 		GameDatabaseSql *gd_sql;
 		GameDatabaseXml *gd_xml;
 
-		QStringList gameTemplateList;
+		QMap< QString, QMap<QString, QString> > gameDosBoxList;
 		QStringList gameList;
+		QStringList gameTemplateList;
 
 	protected:
 		void closeEvent ( QCloseEvent *e );

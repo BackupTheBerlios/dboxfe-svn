@@ -33,8 +33,6 @@ GameDatabaseDialog::GameDatabaseDialog( QDialog *parent, Qt::WFlags flags ) : QD
 	gd_sql = new GameDatabaseSql( this );
 	gd_xml = new GameDatabaseXml( this );
 
-	gd_template = new GameTemplate();
-
 	connect( btnAdd, SIGNAL ( clicked() ), this, SLOT ( addGame() ) );
 	connect( btnUpdate, SIGNAL ( clicked() ), this, SLOT ( updateGame() ) );
 	connect( btnDelete, SIGNAL ( clicked() ), this, SLOT ( deleteGame() ) );
@@ -79,6 +77,9 @@ void GameDatabaseDialog::closeEvent ( QCloseEvent *e )
 
 void GameDatabaseDialog::addGame()
 {
+	QMap< QString, QMap<QString, QString> >  gameDosBoxList = gd_xml->parseDosBoxGameXml( "C:/Dokumente und Einstellungen/Administrator/Eigene Dateien/dboxfe/dboxfe-gdb/res/game_database.xml" );
+	gd_sql->createDatabase( "C:/Dokumente und Einstellungen/Administrator/Eigene Dateien/dboxfe/dboxfe-gdb/res/game_database.db" );
+	gd_sql->importDosBoxGameList( gameDosBoxList );
 }
 
 void GameDatabaseDialog::updateGame()
@@ -97,7 +98,7 @@ void GameDatabaseDialog::chooseExec()
 {
 }
 
-void GameDatabaseDialog::chooseTempl();
+void GameDatabaseDialog::chooseTempl()
 {
 }
 
