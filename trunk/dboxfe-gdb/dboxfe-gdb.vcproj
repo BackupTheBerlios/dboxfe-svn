@@ -1,553 +1,403 @@
-<?xml version="1.0" encoding="Windows-1252"?>
+<?xml version="1.0" encoding = "Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="8,00"
+	Version="8.00"
 	Name="dboxfe-gdb"
-	ProjectGUID="{D41D8CD9-8F00-3204-A980-0998ECF8427E}"
-	>
+	ProjectGUID="{D41D8CD9-8F00-3204-A980-0998ECF8427E}">
 	<Platforms>
 		<Platform
-			Name="Win32"
-		/>
+			Name="Win32"/>
 	</Platforms>
-	<ToolFiles>
-	</ToolFiles>
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
 			OutputDirectory="."
-			IntermediateDirectory="win\obj\"
-			ConfigurationType="1"
-			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="false"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-				WarningLevel="0"
-				DefaultCharType="0"
-				EnableErrorChecks="1"
-			/>
+			ConfigurationType="1"
+			IntermediateDirectory="win\obj\"
+			UseOfMfc="0">
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalOptions="-Zm200 -EHsc"
-				Optimization="2"
 				AdditionalIncludeDirectories="$(QTDIR)\include\QtCore,$(QTDIR)\include\QtCore,$(QTDIR)\include\QtNetwork,$(QTDIR)\include\QtNetwork,$(QTDIR)\include\QtGui,$(QTDIR)\include\QtGui,$(QTDIR)\include\QtXml,$(QTDIR)\include\QtXml,$(QTDIR)\include\QtSql,$(QTDIR)\include\QtSql,$(QTDIR)\include,include,3rdparty,$(QTDIR)\include\ActiveQt,win\moc,win\ui,$(QTDIR)\mkspecs\win32-msvc2005"
-				PreprocessorDefinitions="_WINDOWS,UNICODE,QT_LARGEFILE_SUPPORT,WIN32,_CRT_SECURE_NO_DEPRECATE,_CRT_NONSTDC_NO_DEPRECATE,QT_DLL,QT_SQL_LIB,QT_XML_LIB,QT_GUI_LIB,QT_NETWORK_LIB,QT_CORE_LIB,QT_THREAD_SUPPORT"
+				AdditionalOptions="-Zm200 -EHsc"
+				AssemblerListingLocation="win\obj\"
+				BufferSecurityCheck="true"
+				DebugInformationFormat="3"
+				ExceptionHandling="true"
 				GeneratePreprocessedFile="0"
 				MinimalRebuild="true"
-				RuntimeLibrary="3"
-				BufferSecurityCheck="true"
-				RuntimeTypeInfo="true"
-				AssemblerListingLocation="win\obj\"
 				ObjectFile="win\obj\"
+				Optimization ="0"
+				PreprocessorDefinitions="_WINDOWS,UNICODE,QT_LARGEFILE_SUPPORT,WIN32,_CRT_SECURE_NO_DEPRECATE,_CRT_NONSTDC_NO_DEPRECATE,QT_DLL,QT_SQL_LIB,QT_XML_LIB,QT_GUI_LIB,QT_NETWORK_LIB,QT_CORE_LIB,QT_THREAD_SUPPORT"
 				ProgramDataBaseFileName=".\"
-				WarningLevel="3"
+				RuntimeLibrary="3"
+				RuntimeTypeInfo="true"
 				SuppressStartupBanner="true"
-				DebugInformationFormat="3"
-			/>
+				WarningLevel="3"/>
 			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
+				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				IgnoreImportLibrary="true"
 				AdditionalDependencies="$(QTDIR)\lib\qtmaind.lib $(QTDIR)\lib\QtSqld4.lib $(QTDIR)\lib\QtXmld4.lib $(QTDIR)\lib\QtGuid4.lib $(QTDIR)\lib\QtNetworkd4.lib $(QTDIR)\lib\QtCored4.lib"
-				OutputFile="bin\dboxfe-gdb.exe"
-				SuppressStartupBanner="true"
 				AdditionalLibraryDirectories="$(QTDIR)\lib"
 				GenerateDebugInformation="true"
+				IgnoreImportLibrary="true"
+				OutputFile="bin\dboxfe-gdb.exe"
 				ProgramDatabaseFile=""
 				SubSystem="2"
-			/>
+				SuppressStartupBanner="true"/>
 			<Tool
-				Name="VCALinkTool"
-			/>
+				Name="VCMIDLTool"
+				DefaultCharType="0"
+				EnableErrorChecks="1"
+				WarningLevel="0"/>
 			<Tool
-				Name="VCManifestTool"
-			/>
+				Name="VCPostBuildEventTool"/>
 			<Tool
-				Name="VCXDCMakeTool"
-			/>
+				Name="VCPreBuildEventTool"/>
 			<Tool
-				Name="VCBscMakeTool"
-			/>
+				Name="VCPreLinkEventTool"/>
 			<Tool
-				Name="VCFxCopTool"
-			/>
-			<Tool
-				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCWebDeploymentTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-			/>
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="NDEBUG"/>
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="."
-			IntermediateDirectory="win\obj\"
-			ConfigurationType="1"
-			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="false"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-				WarningLevel="0"
-				DefaultCharType="0"
-				EnableErrorChecks="1"
-			/>
+			ConfigurationType="1"
+			IntermediateDirectory="win\obj\"
+			UseOfMfc="0">
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalOptions="-Zm200 -EHsc"
-				Optimization="2"
 				AdditionalIncludeDirectories="$(QTDIR)\include\QtCore,$(QTDIR)\include\QtCore,$(QTDIR)\include\QtNetwork,$(QTDIR)\include\QtNetwork,$(QTDIR)\include\QtGui,$(QTDIR)\include\QtGui,$(QTDIR)\include\QtXml,$(QTDIR)\include\QtXml,$(QTDIR)\include\QtSql,$(QTDIR)\include\QtSql,$(QTDIR)\include,include,3rdparty,$(QTDIR)\include\ActiveQt,win\moc,win\ui,$(QTDIR)\mkspecs\win32-msvc2005"
-				PreprocessorDefinitions="NDEBUG,_WINDOWS,UNICODE,QT_LARGEFILE_SUPPORT,WIN32,_CRT_SECURE_NO_DEPRECATE,_CRT_NONSTDC_NO_DEPRECATE,QT_DLL,QT_NO_DEBUG,QT_SQL_LIB,QT_XML_LIB,QT_GUI_LIB,QT_NETWORK_LIB,QT_CORE_LIB,QT_THREAD_SUPPORT"
-				GeneratePreprocessedFile="0"
-				RuntimeLibrary="2"
-				BufferSecurityCheck="true"
-				RuntimeTypeInfo="true"
+				AdditionalOptions="-Zm200 -EHsc"
 				AssemblerListingLocation="win\obj\"
-				ObjectFile="win\obj\"
-				ProgramDataBaseFileName=".\"
-				WarningLevel="3"
-				SuppressStartupBanner="true"
+				BufferSecurityCheck="true"
 				DebugInformationFormat="0"
-			/>
+				ExceptionHandling="true"
+				GeneratePreprocessedFile="0"
+				ObjectFile="win\obj\"
+				Optimization ="2"
+				PreprocessorDefinitions="NDEBUG,_WINDOWS,UNICODE,QT_LARGEFILE_SUPPORT,WIN32,_CRT_SECURE_NO_DEPRECATE,_CRT_NONSTDC_NO_DEPRECATE,QT_DLL,QT_NO_DEBUG,QT_SQL_LIB,QT_XML_LIB,QT_GUI_LIB,QT_NETWORK_LIB,QT_CORE_LIB,QT_THREAD_SUPPORT"
+				ProgramDataBaseFileName=".\"
+				RuntimeLibrary="2"
+				RuntimeTypeInfo="true"
+				SuppressStartupBanner="true"
+				WarningLevel="3"/>
 			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
+				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				IgnoreImportLibrary="true"
 				AdditionalDependencies="$(QTDIR)\lib\qtmain.lib $(QTDIR)\lib\QtSql4.lib $(QTDIR)\lib\QtXml4.lib $(QTDIR)\lib\QtGui4.lib $(QTDIR)\lib\QtNetwork4.lib $(QTDIR)\lib\QtCore4.lib"
-				OutputFile="bin\dboxfe-gdb.exe"
-				SuppressStartupBanner="true"
 				AdditionalLibraryDirectories="$(QTDIR)\lib"
 				GenerateDebugInformation="false"
+				IgnoreImportLibrary="true"
+				OutputFile="bin\dboxfe-gdb.exe"
 				ProgramDatabaseFile=""
 				SubSystem="2"
-			/>
+				SuppressStartupBanner="true"/>
 			<Tool
-				Name="VCALinkTool"
-			/>
+				Name="VCMIDLTool"
+				DefaultCharType="0"
+				EnableErrorChecks="1"
+				WarningLevel="0"/>
 			<Tool
-				Name="VCManifestTool"
-			/>
+				Name="VCPostBuildEventTool"/>
 			<Tool
-				Name="VCXDCMakeTool"
-			/>
+				Name="VCPreBuildEventTool"/>
 			<Tool
-				Name="VCBscMakeTool"
-			/>
+				Name="VCPreLinkEventTool"/>
 			<Tool
-				Name="VCFxCopTool"
-			/>
-			<Tool
-				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCWebDeploymentTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-			/>
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="NDEBUG"/>
 		</Configuration>
 	</Configurations>
-	<References>
-	</References>
 	<Files>
 		<Filter
 			Name="Source Files"
-			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx"
-			>
+			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx">
 			<File
-				RelativePath="3rdparty\Base64.cpp"
-				>
-			</File>
+				RelativePath="3rdparty\Base64.cpp"/>
 			<File
-				RelativePath="src\dboxfegdb.cpp"
-				>
-			</File>
+				RelativePath="3rdparty\XMLPreferences.cpp"/>
 			<File
-				RelativePath="src\dboxfegdb_sql.cpp"
-				>
-			</File>
+				RelativePath="3rdparty\XMLWriter.cpp"/>
 			<File
-				RelativePath="src\dboxfegdb_template.cpp"
-				>
-			</File>
+				RelativePath="src\dboxfegdb.cpp"/>
 			<File
-				RelativePath="src\dboxfegdb_xml.cpp"
-				>
-			</File>
+				RelativePath="src\dboxfegdb_dosbox.cpp"/>
 			<File
-				RelativePath="src\main.cpp"
-				>
-			</File>
+				RelativePath="src\dboxfegdb_sql.cpp"/>
 			<File
-				RelativePath="3rdparty\XMLPreferences.cpp"
-				>
-			</File>
+				RelativePath="src\dboxfegdb_template.cpp"/>
 			<File
-				RelativePath="3rdparty\XMLWriter.cpp"
-				>
-			</File>
+				RelativePath="src\dboxfegdb_template_new.cpp"/>
+			<File
+				RelativePath="src\dboxfegdb_xml.cpp"/>
+			<File
+				RelativePath="src\main.cpp"/>
 		</Filter>
 		<Filter
 			Name="Header Files"
-			Filter="h;hpp;hxx;hm;inl;inc;xsd"
-			>
+			Filter="h;hpp;hxx;hm;inl;inc;xsd">
 			<File
-				RelativePath="3rdparty\Base64.h"
-				>
-			</File>
+				RelativePath="3rdparty\Base64.h"/>
 			<File
-				RelativePath="include\dboxfegdb.h"
-				>
+				RelativePath="3rdparty\XMLPreferences.h"/>
+			<File
+				RelativePath="3rdparty\XMLWriter.h"/>
+			<File
+				RelativePath="include\dboxfegdb.h">
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
+						AdditionalDependencies="${QMAKE_FUNC_mocCmd}"
+						CommandLine="$(QTDIR)\bin\moc.exe -D_WINDOWS -DUNICODE -DQT_LARGEFILE_SUPPORT -DWIN32 -D_CRT_SECURE_NO_DEPRECATE -D_CRT_NONSTDC_NO_DEPRECATE -DQT_DLL -DQT_SQL_LIB -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT  -I &quot;$(QTDIR)\include\QtCore&quot; -I &quot;$(QTDIR)\include\QtCore&quot; -I &quot;$(QTDIR)\include\QtNetwork&quot; -I &quot;$(QTDIR)\include\QtNetwork&quot; -I &quot;$(QTDIR)\include\QtGui&quot; -I &quot;$(QTDIR)\include\QtGui&quot; -I &quot;$(QTDIR)\include\QtXml&quot; -I &quot;$(QTDIR)\include\QtXml&quot; -I &quot;$(QTDIR)\include\QtSql&quot; -I &quot;$(QTDIR)\include\QtSql&quot; -I &quot;$(QTDIR)\include&quot; -I &quot;include&quot; -I &quot;3rdparty&quot; -I &quot;$(QTDIR)\include\ActiveQt&quot; -I &quot;win\moc&quot; -I &quot;win\ui&quot; -I&quot;$(QTDIR)\mkspecs\win32-msvc2005&quot; include\dboxfegdb.h -o win\moc\moc_dboxfegdb.cpp"
 						Description="MOC include\dboxfegdb.h"
-						CommandLine="$(QTDIR)\bin\moc.exe -D_WINDOWS -DUNICODE -DQT_LARGEFILE_SUPPORT -DWIN32 -D_CRT_SECURE_NO_DEPRECATE -D_CRT_NONSTDC_NO_DEPRECATE -DQT_DLL -DQT_SQL_LIB -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT  -I &quot;$(QTDIR)\include\QtCore&quot; -I &quot;$(QTDIR)\include\QtCore&quot; -I &quot;$(QTDIR)\include\QtNetwork&quot; -I &quot;$(QTDIR)\include\QtNetwork&quot; -I &quot;$(QTDIR)\include\QtGui&quot; -I &quot;$(QTDIR)\include\QtGui&quot; -I &quot;$(QTDIR)\include\QtXml&quot; -I &quot;$(QTDIR)\include\QtXml&quot; -I &quot;$(QTDIR)\include\QtSql&quot; -I &quot;$(QTDIR)\include\QtSql&quot; -I &quot;$(QTDIR)\include&quot; -I &quot;include&quot; -I &quot;3rdparty&quot; -I &quot;$(QTDIR)\include\ActiveQt&quot; -I &quot;win\moc&quot; -I &quot;win\ui&quot; -I&quot;$(QTDIR)\mkspecs\win32-msvc2005&quot; include\dboxfegdb.h -o win\moc\moc_dboxfegdb.cpp&#x0D;&#x0A;"
-						AdditionalDependencies="${QMAKE_FUNC_mocCmd}"
-						Outputs="win\moc\moc_dboxfegdb.cpp"
-					/>
+						Outputs="win\moc\moc_dboxfegdb.cpp"/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
+						AdditionalDependencies="${QMAKE_FUNC_mocCmd}"
+						CommandLine="$(QTDIR)\bin\moc.exe -DNDEBUG -D_WINDOWS -DUNICODE -DQT_LARGEFILE_SUPPORT -DWIN32 -D_CRT_SECURE_NO_DEPRECATE -D_CRT_NONSTDC_NO_DEPRECATE -DQT_DLL -DQT_NO_DEBUG -DQT_SQL_LIB -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT  -I &quot;$(QTDIR)\include\QtCore&quot; -I &quot;$(QTDIR)\include\QtCore&quot; -I &quot;$(QTDIR)\include\QtNetwork&quot; -I &quot;$(QTDIR)\include\QtNetwork&quot; -I &quot;$(QTDIR)\include\QtGui&quot; -I &quot;$(QTDIR)\include\QtGui&quot; -I &quot;$(QTDIR)\include\QtXml&quot; -I &quot;$(QTDIR)\include\QtXml&quot; -I &quot;$(QTDIR)\include\QtSql&quot; -I &quot;$(QTDIR)\include\QtSql&quot; -I &quot;$(QTDIR)\include&quot; -I &quot;include&quot; -I &quot;3rdparty&quot; -I &quot;$(QTDIR)\include\ActiveQt&quot; -I &quot;win\moc&quot; -I &quot;win\ui&quot; -I&quot;$(QTDIR)\mkspecs\win32-msvc2005&quot; include\dboxfegdb.h -o win\moc\moc_dboxfegdb.cpp"
 						Description="MOC include\dboxfegdb.h"
-						CommandLine="$(QTDIR)\bin\moc.exe -DNDEBUG -D_WINDOWS -DUNICODE -DQT_LARGEFILE_SUPPORT -DWIN32 -D_CRT_SECURE_NO_DEPRECATE -D_CRT_NONSTDC_NO_DEPRECATE -DQT_DLL -DQT_NO_DEBUG -DQT_SQL_LIB -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT  -I &quot;$(QTDIR)\include\QtCore&quot; -I &quot;$(QTDIR)\include\QtCore&quot; -I &quot;$(QTDIR)\include\QtNetwork&quot; -I &quot;$(QTDIR)\include\QtNetwork&quot; -I &quot;$(QTDIR)\include\QtGui&quot; -I &quot;$(QTDIR)\include\QtGui&quot; -I &quot;$(QTDIR)\include\QtXml&quot; -I &quot;$(QTDIR)\include\QtXml&quot; -I &quot;$(QTDIR)\include\QtSql&quot; -I &quot;$(QTDIR)\include\QtSql&quot; -I &quot;$(QTDIR)\include&quot; -I &quot;include&quot; -I &quot;3rdparty&quot; -I &quot;$(QTDIR)\include\ActiveQt&quot; -I &quot;win\moc&quot; -I &quot;win\ui&quot; -I&quot;$(QTDIR)\mkspecs\win32-msvc2005&quot; include\dboxfegdb.h -o win\moc\moc_dboxfegdb.cpp&#x0D;&#x0A;"
-						AdditionalDependencies="${QMAKE_FUNC_mocCmd}"
-						Outputs="win\moc\moc_dboxfegdb.cpp"
-					/>
+						Outputs="win\moc\moc_dboxfegdb.cpp"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="include\dboxfegdb_sql.h"
-				>
+				RelativePath="include\dboxfegdb_dosbox.h"/>
+			<File
+				RelativePath="include\dboxfegdb_sql.h">
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
+						AdditionalDependencies="${QMAKE_FUNC_mocCmd}"
+						CommandLine="$(QTDIR)\bin\moc.exe -D_WINDOWS -DUNICODE -DQT_LARGEFILE_SUPPORT -DWIN32 -D_CRT_SECURE_NO_DEPRECATE -D_CRT_NONSTDC_NO_DEPRECATE -DQT_DLL -DQT_SQL_LIB -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT  -I &quot;$(QTDIR)\include\QtCore&quot; -I &quot;$(QTDIR)\include\QtCore&quot; -I &quot;$(QTDIR)\include\QtNetwork&quot; -I &quot;$(QTDIR)\include\QtNetwork&quot; -I &quot;$(QTDIR)\include\QtGui&quot; -I &quot;$(QTDIR)\include\QtGui&quot; -I &quot;$(QTDIR)\include\QtXml&quot; -I &quot;$(QTDIR)\include\QtXml&quot; -I &quot;$(QTDIR)\include\QtSql&quot; -I &quot;$(QTDIR)\include\QtSql&quot; -I &quot;$(QTDIR)\include&quot; -I &quot;include&quot; -I &quot;3rdparty&quot; -I &quot;$(QTDIR)\include\ActiveQt&quot; -I &quot;win\moc&quot; -I &quot;win\ui&quot; -I&quot;$(QTDIR)\mkspecs\win32-msvc2005&quot; include\dboxfegdb_sql.h -o win\moc\moc_dboxfegdb_sql.cpp"
 						Description="MOC include\dboxfegdb_sql.h"
-						CommandLine="$(QTDIR)\bin\moc.exe -D_WINDOWS -DUNICODE -DQT_LARGEFILE_SUPPORT -DWIN32 -D_CRT_SECURE_NO_DEPRECATE -D_CRT_NONSTDC_NO_DEPRECATE -DQT_DLL -DQT_SQL_LIB -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT  -I &quot;$(QTDIR)\include\QtCore&quot; -I &quot;$(QTDIR)\include\QtCore&quot; -I &quot;$(QTDIR)\include\QtNetwork&quot; -I &quot;$(QTDIR)\include\QtNetwork&quot; -I &quot;$(QTDIR)\include\QtGui&quot; -I &quot;$(QTDIR)\include\QtGui&quot; -I &quot;$(QTDIR)\include\QtXml&quot; -I &quot;$(QTDIR)\include\QtXml&quot; -I &quot;$(QTDIR)\include\QtSql&quot; -I &quot;$(QTDIR)\include\QtSql&quot; -I &quot;$(QTDIR)\include&quot; -I &quot;include&quot; -I &quot;3rdparty&quot; -I &quot;$(QTDIR)\include\ActiveQt&quot; -I &quot;win\moc&quot; -I &quot;win\ui&quot; -I&quot;$(QTDIR)\mkspecs\win32-msvc2005&quot; include\dboxfegdb_sql.h -o win\moc\moc_dboxfegdb_sql.cpp&#x0D;&#x0A;"
-						AdditionalDependencies="${QMAKE_FUNC_mocCmd}"
-						Outputs="win\moc\moc_dboxfegdb_sql.cpp"
-					/>
+						Outputs="win\moc\moc_dboxfegdb_sql.cpp"/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
+						AdditionalDependencies="${QMAKE_FUNC_mocCmd}"
+						CommandLine="$(QTDIR)\bin\moc.exe -DNDEBUG -D_WINDOWS -DUNICODE -DQT_LARGEFILE_SUPPORT -DWIN32 -D_CRT_SECURE_NO_DEPRECATE -D_CRT_NONSTDC_NO_DEPRECATE -DQT_DLL -DQT_NO_DEBUG -DQT_SQL_LIB -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT  -I &quot;$(QTDIR)\include\QtCore&quot; -I &quot;$(QTDIR)\include\QtCore&quot; -I &quot;$(QTDIR)\include\QtNetwork&quot; -I &quot;$(QTDIR)\include\QtNetwork&quot; -I &quot;$(QTDIR)\include\QtGui&quot; -I &quot;$(QTDIR)\include\QtGui&quot; -I &quot;$(QTDIR)\include\QtXml&quot; -I &quot;$(QTDIR)\include\QtXml&quot; -I &quot;$(QTDIR)\include\QtSql&quot; -I &quot;$(QTDIR)\include\QtSql&quot; -I &quot;$(QTDIR)\include&quot; -I &quot;include&quot; -I &quot;3rdparty&quot; -I &quot;$(QTDIR)\include\ActiveQt&quot; -I &quot;win\moc&quot; -I &quot;win\ui&quot; -I&quot;$(QTDIR)\mkspecs\win32-msvc2005&quot; include\dboxfegdb_sql.h -o win\moc\moc_dboxfegdb_sql.cpp"
 						Description="MOC include\dboxfegdb_sql.h"
-						CommandLine="$(QTDIR)\bin\moc.exe -DNDEBUG -D_WINDOWS -DUNICODE -DQT_LARGEFILE_SUPPORT -DWIN32 -D_CRT_SECURE_NO_DEPRECATE -D_CRT_NONSTDC_NO_DEPRECATE -DQT_DLL -DQT_NO_DEBUG -DQT_SQL_LIB -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT  -I &quot;$(QTDIR)\include\QtCore&quot; -I &quot;$(QTDIR)\include\QtCore&quot; -I &quot;$(QTDIR)\include\QtNetwork&quot; -I &quot;$(QTDIR)\include\QtNetwork&quot; -I &quot;$(QTDIR)\include\QtGui&quot; -I &quot;$(QTDIR)\include\QtGui&quot; -I &quot;$(QTDIR)\include\QtXml&quot; -I &quot;$(QTDIR)\include\QtXml&quot; -I &quot;$(QTDIR)\include\QtSql&quot; -I &quot;$(QTDIR)\include\QtSql&quot; -I &quot;$(QTDIR)\include&quot; -I &quot;include&quot; -I &quot;3rdparty&quot; -I &quot;$(QTDIR)\include\ActiveQt&quot; -I &quot;win\moc&quot; -I &quot;win\ui&quot; -I&quot;$(QTDIR)\mkspecs\win32-msvc2005&quot; include\dboxfegdb_sql.h -o win\moc\moc_dboxfegdb_sql.cpp&#x0D;&#x0A;"
-						AdditionalDependencies="${QMAKE_FUNC_mocCmd}"
-						Outputs="win\moc\moc_dboxfegdb_sql.cpp"
-					/>
+						Outputs="win\moc\moc_dboxfegdb_sql.cpp"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="include\dboxfegdb_template.h"
-				>
-			</File>
+				RelativePath="include\dboxfegdb_template.h"/>
 			<File
-				RelativePath="include\dboxfegdb_xml.h"
-				>
+				RelativePath="include\dboxfegdb_template_new.h"/>
+			<File
+				RelativePath="include\dboxfegdb_xml.h">
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="MOC include\dboxfegdb_xml.h"
-						CommandLine="$(QTDIR)\bin\moc.exe -D_WINDOWS -DUNICODE -DQT_LARGEFILE_SUPPORT -DWIN32 -D_CRT_SECURE_NO_DEPRECATE -D_CRT_NONSTDC_NO_DEPRECATE -DQT_DLL -DQT_SQL_LIB -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT  -I &quot;$(QTDIR)\include\QtCore&quot; -I &quot;$(QTDIR)\include\QtCore&quot; -I &quot;$(QTDIR)\include\QtNetwork&quot; -I &quot;$(QTDIR)\include\QtNetwork&quot; -I &quot;$(QTDIR)\include\QtGui&quot; -I &quot;$(QTDIR)\include\QtGui&quot; -I &quot;$(QTDIR)\include\QtXml&quot; -I &quot;$(QTDIR)\include\QtXml&quot; -I &quot;$(QTDIR)\include\QtSql&quot; -I &quot;$(QTDIR)\include\QtSql&quot; -I &quot;$(QTDIR)\include&quot; -I &quot;include&quot; -I &quot;3rdparty&quot; -I &quot;$(QTDIR)\include\ActiveQt&quot; -I &quot;win\moc&quot; -I &quot;win\ui&quot; -I&quot;$(QTDIR)\mkspecs\win32-msvc2005&quot; include\dboxfegdb_xml.h -o win\moc\moc_dboxfegdb_xml.cpp&#x0D;&#x0A;"
 						AdditionalDependencies="${QMAKE_FUNC_mocCmd}"
-						Outputs="win\moc\moc_dboxfegdb_xml.cpp"
-					/>
+						CommandLine="$(QTDIR)\bin\moc.exe -D_WINDOWS -DUNICODE -DQT_LARGEFILE_SUPPORT -DWIN32 -D_CRT_SECURE_NO_DEPRECATE -D_CRT_NONSTDC_NO_DEPRECATE -DQT_DLL -DQT_SQL_LIB -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT  -I &quot;$(QTDIR)\include\QtCore&quot; -I &quot;$(QTDIR)\include\QtCore&quot; -I &quot;$(QTDIR)\include\QtNetwork&quot; -I &quot;$(QTDIR)\include\QtNetwork&quot; -I &quot;$(QTDIR)\include\QtGui&quot; -I &quot;$(QTDIR)\include\QtGui&quot; -I &quot;$(QTDIR)\include\QtXml&quot; -I &quot;$(QTDIR)\include\QtXml&quot; -I &quot;$(QTDIR)\include\QtSql&quot; -I &quot;$(QTDIR)\include\QtSql&quot; -I &quot;$(QTDIR)\include&quot; -I &quot;include&quot; -I &quot;3rdparty&quot; -I &quot;$(QTDIR)\include\ActiveQt&quot; -I &quot;win\moc&quot; -I &quot;win\ui&quot; -I&quot;$(QTDIR)\mkspecs\win32-msvc2005&quot; include\dboxfegdb_xml.h -o win\moc\moc_dboxfegdb_xml.cpp"
+						Description="MOC include\dboxfegdb_xml.h"
+						Outputs="win\moc\moc_dboxfegdb_xml.cpp"/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="MOC include\dboxfegdb_xml.h"
-						CommandLine="$(QTDIR)\bin\moc.exe -DNDEBUG -D_WINDOWS -DUNICODE -DQT_LARGEFILE_SUPPORT -DWIN32 -D_CRT_SECURE_NO_DEPRECATE -D_CRT_NONSTDC_NO_DEPRECATE -DQT_DLL -DQT_NO_DEBUG -DQT_SQL_LIB -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT  -I &quot;$(QTDIR)\include\QtCore&quot; -I &quot;$(QTDIR)\include\QtCore&quot; -I &quot;$(QTDIR)\include\QtNetwork&quot; -I &quot;$(QTDIR)\include\QtNetwork&quot; -I &quot;$(QTDIR)\include\QtGui&quot; -I &quot;$(QTDIR)\include\QtGui&quot; -I &quot;$(QTDIR)\include\QtXml&quot; -I &quot;$(QTDIR)\include\QtXml&quot; -I &quot;$(QTDIR)\include\QtSql&quot; -I &quot;$(QTDIR)\include\QtSql&quot; -I &quot;$(QTDIR)\include&quot; -I &quot;include&quot; -I &quot;3rdparty&quot; -I &quot;$(QTDIR)\include\ActiveQt&quot; -I &quot;win\moc&quot; -I &quot;win\ui&quot; -I&quot;$(QTDIR)\mkspecs\win32-msvc2005&quot; include\dboxfegdb_xml.h -o win\moc\moc_dboxfegdb_xml.cpp&#x0D;&#x0A;"
 						AdditionalDependencies="${QMAKE_FUNC_mocCmd}"
-						Outputs="win\moc\moc_dboxfegdb_xml.cpp"
-					/>
+						CommandLine="$(QTDIR)\bin\moc.exe -DNDEBUG -D_WINDOWS -DUNICODE -DQT_LARGEFILE_SUPPORT -DWIN32 -D_CRT_SECURE_NO_DEPRECATE -D_CRT_NONSTDC_NO_DEPRECATE -DQT_DLL -DQT_NO_DEBUG -DQT_SQL_LIB -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT  -I &quot;$(QTDIR)\include\QtCore&quot; -I &quot;$(QTDIR)\include\QtCore&quot; -I &quot;$(QTDIR)\include\QtNetwork&quot; -I &quot;$(QTDIR)\include\QtNetwork&quot; -I &quot;$(QTDIR)\include\QtGui&quot; -I &quot;$(QTDIR)\include\QtGui&quot; -I &quot;$(QTDIR)\include\QtXml&quot; -I &quot;$(QTDIR)\include\QtXml&quot; -I &quot;$(QTDIR)\include\QtSql&quot; -I &quot;$(QTDIR)\include\QtSql&quot; -I &quot;$(QTDIR)\include&quot; -I &quot;include&quot; -I &quot;3rdparty&quot; -I &quot;$(QTDIR)\include\ActiveQt&quot; -I &quot;win\moc&quot; -I &quot;win\ui&quot; -I&quot;$(QTDIR)\mkspecs\win32-msvc2005&quot; include\dboxfegdb_xml.h -o win\moc\moc_dboxfegdb_xml.cpp"
+						Description="MOC include\dboxfegdb_xml.h"
+						Outputs="win\moc\moc_dboxfegdb_xml.cpp"/>
 				</FileConfiguration>
-			</File>
-			<File
-				RelativePath="3rdparty\XMLPreferences.h"
-				>
-			</File>
-			<File
-				RelativePath="3rdparty\XMLWriter.h"
-				>
 			</File>
 		</Filter>
 		<Filter
 			Name="Generated Files"
-			Filter="cpp;c;cxx;moc;h;qrc;def;odl;idl;res"
-			>
+			Filter="cpp;c;cxx;moc;h;qrc;def;odl;idl;res">
 			<File
-				RelativePath="res\dboxfe-gdb.qrc"
-				>
+				RelativePath="res\dboxfe-gdb.qrc">
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
+						AdditionalDependencies="$(QTDIR)\bin\rcc.exe;res\LICENSE.GPL;res\game_database.sql;res\print.png;res\redo.png;res\computer.png;res\add.png;res\delete.png;res\arrow-forward.png;res\disc-media.png;res\arrow-up.png;res\paste.png;res\documents.png;res\home.png;res\save.png;res\dboxfegdb.ico;res\arrow-back.png;res\folder-closed.png;res\undo.png;res\copy.png;res\cut.png;res\applications.png;res\folder-open.png;res\mail.png;res\trash.png;res\arrow-down.png"
+						CommandLine="$(QTDIR)\bin\rcc.exe -name dboxfe-gdb res\dboxfe-gdb.qrc -o win\rcc\qrc_dboxfe-gdb.cpp"
 						Description="RCC res\dboxfe-gdb.qrc"
-						CommandLine="$(QTDIR)\bin\rcc.exe -name dboxfe-gdb res\dboxfe-gdb.qrc -o win\rcc\qrc_dboxfe-gdb.cpp&#x0D;&#x0A;"
-						AdditionalDependencies="$(QTDIR)\bin\rcc.exe;res\LICENSE.GPL;res\game_database.sql;res\print.png;res\redo.png;res\computer.png;res\add.png;res\delete.png;res\arrow-forward.png;res\disc-media.png;res\arrow-up.png;res\paste.png;res\documents.png;res\home.png;res\save.png;res\arrow-back.png;res\folder-closed.png;res\undo.png;res\copy.png;res\cut.png;res\applications.png;res\folder-open.png;res\mail.png;res\trash.png;res\arrow-down.png"
-						Outputs="win\rcc\qrc_dboxfe-gdb.cpp"
-					/>
+						Outputs="win\rcc\qrc_dboxfe-gdb.cpp"/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
+						AdditionalDependencies="$(QTDIR)\bin\rcc.exe;res\LICENSE.GPL;res\game_database.sql;res\print.png;res\redo.png;res\computer.png;res\add.png;res\delete.png;res\arrow-forward.png;res\disc-media.png;res\arrow-up.png;res\paste.png;res\documents.png;res\home.png;res\save.png;res\dboxfegdb.ico;res\arrow-back.png;res\folder-closed.png;res\undo.png;res\copy.png;res\cut.png;res\applications.png;res\folder-open.png;res\mail.png;res\trash.png;res\arrow-down.png"
+						CommandLine="$(QTDIR)\bin\rcc.exe -name dboxfe-gdb res\dboxfe-gdb.qrc -o win\rcc\qrc_dboxfe-gdb.cpp"
 						Description="RCC res\dboxfe-gdb.qrc"
-						CommandLine="$(QTDIR)\bin\rcc.exe -name dboxfe-gdb res\dboxfe-gdb.qrc -o win\rcc\qrc_dboxfe-gdb.cpp&#x0D;&#x0A;"
-						AdditionalDependencies="$(QTDIR)\bin\rcc.exe;res\LICENSE.GPL;res\game_database.sql;res\print.png;res\redo.png;res\computer.png;res\add.png;res\delete.png;res\arrow-forward.png;res\disc-media.png;res\arrow-up.png;res\paste.png;res\documents.png;res\home.png;res\save.png;res\arrow-back.png;res\folder-closed.png;res\undo.png;res\copy.png;res\cut.png;res\applications.png;res\folder-open.png;res\mail.png;res\trash.png;res\arrow-down.png"
-						Outputs="win\rcc\qrc_dboxfe-gdb.cpp"
-					/>
+						Outputs="win\rcc\qrc_dboxfe-gdb.cpp"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="win\moc\moc_dboxfegdb.cpp"
-				>
-			</File>
+				RelativePath="win\moc\moc_dboxfegdb.cpp"/>
 			<File
-				RelativePath="win\moc\moc_dboxfegdb_sql.cpp"
-				>
-			</File>
+				RelativePath="win\moc\moc_dboxfegdb_sql.cpp"/>
 			<File
-				RelativePath="win\moc\moc_dboxfegdb_xml.cpp"
-				>
-			</File>
+				RelativePath="win\moc\moc_dboxfegdb_xml.cpp"/>
 			<File
-				RelativePath="win\rcc\qrc_dboxfe-gdb.cpp"
-				>
-			</File>
+				RelativePath="win\rcc\qrc_dboxfe-gdb.cpp"/>
 		</Filter>
 		<Filter
 			Name="Translation Files"
-			Filter="ts"
-			>
+			Filter="ts">
 			<File
-				RelativePath="lng\dboxfe-gdb_de.ts"
-				>
-			</File>
+				RelativePath="lng\dboxfe-gdb_de.ts"/>
 		</Filter>
 		<Filter
 			Name="Form Files"
-			Filter="ui"
-			>
+			Filter="ui">
 			<File
-				RelativePath="ui\dboxfegdb.ui"
-				>
+				RelativePath="ui\dboxfegdb.ui">
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="UIC ui\dboxfegdb.ui"
-						CommandLine="$(QTDIR)\bin\uic.exe ui\dboxfegdb.ui -o win\ui\ui_dboxfegdb.h&#x0D;&#x0A;"
 						AdditionalDependencies="$(QTDIR)\bin\uic.exe"
-						Outputs="win\ui\ui_dboxfegdb.h"
-					/>
+						CommandLine="$(QTDIR)\bin\uic.exe ui\dboxfegdb.ui -o win\ui\ui_dboxfegdb.h"
+						Description="UIC ui\dboxfegdb.ui"
+						Outputs="win\ui\ui_dboxfegdb.h"/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="UIC ui\dboxfegdb.ui"
-						CommandLine="$(QTDIR)\bin\uic.exe ui\dboxfegdb.ui -o win\ui\ui_dboxfegdb.h&#x0D;&#x0A;"
 						AdditionalDependencies="$(QTDIR)\bin\uic.exe"
-						Outputs="win\ui\ui_dboxfegdb.h"
-					/>
+						CommandLine="$(QTDIR)\bin\uic.exe ui\dboxfegdb.ui -o win\ui\ui_dboxfegdb.h"
+						Description="UIC ui\dboxfegdb.ui"
+						Outputs="win\ui\ui_dboxfegdb.h"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="ui\dboxfegdb_template.ui"
-				>
+				RelativePath="ui\dboxfegdb_dosbox.ui">
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="UIC ui\dboxfegdb_template.ui"
-						CommandLine="$(QTDIR)\bin\uic.exe ui\dboxfegdb_template.ui -o win\ui\ui_dboxfegdb_template.h&#x0D;&#x0A;"
 						AdditionalDependencies="$(QTDIR)\bin\uic.exe"
-						Outputs="win\ui\ui_dboxfegdb_template.h"
-					/>
+						CommandLine="$(QTDIR)\bin\uic.exe ui\dboxfegdb_dosbox.ui -o win\ui\ui_dboxfegdb_dosbox.h"
+						Description="UIC ui\dboxfegdb_dosbox.ui"
+						Outputs="win\ui\ui_dboxfegdb_dosbox.h"/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="UIC ui\dboxfegdb_template.ui"
-						CommandLine="$(QTDIR)\bin\uic.exe ui\dboxfegdb_template.ui -o win\ui\ui_dboxfegdb_template.h&#x0D;&#x0A;"
 						AdditionalDependencies="$(QTDIR)\bin\uic.exe"
-						Outputs="win\ui\ui_dboxfegdb_template.h"
-					/>
+						CommandLine="$(QTDIR)\bin\uic.exe ui\dboxfegdb_dosbox.ui -o win\ui\ui_dboxfegdb_dosbox.h"
+						Description="UIC ui\dboxfegdb_dosbox.ui"
+						Outputs="win\ui\ui_dboxfegdb_dosbox.h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="ui\dboxfegdb_template.ui">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="$(QTDIR)\bin\uic.exe"
+						CommandLine="$(QTDIR)\bin\uic.exe ui\dboxfegdb_template.ui -o win\ui\ui_dboxfegdb_template.h"
+						Description="UIC ui\dboxfegdb_template.ui"
+						Outputs="win\ui\ui_dboxfegdb_template.h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="$(QTDIR)\bin\uic.exe"
+						CommandLine="$(QTDIR)\bin\uic.exe ui\dboxfegdb_template.ui -o win\ui\ui_dboxfegdb_template.h"
+						Description="UIC ui\dboxfegdb_template.ui"
+						Outputs="win\ui\ui_dboxfegdb_template.h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="ui\dboxfegdb_template_new.ui">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="$(QTDIR)\bin\uic.exe"
+						CommandLine="$(QTDIR)\bin\uic.exe ui\dboxfegdb_template_new.ui -o win\ui\ui_dboxfegdb_template_new.h"
+						Description="UIC ui\dboxfegdb_template_new.ui"
+						Outputs="win\ui\ui_dboxfegdb_template_new.h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="$(QTDIR)\bin\uic.exe"
+						CommandLine="$(QTDIR)\bin\uic.exe ui\dboxfegdb_template_new.ui -o win\ui\ui_dboxfegdb_template_new.h"
+						Description="UIC ui\dboxfegdb_template_new.ui"
+						Outputs="win\ui\ui_dboxfegdb_template_new.h"/>
 				</FileConfiguration>
 			</File>
 		</Filter>
 		<Filter
-			Name="Resource Files"
-			>
+			Name="Resource Files">
 			<File
-				RelativePath="res\add.png"
-				>
-			</File>
+				RelativePath="res\LICENSE.GPL"/>
 			<File
-				RelativePath="res\applications.png"
-				>
-			</File>
+				RelativePath="res\add.png"/>
 			<File
-				RelativePath="res\arrow-back.png"
-				>
-			</File>
+				RelativePath="res\applications.png"/>
 			<File
-				RelativePath="res\arrow-down.png"
-				>
-			</File>
+				RelativePath="res\arrow-back.png"/>
 			<File
-				RelativePath="res\arrow-forward.png"
-				>
-			</File>
+				RelativePath="res\arrow-down.png"/>
 			<File
-				RelativePath="res\arrow-up.png"
-				>
-			</File>
+				RelativePath="res\arrow-forward.png"/>
 			<File
-				RelativePath="res\computer.png"
-				>
-			</File>
+				RelativePath="res\arrow-up.png"/>
 			<File
-				RelativePath="res\copy.png"
-				>
-			</File>
+				RelativePath="res\computer.png"/>
 			<File
-				RelativePath="res\cut.png"
-				>
-			</File>
+				RelativePath="res\copy.png"/>
 			<File
-				RelativePath="dboxfe-gdb.rc"
-				>
-			</File>
+				RelativePath="res\cut.png"/>
 			<File
-				RelativePath="res\delete.png"
-				>
-			</File>
+				RelativePath="dboxfe-gdb.rc"/>
 			<File
-				RelativePath="res\disc-media.png"
-				>
-			</File>
+				RelativePath="res\dboxfegdb.ico"/>
 			<File
-				RelativePath="res\documents.png"
-				>
-			</File>
+				RelativePath="res\delete.png"/>
 			<File
-				RelativePath="res\folder-closed.png"
-				>
-			</File>
+				RelativePath="res\disc-media.png"/>
 			<File
-				RelativePath="res\folder-open.png"
-				>
-			</File>
+				RelativePath="res\documents.png"/>
 			<File
-				RelativePath="res\game_database.sql"
-				>
-			</File>
+				RelativePath="res\folder-closed.png"/>
 			<File
-				RelativePath="res\home.png"
-				>
-			</File>
+				RelativePath="res\folder-open.png"/>
 			<File
-				RelativePath="res\LICENSE.GPL"
-				>
-			</File>
+				RelativePath="res\game_database.sql"/>
 			<File
-				RelativePath="res\mail.png"
-				>
-			</File>
+				RelativePath="res\home.png"/>
 			<File
-				RelativePath="res\paste.png"
-				>
-			</File>
+				RelativePath="res\mail.png"/>
 			<File
-				RelativePath="res\print.png"
-				>
-			</File>
+				RelativePath="res\paste.png"/>
 			<File
-				RelativePath="res\redo.png"
-				>
-			</File>
+				RelativePath="res\print.png"/>
 			<File
-				RelativePath="res\save.png"
-				>
-			</File>
+				RelativePath="res\redo.png"/>
 			<File
-				RelativePath="res\trash.png"
-				>
-			</File>
+				RelativePath="res\save.png"/>
 			<File
-				RelativePath="res\undo.png"
-				>
-			</File>
+				RelativePath="res\trash.png"/>
+			<File
+				RelativePath="res\undo.png"/>
 		</Filter>
 	</Files>
 	<Globals>
