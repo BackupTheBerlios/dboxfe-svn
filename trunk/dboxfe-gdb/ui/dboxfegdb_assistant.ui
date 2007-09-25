@@ -1,0 +1,23 @@
+<ui version="4.0" >
+ <class>GameDatabaseAssistantDialog</class>
+ <widget class="QDialog" name="GameDatabaseAssistantDialog" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>594</width>
+    <height>554</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>Welcome to DBoxFE - Gamedatabase Assistant</string>
+  </property>
+  <property name="windowIcon" >
+   <iconset resource="../res/dboxfe-gdb.qrc" >:/images/disc-media.png</iconset>
+  </property>
+ </widget>
+ <resources>
+  <include location="../res/dboxfe-gdb.qrc" />
+ </resources>
+ <connections/>
+</ui>
