@@ -110,7 +110,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QComboBox" name="comboBox" />
+         <widget class="QComboBox" name="comboBoxDosboxVersion" />
         </item>
        </layout>
       </item>
@@ -172,7 +172,11 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEditTemplate" />
+         <widget class="QLineEdit" name="lineEditTemplate" >
+          <property name="enabled" >
+           <bool>false</bool>
+          </property>
+         </widget>
         </item>
         <item>
          <widget class="QPushButton" name="btnTemplate" >

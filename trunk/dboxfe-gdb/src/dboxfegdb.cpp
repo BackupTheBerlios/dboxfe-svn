@@ -77,9 +77,11 @@ void GameDatabaseDialog::closeEvent ( QCloseEvent *e )
 
 void GameDatabaseDialog::addGame()
 {
+	/*
 	QMap< QString, QMap<QString, QString> >  gameDosBoxList = gd_xml->parseDosBoxGameXml( "C:/Dokumente und Einstellungen/Administrator/Eigene Dateien/dboxfe/dboxfe-gdb/res/game_database.xml" );
 	gd_sql->createDatabase( "C:/Dokumente und Einstellungen/Administrator/Eigene Dateien/dboxfe/dboxfe-gdb/res/game_database.db" );
 	gd_sql->importDosBoxGameList( gameDosBoxList );
+	*/
 }
 
 void GameDatabaseDialog::updateGame()

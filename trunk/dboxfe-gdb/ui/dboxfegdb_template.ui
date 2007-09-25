@@ -1592,8 +1592,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>574</width>
-            <height>321</height>
+            <width>572</width>
+            <height>340</height>
            </rect>
           </property>
           <attribute name="label" >
@@ -1830,8 +1830,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>574</width>
-            <height>321</height>
+            <width>394</width>
+            <height>122</height>
            </rect>
           </property>
           <attribute name="label" >
@@ -2358,8 +2358,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>574</width>
-            <height>321</height>
+            <width>224</width>
+            <height>172</height>
            </rect>
           </property>
           <attribute name="label" >
@@ -2717,8 +2717,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>574</width>
-            <height>321</height>
+            <width>254</width>
+            <height>94</height>
            </rect>
           </property>
           <attribute name="label" >
@@ -2984,8 +2984,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>574</width>
-            <height>321</height>
+            <width>218</width>
+            <height>98</height>
            </rect>
           </property>
           <attribute name="label" >
@@ -4743,7 +4743,7 @@
         </size>
        </property>
        <property name="text" >
-        <string>&amp;Save</string>
+        <string>&amp;Save &amp;&amp; Accept</string>
        </property>
        <property name="icon" >
         <iconset resource="../res/dboxfe-gdb.qrc" >:/images/save.png</iconset>

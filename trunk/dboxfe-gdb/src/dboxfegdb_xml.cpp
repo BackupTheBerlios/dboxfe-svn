@@ -109,7 +109,7 @@ QStringList GameDatabaseXml::parseGameXml( const QString &xml )
 	return gameList;
 }
 
-QStringList GameDatabaseXml::getGameTemplates( const QString &xml )
+QStringList GameDatabaseXml::parseGameTemplates( const QString &xml )
 {
 	if( xml.isNull() || xml.isEmpty() )
 		return QStringList();

@@ -28,7 +28,9 @@ QT += sql xml network
 
 # Project Ui files
 FORMS += ui/dboxfegdb.ui
+FORMS += ui/dboxfegdb_dosbox.ui
 FORMS += ui/dboxfegdb_template.ui
+FORMS += ui/dboxfegdb_template_new.ui
 
 # Project Translation
 TRANSLATIONS += lng/dboxfe-gdb_de.ts
@@ -38,15 +40,20 @@ DISTFILES += LICENSE.GPL
 
 # Project Header
 HEADERS += include/dboxfegdb.h
+HEADERS += include/dboxfegdb_dosbox.h
 HEADERS += include/dboxfegdb_sql.h
 HEADERS += include/dboxfegdb_template.h
+HEADERS += include/dboxfegdb_template_new.h
 HEADERS += include/dboxfegdb_xml.h
 
 # Project Source
+
 SOURCES += src/main.cpp
 SOURCES += src/dboxfegdb.cpp
+SOURCES += src/dboxfegdb_dosbox.cpp
 SOURCES += src/dboxfegdb_sql.cpp
 SOURCES += src/dboxfegdb_template.cpp
+SOURCES += src/dboxfegdb_template_new.cpp
 SOURCES += src/dboxfegdb_xml.cpp
 
 # 3rdparty Header

@@ -119,14 +119,14 @@ bool GameDatabaseSql::importDosBoxGameList( const QMap< QString, QMap< QString, 
 	gameDosBoxList = list;
 
 	QSqlQuery query( gamedb );
+	QString _id;
 
 	QMap< QString, QMap< QString, QString> >::const_iterator gameIt = gameDosBoxList.begin();
 	while( gameIt != gameDosBoxList.end() ) {
 		_title = gameIt.key();
 		if( !_title.isNull() || !_title.isEmpty() )
 		{
-			QMap< QString, QString>::const_iterator valueIt = gameIt.value().begin();
-			QString _id;
+			QMap< QString, QString>::const_iterator valueIt = gameIt.value().begin();			
 			_id = QUuid::createUuid().toString();	
 
 			while( valueIt != gameIt.value().end() )
@@ -159,13 +159,10 @@ bool GameDatabaseSql::importDosBoxGameList( const QMap< QString, QMap< QString, 
 			sqlQuery += "\t'" + _version + "'\n";
 			sqlQuery += ");";
 
-			qDebug() << sqlQuery;
-
 			query.exec( sqlQuery );
 			if( !query.isActive() )
-			{
-				qWarning() << "Failed to import dosbox information:\t" << query.lastError().text();
-			}
+				qWarning() << "Failed to import dosbox information into dosbox table:\t>> " << query.lastError().text() << " <<";
+
 			sqlQuery.clear();
 			sqlQuery = "";
 			sqlQuery += "INSERT INTO DOSBOXINFO\n";
@@ -186,17 +183,13 @@ bool GameDatabaseSql::importDosBoxGameList( const QMap< QString, QMap< QString, 
 			sqlQuery += "\t'" + _link + "',\n";
 			sqlQuery += "\t'" + _comp_percent + "'\n";
 			sqlQuery += ");";
-			qDebug() << sqlQuery;
 
 			query.exec( sqlQuery );
 			if( !query.isActive() )
-			{
-				qWarning() << "Failed to import dosbox information:\t" << query.lastError().text();
-			}
-
+				qWarning() << "Failed to import dosbox information into dosboxinformation table:\t>> " << query.lastError().text() << " <<";
 		}
 		else
-			qWarning() << "Failed to import dosbox information";
+			qWarning() << "Failed to import dosbox information: >> no title available <<";
 
 		++gameIt;
 	}

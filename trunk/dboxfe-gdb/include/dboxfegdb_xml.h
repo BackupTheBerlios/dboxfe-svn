@@ -65,17 +65,17 @@ class GameDatabaseXml : public QObject
 		 * @param xml the DBoxFE game xml file
 		 * @return a QStringList with all games
 		 */
-		QStringList getGameTemplates( const QString & xml );
+		QStringList parseGameTemplates( const QString & xml );
 		
 		/**
-		 * Insert a game into database
+		 * Insert a game into xml database
 		 * @param name the Gamename
 		 * @return a QStringList with all games
 		 */
 		QStringList insert( const QString &name, const QString &templateName );
 		
 		/**
-		 * Insert a game into database
+		 * Insert a game into xml database
 		 * @param name the Gamename
 		 * @param executable the Gameexecutable
 		 * @return a QStringList with all games
@@ -83,14 +83,14 @@ class GameDatabaseXml : public QObject
 		QStringList insert( const QString &name, const QString &executable, const QString &templateName );
 		
 		/**
-		 * Update a game into database
+		 * Update a game on xml database
 		 * @param name the Gamename
 		 * @return a QStringList with all games
 		 */
 		QStringList update( const QString &name, const QString &templateName );
 		
 		/**
-		 * Update a game from database
+		 * Update a game on xml database
 		 * @param name the Gamename
 		 * @param executable the Gameexecutable
 		 * @return a QStringList with all games
@@ -98,7 +98,7 @@ class GameDatabaseXml : public QObject
 		QStringList update( const QString &name, const QString &executable, const QString &templateName );
 		
 		/**
-		 * Delete a game from database
+		 * Delete a game from xml database
 		 * @param name the Gamename
 		 * @return a QStringList with all games
 		 */
