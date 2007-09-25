@@ -19,6 +19,9 @@
 #ifndef DBOXFEGDB_H
 #define DBOXFEGDB_H
 
+#include "ui_dboxfegdb.h"
+
+#include "dboxfegdb_dosbox.h"
 #include "dboxfegdb_sql.h"
 #include "dboxfegdb_template.h"
 #include "dboxfegdb_xml.h"
@@ -26,7 +29,6 @@
 #include <QtGui>
 #include <QtCore>
 
-#include "ui_dboxfegdb.h"
 
 class GameDatabaseDialog : public QDialog, public Ui::GameDatabaseDialog
 {
@@ -45,13 +47,12 @@ class GameDatabaseDialog : public QDialog, public Ui::GameDatabaseDialog
 		void chooseExec();
 		void chooseTempl();
 		
-		void save();
 		void cancel();
 
 	private:
 		GameTemplateDialog *gd_template;
+		GameDosBoxDialog *gd_dosbox;
 		GameDatabaseSql *gd_sql;
-		GameDatabaseXml *gd_xml;
 
 		QMap< QString, QMap<QString, QString> > gameDosBoxList;
 		QStringList gameList;

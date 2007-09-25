@@ -20,6 +20,7 @@
 #define DBOXFEGDB_SQL_H
 
 #include <QtCore>
+#include <QtGui>
 #include <QtSql>
 
 /**
@@ -116,15 +117,22 @@ class GameDatabaseSql : public QObject
 		 */
 		bool deleteGames( const QString &name, bool withTemplate );
 
+		/**
+		 * Select dosbox version from database
+		 * @return QStringList with all dosbox version
+		 */
+		QStringList selectDosBoxVersion();
+
 	public slots:
-		void selectDosBoxGames( const QString &version, const QTreeWidget *qtw );
-		void selectGames( const QTreeWidget *qtw );
+		void selectDosBoxGames( const QString &version, QTreeWidget *qtw );		
+		void selectGames( QTreeWidget *qtw );
 
 
 	private:		
 		bool isOpen();
 
 		QMap< QString, QMap< QString, QString> > gameDosBoxList;
+		QStringList dosboxVersionList;
 		QStringList gameList;
 		QStringList exportGameList;
 		QStringList gameTemplateList;

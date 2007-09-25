@@ -17,9 +17,9 @@
 */
 
 #include "dboxfegdb.h"
-#include "dboxfegdb_sql.h"
+#include "dboxfegdb_dosbox.h"
 #include "dboxfegdb_template.h"
-#include "dboxfegdb_xml.h"
+#include "dboxfegdb_sql.h"
 
 #include <XMLPreferences.h>
 
@@ -31,7 +31,6 @@ GameDatabaseDialog::GameDatabaseDialog( QDialog *parent, Qt::WFlags flags ) : QD
 	setupUi( this );
 	
 	gd_sql = new GameDatabaseSql( this );
-	gd_xml = new GameDatabaseXml( this );
 
 	connect( btnAdd, SIGNAL ( clicked() ), this, SLOT ( addGame() ) );
 	connect( btnUpdate, SIGNAL ( clicked() ), this, SLOT ( updateGame() ) );
@@ -39,8 +38,7 @@ GameDatabaseDialog::GameDatabaseDialog( QDialog *parent, Qt::WFlags flags ) : QD
 	connect( btnGame, SIGNAL ( clicked() ), this, SLOT ( chooseGame() ) );
 	connect( btnExecutable, SIGNAL ( clicked() ), this, SLOT ( chooseExec() ) );
 	connect( btnTemplate, SIGNAL ( clicked() ), this, SLOT ( chooseTempl() ) );
-	connect( btnSave, SIGNAL ( clicked() ), this, SLOT ( save() ) );
-	connect( btnCancel, SIGNAL ( clicked() ), this, SLOT ( cancel() ) );
+	connect( btnClose, SIGNAL ( clicked() ), this, SLOT ( cancel() ) );
 
 #ifdef Q_OS_MACX
 	QApplication::setStyle ( "plastique" );
@@ -64,24 +62,17 @@ GameDatabaseDialog::GameDatabaseDialog( QDialog *parent, Qt::WFlags flags ) : QD
 GameDatabaseDialog::~GameDatabaseDialog()
 {
 	gd_sql = NULL;
-	gd_xml = NULL;
 	gd_template = NULL;
 }
 
 void GameDatabaseDialog::closeEvent ( QCloseEvent *e )
 {
 	gd_sql = NULL;
-	gd_xml = NULL;
 	gd_template = NULL;
 }
 
 void GameDatabaseDialog::addGame()
 {
-	/*
-	QMap< QString, QMap<QString, QString> >  gameDosBoxList = gd_xml->parseDosBoxGameXml( "C:/Dokumente und Einstellungen/Administrator/Eigene Dateien/dboxfe/dboxfe-gdb/res/game_database.xml" );
-	gd_sql->createDatabase( "C:/Dokumente und Einstellungen/Administrator/Eigene Dateien/dboxfe/dboxfe-gdb/res/game_database.db" );
-	gd_sql->importDosBoxGameList( gameDosBoxList );
-	*/
 }
 
 void GameDatabaseDialog::updateGame()
@@ -101,10 +92,6 @@ void GameDatabaseDialog::chooseExec()
 }
 
 void GameDatabaseDialog::chooseTempl()
-{
-}
-
-void GameDatabaseDialog::save()
 {
 }
 

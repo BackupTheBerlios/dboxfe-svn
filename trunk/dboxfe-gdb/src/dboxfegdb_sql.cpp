@@ -21,6 +21,7 @@
 #include "XMLPreferences.h"
 
 #include <QtCore>
+#include <QtGui>
 #include <QtSql>
 
 GameDatabaseSql::GameDatabaseSql( QObject *parent ) : QObject( parent )
@@ -440,19 +441,59 @@ bool GameDatabaseSql::deleteGames( const QString &name, bool withTemplate )
 	return true;
 }
 
+QStringList GameDatabaseSql::selectDosBoxVersion()
+{
+	dosboxVersionList.clear();
 
-void GameDatabaseSql::selectDosBoxGames( const QString &version, const QTreeWidget *qtw )
+	if( !isOpen() )
+		return dosboxVersionList;
+
+	QSqlQuery query( gamedb );
+	query.exec( "SELECT DISTINCT VERSION FROM DOSBOX;" );
+	if( query.isActive() )
+		dosboxVersionList.append( query.value( 0 ).toString() );
+	else
+		qWarning() << "Can't get dosbox version from table 'DOSBOX':\t" + query.lastError().text();
+
+	return dosboxVersionList;
+}
+
+void GameDatabaseSql::selectDosBoxGames( const QString &version, QTreeWidget *qtw )
 {
 	if( version.isNull() || version.isEmpty() )
 		return;
 
-	qtw->clear();
-
 	if( !isOpen() )
 		return;
+
+	qtw->clear();
+
+	QSqlQuery query( gamedb );
+	
+	QString sqlQuery;
+	sqlQuery.clear();
+	sqlQuery = "";
+	sqlQuery += "SELECT DI.TITLE, DI.YEAR, DI.SW_HOUSE, DI.LINK, DI.COMP_PERSENT\n";
+	sqlQuery += "FROM DOSBOXINFO DI\n";
+	sqlQuery += "JOIN DOSBOX D ON DI.ID = D.ID\n";
+	sqlQuery += "WHERE D.VERSION = '" + version + "';";
+
+	query.exec( sqlQuery );
+	if( query.isActive() )
+	{
+		while( !query.next() )
+		{
+			QTreeWidgetItem *item = new QTreeWidgetItem( qtw );
+			item->setText( 0, query.value( 0 ).toString() );
+			item->setText( 1, query.value( 1 ).toString() );
+			item->setText( 2, query.value( 2 ).toString() );
+			item->setText( 3, query.value( 3 ).toString() );
+			item->setText( 4, query.value( 4 ).toString() );
+		} 
+	}
 }
 
-void GameDatabaseSql::selectGames( const QTreeWidget *qtw )
+void GameDatabaseSql::selectGames( QTreeWidget *qtw )
 {}
 
 bool GameDatabaseSql::isOpen()

@@ -6,7 +6,7 @@
     <x>0</x>
     <y>0</y>
     <width>728</width>
-    <height>520</height>
+    <height>549</height>
    </rect>
   </property>
   <property name="windowTitle" >
@@ -16,7 +16,7 @@
    <iconset resource="../res/dboxfe-gdb.qrc" >:/images/disc-media.png</iconset>
   </property>
   <layout class="QGridLayout" >
-   <item row="0" column="0" colspan="3" >
+   <item row="0" column="0" >
     <widget class="QTreeWidget" name="treeWidget" >
      <column>
       <property name="text" >
@@ -40,7 +40,7 @@
      </column>
     </widget>
    </item>
-   <item row="1" column="0" colspan="3" >
+   <item row="1" column="0" >
     <widget class="QGroupBox" name="groupBoxGamePreferences" >
      <property name="title" >
       <string>Gamepreferences</string>
@@ -202,161 +202,113 @@
         </item>
        </layout>
       </item>
-      <item row="4" column="0" >
-       <layout class="QHBoxLayout" >
-        <item>
-         <widget class="QPushButton" name="btnAdd" >
-          <property name="minimumSize" >
-           <size>
-            <width>110</width>
-            <height>26</height>
-           </size>
-          </property>
-          <property name="maximumSize" >
-           <size>
-            <width>110</width>
-            <height>26</height>
-           </size>
-          </property>
-          <property name="text" >
-           <string>&amp;Add</string>
-          </property>
-          <property name="icon" >
-           <iconset resource="../res/dboxfe-gdb.qrc" >:/images/add.png</iconset>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer>
-          <property name="orientation" >
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" >
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="QPushButton" name="btnUpdate" >
-          <property name="minimumSize" >
-           <size>
-            <width>110</width>
-            <height>26</height>
-           </size>
-          </property>
-          <property name="maximumSize" >
-           <size>
-            <width>110</width>
-            <height>26</height>
-           </size>
-          </property>
-          <property name="text" >
-           <string>&amp;Update</string>
-          </property>
-          <property name="icon" >
-           <iconset resource="../res/dboxfe-gdb.qrc" >:/images/undo.png</iconset>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer>
-          <property name="orientation" >
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" >
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="QPushButton" name="btnDelete" >
-          <property name="minimumSize" >
-           <size>
-            <width>110</width>
-            <height>26</height>
-           </size>
-          </property>
-          <property name="maximumSize" >
-           <size>
-            <width>110</width>
-            <height>26</height>
-           </size>
-          </property>
-          <property name="text" >
-           <string>&amp;Delete</string>
-          </property>
-          <property name="icon" >
-           <iconset resource="../res/dboxfe-gdb.qrc" >:/images/trash.png</iconset>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
      </layout>
     </widget>
    </item>
    <item row="2" column="0" >
-    <widget class="QPushButton" name="btnSave" >
-     <property name="minimumSize" >
-      <size>
-       <width>110</width>
-       <height>26</height>
-      </size>
-     </property>
-     <property name="maximumSize" >
-      <size>
-       <width>110</width>
-       <height>26</height>
-      </size>
-     </property>
-     <property name="text" >
-      <string>&amp;Save</string>
-     </property>
-     <property name="icon" >
-      <iconset resource="../res/dboxfe-gdb.qrc" >:/images/save.png</iconset>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="1" >
-    <spacer>
-     <property name="orientation" >
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeHint" >
-      <size>
-       <width>470</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="2" column="2" >
-    <widget class="QPushButton" name="btnCancel" >
-     <property name="minimumSize" >
-      <size>
-       <width>110</width>
-       <height>26</height>
-      </size>
-     </property>
-     <property name="maximumSize" >
-      <size>
-       <width>110</width>
-       <height>26</height>
-      </size>
-     </property>
-     <property name="text" >
-      <string>&amp;Cancel</string>
-     </property>
-     <property name="icon" >
-      <iconset resource="../res/dboxfe-gdb.qrc" >:/images/delete.png</iconset>
-     </property>
-    </widget>
+    <layout class="QHBoxLayout" >
+     <item>
+      <widget class="QPushButton" name="btnAdd" >
+       <property name="minimumSize" >
+        <size>
+         <width>110</width>
+         <height>26</height>
+        </size>
+       </property>
+       <property name="maximumSize" >
+        <size>
+         <width>110</width>
+         <height>26</height>
+        </size>
+       </property>
+       <property name="text" >
+        <string>&amp;Add</string>
+       </property>
+       <property name="icon" >
+        <iconset resource="../res/dboxfe-gdb.qrc" >:/images/add.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnUpdate" >
+       <property name="minimumSize" >
+        <size>
+         <width>110</width>
+         <height>26</height>
+        </size>
+       </property>
+       <property name="maximumSize" >
+        <size>
+         <width>110</width>
+         <height>26</height>
+        </size>
+       </property>
+       <property name="text" >
+        <string>&amp;Update</string>
+       </property>
+       <property name="icon" >
+        <iconset resource="../res/dboxfe-gdb.qrc" >:/images/undo.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnDelete" >
+       <property name="minimumSize" >
+        <size>
+         <width>110</width>
+         <height>26</height>
+        </size>
+       </property>
+       <property name="maximumSize" >
+        <size>
+         <width>110</width>
+         <height>26</height>
+        </size>
+       </property>
+       <property name="text" >
+        <string>&amp;Delete</string>
+       </property>
+       <property name="icon" >
+        <iconset resource="../res/dboxfe-gdb.qrc" >:/images/trash.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer>
+       <property name="orientation" >
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" >
+        <size>
+         <width>16</width>
+         <height>26</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnClose" >
+       <property name="minimumSize" >
+        <size>
+         <width>110</width>
+         <height>26</height>
+        </size>
+       </property>
+       <property name="maximumSize" >
+        <size>
+         <width>110</width>
+         <height>26</height>
+        </size>
+       </property>
+       <property name="text" >
+        <string>&amp;Close</string>
+       </property>
+       <property name="icon" >
+        <iconset resource="../res/dboxfe-gdb.qrc" >:/images/delete.png</iconset>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
   </layout>
  </widget>
@@ -368,8 +320,7 @@
   <tabstop>btnAdd</tabstop>
   <tabstop>btnUpdate</tabstop>
   <tabstop>btnDelete</tabstop>
-  <tabstop>btnSave</tabstop>
-  <tabstop>btnCancel</tabstop>
+  <tabstop>btnClose</tabstop>
  </tabstops>
  <resources>
   <include location="../res/dboxfe-gdb.qrc" />

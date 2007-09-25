@@ -90,7 +90,36 @@
      </property>
      <layout class="QGridLayout" >
       <item row="0" column="0" >
-       <widget class="QTreeWidget" name="treeWidgetDosboxGames" />
+       <widget class="QTreeWidget" name="treeWidgetDosboxGames" >
+        <property name="selectionMode" >
+         <enum>QAbstractItemView::MultiSelection</enum>
+        </property>
+        <column>
+         <property name="text" >
+          <string>Title</string>
+         </property>
+        </column>
+        <column>
+         <property name="text" >
+          <string>Year</string>
+         </property>
+        </column>
+        <column>
+         <property name="text" >
+          <string>SW House</string>
+         </property>
+        </column>
+        <column>
+         <property name="text" >
+          <string>Link</string>
+         </property>
+        </column>
+        <column>
+         <property name="text" >
+          <string>Complete Persent</string>
+         </property>
+        </column>
+       </widget>
       </item>
      </layout>
     </widget>

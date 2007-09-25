@@ -169,7 +169,26 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="include\dboxfegdb_dosbox.h"/>
+				RelativePath="include\dboxfegdb_dosbox.h">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="${QMAKE_FUNC_mocCmd}"
+						CommandLine="$(QTDIR)\bin\moc.exe -D_WINDOWS -DUNICODE -DQT_LARGEFILE_SUPPORT -DWIN32 -D_CRT_SECURE_NO_DEPRECATE -D_CRT_NONSTDC_NO_DEPRECATE -DQT_DLL -DQT_SQL_LIB -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT  -I &quot;$(QTDIR)\include\QtCore&quot; -I &quot;$(QTDIR)\include\QtCore&quot; -I &quot;$(QTDIR)\include\QtNetwork&quot; -I &quot;$(QTDIR)\include\QtNetwork&quot; -I &quot;$(QTDIR)\include\QtGui&quot; -I &quot;$(QTDIR)\include\QtGui&quot; -I &quot;$(QTDIR)\include\QtXml&quot; -I &quot;$(QTDIR)\include\QtXml&quot; -I &quot;$(QTDIR)\include\QtSql&quot; -I &quot;$(QTDIR)\include\QtSql&quot; -I &quot;$(QTDIR)\include&quot; -I &quot;include&quot; -I &quot;3rdparty&quot; -I &quot;$(QTDIR)\include\ActiveQt&quot; -I &quot;win\moc&quot; -I &quot;win\ui&quot; -I&quot;$(QTDIR)\mkspecs\win32-msvc2005&quot; include\dboxfegdb_dosbox.h -o win\moc\moc_dboxfegdb_dosbox.cpp"
+						Description="MOC include\dboxfegdb_dosbox.h"
+						Outputs="win\moc\moc_dboxfegdb_dosbox.cpp"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="${QMAKE_FUNC_mocCmd}"
+						CommandLine="$(QTDIR)\bin\moc.exe -DNDEBUG -D_WINDOWS -DUNICODE -DQT_LARGEFILE_SUPPORT -DWIN32 -D_CRT_SECURE_NO_DEPRECATE -D_CRT_NONSTDC_NO_DEPRECATE -DQT_DLL -DQT_NO_DEBUG -DQT_SQL_LIB -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT  -I &quot;$(QTDIR)\include\QtCore&quot; -I &quot;$(QTDIR)\include\QtCore&quot; -I &quot;$(QTDIR)\include\QtNetwork&quot; -I &quot;$(QTDIR)\include\QtNetwork&quot; -I &quot;$(QTDIR)\include\QtGui&quot; -I &quot;$(QTDIR)\include\QtGui&quot; -I &quot;$(QTDIR)\include\QtXml&quot; -I &quot;$(QTDIR)\include\QtXml&quot; -I &quot;$(QTDIR)\include\QtSql&quot; -I &quot;$(QTDIR)\include\QtSql&quot; -I &quot;$(QTDIR)\include&quot; -I &quot;include&quot; -I &quot;3rdparty&quot; -I &quot;$(QTDIR)\include\ActiveQt&quot; -I &quot;win\moc&quot; -I &quot;win\ui&quot; -I&quot;$(QTDIR)\mkspecs\win32-msvc2005&quot; include\dboxfegdb_dosbox.h -o win\moc\moc_dboxfegdb_dosbox.cpp"
+						Description="MOC include\dboxfegdb_dosbox.h"
+						Outputs="win\moc\moc_dboxfegdb_dosbox.cpp"/>
+				</FileConfiguration>
+			</File>
 			<File
 				RelativePath="include\dboxfegdb_sql.h">
 				<FileConfiguration
@@ -243,6 +262,8 @@
 			</File>
 			<File
 				RelativePath="win\moc\moc_dboxfegdb.cpp"/>
+			<File
+				RelativePath="win\moc\moc_dboxfegdb_dosbox.cpp"/>
 			<File
 				RelativePath="win\moc\moc_dboxfegdb_sql.cpp"/>
 			<File
