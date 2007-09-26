@@ -26,7 +26,7 @@ GameDosBoxDialog::GameDosBoxDialog( QDialog *parent, Qt::WFlags flags ) : QDialo
 	setupUi( this );
 
 	gd_sql = new GameDatabaseSql( this );
-	gd_sql->connect( "C:/Dokumente und Einstellungen/Administrator/Eigene Dateien/dboxfe/dboxfe-gdb/res/game_database.db" );
+	gd_sql->createConnection( QCoreApplication::applicationDirPath() + "/game_database.db" );
 
 	connect( btnAccept, SIGNAL ( clicked() ), this, SLOT ( select() ) );
 	connect( btnCancel, SIGNAL ( clicked() ), this, SLOT ( cancel() ) );
