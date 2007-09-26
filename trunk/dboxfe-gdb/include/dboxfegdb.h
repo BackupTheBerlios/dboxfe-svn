@@ -53,6 +53,7 @@ class GameDatabaseDialog : public QDialog, public Ui::GameDatabaseDialog
 		GameTemplateDialog *gd_template;
 		GameDosBoxDialog *gd_dosbox;
 		GameDatabaseSql *gd_sql;
+		GameDatabaseXml *gd_xml;
 
 		QMap< QString, QMap<QString, QString> > gameDosBoxList;
 		QStringList gameList;

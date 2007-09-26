@@ -24,12 +24,15 @@
 GameDosBoxDialog::GameDosBoxDialog( QDialog *parent, Qt::WFlags flags ) : QDialog( parent, flags )
 {
 	setupUi( this );
-	
+
+	gd_sql = new GameDatabaseSql( this );
+	gd_sql->connect( "C:/Dokumente und Einstellungen/Administrator/Eigene Dateien/dboxfe/dboxfe-gdb/res/game_database.db" );
+
 	connect( btnAccept, SIGNAL ( clicked() ), this, SLOT ( select() ) );
 	connect( btnCancel, SIGNAL ( clicked() ), this, SLOT ( cancel() ) );
 
-	connect( lineEditSearch, SIGNAL( textChanged( QString & ) ), this, SLOT( lineEditSearchTextChanged( QString & ) ) );
-	connect( comboBoxDosboxVersion, SIGNAL ( currentIndexChanged( QString & ) ), this, SLOT ( comboBoxDosboxVersionCurrentIndexChanged( QString & ) ) );
+	connect( lineEditSearch, SIGNAL( textChanged( const QString & ) ), this, SLOT( lineEditSearchTextChanged( const QString & ) ) );
+	connect( comboBoxDosboxVersion, SIGNAL ( currentIndexChanged( const QString & ) ), this, SLOT ( comboBoxDosboxVersionCurrentIndexChanged( const QString & ) ) );
 	connect( treeWidgetDosboxGames, SIGNAL ( itemClicked( QTreeWidgetItem *, int ) ), this, SLOT ( treeWidgetDosboxGamesItemClicked( QTreeWidgetItem *, int ) ) );
 
 	QDesktopWidget *desktop = qApp->desktop();
@@ -44,39 +47,35 @@ GameDosBoxDialog::GameDosBoxDialog( QDialog *parent, Qt::WFlags flags ) : QDialo
 GameDosBoxDialog::~GameDosBoxDialog()
 {}
 
-void GameDosBoxDialog::comboBoxDosboxVersionCurrentIndexChanged( QString &item )
+void GameDosBoxDialog::comboBoxDosboxVersionCurrentIndexChanged( const QString &item )
 {
-	if( gd_sql != NULL )
+	if( !item.isNull() || !item.isEmpty() )
+		gd_sql->selectDosBoxGames( item, treeWidgetDosboxGames );
+
+	if( treeWidgetDosboxGames->columnCount() >= 1 )
 	{
-		if( !item.isNull() || !item.isEmpty() )
-			gd_sql->selectDosBoxGames( item, treeWidgetDosboxGames );
-
-		if( treeWidgetDosboxGames->columnCount() >= 1 )
+		for( int i = 0; i < treeWidgetDosboxGames->columnCount(); i++ )
 		{
-			for( int i = 0; i < treeWidgetDosboxGames->columnCount(); i++ )
-			{
-				comboBoxSearch->addItem( treeWidgetDosboxGames->headerItem()->text( i ) );
-			}
-
-			if( comboBoxSearch->count() >= 0 )
-				comboBoxSearch->setCurrentIndex( 0 );
-			else
-				comboBoxSearch->setCurrentIndex( -1 );
+			comboBoxSearch->addItem( treeWidgetDosboxGames->headerItem()->text( i ) );
 		}
+
+		if( comboBoxSearch->count() >= 0 )
+			comboBoxSearch->setCurrentIndex( 0 );
+		else
+			comboBoxSearch->setCurrentIndex( -1 );
 	}
-	else
-		;
+
 }
 
 void GameDosBoxDialog::treeWidgetDosboxGamesItemClicked( QTreeWidgetItem *item, int col )
 {
 }
 
-void GameDosBoxDialog::lineEditSearchTextChanged( QString &txt )
+void GameDosBoxDialog::lineEditSearchTextChanged( const QString &txt )
 {
 	if( comboBoxSearch->currentIndex() <= -1 )
 	{
-		QMessageBox::information( this, "Gamedatabase", tr("Please select a column.") );
+		QMessageBox::information( this, "Gamedatabase", tr("Please select a column for search.") );
 		return;
 	}
 
@@ -99,25 +98,17 @@ void GameDosBoxDialog::getDosboxVersion()
 	comboBoxDosboxVersion->clear();
 	comboBoxDosboxVersion->addItem( "" );
 
-	if( gd_sql != NULL )
+	dosboxVersionList = gd_sql->selectDosBoxVersion();
+	if( dosboxVersionList.isEmpty() || dosboxVersionList.size() <= 0 )
 	{
-		dosboxVersionList = gd_sql->selectDosBoxVersion();
-		if( dosboxVersionList.isEmpty() || dosboxVersionList.size() <= 0 )
-		{
-			QMessageBox::critical( this, tr( "Gamedatabase" ), tr( "No dosbox version in the database." ) );
-			return;
-		}
-
-		for( int i = 0; i < dosboxVersionList.size(); i++ )
-		{
-			comboBoxDosboxVersion->addItem( dosboxVersionList.value( i ) );
-		}
+		QMessageBox::critical( this, tr( "Gamedatabase" ), tr( "No dosbox version in the database." ) );
+		return;
 	}
-}
 
-void GameDosBoxDialog::setGameDatabaseSql( GameDatabaseSql *_gd_sql_ )
-{
-	gd_sql = _gd_sql_;
+	for( int i = 0; i < dosboxVersionList.size(); i++ )
+	{
+		comboBoxDosboxVersion->addItem( dosboxVersionList.value( i ) );
+	}
 }
 
 void GameDosBoxDialog::select()

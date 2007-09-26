@@ -33,24 +33,22 @@ GameDatabaseSql::~GameDatabaseSql()
 {}
 
 
-bool GameDatabaseSql::connect()
+bool GameDatabaseSql::connect( const QString &db )
 {
-	if( !isOpen() )
+	sqlDatabase = db;
+	if( sqlDatabase.isNull() || sqlDatabase.isEmpty() )
+		return false;
+
+	gamedb = QSqlDatabase::addDatabase( "QSQLITE" );
+	gamedb.setDatabaseName( sqlDatabase );
+	gamedb.setUserName( "" );
+	gamedb.setPassword( "" );
+	gamedb.setHostName( "" );
+
+	if ( !gamedb.open() )
 	{
-		if( sqlDatabase.isNull() || sqlDatabase.isEmpty() )
-			return false;
-
-		gamedb = QSqlDatabase::addDatabase( "QSQLITE" );
-		gamedb.setDatabaseName( sqlDatabase );
-		gamedb.setUserName( "" );
-		gamedb.setPassword( "" );
-		gamedb.setHostName( "" );
-
-		if ( !gamedb.open() )
-		{
-			qWarning() << "Failed to open game database: " + gamedb.lastError().text();
-			return false;
-		}
+		qWarning() << "Failed to open game database: " + gamedb.lastError().text();
+		return false;
 	}
 
 	return true;
@@ -142,7 +140,7 @@ bool GameDatabaseSql::importDosBoxGameList( const QMap< QString, QMap< QString, 
 					_comp_percent = valueIt.value();
 				if( valueIt.key() == "version" )
 					_version = valueIt.value();	
-				
+
 				++valueIt;
 			}
 
@@ -443,15 +441,14 @@ bool GameDatabaseSql::deleteGames( const QString &name, bool withTemplate )
 
 QStringList GameDatabaseSql::selectDosBoxVersion()
 {
-	dosboxVersionList.clear();
-
 	if( !isOpen() )
 		return dosboxVersionList;
 
 	QSqlQuery query( gamedb );
 	query.exec( "SELECT DISTINCT VERSION FROM DOSBOX;" );
 	if( query.isActive() )
-		dosboxVersionList.append( query.value( 0 ).toString() );
+		while( !query.next() )
+			dosboxVersionList.append( query.value( 0 ).toString() );
 	else
 		qWarning() << "Can't get dosbox version from table 'DOSBOX':\t" + query.lastError().text();
 
@@ -469,7 +466,7 @@ void GameDatabaseSql::selectDosBoxGames( const QString &version, QTreeWidget *qt
 	qtw->clear();
 
 	QSqlQuery query( gamedb );
-	
+
 	QString sqlQuery;
 	sqlQuery.clear();
 	sqlQuery = "";
@@ -501,5 +498,5 @@ bool GameDatabaseSql::isOpen()
 	if( gamedb.isOpen() )
 		return true;
 
-	return false;
+	return true;
 }

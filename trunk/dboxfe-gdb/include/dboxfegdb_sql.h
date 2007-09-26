@@ -44,7 +44,7 @@ class GameDatabaseSql : public QObject
 		GameDatabaseSql( QObject *parent = 0 );
 		~GameDatabaseSql();
 
-		bool connect();
+		bool connect( const QString &db );
 		bool disconnect();
 
 		/**

@@ -20,6 +20,7 @@
 #include "dboxfegdb_dosbox.h"
 #include "dboxfegdb_template.h"
 #include "dboxfegdb_sql.h"
+#include "dboxfegdb_xml.h"
 
 #include <XMLPreferences.h>
 
@@ -31,6 +32,7 @@ GameDatabaseDialog::GameDatabaseDialog( QDialog *parent, Qt::WFlags flags ) : QD
 	setupUi( this );
 	
 	gd_sql = new GameDatabaseSql( this );
+	gd_xml = new GameDatabaseXml( this );
 
 	connect( btnAdd, SIGNAL ( clicked() ), this, SLOT ( addGame() ) );
 	connect( btnUpdate, SIGNAL ( clicked() ), this, SLOT ( updateGame() ) );
@@ -62,12 +64,14 @@ GameDatabaseDialog::GameDatabaseDialog( QDialog *parent, Qt::WFlags flags ) : QD
 GameDatabaseDialog::~GameDatabaseDialog()
 {
 	gd_sql = NULL;
+	gd_xml = NULL;
 	gd_template = NULL;
 }
 
 void GameDatabaseDialog::closeEvent ( QCloseEvent *e )
 {
 	gd_sql = NULL;
+	gd_xml = NULL;
 	gd_template = NULL;
 }
 
@@ -84,7 +88,14 @@ void GameDatabaseDialog::deleteGame()
 }
 
 void GameDatabaseDialog::chooseGame()
-{
+{	
+	QMap< QString, QMap<QString, QString> > gameDosBoxList = gd_xml->parseDosBoxGameXml( "C:/Dokumente und Einstellungen/Administrator/Eigene Dateien/dboxfe/dboxfe-gdb/res/game_database.xml" );
+	gd_sql->createDatabase( "C:/Dokumente und Einstellungen/Administrator/Eigene Dateien/dboxfe/dboxfe-gdb/res/game_database.db" );
+	gd_sql->importDosBoxGameList( gameDosBoxList );
+
+
+	GameDosBoxDialog *gdb_d = new GameDosBoxDialog();
+	gdb_d->exec();
 }
 
 void GameDatabaseDialog::chooseExec()

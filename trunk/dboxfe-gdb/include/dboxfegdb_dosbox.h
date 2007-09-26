@@ -35,13 +35,11 @@ class GameDosBoxDialog : public QDialog, public Ui::DosboxGamesDialog
 		~GameDosBoxDialog();
 
 	private slots:
-		void comboBoxDosboxVersionCurrentIndexChanged( QString & );
+		void comboBoxDosboxVersionCurrentIndexChanged( const QString & );
 		void treeWidgetDosboxGamesItemClicked( QTreeWidgetItem *, int );
-		void lineEditSearchTextChanged( QString & );
+		void lineEditSearchTextChanged( const QString & );
 
-		void getDosboxVersion();
-
-		void setGameDatabaseSql( GameDatabaseSql *_gd_sql_ );
+		void getDosboxVersion();		
 
 		void select();
 		void cancel();
