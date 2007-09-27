@@ -27,12 +27,18 @@
 #include <QtCore>
 #include <QtNetwork>
 
-GameDosBoxAssistant::GameDosBoxAssistant( QDialog *parent, Qt::WFlags flags ) : QDialog( parent, flags )
+GameDatabaseAssistant::GameDatabaseAssistant( QDialog *parent, Qt::WFlags flags ) : QDialog( parent, flags )
 {
 	setupUi( this );
 
 	gd_sql = new GameDatabaseSql( this );
 	gd_xml = new GameDatabaseXml( this );
+
+	page = 0;
+
+	m_http = new QHttp ( this );
+	connect ( m_http, SIGNAL( requestFinished( int, bool ) ), this, SLOT( httpRequestFinished( int, bool ) ) );
+	connect ( m_http, SIGNAL( responseHeaderReceived( const QHttpResponseHeader & ) ), this, SLOT( readResponseHeader( const QHttpResponseHeader & ) ) );
 
 	connect( btnNext, SIGNAL( clicked() ), this, SLOT( next() ) );
 	connect( btnBack, SIGNAL( clicked() ), this, SLOT( back() ) );
@@ -46,32 +52,128 @@ GameDosBoxAssistant::GameDosBoxAssistant( QDialog *parent, Qt::WFlags flags ) : 
 	setGeometry ( left, top, width(), height() );
 }
 
-GameDosBoxAssistant::~GameDosBoxAssistant()
+GameDatabaseAssistant::~GameDatabaseAssistant()
+{
+	delete m_http;
+	delete m_file;
+}
+
+void GameDatabaseAssistant::closeEvent ( QCloseEvent *e )
 {}
 
-void GameDosBoxAssistant::closeEvent ( QCloseEvent *e )
+void GameDatabaseAssistant::next()
+{
+	btnBack->setEnabled ( true );
+	stackedWidgetGameDatabase->setCurrentIndex( ++page );
+
+	if( page >= 3 )
+	{
+		btnNext->setEnabled( false );
+		btnFinish->setEnabled( true );
+		page = 3;
+	}
+}
+
+void GameDatabaseAssistant::back()
+{
+	if( page == 1 )
+		btnBack->setEnabled ( false );
+
+	if( page <= 3 )
+	{
+		btnNext->setEnabled( true );
+		btnFinish->setEnabled( false );
+	}
+
+	stackedWidgetGameDatabase->setCurrentIndex ( --page );
+}
+
+void GameDatabaseAssistant::finish()
+{
+	downloadDosboxXml();
+	QDialog::accept();
+}
+
+void GameDatabaseAssistant::help()
 {}
 
-void GameDosBoxAssistant::next()
+void GameDatabaseAssistant::writeXmlSetting( const QString &xml )
 {}
 
-void GameDosBoxAssistant::back()
+void GameDatabaseAssistant::writeLogFile( const QString &log )
 {}
 
-void GameDosBoxAssistant::finish()
+void GameDatabaseAssistant::importIntoDatabase( const QString &db )
 {}
 
-void GameDosBoxAssistant::help()
-{}
+bool GameDatabaseAssistant::downloadDosboxXml()
+{
+	QUrl url ( "http://dosbox.sourceforge.net/game_database.xml" );
+	QFileInfo fileInfo ( url.path() );
+	QString fileName;
+	fileName = QDir::homePath();
+	fileName.append( "/.dboxfe-gdb/" + fileInfo.fileName() );
 
-void GameDosBoxAssistant::writeXmlSetting( const QString &xml )
-{}
+	if( QFile::exists( fileName ) )
+		QFile::remove( fileName );
 
-void GameDosBoxAssistant::writeLogFile( const QString &log )
-{}
+	m_file = new QFile( fileName );
 
-void GameDosBoxAssistant::importIntoDatabase( const QString &db )
-{}
+	if ( !m_file->open( QIODevice::WriteOnly ) )
+	{
+		QMessageBox::information ( this, tr( "Gamedatabase - Assistant" ), tr ( "Unable to update the file %1: %2." ).arg ( fileName ).arg ( m_file->errorString() ) );
+		delete m_file;
+		m_file = 0;
+		return false;
+	}
 
-void GameDosBoxAssistant::downloadDosboxXml( const QString &xml )
-{}
+	m_http->setHost ( url.host(), url.port() != -1 ? url.port() : 80 );
+	if ( !url.userName().isEmpty() )
+		m_http->setUser ( url.userName(), url.password() );
+
+	httpRequestAborted = false;
+	httpGetId = m_http->get( url.path(), m_file );
+	return true;
+}
+
+void GameDatabaseAssistant::httpRequestFinished( int requestId, bool error )
+{
+	if( httpRequestAborted )
+	{
+		if ( m_file )
+		{
+			m_file->close();
+			m_file->remove();
+			delete m_file;
+			m_file = 0;
+		}
+
+		return;
+	}
+
+	if( requestId != httpGetId )
+		return;
+
+	m_file->flush();
+	m_file->close();
+
+	if( error )
+	{
+		m_file->remove();
+		QMessageBox::information ( this, tr( "Gamedatabase - Assistant" ), tr ( "Download failed: %1." ).arg ( m_http->errorString() ) );
+	}
+
+	delete m_file;
+	m_file = 0;
+}
+
+void GameDatabaseAssistant::readResponseHeader( const QHttpResponseHeader &responseHeader )
+{
+	if( responseHeader.statusCode() != 200 )
+	{
+		QMessageBox::information ( this, tr( "Gamedatabase - Assistant" ), tr ( "Download failed: %1." ).arg ( responseHeader.reasonPhrase() ) );
+		httpRequestAborted = true;
+		m_http->abort();
+		return;
+	}
+}

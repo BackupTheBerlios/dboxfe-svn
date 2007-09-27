@@ -392,6 +392,10 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\resource.h"
+				>
+			</File>
+			<File
 				RelativePath="3rdparty\XMLPreferences.h"
 				>
 			</File>

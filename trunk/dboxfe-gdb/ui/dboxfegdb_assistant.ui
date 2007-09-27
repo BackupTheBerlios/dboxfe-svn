@@ -5,20 +5,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>618</width>
-    <height>372</height>
+    <width>663</width>
+    <height>381</height>
    </rect>
   </property>
   <property name="minimumSize" >
    <size>
-    <width>618</width>
-    <height>372</height>
+    <width>663</width>
+    <height>381</height>
    </size>
   </property>
   <property name="maximumSize" >
    <size>
-    <width>618</width>
-    <height>372</height>
+    <width>663</width>
+    <height>381</height>
    </size>
   </property>
   <property name="windowTitle" >
@@ -60,7 +60,7 @@
     </widget>
    </item>
    <item row="0" column="1" >
-    <widget class="QStackedWidget" name="stackedWidget" >
+    <widget class="QStackedWidget" name="stackedWidgetGameDatabase" >
      <property name="minimumSize" >
       <size>
        <width>16</width>
@@ -490,6 +490,13 @@
     </widget>
    </item>
    <item row="1" column="0" colspan="2" >
+    <widget class="Line" name="line" >
+     <property name="orientation" >
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0" colspan="2" >
     <layout class="QHBoxLayout" >
      <item>
       <widget class="QPushButton" name="btnHelp" >
@@ -668,7 +675,7 @@
      <y>123</y>
     </hint>
     <hint type="destinationlabel" >
-     <x>597</x>
+     <x>642</x>
      <y>248</y>
     </hint>
    </hints>
@@ -716,7 +723,7 @@
      <y>147</y>
     </hint>
     <hint type="destinationlabel" >
-     <x>597</x>
+     <x>642</x>
      <y>248</y>
     </hint>
    </hints>
@@ -732,8 +739,8 @@
      <y>116</y>
     </hint>
     <hint type="destinationlabel" >
-     <x>589</x>
-     <y>234</y>
+     <x>642</x>
+     <y>248</y>
     </hint>
    </hints>
   </connection>
@@ -766,54 +773,6 @@
     <hint type="destinationlabel" >
      <x>230</x>
      <y>239</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>rbtnXmlInternetDatabase</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>labelXml</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel" >
-     <x>255</x>
-     <y>137</y>
-    </hint>
-    <hint type="destinationlabel" >
-     <x>255</x>
-     <y>224</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>rbtnXmlInternetDatabase</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>lineEditXml</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel" >
-     <x>408</x>
-     <y>134</y>
-    </hint>
-    <hint type="destinationlabel" >
-     <x>404</x>
-     <y>229</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>rbtnXmlInternetDatabase</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>btnChooseXml</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel" >
-     <x>581</x>
-     <y>138</y>
-    </hint>
-    <hint type="destinationlabel" >
-     <x>576</x>
-     <y>225</y>
     </hint>
    </hints>
   </connection>

@@ -26,14 +26,16 @@
 
 #include <QtGui>
 #include <QtCore>
+#include <QtNetwork>
 
-class GameDosBoxAssistant : public QDialog, public Ui::GameDatabaseAssistantDialog
+
+class GameDatabaseAssistant : public QDialog, public Ui::GameDatabaseAssistantDialog
 {	
 	Q_OBJECT
 
 	public:
-		GameDosBoxAssistant( QDialog *parent = 0, Qt::WFlags flags = 0 );
-		~GameDosBoxAssistant();
+		GameDatabaseAssistant( QDialog *parent = 0, Qt::WFlags flags = 0 );
+		~GameDatabaseAssistant();
 
 	public slots:
 		void next();
@@ -44,12 +46,24 @@ class GameDosBoxAssistant : public QDialog, public Ui::GameDatabaseAssistantDial
 		void writeXmlSetting( const QString &xml );
 		void writeLogFile( const QString &log );
 
-		void importIntoDatabase( const QString &db );
-		void downloadDosboxXml( const QString &xml );
+		void importIntoDatabase( const QString &db );		
 
-	private:		
+	private:
+		bool downloadDosboxXml();
+
 		GameDatabaseSql *gd_sql;
 		GameDatabaseXml *gd_xml;
+		
+		QHttp *m_http;
+		QFile *m_file;
+
+		int httpGetId;
+		bool httpRequestAborted;
+		int page;
+
+	private slots:
+		void httpRequestFinished ( int requestId, bool error );
+		void readResponseHeader ( const QHttpResponseHeader &responseHeader );
 
 	protected:
 		void closeEvent ( QCloseEvent *e );

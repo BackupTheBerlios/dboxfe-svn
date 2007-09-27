@@ -34,7 +34,7 @@
  */
 class GameDatabaseSql : public QObject
 {
-		Q_OBJECT
+	Q_OBJECT
 
 	public:
 		/**
@@ -59,7 +59,7 @@ class GameDatabaseSql : public QObject
 		 * @param list the DOSBox games to import
 		 * @return true if import successfull
 		 */
-		bool importDosBoxGameList( const QMap<QString, QMap< QString, QString> > &list, QProgressBar *pBar = QProgressBar(), QLabel *lbl = QLabel() );
+		bool importDosBoxGameList( const QMap<QString, QMap< QString, QString> > &list, QProgressBar *pBar = 0, QLabel *lbl = 0 );
 
 		/**
 		 * Import games into database

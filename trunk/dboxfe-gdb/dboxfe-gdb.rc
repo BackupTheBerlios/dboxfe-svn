@@ -23,7 +23,7 @@ BEGIN
             VALUE "FileVersion", "0.1.3.0"
             VALUE "InternalName", "dboxfegdb"
             VALUE "LegalCopyright", "Copyright © 2007 by Alexander Saal"
-            VALUE "OriginalFilename", "dboxfe.exe"
+            VALUE "OriginalFilename", "dboxfegdb.exe"
             VALUE "ProductName", "DBoxFE - Game Database"
             VALUE "ProductVersion", "0.1.3.0"
         END

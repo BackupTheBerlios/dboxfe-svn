@@ -16,21 +16,28 @@
 *   Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 #include "dboxfegdb.h"
+#include "dboxfegdb_assistant.h"
 
-// Qt 4 Header
 #include <QtCore>
 #include <QtGui>
 
-int main ( int argc, char **argv )
+int main( int argc, char **argv )
 {
 	QApplication app ( argc, argv );
 
-	GameDatabaseDialog gd_dialog;
-	app.processEvents();
+	GameDatabaseAssistant *gd_a = new GameDatabaseAssistant( 0 );
+	if( gd_a->exec() == QDialog::Accepted )
+	{
+		GameDatabaseDialog gd_dialog;
+		app.processEvents();
 
-	gd_dialog.exec();
+		gd_dialog.exec();
+	}
+	else
+	{
+		return -1;
+	}
 
 	app.connect ( &app, SIGNAL ( lastWindowClosed() ), &app, SLOT ( quit() ) );
-
 	return app.exec();
 }
