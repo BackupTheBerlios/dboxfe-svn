@@ -6,6 +6,8 @@
 
 	<qresource prefix="/images" >
 		<file>dboxfegdb.ico</file>
+		<file>dboxfegdb-assistant.png</file>
+		<file>dboxfegdb-assistant-small.png</file>
 		<file>add.png</file>
 		<file>applications.png</file>
 		<file>arrow-back.png</file>
