@@ -16,6 +16,9 @@
   <property name="windowIcon" >
    <iconset resource="../res/dboxfe-gdb.qrc" >:/images/paste.png</iconset>
   </property>
+  <property name="modal" >
+   <bool>true</bool>
+  </property>
   <layout class="QGridLayout" >
    <item row="0" column="0" >
     <widget class="QGroupBox" name="groupBox" >
