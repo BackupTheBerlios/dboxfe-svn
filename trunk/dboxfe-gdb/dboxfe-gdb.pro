@@ -28,6 +28,7 @@ QT += sql xml network
 
 # Project Ui files
 FORMS += ui/dboxfegdb.ui
+FORMS += ui/dboxfegdb_assistant.ui
 FORMS += ui/dboxfegdb_dosbox.ui
 FORMS += ui/dboxfegdb_template.ui
 FORMS += ui/dboxfegdb_template_new.ui

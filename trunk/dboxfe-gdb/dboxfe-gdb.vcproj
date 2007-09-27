@@ -245,7 +245,7 @@
 					Name="Debug|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						AdditionalDependencies="$(QTDIR)\bin\rcc.exe;res\LICENSE.GPL;res\game_database.sql;res\print.png;res\redo.png;res\computer.png;res\add.png;res\delete.png;res\arrow-forward.png;res\disc-media.png;res\arrow-up.png;res\paste.png;res\documents.png;res\home.png;res\save.png;res\dboxfegdb.ico;res\arrow-back.png;res\folder-closed.png;res\undo.png;res\copy.png;res\cut.png;res\applications.png;res\folder-open.png;res\mail.png;res\trash.png;res\arrow-down.png"
+						AdditionalDependencies="$(QTDIR)\bin\rcc.exe;res\LICENSE.GPL;res\game_database.sql;res\print.png;res\redo.png;res\computer.png;res\add.png;res\dboxfegdb-assistant.png;res\delete.png;res\arrow-forward.png;res\disc-media.png;res\arrow-up.png;res\dboxfegdb-assistant-small.png;res\paste.png;res\documents.png;res\home.png;res\save.png;res\dboxfegdb.ico;res\arrow-back.png;res\folder-closed.png;res\undo.png;res\copy.png;res\cut.png;res\applications.png;res\folder-open.png;res\mail.png;res\trash.png;res\arrow-down.png"
 						CommandLine="$(QTDIR)\bin\rcc.exe -name dboxfe-gdb res\dboxfe-gdb.qrc -o win\rcc\qrc_dboxfe-gdb.cpp"
 						Description="RCC res\dboxfe-gdb.qrc"
 						Outputs="win\rcc\qrc_dboxfe-gdb.cpp"/>
@@ -254,7 +254,7 @@
 					Name="Release|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						AdditionalDependencies="$(QTDIR)\bin\rcc.exe;res\LICENSE.GPL;res\game_database.sql;res\print.png;res\redo.png;res\computer.png;res\add.png;res\delete.png;res\arrow-forward.png;res\disc-media.png;res\arrow-up.png;res\paste.png;res\documents.png;res\home.png;res\save.png;res\dboxfegdb.ico;res\arrow-back.png;res\folder-closed.png;res\undo.png;res\copy.png;res\cut.png;res\applications.png;res\folder-open.png;res\mail.png;res\trash.png;res\arrow-down.png"
+						AdditionalDependencies="$(QTDIR)\bin\rcc.exe;res\LICENSE.GPL;res\game_database.sql;res\print.png;res\redo.png;res\computer.png;res\add.png;res\dboxfegdb-assistant.png;res\delete.png;res\arrow-forward.png;res\disc-media.png;res\arrow-up.png;res\dboxfegdb-assistant-small.png;res\paste.png;res\documents.png;res\home.png;res\save.png;res\dboxfegdb.ico;res\arrow-back.png;res\folder-closed.png;res\undo.png;res\copy.png;res\cut.png;res\applications.png;res\folder-open.png;res\mail.png;res\trash.png;res\arrow-down.png"
 						CommandLine="$(QTDIR)\bin\rcc.exe -name dboxfe-gdb res\dboxfe-gdb.qrc -o win\rcc\qrc_dboxfe-gdb.cpp"
 						Description="RCC res\dboxfe-gdb.qrc"
 						Outputs="win\rcc\qrc_dboxfe-gdb.cpp"/>
@@ -299,6 +299,27 @@
 						CommandLine="$(QTDIR)\bin\uic.exe ui\dboxfegdb.ui -o win\ui\ui_dboxfegdb.h"
 						Description="UIC ui\dboxfegdb.ui"
 						Outputs="win\ui\ui_dboxfegdb.h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="ui\dboxfegdb_assistant.ui">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="$(QTDIR)\bin\uic.exe"
+						CommandLine="$(QTDIR)\bin\uic.exe ui\dboxfegdb_assistant.ui -o win\ui\ui_dboxfegdb_assistant.h"
+						Description="UIC ui\dboxfegdb_assistant.ui"
+						Outputs="win\ui\ui_dboxfegdb_assistant.h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						AdditionalDependencies="$(QTDIR)\bin\uic.exe"
+						CommandLine="$(QTDIR)\bin\uic.exe ui\dboxfegdb_assistant.ui -o win\ui\ui_dboxfegdb_assistant.h"
+						Description="UIC ui\dboxfegdb_assistant.ui"
+						Outputs="win\ui\ui_dboxfegdb_assistant.h"/>
 				</FileConfiguration>
 			</File>
 			<File
@@ -389,6 +410,10 @@
 				RelativePath="res\cut.png"/>
 			<File
 				RelativePath="dboxfe-gdb.rc"/>
+			<File
+				RelativePath="res\dboxfegdb-assistant-small.png"/>
+			<File
+				RelativePath="res\dboxfegdb-assistant.png"/>
 			<File
 				RelativePath="res\dboxfegdb.ico"/>
 			<File
