@@ -410,6 +410,83 @@
        </item>
       </layout>
      </widget>
+     <widget class="QWidget" name="pageFinish" >
+      <layout class="QGridLayout" >
+       <item row="0" column="0" >
+        <layout class="QVBoxLayout" >
+         <item>
+          <widget class="QLabel" name="labelDatabaseImport" >
+           <property name="text" >
+            <string>All information were determined and stored to xml file.</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer>
+           <property name="orientation" >
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" >
+            <size>
+             <width>391</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QLabel" name="labelDatabaseImportMessage" >
+           <property name="text" >
+            <string>Please click 'next' to start the process and then 'finish'.</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="labelDatabaseImportMessage1" >
+           <property name="text" >
+            <string>If an error occured please look at the: &lt;a href="file:///C:/dboxfe-gb.log">log file&lt;/a></string>
+           </property>
+           <property name="openExternalLinks" >
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer>
+           <property name="orientation" >
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" >
+            <size>
+             <width>391</width>
+             <height>21</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBoxDatabaseImportInfo" >
+           <property name="title" >
+            <string>Information</string>
+           </property>
+           <layout class="QGridLayout" >
+            <item row="0" column="0" >
+             <widget class="QLabel" name="labelDatabaseImportStatus" >
+              <property name="text" >
+               <string>Status:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0" >
+             <widget class="QProgressBar" name="progressBarStatus" />
+            </item>
+           </layout>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
     </widget>
    </item>
    <item row="1" column="0" colspan="2" >
@@ -641,6 +718,102 @@
     <hint type="destinationlabel" >
      <x>597</x>
      <y>248</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rbtnXmlFileDatabase</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>btnChooseXml</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>588</x>
+     <y>116</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>589</x>
+     <y>234</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rbtnXmlFileDatabase</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>lineEditXml</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>437</x>
+     <y>115</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>431</x>
+     <y>230</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rbtnXmlFileDatabase</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>labelXml</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>243</x>
+     <y>110</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>230</x>
+     <y>239</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rbtnXmlInternetDatabase</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>labelXml</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>255</x>
+     <y>137</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>255</x>
+     <y>224</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rbtnXmlInternetDatabase</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>lineEditXml</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>408</x>
+     <y>134</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>404</x>
+     <y>229</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rbtnXmlInternetDatabase</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>btnChooseXml</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>581</x>
+     <y>138</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>576</x>
+     <y>225</y>
     </hint>
    </hints>
   </connection>
