@@ -530,6 +530,20 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>btnNext</tabstop>
+  <tabstop>rbtnNewDatabase</tabstop>
+  <tabstop>rbtnUseDatabase</tabstop>
+  <tabstop>lineEditDatabase</tabstop>
+  <tabstop>btnChooseDatabase</tabstop>
+  <tabstop>rbtnXmlFileDatabase</tabstop>
+  <tabstop>rbtnXmlInternetDatabase</tabstop>
+  <tabstop>lineEditXml</tabstop>
+  <tabstop>btnChooseXml</tabstop>
+  <tabstop>btnFinish</tabstop>
+  <tabstop>btnBack</tabstop>
+  <tabstop>btnHelp</tabstop>
+ </tabstops>
  <resources>
   <include location="../res/dboxfe-gdb.qrc" />
  </resources>
@@ -573,12 +587,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel" >
-     <x>622</x>
-     <y>120</y>
+     <x>598</x>
+     <y>123</y>
     </hint>
     <hint type="destinationlabel" >
-     <x>623</x>
-     <y>229</y>
+     <x>597</x>
+     <y>248</y>
     </hint>
    </hints>
   </connection>
@@ -621,12 +635,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel" >
-     <x>637</x>
-     <y>145</y>
+     <x>598</x>
+     <y>147</y>
     </hint>
     <hint type="destinationlabel" >
-     <x>637</x>
-     <y>231</y>
+     <x>597</x>
+     <y>248</y>
     </hint>
    </hints>
   </connection>
