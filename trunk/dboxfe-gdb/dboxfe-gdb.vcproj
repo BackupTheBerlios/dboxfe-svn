@@ -126,6 +126,8 @@
 			<File
 				RelativePath="src\dboxfegdb.cpp"/>
 			<File
+				RelativePath="src\dboxfegdb_assistant.cpp"/>
+			<File
 				RelativePath="src\dboxfegdb_dosbox.cpp"/>
 			<File
 				RelativePath="src\dboxfegdb_sql.cpp"/>
@@ -168,6 +170,8 @@
 						Outputs="win\moc\moc_dboxfegdb.cpp"/>
 				</FileConfiguration>
 			</File>
+			<File
+				RelativePath="include\dboxfegdb_assistant.h"/>
 			<File
 				RelativePath="include\dboxfegdb_dosbox.h">
 				<FileConfiguration

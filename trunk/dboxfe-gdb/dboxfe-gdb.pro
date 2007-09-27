@@ -41,6 +41,7 @@ DISTFILES += LICENSE.GPL
 
 # Project Header
 HEADERS += include/dboxfegdb.h
+HEADERS += include/dboxfegdb_assistant.h
 HEADERS += include/dboxfegdb_dosbox.h
 HEADERS += include/dboxfegdb_sql.h
 HEADERS += include/dboxfegdb_template.h
@@ -50,6 +51,7 @@ HEADERS += include/dboxfegdb_xml.h
 # Project Source
 
 SOURCES += src/main.cpp
+SOURCES += src/dboxfegdb_assistant.cpp
 SOURCES += src/dboxfegdb.cpp
 SOURCES += src/dboxfegdb_dosbox.cpp
 SOURCES += src/dboxfegdb_sql.cpp
