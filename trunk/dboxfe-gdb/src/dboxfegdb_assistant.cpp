@@ -37,13 +37,18 @@ GameDatabaseAssistant::GameDatabaseAssistant( QDialog *parent, Qt::WFlags flags 
 	page = 0;
 
 	m_http = new QHttp ( this );
-	connect ( m_http, SIGNAL( requestFinished( int, bool ) ), this, SLOT( httpRequestFinished( int, bool ) ) );
-	connect ( m_http, SIGNAL( responseHeaderReceived( const QHttpResponseHeader & ) ), this, SLOT( readResponseHeader( const QHttpResponseHeader & ) ) );
+	connect( m_http, SIGNAL( requestFinished( int, bool ) ), this, SLOT( httpRequestFinished( int, bool ) ) );
+	connect( m_http, SIGNAL( responseHeaderReceived( const QHttpResponseHeader & ) ), this, SLOT( readResponseHeader( const QHttpResponseHeader & ) ) );
+	connect( m_http, SIGNAL( dataReadProgress( int, int ) ), this, SLOT( readDataReadProgress( int, int ) ) );
+	connect( m_http, SIGNAL( done( bool ) ), this, SLOT( done( bool ) ) );
 
 	connect( btnNext, SIGNAL( clicked() ), this, SLOT( next() ) );
 	connect( btnBack, SIGNAL( clicked() ), this, SLOT( back() ) );
 	connect( btnFinish, SIGNAL( clicked() ), this, SLOT( finish() ) );
 	connect( btnHelp, SIGNAL( clicked() ), this, SLOT( help() ) );
+
+	connect( btnChooseDatabase, SIGNAL( clicked() ), this, SLOT( generateNewOrUseDatabase() ) );
+	connect( btnChooseXml, SIGNAL( clicked() ), this, SLOT( generateNewOrUseDatabase() ) );
 
 	QDesktopWidget *desktop = qApp->desktop();
 	const QRect rect = desktop->availableGeometry ( desktop->primaryScreen() );
@@ -59,12 +64,20 @@ GameDatabaseAssistant::~GameDatabaseAssistant()
 }
 
 void GameDatabaseAssistant::closeEvent ( QCloseEvent *e )
-{}
+{
+	delete m_http;
+	m_http = 0;
+
+	m_file = 0;
+}
 
 void GameDatabaseAssistant::next()
 {
 	btnBack->setEnabled ( true );
 	stackedWidgetGameDatabase->setCurrentIndex( ++page );
+
+	if( lineEditXml->text().isEmpty() || lineEditDatabase->text().isEmpty() )
+		btnNext->setEnabled( false );
 
 	if( page >= 3 )
 	{
@@ -90,12 +103,106 @@ void GameDatabaseAssistant::back()
 
 void GameDatabaseAssistant::finish()
 {
-	downloadDosboxXml();
-	QDialog::accept();
+	// Xml file handling
+	if( rbtnXmlInternetDatabase->isChecked() )
+	{
+		// Database handling
+		if( rbtnNewDatabase->isChecked() || rbtnUseDatabase->isChecked() )
+		{
+			fileNameDatabase = lineEditDatabase->text();
+		}
+		downloadDosboxXml( "http://dosbox.sourceforge.net/game_database.xml" );
+		return;
+	}
+
+	if( rbtnXmlFileDatabase->isChecked() )
+	{
+		fileNameXml = lineEditXml->text();
+		
+		if( rbtnNewDatabase->isChecked() || rbtnUseDatabase->isChecked() )
+		{
+			fileNameDatabase = lineEditDatabase->text();
+		}
+		
+		done( false );
+	}
 }
 
 void GameDatabaseAssistant::help()
-{}
+{
+	QString message = QString( "" );
+	if( page == 1 )
+	{
+		message += "";
+	}
+	else if( page == 2 )
+	{
+		message += "";
+	}
+	else if( page == 3 )
+	{
+		message += "";
+	}
+}
+
+void GameDatabaseAssistant::generateNewOrUseDatabase()
+{	
+	QString selectedFile = QString( "" );
+	if( rbtnNewDatabase->isChecked() && page == 1 )
+	{
+		selectedFile = QFileDialog::getSaveFileName( this, tr ( "Save database file" ), QDir::homePath(), tr ( "Gamedatabase (*.db)" ) );
+		if( selectedFile.isNull() || selectedFile.isEmpty() )
+		{
+			btnNext->setEnabled( false );
+			return;
+		}
+
+		lineEditDatabase->setText( selectedFile );
+		btnNext->setEnabled( true );
+	}
+	else if( rbtnUseDatabase->isChecked() && page == 1 )
+	{
+		selectedFile = QFileDialog::getOpenFileName( this, tr ( "Open database file" ), QDir::homePath(), tr ( "Gamedatabase (*.db)" ) );
+		if( selectedFile.isNull() || selectedFile.isEmpty() )
+		{
+			btnNext->setEnabled( false );
+			return;
+		}
+
+		lineEditDatabase->setText( selectedFile );
+		btnNext->setEnabled( true );
+	}
+	else if( rbtnXmlFileDatabase->isChecked() && page == 2 )
+	{
+		selectedFile = QFileDialog::getOpenFileName( this, tr ( "Open dosbox game xml file" ), QDir::homePath(), tr ( "DOSBox game xml (*.xml)" ) );
+		if( selectedFile.isNull() || selectedFile.isEmpty() )
+		{
+			btnNext->setEnabled( false );
+			return;
+		}
+		
+		bool isDosboxXml = gd_xml->checkDosBoxGameXml( selectedFile );
+
+		if( isDosboxXml )
+		{
+			lineEditXml->setText( selectedFile );
+			btnNext->setEnabled( true );
+			return;
+		}
+		else
+		{
+			QMessageBox::warning( this, tr( "Gamedatabase - Assistant" ), tr( "Please choose the correct dosbox game xml." ) );
+			btnNext->setEnabled( false );
+			return;
+		}
+		
+		btnNext->setEnabled( true );
+	}
+	else if( rbtnXmlInternetDatabase->isChecked() && page == 2 )
+	{
+		btnNext->setEnabled( true );
+	}
+}
 
 void GameDatabaseAssistant::writeXmlSetting( const QString &xml )
 {}
@@ -106,22 +213,32 @@ void GameDatabaseAssistant::writeLogFile( const QString &log )
 void GameDatabaseAssistant::importIntoDatabase( const QString &db )
 {}
 
-bool GameDatabaseAssistant::downloadDosboxXml()
+bool GameDatabaseAssistant::downloadDosboxXml( const QString &xml )
 {
-	QUrl url ( "http://dosbox.sourceforge.net/game_database.xml" );
-	QFileInfo fileInfo ( url.path() );
-	QString fileName;
-	fileName = QDir::homePath();
-	fileName.append( "/.dboxfe-gdb/" + fileInfo.fileName() );
+	QUrl url( xml );
+	QFileInfo fileInfo( url.path() );
+	fileNameXml = "";
 
-	if( QFile::exists( fileName ) )
-		QFile::remove( fileName );
+	fileNameXml = QDir::homePath();
+	fileNameXml.append( "/.dboxfe-gdb" );
 
-	m_file = new QFile( fileName );
+	QDir dir( fileNameXml );
+	if( !dir.exists( fileNameXml ) )
+		dir.mkdir( fileNameXml );
+
+	fileNameXml = "";
+
+	fileNameXml = QDir::homePath();
+	fileNameXml.append( "/.dboxfe-gdb/" + fileInfo.fileName() );
+
+	if( QFile::exists( fileNameXml ) )
+		QFile::remove( fileNameXml );
+
+	m_file = new QFile( fileNameXml );
 
 	if ( !m_file->open( QIODevice::WriteOnly ) )
 	{
-		QMessageBox::information ( this, tr( "Gamedatabase - Assistant" ), tr ( "Unable to update the file %1: %2." ).arg ( fileName ).arg ( m_file->errorString() ) );
+		QMessageBox::information ( this, tr( "Gamedatabase - Assistant" ), tr ( "Unable to update the file %1: %2." ).arg ( fileNameXml ).arg ( m_file->errorString() ) );
 		delete m_file;
 		m_file = 0;
 		return false;
@@ -174,6 +291,35 @@ void GameDatabaseAssistant::readResponseHeader( const QHttpResponseHeader &respo
 		QMessageBox::information ( this, tr( "Gamedatabase - Assistant" ), tr ( "Download failed: %1." ).arg ( responseHeader.reasonPhrase() ) );
 		httpRequestAborted = true;
 		m_http->abort();
-		return;
 	}
+}
+
+void GameDatabaseAssistant::readDataReadProgress( int bytesRead, int totalBytes )
+{
+	progressBarStatus->setMaximum( totalBytes );
+	progressBarStatus->setValue( bytesRead );
+}
+
+void GameDatabaseAssistant::done( bool error )
+{
+	if( fileNameXml.isNull() || fileNameXml.isEmpty() )
+		return;
+
+	if( fileNameDatabase.isNull() || fileNameDatabase.isEmpty() )
+		return;
+
+	gd_sql->createDatabase( fileNameDatabase );
+	dosboxGameList = gd_xml->parseDosBoxGameXml( fileNameXml );
+	gd_sql->importDosBoxGameList( dosboxGameList, progressBarStatus, labelDatabaseImportStatus );
+
+	XMLPreferences xmlPreferences( "DBoxFE - GDB", "Alexander Saal" );
+
+	xmlPreferences.setVersion( "v0.1.3" );
+	xmlPreferences.setString( "Database", "GameXML", fileNameXml );
+	xmlPreferences.setString( "Database", "DatabaseFile", fileNameDatabase );
+	xmlPreferences.setBool( "Assistant", "StartAgain", false );
+
+	xmlPreferences.save( QDir::homePath() + "/.dboxfe-gdb/dboxfegdb.xml" );
+
+	QDialog::accept();
 }

@@ -89,11 +89,6 @@ void GameDatabaseDialog::deleteGame()
 
 void GameDatabaseDialog::chooseGame()
 {	
-	QMap< QString, QMap<QString, QString> > gameDosBoxList = gd_xml->parseDosBoxGameXml( "D:/Projekte/cpp/dboxfe/dboxfe-gdb/res/game_database.xml" );
-	gd_sql->createDatabase( QCoreApplication::applicationDirPath() + "/game_database.db" );
-	gd_sql->importDosBoxGameList( gameDosBoxList );
-
-
 	GameDosBoxDialog *gdb_d = new GameDosBoxDialog();
 	gdb_d->exec();
 }

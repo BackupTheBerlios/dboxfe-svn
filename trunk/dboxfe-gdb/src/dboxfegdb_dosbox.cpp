@@ -18,6 +18,8 @@
 #include "dboxfegdb_dosbox.h"
 #include "dboxfegdb_sql.h"
 
+#include <XMLPreferences.h>
+
 #include <QtGui>
 #include <QtCore>
 
@@ -26,7 +28,13 @@ GameDosBoxDialog::GameDosBoxDialog( QDialog *parent, Qt::WFlags flags ) : QDialo
 	setupUi( this );
 
 	gd_sql = new GameDatabaseSql( this );
-	gd_sql->createConnection( QCoreApplication::applicationDirPath() + "/game_database.db" );
+
+	XMLPreferences xmlPreferences( "DBoxFE - GDB", "Alexander Saal" );
+	xmlPreferences.load( QDir::homePath() + "/.dboxfe-gdb/dboxfegdb.xml" );
+
+	QString database = xmlPreferences.getString( "Database", "DatabaseFile" );	
+
+	gd_sql->createConnection( database );
 
 	connect( btnAccept, SIGNAL ( clicked() ), this, SLOT ( select() ) );
 	connect( btnCancel, SIGNAL ( clicked() ), this, SLOT ( cancel() ) );

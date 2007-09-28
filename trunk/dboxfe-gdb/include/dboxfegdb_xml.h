@@ -103,6 +103,13 @@ class GameDatabaseXml : public QObject
 		 * @return a QStringList with all games
 		 */
 		QStringList remove( const QString &name );
+
+		/**
+		 * Check a consistence of the game xml database from dosbox
+		 * @param xml the DOSBox Game Xml file
+		 * @return true, if the xml a dosbox game xml
+		 */
+		bool checkDosBoxGameXml( const QString &xml );
 		
 	public slots:
 		

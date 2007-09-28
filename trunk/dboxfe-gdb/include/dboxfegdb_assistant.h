@@ -43,27 +43,34 @@ class GameDatabaseAssistant : public QDialog, public Ui::GameDatabaseAssistantDi
 		void finish();
 		void help();
 
+		void generateNewOrUseDatabase();
+
 		void writeXmlSetting( const QString &xml );
 		void writeLogFile( const QString &log );
 
 		void importIntoDatabase( const QString &db );		
 
 	private:
-		bool downloadDosboxXml();
-
+		bool downloadDosboxXml( const QString &xml );
+		
 		GameDatabaseSql *gd_sql;
 		GameDatabaseXml *gd_xml;
 		
 		QHttp *m_http;
 		QFile *m_file;
+		
+		QString fileNameDatabase, fileNameXml;
+		QMap< QString, QMap<QString, QString> > dosboxGameList;
 
 		int httpGetId;
 		bool httpRequestAborted;
 		int page;
 
 	private slots:
-		void httpRequestFinished ( int requestId, bool error );
-		void readResponseHeader ( const QHttpResponseHeader &responseHeader );
+		void httpRequestFinished( int requestId, bool error );
+		void readResponseHeader( const QHttpResponseHeader &responseHeader );
+		void readDataReadProgress( int bytesRead, int totalBytes );
+		void done( bool error );
 
 	protected:
 		void closeEvent ( QCloseEvent *e );

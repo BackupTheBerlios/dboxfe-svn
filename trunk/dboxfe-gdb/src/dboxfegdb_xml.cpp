@@ -219,6 +219,33 @@ void GameDatabaseXml::save( const QString &xml )
 	
 }
 
+bool GameDatabaseXml::checkDosBoxGameXml( const QString &xml )
+{
+	QFile file( xml );
+
+	if ( !file.open( QIODevice::ReadOnly ) )
+		return false;
+
+	QDomDocument doc;
+
+	doc.setContent( &file );
+	file.close();
+	QDomNode item = doc.documentElement().firstChild();
+
+	while ( !item.isNull() )
+	{
+		if ( item.isElement() && item.nodeName() == "url" )
+		{
+			return true;
+		}
+
+		item = item.nextSibling();
+	}
+
+
+	return false;
+}
+
 XMLPreferences GameDatabaseXml::getPreferenceInstance()
 {
 	XMLPreferences xmlPreferences( "DBoxFE", "Alexander Saal" );

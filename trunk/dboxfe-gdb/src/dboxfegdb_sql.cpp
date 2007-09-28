@@ -119,6 +119,9 @@ bool GameDatabaseSql::importDosBoxGameList( const QMap< QString, QMap< QString, 
 
 	QSqlQuery query( gamedb );
 	QString _id;
+	int x = 0;
+
+	pBar->setMaximum( list.size() );
 
 	QMap< QString, QMap< QString, QString> >::const_iterator gameIt = gameDosBoxList.begin();
 	while( gameIt != gameDosBoxList.end() ) {
@@ -191,8 +194,27 @@ bool GameDatabaseSql::importDosBoxGameList( const QMap< QString, QMap< QString, 
 		else
 			qWarning() << "Failed to import dosbox information: >> no title available <<";
 
+
+		lbl->setText( "" );
+		lbl->setText( "Status: " + _title );
+		lbl->repaint();
+		lbl->update();
+		
+		pBar->setValue( x );
+		pBar->repaint();
+		pBar->update();
+
+		x = x + 1;
 		++gameIt;
 	}
+	
+	lbl->setText( "Status: finish" );
+	lbl->repaint();
+	lbl->update();
+
+	pBar->setValue( 100 );
+	pBar->repaint();
+	pBar->update();
 
 	return true;
 }
