@@ -60,6 +60,8 @@ void GameDosBoxDialog::comboBoxDosboxVersionCurrentIndexChanged( const QString &
 	if( !item.isNull() || !item.isEmpty() )
 		gd_sql->selectDosBoxGames( item, treeWidgetDosboxGames );
 
+	comboBoxSearch->clear();
+
 	if( treeWidgetDosboxGames->columnCount() >= 1 )
 	{
 		for( int i = 0; i < treeWidgetDosboxGames->columnCount(); i++ )
@@ -90,13 +92,19 @@ void GameDosBoxDialog::lineEditSearchTextChanged( const QString &txt )
 	if( txt.isNull() || txt.isEmpty() )
 		return;
 
-	QList<QTreeWidgetItem *> search( treeWidgetDosboxGames->findItems( txt, Qt::MatchExactly, comboBoxSearch->currentIndex() ) );
+	for( int a = 0; a < treeWidgetDosboxGames->topLevelItemCount(); a++ )
+	{
+		qApp->processEvents();
+		treeWidgetDosboxGames->topLevelItem( a )->setSelected( false );
+	}
+
+	QList<QTreeWidgetItem *> search( treeWidgetDosboxGames->findItems( txt, Qt::MatchCaseSensitive | Qt::MatchContains, comboBoxSearch->currentIndex() ) );
 	if( !search.isEmpty() && !(search.size() <= 0) )
 	{
 		for( int i = 0; i < search.size(); i++ )
 		{
 			QTreeWidgetItem *item = search.value( i );
-			item->setSelected( true );			
+			item->setSelected( true );
 		}
 	}		
 }
