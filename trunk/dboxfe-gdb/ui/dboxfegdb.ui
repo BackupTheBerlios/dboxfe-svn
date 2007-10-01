@@ -17,7 +17,7 @@
   </property>
   <layout class="QGridLayout" >
    <item row="0" column="0" >
-    <widget class="QTreeWidget" name="treeWidget" >
+    <widget class="QTreeWidget" name="treeWidgetGames" >
      <column>
       <property name="text" >
        <string>Name</string>

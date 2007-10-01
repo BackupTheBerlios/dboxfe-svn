@@ -20,7 +20,6 @@
 #include "dboxfegdb_dosbox.h"
 #include "dboxfegdb_template.h"
 #include "dboxfegdb_sql.h"
-#include "dboxfegdb_xml.h"
 
 #include <XMLPreferences.h>
 
@@ -30,9 +29,15 @@
 GameDatabaseDialog::GameDatabaseDialog( QDialog *parent, Qt::WFlags flags ) : QDialog( parent, flags )
 {
 	setupUi( this );
-	
+
 	gd_sql = new GameDatabaseSql( this );
-	gd_xml = new GameDatabaseXml( this );
+
+	XMLPreferences xmlPreferences( "DBoxFE - GDB", "Alexander Saal" );
+	xmlPreferences.load( QDir::homePath() + "/.dboxfe-gdb/dboxfegdb.xml" );
+
+	QString database = xmlPreferences.getString( "Database", "DatabaseFile" );	
+
+	gd_sql->createConnection( database );
 
 	connect( btnAdd, SIGNAL ( clicked() ), this, SLOT ( addGame() ) );
 	connect( btnUpdate, SIGNAL ( clicked() ), this, SLOT ( updateGame() ) );
@@ -59,19 +64,33 @@ GameDatabaseDialog::GameDatabaseDialog( QDialog *parent, Qt::WFlags flags ) : QD
 	int left = ( rect.width() - width() ) / 2;
 	int top = ( rect.height() - height() ) / 2;
 	setGeometry ( left, top, width(), height() );
+
+	gd_sql->selectGames( treeWidgetGames );
+
+	comboBoxDosboxVersion->clear();
+
+	QStringList dosboxVersionList = gd_sql->selectDosBoxVersion();
+	if( dosboxVersionList.isEmpty() || dosboxVersionList.size() <= 0 )
+	{
+		QMessageBox::critical( this, tr( "Gamedatabase" ), tr( "No dosbox version in the database." ) );
+		return;
+	}
+
+	for( int i = 0; i < dosboxVersionList.size(); i++ )
+	{
+		comboBoxDosboxVersion->addItem( dosboxVersionList.value( i ) );
+	}
 }
 
 GameDatabaseDialog::~GameDatabaseDialog()
 {
 	gd_sql = NULL;
-	gd_xml = NULL;
 	gd_template = NULL;
 }
 
 void GameDatabaseDialog::closeEvent ( QCloseEvent *e )
 {
 	gd_sql = NULL;
-	gd_xml = NULL;
 	gd_template = NULL;
 }
 
@@ -103,4 +122,5 @@ void GameDatabaseDialog::chooseTempl()
 
 void GameDatabaseDialog::cancel()
 {
+	qApp->quit();
 }

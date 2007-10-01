@@ -516,7 +516,35 @@ void GameDatabaseSql::selectDosBoxGames( const QString &version, QTreeWidget *qt
 }
 
 void GameDatabaseSql::selectGames( QTreeWidget *qtw )
-{}
+{
+	if( !isOpen() )
+		return;
+
+	qtw->clear();
+
+	QSqlQuery query( gamedb );
+
+	QString sqlQuery;
+	sqlQuery.clear();
+	sqlQuery = "";
+	sqlQuery += "SELECT G.NAME , D.VERSION, G.EXEC, G.TEMPLATE\n";
+	sqlQuery += "FROM GAME G\n";
+	sqlQuery += "JOIN DOSBOX D ON G.DB_ID = D.ID";
+
+	query.exec( sqlQuery );
+	if( query.isActive() )
+	{
+		while( query.next() )
+		{
+			QTreeWidgetItem *item = new QTreeWidgetItem( qtw );
+			item->setText( 0, query.value( 0 ).toString() );
+			item->setText( 1, query.value( 1 ).toString() );
+			item->setText( 2, query.value( 2 ).toString() );
+			item->setText( 3, query.value( 3 ).toString() );
+		} 
+	}
+
+}
 
 bool GameDatabaseSql::isOpen()
 {

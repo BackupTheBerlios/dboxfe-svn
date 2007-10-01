@@ -22,9 +22,8 @@
 #include "ui_dboxfegdb.h"
 
 #include "dboxfegdb_dosbox.h"
-#include "dboxfegdb_sql.h"
 #include "dboxfegdb_template.h"
-#include "dboxfegdb_xml.h"
+#include "dboxfegdb_sql.h"
 
 #include <QtGui>
 #include <QtCore>
@@ -53,11 +52,6 @@ class GameDatabaseDialog : public QDialog, public Ui::GameDatabaseDialog
 		GameTemplateDialog *gd_template;
 		GameDosBoxDialog *gd_dosbox;
 		GameDatabaseSql *gd_sql;
-		GameDatabaseXml *gd_xml;
-
-		QMap< QString, QMap<QString, QString> > gameDosBoxList;
-		QStringList gameList;
-		QStringList gameTemplateList;
 
 	protected:
 		void closeEvent ( QCloseEvent *e );

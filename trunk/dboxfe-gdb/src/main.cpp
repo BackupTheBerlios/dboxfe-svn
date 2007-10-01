@@ -18,6 +18,8 @@
 #include "dboxfegdb.h"
 #include "dboxfegdb_assistant.h"
 
+#include <XMLPreferences.h>
+
 #include <QtCore>
 #include <QtGui>
 
@@ -25,18 +27,58 @@ int main( int argc, char **argv )
 {
 	QApplication app ( argc, argv );
 
-	GameDatabaseAssistant *gd_a = new GameDatabaseAssistant( 0 );
-	if( gd_a->exec() == QDialog::Accepted )
-	{
-		GameDatabaseDialog gd_dialog;
-		app.processEvents();
+	XMLPreferences xmlPreferences( "DBoxFE - GDB", "Alexander Saal" );
+	xmlPreferences.load( QDir::homePath() + "/.dboxfe-gdb/dboxfegdb.xml" );
 
-		gd_dialog.exec();
+	QString database = xmlPreferences.getString( "Database", "DatabaseFile" );
+
+	bool startAgain = true;
+	startAgain = xmlPreferences.getBool( "Assistant", "StartAgain" );
+	
+	if( startAgain )
+	{
+		GameDatabaseAssistant *gd_a = new GameDatabaseAssistant( 0 );
+		if( gd_a->exec() == QDialog::Accepted )
+		{
+			GameDatabaseDialog gd_dialog;
+			app.processEvents();
+
+			gd_dialog.exec();
+			app.connect ( &app, SIGNAL ( lastWindowClosed() ), &app, SLOT ( quit() ) );
+			return app.exec();
+		}
+		else
+			return -1;
 	}
 	else
 	{
-		return -1;
+		if( database.isNull() || database.isEmpty() )
+		{
+			GameDatabaseAssistant *gd_a = new GameDatabaseAssistant( 0 );
+			if( gd_a->exec() == QDialog::Accepted )
+			{
+				GameDatabaseDialog gd_dialog;
+				app.processEvents();
+
+				gd_dialog.exec();
+				app.connect ( &app, SIGNAL ( lastWindowClosed() ), &app, SLOT ( quit() ) );
+				return app.exec();
+			}
+			else
+				return -1;
+		}
+		else
+		{
+			GameDatabaseDialog gd_dialog;
+			app.processEvents();
+			gd_dialog.exec();
+
+			return 0;
+		}
+
+		return 0;
 	}
+
 
 	app.connect ( &app, SIGNAL ( lastWindowClosed() ), &app, SLOT ( quit() ) );
 	return app.exec();

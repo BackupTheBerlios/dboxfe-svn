@@ -127,7 +127,6 @@ class GameDatabaseSql : public QObject
 		void selectDosBoxGames( const QString &version, QTreeWidget *qtw );		
 		void selectGames( QTreeWidget *qtw );
 
-
 	private:		
 		bool isOpen();
 
