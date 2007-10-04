@@ -47,6 +47,8 @@ GameDatabaseDialog::GameDatabaseDialog( QDialog *parent, Qt::WFlags flags ) : QD
 	connect( btnTemplate, SIGNAL ( clicked() ), this, SLOT ( chooseTempl() ) );
 	connect( btnClose, SIGNAL ( clicked() ), this, SLOT ( cancel() ) );
 
+	connect( treeWidgetGames, SIGNAL ( itemClicked( QTreeWidgetItem *, int ) ), this, SLOT ( treeWidgetGameItemClicked( QTreeWidgetItem *, int ) ) );
+
 #ifdef Q_OS_MACX
 	QApplication::setStyle ( "plastique" );
 #endif
@@ -80,6 +82,8 @@ GameDatabaseDialog::GameDatabaseDialog( QDialog *parent, Qt::WFlags flags ) : QD
 	{
 		comboBoxDosboxVersion->addItem( dosboxVersionList.value( i ) );
 	}
+
+	gameName = QString( "" );
 }
 
 GameDatabaseDialog::~GameDatabaseDialog()
@@ -94,16 +98,47 @@ void GameDatabaseDialog::closeEvent ( QCloseEvent *e )
 	gd_template = NULL;
 }
 
+void GameDatabaseDialog::treeWidgetGameItemClicked( QTreeWidgetItem *item, int column )
+{
+	int col = column;
+	gameName = item->text( 0 ); // Game name
+}
+
 void GameDatabaseDialog::addGame()
 {
+	if( checkStatus() )
+	{
+		QString gName = lineEditGame->text();
+		QString gVersion = comboBoxDosboxVersion->currentText();
+		QString gExec = lineEditExecutable->text();
+		QString gTemplate = lineEditTemplate->text();
+
+		gd_sql->insertGames( gName, gVersion, gExec, gTemplate );
+	}
 }
 
 void GameDatabaseDialog::updateGame()
 {
+	if( checkStatus() )
+	{
+		QString gName = lineEditGame->text();
+		QString gVersion = comboBoxDosboxVersion->currentText();
+		QString gExec = lineEditExecutable->text();
+		QString gTemplate = lineEditTemplate->text();
+
+		gd_sql->updateGames( gName, gVersion, gExec, gTemplate );
+	}
 }
 
 void GameDatabaseDialog::deleteGame()
 {
+	if( !gameName.isNull() || !gameName.isEmpty() )
+	{		
+		QMessageBox::critical( this, tr( "Gamedatabase" ), tr( "Please select a game from list." ) );
+		return;
+	}
+
+	gd_sql->deleteGames( gameName, false );
 }
 
 void GameDatabaseDialog::chooseGame()
@@ -123,4 +158,27 @@ void GameDatabaseDialog::chooseTempl()
 void GameDatabaseDialog::cancel()
 {
 	qApp->quit();
+}
+
+bool GameDatabaseDialog::checkStatus()
+{
+	if( lineEditGame->text().isEmpty() )
+	{
+		QMessageBox::critical( this, tr( "Gamedatabase" ), tr( "Please enter a name for this game." ) );		
+		return false;
+	}
+
+	if( comboBoxDosboxVersion->currentText().isNull() || comboBoxDosboxVersion->currentText().isEmpty() )
+	{
+		QMessageBox::critical( this, tr( "Gamedatabase" ), tr( "You must select a dosbox version for this game." ) );
+		return false;
+	}
+
+	if( lineEditExecutable->text().isEmpty() )
+	{
+		QMessageBox::critical( this, tr( "Gamedatabase" ), tr( "You must select a executable for this game." ) );
+		return false;
+	}
+
+	return true;
 }

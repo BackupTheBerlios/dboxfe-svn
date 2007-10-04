@@ -37,7 +37,9 @@ class GameDatabaseDialog : public QDialog, public Ui::GameDatabaseDialog
 		GameDatabaseDialog( QDialog *parent = 0, Qt::WFlags flags = 0 );
 		~GameDatabaseDialog();
 		
-	private slots:
+	private slots:		
+		void treeWidgetGameItemClicked( QTreeWidgetItem *, int );
+
 		void addGame();		
 		void updateGame();
 		void deleteGame();
@@ -49,6 +51,10 @@ class GameDatabaseDialog : public QDialog, public Ui::GameDatabaseDialog
 		void cancel();
 
 	private:
+		bool checkStatus();
+
+		QString gameName;
+
 		GameTemplateDialog *gd_template;
 		GameDosBoxDialog *gd_dosbox;
 		GameDatabaseSql *gd_sql;
