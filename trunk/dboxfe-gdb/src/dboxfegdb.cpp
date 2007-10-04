@@ -143,8 +143,12 @@ void GameDatabaseDialog::deleteGame()
 
 void GameDatabaseDialog::chooseGame()
 {	
-	GameDosBoxDialog *gdb_d = new GameDosBoxDialog();
-	gdb_d->exec();
+	gd_dosbox = new GameDosBoxDialog();
+	if( gd_dosbox->exec() == QDialog::Accepted )
+	{
+		QString gName = gd_dosbox->lineEditGames->text();
+
+	}
 }
 
 void GameDatabaseDialog::chooseExec()
@@ -153,6 +157,10 @@ void GameDatabaseDialog::chooseExec()
 
 void GameDatabaseDialog::chooseTempl()
 {
+	gd_template = new GameTemplateDialog( 0 );
+	if( gd_template->exec() == QDialog::Accepted )
+	{
+	}
 }
 
 void GameDatabaseDialog::cancel()
