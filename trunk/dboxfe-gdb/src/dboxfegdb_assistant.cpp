@@ -308,7 +308,10 @@ void GameDatabaseAssistant::done( bool error )
 	if( fileNameDatabase.isNull() || fileNameDatabase.isEmpty() )
 		return;
 
-	gd_sql->createDatabase( fileNameDatabase );
+	QFile f( fileNameDatabase );
+	if( !f.exists() )
+		gd_sql->createDatabase( fileNameDatabase );
+
 	dosboxGameList = gd_xml->parseDosBoxGameXml( fileNameXml );
 	gd_sql->importDosBoxGameList( dosboxGameList, progressBarStatus, labelDatabaseImportStatus );
 

@@ -127,7 +127,8 @@ class GameDatabaseSql : public QObject
 		void selectDosBoxGames( const QString &version, QTreeWidget *qtw );		
 		void selectGames( QTreeWidget *qtw );
 
-	private:		
+	private:
+		int dataRowCount();
 		bool isOpen();
 
 		QMap< QString, QMap< QString, QString> > gameDosBoxList;

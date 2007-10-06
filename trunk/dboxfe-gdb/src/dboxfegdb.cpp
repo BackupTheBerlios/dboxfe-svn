@@ -17,6 +17,7 @@
 */
 
 #include "dboxfegdb.h"
+#include "dboxfegdb_assistant.h"
 #include "dboxfegdb_dosbox.h"
 #include "dboxfegdb_template.h"
 #include "dboxfegdb_sql.h"
@@ -119,6 +120,9 @@ void GameDatabaseDialog::addGame()
 
 void GameDatabaseDialog::updateGame()
 {
+	GameDatabaseAssistant *gd_a = new GameDatabaseAssistant( 0 );
+	gd_a->exec();
+	return;
 	if( checkStatus() )
 	{
 		QString gName = lineEditGame->text();

@@ -23,7 +23,7 @@ DEPENDPATH += include res src ui 3rdparty
 INCLUDEPATH += include 3rdparty
 RESOURCES += res/dboxfe-gdb.qrc
 #CONFIG += release thread warn_on qt
-CONFIG += debug thread warn_on qt
+CONFIG += debug thread warn_on qt embed_manifest_exe
 QT += sql xml network
 
 # Project Ui files
