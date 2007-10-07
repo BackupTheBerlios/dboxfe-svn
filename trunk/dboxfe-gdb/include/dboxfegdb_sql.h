@@ -59,7 +59,8 @@ class GameDatabaseSql : public QObject
 		 * @param list the DOSBox games to import
 		 * @return true if import successfull
 		 */
-		bool importDosBoxGameList( const QMap<QString, QMap< QString, QString> > &list, QProgressBar *pBar = 0, QLabel *lbl = 0 );
+		bool importDosBoxGameList( const QMap<QString, QMap< QString, QString> > &list, QProgressBar *pBar = 0, QLabel *lbl = 0 );		
+		bool checkReferencesOnDosBoxGames( const QMap<QString, QMap< QString, QString> > &list );
 
 		/**
 		 * Import games into database
@@ -111,6 +112,7 @@ class GameDatabaseSql : public QObject
 
 		/**
 		 * Delete game from database
+		 *
 		 * @param name the Game name
 		 * @param withTemplate delete game with gametemplate?
 		 * @return true if delete successfull
@@ -128,7 +130,7 @@ class GameDatabaseSql : public QObject
 		void selectGames( QTreeWidget *qtw );
 
 	private:
-		int dataRowCount();
+		bool updateDosBoxGameList( const QMap<QString, QMap< QString, QString> > &list, QProgressBar *pBar = 0, QLabel *lbl = 0 );
 		bool isOpen();
 
 		QMap< QString, QMap< QString, QString> > gameDosBoxList;

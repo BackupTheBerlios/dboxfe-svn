@@ -311,8 +311,11 @@ void GameDatabaseAssistant::done( bool error )
 	QFile f( fileNameDatabase );
 	if( !f.exists() )
 		gd_sql->createDatabase( fileNameDatabase );
+	else
+		gd_sql->createConnection( fileNameDatabase );
 
 	dosboxGameList = gd_xml->parseDosBoxGameXml( fileNameXml );
+
 	gd_sql->importDosBoxGameList( dosboxGameList, progressBarStatus, labelDatabaseImportStatus );
 
 	XMLPreferences xmlPreferences( "DBoxFE - GDB", "Alexander Saal" );
