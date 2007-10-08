@@ -124,24 +124,39 @@ bool GameDatabaseSql::importDosBoxGameList( const QMap< QString, QMap< QString, 
 
 	pBar->setMaximum( list.size() );
 
+	QMap< QString, QMap< QString, QString> >::const_iterator gameIt_tmp = gameDosBoxList.begin();
+	while( gameIt_tmp != gameDosBoxList.end() ) {
+		qApp->processEvents();
+		_title = gameIt_tmp.key();
+		
+		sqlQuery.clear();
+		sqlQuery = "";
+		sqlQuery += "SELECT D.VERSION, DI.TITLE\n";
+		sqlQuery += "FROM DOSBOXINFO DI\n";
+		sqlQuery += "JOIN DOSBOX D ON DI.ID = D.ID\n";
+		sqlQuery += "WHERE DI.TITLE = '" + _title.replace( "'", "''" ) + "';";
+
+		query.exec( sqlQuery );
+		if( query.isActive() )
+		{
+			while( query.next() )
+			{
+				if( !query.value( 1 ).toString().isNull() || !query.value( 1 ).toString().isEmpty() )
+				{
+					updateDosBoxGameList( list, pBar, lbl );
+					return true;
+				}
+			}			
+		}
+		++gameIt_tmp;
+	}
+
+	gameIt_tmp = 0;
+
 	QMap< QString, QMap< QString, QString> >::const_iterator gameIt = gameDosBoxList.begin();
 	while( gameIt != gameDosBoxList.end() ) {
 		qApp->processEvents();
 		_title = gameIt.key();
-		query.exec( "SELECT ID FROM DOSBOXINFO WHERE TITLE = '" + _title.replace( "'", "''" ) + "';" );
-		if( query.isActive() )
-		{
-			if( !query.value( 0 ).toString().isNull() || !query.value( 0 ).toString().isEmpty() )
-			{
-				updateDosBoxGameList( list, pBar, lbl );
-				return true;
-			}
-			else
-			{
-				++gameIt;
-				continue;
-			}
-		}
 
 		if( !_title.isNull() || !_title.isEmpty() )
 		{
@@ -259,6 +274,7 @@ bool GameDatabaseSql::updateDosBoxGameList( const QMap<QString, QMap< QString, Q
 
 			while( valueIt != gameIt.value().end() )
 			{
+				qApp->processEvents();	
 				if( valueIt.key() == "year" )
 					_year = valueIt.value();
 				if( valueIt.key() == "sw_house" )
@@ -274,29 +290,35 @@ bool GameDatabaseSql::updateDosBoxGameList( const QMap<QString, QMap< QString, Q
 			}
 
 			// FIXME change this code .... if this not function :D
-			id = query.value( 0 ).toString(); // DOSBox ID
+			while( query.next() )
+				id = query.value( 0 ).toString(); // DOSBox ID
+
 			query.exec( "SELECT TITLE, YEAR, SW_HOUSE, LINK, COMP_PERSENT FROM DOSBOXINFO WHERE ID = '" + id + "';" );
 			if( query.isActive() )
 			{
-				if( _title != query.value( 0 ).toString() || /* TITLE */
-					_year != query.value( 1 ).toString() || /* YEAR */ 
-					_sw_house != query.value( 2 ).toString() || /* SW_HOUSE */
-					_link != query.value( 3 ).toString() || /* LINK */
-					_comp_percent != query.value( 4 ).toString() /* COMP_PERSENT */ )
+				while( query.next() )
 				{
-					sqlQuery.clear();
-					sqlQuery = "";
-					sqlQuery += "UPDATE DOSBOXINFO\n";
-					sqlQuery += "SET\tTITLE = '" + _title.replace( "'", "''" ) + "',\n";
-					sqlQuery += "\tYEAR = '" + _year.replace( "'", "''" ) + "',\n";
-					sqlQuery += "\tSW_HOUSE = '" + _sw_house.replace( "'", "''" ) + "',\n";
-					sqlQuery += "\tLINK = '" + _link.replace( "'", "''" ) + "',\n";
-					sqlQuery += "\tCOMP_PERSENT = '" + _comp_percent.replace( "'", "''" ) + "'\n";
-					sqlQuery += "WHERE\n";
-					sqlQuery += "\tID = '" + id + "';";
-					query.exec( sqlQuery );
-					if( !query.isActive() )
-						qWarning() << "Failed to update information on dosboxinfo table:\t>> " << query.lastError().text() << " << -- >> " << _title << " <<" ;
+					qApp->processEvents();	
+					if( _title != query.value( 0 ).toString() || /* TITLE */
+						_year != query.value( 1 ).toString() || /* YEAR */ 
+						_sw_house != query.value( 2 ).toString() || /* SW_HOUSE */
+						_link != query.value( 3 ).toString() || /* LINK */
+						_comp_percent != query.value( 4 ).toString() /* COMP_PERSENT */ )
+					{
+						sqlQuery.clear();
+						sqlQuery = "";
+						sqlQuery += "UPDATE DOSBOXINFO\n";
+						sqlQuery += "SET\tTITLE = '" + _title.replace( "'", "''" ) + "',\n";
+						sqlQuery += "\tYEAR = '" + _year.replace( "'", "''" ) + "',\n";
+						sqlQuery += "\tSW_HOUSE = '" + _sw_house.replace( "'", "''" ) + "',\n";
+						sqlQuery += "\tLINK = '" + _link.replace( "'", "''" ) + "',\n";
+						sqlQuery += "\tCOMP_PERSENT = '" + _comp_percent.replace( "'", "''" ) + "'\n";
+						sqlQuery += "WHERE\n";
+						sqlQuery += "\tID = '" + id + "';";
+						query.exec( sqlQuery );
+						if( !query.isActive() )
+							qWarning() << "Failed to update information on dosboxinfo table:\t>> " << query.lastError().text() << " << -- >> " << _title << " <<" ;
+					}
 				}
 			}
 
@@ -312,18 +334,6 @@ bool GameDatabaseSql::updateDosBoxGameList( const QMap<QString, QMap< QString, Q
 			x = x + 1;
 			++gameIt;
 		}
-
-		lbl->setText( "" );
-		lbl->setText( "Status: " + _title );
-		lbl->repaint();
-		lbl->update();
-
-		pBar->setValue( x );
-		pBar->repaint();
-		pBar->update();
-
-		x = x + 1;
-		++gameIt;
 	}
 
 	lbl->setText( "Status: finish" );
@@ -494,7 +504,8 @@ bool GameDatabaseSql::insertGames( const QString &name, const QString &version, 
 
 	if( query.isActive() )
 	{
-		_id_dosbox = query.value( 0 ).toString();
+		while( query.next() )
+			_id_dosbox = query.value( 0 ).toString();
 	}
 
 	if( _id_dosbox.isNull() || _id_dosbox.isEmpty() )
@@ -507,7 +518,8 @@ bool GameDatabaseSql::insertGames( const QString &name, const QString &version, 
 	query.exec( "SELECT ID FROM GAME WHERE ID = '" + templates + "';" );
 	if( query.isActive() )
 	{
-		_id_template = query.value( 0 ).toString();
+		while( query.next() )
+			_id_template = query.value( 0 ).toString();
 	}
 
 	if( _id_template.isNull() || _id_template.isEmpty() )
@@ -556,8 +568,13 @@ bool GameDatabaseSql::deleteGames( const QString &name, bool withTemplate )
 	query.exec( "SELECT ID, NAME FROM GAME WHERE NAME = '" + name + "';" );
 	if( query.isActive() )
 	{
-		QString gameId = query.value( 0 ).toString();
-		QString gameName = query.value( 1 ).toString();
+		QString gameId = "";
+		QString gameName = "";
+		while( query.next() )
+		{
+			gameId = query.value( 0 ).toString();
+			gameName = query.value( 1 ).toString();
+		}
 
 		query.exec( "DELETE FROM GAME WHERE NAME = '" + gameName + "';" );
 		if( !query.isActive() )
@@ -671,3 +688,4 @@ bool GameDatabaseSql::isOpen()
 
 	return false;
 }
+
