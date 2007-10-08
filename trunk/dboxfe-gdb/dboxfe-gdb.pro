@@ -23,7 +23,7 @@ DEPENDPATH += include res src ui 3rdparty
 INCLUDEPATH += include 3rdparty
 RESOURCES += res/dboxfe-gdb.qrc
 #CONFIG += release thread warn_on qt
-CONFIG += debug thread warn_on qt embed_manifest_exe
+CONFIG += debug thread warn_on qt
 QT += sql xml network
 
 # Project Ui files
@@ -71,6 +71,8 @@ SOURCES += 3rdparty/XMLWriter.cpp
 
 # Unix/Linux settings
 unix{
+  #CONFIG += release thread warn_on qt
+  CONFIG += debug thread warn_on qt
   TARGET = dboxfe-gdb
   #QMAKE_POST_LINK = strip -s bin/dboxfe-gdb
   RCC_DIR = .unix/rcc
@@ -81,6 +83,9 @@ unix{
 
 # Windows settings
 win32{
+  #CONFIG += release thread warn_on qt embed_manifest_exe
+  CONFIG += debug thread warn_on qt embed_manifest_exe
+
   RC_FILE = dboxfe-gdb.rc
   TARGET = dboxfe-gdb
   RCC_DIR = win/rcc
