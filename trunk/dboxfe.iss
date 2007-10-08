@@ -18,8 +18,8 @@
 
 #define MyAppName "DBoxFE - DOSBox Frontend"
 #define MyAppNameTray "DBoxFE - DOSBox Frontend (TrayIcon)"
-#define MyAppVerName "DBoxFE - DOSBox Frontend v0.1.3.0"
-#define MyAppVersion "0.1.3.0"
+#define MyAppVerName "DBoxFE - DOSBox Frontend v0.1.3.9"
+#define MyAppVersion "0.1.3.9"
 #define MyAppPublisher "Privat - Alexander Saal"
 #define MyAppURL "http://chmaster.freeforge.net"
 #define MyAppCopyright "(C)opyright ©'2004-2007 by Alexander Saal"
@@ -59,8 +59,8 @@ UninstallDisplayName={#MyAppVersion}-{#MyAppName}
 AllowRootDirectory=true
 UninstallLogMode=new
 DisableStartupPrompt=true
-WizardImageFile=..\..\WizardImages\SetupModern16.bmp
-WizardSmallImageFile=..\..\WizardImages\SetupModernSmall16.bmp
+;WizardImageFile=..\..\WizardImages\SetupModern16.bmp
+;WizardSmallImageFile=..\..\WizardImages\SetupModernSmall16.bmp
 ShowLanguageDialog=yes
 
 [Tasks]
@@ -68,39 +68,22 @@ Name: desktopicon; Description: {cm:CreateDesktopIcon}; GroupDescription: {cm:Ad
 Name: quicklaunchicon; Description: {cm:CreateQuickLaunchIcon}; GroupDescription: {cm:AdditionalIcons}; MinVersion: 4.1.2222,4.0.1381sp6
 
 [Files]
-;Source: bin\dboxfe-debug.exe; DestDir: {app}; Flags: ignoreversion uninsremovereadonly 32bit overwritereadonly replacesameversion; MinVersion: 4.1.2222,4.0.1381sp6
-;Source: bin\dboxfe-tray-debug.exe; DestDir: {app}; Flags: ignoreversion uninsremovereadonly 32bit overwritereadonly replacesameversion; MinVersion: 4.1.2222,4.0.1381sp6
-
 Source: bin\dboxfe.exe; DestDir: {app}; Flags: ignoreversion uninsremovereadonly 32bit overwritereadonly replacesameversion; MinVersion: 4.1.2222,4.0.1381sp6
 Source: bin\dboxfetray.exe; DestDir: {app}; Flags: ignoreversion uninsremovereadonly 32bit overwritereadonly replacesameversion; MinVersion: 4.1.2222,4.0.1381sp6
 Source: res\dboxfe.ico; DestDir: {app}; Flags: ignoreversion uninsremovereadonly 32bit overwritereadonly replacesameversion; MinVersion: 4.1.2222,4.0.1381sp6
 Source: res\LICENSE.GPL; DestDir: {app}; Flags: ignoreversion uninsremovereadonly 32bit overwritereadonly replacesameversion; MinVersion: 4.1.2222,4.0.1381sp6
 
 ; Needed library (Qt4 Release):
-Source: ..\..\..\Lib\qt43\bin\QtGui4.dll; DestDir: {app}; Flags: ignoreversion uninsremovereadonly 32bit overwritereadonly replacesameversion; MinVersion: 4.1.2222,4.0.1381sp6
-Source: ..\..\..\Lib\qt43\bin\QtCore4.dll; DestDir: {app}; Flags: ignoreversion uninsremovereadonly 32bit overwritereadonly replacesameversion; MinVersion: 4.1.2222,4.0.1381sp6
-Source: ..\..\..\Lib\qt43\bin\QtNetwork4.dll; DestDir: {app}; Flags: ignoreversion uninsremovereadonly 32bit overwritereadonly replacesameversion; MinVersion: 4.1.2222,4.0.1381sp6
-Source: ..\..\..\Lib\qt43\bin\QtXml4.dll; DestDir: {app}; Flags: ignoreversion uninsremovereadonly 32bit overwritereadonly replacesameversion; MinVersion: 4.1.2222,4.0.1381sp6
-
-; Needed library (Qt4 Debug):
-;Source: ..\..\..\Lib\qt43\bin\QtGuid4.dll; DestDir: {app}\library; Flags: ignoreversion uninsremovereadonly 32bit overwritereadonly replacesameversion; MinVersion: 4.1.2222,4.0.1381sp6
-;Source: ..\..\..\Lib\qt43\bin\QtCored4.dll; DestDir: {app}\library; Flags: ignoreversion uninsremovereadonly 32bit overwritereadonly replacesameversion; MinVersion: 4.1.2222,4.0.1381sp6
-;Source: ..\..\..\Lib\qt43\bin\QtNetworkd4.dll; DestDir: {app}\library; Flags: ignoreversion uninsremovereadonly 32bit overwritereadonly replacesameversion; MinVersion: 4.1.2222,4.0.1381sp6
-;Source: ..\..\..\Lib\qt43\bin\QtXmld4.dll; DestDir: {app}\library; Flags: ignoreversion uninsremovereadonly 32bit overwritereadonly replacesameversion; MinVersion: 4.1.2222,4.0.1381sp6
+Source: ..\..\..\Lib\qt432\bin\QtGui4.dll; DestDir: {app}; Flags: ignoreversion uninsremovereadonly 32bit overwritereadonly replacesameversion; MinVersion: 4.1.2222,4.0.1381sp6
+Source: ..\..\..\Lib\qt432\bin\QtCore4.dll; DestDir: {app}; Flags: ignoreversion uninsremovereadonly 32bit overwritereadonly replacesameversion; MinVersion: 4.1.2222,4.0.1381sp6
+Source: ..\..\..\Lib\qt432\bin\QtNetwork4.dll; DestDir: {app}; Flags: ignoreversion uninsremovereadonly 32bit overwritereadonly replacesameversion; MinVersion: 4.1.2222,4.0.1381sp6
+Source: ..\..\..\Lib\qt432\bin\QtXml4.dll; DestDir: {app}; Flags: ignoreversion uninsremovereadonly 32bit overwritereadonly replacesameversion; MinVersion: 4.1.2222,4.0.1381sp6
 
 ; Needed library (MS VC++ 2005 Release)
 Source: ..\..\msvc\msvcm80.dll; DestDir: {app}; Flags: ignoreversion uninsremovereadonly 32bit overwritereadonly replacesameversion; MinVersion: 4.1.2222,4.0.1381sp6
 Source: ..\..\msvc\msvcr80.dll; DestDir: {app}; Flags: ignoreversion uninsremovereadonly 32bit overwritereadonly replacesameversion; MinVersion: 4.1.2222,4.0.1381sp6
 Source: ..\..\msvc\msvcp80.dll; DestDir: {app}; Flags: ignoreversion uninsremovereadonly 32bit overwritereadonly replacesameversion; MinVersion: 4.1.2222,4.0.1381sp6
 Source: ..\..\msvc\Microsoft.VC80.CRT.manifest; DestDir: {app}; Flags: ignoreversion uninsremovereadonly 32bit overwritereadonly replacesameversion; MinVersion: 4.1.2222,4.0.1381sp6
-
-; Needed library (MS VC++ 2005 Debug)
-;Source: ..\..\msvc\msvcm80d.dll; DestDir: {app}\library; Flags: ignoreversion uninsremovereadonly 32bit overwritereadonly replacesameversion; MinVersion: 4.1.2222,4.0.1381sp6
-;Source: ..\..\msvc\msvcr80d.dll; DestDir: {app}\library; Flags: ignoreversion uninsremovereadonly 32bit overwritereadonly replacesameversion; MinVersion: 4.1.2222,4.0.1381sp6
-;Source: ..\..\msvc\msvcp80d.dll; DestDir: {app}\library; Flags: ignoreversion uninsremovereadonly 32bit overwritereadonly replacesameversion; MinVersion: 4.1.2222,4.0.1381sp6
-;Source: ..\..\msvc\msvcm80d.i386.pdb; DestDir: {app}\library; Flags: ignoreversion uninsremovereadonly 32bit overwritereadonly replacesameversion; MinVersion: 4.1.2222,4.0.1381sp6
-;Source: ..\..\msvc\msvcr80d.i386.pdb; DestDir: {app}\library; Flags: ignoreversion uninsremovereadonly 32bit overwritereadonly replacesameversion; MinVersion: 4.1.2222,4.0.1381sp6
-;Source: ..\..\msvc\msvcp80d.i386.pdb; DestDir: {app}\library; Flags: ignoreversion uninsremovereadonly 32bit overwritereadonly replacesameversion; MinVersion: 4.1.2222,4.0.1381sp6
 
 [INI]
 Filename: {app}\{#MyAppUrlName}; Section: InternetShortcut; Key: URL; String: {#MyAppURL}; Flags: createkeyifdoesntexist; MinVersion: 4.1.2222,4.0.1381sp6
