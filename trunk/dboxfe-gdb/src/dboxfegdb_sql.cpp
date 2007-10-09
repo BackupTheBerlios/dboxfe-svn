@@ -332,8 +332,8 @@ bool GameDatabaseSql::updateDosBoxGameList( const QMap<QString, QMap< QString, Q
 			pBar->update();
 
 			x = x + 1;
-			++gameIt;
 		}
+		++gameIt;
 	}
 
 	lbl->setText( "Status: finish" );
@@ -491,6 +491,11 @@ bool GameDatabaseSql::insertGames( const QString &name, const QString &version, 
 
 	if( executable.isNull() || executable.isEmpty() )
 		return false;
+
+	if( !isOpen() )
+	{
+		createConnection( sqlDatabase );
+	}
 
 	if( !isOpen() )
 		return false;

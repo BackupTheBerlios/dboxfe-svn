@@ -32,7 +32,7 @@ GameDosBoxDialog::GameDosBoxDialog( QDialog *parent, Qt::WFlags flags ) : QDialo
 	XMLPreferences xmlPreferences( "DBoxFE - GDB", "Alexander Saal" );
 	xmlPreferences.load( QDir::homePath() + "/.dboxfe-gdb/dboxfegdb.xml" );
 
-	QString database = xmlPreferences.getString( "Database", "DatabaseFile" );	
+	database = xmlPreferences.getString( "Database", "DatabaseFile" );	
 
 	gd_sql->createConnection( database );
 
@@ -79,10 +79,24 @@ void GameDosBoxDialog::comboBoxDosboxVersionCurrentIndexChanged( const QString &
 
 void GameDosBoxDialog::treeWidgetDosboxGamesItemClicked( QTreeWidgetItem *item, int col )
 {
+	treeWidgetDosboxGames->setSelectionMode( QAbstractItemView::SingleSelection );
+
+	if( col == 0 )
+	{
+		for( int a = 0; a < treeWidgetDosboxGames->topLevelItemCount(); a++ )
+		{
+			qApp->processEvents();
+			treeWidgetDosboxGames->topLevelItem( a )->setSelected( false );
+		}
+
+		lineEditGames->setText( item->text( col ) );
+	}
 }
 
 void GameDosBoxDialog::lineEditSearchTextChanged( const QString &txt )
 {
+	treeWidgetDosboxGames->setSelectionMode( QAbstractItemView::MultiSelection );
+
 	if( comboBoxSearch->currentIndex() <= -1 )
 	{
 		QMessageBox::information( this, "Gamedatabase", tr("Please select a column for search.") );
@@ -129,9 +143,10 @@ void GameDosBoxDialog::getDosboxVersion()
 
 void GameDosBoxDialog::select()
 {
+	QDialog::accept();
 }
 
 void GameDosBoxDialog::cancel()
 {
-	close();
+	QDialog::reject();
 }

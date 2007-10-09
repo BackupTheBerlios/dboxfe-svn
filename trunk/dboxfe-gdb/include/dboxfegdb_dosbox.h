@@ -46,6 +46,7 @@ class GameDosBoxDialog : public QDialog, public Ui::DosboxGamesDialog
 
 	private:
 		GameDatabaseSql *gd_sql;
+		QString database;
 		QStringList dosboxVersionList;
 };
 

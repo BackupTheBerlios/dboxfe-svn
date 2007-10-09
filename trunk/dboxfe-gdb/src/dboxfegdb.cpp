@@ -50,23 +50,13 @@ GameDatabaseDialog::GameDatabaseDialog( QDialog *parent, Qt::WFlags flags ) : QD
 
 	connect( treeWidgetGames, SIGNAL ( itemClicked( QTreeWidgetItem *, int ) ), this, SLOT ( treeWidgetGameItemClicked( QTreeWidgetItem *, int ) ) );
 
-#ifdef Q_OS_MACX
-	QApplication::setStyle ( "plastique" );
-#endif
-
-#ifdef Q_OS_MAC9
-	QApplication::setStyle ( "plastique" );
-#endif
-
-#ifdef Q_OS_UNIX
-	QApplication::setStyle ( "plastique" );
-#endif
-
 	QDesktopWidget *desktop = qApp->desktop();
 	const QRect rect = desktop->availableGeometry ( desktop->primaryScreen() );
 	int left = ( rect.width() - width() ) / 2;
 	int top = ( rect.height() - height() ) / 2;
 	setGeometry ( left, top, width(), height() );
+
+	gameName = QString( "" );
 
 	gd_sql->selectGames( treeWidgetGames );
 
@@ -74,17 +64,12 @@ GameDatabaseDialog::GameDatabaseDialog( QDialog *parent, Qt::WFlags flags ) : QD
 
 	QStringList dosboxVersionList = gd_sql->selectDosBoxVersion();
 	if( dosboxVersionList.isEmpty() || dosboxVersionList.size() <= 0 )
-	{
-		QMessageBox::critical( this, tr( "Gamedatabase" ), tr( "No dosbox version in the database." ) );
 		return;
-	}
 
 	for( int i = 0; i < dosboxVersionList.size(); i++ )
 	{
 		comboBoxDosboxVersion->addItem( dosboxVersionList.value( i ) );
 	}
-
-	gameName = QString( "" );
 }
 
 GameDatabaseDialog::~GameDatabaseDialog()
@@ -102,7 +87,7 @@ void GameDatabaseDialog::closeEvent ( QCloseEvent *e )
 void GameDatabaseDialog::treeWidgetGameItemClicked( QTreeWidgetItem *item, int column )
 {
 	int col = column;
-	gameName = item->text( 0 ); // Game name
+	gameName = item->text( 0 );
 }
 
 void GameDatabaseDialog::addGame()
@@ -120,9 +105,6 @@ void GameDatabaseDialog::addGame()
 
 void GameDatabaseDialog::updateGame()
 {
-	GameDatabaseAssistant *gd_a = new GameDatabaseAssistant( 0 );
-	gd_a->exec();
-	return;
 	if( checkStatus() )
 	{
 		QString gName = lineEditGame->text();
@@ -151,6 +133,7 @@ void GameDatabaseDialog::chooseGame()
 	if( gd_dosbox->exec() == QDialog::Accepted )
 	{
 		QString gName = gd_dosbox->lineEditGames->text();
+		lineEditGame->setText( gName );
 
 	}
 }
