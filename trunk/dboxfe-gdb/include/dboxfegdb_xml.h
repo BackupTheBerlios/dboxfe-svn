@@ -128,7 +128,6 @@ class GameDatabaseXml : public QObject
 		
 	private:
 		XMLPreferences getPreferenceInstance();
-		QDomNode getDocument( const QString &xml );
 
 		QMap<QString, QMap<QString, QString> > gameDosBoxList;
 		QMap<QString, QString> attributes;

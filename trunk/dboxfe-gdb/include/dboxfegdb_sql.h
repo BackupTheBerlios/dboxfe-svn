@@ -130,7 +130,6 @@ class GameDatabaseSql : public QObject
 		void selectGames( QTreeWidget *qtw );
 
 	private:
-		bool updateDosBoxGameList( const QMap<QString, QMap< QString, QString> > &list, QProgressBar *pBar = 0, QLabel *lbl = 0 );
 		bool isOpen();
 
 		QMap< QString, QMap< QString, QString> > gameDosBoxList;

@@ -33,9 +33,18 @@ GameDatabaseXml::~GameDatabaseXml()
 
 QMap< QString, QMap<QString, QString> > GameDatabaseXml::parseDosBoxGameXml( const QString &xml )
 {
-	QDomNode item = getDocument( xml );
-	if( item.isNull() )
+	QFile file( xml );
+
+	if ( !file.open( QIODevice::ReadOnly ) )
 		return gameDosBoxList;
+
+	xmlFile = xml;
+
+	QDomDocument doc;
+
+	doc.setContent( &file );
+	file.close();
+	QDomNode item = doc.documentElement().firstChild();
 
 	gameDosBoxList.clear();
 	attributes.clear();
@@ -89,9 +98,18 @@ QMap< QString, QMap<QString, QString> > GameDatabaseXml::parseDosBoxGameXml( con
 
 QStringList GameDatabaseXml::getDosBoxVersion( const QString &xml )
 {
-	QDomNode item = getDocument( xml );
-	if( item.isNull() )
+	QFile file( xml );
+
+	if ( !file.open( QIODevice::ReadOnly ) )
 		return dosboxVersionList;
+
+	xmlFile = xml;
+
+	QDomDocument doc;
+
+	doc.setContent( &file );
+	file.close();
+	QDomNode item = doc.documentElement().firstChild();
 
 	dosboxVersionList.clear();
 
@@ -248,9 +266,18 @@ void GameDatabaseXml::save( const QString &xml )
 
 bool GameDatabaseXml::checkDosBoxGameXml( const QString &xml )
 {
-	QDomNode item = getDocument( xml );
-	if( item.isNull() )
+	QFile file( xml );
+
+	if ( !file.open( QIODevice::ReadOnly ) )
 		return false;
+
+	xmlFile = xml;
+
+	QDomDocument doc;
+
+	doc.setContent( &file );
+	file.close();
+	QDomNode item = doc.documentElement().firstChild();
 
 	while ( !item.isNull() )
 	{
@@ -271,22 +298,4 @@ XMLPreferences GameDatabaseXml::getPreferenceInstance()
 	XMLPreferences xmlPreferences( "DBoxFE", "Alexander Saal" );
 	xmlPreferences.setVersion( "v0.1.3" );
 	return xmlPreferences;
-}
-
-QDomNode GameDatabaseXml::getDocument( const QString &xml )
-{
-	QFile file( xml );
-
-	if ( !file.open( QIODevice::ReadOnly ) )
-		return QDomNode();
-
-	xmlFile = xml;
-
-	QDomDocument doc;
-
-	doc.setContent( &file );
-	file.close();
-	QDomNode item = doc.documentElement().firstChild();
-
-	return item;
 }

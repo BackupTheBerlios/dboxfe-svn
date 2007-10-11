@@ -17,6 +17,7 @@
 */
 
 #include "dboxfegdb_sql.h"
+#include "dboxfegdb_xml.h"
 
 #include "XMLPreferences.h"
 
@@ -132,6 +133,59 @@ bool GameDatabaseSql::importDosBoxGameList( const QMap< QString, QMap< QString, 
 	if( !query.isActive() )
 		qWarning() << "Failed to delete entities from dosboxinformation table:\t>> " << query.lastError().text() << " <<";
 
+	// TODO Insert dosbox versions into database - START
+	QString gameXML =  QDir::homePath() + "/.dboxfe-gdb/game_database.xml";
+
+	GameDatabaseXml *gd_xml = new GameDatabaseXml( this );
+	QStringList gameVersionsList = gd_xml->getDosBoxVersion( gameXML );
+
+	for( int i = 0; i < gameVersionsList.size(); i++ ) {
+		_id = QUuid::createUuid().toString();
+
+		sqlQuery.clear();
+		sqlQuery = "";
+		sqlQuery += "INSERT INTO DOSBOX\n";
+		sqlQuery += "(\n";
+		sqlQuery += "\tID,\n";
+		sqlQuery += "\tVERSION\n";
+		sqlQuery += ")\n";
+		sqlQuery += "VALUES\n";
+		sqlQuery += "(\n";
+		sqlQuery += "\t'" + _id + "',\n";
+		sqlQuery += "\t'" + gameVersionsList.value( i ).replace( "'", "''" ) + "'\n";
+		sqlQuery += ");";
+
+		query.exec( "SELECT VERSION FROM DOSBOX WHERE VERSION = '" + gameVersionsList.value( i ) + "';" );
+		if( query.isActive() )
+		{
+			while( query.next() )
+			{
+				if( !query.value( 0 ).toString().isEmpty() )
+				{
+					qWarning() << "Warrning: dosbox version now availabel:\t>> " << gameVersionsList.value( i ).replace( "'", "''" ) << " <<";
+					goto next;
+				}
+				else
+				{
+					query.exec( sqlQuery );
+					if( !query.isActive() )
+						qWarning() << "Failed to import dosbox information into dosbox table:\t>> " << query.lastError().text() << " <<";
+				}
+			}
+		}
+		query.exec( sqlQuery );
+		if( !query.isActive() )
+			qWarning() << "Failed to import dosbox information into dosbox table:\t>> " << query.lastError().text() << " <<";
+		continue;
+next:
+		;
+	}
+
+	gd_xml = 0;
+	delete gd_xml;
+
+	// TODO Insert dosbox versions into database - ENDE
+
 	QMap< QString, QMap< QString, QString> >::const_iterator gameIt = gameDosBoxList.begin();
 	while( gameIt != gameDosBoxList.end() ) {
 		qApp->processEvents();
@@ -140,7 +194,7 @@ bool GameDatabaseSql::importDosBoxGameList( const QMap< QString, QMap< QString, 
 		if( !_title.isNull() || !_title.isEmpty() )
 		{
 			QMap< QString, QString>::const_iterator valueIt = gameIt.value().begin();
-			_id = QUuid::createUuid().toString();	
+			_id = QUuid::createUuid().toString();
 
 			while( valueIt != gameIt.value().end() )
 			{
@@ -153,23 +207,14 @@ bool GameDatabaseSql::importDosBoxGameList( const QMap< QString, QMap< QString, 
 				if( valueIt.key() == "comp_percent" )
 					_comp_percent = valueIt.value();
 				if( valueIt.key() == "version" )
-					_version = valueIt.value();	
+					_version = valueIt.value();
 
 				++valueIt;
 			}
 
-			sqlQuery.clear();
-			sqlQuery = "";
-			sqlQuery += "INSERT INTO DOSBOX\n";
-			sqlQuery += "(\n";
-			sqlQuery += "\tID,\n";
-			sqlQuery += "\tVERSION\n";
-			sqlQuery += ")\n";
-			sqlQuery += "VALUES\n";
-			sqlQuery += "(\n";
-			sqlQuery += "\t'" + _id + "',\n";
-			sqlQuery += "\t'" + _version.replace( "'", "''" ) + "'\n";
-			sqlQuery += ");";
+			// TODO add here code for select dosoxversions id and add at this time the game to database .....
+			// ...
+			// TODO add here code for select dosoxversions id and add at this time the game to database .....
 
 			query.exec( sqlQuery );
 			if( !query.isActive() )
@@ -214,104 +259,6 @@ bool GameDatabaseSql::importDosBoxGameList( const QMap< QString, QMap< QString, 
 		pBar->update();
 
 		x = x + 1;
-		++gameIt;
-	}
-
-	lbl->setText( "Status: finish" );
-	lbl->repaint();
-	lbl->update();
-
-	pBar->setValue( 100 );
-	pBar->repaint();
-	pBar->update();
-
-	return true;
-}
-
-bool GameDatabaseSql::updateDosBoxGameList( const QMap<QString, QMap< QString, QString> > &list, QProgressBar *pBar, QLabel *lbl )
-{
-	if( !isOpen() )
-		return false;
-
-	gameDosBoxList = list;
-
-	QSqlQuery query( gamedb );
-	QString sqlQuery;
-	QString id;
-	int x = 0;
-
-	pBar->setMaximum( list.size() );
-
-	QMap< QString, QMap< QString, QString> >::const_iterator gameIt = gameDosBoxList.begin();
-	while( gameIt != gameDosBoxList.end() ) {
-		qApp->processEvents();
-		_title = gameIt.key();
-		query.exec( "SELECT D.ID FROM DOSBOX D JOIN DOSBOXINFO DI ON D.ID = DI.ID WHERE DI.TITLE = '" + _title.replace( "'", "''" ) + "';" );
-		if( query.isActive() )
-		{
-			QMap< QString, QString>::const_iterator valueIt = gameIt.value().begin();
-
-			while( valueIt != gameIt.value().end() )
-			{
-				qApp->processEvents();	
-				if( valueIt.key() == "year" )
-					_year = valueIt.value();
-				if( valueIt.key() == "sw_house" )
-					_sw_house = valueIt.value();
-				if( valueIt.key() == "link" )
-					_link = valueIt.value();
-				if( valueIt.key() == "comp_percent" )
-					_comp_percent = valueIt.value();
-				if( valueIt.key() == "version" )
-					_version = valueIt.value();	
-
-				++valueIt;
-			}
-
-			// FIXME change this code .... if this not function :D
-			while( query.next() )
-				id = query.value( 0 ).toString(); // DOSBox ID
-
-			query.exec( "SELECT TITLE, YEAR, SW_HOUSE, LINK, COMP_PERSENT FROM DOSBOXINFO WHERE ID = '" + id + "';" );
-			if( query.isActive() )
-			{
-				while( query.next() )
-				{
-					qApp->processEvents();	
-					if( _title != query.value( 0 ).toString() || /* TITLE */
-						_year != query.value( 1 ).toString() || /* YEAR */ 
-						_sw_house != query.value( 2 ).toString() || /* SW_HOUSE */
-						_link != query.value( 3 ).toString() || /* LINK */
-						_comp_percent != query.value( 4 ).toString() /* COMP_PERSENT */ )
-					{
-						sqlQuery.clear();
-						sqlQuery = "";
-						sqlQuery += "UPDATE DOSBOXINFO\n";
-						sqlQuery += "SET\tTITLE = '" + _title.replace( "'", "''" ) + "',\n";
-						sqlQuery += "\tYEAR = '" + _year.replace( "'", "''" ) + "',\n";
-						sqlQuery += "\tSW_HOUSE = '" + _sw_house.replace( "'", "''" ) + "',\n";
-						sqlQuery += "\tLINK = '" + _link.replace( "'", "''" ) + "',\n";
-						sqlQuery += "\tCOMP_PERSENT = '" + _comp_percent.replace( "'", "''" ) + "'\n";
-						sqlQuery += "WHERE\n";
-						sqlQuery += "\tID = '" + id + "';";
-						query.exec( sqlQuery );
-						if( !query.isActive() )
-							qWarning() << "Failed to update information on dosboxinfo table:\t>> " << query.lastError().text() << " << -- >> " << _title << " <<" ;
-					}
-				}
-			}
-
-			lbl->setText( "" );
-			lbl->setText( "Status: " + _title );
-			lbl->repaint();
-			lbl->update();
-
-			pBar->setValue( x );
-			pBar->repaint();
-			pBar->update();
-
-			x = x + 1;
-		}
 		++gameIt;
 	}
 
