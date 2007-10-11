@@ -54,6 +54,13 @@ class GameDatabaseXml : public QObject
 		QMap< QString, QMap<QString, QString> > parseDosBoxGameXml( const QString &xml );
 
 		/**
+		 * Parse dboxfe game xml file and return dosbox version in a QStringList
+		 * @param xml the DOSBox game xml file
+		 * @return a QStringList with all version of dosbox
+		 */
+		QStringList getDosBoxVersion( const QString &xml );
+
+		/**
 		 * Parse dboxfe game xml file
 		 * @param xml the DBoxFE game xml file
 		 * @return a QStringList with all games
@@ -110,7 +117,7 @@ class GameDatabaseXml : public QObject
 		 * @return true, if the xml a dosbox game xml
 		 */
 		bool checkDosBoxGameXml( const QString &xml );
-		
+
 	public slots:
 		
 		/**
@@ -121,10 +128,12 @@ class GameDatabaseXml : public QObject
 		
 	private:
 		XMLPreferences getPreferenceInstance();
+		QDomNode getDocument( const QString &xml );
 
-		QMap<QString, QMap< QString, QString> > gameDosBoxList;
+		QMap<QString, QMap<QString, QString> > gameDosBoxList;
 		QMap<QString, QString> attributes;
 
+		QStringList dosboxVersionList;
 		QStringList gameList;
 		QStringList gameTemplateList;
 		QStringList attribute;

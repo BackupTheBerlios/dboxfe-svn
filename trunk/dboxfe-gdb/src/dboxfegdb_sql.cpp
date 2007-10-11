@@ -124,34 +124,13 @@ bool GameDatabaseSql::importDosBoxGameList( const QMap< QString, QMap< QString, 
 
 	pBar->setMaximum( list.size() );
 
-	QMap< QString, QMap< QString, QString> >::const_iterator gameIt_tmp = gameDosBoxList.begin();
-	while( gameIt_tmp != gameDosBoxList.end() ) {
-		qApp->processEvents();
-		_title = gameIt_tmp.key();
-		
-		sqlQuery.clear();
-		sqlQuery = "";
-		sqlQuery += "SELECT D.VERSION, DI.TITLE\n";
-		sqlQuery += "FROM DOSBOXINFO DI\n";
-		sqlQuery += "JOIN DOSBOX D ON DI.ID = D.ID\n";
-		sqlQuery += "WHERE DI.TITLE = '" + _title.replace( "'", "''" ) + "';";
+	query.exec( "DELETE FROM DOSBOX;" );
+	if( !query.isActive() )
+		qWarning() << "Failed to delete entities from dosbox table:\t>> " << query.lastError().text() << " <<";
 
-		query.exec( sqlQuery );
-		if( query.isActive() )
-		{
-			while( query.next() )
-			{
-				if( !query.value( 1 ).toString().isNull() || !query.value( 1 ).toString().isEmpty() )
-				{
-					updateDosBoxGameList( list, pBar, lbl );
-					return true;
-				}
-			}			
-		}
-		++gameIt_tmp;
-	}
-
-	gameIt_tmp = 0;
+	query.exec( "DELETE FROM DOSBOXINFO;" );
+	if( !query.isActive() )
+		qWarning() << "Failed to delete entities from dosboxinformation table:\t>> " << query.lastError().text() << " <<";
 
 	QMap< QString, QMap< QString, QString> >::const_iterator gameIt = gameDosBoxList.begin();
 	while( gameIt != gameDosBoxList.end() ) {

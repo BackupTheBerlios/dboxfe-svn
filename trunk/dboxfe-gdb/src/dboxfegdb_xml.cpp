@@ -33,18 +33,9 @@ GameDatabaseXml::~GameDatabaseXml()
 
 QMap< QString, QMap<QString, QString> > GameDatabaseXml::parseDosBoxGameXml( const QString &xml )
 {
-	QFile file( xml );
-
-	if ( !file.open( QIODevice::ReadOnly ) )
+	QDomNode item = getDocument( xml );
+	if( item.isNull() )
 		return gameDosBoxList;
-
-	xmlFile = xml;
-
-	QDomDocument doc;
-
-	doc.setContent( &file );
-	file.close();
-	QDomNode item = doc.documentElement().firstChild();
 
 	gameDosBoxList.clear();
 	attributes.clear();
@@ -79,11 +70,11 @@ QMap< QString, QMap<QString, QString> > GameDatabaseXml::parseDosBoxGameXml( con
 					{
 						if ( attrib.toElement().tagName() == "info" )
 						{
-							attributes.insert( "version", attrib.toElement().attribute( "version" ) );
+							attributes.insert( "version", attrib.toElement().attribute( "comp_percent" ) );
 							attributes.insert( "comp_percent", attrib.toElement().attribute( "comp_percent" ) );
 						}
-						attrib = attrib.nextSibling();	
-					}				
+						attrib = attrib.nextSibling();
+					}
 				}
 				subitem = subitem.nextSibling();
 			}
@@ -94,6 +85,42 @@ QMap< QString, QMap<QString, QString> > GameDatabaseXml::parseDosBoxGameXml( con
 	}
 
 	return gameDosBoxList;
+}
+
+QStringList GameDatabaseXml::getDosBoxVersion( const QString &xml )
+{
+	QDomNode item = getDocument( xml );
+	if( item.isNull() )
+		return dosboxVersionList;
+
+	dosboxVersionList.clear();
+
+	while ( !item.isNull() )
+	{
+		if ( item.isElement() && item.nodeName() == "game" )
+		{
+			QDomNode subitem = item.toElement().firstChild();
+			while ( !subitem.isNull() )
+			{
+				if ( subitem.toElement().tagName() == "dosbox" )
+				{
+					QDomNode attrib = subitem.toElement().firstChild();
+					while ( !attrib.isNull() )
+					{
+						if ( attrib.toElement().tagName() == "info" )
+						{
+							dosboxVersionList.append( attrib.toElement().attribute( "version" ) );
+						}
+						attrib = attrib.nextSibling();
+					}
+				}
+				subitem = subitem.nextSibling();
+			}
+		}
+		item = item.nextSibling();
+	}
+
+	return dosboxVersionList;
 }
 
 QStringList GameDatabaseXml::parseGameXml( const QString &xml )
@@ -221,16 +248,9 @@ void GameDatabaseXml::save( const QString &xml )
 
 bool GameDatabaseXml::checkDosBoxGameXml( const QString &xml )
 {
-	QFile file( xml );
-
-	if ( !file.open( QIODevice::ReadOnly ) )
+	QDomNode item = getDocument( xml );
+	if( item.isNull() )
 		return false;
-
-	QDomDocument doc;
-
-	doc.setContent( &file );
-	file.close();
-	QDomNode item = doc.documentElement().firstChild();
 
 	while ( !item.isNull() )
 	{
@@ -251,4 +271,22 @@ XMLPreferences GameDatabaseXml::getPreferenceInstance()
 	XMLPreferences xmlPreferences( "DBoxFE", "Alexander Saal" );
 	xmlPreferences.setVersion( "v0.1.3" );
 	return xmlPreferences;
+}
+
+QDomNode GameDatabaseXml::getDocument( const QString &xml )
+{
+	QFile file( xml );
+
+	if ( !file.open( QIODevice::ReadOnly ) )
+		return QDomNode();
+
+	xmlFile = xml;
+
+	QDomDocument doc;
+
+	doc.setContent( &file );
+	file.close();
+	QDomNode item = doc.documentElement().firstChild();
+
+	return item;
 }
