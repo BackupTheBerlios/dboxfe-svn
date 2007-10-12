@@ -111,12 +111,13 @@ bool GameDatabaseSql::createDatabase( const QString &name )
 	return true;
 }
 
-bool GameDatabaseSql::importDosBoxGameList( const QMap< QString, QMap< QString, QString> > &list, QProgressBar *pBar, QLabel *lbl )
+bool GameDatabaseSql::importDosBoxGameList( const QMap< QString, QMap< QString, QStringList> > &list, QProgressBar *pBar, QLabel *lbl )
 {
 	if( !isOpen() )
 		return false;
 
 	gameDosBoxList = list;
+	gameDosBoxList.setInsertInOrder( false );
 
 	QSqlQuery query( gamedb );
 	QString sqlQuery;
@@ -139,7 +140,11 @@ bool GameDatabaseSql::importDosBoxGameList( const QMap< QString, QMap< QString, 
 	GameDatabaseXml *gd_xml = new GameDatabaseXml( this );
 	QStringList gameVersionsList = gd_xml->getDosBoxVersion( gameXML );
 
+	pBar->setMaximum( gameVersionsList.size() );
+
 	for( int i = 0; i < gameVersionsList.size(); i++ ) {
+		qApp->processEvents();
+
 		_id = QUuid::createUuid().toString();
 
 		sqlQuery.clear();
@@ -160,94 +165,116 @@ bool GameDatabaseSql::importDosBoxGameList( const QMap< QString, QMap< QString, 
 		{
 			while( query.next() )
 			{
+				qApp->processEvents();
+
 				if( !query.value( 0 ).toString().isEmpty() )
 				{
-					qWarning() << "Warrning: dosbox version now availabel:\t>> " << gameVersionsList.value( i ).replace( "'", "''" ) << " <<";
 					goto next;
 				}
 				else
 				{
 					query.exec( sqlQuery );
 					if( !query.isActive() )
-						qWarning() << "Failed to import dosbox information into dosbox table:\t>> " << query.lastError().text() << " <<";
+						qWarning() << "Failed to import dosbox version into dosbox table:\t>> " << query.lastError().text() << " <<";
 				}
 			}
 		}
 		query.exec( sqlQuery );
 		if( !query.isActive() )
 			qWarning() << "Failed to import dosbox information into dosbox table:\t>> " << query.lastError().text() << " <<";
+		
+
+		lbl->setText( "" );
+		lbl->setText( "Status: " + gameVersionsList.value( i ).replace( "'", "''" ) );
+		lbl->repaint();
+		lbl->update();
+
+		pBar->setValue( x );
+		pBar->repaint();
+		pBar->update();
+
+		x = x + 1;
+
 		continue;
 next:
 		;
 	}
 
+	lbl->setText( "" );
+	lbl->setText( "Status:" );
+	pBar->setValue( 0 );
+	x = 0;
+
 	gd_xml = 0;
 	delete gd_xml;
 
-	// TODO Insert dosbox versions into database - ENDE
-
-	QMap< QString, QMap< QString, QString> >::const_iterator gameIt = gameDosBoxList.begin();
+	// TODO Insert dosboxgames into the database
+	bool first = true;
+	QMap< QString, QMap< QString, QStringList> >::const_iterator gameIt = gameDosBoxList.begin();
 	while( gameIt != gameDosBoxList.end() ) {
 		qApp->processEvents();
+
+		_id = QUuid::createUuid().toString();
 		_title = gameIt.key();
 
-		if( !_title.isNull() || !_title.isEmpty() )
+		QMap< QString, QStringList>::const_iterator valueIt = gameIt.value().begin();
+		while( valueIt != gameIt.value().end() )
 		{
-			QMap< QString, QString>::const_iterator valueIt = gameIt.value().begin();
-			_id = QUuid::createUuid().toString();
-
-			while( valueIt != gameIt.value().end() )
+			qDebug() << valueIt.key();
+			if( valueIt.key() == "link" )
+				_link = valueIt.value().value(0);
+			else if( valueIt.key() == "sw_house" )
+				_sw_house = valueIt.value().value(0);
+			else if( valueIt.key() == "year" )
+				_year = valueIt.value().value(0);
+			else if( valueIt.key() == "version" )
 			{
-				if( valueIt.key() == "year" )
-					_year = valueIt.value();
-				if( valueIt.key() == "sw_house" )
-					_sw_house = valueIt.value();
-				if( valueIt.key() == "link" )
-					_link = valueIt.value();
-				if( valueIt.key() == "comp_percent" )
-					_comp_percent = valueIt.value();
-				if( valueIt.key() == "version" )
-					_version = valueIt.value();
+				if( valueIt.value().size() >= 1 )
+				{
+					for( int i = 0; i < valueIt.value().size(); i++ )
+					{
+						_version = valueIt.value().value( i ).split( ";" ).value( 0 );
+						_comp_percent = valueIt.value().value( i ).split( ";" ).value( 1 );
 
-				++valueIt;
+						if( _year.isNull() || _year.isEmpty() )
+						{
+							++valueIt;
+							_year = valueIt.value().value(0);
+							--valueIt;
+						}
+
+						sqlQuery.clear();
+						sqlQuery = "";
+						sqlQuery += "INSERT INTO DOSBOXINFO\n";
+						sqlQuery += "(\n";
+						sqlQuery += "\tID,\n";
+						sqlQuery += "\tVERSION,\n";
+						sqlQuery += "\tTITLE,\n";
+						sqlQuery += "\tYEAR,\n";
+						sqlQuery += "\tSW_HOUSE,\n";
+						sqlQuery += "\tLINK,\n";
+						sqlQuery += "\tCOMP_PERSENT\n";
+						sqlQuery += ")\n";
+						sqlQuery += "VALUES\n";
+						sqlQuery += "(\n";
+						sqlQuery += "\t'" + _id + "',\n";
+						sqlQuery += "\t'" + _version.replace( "'", "''" ) + "',\n";
+						sqlQuery += "\t'" + _title.replace( "'", "''" ) + "',\n";
+						sqlQuery += "\t'" + _year.replace( "'", "''" ) + "',\n";
+						sqlQuery += "\t'" + _sw_house.replace( "'", "''" ) + "',\n";
+						sqlQuery += "\t'" + _link.replace( "'", "''" ) + "',\n";
+						sqlQuery += "\t'" + _comp_percent.replace( "'", "''" ) + "'\n";
+						sqlQuery += ");";
+
+						query.exec( sqlQuery );
+						if( !query.isActive() )
+							qWarning() << "Failed to import dosbox information into dosboxinformation table:\t>> " << query.lastError().text() << " <<";
+					}
+				}
 			}
 
-			// TODO add here code for select dosoxversions id and add at this time the game to database .....
-			// ...
-			// TODO add here code for select dosoxversions id and add at this time the game to database .....
-
-			query.exec( sqlQuery );
-			if( !query.isActive() )
-				qWarning() << "Failed to import dosbox information into dosbox table:\t>> " << query.lastError().text() << " <<";
-
-			sqlQuery.clear();
-			sqlQuery = "";
-			sqlQuery += "INSERT INTO DOSBOXINFO\n";
-			sqlQuery += "(\n";
-			sqlQuery += "\tID,\n";
-			sqlQuery += "\tTITLE,\n";
-			sqlQuery += "\tYEAR,\n";
-			sqlQuery += "\tSW_HOUSE,\n";
-			sqlQuery += "\tLINK,\n";
-			sqlQuery += "\tCOMP_PERSENT\n";
-			sqlQuery += ")\n";
-			sqlQuery += "VALUES\n";
-			sqlQuery += "(\n";
-			sqlQuery += "\t'" + _id + "',\n";
-			sqlQuery += "\t'" + _title.replace( "'", "''" ) + "',\n";
-			sqlQuery += "\t'" + _year.replace( "'", "''" ) + "',\n";
-			sqlQuery += "\t'" + _sw_house.replace( "'", "''" ) + "',\n";
-			sqlQuery += "\t'" + _link.replace( "'", "''" ) + "',\n";
-			sqlQuery += "\t'" + _comp_percent.replace( "'", "''" ) + "'\n";
-			sqlQuery += ");";
-
-			query.exec( sqlQuery );
-			if( !query.isActive() )
-				qWarning() << "Failed to import dosbox information into dosboxinformation table:\t>> " << query.lastError().text() << " <<";
+			++valueIt;
 		}
-		else
-			qWarning() << "Failed to import dosbox information: >> no title available <<";
-
 
 		lbl->setText( "" );
 		lbl->setText( "Status: " + _title );

@@ -31,7 +31,7 @@ GameDatabaseXml::GameDatabaseXml( QObject *parent ) : QObject( parent )
 GameDatabaseXml::~GameDatabaseXml()
 {}
 
-QMap< QString, QMap<QString, QString> > GameDatabaseXml::parseDosBoxGameXml( const QString &xml )
+QMap< QString, QMap<QString, QStringList> > GameDatabaseXml::parseDosBoxGameXml( const QString &xml )
 {
 	QFile file( xml );
 
@@ -47,7 +47,10 @@ QMap< QString, QMap<QString, QString> > GameDatabaseXml::parseDosBoxGameXml( con
 	QDomNode item = doc.documentElement().firstChild();
 
 	gameDosBoxList.clear();
+	gameDosBoxList.setInsertInOrder( false );
+
 	attributes.clear();
+	attributes.setInsertInOrder( false );
 
 	while ( !item.isNull() )
 	{
@@ -62,15 +65,15 @@ QMap< QString, QMap<QString, QString> > GameDatabaseXml::parseDosBoxGameXml( con
 				}
 				else if ( subitem.toElement().tagName() == "year" )
 				{
-					attributes.insert( "year", subitem.toElement().text() );
+					attributes.insert( "year", QStringList() << subitem.toElement().text() );
 				}
 				else if ( subitem.toElement().tagName() == "sw_house" )
 				{
-					attributes.insert( "sw_house", subitem.toElement().text() );
+					attributes.insert( "sw_house", QStringList() << subitem.toElement().text() );
 				}
 				else if ( subitem.toElement().tagName() == "link" )
 				{
-					attributes.insert( "link", subitem.toElement().text() );
+					attributes.insert( "link", QStringList() << subitem.toElement().text() );
 				}
 				else if ( subitem.toElement().tagName() == "dosbox" )
 				{
@@ -79,11 +82,13 @@ QMap< QString, QMap<QString, QString> > GameDatabaseXml::parseDosBoxGameXml( con
 					{
 						if ( attrib.toElement().tagName() == "info" )
 						{
-							attributes.insert( "version", attrib.toElement().attribute( "comp_percent" ) );
-							attributes.insert( "comp_percent", attrib.toElement().attribute( "comp_percent" ) );
+							dosboxVersionList.append( attrib.toElement().attribute( "version" ) + ";" + attrib.toElement().attribute( "comp_percent" ) );
 						}
+
 						attrib = attrib.nextSibling();
 					}
+
+					attributes.insert( "version", dosboxVersionList );
 				}
 				subitem = subitem.nextSibling();
 			}

@@ -59,7 +59,7 @@ class GameDatabaseSql : public QObject
 		 * @param list the DOSBox games to import
 		 * @return true if import successfull
 		 */
-		bool importDosBoxGameList( const QMap<QString, QMap< QString, QString> > &list, QProgressBar *pBar = 0, QLabel *lbl = 0 );		
+		bool importDosBoxGameList( const QMap<QString, QMap< QString, QStringList> > &list, QProgressBar *pBar = 0, QLabel *lbl = 0 );		
 		bool checkReferencesOnDosBoxGames( const QMap<QString, QMap< QString, QString> > &list );
 
 		/**
@@ -132,7 +132,7 @@ class GameDatabaseSql : public QObject
 	private:
 		bool isOpen();
 
-		QMap< QString, QMap< QString, QString> > gameDosBoxList;
+		QMap< QString, QMap< QString, QStringList> > gameDosBoxList;
 		QStringList dosboxVersionList;
 		QStringList gameList;
 		QStringList exportGameList;

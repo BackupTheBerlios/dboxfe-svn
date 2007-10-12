@@ -60,7 +60,7 @@ class GameDatabaseAssistant : public QDialog, public Ui::GameDatabaseAssistantDi
 		QFile *m_file;
 		
 		QString fileNameDatabase, fileNameXml;
-		QMap< QString, QMap<QString, QString> > dosboxGameList;
+		QMap< QString, QMap<QString, QStringList> > dosboxGameList;
 
 		int httpGetId;
 		bool httpRequestAborted;
