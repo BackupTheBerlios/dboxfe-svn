@@ -22,6 +22,8 @@ echo *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
 echo ***************************************************************************
 echo.
 
+REM qmake -spec %QMAKESPEC% -t vcapp -o dboxfe.vcproj dboxfe.pro
+
 if "%QTDIR%" == "" (
 	echo Please set %%QTDIR%% to the Qt source directory.
 	goto ERROR

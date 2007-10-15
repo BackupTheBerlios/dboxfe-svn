@@ -355,19 +355,19 @@ bool GameDatabaseSql::exportGamesList( const QString &xml )
 	exportGameTemplateList.clear();
 
 	QSqlQuery query( gamedb );
-	query.exec( "SELECT NAME, EXEC FROM GAME;" );
+	query.exec( "SELECT G.NAME, D.VERSION, G.EXEC FROM GAME G JOIN DOSBOX D ON G.DB_ID = D.ID;" );
 	if( query.isActive() )
 	{
 		while( !query.next() )
 		{
-			exportGameList.append( query.value( 0 ).toString() + ";" + query.value( 1 ).toString() );
+			exportGameList.append( query.value( 0 ).toString() + ";" + query.value( 1 ).toString() + ";" + query.value( 2 ).toString() );
 		}
 	}
 
 	QString sqlQuery;
 	sqlQuery.clear();
 	sqlQuery = "";
-	sqlQuery += "SELECT G.NAME, GT.TEMPLATE\n";
+	sqlQuery += "SELECT G.NAME,GT.TEMPLATE\n";
 	sqlQuery += "FROM GAMETEMPLATE GT\n";
 	sqlQuery += "JOIN GAME G ON GT.ID = G.ID;";
 
@@ -453,9 +453,9 @@ bool GameDatabaseSql::insertGames( const QString &name, const QString &version, 
 	if( !isOpen() )
 		return false;
 
-	QString _id_dosbox = QString( "" );
-
 	QSqlQuery query( gamedb );
+
+	QString _id_dosbox = QString( "" );
 
 	// Select dosbox id form dosbox
 	query.exec( "SELECT ID FROM DOSBOX WHERE VERSION = '" + version + "';" );
@@ -469,11 +469,8 @@ bool GameDatabaseSql::insertGames( const QString &name, const QString &version, 
 	if( _id_dosbox.isNull() || _id_dosbox.isEmpty() )
 		return false;
 
-
-	QString _id_template = QString( "" );
-
 	// Select id from game template
-	query.exec( "SELECT ID FROM GAME WHERE ID = '" + templates + "';" );
+	query.exec( "SELECT ID FROM GAMETEMPLATES WHERE TEMPLATE = '" + templates + "';" );
 	if( query.isActive() )
 	{
 		while( query.next() )
@@ -481,7 +478,10 @@ bool GameDatabaseSql::insertGames( const QString &name, const QString &version, 
 	}
 
 	if( _id_template.isNull() || _id_template.isEmpty() )
-		return false;	
+		_id_template = QUuid::createUuid().toString();
+
+	QString _id = QString( "" );
+	_id = QUuid::createUuid().toString();
 
 	if( !templates.isNull() || !templates.isEmpty() )
 	{
@@ -489,17 +489,18 @@ bool GameDatabaseSql::insertGames( const QString &name, const QString &version, 
 		sqlQuery = "";
 		sqlQuery += "INSERT INTO GAME\n";
 		sqlQuery += "(\n";
-		sqlQuery += "\tNAME\n";
-		sqlQuery += "\tDB_ID\n";
-		sqlQuery += "\tNAME\n";
-		sqlQuery += "\tEXEC\n";
+		sqlQuery += "(\tID,";
+		sqlQuery += "\tNAME,\n";
+		sqlQuery += "\tDB_ID,\n";
+		sqlQuery += "\tEXEC,\n";
 		sqlQuery += "\tTEMPLATE\n";
 		sqlQuery += ")\n";
 		sqlQuery += "VALUES\n";
 		sqlQuery += "(\n";
-		sqlQuery += "\t" + name + "\n";
-		sqlQuery += "\t" + _id_dosbox + "\n";
-		sqlQuery += "\t" + executable + "\n";
+		sqlQuery += "(\t" + _id + ",\n";
+		sqlQuery += "\t" + name + ",\n";
+		sqlQuery += "\t" + _id_dosbox + ",\n";
+		sqlQuery += "\t" + executable + ",\n";
 		sqlQuery += "\t" + _id_template + "\n";
 		sqlQuery += ");\n";
 
