@@ -1,0 +1,158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title>DBoxFE - User Documentation</title>
+		<META NAME="Author" CONTENT="Alexander Saal">
+		<META NAME="Keywords" CONTENT="dboxfe, dboxfe documentation">
+		<META NAME="Description" CONTENT="DBoxFE - User documentation">
+
+		<script type="text/javascript" src="js/dhtml.js"></script>
+		<script type="text/javascript">					
+			function Menue () {
+			  if (typeof window.pageYOffset == "number") {
+				if (NS4) {
+				  getElement("id", "Nav").top = window.pageYOffset + 50;
+				} else {
+				  getElement("id", "Nav").style.top = window.pageYOffset + 50;
+				}
+			  } else {
+				if (typeof document.body.scrollTop == "number")
+				  getElement("id", "Nav").style.top = document.body.scrollTop + 50;
+			  }
+			  if (OP)
+				getElement("id", "NavLinks").style.pixelTop = NavLinksPos;
+			  if (NS4) {
+				getElement("id", "Nav").visibility = "show";
+			  } else {
+				getElement("id", "Nav").style.visibility = "visible";
+			  }
+			}
+
+			function noMenue () {
+			  if (NS4) {
+				getElement("id", "Nav").visibility = "hide";
+			  } else {
+				getElement("id", "Nav").style.visibility = "hidden";
+			  }
+			}
+
+			function handleMove (ev) {
+			  if (!ev)
+				ev = window.event;
+			  var mausposition = ev.pageX ? ev.pageX : ev.clientX;
+			  if (mausposition < 20) {
+				  Menue();
+			  } else {
+				if (mausposition > 250) {
+				  noMenue();
+				}
+			  }
+			}
+
+			function Event_init () {
+			  if (document.addEventListener) {
+				document.addEventListener("mousemove", handleMove, true);
+			  } else {
+				if (NS4) {
+				  document.captureEvents(Event.MOUSEMOVE);
+				  document.onmousemove = handleMove;
+				} else {
+				  document.body.onmousemove = handleMove;
+				}
+			  }
+			  if (OP) {
+				NavLinksPos = 42;
+				getElement("id", "NavLinks").style.pixelTop = NavLinksPos;
+			  }
+			}
+		</script>
+		
+		<style type="text/css">
+			body { color:black; background-color:white; background-image:url(img/navigation_back.gif); margin:0; padding:20px 50px; font-family:Tahoma,sans-serif; }
+			#Nav { position:absolute; top:50px; left:0; visibility:hidden; }
+			#NavLinks { position:absolute; top:42px; left:42px; }
+			#Nav a:link {color:#000080; font-weight:bold; font-size:13px; text-decoration:none; }
+			#Nav a:visited { color:#000080; font-weight:bold; font-size:13px; text-decoration:none; }
+			#Nav a:hover { color:#FFFFFF; background-color:#000080; font-weight:bold; font-size:13px; text-decoration:none; }
+			#Nav a:active { color:#000080; font-weight:bold; font-size:13px; text-decoration:none; }
+		</style>
+	</head>
+	
+	<body onload="Event_init()">
+
+		<div id="Nav">
+				<img src="img/navigation.gif" width="250" height="450" border="0" alt="">
+				<div id="NavLinks">
+					<a href="index.html">DBoxFE - User documentation</a><br><br>
+					<a href="user_interface.html">Step 1: SDL, Render & CPU</a><br>
+					<a href="misc_internet.html">Step 2: Internet</a><br>
+					<a href="misc_dos.html">Step 3: DOS, BIOS & Joystick</a><br>
+					<a href="misc_autoexec.html">Step 4: Autoexec</a><br>
+					<a href="preferences.html">Step 5: Preferences</a><br>
+				</div>
+		</div>
+
+		<h1><center>SDL, Render & CPU</center></h1>
+		<img src="img/dboxfe/dboxfe_user_interface.jpg" width="936" height="614" border="0" alt=""><br><br>
+		<table>
+		<tr>
+			<td><b>fullscreen</b></td>
+			<td></td>
+			<td>Start dosbox directly in fullscreen.</td>
+		</tr>
+		<tr>
+			<td><b>fulldouble</b></td>
+			<td></td>
+			<td>Use double buffering in fullscreen</td>
+		</tr>
+		<tr>
+			<td><b>fullresolution</b></td>
+			<td></td>
+			<td>What resolution to use for fullscreen: original or fixed size (e.g. 1024x768)</td>
+		</tr>
+		<tr>
+			<td><b>windowresolution</b></td>
+			<td></td>
+			<td>Scale the window to this size IF the output device supports hardware scaling</td>
+		</tr>
+		<tr>
+			<td><b>output</b></td>
+			<td></td>
+			<td>What to use for output: surface,overlay,opengl,openglnb,ddraw</td>
+		</tr>
+		<tr>
+			<td><b>autolock</b></td>
+			<td></td>
+			<td>Mouse will automatically lock, if you click on the screen</td>
+		</tr>
+		<tr>
+			<td><b>sensitiviy</b></td>
+			<td></td>
+			<td>Mouse sensitivity</td>
+		</tr>
+		<tr>
+			<td><b>waitonerror</b></td>
+			<td></td>
+			<td>Wait before closing the console if dosbox has an error</td>
+		</tr>
+		<tr>
+			<td><b>priority</b></td>
+			<td></td>
+			<td>
+				Priority levels for dosbox: lowest,lower,normal,higher,highest,pause (when not focussed)<br>
+				Second entry behind the comma is for when dosbox is not focused/minimized
+			</td>
+		</tr>
+		<tr>
+			<td><b>mapperfile</b></td>
+			<td></td>
+			<td>File used to load/save the key/event mappings from</td>
+		</tr>
+		<tr>
+			<td><b>usescancodes</b></td>
+			<td></td>
+			<td>Avoid usage of symkeys, might not work on all operating systems</td>
+		</tr>
+		</table>
+	</body>
+</html>
