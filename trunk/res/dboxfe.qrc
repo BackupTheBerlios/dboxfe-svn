@@ -3,6 +3,17 @@
         <file>dboxfe_de.qm</file>
         <file>dboxfe_en.qm</file>
     </qresource>
+    <qresource prefix="/dosbox_lng" >
+        <file>language/CZ/cestina.lng</file>
+        <file>language/DK/dk.lang</file>
+        <file>language/FR/francais.lng</file>
+        <file>language/GER/deutsch.lng</file>
+        <file>language/HGR/magyar.lng</file>
+        <file>language/ITA/ita.lng</file>
+        <file>language/KOR/korean.lng</file>
+        <file>language/PG/portuguese.lng</file>
+        <file>language/RUS/russian.lng</file>
+    </qresource>
     <qresource prefix="/files" >
         <file>LICENSE.GPL</file>
         <file>thanks</file>
