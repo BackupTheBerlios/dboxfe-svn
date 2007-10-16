@@ -51,7 +51,7 @@ class GameDatabaseXml : public QObject
 		 *         QString = name of dosbox game<br>
 		 *         QMap<QString, QString> = attributes of dosbox game
 		 */
-		QMap< QString, QMap<QString, QStringList> > parseDosBoxGameXml( const QString &xml );
+		QMap< QString, QMap<QString, QString> > parseDosBoxGameXml( const QString &xml );
 
 		/**
 		 * Parse dboxfe game xml file and return dosbox version in a QStringList
@@ -129,8 +129,8 @@ class GameDatabaseXml : public QObject
 	private:
 		XMLPreferences getPreferenceInstance();
 
-		QMap<QString, QMap<QString, QStringList> > gameDosBoxList;
-		QMap<QString, QStringList> attributes;
+		QMap<QString, QMap<QString, QString> > gameDosBoxList;
+		QMap<QString, QString> attributes;
 
 		QStringList dosboxVersionList;
 		QStringList gameList;

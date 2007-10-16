@@ -111,7 +111,7 @@ bool GameDatabaseSql::createDatabase( const QString &name )
 	return true;
 }
 
-bool GameDatabaseSql::importDosBoxGameList( const QMap< QString, QMap< QString, QStringList> > &list, QProgressBar *pBar, QLabel *lbl )
+bool GameDatabaseSql::importDosBoxGameList( const QMap< QString, QMap< QString, QString> > &list, QProgressBar *pBar, QLabel *lbl )
 {
 	if( !isOpen() )
 		return false;
@@ -126,6 +126,7 @@ bool GameDatabaseSql::importDosBoxGameList( const QMap< QString, QMap< QString, 
 
 	pBar->setMaximum( list.size() );
 
+	// TODO Delete all entities in the database ...
 	query.exec( "DELETE FROM DOSBOX;" );
 	if( !query.isActive() )
 		qWarning() << "Failed to delete entities from dosbox table:\t>> " << query.lastError().text() << " <<";
@@ -134,7 +135,7 @@ bool GameDatabaseSql::importDosBoxGameList( const QMap< QString, QMap< QString, 
 	if( !query.isActive() )
 		qWarning() << "Failed to delete entities from dosboxinformation table:\t>> " << query.lastError().text() << " <<";
 
-	// TODO Insert dosbox versions into database - START
+	// TODO Insert dosbox versions into database
 	QString gameXML =  QDir::homePath() + "/.dboxfe-gdb/game_database.xml";
 
 	GameDatabaseXml *gd_xml = new GameDatabaseXml( this );
@@ -200,81 +201,92 @@ next:
 		;
 	}
 
-	lbl->setText( "" );
-	lbl->setText( "Status:" );
-	pBar->setValue( 0 );
-	x = 0;
+	lbl->setText( "Status: " );
+	lbl->repaint();
+	lbl->update();
 
+	pBar->setValue( 0 );
+
+	x = 0;
 	gd_xml = 0;
+
 	delete gd_xml;
 
 	// TODO Insert dosboxgames into the database
-	bool first = true;
-	QMap< QString, QMap< QString, QStringList> >::const_iterator gameIt = gameDosBoxList.begin();
+	QMap< QString, QMap< QString, QString> >::const_iterator gameIt = gameDosBoxList.begin();
 	while( gameIt != gameDosBoxList.end() ) {
 		qApp->processEvents();
 
 		_id = QUuid::createUuid().toString();
 		_title = gameIt.key();
 
-		QMap< QString, QStringList>::const_iterator valueIt = gameIt.value().begin();
+		QMap< QString, QString>::const_iterator valueIt = gameIt.value().begin();
 		while( valueIt != gameIt.value().end() )
 		{
-			qDebug() << valueIt.key();
 			if( valueIt.key() == "link" )
-				_link = valueIt.value().value(0);
+				_link = valueIt.value();
 			else if( valueIt.key() == "sw_house" )
-				_sw_house = valueIt.value().value(0);
+				_sw_house = valueIt.value();
 			else if( valueIt.key() == "year" )
-				_year = valueIt.value().value(0);
+				_year = valueIt.value();
 			else if( valueIt.key() == "version" )
-			{
-				if( valueIt.value().size() >= 1 )
-				{
-					for( int i = 0; i < valueIt.value().size(); i++ )
-					{
-						_version = valueIt.value().value( i ).split( ";" ).value( 0 );
-						_comp_percent = valueIt.value().value( i ).split( ";" ).value( 1 );
-
-						if( _year.isNull() || _year.isEmpty() )
-						{
-							++valueIt;
-							_year = valueIt.value().value(0);
-							--valueIt;
-						}
-
-						sqlQuery.clear();
-						sqlQuery = "";
-						sqlQuery += "INSERT INTO DOSBOXINFO\n";
-						sqlQuery += "(\n";
-						sqlQuery += "\tID,\n";
-						sqlQuery += "\tVERSION,\n";
-						sqlQuery += "\tTITLE,\n";
-						sqlQuery += "\tYEAR,\n";
-						sqlQuery += "\tSW_HOUSE,\n";
-						sqlQuery += "\tLINK,\n";
-						sqlQuery += "\tCOMP_PERSENT\n";
-						sqlQuery += ")\n";
-						sqlQuery += "VALUES\n";
-						sqlQuery += "(\n";
-						sqlQuery += "\t'" + _id + "',\n";
-						sqlQuery += "\t'" + _version.replace( "'", "''" ) + "',\n";
-						sqlQuery += "\t'" + _title.replace( "'", "''" ) + "',\n";
-						sqlQuery += "\t'" + _year.replace( "'", "''" ) + "',\n";
-						sqlQuery += "\t'" + _sw_house.replace( "'", "''" ) + "',\n";
-						sqlQuery += "\t'" + _link.replace( "'", "''" ) + "',\n";
-						sqlQuery += "\t'" + _comp_percent.replace( "'", "''" ) + "'\n";
-						sqlQuery += ");";
-
-						query.exec( sqlQuery );
-						if( !query.isActive() )
-							qWarning() << "Failed to import dosbox information into dosboxinformation table:\t>> " << query.lastError().text() << " <<";
-					}
-				}
-			}
+				_version = valueIt.value();
+			else if( valueIt.key() == "comp_percent" )
+				_comp_percent = valueIt.value();
 
 			++valueIt;
 		}
+
+		sqlQuery.clear();
+		sqlQuery = "";
+		sqlQuery += "INSERT INTO DOSBOXINFO\n";
+		sqlQuery += "(\n";
+		sqlQuery += "\tID,\n";
+		sqlQuery += "\tVERSION,\n";
+		sqlQuery += "\tTITLE,\n";
+		sqlQuery += "\tYEAR,\n";
+		sqlQuery += "\tSW_HOUSE,\n";
+		sqlQuery += "\tLINK,\n";
+		sqlQuery += "\tCOMP_PERSENT\n";
+		sqlQuery += ")\n";
+		sqlQuery += "VALUES\n";
+		sqlQuery += "(\n";
+		sqlQuery += "\t'" + _id + "',\n";
+		sqlQuery += "\t'" + _version.replace( "'", "''" ) + "',\n";
+		sqlQuery += "\t'" + _title.replace( "'", "''" ) + "',\n";
+		sqlQuery += "\t'" + _year.replace( "'", "''" ) + "',\n";
+		sqlQuery += "\t'" + _sw_house.replace( "'", "''" ) + "',\n";
+		sqlQuery += "\t'" + _link.replace( "'", "''" ) + "',\n";
+		sqlQuery += "\t'" + _comp_percent.replace( "'", "''" ) + "'\n";
+		sqlQuery += ");";
+
+		query.exec( sqlQuery );
+		if( !query.isActive() )
+			qWarning() << "Failed to import dosbox information into dosboxinformation table:\t>> " << query.lastError().text() << " <<";
+
+		// TODO create reference to dosboxid table ...
+		QString dosboxVersion = QString( "" );
+		query.exec( "SELECT ID FROM DOSBOX WHERE VERSION = '" + _version.replace( "'", "''" ) + "';" );
+		if( query.isActive() )
+			while( query.next() )
+				dosboxVersion = query.value( 0 ).toString();
+
+		sqlQuery.clear();
+		sqlQuery = "";
+		sqlQuery += "INSERT INTO DOSBOXID\n";
+		sqlQuery += "(\n";
+		sqlQuery += "\tD_ID,\n";
+		sqlQuery += "\tDI_ID\n";
+		sqlQuery += ")\n";
+		sqlQuery += "VALUES\n";
+		sqlQuery += "(\n";
+		sqlQuery += "\t'" + dosboxVersion + "',\n";
+		sqlQuery += "\t'" + _id + "'\n";
+		sqlQuery += ");";
+
+		query.exec( sqlQuery );
+		if( !query.isActive() )
+			qWarning() << "Failed to create reference on dosboxid:\t>> " << query.lastError().text() << " <<";
 
 		lbl->setText( "" );
 		lbl->setText( "Status: " + _title );
@@ -286,6 +298,7 @@ next:
 		pBar->update();
 
 		x = x + 1;
+
 		++gameIt;
 	}
 
@@ -293,7 +306,7 @@ next:
 	lbl->repaint();
 	lbl->update();
 
-	pBar->setValue( 100 );
+	pBar->setValue( 0 );
 	pBar->repaint();
 	pBar->update();
 
@@ -469,6 +482,8 @@ bool GameDatabaseSql::insertGames( const QString &name, const QString &version, 
 	if( _id_dosbox.isNull() || _id_dosbox.isEmpty() )
 		return false;
 
+	QString _id_template = QString( "" );
+
 	// Select id from game template
 	query.exec( "SELECT ID FROM GAMETEMPLATES WHERE TEMPLATE = '" + templates + "';" );
 	if( query.isActive() )
@@ -591,8 +606,7 @@ void GameDatabaseSql::selectDosBoxGames( const QString &version, QTreeWidget *qt
 	sqlQuery = "";
 	sqlQuery += "SELECT DI.TITLE, DI.YEAR, DI.SW_HOUSE, DI.LINK, DI.COMP_PERSENT\n";
 	sqlQuery += "FROM DOSBOXINFO DI\n";
-	sqlQuery += "JOIN DOSBOX D ON DI.ID = D.ID\n";
-	sqlQuery += "WHERE D.VERSION = '" + version + "';";
+	sqlQuery += "WHERE DI.VERSION = '" + version + "';";
 
 	query.exec( sqlQuery );
 	if( query.isActive() )
