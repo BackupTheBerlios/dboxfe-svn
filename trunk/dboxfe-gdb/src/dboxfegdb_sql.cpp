@@ -461,9 +461,6 @@ bool GameDatabaseSql::updateTemplates( const QString &name, QMap< QString, QMap<
 	if( name.isNull() || name.isEmpty() )
 		return false;
 
-	if( dir.isNull() || dir.isEmpty() )
-		return false;
-
 	_template_name = name;
 
 	sett.clear();
@@ -477,9 +474,6 @@ bool GameDatabaseSql::updateTemplates( const QString &name, QMap< QString, QMap<
 bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap< QString, QString > > &settings )
 {
 	if( name.isNull() || name.isEmpty() )
-		return false;
-
-	if( dir.isNull() || dir.isEmpty() )
 		return false;
 
 	_template_name = name;
