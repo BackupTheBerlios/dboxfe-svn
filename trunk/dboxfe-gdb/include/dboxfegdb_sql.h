@@ -84,6 +84,27 @@ class GameDatabaseSql : public QObject
 		bool exportGamesList( const QString & xml );
 
 		/**
+		 * Insert template into database
+		 * @param name the Game name
+		 * @return true if insert successfull
+		 */
+		bool updateTemplates( const QString &name, QMap< QString, QMap< QString, QString > > &settings );		
+
+		/**
+		 * Insert template into database
+		 * @param name the template name
+		 * @return true if insert successfull
+		 */
+		bool insertTemplates( const QString &name, QMap< QString, QMap< QString, QString > > &settings );
+		
+		/**
+		 * Delete template from database
+		 * @param name the Template name
+		 * @return true if delete successfull
+		 */
+		bool deleteTemplates( const QString &name );
+
+		/**
 		 * Update game
 		 * @param name the Game name
 		 * @param executable the Executable of game (can be empty)
@@ -131,14 +152,19 @@ class GameDatabaseSql : public QObject
 	private:
 		bool isOpen();
 
-		QMap< QString, QMap< QString, QString> > gameDosBoxList;
+		QMap< QString, QMap< QString, QString > > gameDosBoxList;
+		QMap< QString, QMap< QString, QString > > sett;
+
 		QStringList dosboxVersionList;
 		QStringList gameList;
 		QStringList exportGameList;
 		QStringList gameTemplateList;
 		QStringList exportGameTemplateList;
+
 		QString sqlFile;
 		QString sqlDatabase;
+
+		QString _template_name;
 
 		QString _version;
 		QString _title;
@@ -146,6 +172,60 @@ class GameDatabaseSql : public QObject
 		QString _sw_house;
 		QString _link;
 		QString _comp_percent;
+
+				
+		QString // SDL Strings
+				_fullscreen, _fulldouble, _fullresolution, _windowresolution, _output, _autolock, _sensitivity, _waitonerror, _priority, _mapperfile, _usescancodes,
+
+				// DOSBOX Strings
+				_language, _machine, _captures, _memsize,
+
+				// RENDER Settings
+				_frameskip, _aspect, _scaler,
+
+				// CPU Settings
+				_core, _cycles, _cycleup, _cycledown,
+				
+				// MIXER Settings
+				_nosound, _rate, _blocksize, _prebuffer,
+
+				// MIDI Settings
+				_device, _config,
+
+				// SBLASTER Settings
+				_sbtype, _sbbase, _irq, _dma, _hdma, _mixer, _oplmode, _oplrate,
+
+				// GUS Settings
+				_gus, _gusrate, _gusbase, _irq1, _irq2, _dma1, _dma2, _ultradir,
+
+				// SPEAKER Settings
+				_pcspeaker, _pcrate, _tandy, _tandyrate, _disney,
+
+				// JOYSTICK Settings
+				_joysticktype, _timed, _autofire, _swap34, _buttonwrap,
+
+				// SERIAL Settings
+				_serial1, _serial2, _serial3, _serial4,
+
+				// DOS Settings
+				_xms, _ems, _umb, _keyboardlayout,
+
+				// IPX
+				_ipx;
+
+		QString sqlSdl,
+				sqlDosBox,
+				sqlRender,
+				sqlCpu,
+				sqlMixer,
+				sqlMidi,
+				sqlSbBlaster,
+				sqlGus,
+				sqlSpeaker,
+				sqlJoystick,
+				sqlSerial,
+				sqlDos,
+				sqlIpx;
 
 		QSqlDatabase gamedb;
 

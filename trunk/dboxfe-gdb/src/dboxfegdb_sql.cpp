@@ -27,7 +27,19 @@
 
 GameDatabaseSql::GameDatabaseSql( QObject *parent ) : QObject( parent )
 {
-	object = parent;	
+	object = parent;
+
+	sqlFile = QString( "" );
+	sqlDatabase = QString( "" );
+
+	_template_name = QString( "" );
+
+	_version = QString( "" );
+	_title = QString( "" );
+	_year = QString( "" );
+	_sw_house = QString( "" );
+	_link = QString( "" );
+	_comp_percent = QString( "" );
 }
 
 GameDatabaseSql::~GameDatabaseSql()
@@ -127,7 +139,7 @@ bool GameDatabaseSql::importDosBoxGameList( const QMap< QString, QMap< QString, 
 	pBar->setMaximum( list.size() );
 
 	// TODO Delete all entities in the database ...
-	query.exec( "DELETE FROM DOSBOX;" );
+	query.exec( "DELETE FROM DOSBOXVERSION;" );
 	if( !query.isActive() )
 		qWarning() << "Failed to delete entities from dosbox table:\t>> " << query.lastError().text() << " <<";
 
@@ -150,7 +162,7 @@ bool GameDatabaseSql::importDosBoxGameList( const QMap< QString, QMap< QString, 
 
 		sqlQuery.clear();
 		sqlQuery = "";
-		sqlQuery += "INSERT INTO DOSBOX\n";
+		sqlQuery += "INSERT INTO DOSBOXVERSION\n";
 		sqlQuery += "(\n";
 		sqlQuery += "\tID,\n";
 		sqlQuery += "\tVERSION\n";
@@ -161,7 +173,7 @@ bool GameDatabaseSql::importDosBoxGameList( const QMap< QString, QMap< QString, 
 		sqlQuery += "\t'" + gameVersionsList.value( i ).replace( "'", "''" ) + "'\n";
 		sqlQuery += ");";
 
-		query.exec( "SELECT VERSION FROM DOSBOX WHERE VERSION = '" + gameVersionsList.value( i ) + "';" );
+		query.exec( "SELECT VERSION FROM DOSBOXVERSION WHERE VERSION = '" + gameVersionsList.value( i ) + "';" );
 		if( query.isActive() )
 		{
 			while( query.next() )
@@ -266,7 +278,7 @@ next:
 
 		// TODO create reference to dosboxid table ...
 		QString dosboxVersion = QString( "" );
-		query.exec( "SELECT ID FROM DOSBOX WHERE VERSION = '" + _version.replace( "'", "''" ) + "';" );
+		query.exec( "SELECT ID FROM DOSBOXVERSION WHERE VERSION = '" + _version.replace( "'", "''" ) + "';" );
 		if( query.isActive() )
 			while( query.next() )
 				dosboxVersion = query.value( 0 ).toString();
@@ -368,7 +380,7 @@ bool GameDatabaseSql::exportGamesList( const QString &xml )
 	exportGameTemplateList.clear();
 
 	QSqlQuery query( gamedb );
-	query.exec( "SELECT G.NAME, D.VERSION, G.EXEC FROM GAME G JOIN DOSBOX D ON G.DB_ID = D.ID;" );
+	query.exec( "SELECT G.NAME, D.VERSION, G.EXEC FROM GAME G JOIN DOSBOXVERSION D ON G.DB_ID = D.ID;" );
 	if( query.isActive() )
 	{
 		while( !query.next() )
@@ -444,6 +456,415 @@ bool GameDatabaseSql::importGameTemplateList( const QStringList &list )
 	return true;
 }
 
+bool GameDatabaseSql::updateTemplates( const QString &name, QMap< QString, QMap< QString, QString > > &settings )
+{
+	if( name.isNull() || name.isEmpty() )
+		return false;
+
+	if( dir.isNull() || dir.isEmpty() )
+		return false;
+
+	_template_name = name;
+
+	sett.clear();
+	sett = settings;
+
+	QSqlQuery query( gamedb );
+
+	return true;
+}
+
+bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap< QString, QString > > &settings )
+{
+	if( name.isNull() || name.isEmpty() )
+		return false;
+
+	if( dir.isNull() || dir.isEmpty() )
+		return false;
+
+	_template_name = name;
+
+	sett.clear();
+	sett = settings;
+
+	QSqlQuery query( gamedb );
+
+	QString _id = QUuid::createUuid().toString();
+
+	QString sqlQuery;
+
+	sqlQuery = "";
+	sqlQuery += "INSERT INTO GAMETEMPLATE\n";
+	sqlQuery += "(\n";
+	sqlQuery += "\tID,\n";
+	sqlQuery += "\tNAME,\n";
+	sqlQuery += "\tDIR\n";
+	sqlQuery += ")\n";
+	sqlQuery += "VALUES\n";
+	sqlQuery += "(\n";
+	sqlQuery += "\t'" + _id + "',\n";
+	sqlQuery += "\t'" + _template_name + "'\n";
+	sqlQuery += ");";
+
+	query.exec( sqlQuery );
+	if( !query.isActive() )
+			qWarning() << "Failed to insert templates into database:\t" + query.lastError().text();
+
+
+	QMap< QString, QString>::const_iterator conSettIt;
+	QMap< QString, QMap< QString, QString> >::const_iterator confIt = sett.begin();
+
+	while( confIt != sett.end() )
+	{
+		qApp->processEvents();
+
+		if( confIt.key().toUpper() == "SDL" )
+		{
+			conSettIt = confIt.value().begin();
+			while( conSettIt != confIt.value().end() )
+			{
+				qApp->processEvents();
+
+				if( conSettIt.key().toLower() == "fullscreen" )
+					_fullscreen = conSettIt.value();
+				else if( conSettIt.key().toLower() == "fulldouble" )
+					_fulldouble = conSettIt.value();
+				else if( conSettIt.key().toLower() == "fullresolution" )
+					_fullresolution = conSettIt.value();
+				else if( conSettIt.key().toLower() == "windowresolution" )
+					_windowresolution = conSettIt.value();
+				else if( conSettIt.key().toLower() == "output" )
+					_output = conSettIt.value();
+				else if( conSettIt.key().toLower() == "autolock" )
+					_autolock = conSettIt.value();
+				else if( conSettIt.key().toLower() == "sensitivity" )
+					_sensitivity = conSettIt.value();
+				else if( conSettIt.key().toLower() == "waitonerror" )
+					_waitonerror = conSettIt.value();
+				else if( conSettIt.key().toLower() == "priority" )
+					_priority = conSettIt.value();
+				else if( conSettIt.key().toLower() == "mapperfile" )
+					_mapperfile = conSettIt.value();
+				else if( conSettIt.key().toLower() == "usescancodes" )
+					_usescancodes = conSettIt.value();
+
+				++conSettIt;
+			}
+
+			sqlSdl = "";
+			sqlSdl += "INSERT INTO SDL\n";
+			sqlSdl += "(\n";
+			sqlSdl += "\tID,\n";
+			sqlSdl += "\tFULLSCREEN,\n";
+			sqlSdl += "\tFULLDOUBLE,\n";
+			sqlSdl += "\tFULLRESOLUTION,\n";
+			sqlSdl += "\tWINDOWRESOLUTION,\n";
+			sqlSdl += "\tOUTPUT,\n";
+			sqlSdl += "\tAUTOLOCK,\n";
+			sqlSdl += "\tSENSITIVITY,\n";
+			sqlSdl += "\tWAITONERROR,\n";
+			sqlSdl += "\tPRIORITY,\n";
+			sqlSdl += "\tMAPPERFILE,\n";
+			sqlSdl += "\tUSESCANCODES\n";
+			sqlSdl += ")\n";
+			sqlSdl += "VALUES\n";
+			sqlSdl += "(\n";
+			sqlSdl += "\t'" + _id + "',\n";
+			sqlSdl += "\t'" + _fullscreen + "',\n";
+			sqlSdl += "\t'" + _fulldouble + "',\n";
+			sqlSdl += "\t'" + _fullresolution + "',\n";
+			sqlSdl += "\t'" + _windowresolution + "',\n";
+			sqlSdl += "\t'" + _output + "',\n";
+			sqlSdl += "\t'" + _autolock + "',\n";
+			sqlSdl += "\t'" + _sensitivity + "',\n";
+			sqlSdl += "\t'" + _waitonerror + "',\n";
+			sqlSdl += "\t'" + _priority + "',\n";
+			sqlSdl += "\t'" + _mapperfile + "',\n";
+			sqlSdl += "\t'" + _usescancodes + "'\n";
+			sqlSdl += ");";
+		}
+		else if( confIt.key().toUpper() == "DOSBOX" )
+		{
+			conSettIt = confIt.value().begin();
+			while( conSettIt != confIt.value().end() )
+			{
+				qApp->processEvents();
+
+				if( conSettIt.key().toLower() == "language" )
+					_language = conSettIt.value();
+				else if( conSettIt.key().toLower() == "machine" )
+					_machine = conSettIt.value();
+				else if( conSettIt.key().toLower() == "captures" )
+					_captures = conSettIt.value();
+				else if( conSettIt.key().toLower() == "memsize" )
+					_memsize = conSettIt.value();
+
+				++conSettIt;
+			}
+
+			sqlDosBox = "";
+			sqlSdl += "INSERT INTO DOSBOX\n";
+			sqlSdl += "(\n";
+			sqlSdl += "\tID,\n";
+			sqlSdl += "\tLANGUAGE,\n";
+			sqlSdl += "\tMACHINE,\n";
+			sqlSdl += "\tCAPTURES,\n";
+			sqlSdl += "\tMEMSIZE\n";
+			sqlSdl += ")\n";
+			sqlSdl += "VALUES\n";
+			sqlSdl += "(\n";
+			sqlSdl += "\t'" + _id + "',\n";
+			sqlSdl += "\t'" + _language + "',\n";
+			sqlSdl += "\t'" + _machine + "',\n";
+			sqlSdl += "\t'" + _captures + "',\n";
+			sqlSdl += "\t'" + _memsize + "'\n";
+			sqlSdl += ");";
+		}
+		else if( confIt.key().toUpper() == "RENDER" )
+		{
+			conSettIt = confIt.value().begin();
+			while( conSettIt != confIt.value().end() )
+			{
+				qApp->processEvents();
+
+				if( conSettIt.key().toLower() == "language" )
+					_language = conSettIt.value();
+				else if( conSettIt.key().toLower() == "machine" )
+					_machine = conSettIt.value();
+				else if( conSettIt.key().toLower() == "captures" )
+					_captures = conSettIt.value();
+				else if( conSettIt.key().toLower() == "memsize" )
+					_memsize = conSettIt.value();
+
+				++conSettIt;
+			}
+		}
+		else if( confIt.key().toUpper() == "CPU" )
+		{
+			conSettIt = confIt.value().begin();
+			while( conSettIt != confIt.value().end() )
+			{
+				qApp->processEvents();
+
+				if( conSettIt.key().toLower() == "core" )
+					_core = conSettIt.value();
+				else if( conSettIt.key().toLower() == "cycles" )
+					_cycles = conSettIt.value();
+				else if( conSettIt.key().toLower() == "cycleup" )
+					_cycleup = conSettIt.value();
+				else if( conSettIt.key().toLower() == "cycledown" )
+					_cycledown = conSettIt.value();
+
+				++conSettIt;
+			}
+		}
+		else if( confIt.key().toUpper() == "MIXER" )
+		{
+			conSettIt = confIt.value().begin();
+			while( conSettIt != confIt.value().end() )
+			{
+				qApp->processEvents();
+
+				if( conSettIt.key().toLower() == "nosound" )
+					_nosound = conSettIt.value();
+				else if( conSettIt.key().toLower() == "rate" )
+					_rate = conSettIt.value();
+				else if( conSettIt.key().toLower() == "blocksize" )
+					_blocksize = conSettIt.value();
+				else if( conSettIt.key().toLower() == "prebuffer" )
+					_prebuffer = conSettIt.value();
+
+				++conSettIt;
+			}
+		}
+		else if( confIt.key().toUpper() == "MIDI" )
+		{
+			conSettIt = confIt.value().begin();
+			while( conSettIt != confIt.value().end() )
+			{
+				qApp->processEvents();
+
+				if( conSettIt.key().toLower() == "device" )
+					_device = conSettIt.value();
+				else if( conSettIt.key().toLower() == "config" )
+					_config = conSettIt.value();
+
+				++conSettIt;
+			}
+		}
+		else if( confIt.key().toUpper() == "SBLASTER" )
+		{
+			conSettIt = confIt.value().begin();
+			while( conSettIt != confIt.value().end() )
+			{
+				qApp->processEvents();
+
+				if( conSettIt.key().toLower() == "sbtype" )
+					_sbtype = conSettIt.value();
+				else if( conSettIt.key().toLower() == "sbbase" )
+					_sbbase = conSettIt.value();
+				else if( conSettIt.key().toLower() == "irq" )
+					_irq = conSettIt.value();
+				else if( conSettIt.key().toLower() == "dma" )
+					_dma = conSettIt.value();
+				else if( conSettIt.key().toLower() == "hdma" )
+					_hdma = conSettIt.value();
+				else if( conSettIt.key().toLower() == "mixer" )
+					_mixer = conSettIt.value();
+				else if( conSettIt.key().toLower() == "oplmode" )
+					_oplmode = conSettIt.value();
+				else if( conSettIt.key().toLower() == "oplrate" )
+					_oplrate = conSettIt.value();
+
+				++conSettIt;
+			}
+		}
+		else if( confIt.key().toUpper() == "GUS" )
+		{
+			conSettIt = confIt.value().begin();
+			while( conSettIt != confIt.value().end() )
+			{
+				qApp->processEvents();
+
+				if( conSettIt.key().toLower() == "gus" )
+					_gus = conSettIt.value();
+				else if( conSettIt.key().toLower() == "gusrate" )
+					_gusrate = conSettIt.value();
+				else if( conSettIt.key().toLower() == "gusbase" )
+					_gusbase = conSettIt.value();
+				else if( conSettIt.key().toLower() == "irq1" )
+					_irq1 = conSettIt.value();
+				else if( conSettIt.key().toLower() == "irq2" )
+					_irq2 = conSettIt.value();
+				else if( conSettIt.key().toLower() == "dma1" )
+					_dma1 = conSettIt.value();
+				else if( conSettIt.key().toLower() == "dma2" )
+					_dma2 = conSettIt.value();
+				else if( conSettIt.key().toLower() == "ultradir" )
+					_ultradir = conSettIt.value();
+
+				++conSettIt;
+			}
+		}
+		else if( confIt.key().toUpper() == "SPEAKER" )
+		{
+			conSettIt = confIt.value().begin();
+			while( conSettIt != confIt.value().end() )
+			{
+				qApp->processEvents();
+
+				if( conSettIt.key().toLower() == "pcspeaker" )
+					_pcspeaker = conSettIt.value();
+				else if( conSettIt.key().toLower() == "pcrate" )
+					_pcrate = conSettIt.value();
+				else if( conSettIt.key().toLower() == "tandy" )
+					_tandy = conSettIt.value();
+				else if( conSettIt.key().toLower() == "tandyrate" )
+					_tandyrate = conSettIt.value();
+				else if( conSettIt.key().toLower() == "disney" )
+					_disney = conSettIt.value();
+
+				++conSettIt;
+			}
+		}
+		else if( confIt.key().toUpper() == "JOYSTICK" )
+		{
+			conSettIt = confIt.value().begin();
+			while( conSettIt != confIt.value().end() )
+			{
+				qApp->processEvents();
+
+				if( conSettIt.key().toLower() == "joysticktype" )
+					_joysticktype = conSettIt.value();
+				else if( conSettIt.key().toLower() == "timed" )
+					_timed = conSettIt.value();
+				else if( conSettIt.key().toLower() == "autofire" )
+					_autofire = conSettIt.value();
+				else if( conSettIt.key().toLower() == "swap34" )
+					_swap34 = conSettIt.value();
+				else if( conSettIt.key().toLower() == "buttonwrap" )
+					_buttonwrap = conSettIt.value();
+
+				++conSettIt;
+			}
+		}
+		else if( confIt.key().toUpper() == "SERIAL" )
+		{
+			conSettIt = confIt.value().begin();
+			while( conSettIt != confIt.value().end() )
+			{
+				qApp->processEvents();
+
+				if( conSettIt.key().toLower() == "serial1" )
+					_serial1 = conSettIt.value();
+				else if( conSettIt.key().toLower() == "serial2" )
+					_serial2 = conSettIt.value();
+				else if( conSettIt.key().toLower() == "serial3" )
+					_serial3 = conSettIt.value();
+				else if( conSettIt.key().toLower() == "serial4" )
+					_serial4 = conSettIt.value();
+
+				++conSettIt;
+			}
+		}
+		else if( confIt.key().toUpper() == "DOS" )
+		{
+			conSettIt = confIt.value().begin();
+			while( conSettIt != confIt.value().end() )
+			{
+				qApp->processEvents();
+
+				if( conSettIt.key().toLower() == "xms" )
+					_xms = conSettIt.value();
+				else if( conSettIt.key().toLower() == "ems" )
+					_ems = conSettIt.value();
+				else if( conSettIt.key().toLower() == "umb" )
+					_umb = conSettIt.value();
+				else if( conSettIt.key().toLower() == "keyboardlayout" )
+					_keyboardlayout = conSettIt.value();
+
+				++conSettIt;
+			}
+		}
+		else if( confIt.key().toUpper() == "IPX" )
+		{
+			conSettIt = confIt.value().begin();
+			while( conSettIt != confIt.value().end() )
+			{
+				qApp->processEvents();
+
+				if( conSettIt.key().toLower() == "ipx" )
+					_ipx = conSettIt.value();
+
+				++conSettIt;
+			}
+		}
+
+		++confIt;
+	}
+
+
+
+	query.exec( sqlQuery );
+	if( !query.isActive() )
+		qWarning() << "Failed to insert settings into database:\t" + query.lastError().text();
+
+	return true;
+}
+
+bool GameDatabaseSql::deleteTemplates( const QString &name )
+{
+	
+	if( name.isNull() || name.isEmpty() )
+		return false;
+
+	_template_name = name;
+
+	QSqlQuery query( gamedb );
+
+	return true;
+}
+
 bool GameDatabaseSql::updateGames( const QString &name, const QString &version, const QString &executable, const QString &templates )
 {
 	qWarning() << "Not yet implementet ==> updateGames( ... ); ==> TODO: FIX THIS";
@@ -471,7 +892,7 @@ bool GameDatabaseSql::insertGames( const QString &name, const QString &version, 
 	QString _id_dosbox = QString( "" );
 
 	// Select dosbox id form dosbox
-	query.exec( "SELECT ID FROM DOSBOX WHERE VERSION = '" + version + "';" );
+	query.exec( "SELECT ID FROM DOSBOXVERSION WHERE VERSION = '" + version + "';" );
 
 	if( query.isActive() )
 	{
@@ -577,14 +998,14 @@ QStringList GameDatabaseSql::selectDosBoxVersion()
 		return dosboxVersionList;
 
 	QSqlQuery query( gamedb );
-	query.exec( "SELECT DISTINCT VERSION FROM DOSBOX ORDER BY VERSION;" );
+	query.exec( "SELECT DISTINCT VERSION FROM DOSBOXVERSION ORDER BY VERSION;" );
 	if( query.isActive() )
 		while( query.next() )
 		{
 			dosboxVersionList.append( query.value( 0 ).toString() );
 		}
 	else
-		qWarning() << "Can't get dosbox version from table 'DOSBOX':\t" + query.lastError().text();
+		qWarning() << "Can't get dosbox version from table 'DOSBOXVERSION':\t" + query.lastError().text();
 
 	return dosboxVersionList;
 }
@@ -637,7 +1058,7 @@ void GameDatabaseSql::selectGames( QTreeWidget *qtw )
 	sqlQuery = "";
 	sqlQuery += "SELECT G.NAME , D.VERSION, G.EXEC, G.TEMPLATE\n";
 	sqlQuery += "FROM GAME G\n";
-	sqlQuery += "JOIN DOSBOX D ON G.DB_ID = D.ID";
+	sqlQuery += "JOIN DOSBOXVERSION D ON G.DB_ID = D.ID";
 
 	query.exec( sqlQuery );
 	if( query.isActive() )

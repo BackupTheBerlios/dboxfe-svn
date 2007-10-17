@@ -5,20 +5,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>614</width>
-    <height>617</height>
+    <width>640</width>
+    <height>646</height>
    </rect>
   </property>
   <property name="minimumSize" >
    <size>
-    <width>614</width>
-    <height>617</height>
+    <width>640</width>
+    <height>646</height>
    </size>
   </property>
   <property name="maximumSize" >
    <size>
-    <width>614</width>
-    <height>617</height>
+    <width>640</width>
+    <height>646</height>
    </size>
   </property>
   <property name="windowTitle" >
@@ -90,8 +90,8 @@
      </property>
      <property name="sizeHint" >
       <size>
-       <width>20</width>
-       <height>40</height>
+       <width>596</width>
+       <height>16</height>
       </size>
      </property>
     </spacer>
@@ -1592,8 +1592,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>572</width>
-            <height>340</height>
+            <width>598</width>
+            <height>287</height>
            </rect>
           </property>
           <attribute name="label" >
@@ -4705,6 +4705,29 @@
     </widget>
    </item>
    <item row="3" column="0" >
+    <widget class="QGroupBox" name="groupBoxInformation" >
+     <property name="title" >
+      <string>Information</string>
+     </property>
+     <layout class="QGridLayout" >
+      <item row="0" column="0" >
+       <widget class="QLabel" name="labelStatus" >
+        <property name="text" >
+         <string>Status:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0" >
+       <widget class="QProgressBar" name="progressBarStatus" >
+        <property name="value" >
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="4" column="0" >
     <layout class="QHBoxLayout" >
      <item>
       <widget class="QPushButton" name="btnNew" >
