@@ -461,6 +461,9 @@ bool GameDatabaseSql::updateTemplates( const QString &name, QMap< QString, QMap<
 	if( name.isNull() || name.isEmpty() )
 		return false;
 
+	if( settings.size() <= 0 )
+		return false;
+
 	_template_name = name;
 
 	sett.clear();
@@ -474,6 +477,9 @@ bool GameDatabaseSql::updateTemplates( const QString &name, QMap< QString, QMap<
 bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap< QString, QString > > &settings )
 {
 	if( name.isNull() || name.isEmpty() )
+		return false;
+
+	if( settings.size() <= 0 )
 		return false;
 
 	_template_name = name;
@@ -632,6 +638,24 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 
 				++conSettIt;
 			}
+
+			sqlRender = "";
+			sqlRender += "INSERT INTO RENDER\n";
+			sqlRender += "(\n,";
+			sqlRender += "\\ID,\n";
+			sqlRender += "\tLANGUAGE,\n";
+			sqlRender += "\tMACHINE,\n";
+			sqlRender += "\tCAPTURES,\n";
+			sqlRender += "\tMEMSIZE\n";
+			sqlRender += ")\n";
+			sqlRender += "VALUES\n";
+			sqlRender += "(\n";
+			sqlRender += "\t" + _id + ",\n";
+			sqlRender += "\t" + _language + ",\n";
+			sqlRender += "\t" + _machine + ",\n";
+			sqlRender += "\t" + _captures + ",\n";
+			sqlRender += "\t" + _memsize + "\n";
+			sqlRender += ");";
 		}
 		else if( confIt.key().toUpper() == "CPU" )
 		{
@@ -651,6 +675,24 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 
 				++conSettIt;
 			}
+
+			sqlCpu = "";
+			sqlCpu += "INSERT INTO CPU\n";
+			sqlCpu += "(\n,";
+			sqlCpu += "\\ID,\n";
+			sqlCpu += "\tCORE,\n";
+			sqlCpu += "\tCYCLES,\n";
+			sqlCpu += "\tCYCLEUP,\n";
+			sqlCpu += "\tCYCLEDOWN\n";
+			sqlCpu += ")\n";
+			sqlCpu += "VALUES\n";
+			sqlCpu += "(\n";
+			sqlCpu += "\t" + _id + ",\n";
+			sqlCpu += "\t" + _core + ",\n";
+			sqlCpu += "\t" + _cycles + ",\n";
+			sqlCpu += "\t" + _cycleup + ",\n";
+			sqlCpu += "\t" + _cycledown + "\n";
+			sqlCpu += ");";
 		}
 		else if( confIt.key().toUpper() == "MIXER" )
 		{
@@ -670,6 +712,24 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 
 				++conSettIt;
 			}
+
+			sqlMixer = "";
+			sqlMixer += "INSERT INTO RENDER\n";
+			sqlMixer += "(\n,";
+			sqlMixer += "\\ID,\n";
+			sqlMixer += "\tNOSOUND,\n";
+			sqlMixer += "\tRATE,\n";
+			sqlMixer += "\tBLOCKSIZE,\n";
+			sqlMixer += "\tPREBUFFER\n";
+			sqlMixer += ")\n";
+			sqlMixer += "VALUES\n";
+			sqlMixer += "(\n";
+			sqlMixer += "\t" + _id + ",\n";
+			sqlMixer += "\t" + _nosound + ",\n";
+			sqlMixer += "\t" + _rate + ",\n";
+			sqlMixer += "\t" + _blocksize + ",\n";
+			sqlMixer += "\t" + _prebuffer + "\n";
+			sqlMixer += ");";
 		}
 		else if( confIt.key().toUpper() == "MIDI" )
 		{
@@ -685,6 +745,20 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 
 				++conSettIt;
 			}
+
+			sqlMidi = "";
+			sqlMidi += "INSERT INTO MIDI\n";
+			sqlMidi += "(\n,";
+			sqlMidi += "\\ID,\n";
+			sqlMidi += "\tDEVICE,\n";
+			sqlMidi += "\tCONFIG\n";
+			sqlMidi += ")\n";
+			sqlMidi += "VALUES\n";
+			sqlMidi += "(\n";
+			sqlMidi += "\t" + _id + ",\n";
+			sqlMidi += "\t" + _device + ",\n";
+			sqlMidi += "\t" + _config + "\n";
+			sqlMidi += ");";
 		}
 		else if( confIt.key().toUpper() == "SBLASTER" )
 		{
@@ -712,6 +786,32 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 
 				++conSettIt;
 			}
+
+			sqlSbBlaster = "";
+			sqlSbBlaster += "INSERT INTO SBLASTER\n";
+			sqlSbBlaster += "(\n,";
+			sqlSbBlaster += "\\ID,\n";
+			sqlSbBlaster += "\tSBTYPE,\n";
+			sqlSbBlaster += "\tSBBASE,\n";
+			sqlSbBlaster += "\tIRQ,\n";
+			sqlSbBlaster += "\tDMA,\n";
+			sqlSbBlaster += "\tHDMA,\n";
+			sqlSbBlaster += "\tMIXER,\n";
+			sqlSbBlaster += "\tOPLMODE,\n";
+			sqlSbBlaster += "\tOPLRATE\n";
+			sqlSbBlaster += ")\n";
+			sqlSbBlaster += "VALUES\n";
+			sqlSbBlaster += "(\n";
+			sqlSbBlaster += "\t" + _id + ",\n";
+			sqlSbBlaster += "\t" + _sbtype + ",\n";
+			sqlSbBlaster += "\t" + _sbbase + ",\n";
+			sqlSbBlaster += "\t" + _irq + ",\n";
+			sqlSbBlaster += "\t" + _dma + ",\n";
+			sqlSbBlaster += "\t" + _hdma + ",\n";
+			sqlSbBlaster += "\t" + _mixer + ",\n";
+			sqlSbBlaster += "\t" + _oplmode + ",\n";
+			sqlSbBlaster += "\t" + _oplrate + "\n";
+			sqlSbBlaster += ");";
 		}
 		else if( confIt.key().toUpper() == "GUS" )
 		{
@@ -739,6 +839,32 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 
 				++conSettIt;
 			}
+
+			sqlGus = "";
+			sqlGus += "INSERT INTO GUS\n";
+			sqlGus += "(\n,";
+			sqlGus += "\\ID,\n";
+			sqlGus += "\tGUS,\n";
+			sqlGus += "\tGUSRATE,\n";
+			sqlGus += "\tGUSBASE,\n";
+			sqlGus += "\tIRQ1,\n";
+			sqlGus += "\tIRQ1,\n";
+			sqlGus += "\tDMA1,\n";
+			sqlGus += "\tDMA2,\n";
+			sqlGus += "\tULTRADIR\n";
+			sqlGus += ")\n";
+			sqlGus += "VALUES\n";
+			sqlGus += "(\n";
+			sqlGus += "\t" + _id + ",\n";
+			sqlGus += "\t" + _gus + ",\n";
+			sqlGus += "\t" + _gusrate + ",\n";
+			sqlGus += "\t" + _gusbase + ",\n";
+			sqlGus += "\t" + _irq1 + ",\n";
+			sqlGus += "\t" + _irq2 + ",\n";
+			sqlGus += "\t" + _dma1 + ",\n";
+			sqlGus += "\t" + _dma2 + ",\n";
+			sqlGus += "\t" + _ultradir + "\n";
+			sqlGus += ");";
 		}
 		else if( confIt.key().toUpper() == "SPEAKER" )
 		{
@@ -760,6 +886,26 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 
 				++conSettIt;
 			}
+
+			sqlSpeaker = "";
+			sqlSpeaker += "INSERT INTO SPEAKER\n";
+			sqlSpeaker += "(\n,";
+			sqlSpeaker += "\\ID,\n";
+			sqlSpeaker += "\tPCSPEAKER,\n";
+			sqlSpeaker += "\tPCRATE,\n";
+			sqlSpeaker += "\tTANDY,\n";
+			sqlSpeaker += "\tTANDYRATE,\n";
+			sqlSpeaker += "\tDISNEY\n";
+			sqlSpeaker += ")\n";
+			sqlSpeaker += "VALUES\n";
+			sqlSpeaker += "(\n";
+			sqlSpeaker += "\t" + _id + ",\n";
+			sqlSpeaker += "\t" + _pcspeaker + ",\n";
+			sqlSpeaker += "\t" + _pcrate + ",\n";
+			sqlSpeaker += "\t" + _tandy + ",\n";
+			sqlSpeaker += "\t" + _tandyrate + ",\n";
+			sqlSpeaker += "\t" + _disney + "\n";
+			sqlSpeaker += ");";
 		}
 		else if( confIt.key().toUpper() == "JOYSTICK" )
 		{
@@ -781,6 +927,26 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 
 				++conSettIt;
 			}
+
+			sqlJoystick = "";
+			sqlJoystick += "INSERT INTO JOYSTICK\n";
+			sqlJoystick += "(\n,";
+			sqlJoystick += "\\ID,\n";
+			sqlJoystick += "\tJOYSTICKTYPE,\n";
+			sqlJoystick += "\tTIMED,\n";
+			sqlJoystick += "\tAUTOFIRE,\n";
+			sqlJoystick += "\tSWAP34,\n";
+			sqlJoystick += "\tBUTTONWRAP\n";
+			sqlJoystick += ")\n";
+			sqlJoystick += "VALUES\n";
+			sqlJoystick += "(\n";
+			sqlJoystick += "\t" + _id + ",\n";
+			sqlJoystick += "\t" + _joysticktype + ",\n";
+			sqlJoystick += "\t" + _timed + ",\n";
+			sqlJoystick += "\t" + _autofire + ",\n";
+			sqlJoystick += "\t" + _swap34 + ",\n";
+			sqlJoystick += "\t" + _buttonwrap + "\n";
+			sqlJoystick += ");";
 		}
 		else if( confIt.key().toUpper() == "SERIAL" )
 		{
@@ -800,6 +966,24 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 
 				++conSettIt;
 			}
+
+			sqlSerial = "";
+			sqlSerial += "INSERT INTO SERIAL\n";
+			sqlSerial += "(\n,";
+			sqlSerial += "\\ID,\n";
+			sqlSerial += "\tSERIAL1,\n";
+			sqlSerial += "\tSERIAL2,\n";
+			sqlSerial += "\tSERIAL3,\n";
+			sqlSerial += "\tSERIAL4\n";
+			sqlSerial += ")\n";
+			sqlSerial += "VALUES\n";
+			sqlSerial += "(\n";
+			sqlSerial += "\t" + _id + ",\n";
+			sqlSerial += "\t" + _serial1 + ",\n";
+			sqlSerial += "\t" + _serial2 + ",\n";
+			sqlSerial += "\t" + _serial3 + ",\n";
+			sqlSerial += "\t" + _swap34 + "\n";
+			sqlSerial += ");";
 		}
 		else if( confIt.key().toUpper() == "DOS" )
 		{
@@ -819,6 +1003,24 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 
 				++conSettIt;
 			}
+
+			sqlDos = "";
+			sqlDos += "INSERT INTO DOS\n";
+			sqlDos += "(\n,";
+			sqlDos += "\\ID,\n";
+			sqlDos += "\tXMS,\n";
+			sqlDos += "\tEMS,\n";
+			sqlDos += "\tUMB,\n";
+			sqlDos += "\tKEYBOARDLAYOUT\n";
+			sqlDos += ")\n";
+			sqlDos += "VALUES\n";
+			sqlDos += "(\n";
+			sqlDos += "\t" + _id + ",\n";
+			sqlDos += "\t" + _xms + ",\n";
+			sqlDos += "\t" + _ems + ",\n";
+			sqlDos += "\t" + _umb + ",\n";
+			sqlDos += "\t" + _keyboardlayout + "\n";
+			sqlDos += ");";
 		}
 		else if( confIt.key().toUpper() == "IPX" )
 		{
@@ -832,16 +1034,78 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 
 				++conSettIt;
 			}
+
+			sqlIpx = "";
+			sqlIpx += "INSERT INTO IPX\n";
+			sqlIpx += "(\n,";
+			sqlIpx += "\\ID,\n";
+			sqlIpx += "\tIPX\n";
+			sqlIpx += ")\n";
+			sqlIpx += "VALUES\n";
+			sqlIpx += "(\n";
+			sqlIpx += "\t" + _id + ",\n";
+			sqlIpx += "\t" + _ipx + "\n";
+			sqlIpx += ");";
 		}
 
 		++confIt;
 	}
 
-
-
-	query.exec( sqlQuery );
+	query.exec( sqlSdl );
 	if( !query.isActive() )
-		qWarning() << "Failed to insert settings into database:\t" + query.lastError().text();
+		qWarning() << "Failed to insert entities into database:\t" + query.lastError().text();
+
+	query.exec( sqlDosBox );
+	if( !query.isActive() )
+		qWarning() << "Failed to insert entities into database:\t" + query.lastError().text();
+
+	query.exec( sqlRender );
+	if( !query.isActive() )
+		qWarning() << "Failed to insert entities into database:\t" + query.lastError().text();
+
+	query.exec( sqlCpu );
+	if( !query.isActive() )
+		qWarning() << "Failed to insert entities into database:\t" + query.lastError().text();
+
+	query.exec( sqlMixer );
+	if( !query.isActive() )
+		qWarning() << "Failed to insert entities into database:\t" + query.lastError().text();
+
+	query.exec( sqlMidi );
+	if( !query.isActive() )
+		qWarning() << "Failed to insert entities into database:\t" + query.lastError().text();
+
+	query.exec( sqlSbBlaster );
+	if( !query.isActive() )
+		qWarning() << "Failed to insert entities into database:\t" + query.lastError().text();
+
+	query.exec( sqlGus );
+	if( !query.isActive() )
+		qWarning() << "Failed to insert entities into database:\t" + query.lastError().text();
+
+	query.exec( sqlSpeaker );
+	if( !query.isActive() )
+		qWarning() << "Failed to insert entities into database:\t" + query.lastError().text();
+
+	query.exec( sqlJoystick );
+	if( !query.isActive() )
+		qWarning() << "Failed to insert entities into database:\t" + query.lastError().text();
+
+	query.exec( sqlSerial );
+	if( !query.isActive() )
+		qWarning() << "Failed to insert entities into database:\t" + query.lastError().text();
+
+	query.exec( sqlDos );
+	if( !query.isActive() )
+		qWarning() << "Failed to insert entities into database:\t" + query.lastError().text();
+
+	query.exec( sqlIpx );
+	if( !query.isActive() )
+		qWarning() << "Failed to insert entities into database:\t" + query.lastError().text();
+
+
+	if( !query.isActive() )
+		qWarning() << "Failed to insert entities into database:\t" + query.lastError().text();
 
 	return true;
 }

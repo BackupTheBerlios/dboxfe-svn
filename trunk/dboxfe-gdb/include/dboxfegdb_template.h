@@ -19,6 +19,7 @@
 #define DBOXFEGDB_TEMPLATE_H
 
 #include "ui_dboxfegdb_template.h"
+#include "dboxfegdb_sql.h"
 
 #include <QtCore>
 #include <QtGui>
@@ -29,7 +30,31 @@ class GameTemplateDialog : public QDialog, public Ui::GameTemplateDialog
 		GameTemplateDialog( QDialog *parent, Qt::WFlags flags = 0 );
 		~GameTemplateDialog();
 
+	private slots:
+		void comboBoxTemplateCurrentIndexChanged( const QString & );
+		void cbxSerialIndexChanged( int );
+		void cbxKeyboardLayoutIndexChanged( int );
+
+		void loadTemplate( const QString &templateName );
+		void newTemplate();
+		void saveTemplate();
+		void deleteTemplate();
+
+		void cancel();
+
+		void language();
+		void serialAdd();
+		void serialRemove();
+
+
 	private:
+		QMap< QString, QMap< QString, QString > > settings;
+		QMap< QString, QString > subSettings;
+
+		QMap< QString, QMap< QString, QString > > getSettings();		
+
+		GameDatabaseSql *gd_sql;
+		QString database, templateName;
 		QDialog *object;
 };
 
