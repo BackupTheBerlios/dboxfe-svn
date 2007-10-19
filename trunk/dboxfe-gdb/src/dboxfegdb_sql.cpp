@@ -115,7 +115,7 @@ bool GameDatabaseSql::createDatabase( const QString &name )
 
 		if( !query.isActive() )
 		{
-			qWarning() << "Failed to create tables on " + sqlDatabase + " (exists?): " + query.lastError().text();
+			qWarning() << "Failed to create tables on " + sqlDatabase + ":\t" + query.lastError().text();
 			return false;
 		}
 	}
@@ -275,30 +275,6 @@ next:
 		query.exec( sqlQuery );
 		if( !query.isActive() )
 			qWarning() << "Failed to import dosbox information into dosboxinformation table:\t>> " << query.lastError().text() << " <<";
-
-		// TODO create reference to dosboxid table ...
-		QString dosboxVersion = QString( "" );
-		query.exec( "SELECT ID FROM DOSBOXVERSION WHERE VERSION = '" + _version.replace( "'", "''" ) + "';" );
-		if( query.isActive() )
-			while( query.next() )
-				dosboxVersion = query.value( 0 ).toString();
-
-		sqlQuery.clear();
-		sqlQuery = "";
-		sqlQuery += "INSERT INTO DOSBOXID\n";
-		sqlQuery += "(\n";
-		sqlQuery += "\tD_ID,\n";
-		sqlQuery += "\tDI_ID\n";
-		sqlQuery += ")\n";
-		sqlQuery += "VALUES\n";
-		sqlQuery += "(\n";
-		sqlQuery += "\t'" + dosboxVersion + "',\n";
-		sqlQuery += "\t'" + _id + "'\n";
-		sqlQuery += ");";
-
-		query.exec( sqlQuery );
-		if( !query.isActive() )
-			qWarning() << "Failed to create reference on dosboxid:\t>> " << query.lastError().text() << " <<";
 
 		lbl->setText( "" );
 		lbl->setText( "Status: " + _title );
@@ -472,6 +448,12 @@ bool GameDatabaseSql::updateTemplates( const QString &name, QMap< QString, QMap<
 	QSqlQuery query( gamedb );
 
 	return true;
+}
+
+bool GameDatabaseSql::insertTemplates( const QString &name, QComboBox *cbx )
+{	
+	if( name.isNull() || name.isEmpty() )
+		return false;
 }
 
 bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap< QString, QVariant > > &settings )
@@ -1268,6 +1250,20 @@ QStringList GameDatabaseSql::selectDosBoxVersion()
 	return dosboxVersionList;
 }
 
+
+QMap< QString, QMap< QString, QVariant > > GameDatabaseSql::selectTemplateSettings( const QString &name )
+{
+	if( !isOpen() )
+		return templateSettings;
+
+	if( name.isNull() || name.isEmpty() )
+		return templateSettings;
+
+
+
+	return templateSettings;
+}
+
 void GameDatabaseSql::selectDosBoxGames( const QString &version, QTreeWidget *qtw )
 {
 	if( version.isNull() || version.isEmpty() )
@@ -1331,6 +1327,27 @@ void GameDatabaseSql::selectGames( QTreeWidget *qtw )
 		} 
 	}
 
+}
+
+void GameDatabaseSql::selectTemplates( QComboBox *cbx )
+{
+	if( !isOpen() )
+		return;
+
+	cbx->clear();	
+	
+	QSqlQuery query( gamedb );
+
+	QString sqlQuery;
+	sqlQuery.clear();
+	sqlQuery = "";
+	sqlQuery += "SELECT NAME\n";
+	sqlQuery += "FROM GAMETEMPLATES;";
+	
+	query.exec( sqlQuery );	
+	if( query.isActive() )
+		while( query.next() )
+			cbx->addItem( query.value( 0 ).toString() );
 }
 
 bool GameDatabaseSql::isOpen()

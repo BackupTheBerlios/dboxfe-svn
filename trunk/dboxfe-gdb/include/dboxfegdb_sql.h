@@ -93,6 +93,15 @@ class GameDatabaseSql : public QObject
 		/**
 		 * Insert template into database
 		 * @param name the template name
+		 * @param cbx the QComboBox for insert template names
+		 * @return true if insert successfull
+		 */
+		bool insertTemplates( const QString &name, QComboBox *cbx );
+
+		/**
+		 * Insert template into database
+		 * @param name the template name
+		 * @param settings the QMap with all settings
 		 * @return true if insert successfull
 		 */
 		bool insertTemplates( const QString &name, QMap< QString, QMap< QString, QVariant > > &settings );
@@ -145,15 +154,25 @@ class GameDatabaseSql : public QObject
 		 */
 		QStringList selectDosBoxVersion();
 
+		/**
+		 * Select template settings from database
+		 * @return QMap with all settings
+		 */
+		QMap< QString, QMap< QString, QVariant > > selectTemplateSettings( const QString &name );
+
 	public slots:
 		void selectDosBoxGames( const QString &version, QTreeWidget *qtw );		
 		void selectGames( QTreeWidget *qtw );
+		void selectTemplates( QComboBox *cbx );
 
 	private:
 		bool isOpen();
 
 		QMap< QString, QMap< QString, QString > > gameDosBoxList;
 		QMap< QString, QMap< QString, QVariant > > sett;
+
+		QMap< QString, QMap< QString, QVariant > > templateSettings;
+		QMap< QString, QVariant > subTemplateSettings;
 
 		QStringList dosboxVersionList;
 		QStringList gameList;
