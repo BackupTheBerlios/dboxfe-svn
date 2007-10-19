@@ -65,6 +65,9 @@ unix{
 
 # Windows settings
 win32{
+  #CONFIG += release thread warn_on qt embed_manifest_exe
+  CONFIG += debug thread warn_on qt embed_manifest_exe
+
   RC_FILE = res/dboxfetray.rc
   TARGET = dboxfetray
   RCC_DIR = win/rcc
