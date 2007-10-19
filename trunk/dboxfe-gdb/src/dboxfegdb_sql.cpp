@@ -456,7 +456,7 @@ bool GameDatabaseSql::importGameTemplateList( const QStringList &list )
 	return true;
 }
 
-bool GameDatabaseSql::updateTemplates( const QString &name, QMap< QString, QMap< QString, QString > > &settings )
+bool GameDatabaseSql::updateTemplates( const QString &name, QMap< QString, QMap< QString, QVariant > > &settings )
 {
 	if( name.isNull() || name.isEmpty() )
 		return false;
@@ -474,7 +474,7 @@ bool GameDatabaseSql::updateTemplates( const QString &name, QMap< QString, QMap<
 	return true;
 }
 
-bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap< QString, QString > > &settings )
+bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap< QString, QVariant > > &settings )
 {
 	if( name.isNull() || name.isEmpty() )
 		return false;
@@ -511,8 +511,8 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 			qWarning() << "Failed to insert templates into database:\t" + query.lastError().text();
 
 
-	QMap< QString, QString>::const_iterator conSettIt;
-	QMap< QString, QMap< QString, QString> >::const_iterator confIt = sett.begin();
+	QMap< QString, QVariant>::const_iterator conSettIt;
+	QMap< QString, QMap< QString, QVariant> >::const_iterator confIt = sett.begin();
 
 	while( confIt != sett.end() )
 	{
@@ -526,27 +526,27 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 				qApp->processEvents();
 
 				if( conSettIt.key().toLower() == "fullscreen" )
-					_fullscreen = conSettIt.value();
+					_fullscreen = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "fulldouble" )
-					_fulldouble = conSettIt.value();
+					_fulldouble = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "fullresolution" )
-					_fullresolution = conSettIt.value();
+					_fullresolution = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "windowresolution" )
-					_windowresolution = conSettIt.value();
+					_windowresolution = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "output" )
-					_output = conSettIt.value();
+					_output = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "autolock" )
-					_autolock = conSettIt.value();
+					_autolock = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "sensitivity" )
-					_sensitivity = conSettIt.value();
+					_sensitivity = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "waitonerror" )
-					_waitonerror = conSettIt.value();
+					_waitonerror = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "priority" )
-					_priority = conSettIt.value();
+					_priority = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "mapperfile" )
-					_mapperfile = conSettIt.value();
+					_mapperfile = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "usescancodes" )
-					_usescancodes = conSettIt.value();
+					_usescancodes = conSettIt.value().toString();
 
 				++conSettIt;
 			}
@@ -591,13 +591,13 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 				qApp->processEvents();
 
 				if( conSettIt.key().toLower() == "language" )
-					_language = conSettIt.value();
+					_language = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "machine" )
-					_machine = conSettIt.value();
+					_machine = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "captures" )
-					_captures = conSettIt.value();
+					_captures = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "memsize" )
-					_memsize = conSettIt.value();
+					_memsize = conSettIt.value().toString();
 
 				++conSettIt;
 			}
@@ -628,13 +628,13 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 				qApp->processEvents();
 
 				if( conSettIt.key().toLower() == "language" )
-					_language = conSettIt.value();
+					_language = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "machine" )
-					_machine = conSettIt.value();
+					_machine = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "captures" )
-					_captures = conSettIt.value();
+					_captures = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "memsize" )
-					_memsize = conSettIt.value();
+					_memsize = conSettIt.value().toString();
 
 				++conSettIt;
 			}
@@ -665,13 +665,13 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 				qApp->processEvents();
 
 				if( conSettIt.key().toLower() == "core" )
-					_core = conSettIt.value();
+					_core = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "cycles" )
-					_cycles = conSettIt.value();
+					_cycles = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "cycleup" )
-					_cycleup = conSettIt.value();
+					_cycleup = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "cycledown" )
-					_cycledown = conSettIt.value();
+					_cycledown = conSettIt.value().toString();
 
 				++conSettIt;
 			}
@@ -702,13 +702,13 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 				qApp->processEvents();
 
 				if( conSettIt.key().toLower() == "nosound" )
-					_nosound = conSettIt.value();
+					_nosound = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "rate" )
-					_rate = conSettIt.value();
+					_rate = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "blocksize" )
-					_blocksize = conSettIt.value();
+					_blocksize = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "prebuffer" )
-					_prebuffer = conSettIt.value();
+					_prebuffer = conSettIt.value().toString();
 
 				++conSettIt;
 			}
@@ -739,9 +739,9 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 				qApp->processEvents();
 
 				if( conSettIt.key().toLower() == "device" )
-					_device = conSettIt.value();
+					_device = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "config" )
-					_config = conSettIt.value();
+					_config = conSettIt.value().toString();
 
 				++conSettIt;
 			}
@@ -768,21 +768,21 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 				qApp->processEvents();
 
 				if( conSettIt.key().toLower() == "sbtype" )
-					_sbtype = conSettIt.value();
+					_sbtype = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "sbbase" )
-					_sbbase = conSettIt.value();
+					_sbbase = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "irq" )
-					_irq = conSettIt.value();
+					_irq = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "dma" )
-					_dma = conSettIt.value();
+					_dma = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "hdma" )
-					_hdma = conSettIt.value();
+					_hdma = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "mixer" )
-					_mixer = conSettIt.value();
+					_mixer = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "oplmode" )
-					_oplmode = conSettIt.value();
+					_oplmode = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "oplrate" )
-					_oplrate = conSettIt.value();
+					_oplrate = conSettIt.value().toString();
 
 				++conSettIt;
 			}
@@ -821,21 +821,21 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 				qApp->processEvents();
 
 				if( conSettIt.key().toLower() == "gus" )
-					_gus = conSettIt.value();
+					_gus = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "gusrate" )
-					_gusrate = conSettIt.value();
+					_gusrate = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "gusbase" )
-					_gusbase = conSettIt.value();
+					_gusbase = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "irq1" )
-					_irq1 = conSettIt.value();
+					_irq1 = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "irq2" )
-					_irq2 = conSettIt.value();
+					_irq2 = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "dma1" )
-					_dma1 = conSettIt.value();
+					_dma1 = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "dma2" )
-					_dma2 = conSettIt.value();
+					_dma2 = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "ultradir" )
-					_ultradir = conSettIt.value();
+					_ultradir = conSettIt.value().toString();
 
 				++conSettIt;
 			}
@@ -874,15 +874,15 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 				qApp->processEvents();
 
 				if( conSettIt.key().toLower() == "pcspeaker" )
-					_pcspeaker = conSettIt.value();
+					_pcspeaker = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "pcrate" )
-					_pcrate = conSettIt.value();
+					_pcrate = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "tandy" )
-					_tandy = conSettIt.value();
+					_tandy = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "tandyrate" )
-					_tandyrate = conSettIt.value();
+					_tandyrate = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "disney" )
-					_disney = conSettIt.value();
+					_disney = conSettIt.value().toString();
 
 				++conSettIt;
 			}
@@ -915,15 +915,15 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 				qApp->processEvents();
 
 				if( conSettIt.key().toLower() == "joysticktype" )
-					_joysticktype = conSettIt.value();
+					_joysticktype = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "timed" )
-					_timed = conSettIt.value();
+					_timed = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "autofire" )
-					_autofire = conSettIt.value();
+					_autofire = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "swap34" )
-					_swap34 = conSettIt.value();
+					_swap34 = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "buttonwrap" )
-					_buttonwrap = conSettIt.value();
+					_buttonwrap = conSettIt.value().toString();
 
 				++conSettIt;
 			}
@@ -956,13 +956,13 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 				qApp->processEvents();
 
 				if( conSettIt.key().toLower() == "serial1" )
-					_serial1 = conSettIt.value();
+					_serial1 = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "serial2" )
-					_serial2 = conSettIt.value();
+					_serial2 = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "serial3" )
-					_serial3 = conSettIt.value();
+					_serial3 = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "serial4" )
-					_serial4 = conSettIt.value();
+					_serial4 = conSettIt.value().toString();
 
 				++conSettIt;
 			}
@@ -993,13 +993,13 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 				qApp->processEvents();
 
 				if( conSettIt.key().toLower() == "xms" )
-					_xms = conSettIt.value();
+					_xms = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "ems" )
-					_ems = conSettIt.value();
+					_ems = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "umb" )
-					_umb = conSettIt.value();
+					_umb = conSettIt.value().toString();
 				else if( conSettIt.key().toLower() == "keyboardlayout" )
-					_keyboardlayout = conSettIt.value();
+					_keyboardlayout = conSettIt.value().toString();
 
 				++conSettIt;
 			}
@@ -1030,7 +1030,7 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 				qApp->processEvents();
 
 				if( conSettIt.key().toLower() == "ipx" )
-					_ipx = conSettIt.value();
+					_ipx = conSettIt.value().toString();
 
 				++conSettIt;
 			}

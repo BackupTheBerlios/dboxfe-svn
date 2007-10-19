@@ -88,14 +88,14 @@ class GameDatabaseSql : public QObject
 		 * @param name the Game name
 		 * @return true if insert successfull
 		 */
-		bool updateTemplates( const QString &name, QMap< QString, QMap< QString, QString > > &settings );		
+		bool updateTemplates( const QString &name, QMap< QString, QMap< QString, QVariant > > &settings );		
 
 		/**
 		 * Insert template into database
 		 * @param name the template name
 		 * @return true if insert successfull
 		 */
-		bool insertTemplates( const QString &name, QMap< QString, QMap< QString, QString > > &settings );
+		bool insertTemplates( const QString &name, QMap< QString, QMap< QString, QVariant > > &settings );
 		
 		/**
 		 * Delete template from database
@@ -153,7 +153,7 @@ class GameDatabaseSql : public QObject
 		bool isOpen();
 
 		QMap< QString, QMap< QString, QString > > gameDosBoxList;
-		QMap< QString, QMap< QString, QString > > sett;
+		QMap< QString, QMap< QString, QVariant > > sett;
 
 		QStringList dosboxVersionList;
 		QStringList gameList;

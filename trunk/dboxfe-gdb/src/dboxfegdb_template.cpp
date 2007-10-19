@@ -101,7 +101,7 @@ void GameTemplateDialog::deleteTemplate()
 	gd_sql->deleteTemplates( templateName );
 }
 
-QMap< QString, QMap< QString, QString > > GameTemplateDialog::getSettings()
+QMap< QString, QMap< QString, QVariant > > GameTemplateDialog::getSettings()
 {
 	settings.clear();
 
@@ -162,72 +162,86 @@ QMap< QString, QMap< QString, QString > > GameTemplateDialog::getSettings()
 		subSettings.insert( "config", "" );
     }
 	settings.insert( "MIDI", subSettings );
-/*
+
     // Soundblaster settings
-    "sbtype", cbxSBType->currentText() );
-    "sbbase", cbxSBBase->currentText() );
-    "irq", cbxSBIRQ->currentText() );
-    "dma", cbxSBDMA->currentText() );
-    "hdma", cbxSBHDMA->currentText() );
-    "mixer", chkBoxSBMixer->isChecked() );
-    "oplrate", cbxSBOPLRate->currentText() );
-    "oplmode", cbxSBOplMode->currentText() );
+	subSettings.clear();
+    subSettings.insert( "sbtype", cbxSBType->currentText() );
+    subSettings.insert( "sbbase", cbxSBBase->currentText() );
+    subSettings.insert( "irq", cbxSBIRQ->currentText() );
+    subSettings.insert( "dma", cbxSBDMA->currentText() );
+    subSettings.insert( "hdma", cbxSBHDMA->currentText() );
+    subSettings.insert( "mixer", chkBoxSBMixer->isChecked() );
+    subSettings.insert( "oplrate", cbxSBOPLRate->currentText() );
+    subSettings.insert( "oplmode", cbxSBOplMode->currentText() );
+	settings.insert( "SBLASTER", subSettings );
     
 
     // GUS settings
-    "gus", chkBoxGUS->isChecked() );
-    "gusrate", cbxGUSRate->currentText() );
-    "gusbase", cbxGUSBase->currentText() );
-    "irq1", cbxGUSIrq_1->currentText() );
-    "irq2", cbxGUSIrq_2->currentText() );
-    "dma1", cbxGUSDMA_1->currentText() );
-    "dma2", cbxGUSDMA_2->currentText() );
-    "ultradir", LEGUSUltraDir->text() );
+	subSettings.clear();
+    subSettings.insert( "gus", chkBoxGUS->isChecked() );
+    subSettings.insert( "gusrate", cbxGUSRate->currentText() );
+    subSettings.insert( "gusbase", cbxGUSBase->currentText() );
+    subSettings.insert( "irq1", cbxGUSIrq_1->currentText() );
+    subSettings.insert( "irq2", cbxGUSIrq_2->currentText() );
+    subSettings.insert( "dma1", cbxGUSDMA_1->currentText() );
+    subSettings.insert( "dma2", cbxGUSDMA_2->currentText() );
+    subSettings.insert( "ultradir", LEGUSUltraDir->text() );
+	settings.insert( "GUS", subSettings );
     
 
     // PC Speaker settings
+	subSettings.clear();
     if ( cbxSpeaker->currentText() == "on" )
-        "pcspeaker", "true" );
+        subSettings.insert( "pcspeaker", "true" );
     else
-        "pcspeaker", "false" );
+        subSettings.insert( "pcspeaker", "false" );
 
-    "pcrate", cbxSpeakerRate->currentText() );
-    "tandy", cbxSpeakerTandy->currentText() );
-    "tandyrate", cbxSpeakerTandyRate->currentText() );
-    "disney", chkBoxDisney->isChecked() );
+    subSettings.insert( "pcrate", cbxSpeakerRate->currentText() );
+    subSettings.insert( "tandy", cbxSpeakerTandy->currentText() );
+    subSettings.insert( "tandyrate", cbxSpeakerTandyRate->currentText() );
+    subSettings.insert( "disney", chkBoxDisney->isChecked() );
+	settings.insert( "SPEAKER", subSettings );
     
 
     // Joystick settings
-    "joysticktype", cbxJoystickType->currentText() );
-	"timed", chkBoxTimed->isChecked() );
-	"autofire", chkBoxAutofire->isChecked() );
-	"swap34", chkBoxSwap34->isChecked() );
-	"buttonwrap", chkBoxButtonWrap->isChecked() );
+	subSettings.clear();
+    subSettings.insert( "joysticktype", cbxJoystickType->currentText() );
+	subSettings.insert( "timed", chkBoxTimed->isChecked() );
+	subSettings.insert( "autofire", chkBoxAutofire->isChecked() );
+	subSettings.insert( "swap34", chkBoxSwap34->isChecked() );
+	subSettings.insert( "buttonwrap", chkBoxButtonWrap->isChecked() );
+	settings.insert( "JOYSTICK", subSettings );
     
 
     // Serial settings
+	subSettings.clear();
     for ( int i = 0; i < twSerial->topLevelItemCount(); i++ ) {
         QTreeWidgetItem *item = twSerial->topLevelItem( i );
-        item->text( 0 ), item->text( 1 ) );
+        subSettings.insert( item->text( 0 ), item->text( 1 ) );
     }
 
     if ( twSerial->topLevelItemCount() <= 0 ) {
-        "serial1", "dummy" );
-        "serial2", "dummy" );
-        "serial3", "disabled" );
-        "serial4", "disabled" );
+        subSettings.insert( "serial1", "dummy" );
+        subSettings.insert( "serial2", "dummy" );
+        subSettings.insert( "serial3", "disabled" );
+        subSettings.insert( "serial4", "disabled" );
     }
+	settings.insert( "SERIAL", subSettings );
     
 
     // DOS settings
-    "xms", chkBoxXMS->isChecked() );
-    "ems", chkBoxEMS->isChecked() );
-    "umb", chkBoxUMB->isChecked() );
-    "keyboardlayout", cbxKeyboardLayout->currentText() );
+	subSettings.clear();
+    subSettings.insert( "xms", chkBoxXMS->isChecked() );
+    subSettings.insert( "ems", chkBoxEMS->isChecked() );
+    subSettings.insert( "umb", chkBoxUMB->isChecked() );
+    subSettings.insert( "keyboardlayout", cbxKeyboardLayout->currentText() );
+	settings.insert( "DOS", subSettings );
     
 
     // IPX settings
-    "ipx", chkBoxIPX->isChecked() );
-*/
+	subSettings.clear();
+    subSettings.insert( "ipx", chkBoxIPX->isChecked() );
+	settings.insert( "IPX", subSettings );
+
 	return settings;
 }

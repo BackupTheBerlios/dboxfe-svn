@@ -48,10 +48,10 @@ class GameTemplateDialog : public QDialog, public Ui::GameTemplateDialog
 
 
 	private:
-		QMap< QString, QMap< QString, QString > > settings;
-		QMap< QString, QString > subSettings;
+		QMap< QString, QMap< QString, QVariant > > settings;
+		QMap< QString, QVariant > subSettings;
 
-		QMap< QString, QMap< QString, QString > > getSettings();		
+		QMap< QString, QMap< QString, QVariant > > getSettings();		
 
 		GameDatabaseSql *gd_sql;
 		QString database, templateName;
