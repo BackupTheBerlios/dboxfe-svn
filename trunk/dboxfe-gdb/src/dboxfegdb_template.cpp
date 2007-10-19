@@ -16,6 +16,7 @@
 *   Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+#include "dboxfegdb_template_new.h"
 #include "dboxfegdb_template.h"
 #include "dboxfegdb_sql.h"
 
@@ -77,6 +78,19 @@ void GameTemplateDialog::loadTemplate( const QString &templateName )
 
 void GameTemplateDialog::newTemplate()
 {
+	GameTemplateNewDialog *gt_nd = new GameTemplateNewDialog( 0 );
+	if( gt_nd->exec() == QDialog::Accepted )
+	{
+		templateName = gt_nd->lineEditTemplateName->text();
+	}
+
+	if( templateName.isNull() || templateName.isEmpty() )
+	{
+		QMessageBox::critical( this, tr( "Gamedatabase - New Template" ), tr( "Please create template name first." ) );
+		return;
+	}
+
+	gd_sql->insertTemplates( templateName, comboBoxTemplate );
 }
 
 void GameTemplateDialog::saveTemplate()
@@ -100,6 +114,18 @@ void GameTemplateDialog::deleteTemplate()
 
 	gd_sql->deleteTemplates( templateName );
 }
+
+void GameTemplateDialog::cancel()
+{}
+
+void GameTemplateDialog::language()
+{}
+
+void GameTemplateDialog::serialAdd()
+{}
+
+void GameTemplateDialog::serialRemove()
+{}
 
 QMap< QString, QMap< QString, QVariant > > GameTemplateDialog::getSettings()
 {

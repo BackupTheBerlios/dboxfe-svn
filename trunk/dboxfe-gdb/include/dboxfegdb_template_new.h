@@ -15,3 +15,30 @@
 *   along with this program; if not, write to the Free Software Foundation,
 *   Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
+
+#ifndef DBOXFEGDB_TEMPLATE_NEW_H
+#define DBOXFEGDB_TEMPLATE_NEW_H
+
+#include "ui_dboxfegdb_template_new.h"
+
+#include <QtCore>
+#include <QtGui>
+
+class GameTemplateNewDialog : public QDialog, public Ui::GameTemplateDialogNew
+{
+	Q_OBJECT
+
+	public:
+		GameTemplateNewDialog( QDialog *parent, Qt::WFlags flags = 0 );
+		~GameTemplateNewDialog();
+
+	private slots:
+		void ok();
+		void cancel();
+
+	private:
+		QDialog *object;
+};
+
+
+#endif // DBOXFEGDB_TEMPLATE_NEW_H

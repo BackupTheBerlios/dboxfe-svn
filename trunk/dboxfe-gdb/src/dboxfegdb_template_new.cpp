@@ -15,3 +15,38 @@
 *   along with this program; if not, write to the Free Software Foundation,
 *   Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
+
+#include "dboxfegdb_template_new.h"
+
+#include <QtCore>
+#include <QtSql>
+
+GameTemplateNewDialog::GameTemplateNewDialog( QDialog *parent, Qt::WFlags flags ) : QDialog( parent, flags )
+{
+	setupUi( this );
+
+	connect( btnOk, SIGNAL( clicked() ), this, SLOT( ok() ) );
+	connect( btnCancel, SIGNAL( clicked() ), this, SLOT( cancel() ) );
+
+	QDesktopWidget *desktop = qApp->desktop();
+	const QRect rect = desktop->availableGeometry ( desktop->primaryScreen() );
+	int left = ( rect.width() - width() ) / 2;
+	int top = ( rect.height() - height() ) / 2;
+	setGeometry ( left, top, width(), height() );
+
+	object = parent;
+}
+
+GameTemplateNewDialog::~GameTemplateNewDialog()
+{
+}
+
+void GameTemplateNewDialog::ok()
+{
+	QDialog::accept();
+}
+
+void GameTemplateNewDialog::cancel()
+{
+	QDialog::reject();
+}

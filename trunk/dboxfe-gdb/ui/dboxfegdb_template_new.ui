@@ -1,7 +1,7 @@
 <ui version="4.0" >
  <author>Alexander Saal - alex.saal@gmx.de</author>
- <class>DBoxFE_Profile</class>
- <widget class="QDialog" name="DBoxFE_Profile" >
+ <class>GameTemplateDialogNew</class>
+ <widget class="QDialog" name="GameTemplateDialogNew" >
   <property name="geometry" >
    <rect>
     <x>0</x>
@@ -160,7 +160,7 @@
   <connection>
    <sender>btnCancel</sender>
    <signal>clicked()</signal>
-   <receiver>DBoxFE_Profile</receiver>
+   <receiver>GameTemplateDialogNew</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel" >

@@ -18,7 +18,7 @@
 
 # Qt 4 Settings
 TEMPLATE = app
-DESTDIR = bin
+DESTDIR = ../bin
 DEPENDPATH += include res src ui 3rdparty
 INCLUDEPATH += include 3rdparty
 RESOURCES += res/dboxfe-gdb.qrc

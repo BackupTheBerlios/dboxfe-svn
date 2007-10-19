@@ -26,6 +26,8 @@
 
 class GameTemplateDialog : public QDialog, public Ui::GameTemplateDialog
 {
+	Q_OBJECT
+
 	public:
 		GameTemplateDialog( QDialog *parent, Qt::WFlags flags = 0 );
 		~GameTemplateDialog();

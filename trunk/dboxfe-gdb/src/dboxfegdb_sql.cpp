@@ -454,6 +454,42 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QComboBox *cbx )
 {	
 	if( name.isNull() || name.isEmpty() )
 		return false;
+	
+	if( !isOpen() )
+		return false;
+
+	cbx->clear();
+
+	QSqlQuery query( gamedb );
+
+	QString _id = QUuid::createUuid().toString();
+
+	QString sqlQuery;
+	sqlQuery = "";
+	sqlQuery += "INSERT INTO GAMETEMPLATES\n";
+	sqlQuery += "(\n";
+	sqlQuery += "\tID,\n";
+	sqlQuery += "\tNAME\n";
+	sqlQuery += ")\n";
+	sqlQuery += "VALUES\n";
+	sqlQuery += "(\n";
+	sqlQuery += "\t'" + _id + "',\n";
+	sqlQuery += "\t'" + name + "'\n";
+	sqlQuery += ");";
+
+	query.exec( sqlQuery );
+	if( !query.isActive() )
+			qWarning() << "Failed to insert templates into database:\t" + query.lastError().text();
+
+	sqlQuery.clear();
+	sqlQuery = "";
+	sqlQuery += "SELECT NAME\n";
+	sqlQuery += "FROM GAMETEMPLATES;";
+	
+	query.exec( sqlQuery );	
+	if( query.isActive() )
+		while( query.next() )
+			cbx->addItem( query.value( 0 ).toString() );
 }
 
 bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap< QString, QVariant > > &settings )
@@ -471,27 +507,27 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 
 	QSqlQuery query( gamedb );
 
-	QString _id = QUuid::createUuid().toString();
+	QString _id;
 
 	QString sqlQuery;
-
 	sqlQuery = "";
-	sqlQuery += "INSERT INTO GAMETEMPLATE\n";
-	sqlQuery += "(\n";
-	sqlQuery += "\tID,\n";
-	sqlQuery += "\tNAME,\n";
-	sqlQuery += "\tDIR\n";
-	sqlQuery += ")\n";
-	sqlQuery += "VALUES\n";
-	sqlQuery += "(\n";
-	sqlQuery += "\t'" + _id + "',\n";
-	sqlQuery += "\t'" + _template_name + "'\n";
-	sqlQuery += ");";
+	sqlQuery += "SELECT ID\n";
+	sqlQuery += "FROM GAMETEMPLATES\n";
+	sqlQuery += "WHERE NAME = '" + name + "';";
 
 	query.exec( sqlQuery );
-	if( !query.isActive() )
-			qWarning() << "Failed to insert templates into database:\t" + query.lastError().text();
+	if( query.isActive() )
+	{
+		while( query.next() )
+			_id = query.value( 0 ).toString();
+	}
+	else
+	{
+		qWarning() << "Failed to insert templates into database:\t" + query.lastError().text();
+	}
 
+	if( _id.isNull() || _id.isEmpty() )
+		return false;
 
 	QMap< QString, QVariant>::const_iterator conSettIt;
 	QMap< QString, QMap< QString, QVariant> >::const_iterator confIt = sett.begin();
@@ -585,22 +621,22 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 			}
 
 			sqlDosBox = "";
-			sqlSdl += "INSERT INTO DOSBOX\n";
-			sqlSdl += "(\n";
-			sqlSdl += "\tID,\n";
-			sqlSdl += "\tLANGUAGE,\n";
-			sqlSdl += "\tMACHINE,\n";
-			sqlSdl += "\tCAPTURES,\n";
-			sqlSdl += "\tMEMSIZE\n";
-			sqlSdl += ")\n";
-			sqlSdl += "VALUES\n";
-			sqlSdl += "(\n";
-			sqlSdl += "\t'" + _id + "',\n";
-			sqlSdl += "\t'" + _language + "',\n";
-			sqlSdl += "\t'" + _machine + "',\n";
-			sqlSdl += "\t'" + _captures + "',\n";
-			sqlSdl += "\t'" + _memsize + "'\n";
-			sqlSdl += ");";
+			sqlDosBox += "INSERT INTO DOSBOX\n";
+			sqlDosBox += "(\n";
+			sqlDosBox += "\tID,\n";
+			sqlDosBox += "\tLANGUAGE,\n";
+			sqlDosBox += "\tMACHINE,\n";
+			sqlDosBox += "\tCAPTURES,\n";
+			sqlDosBox += "\tMEMSIZE\n";
+			sqlDosBox += ")\n";
+			sqlDosBox += "VALUES\n";
+			sqlDosBox += "(\n";
+			sqlDosBox += "\t'" + _id + "',\n";
+			sqlDosBox += "\t'" + _language + "',\n";
+			sqlDosBox += "\t'" + _machine + "',\n";
+			sqlDosBox += "\t'" + _captures + "',\n";
+			sqlDosBox += "\t'" + _memsize + "'\n";
+			sqlDosBox += ");";
 		}
 		else if( confIt.key().toUpper() == "RENDER" )
 		{
@@ -609,34 +645,30 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 			{
 				qApp->processEvents();
 
-				if( conSettIt.key().toLower() == "language" )
-					_language = conSettIt.value().toString();
-				else if( conSettIt.key().toLower() == "machine" )
-					_machine = conSettIt.value().toString();
-				else if( conSettIt.key().toLower() == "captures" )
-					_captures = conSettIt.value().toString();
-				else if( conSettIt.key().toLower() == "memsize" )
-					_memsize = conSettIt.value().toString();
+				if( conSettIt.key().toLower() == "frameskip" )
+					_frameskip = conSettIt.value().toString();
+				else if( conSettIt.key().toLower() == "aspect" )
+					_aspect = conSettIt.value().toString();
+				else if( conSettIt.key().toLower() == "scaler" )
+					_scaler = conSettIt.value().toString();
 
 				++conSettIt;
 			}
 
 			sqlRender = "";
 			sqlRender += "INSERT INTO RENDER\n";
-			sqlRender += "(\n,";
-			sqlRender += "\\ID,\n";
-			sqlRender += "\tLANGUAGE,\n";
-			sqlRender += "\tMACHINE,\n";
-			sqlRender += "\tCAPTURES,\n";
-			sqlRender += "\tMEMSIZE\n";
+			sqlRender += "(\n";
+			sqlRender += "\tID,\n";
+			sqlRender += "\tFRAMESKIP,\n";
+			sqlRender += "\tASPECT,\n";
+			sqlRender += "\tSCALER\n";
 			sqlRender += ")\n";
 			sqlRender += "VALUES\n";
 			sqlRender += "(\n";
-			sqlRender += "\t" + _id + ",\n";
-			sqlRender += "\t" + _language + ",\n";
-			sqlRender += "\t" + _machine + ",\n";
-			sqlRender += "\t" + _captures + ",\n";
-			sqlRender += "\t" + _memsize + "\n";
+			sqlRender += "\t'" + _id + "',\n";
+			sqlRender += "\t'" + _frameskip + "',\n";
+			sqlRender += "\t'" + _aspect + "',\n";
+			sqlRender += "\t'" + _scaler + "'\n";
 			sqlRender += ");";
 		}
 		else if( confIt.key().toUpper() == "CPU" )
@@ -660,8 +692,8 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 
 			sqlCpu = "";
 			sqlCpu += "INSERT INTO CPU\n";
-			sqlCpu += "(\n,";
-			sqlCpu += "\\ID,\n";
+			sqlCpu += "(\n";
+			sqlCpu += "\tID,\n";
 			sqlCpu += "\tCORE,\n";
 			sqlCpu += "\tCYCLES,\n";
 			sqlCpu += "\tCYCLEUP,\n";
@@ -669,11 +701,11 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 			sqlCpu += ")\n";
 			sqlCpu += "VALUES\n";
 			sqlCpu += "(\n";
-			sqlCpu += "\t" + _id + ",\n";
-			sqlCpu += "\t" + _core + ",\n";
-			sqlCpu += "\t" + _cycles + ",\n";
-			sqlCpu += "\t" + _cycleup + ",\n";
-			sqlCpu += "\t" + _cycledown + "\n";
+			sqlCpu += "\t'" + _id + "',\n";
+			sqlCpu += "\t'" + _core + "',\n";
+			sqlCpu += "\t'" + _cycles + "',\n";
+			sqlCpu += "\t'" + _cycleup + "',\n";
+			sqlCpu += "\t'" + _cycledown + "'\n";
 			sqlCpu += ");";
 		}
 		else if( confIt.key().toUpper() == "MIXER" )
@@ -696,9 +728,9 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 			}
 
 			sqlMixer = "";
-			sqlMixer += "INSERT INTO RENDER\n";
-			sqlMixer += "(\n,";
-			sqlMixer += "\\ID,\n";
+			sqlMixer += "INSERT INTO MIXER\n";
+			sqlMixer += "(\n";
+			sqlMixer += "\tID,\n";
 			sqlMixer += "\tNOSOUND,\n";
 			sqlMixer += "\tRATE,\n";
 			sqlMixer += "\tBLOCKSIZE,\n";
@@ -706,11 +738,11 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 			sqlMixer += ")\n";
 			sqlMixer += "VALUES\n";
 			sqlMixer += "(\n";
-			sqlMixer += "\t" + _id + ",\n";
-			sqlMixer += "\t" + _nosound + ",\n";
-			sqlMixer += "\t" + _rate + ",\n";
-			sqlMixer += "\t" + _blocksize + ",\n";
-			sqlMixer += "\t" + _prebuffer + "\n";
+			sqlMixer += "\t'" + _id + "',\n";
+			sqlMixer += "\t'" + _nosound + "',\n";
+			sqlMixer += "\t'" + _rate + "',\n";
+			sqlMixer += "\t'" + _blocksize + "',\n";
+			sqlMixer += "\t'" + _prebuffer + "'\n";
 			sqlMixer += ");";
 		}
 		else if( confIt.key().toUpper() == "MIDI" )
@@ -730,16 +762,16 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 
 			sqlMidi = "";
 			sqlMidi += "INSERT INTO MIDI\n";
-			sqlMidi += "(\n,";
-			sqlMidi += "\\ID,\n";
+			sqlMidi += "(\n";
+			sqlMidi += "\tID,\n";
 			sqlMidi += "\tDEVICE,\n";
 			sqlMidi += "\tCONFIG\n";
 			sqlMidi += ")\n";
 			sqlMidi += "VALUES\n";
 			sqlMidi += "(\n";
-			sqlMidi += "\t" + _id + ",\n";
-			sqlMidi += "\t" + _device + ",\n";
-			sqlMidi += "\t" + _config + "\n";
+			sqlMidi += "\t'" + _id + "',\n";
+			sqlMidi += "\t'" + _device + "',\n";
+			sqlMidi += "\t'" + _config + "'\n";
 			sqlMidi += ");";
 		}
 		else if( confIt.key().toUpper() == "SBLASTER" )
@@ -771,8 +803,8 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 
 			sqlSbBlaster = "";
 			sqlSbBlaster += "INSERT INTO SBLASTER\n";
-			sqlSbBlaster += "(\n,";
-			sqlSbBlaster += "\\ID,\n";
+			sqlSbBlaster += "(\n";
+			sqlSbBlaster += "\tID,\n";
 			sqlSbBlaster += "\tSBTYPE,\n";
 			sqlSbBlaster += "\tSBBASE,\n";
 			sqlSbBlaster += "\tIRQ,\n";
@@ -784,15 +816,15 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 			sqlSbBlaster += ")\n";
 			sqlSbBlaster += "VALUES\n";
 			sqlSbBlaster += "(\n";
-			sqlSbBlaster += "\t" + _id + ",\n";
-			sqlSbBlaster += "\t" + _sbtype + ",\n";
-			sqlSbBlaster += "\t" + _sbbase + ",\n";
-			sqlSbBlaster += "\t" + _irq + ",\n";
-			sqlSbBlaster += "\t" + _dma + ",\n";
-			sqlSbBlaster += "\t" + _hdma + ",\n";
-			sqlSbBlaster += "\t" + _mixer + ",\n";
-			sqlSbBlaster += "\t" + _oplmode + ",\n";
-			sqlSbBlaster += "\t" + _oplrate + "\n";
+			sqlSbBlaster += "\t'" + _id + "',\n";
+			sqlSbBlaster += "\t'" + _sbtype + "',\n";
+			sqlSbBlaster += "\t'" + _sbbase + "',\n";
+			sqlSbBlaster += "\t'" + _irq + "',\n";
+			sqlSbBlaster += "\t'" + _dma + "',\n";
+			sqlSbBlaster += "\t'" + _hdma + "',\n";
+			sqlSbBlaster += "\t'" + _mixer + "',\n";
+			sqlSbBlaster += "\t'" + _oplmode + "',\n";
+			sqlSbBlaster += "\t'" + _oplrate + "'\n";
 			sqlSbBlaster += ");";
 		}
 		else if( confIt.key().toUpper() == "GUS" )
@@ -824,8 +856,8 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 
 			sqlGus = "";
 			sqlGus += "INSERT INTO GUS\n";
-			sqlGus += "(\n,";
-			sqlGus += "\\ID,\n";
+			sqlGus += "(\n";
+			sqlGus += "\tID,\n";
 			sqlGus += "\tGUS,\n";
 			sqlGus += "\tGUSRATE,\n";
 			sqlGus += "\tGUSBASE,\n";
@@ -837,15 +869,15 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 			sqlGus += ")\n";
 			sqlGus += "VALUES\n";
 			sqlGus += "(\n";
-			sqlGus += "\t" + _id + ",\n";
-			sqlGus += "\t" + _gus + ",\n";
-			sqlGus += "\t" + _gusrate + ",\n";
-			sqlGus += "\t" + _gusbase + ",\n";
-			sqlGus += "\t" + _irq1 + ",\n";
-			sqlGus += "\t" + _irq2 + ",\n";
-			sqlGus += "\t" + _dma1 + ",\n";
-			sqlGus += "\t" + _dma2 + ",\n";
-			sqlGus += "\t" + _ultradir + "\n";
+			sqlGus += "\t'" + _id + "',\n";
+			sqlGus += "\t'" + _gus + "',\n";
+			sqlGus += "\t'" + _gusrate + "',\n";
+			sqlGus += "\t'" + _gusbase + "',\n";
+			sqlGus += "\t'" + _irq1 + "',\n";
+			sqlGus += "\t'" + _irq2 + "',\n";
+			sqlGus += "\t'" + _dma1 + "',\n";
+			sqlGus += "\t'" + _dma2 + "',\n";
+			sqlGus += "\t'" + _ultradir + "'\n";
 			sqlGus += ");";
 		}
 		else if( confIt.key().toUpper() == "SPEAKER" )
@@ -871,8 +903,8 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 
 			sqlSpeaker = "";
 			sqlSpeaker += "INSERT INTO SPEAKER\n";
-			sqlSpeaker += "(\n,";
-			sqlSpeaker += "\\ID,\n";
+			sqlSpeaker += "(\n";
+			sqlSpeaker += "\tID,\n";
 			sqlSpeaker += "\tPCSPEAKER,\n";
 			sqlSpeaker += "\tPCRATE,\n";
 			sqlSpeaker += "\tTANDY,\n";
@@ -881,12 +913,12 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 			sqlSpeaker += ")\n";
 			sqlSpeaker += "VALUES\n";
 			sqlSpeaker += "(\n";
-			sqlSpeaker += "\t" + _id + ",\n";
-			sqlSpeaker += "\t" + _pcspeaker + ",\n";
-			sqlSpeaker += "\t" + _pcrate + ",\n";
-			sqlSpeaker += "\t" + _tandy + ",\n";
-			sqlSpeaker += "\t" + _tandyrate + ",\n";
-			sqlSpeaker += "\t" + _disney + "\n";
+			sqlSpeaker += "\t'" + _id + "',\n";
+			sqlSpeaker += "\t'" + _pcspeaker + "',\n";
+			sqlSpeaker += "\t'" + _pcrate + "',\n";
+			sqlSpeaker += "\t'" + _tandy + "',\n";
+			sqlSpeaker += "\t'" + _tandyrate + "',\n";
+			sqlSpeaker += "\t'" + _disney + "'\n";
 			sqlSpeaker += ");";
 		}
 		else if( confIt.key().toUpper() == "JOYSTICK" )
@@ -912,8 +944,8 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 
 			sqlJoystick = "";
 			sqlJoystick += "INSERT INTO JOYSTICK\n";
-			sqlJoystick += "(\n,";
-			sqlJoystick += "\\ID,\n";
+			sqlJoystick += "(\n";
+			sqlJoystick += "\tID,\n";
 			sqlJoystick += "\tJOYSTICKTYPE,\n";
 			sqlJoystick += "\tTIMED,\n";
 			sqlJoystick += "\tAUTOFIRE,\n";
@@ -922,12 +954,12 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 			sqlJoystick += ")\n";
 			sqlJoystick += "VALUES\n";
 			sqlJoystick += "(\n";
-			sqlJoystick += "\t" + _id + ",\n";
-			sqlJoystick += "\t" + _joysticktype + ",\n";
-			sqlJoystick += "\t" + _timed + ",\n";
-			sqlJoystick += "\t" + _autofire + ",\n";
-			sqlJoystick += "\t" + _swap34 + ",\n";
-			sqlJoystick += "\t" + _buttonwrap + "\n";
+			sqlJoystick += "\t'" + _id + "',\n";
+			sqlJoystick += "\t'" + _joysticktype + "',\n";
+			sqlJoystick += "\t'" + _timed + "',\n";
+			sqlJoystick += "\t'" + _autofire + "',\n";
+			sqlJoystick += "\t'" + _swap34 + "',\n";
+			sqlJoystick += "\t'" + _buttonwrap + "'\n";
 			sqlJoystick += ");";
 		}
 		else if( confIt.key().toUpper() == "SERIAL" )
@@ -951,8 +983,8 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 
 			sqlSerial = "";
 			sqlSerial += "INSERT INTO SERIAL\n";
-			sqlSerial += "(\n,";
-			sqlSerial += "\\ID,\n";
+			sqlSerial += "(\n";
+			sqlSerial += "\tID,\n";
 			sqlSerial += "\tSERIAL1,\n";
 			sqlSerial += "\tSERIAL2,\n";
 			sqlSerial += "\tSERIAL3,\n";
@@ -960,11 +992,11 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 			sqlSerial += ")\n";
 			sqlSerial += "VALUES\n";
 			sqlSerial += "(\n";
-			sqlSerial += "\t" + _id + ",\n";
-			sqlSerial += "\t" + _serial1 + ",\n";
-			sqlSerial += "\t" + _serial2 + ",\n";
-			sqlSerial += "\t" + _serial3 + ",\n";
-			sqlSerial += "\t" + _swap34 + "\n";
+			sqlSerial += "\t'" + _id + "',\n";
+			sqlSerial += "\t'" + _serial1 + "',\n";
+			sqlSerial += "\t'" + _serial2 + "',\n";
+			sqlSerial += "\t'" + _serial3 + "',\n";
+			sqlSerial += "\t'" + _swap34 + "'\n";
 			sqlSerial += ");";
 		}
 		else if( confIt.key().toUpper() == "DOS" )
@@ -988,8 +1020,8 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 
 			sqlDos = "";
 			sqlDos += "INSERT INTO DOS\n";
-			sqlDos += "(\n,";
-			sqlDos += "\\ID,\n";
+			sqlDos += "(\n";
+			sqlDos += "\tID,\n";
 			sqlDos += "\tXMS,\n";
 			sqlDos += "\tEMS,\n";
 			sqlDos += "\tUMB,\n";
@@ -997,11 +1029,11 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 			sqlDos += ")\n";
 			sqlDos += "VALUES\n";
 			sqlDos += "(\n";
-			sqlDos += "\t" + _id + ",\n";
-			sqlDos += "\t" + _xms + ",\n";
-			sqlDos += "\t" + _ems + ",\n";
-			sqlDos += "\t" + _umb + ",\n";
-			sqlDos += "\t" + _keyboardlayout + "\n";
+			sqlDos += "\t'" + _id + "',\n";
+			sqlDos += "\t'" + _xms + "',\n";
+			sqlDos += "\t'" + _ems + "',\n";
+			sqlDos += "\t'" + _umb + "',\n";
+			sqlDos += "\t'" + _keyboardlayout + "'\n";
 			sqlDos += ");";
 		}
 		else if( confIt.key().toUpper() == "IPX" )
@@ -1019,14 +1051,14 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 
 			sqlIpx = "";
 			sqlIpx += "INSERT INTO IPX\n";
-			sqlIpx += "(\n,";
-			sqlIpx += "\\ID,\n";
+			sqlIpx += "(\n";
+			sqlIpx += "\tID,\n";
 			sqlIpx += "\tIPX\n";
 			sqlIpx += ")\n";
 			sqlIpx += "VALUES\n";
 			sqlIpx += "(\n";
-			sqlIpx += "\t" + _id + ",\n";
-			sqlIpx += "\t" + _ipx + "\n";
+			sqlIpx += "\t'" + _id + "',\n";
+			sqlIpx += "\t'" + _ipx + "'\n";
 			sqlIpx += ");";
 		}
 
@@ -1082,10 +1114,6 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 		qWarning() << "Failed to insert entities into database:\t" + query.lastError().text();
 
 	query.exec( sqlIpx );
-	if( !query.isActive() )
-		qWarning() << "Failed to insert entities into database:\t" + query.lastError().text();
-
-
 	if( !query.isActive() )
 		qWarning() << "Failed to insert entities into database:\t" + query.lastError().text();
 
@@ -1173,11 +1201,11 @@ bool GameDatabaseSql::insertGames( const QString &name, const QString &version, 
 		sqlQuery += ")\n";
 		sqlQuery += "VALUES\n";
 		sqlQuery += "(\n";
-		sqlQuery += "(\t" + _id + ",\n";
-		sqlQuery += "\t" + name + ",\n";
-		sqlQuery += "\t" + _id_dosbox + ",\n";
-		sqlQuery += "\t" + executable + ",\n";
-		sqlQuery += "\t" + _id_template + "\n";
+		sqlQuery += "\t'" + _id + "',\n";
+		sqlQuery += "\t'" + name + "',\n";
+		sqlQuery += "\t'" + _id_dosbox + "',\n";
+		sqlQuery += "\t'" + executable + "',\n";
+		sqlQuery += "\t'" + _id_template + "'\n";
 		sqlQuery += ");\n";
 
 		query.exec( sqlQuery );
