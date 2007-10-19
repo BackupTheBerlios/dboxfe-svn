@@ -3,7 +3,8 @@
 	ProjectType="Visual C++"
 	Version="8,00"
 	Name="dboxfetray"
-	ProjectGUID="{294BAFA4-725D-3FBE-BAD8-9A66DE315938}"
+	ProjectGUID="{46357F99-904A-3D85-A9BA-450CD93233A7}"
+	Keyword="Qt4VSv1.0"
 	>
 	<Platforms>
 		<Platform
@@ -41,11 +42,12 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalOptions="-Zm200 -w34100 -w34189 -EHsc -Zm200 -w34100 -w34189 -EHsc -w34100 -w34189"
+				AdditionalOptions="-Zm200 -w34100 -w34189 -Zm200 -w34100 -w34189 -w34100 -w34189"
 				Optimization="2"
-				AdditionalIncludeDirectories="&quot;$(QTDIR)/include/QtCore&quot;,&quot;$(QTDIR)/include/QtCore&quot;,&quot;$(QTDIR)/include/QtGui&quot;,&quot;$(QTDIR)/include/QtGui&quot;,&quot;$(QTDIR)/include/QtXml&quot;,&quot;$(QTDIR)/include/QtXml&quot;,&quot;$(QTDIR)/include&quot;,&quot;include&quot;,&quot;..\3rdparty&quot;,&quot;$(QTDIR)/include/ActiveQt&quot;,&quot;win\moc&quot;,&quot;win\ui&quot;,..\..\..\..\Lib\qt4\mkspecs\win32-msvc2005"
+				AdditionalIncludeDirectories="&quot;$(QTDIR)\include\QtCore&quot;,&quot;$(QTDIR)\include\QtCore&quot;,&quot;$(QTDIR)\include\QtGui&quot;,&quot;$(QTDIR)\include\QtGui&quot;,&quot;$(QTDIR)\include\QtXml&quot;,&quot;$(QTDIR)\include\QtXml&quot;,&quot;$(QTDIR)\include&quot;,&quot;include&quot;,&quot;..\3rdparty&quot;,&quot;$(QTDIR)\include\ActiveQt&quot;,&quot;win\moc&quot;,&quot;win\ui&quot;,$(QTDIR)\mkspecs\win32-msvc2005"
 				PreprocessorDefinitions="_WINDOWS,UNICODE,WIN32,QT_LARGEFILE_SUPPORT,QT_DLL,QT_XML_LIB,QT_GUI_LIB,QT_CORE_LIB,QT_THREAD_SUPPORT"
 				GeneratePreprocessedFile="0"
+				ExceptionHandling="1"
 				RuntimeLibrary="3"
 				BufferSecurityCheck="false"
 				TreatWChar_tAsBuiltInType="false"
@@ -62,7 +64,7 @@
 			/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="_WINDOWS,UNICODE,WIN32,QT_LARGEFILE_SUPPORT,QT_DLL,QT_XML_LIB,QT_GUI_LIB,QT_CORE_LIB,QT_THREAD_SUPPORT"
+				PreprocessorDefinitions="_WINDOWS,UNICODE,WIN32,QT_LARGEFILE_SUPPORT,QT_DLL,QT_XML_LIB,QT_GUI_LIB,QT_CORE_LIB,QT_THREAD_SUPPORT,_DEBUG"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
@@ -131,11 +133,12 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalOptions="-Zm200 -w34100 -w34189 -EHsc -Zm200 -w34100 -w34189 -EHsc -w34100 -w34189"
+				AdditionalOptions="-Zm200 -w34100 -w34189 -Zm200 -w34100 -w34189 -w34100 -w34189"
 				Optimization="2"
-				AdditionalIncludeDirectories="&quot;$(QTDIR)/include/QtCore&quot;,&quot;$(QTDIR)/include/QtCore&quot;,&quot;$(QTDIR)/include/QtGui&quot;,&quot;$(QTDIR)/include/QtGui&quot;,&quot;$(QTDIR)/include/QtXml&quot;,&quot;$(QTDIR)/include/QtXml&quot;,&quot;$(QTDIR)/include&quot;,&quot;include&quot;,&quot;..\3rdparty&quot;,&quot;$(QTDIR)/include/ActiveQt&quot;,&quot;win\moc&quot;,&quot;win\ui&quot;,..\..\..\..\Lib\qt4\mkspecs\win32-msvc2005"
+				AdditionalIncludeDirectories="&quot;$(QTDIR)\include\QtCore&quot;,&quot;$(QTDIR)\include\QtCore&quot;,&quot;$(QTDIR)\include\QtGui&quot;,&quot;$(QTDIR)\include\QtGui&quot;,&quot;$(QTDIR)\include\QtXml&quot;,&quot;$(QTDIR)\include\QtXml&quot;,&quot;$(QTDIR)\include&quot;,&quot;include&quot;,&quot;..\3rdparty&quot;,&quot;$(QTDIR)\include\ActiveQt&quot;,&quot;win\moc&quot;,&quot;win\ui&quot;,$(QTDIR)\mkspecs\win32-msvc2005"
 				PreprocessorDefinitions="QT_NO_DEBUG,NDEBUG,_WINDOWS,UNICODE,WIN32,QT_LARGEFILE_SUPPORT,QT_DLL,QT_NO_DEBUG,QT_XML_LIB,QT_GUI_LIB,QT_CORE_LIB,QT_THREAD_SUPPORT,NDEBUG"
 				GeneratePreprocessedFile="0"
+				ExceptionHandling="1"
 				RuntimeLibrary="2"
 				BufferSecurityCheck="false"
 				TreatWChar_tAsBuiltInType="false"
@@ -162,7 +165,7 @@
 				IgnoreImportLibrary="true"
 				AdditionalDependencies="$(QTDIR)\lib\qtmain.lib $(QTDIR)\lib\QtXml4.lib $(QTDIR)\lib\QtGui4.lib $(QTDIR)\lib\QtCore4.lib"
 				OutputFile="..\bin\dboxfetray.exe"
-				LinkIncremental="2"
+				LinkIncremental="1"
 				SuppressStartupBanner="true"
 				AdditionalLibraryDirectories="$(QTDIR)\lib"
 				GenerateDebugInformation="false"
@@ -242,8 +245,8 @@
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="MOC include\dboxfetray.h"
-						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;..\3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;win\moc&quot; -I&quot;win\ui&quot; -I..\..\..\..\Lib\qt4\mkspecs\win32-msvc2005 -D_MSC_VER=1400 -DWIN32 include\dboxfetray.h -o win\moc\moc_dboxfetray.cpp&#x0D;&#x0A;"
-						AdditionalDependencies="$(QTDIR)\bin\moc.exe"
+						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;..\3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;win\moc&quot; -I&quot;win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2005 -D_MSC_VER=1400 -DWIN32 include\dboxfetray.h -o win\moc\moc_dboxfetray.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\dboxfetray.h"
 						Outputs="win\moc\moc_dboxfetray.cpp"
 					/>
 				</FileConfiguration>
@@ -253,8 +256,8 @@
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="MOC include\dboxfetray.h"
-						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;..\3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;win\moc&quot; -I&quot;win\ui&quot; -I..\..\..\..\Lib\qt4\mkspecs\win32-msvc2005 -D_MSC_VER=1400 -DWIN32 include\dboxfetray.h -o win\moc\moc_dboxfetray.cpp&#x0D;&#x0A;"
-						AdditionalDependencies="$(QTDIR)\bin\moc.exe"
+						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;..\3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;win\moc&quot; -I&quot;win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2005 -D_MSC_VER=1400 -DWIN32 include\dboxfetray.h -o win\moc\moc_dboxfetray.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\dboxfetray.h"
 						Outputs="win\moc\moc_dboxfetray.cpp"
 					/>
 				</FileConfiguration>
@@ -306,7 +309,7 @@
 						Name="VCCustomBuildTool"
 						Description="UIC ui\dboxfetrayabout.ui"
 						CommandLine="$(QTDIR)\bin\uic.exe ui\dboxfetrayabout.ui -o win\ui\ui_dboxfetrayabout.h&#x0D;&#x0A;"
-						AdditionalDependencies="$(QTDIR)\bin\uic.exe"
+						AdditionalDependencies="$(QTDIR)\bin\uic.exe;ui\dboxfetrayabout.ui"
 						Outputs="win\ui\ui_dboxfetrayabout.h"
 					/>
 				</FileConfiguration>
@@ -317,7 +320,7 @@
 						Name="VCCustomBuildTool"
 						Description="UIC ui\dboxfetrayabout.ui"
 						CommandLine="$(QTDIR)\bin\uic.exe ui\dboxfetrayabout.ui -o win\ui\ui_dboxfetrayabout.h&#x0D;&#x0A;"
-						AdditionalDependencies="$(QTDIR)\bin\uic.exe"
+						AdditionalDependencies="$(QTDIR)\bin\uic.exe;ui\dboxfetrayabout.ui"
 						Outputs="win\ui\ui_dboxfetrayabout.h"
 					/>
 				</FileConfiguration>
@@ -343,7 +346,7 @@
 						Name="VCCustomBuildTool"
 						Description="RCC res\dboxfetray.qrc"
 						CommandLine="$(QTDIR)\bin\rcc.exe -name dboxfetray res\dboxfetray.qrc -o win\rcc\qrc_dboxfetray.cpp&#x0D;&#x0A;"
-						AdditionalDependencies="$(QTDIR)\bin\rcc.exe;res\dboxfetray.png"
+						AdditionalDependencies="$(QTDIR)\bin\rcc.exe;res\dboxfetray.png;res\dboxfetray.qrc"
 						Outputs="win\rcc\qrc_dboxfetray.cpp"
 					/>
 				</FileConfiguration>
@@ -354,14 +357,14 @@
 						Name="VCCustomBuildTool"
 						Description="RCC res\dboxfetray.qrc"
 						CommandLine="$(QTDIR)\bin\rcc.exe -name dboxfetray res\dboxfetray.qrc -o win\rcc\qrc_dboxfetray.cpp&#x0D;&#x0A;"
-						AdditionalDependencies="$(QTDIR)\bin\rcc.exe;res\dboxfetray.png"
+						AdditionalDependencies="$(QTDIR)\bin\rcc.exe;res\dboxfetray.png;res\dboxfetray.qrc"
 						Outputs="win\rcc\qrc_dboxfetray.cpp"
 					/>
 				</FileConfiguration>
 			</File>
 		</Filter>
 		<File
-			RelativePath="res/dboxfetray.rc"
+			RelativePath="res\dboxfetray.rc"
 			>
 		</File>
 	</Files>

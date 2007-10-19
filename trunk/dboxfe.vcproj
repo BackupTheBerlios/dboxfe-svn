@@ -3,7 +3,7 @@
 	ProjectType="Visual C++"
 	Version="8,00"
 	Name="dboxfe"
-	ProjectGUID="{46300B35-4C6E-3944-9CE6-C025CECE0DCC}"
+	ProjectGUID="{86156C63-9294-347A-B184-B3D6ADB40A98}"
 	Keyword="Qt4VSv1.0"
 	>
 	<Platforms>
@@ -892,10 +892,6 @@
 				>
 			</File>
 			<File
-				RelativePath="res\language\CZ\cestina.lng"
-				>
-			</File>
-			<File
 				RelativePath="res\computer_16.png"
 				>
 			</File>
@@ -921,7 +917,7 @@
 						Name="VCCustomBuildTool"
 						Description="RCC res\dboxfe.qrc"
 						CommandLine="$(QTDIR)\bin\rcc.exe -name dboxfe res\dboxfe.qrc -o win\rcc\qrc_dboxfe.cpp&#x0D;&#x0A;"
-						AdditionalDependencies="$(QTDIR)\bin\rcc.exe;res\LICENSE.GPL;res\add_16.png;res\applications_16.png;res\arrow-back_16.png;res\arrow-down_16.png;res\arrow-forward_16.png;res\arrow-up_16.png;res\computer_16.png;res\copy_16.png;res\cpu.png;res\cut_16.png;res\dboxfe.qrc;res\dboxfe_de.qm;res\dboxfe_en.qm;res\de.png;res\default.conf;res\default.png;res\delete_16.png;res\disc-media_16.png;res\documents_16.png;res\en.png;res\folder-closed_16.png;res\folder-open_16.png;res\home_16.png;res\language\CZ\cestina.lng;res\language\FR\francais.lng;res\language\GER\deutsch.lng;res\language\HGR\magyar.lng;res\language\ITA\ita.lng;res\language\KOR\korean.lng;res\language\PG\portuguese.lng;res\language\RUS\russian.lng;res\logo.png;res\mail_16.png;res\midi.png;res\misc.png;res\paste_16.png;res\print_16.png;res\redo_16.png;res\save_16.png;res\thanks;res\trash_16.png;res\undo_16.png;res\wiz_internet.png"
+						AdditionalDependencies="$(QTDIR)\bin\rcc.exe;res\LICENSE.GPL;res\add_16.png;res\applications_16.png;res\arrow-back_16.png;res\arrow-down_16.png;res\arrow-forward_16.png;res\arrow-up_16.png;res\computer_16.png;res\copy_16.png;res\cpu.png;res\cut_16.png;res\dboxfe.qrc;res\dboxfe_de.qm;res\dboxfe_en.qm;res\de.png;res\default.conf;res\default.png;res\delete_16.png;res\disc-media_16.png;res\documents_16.png;res\en.png;res\folder-closed_16.png;res\folder-open_16.png;res\home_16.png;res\logo.png;res\mail_16.png;res\midi.png;res\misc.png;res\paste_16.png;res\print_16.png;res\redo_16.png;res\save_16.png;res\thanks;res\trash_16.png;res\undo_16.png;res\wiz_internet.png"
 						Outputs="win\rcc\qrc_dboxfe.cpp"
 					/>
 				</FileConfiguration>
@@ -932,7 +928,7 @@
 						Name="VCCustomBuildTool"
 						Description="RCC res\dboxfe.qrc"
 						CommandLine="$(QTDIR)\bin\rcc.exe -name dboxfe res\dboxfe.qrc -o win\rcc\qrc_dboxfe.cpp&#x0D;&#x0A;"
-						AdditionalDependencies="$(QTDIR)\bin\rcc.exe;res\LICENSE.GPL;res\add_16.png;res\applications_16.png;res\arrow-back_16.png;res\arrow-down_16.png;res\arrow-forward_16.png;res\arrow-up_16.png;res\computer_16.png;res\copy_16.png;res\cpu.png;res\cut_16.png;res\dboxfe.qrc;res\dboxfe_de.qm;res\dboxfe_en.qm;res\de.png;res\default.conf;res\default.png;res\delete_16.png;res\disc-media_16.png;res\documents_16.png;res\en.png;res\folder-closed_16.png;res\folder-open_16.png;res\home_16.png;res\language\CZ\cestina.lng;res\language\FR\francais.lng;res\language\GER\deutsch.lng;res\language\HGR\magyar.lng;res\language\ITA\ita.lng;res\language\KOR\korean.lng;res\language\PG\portuguese.lng;res\language\RUS\russian.lng;res\logo.png;res\mail_16.png;res\midi.png;res\misc.png;res\paste_16.png;res\print_16.png;res\redo_16.png;res\save_16.png;res\thanks;res\trash_16.png;res\undo_16.png;res\wiz_internet.png"
+						AdditionalDependencies="$(QTDIR)\bin\rcc.exe;res\LICENSE.GPL;res\add_16.png;res\applications_16.png;res\arrow-back_16.png;res\arrow-down_16.png;res\arrow-forward_16.png;res\arrow-up_16.png;res\computer_16.png;res\copy_16.png;res\cpu.png;res\cut_16.png;res\dboxfe.qrc;res\dboxfe_de.qm;res\dboxfe_en.qm;res\de.png;res\default.conf;res\default.png;res\delete_16.png;res\disc-media_16.png;res\documents_16.png;res\en.png;res\folder-closed_16.png;res\folder-open_16.png;res\home_16.png;res\logo.png;res\mail_16.png;res\midi.png;res\misc.png;res\paste_16.png;res\print_16.png;res\redo_16.png;res\save_16.png;res\thanks;res\trash_16.png;res\undo_16.png;res\wiz_internet.png"
 						Outputs="win\rcc\qrc_dboxfe.cpp"
 					/>
 				</FileConfiguration>
@@ -962,10 +958,6 @@
 				>
 			</File>
 			<File
-				RelativePath="res\language\GER\deutsch.lng"
-				>
-			</File>
-			<File
 				RelativePath="res\disc-media_16.png"
 				>
 			</File>
@@ -986,19 +978,7 @@
 				>
 			</File>
 			<File
-				RelativePath="res\language\FR\francais.lng"
-				>
-			</File>
-			<File
 				RelativePath="res\home_16.png"
-				>
-			</File>
-			<File
-				RelativePath="res\language\ITA\ita.lng"
-				>
-			</File>
-			<File
-				RelativePath="res\language\KOR\korean.lng"
 				>
 			</File>
 			<File
@@ -1007,10 +987,6 @@
 			</File>
 			<File
 				RelativePath="res\logo.png"
-				>
-			</File>
-			<File
-				RelativePath="res\language\HGR\magyar.lng"
 				>
 			</File>
 			<File
@@ -1030,19 +1006,11 @@
 				>
 			</File>
 			<File
-				RelativePath="res\language\PG\portuguese.lng"
-				>
-			</File>
-			<File
 				RelativePath="res\print_16.png"
 				>
 			</File>
 			<File
 				RelativePath="res\redo_16.png"
-				>
-			</File>
-			<File
-				RelativePath="res\language\RUS\russian.lng"
 				>
 			</File>
 			<File
