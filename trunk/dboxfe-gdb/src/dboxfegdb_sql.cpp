@@ -1174,15 +1174,12 @@ bool GameDatabaseSql::insertGames( const QString &name, const QString &version, 
 	QString _id_template = QString( "" );
 
 	// Select id from game template
-	query.exec( "SELECT ID FROM GAMETEMPLATES WHERE TEMPLATE = '" + templates + "';" );
+	query.exec( "SELECT ID FROM GAMETEMPLATES WHERE NAME = '" + templates + "';" );
 	if( query.isActive() )
 	{
 		while( query.next() )
 			_id_template = query.value( 0 ).toString();
 	}
-
-	if( _id_template.isNull() || _id_template.isEmpty() )
-		_id_template = QUuid::createUuid().toString();
 
 	QString _id = QString( "" );
 	_id = QUuid::createUuid().toString();
@@ -1196,16 +1193,30 @@ bool GameDatabaseSql::insertGames( const QString &name, const QString &version, 
 		sqlQuery += "(\tID,";
 		sqlQuery += "\tNAME,\n";
 		sqlQuery += "\tDB_ID,\n";
-		sqlQuery += "\tEXEC,\n";
-		sqlQuery += "\tTEMPLATE\n";
+
+		if( _id_template.isNull() || _id_template.isEmpty() )
+			sqlQuery += "\tEXEC\n";
+		else
+		{
+			sqlQuery += "\tEXEC,\n";
+			sqlQuery += "\tTEMPLATE\n";
+		}		
+
 		sqlQuery += ")\n";
 		sqlQuery += "VALUES\n";
 		sqlQuery += "(\n";
 		sqlQuery += "\t'" + _id + "',\n";
 		sqlQuery += "\t'" + name + "',\n";
 		sqlQuery += "\t'" + _id_dosbox + "',\n";
-		sqlQuery += "\t'" + executable + "',\n";
-		sqlQuery += "\t'" + _id_template + "'\n";
+
+		if( _id_template.isNull() || _id_template.isEmpty() )
+			sqlQuery += "\t'" + executable + "'\n";
+		else
+		{
+			sqlQuery += "\t'" + executable + "',\n";
+			sqlQuery += "\t'" + _id_template + "'\n";
+		}
+		
 		sqlQuery += ");\n";
 
 		query.exec( sqlQuery );
@@ -1278,20 +1289,6 @@ QStringList GameDatabaseSql::selectDosBoxVersion()
 	return dosboxVersionList;
 }
 
-
-QMap< QString, QMap< QString, QVariant > > GameDatabaseSql::selectTemplateSettings( const QString &name )
-{
-	if( !isOpen() )
-		return templateSettings;
-
-	if( name.isNull() || name.isEmpty() )
-		return templateSettings;
-
-
-
-	return templateSettings;
-}
-
 void GameDatabaseSql::selectDosBoxGames( const QString &version, QTreeWidget *qtw )
 {
 	if( version.isNull() || version.isEmpty() )
@@ -1355,6 +1352,345 @@ void GameDatabaseSql::selectGames( QTreeWidget *qtw )
 		} 
 	}
 
+}
+
+QMap< QString, QMap< QString, QVariant > > GameDatabaseSql::selectTemplateSettings( const QString &name )
+{
+	if( !isOpen() )
+		return templateSettings;
+
+	if( name.isNull() || name.isEmpty() )
+		return templateSettings;
+
+	QString templateId = QString( "" );
+
+	QSqlQuery query( gamedb );
+	query.exec( "SELECT ID FROM GAMETEMPLATES WHERE NAME = '" + name + "';" );
+	if( query.isActive() )
+		while( query.next() )
+			templateId = query.value( 0 ).toString();
+
+	sqlSdl = "";
+	sqlSdl += "SELECT\tFULLSCREEN,\n";
+	sqlSdl += "\tFULLDOUBLE,\n";
+	sqlSdl += "\tFULLRESOLUTION,\n";
+	sqlSdl += "\tWINDOWRESOLUTION,\n";
+	sqlSdl += "\tOUTPUT,\n";
+	sqlSdl += "\tAUTOLOCK,\n";
+	sqlSdl += "\tSENSITIVITY,\n";
+	sqlSdl += "\tWAITONERROR,\n";
+	sqlSdl += "\tPRIORITY,\n";
+	sqlSdl += "\tMAPPERFILE,\n";
+	sqlSdl += "\tUSESCANCODES\n";
+	sqlSdl += "FROM\tSDL\n";
+	sqlSdl += "WHERE\tID = '" + templateId + "';";
+
+	query.exec( sqlSdl );
+	if( query.isActive() )
+	{
+		subTemplateSettings.clear();
+		while( query.next() )
+		{
+			subTemplateSettings.insert( "fullscreen", query.value( 0 ) );
+			subTemplateSettings.insert( "fulldouble", query.value( 1 ) );
+			subTemplateSettings.insert( "fullresolution", query.value( 2 ) );
+			subTemplateSettings.insert( "windowresolution", query.value( 3 ) );
+			subTemplateSettings.insert( "output", query.value( 4 ) );
+			subTemplateSettings.insert( "autolock", query.value( 5 ) );
+			subTemplateSettings.insert( "sensitivity", query.value( 6 ) );
+			subTemplateSettings.insert( "waitonerror", query.value( 7 ) );			
+			subTemplateSettings.insert( "priority", query.value( 8 ) );
+			subTemplateSettings.insert( "mapperfile", query.value( 9 ) );
+			subTemplateSettings.insert( "usescancodes", query.value( 10 ) );
+		}
+		templateSettings.insert( "SDL", subTemplateSettings );
+	}
+
+	sqlDosBox = "";
+	sqlDosBox += "SELECT\n";
+	sqlDosBox += "\tLANGUAGE,\n";
+	sqlDosBox += "\tMACHINE,\n";
+	sqlDosBox += "\tCAPTURES,\n";
+	sqlDosBox += "\tMEMSIZE\n";
+	sqlDosBox += "FROM\tDOSBOX\n";
+	sqlDosBox += "WHERE\tID = '" + templateId + "';";
+
+	query.exec( sqlDosBox );
+	if( query.isActive() )
+	{
+		subTemplateSettings.clear();
+		while( query.next() )
+		{
+			subTemplateSettings.insert( "language", query.value( 0 ) );
+			subTemplateSettings.insert( "machine", query.value( 1 ) );
+			subTemplateSettings.insert( "captures", query.value( 2 ) );
+			subTemplateSettings.insert( "memsize", query.value( 3 ) );
+		}
+		templateSettings.insert( "DOSBOX", subTemplateSettings );
+	}
+
+	sqlRender = "";
+	sqlRender += "SELECT\n";
+	sqlRender += "\tFRAMESKIP,\n";
+	sqlRender += "\tASPECT,\n";
+	sqlRender += "\tSCALER\n";
+	sqlRender += "FROM\tRENDER\n";
+	sqlRender += "WHERE\tID = '" + templateId + "';";
+
+	query.exec( sqlRender );
+	if( query.isActive() )
+	{
+		subTemplateSettings.clear();
+		while( query.next() )
+		{
+			subTemplateSettings.insert( "frameskip", query.value( 0 ) );
+			subTemplateSettings.insert( "aspect", query.value( 1 ) );
+			subTemplateSettings.insert( "scaler", query.value( 2 ) );
+		}
+		templateSettings.insert( "RENDER", subTemplateSettings );
+	}
+
+	sqlCpu = "";
+	sqlCpu += "SELECT\n";
+	sqlCpu += "\tCORE,\n";
+	sqlCpu += "\tCYCLES,\n";
+	sqlCpu += "\tCYCLEUP,\n";
+	sqlCpu += "\tCYCLEDOWN\n";
+	sqlCpu += "FROM\tCPU\n";
+	sqlCpu += "WHERE\tID = '" + templateId + "';";
+
+	query.exec( sqlCpu );
+	if( query.isActive() )
+	{
+		subTemplateSettings.clear();
+		while( query.next() )
+		{
+			subTemplateSettings.insert( "core", query.value( 0 ) );
+			subTemplateSettings.insert( "cycles", query.value( 1 ) );
+			subTemplateSettings.insert( "cycleup", query.value( 2 ) );
+			subTemplateSettings.insert( "cycledown", query.value( 3 ) );
+		}
+		templateSettings.insert( "CPU", subTemplateSettings );
+	}
+
+	sqlMixer = "";
+	sqlMixer += "SELECT\n";
+	sqlMixer += "\tNOSOUND,\n";
+	sqlMixer += "\tRATE,\n";
+	sqlMixer += "\tBLOCKSIZE,\n";
+	sqlMixer += "\tPREBUFFER\n";
+	sqlMixer += "FROM\tMIXER\n";
+	sqlMixer += "WHERE\tID = '" + templateId + "';";
+
+	query.exec( sqlMixer );
+	if( query.isActive() )
+	{
+		subTemplateSettings.clear();
+		while( query.next() )
+		{
+			subTemplateSettings.insert( "nosound", query.value( 0 ) );
+			subTemplateSettings.insert( "rate", query.value( 1 ) );
+			subTemplateSettings.insert( "blocksize", query.value( 2 ) );
+			subTemplateSettings.insert( "prebuffer", query.value( 3 ) );
+		}
+		templateSettings.insert( "MIXER", subTemplateSettings );
+	}
+
+	sqlMidi = "";
+	sqlMidi += "SELECT\n";
+	sqlMidi += "\tDEVICE,\n";
+	sqlMidi += "\tCONFIG\n";
+	sqlMidi += "FROM\tMIDI\n";
+	sqlMidi += "WHERE\tID = '" + templateId + "';";
+
+	query.exec( sqlMidi );
+	if( query.isActive() )
+	{
+		subTemplateSettings.clear();
+		while( query.next() )
+		{
+			subTemplateSettings.insert( "device", query.value( 0 ) );
+			subTemplateSettings.insert( "config", query.value( 1 ) );
+		}
+		templateSettings.insert( "MIDI", subTemplateSettings );
+	}
+
+	sqlSbBlaster = "";
+	sqlSbBlaster += "SELECT\n";
+	sqlSbBlaster += "\tSBTYPE,\n";
+	sqlSbBlaster += "\tSBBASE,\n";
+	sqlSbBlaster += "\tIRQ,\n";
+	sqlSbBlaster += "\tDMA,\n";
+	sqlSbBlaster += "\tHDMA,\n";
+	sqlSbBlaster += "\tMIXER,\n";
+	sqlSbBlaster += "\tOPLMODE,\n";
+	sqlSbBlaster += "\tOPLRATE\n";
+	sqlSbBlaster += "FROM\tSBLASTER\n";
+	sqlSbBlaster += "WHERE\tID = '" + templateId + "';";
+
+	query.exec( sqlSbBlaster );
+	if( query.isActive() )
+	{
+		subTemplateSettings.clear();
+		while( query.next() )
+		{
+			subTemplateSettings.insert( "sbtype", query.value( 0 ) );
+			subTemplateSettings.insert( "sbbase", query.value( 1 ) );
+			subTemplateSettings.insert( "irq", query.value( 2 ) );
+			subTemplateSettings.insert( "dma", query.value( 3 ) );
+			subTemplateSettings.insert( "hdma", query.value( 4 ) );
+			subTemplateSettings.insert( "mixer", query.value( 5 ) );
+			subTemplateSettings.insert( "oplmode", query.value( 6 ) );
+			subTemplateSettings.insert( "oplrate", query.value( 7 ) );
+		}
+		templateSettings.insert( "SBLASTER", subTemplateSettings );
+	}
+
+	sqlGus = "";
+	sqlGus += "SELECT\n";
+	sqlGus += "\tGUS,\n";
+	sqlGus += "\tGUSRATE,\n";
+	sqlGus += "\tGUSBASE,\n";
+	sqlGus += "\tIRQ1,\n";
+	sqlGus += "\tIRQ1,\n";
+	sqlGus += "\tDMA1,\n";
+	sqlGus += "\tDMA2,\n";
+	sqlGus += "\tULTRADIR\n";
+	sqlGus += "FROM\tGUS\n";
+	sqlGus += "WHERE\tID = '" + templateId + "';";
+
+	query.exec( sqlGus );
+	if( query.isActive() )
+	{
+		subTemplateSettings.clear();
+		while( query.next() )
+		{
+			subTemplateSettings.insert( "gus", query.value( 0 ) );
+			subTemplateSettings.insert( "gusrate", query.value( 1 ) );
+			subTemplateSettings.insert( "gusbase", query.value( 2 ) );
+			subTemplateSettings.insert( "irq1", query.value( 3 ) );
+			subTemplateSettings.insert( "irq2", query.value( 4 ) );
+			subTemplateSettings.insert( "dma1", query.value( 5 ) );
+			subTemplateSettings.insert( "dma2", query.value( 6 ) );
+			subTemplateSettings.insert( "ultradir", query.value( 7 ) );
+		}
+		templateSettings.insert( "GUS", subTemplateSettings );
+	}
+
+	sqlSpeaker = "";
+	sqlSpeaker += "SELECT\n";
+	sqlSpeaker += "\tPCSPEAKER,\n";
+	sqlSpeaker += "\tPCRATE,\n";
+	sqlSpeaker += "\tTANDY,\n";
+	sqlSpeaker += "\tTANDYRATE,\n";
+	sqlSpeaker += "\tDISNEY\n";
+	sqlSpeaker += "FROM\tSPEAKER\n";
+	sqlSpeaker += "WHERE\tID = '" + templateId + "';";
+
+	query.exec( sqlSpeaker );
+	if( query.isActive() )
+	{
+		subTemplateSettings.clear();
+		while( query.next() )
+		{
+			subTemplateSettings.insert( "pcspeaker", query.value( 0 ) );
+			subTemplateSettings.insert( "pcrate", query.value( 1 ) );
+			subTemplateSettings.insert( "tandy", query.value( 2 ) );
+			subTemplateSettings.insert( "tandyrate", query.value( 3 ) );
+			subTemplateSettings.insert( "disney", query.value( 4 ) );
+		}
+		templateSettings.insert( "SPEAKER", subTemplateSettings );
+	}
+
+	sqlJoystick = "";
+	sqlJoystick += "SELECT\n";
+	sqlJoystick += "\tJOYSTICKTYPE,\n";
+	sqlJoystick += "\tTIMED,\n";
+	sqlJoystick += "\tAUTOFIRE,\n";
+	sqlJoystick += "\tSWAP34,\n";
+	sqlJoystick += "\tBUTTONWRAP\n";
+	sqlJoystick += "FROM\tJOYSTICK\n";
+	sqlJoystick += "WHERE\tID = '" + templateId + "';";
+
+	query.exec( sqlJoystick );
+	if( query.isActive() )
+	{
+		subTemplateSettings.clear();
+		while( query.next() )
+		{
+			subTemplateSettings.insert( "joysticktype", query.value( 0 ) );
+			subTemplateSettings.insert( "timed", query.value( 1 ) );
+			subTemplateSettings.insert( "autofire", query.value( 2 ) );
+			subTemplateSettings.insert( "swap34", query.value( 3 ) );
+			subTemplateSettings.insert( "buttonwrap", query.value( 4 ) );
+		}
+		templateSettings.insert( "JOYSTICK", subTemplateSettings );
+	}
+
+	sqlSerial = "";
+	sqlSerial += "SELECT\n";
+	sqlSerial += "\tSERIAL1,\n";
+	sqlSerial += "\tSERIAL2,\n";
+	sqlSerial += "\tSERIAL3,\n";
+	sqlSerial += "\tSERIAL4\n";
+	sqlSerial += "FROM\tSERIAL\n";
+	sqlSerial += "WHERE\tID = '" + templateId + "';";
+
+	query.exec( sqlSerial );
+	if( query.isActive() )
+	{
+		subTemplateSettings.clear();
+		while( query.next() )
+		{
+			subTemplateSettings.insert( "serial1", query.value( 0 ) );
+			subTemplateSettings.insert( "serial2", query.value( 1 ) );
+			subTemplateSettings.insert( "serial3", query.value( 2 ) );
+			subTemplateSettings.insert( "serial4", query.value( 3 ) );
+		}
+		templateSettings.insert( "SERIAL", subTemplateSettings );
+	}
+
+	sqlDos = "";
+	sqlDos += "SELECT\n";
+	sqlDos += "\tXMS,\n";
+	sqlDos += "\tEMS,\n";
+	sqlDos += "\tUMB,\n";
+	sqlDos += "\tKEYBOARDLAYOUT\n";
+	sqlDos += "FROM\tDOS\n";
+	sqlDos += "WHERE\tID = '" + templateId + "';";
+
+	query.exec( sqlDos );
+	if( query.isActive() )
+	{
+		subTemplateSettings.clear();
+		while( query.next() )
+		{
+			subTemplateSettings.insert( "xms", query.value( 0 ) );
+			subTemplateSettings.insert( "ems", query.value( 1 ) );
+			subTemplateSettings.insert( "umb", query.value( 2 ) );
+			subTemplateSettings.insert( "keyboardlayout", query.value( 3 ) );
+		}
+		templateSettings.insert( "DOS", subTemplateSettings );
+	}
+
+	sqlIpx = "";
+	sqlIpx += "SELECT\n";
+	sqlIpx += "\tIPX\n";
+	sqlIpx += "FROM\tIPX\n";
+	sqlIpx += "WHERE\tID = '" + templateId + "';";
+
+	query.exec( sqlSerial );
+	if( query.isActive() )
+	{
+		subTemplateSettings.clear();
+		while( query.next() )
+		{
+			subTemplateSettings.insert( "ipx", query.value( 0 ) );
+		}
+		templateSettings.insert( "IPX", subTemplateSettings );
+	}
+
+	return templateSettings;
 }
 
 void GameDatabaseSql::selectTemplates( QComboBox *cbx )
