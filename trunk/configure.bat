@@ -22,23 +22,31 @@ echo *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
 echo ***************************************************************************
 echo.
 
-REM qmake -spec %QMAKESPEC% -t vcapp -o dboxfe.vcproj dboxfe.pro
-
 if "%QTDIR%" == "" (
 	echo Please set %%QTDIR%% to the Qt source directory.
 	goto ERROR
 )
 ) else (
-	echo Create Makefile ...
+	echo Create Makefile 'dboxfe' ...
 	qmake dboxfe.pro >nul
 	
-	if exist Makefile (
-		goto FINISH
-	) else (
+	if not exist Makefile (
 		echo.
-		echo Makefile not found.
+		echo Makefile for 'dboxfe' not found.
 		goto ERROR
 	)
+
+	echo Create Makefile 'dboxfetray' ...
+	cd dboxfetray && qmake dboxfe.pro >nul
+	cd ..
+	
+	if not exist Makefile (
+		echo.
+		echo Makefile for 'dboxfetray' not found.
+		goto ERROR
+	)
+
+	goto FINISH	
 )
 
 :ERROR
@@ -52,8 +60,8 @@ goto LEAVE
 echo.
 echo Good - your configure finished.
 echo.
-echo If you use MinGW than use: mingw32-make -f Makefile.Release
-echo If you use MSVC.Net than use: nmake -f Makefile.Release
+echo If you use MinGW than use: mingw32-make
+echo If you use MSVC++ 2003/2005 than use: nmake
 echo.
 
 :LEAVE

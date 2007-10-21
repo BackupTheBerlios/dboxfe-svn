@@ -37,7 +37,9 @@ class GameTemplateDialog : public QDialog, public Ui::GameTemplateDialog
 		void cbxSerialIndexChanged( int );
 		void cbxKeyboardLayoutIndexChanged( int );
 
-		void loadTemplate( const QString &templateName );
+		void loadTemplate();
+		void setSettings( const QMap< QString, QMap< QString, QVariant > > &sett );
+
 		void newTemplate();
 		void saveTemplate();
 		void deleteTemplate();

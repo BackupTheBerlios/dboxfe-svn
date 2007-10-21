@@ -45,6 +45,7 @@ GameTemplateDialog::GameTemplateDialog( QDialog *parent, Qt::WFlags flags ) : QD
 	connect( cbxKeyboardLayout, SIGNAL( currentIndexChanged ( int ) ), this, SLOT( cbxKeyboardLayoutIndexChanged ( int ) ) );
 
 	connect( btnNew, SIGNAL( clicked() ), this, SLOT( newTemplate() ) );
+	connect( btnDelete, SIGNAL( clicked() ), this, SLOT( deleteTemplate() ) );
 	connect( btnSave, SIGNAL( clicked() ), this, SLOT( saveTemplate() ) );
 	connect( btnCancel, SIGNAL( clicked() ), this, SLOT( cancel() ) );
 	connect( comboBoxTemplate, SIGNAL( currentIndexChanged ( const QString & ) ), this, SLOT( comboBoxTemplateCurrentIndexChanged( const QString & ) ) );
@@ -56,6 +57,8 @@ GameTemplateDialog::GameTemplateDialog( QDialog *parent, Qt::WFlags flags ) : QD
 	setGeometry ( left, top, width(), height() );
 
 	object = parent;
+
+	gd_sql->selectTemplates( comboBoxTemplate );
 }
 
 GameTemplateDialog::~GameTemplateDialog()
@@ -65,6 +68,7 @@ GameTemplateDialog::~GameTemplateDialog()
 void GameTemplateDialog::comboBoxTemplateCurrentIndexChanged( const QString &item )
 {
 	templateName = comboBoxTemplate->currentText();
+	loadTemplate();
 }
 
 void GameTemplateDialog::cbxSerialIndexChanged( int index )
@@ -73,8 +77,18 @@ void GameTemplateDialog::cbxSerialIndexChanged( int index )
 void GameTemplateDialog::cbxKeyboardLayoutIndexChanged( int index )
 {}
 
-void GameTemplateDialog::loadTemplate( const QString &templateName )
-{}
+void GameTemplateDialog::loadTemplate()
+{
+	if( templateName.isNull() || templateName.isEmpty() )
+	{
+		QMessageBox::critical( this, tr( "Gamedatabase - New Template" ), tr( "Please select a correct template." ) );
+		return;
+	}
+
+	settings.clear();
+	settings = gd_sql->selectTemplateSettings( templateName );
+	setSettings( settings );
+}
 
 void GameTemplateDialog::newTemplate()
 {
@@ -84,13 +98,16 @@ void GameTemplateDialog::newTemplate()
 		templateName = gt_nd->lineEditTemplateName->text();
 	}
 
+	gt_nd = 0;
+	delete gt_nd;
+
 	if( templateName.isNull() || templateName.isEmpty() )
 	{
 		QMessageBox::critical( this, tr( "Gamedatabase - New Template" ), tr( "Please create template name first." ) );
 		return;
 	}
 
-	gd_sql->insertTemplates( templateName, comboBoxTemplate );
+	gd_sql->insertTemplates( templateName, comboBoxTemplate, getSettings() );
 }
 
 void GameTemplateDialog::saveTemplate()
@@ -101,7 +118,7 @@ void GameTemplateDialog::saveTemplate()
 		return;
 	}
 
-	gd_sql->insertTemplates( templateName, getSettings() );
+	gd_sql->updateTemplates( templateName, getSettings() );
 }
 
 void GameTemplateDialog::deleteTemplate()
@@ -126,6 +143,11 @@ void GameTemplateDialog::serialAdd()
 
 void GameTemplateDialog::serialRemove()
 {}
+
+void GameTemplateDialog::setSettings( const QMap< QString, QMap< QString, QVariant > > &sett )
+{
+
+}
 
 QMap< QString, QMap< QString, QVariant > > GameTemplateDialog::getSettings()
 {

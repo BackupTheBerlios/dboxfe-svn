@@ -59,8 +59,8 @@ UninstallDisplayName={#MyAppVersion}-{#MyAppName}
 AllowRootDirectory=true
 UninstallLogMode=new
 DisableStartupPrompt=true
-;WizardImageFile=..\..\WizardImages\SetupModern16.bmp
-;WizardSmallImageFile=..\..\WizardImages\SetupModernSmall16.bmp
+WizardImageFile=..\SetupModern16.bmp
+WizardSmallImageFile=..\SetupModernSmall16.bmp
 ShowLanguageDialog=yes
 
 [Tasks]

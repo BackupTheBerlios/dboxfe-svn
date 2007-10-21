@@ -492,7 +492,7 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QComboBox *cbx )
 			cbx->addItem( query.value( 0 ).toString() );
 }
 
-bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap< QString, QVariant > > &settings )
+bool GameDatabaseSql::insertTemplates( const QString &name, QComboBox *cbx, QMap< QString, QMap< QString, QVariant > > &settings )
 {
 	if( name.isNull() || name.isEmpty() )
 		return false;
@@ -501,6 +501,8 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 		return false;
 
 	_template_name = name;
+
+	insertTemplates( _template_name, cbx );
 
 	sett.clear();
 	sett = settings;
@@ -523,7 +525,8 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QMap< QString, QMap<
 	}
 	else
 	{
-		qWarning() << "Failed to insert templates into database:\t" + query.lastError().text();
+		qWarning() << "Can't get the 'ID' from gametemplate table with the follow name: '" << name << "'\t" + query.lastError().text();
+		return false;
 	}
 
 	if( _id.isNull() || _id.isEmpty() )
@@ -1721,4 +1724,3 @@ bool GameDatabaseSql::isOpen()
 
 	return false;
 }
-

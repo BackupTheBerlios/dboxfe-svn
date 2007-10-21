@@ -93,18 +93,10 @@ class GameDatabaseSql : public QObject
 		/**
 		 * Insert template into database
 		 * @param name the template name
-		 * @param cbx the QComboBox for insert template names
-		 * @return true if insert successfull
-		 */
-		bool insertTemplates( const QString &name, QComboBox *cbx );
-
-		/**
-		 * Insert template into database
-		 * @param name the template name
 		 * @param settings the QMap with all settings
 		 * @return true if insert successfull
 		 */
-		bool insertTemplates( const QString &name, QMap< QString, QMap< QString, QVariant > > &settings );
+		bool insertTemplates( const QString &name, QComboBox *cbx, QMap< QString, QMap< QString, QVariant > > &settings );
 		
 		/**
 		 * Delete template from database
@@ -166,6 +158,7 @@ class GameDatabaseSql : public QObject
 		void selectTemplates( QComboBox *cbx );
 
 	private:
+		bool insertTemplates( const QString &name, QComboBox *cbx );
 		bool isOpen();
 
 		QMap< QString, QMap< QString, QString > > gameDosBoxList;
