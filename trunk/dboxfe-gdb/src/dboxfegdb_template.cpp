@@ -107,6 +107,13 @@ void GameTemplateDialog::newTemplate()
 		return;
 	}
 
+	for( int i = 0; i < comboBoxTemplate->count(); i++ )
+	{
+		qApp->processEvents();
+		if( comboBoxTemplate->itemText( i ).contains( templateName ) )
+			return;
+	}
+
 	gd_sql->insertTemplates( templateName, comboBoxTemplate, getSettings() );
 }
 

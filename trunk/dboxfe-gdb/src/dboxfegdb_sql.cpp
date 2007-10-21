@@ -490,6 +490,8 @@ bool GameDatabaseSql::insertTemplates( const QString &name, QComboBox *cbx )
 	if( query.isActive() )
 		while( query.next() )
 			cbx->addItem( query.value( 0 ).toString() );
+
+	return true;
 }
 
 bool GameDatabaseSql::insertTemplates( const QString &name, QComboBox *cbx, QMap< QString, QMap< QString, QVariant > > &settings )
