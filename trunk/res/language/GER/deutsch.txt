@@ -1,0 +1,48 @@
+DOSBox v0.72 - Deutsche Lokalisierung
+=====================================
+
+Dieses Archiv (DOSBox-german-lang-072.zip) enthält deutsche
+Strings für DOSBox und Übersetzungen der README-Dateien.
+
+Installation der Sprachdatei:
+
+Archiv in den DOSBox-Ordner entpacken und DOSBox mit dem
+Parameter -lang deutsch.lng aufrufen.
+
+ODER (empfohlen):
+
+Entpacken Sie das Archiv in den DOSBox-Ordner starten Sie
+DOSBox. Tippen Sie:
+
+keyb gr
+config -set dosbox language=deutsch.lng
+config -writeconf dosbox.conf
+
+Starten Sie DOSBox neu.
+Mit dem Befehl "keyb gr" wird die deutsche Tastaturbelegung
+geladen. Der zweite Befehl weist DOSBox an, die Sprachdatei
+deutsch.lng zu laden, der dritte Befehl speichert die
+Konfiguration ab.
+
+Um die deutsche Tastaturbelegung dauerhaft einzustellen,
+öffnen Sie die Datei dosbox.conf in einem Text-Editor,
+gehen Sie ans Ende der Datei (unterhalb der mit [autoexec]
+bezeichneten Zeile) und fügen Sie dort den folgenden Befehl
+ein:
+
+keyb gr
+
+Speichern Sie die Datei ab.
+
+Wenn Sie die Kommentare in dosbox.conf auch übersetzt haben
+möchten, starten Sie DOSBox (mit installierter Sprachdatei)
+und tippen Sie erneut:
+
+config -writeconf dosbox.conf
+
+Sollten Sie irgendwelche technischen Probleme mit DOSBox
+haben, lesen Sie bitte erst die README_de aufmerksam durch,
+bevor Sie den armen Übersetzer mit DAU-Fragen löchern.
+Vielen Dank.
+
+Anregungen und Kritik hierher: krischn@gmx.net <07-09-03>
