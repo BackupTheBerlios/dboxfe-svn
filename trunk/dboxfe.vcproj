@@ -43,7 +43,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				AdditionalOptions="-Zm200 -w34100 -w34189 -Zm200 -w34100 -w34189 -w34100 -w34189"
-				Optimization="2"
+				Optimization="4"
 				AdditionalIncludeDirectories="&quot;$(QTDIR)\include\QtCore&quot;,&quot;$(QTDIR)\include\QtCore&quot;,&quot;$(QTDIR)\include\QtNetwork&quot;,&quot;$(QTDIR)\include\QtNetwork&quot;,&quot;$(QTDIR)\include\QtGui&quot;,&quot;$(QTDIR)\include\QtGui&quot;,&quot;$(QTDIR)\include\QtXml&quot;,&quot;$(QTDIR)\include\QtXml&quot;,&quot;$(QTDIR)\include&quot;,&quot;include&quot;,&quot;3rdparty&quot;,&quot;$(QTDIR)\include\ActiveQt&quot;,&quot;win\moc&quot;,&quot;win\ui&quot;,$(QTDIR)\mkspecs\win32-msvc2005"
 				PreprocessorDefinitions="_WINDOWS,UNICODE,WIN32,QT_LARGEFILE_SUPPORT,QT_DLL,QT_XML_LIB,QT_GUI_LIB,QT_NETWORK_LIB,QT_CORE_LIB,QT_THREAD_SUPPORT"
 				GeneratePreprocessedFile="0"
@@ -892,6 +892,10 @@
 				>
 			</File>
 			<File
+				RelativePath="res\language\CZ\cestina.lng"
+				>
+			</File>
+			<File
 				RelativePath="res\computer_16.png"
 				>
 			</File>
@@ -917,7 +921,7 @@
 						Name="VCCustomBuildTool"
 						Description="RCC res\dboxfe.qrc"
 						CommandLine="$(QTDIR)\bin\rcc.exe -name dboxfe res\dboxfe.qrc -o win\rcc\qrc_dboxfe.cpp&#x0D;&#x0A;"
-						AdditionalDependencies="$(QTDIR)\bin\rcc.exe;res\LICENSE.GPL;res\add_16.png;res\applications_16.png;res\arrow-back_16.png;res\arrow-down_16.png;res\arrow-forward_16.png;res\arrow-up_16.png;res\computer_16.png;res\copy_16.png;res\cpu.png;res\cut_16.png;res\dboxfe.qrc;res\dboxfe_de.qm;res\dboxfe_en.qm;res\de.png;res\default.conf;res\default.png;res\delete_16.png;res\disc-media_16.png;res\documents_16.png;res\en.png;res\folder-closed_16.png;res\folder-open_16.png;res\home_16.png;res\logo.png;res\mail_16.png;res\midi.png;res\misc.png;res\paste_16.png;res\print_16.png;res\redo_16.png;res\save_16.png;res\thanks;res\trash_16.png;res\undo_16.png;res\wiz_internet.png"
+						AdditionalDependencies="$(QTDIR)\bin\rcc.exe;res\LICENSE.GPL;res\add_16.png;res\applications_16.png;res\arrow-back_16.png;res\arrow-down_16.png;res\arrow-forward_16.png;res\arrow-up_16.png;res\computer_16.png;res\copy_16.png;res\cpu.png;res\cut_16.png;res\dboxfe.qrc;res\dboxfe_de.qm;res\dboxfe_en.qm;res\de.png;res\default.conf;res\default.png;res\delete_16.png;res\disc-media_16.png;res\documents_16.png;res\en.png;res\folder-closed_16.png;res\folder-open_16.png;res\home_16.png;res\language\CZ\cestina.lng;res\language\DK\dk.lng;res\language\FR\francais.lng;res\language\GER\deutsch.lng;res\language\HGR\magyar.lng;res\language\ITA\ita.lng;res\language\KOR\korean.lng;res\language\PG\portuguese.lng;res\language\RUS\russian.lng;res\logo.png;res\mail_16.png;res\midi.png;res\misc.png;res\paste_16.png;res\print_16.png;res\redo_16.png;res\save_16.png;res\thanks;res\trash_16.png;res\undo_16.png;res\wiz_internet.png"
 						Outputs="win\rcc\qrc_dboxfe.cpp"
 					/>
 				</FileConfiguration>
@@ -928,7 +932,7 @@
 						Name="VCCustomBuildTool"
 						Description="RCC res\dboxfe.qrc"
 						CommandLine="$(QTDIR)\bin\rcc.exe -name dboxfe res\dboxfe.qrc -o win\rcc\qrc_dboxfe.cpp&#x0D;&#x0A;"
-						AdditionalDependencies="$(QTDIR)\bin\rcc.exe;res\LICENSE.GPL;res\add_16.png;res\applications_16.png;res\arrow-back_16.png;res\arrow-down_16.png;res\arrow-forward_16.png;res\arrow-up_16.png;res\computer_16.png;res\copy_16.png;res\cpu.png;res\cut_16.png;res\dboxfe.qrc;res\dboxfe_de.qm;res\dboxfe_en.qm;res\de.png;res\default.conf;res\default.png;res\delete_16.png;res\disc-media_16.png;res\documents_16.png;res\en.png;res\folder-closed_16.png;res\folder-open_16.png;res\home_16.png;res\logo.png;res\mail_16.png;res\midi.png;res\misc.png;res\paste_16.png;res\print_16.png;res\redo_16.png;res\save_16.png;res\thanks;res\trash_16.png;res\undo_16.png;res\wiz_internet.png"
+						AdditionalDependencies="$(QTDIR)\bin\rcc.exe;res\LICENSE.GPL;res\add_16.png;res\applications_16.png;res\arrow-back_16.png;res\arrow-down_16.png;res\arrow-forward_16.png;res\arrow-up_16.png;res\computer_16.png;res\copy_16.png;res\cpu.png;res\cut_16.png;res\dboxfe.qrc;res\dboxfe_de.qm;res\dboxfe_en.qm;res\de.png;res\default.conf;res\default.png;res\delete_16.png;res\disc-media_16.png;res\documents_16.png;res\en.png;res\folder-closed_16.png;res\folder-open_16.png;res\home_16.png;res\language\CZ\cestina.lng;res\language\DK\dk.lng;res\language\FR\francais.lng;res\language\GER\deutsch.lng;res\language\HGR\magyar.lng;res\language\ITA\ita.lng;res\language\KOR\korean.lng;res\language\PG\portuguese.lng;res\language\RUS\russian.lng;res\logo.png;res\mail_16.png;res\midi.png;res\misc.png;res\paste_16.png;res\print_16.png;res\redo_16.png;res\save_16.png;res\thanks;res\trash_16.png;res\undo_16.png;res\wiz_internet.png"
 						Outputs="win\rcc\qrc_dboxfe.cpp"
 					/>
 				</FileConfiguration>
@@ -958,7 +962,15 @@
 				>
 			</File>
 			<File
+				RelativePath="res\language\GER\deutsch.lng"
+				>
+			</File>
+			<File
 				RelativePath="res\disc-media_16.png"
+				>
+			</File>
+			<File
+				RelativePath="res\language\DK\dk.lng"
 				>
 			</File>
 			<File
@@ -978,7 +990,19 @@
 				>
 			</File>
 			<File
+				RelativePath="res\language\FR\francais.lng"
+				>
+			</File>
+			<File
 				RelativePath="res\home_16.png"
+				>
+			</File>
+			<File
+				RelativePath="res\language\ITA\ita.lng"
+				>
+			</File>
+			<File
+				RelativePath="res\language\KOR\korean.lng"
 				>
 			</File>
 			<File
@@ -987,6 +1011,10 @@
 			</File>
 			<File
 				RelativePath="res\logo.png"
+				>
+			</File>
+			<File
+				RelativePath="res\language\HGR\magyar.lng"
 				>
 			</File>
 			<File
@@ -1006,11 +1034,19 @@
 				>
 			</File>
 			<File
+				RelativePath="res\language\PG\portuguese.lng"
+				>
+			</File>
+			<File
 				RelativePath="res\print_16.png"
 				>
 			</File>
 			<File
 				RelativePath="res\redo_16.png"
+				>
+			</File>
+			<File
+				RelativePath="res\language\RUS\russian.lng"
 				>
 			</File>
 			<File

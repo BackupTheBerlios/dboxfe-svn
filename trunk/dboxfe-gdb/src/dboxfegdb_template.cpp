@@ -80,10 +80,7 @@ void GameTemplateDialog::cbxKeyboardLayoutIndexChanged( int index )
 void GameTemplateDialog::loadTemplate()
 {
 	if( templateName.isNull() || templateName.isEmpty() )
-	{
-		QMessageBox::critical( this, tr( "Gamedatabase - New Template" ), tr( "Please select a correct template." ) );
 		return;
-	}
 
 	settings.clear();
 	settings = gd_sql->selectTemplateSettings( templateName );
