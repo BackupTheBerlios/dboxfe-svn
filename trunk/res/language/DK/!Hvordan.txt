@@ -1,4 +1,0 @@
- Denne fil pakkes ud i DOSBox 0.72 directoryet/mappen/folderen/biblioteket, 
-sig ja til at overskrive(hvis du har specielle indstillinger i din dosbox.conf, 
-så gém denne først). Engelsk Dosbox.conf inkludéret(skal ved brug omdøbes fra
-dosbox.conf.eng.0.72 til dosbox.conf). Mor jer!
