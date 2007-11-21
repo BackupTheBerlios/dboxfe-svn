@@ -36,7 +36,7 @@ AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 
-DefaultDirName={pf}\{#MyAppName}
+DefaultDirName={userdocs}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 
 VersionInfoVersion={#MyAppVersion}
@@ -59,8 +59,8 @@ UninstallDisplayName={#MyAppVersion}-{#MyAppName}
 AllowRootDirectory=true
 UninstallLogMode=new
 DisableStartupPrompt=true
-WizardImageFile=..\SetupModern16.bmp
-WizardSmallImageFile=..\SetupModernSmall16.bmp
+;WizardImageFile=..\SetupModern16.bmp
+;WizardSmallImageFile=..\SetupModernSmall16.bmp
 ShowLanguageDialog=yes
 
 [Tasks]
@@ -74,16 +74,16 @@ Source: res\dboxfe.ico; DestDir: {app}; Flags: ignoreversion uninsremovereadonly
 Source: res\LICENSE.GPL; DestDir: {app}; Flags: ignoreversion uninsremovereadonly 32bit overwritereadonly replacesameversion; MinVersion: 4.1.2222,4.0.1381sp6
 
 ; Needed library (Qt4 Release):
-Source: ..\..\..\Lib\qt432\bin\QtGui4.dll; DestDir: {app}; Flags: ignoreversion uninsremovereadonly 32bit overwritereadonly replacesameversion; MinVersion: 4.1.2222,4.0.1381sp6
-Source: ..\..\..\Lib\qt432\bin\QtCore4.dll; DestDir: {app}; Flags: ignoreversion uninsremovereadonly 32bit overwritereadonly replacesameversion; MinVersion: 4.1.2222,4.0.1381sp6
-Source: ..\..\..\Lib\qt432\bin\QtNetwork4.dll; DestDir: {app}; Flags: ignoreversion uninsremovereadonly 32bit overwritereadonly replacesameversion; MinVersion: 4.1.2222,4.0.1381sp6
-Source: ..\..\..\Lib\qt432\bin\QtXml4.dll; DestDir: {app}; Flags: ignoreversion uninsremovereadonly 32bit overwritereadonly replacesameversion; MinVersion: 4.1.2222,4.0.1381sp6
+Source: C:\Lib\qt432\bin\QtGui4.dll; DestDir: {app}; Flags: ignoreversion uninsremovereadonly 32bit overwritereadonly replacesameversion; MinVersion: 4.1.2222,4.0.1381sp6
+Source: C:\Lib\qt432\bin\QtCore4.dll; DestDir: {app}; Flags: ignoreversion uninsremovereadonly 32bit overwritereadonly replacesameversion; MinVersion: 4.1.2222,4.0.1381sp6
+Source: C:\Lib\qt432\bin\QtNetwork4.dll; DestDir: {app}; Flags: ignoreversion uninsremovereadonly 32bit overwritereadonly replacesameversion; MinVersion: 4.1.2222,4.0.1381sp6
+Source: C:\Lib\qt432\bin\QtXml4.dll; DestDir: {app}; Flags: ignoreversion uninsremovereadonly 32bit overwritereadonly replacesameversion; MinVersion: 4.1.2222,4.0.1381sp6
 
 ; Needed library (MS VC++ 2005 Release)
-Source: ..\..\msvc\msvcm80.dll; DestDir: {app}; Flags: ignoreversion uninsremovereadonly 32bit overwritereadonly replacesameversion; MinVersion: 4.1.2222,4.0.1381sp6
-Source: ..\..\msvc\msvcr80.dll; DestDir: {app}; Flags: ignoreversion uninsremovereadonly 32bit overwritereadonly replacesameversion; MinVersion: 4.1.2222,4.0.1381sp6
-Source: ..\..\msvc\msvcp80.dll; DestDir: {app}; Flags: ignoreversion uninsremovereadonly 32bit overwritereadonly replacesameversion; MinVersion: 4.1.2222,4.0.1381sp6
-Source: ..\..\msvc\Microsoft.VC80.CRT.manifest; DestDir: {app}; Flags: ignoreversion uninsremovereadonly 32bit overwritereadonly replacesameversion; MinVersion: 4.1.2222,4.0.1381sp6
+;Source: ..\..\msvc\msvcm80.dll; DestDir: {app}; Flags: ignoreversion uninsremovereadonly 32bit overwritereadonly replacesameversion; MinVersion: 4.1.2222,4.0.1381sp6
+;Source: ..\..\msvc\msvcr80.dll; DestDir: {app}; Flags: ignoreversion uninsremovereadonly 32bit overwritereadonly replacesameversion; MinVersion: 4.1.2222,4.0.1381sp6
+;Source: ..\..\msvc\msvcp80.dll; DestDir: {app}; Flags: ignoreversion uninsremovereadonly 32bit overwritereadonly replacesameversion; MinVersion: 4.1.2222,4.0.1381sp6
+;Source: ..\..\msvc\Microsoft.VC80.CRT.manifest; DestDir: {app}; Flags: ignoreversion uninsremovereadonly 32bit overwritereadonly replacesameversion; MinVersion: 4.1.2222,4.0.1381sp6
 
 [INI]
 Filename: {app}\{#MyAppUrlName}; Section: InternetShortcut; Key: URL; String: {#MyAppURL}; Flags: createkeyifdoesntexist; MinVersion: 4.1.2222,4.0.1381sp6
