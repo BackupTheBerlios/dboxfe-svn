@@ -2,8 +2,8 @@ IDI_ICON1               ICON                    "dboxfetray.ico"
 
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 0,1,3,0
- PRODUCTVERSION 0,1,3,0
+ FILEVERSION 0,1,4,0
+ PRODUCTVERSION 0,1,4,0
  FILEFLAGSMASK 0x17L
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -21,12 +21,12 @@ BEGIN
             VALUE "Comments", "DBoxFE - TrayIcon"
             VALUE "CompanyName", "Privat"
             VALUE "FileDescription", "DBoxFE - TrayIcon"
-            VALUE "FileVersion", "0.1.3"
+            VALUE "FileVersion", "0.1.4.0"
             VALUE "InternalName", "dboxfetray"
             VALUE "LegalCopyright", "Copyright © 2007 by Alexander Saal"
             VALUE "OriginalFilename", "dboxfetray.exe"
             VALUE "ProductName", "DBoxFE - TrayIcon"
-            VALUE "ProductVersion", "0.1.3"
+            VALUE "ProductVersion", "0.1.4.0"
         END
     END
     BLOCK "VarFileInfo"
