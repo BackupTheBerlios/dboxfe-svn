@@ -57,17 +57,20 @@ DBoxFE::DBoxFE ( QWidget *parent, Qt::WFlags flags ) : QWidget ( parent, flags )
 	connect ( btnGame, SIGNAL ( clicked() ), this, SLOT ( slotGame() ) );
 	connect ( btnAbout, SIGNAL ( clicked() ), this, SLOT ( slotAbout() ) );
 	connect ( btnGamesettings, SIGNAL ( clicked() ), this, SLOT ( slotGameSettings() ) );
+
 	connect ( lwProfile, SIGNAL ( itemClicked ( QListWidgetItem* ) ), this, SLOT ( slotListWidget ( QListWidgetItem* ) ) );
 	connect ( lwOutPut, SIGNAL ( customContextMenuRequested ( QPoint ) ), this, SLOT ( slotListWidgetOutPut ( QPoint ) ) );
+	
 	connect ( cbxDSOption, SIGNAL ( currentIndexChanged ( int ) ), this, SLOT ( slotCbxSerialIndexChanged ( int ) ) );
 	connect ( cbxAutoexecDirectoryOption, SIGNAL ( currentIndexChanged ( int ) ), this, SLOT ( slotCbxAutoexecIndexChanged ( int ) ) );
+	connect ( cbxAutoexecImageFormat, SIGNAL ( currentIndexChanged ( int ) ), this, SLOT ( slotCbxAutoexecImageFormatIndexChanged( int ) ) );	
 	connect ( cbxKeyboardLayout, SIGNAL ( currentIndexChanged ( int ) ), this, SLOT ( slotCbxKeyboardLayoutIndexChanged ( int ) ) );
 	connect ( chkBoxStartTrayIcon, SIGNAL ( toggled ( bool ) ), this, SLOT ( slotChkBoxStartTrayIconToggled ( bool ) ) );
 
 	// windows title for the application
-	titleLin = tr ( "DBoxFE - Front End for DOSBox 0.7x - Linux Version " ) + getAppVersion();
-	titleWin = tr ( "DBoxFE - Front End for DOSBox 0.7x - Windows Version " ) + getAppVersion();
-	titleMac = tr ( "DBoxFE - Front End for DOSBox 0.7x - Mac Version " ) + getAppVersion();
+	titleLin = tr ( "DBoxFE - Front End for DOSBox 0.72 - Linux Version " ) + getAppVersion();
+	titleWin = tr ( "DBoxFE - Front End for DOSBox 0.72 - Windows Version " ) + getAppVersion();
+	titleMac = tr ( "DBoxFE - Front End for DOSBox 0.72 - Mac Version " ) + getAppVersion();
 
 #ifdef Q_OS_WIN32
 	setWindowTitle ( titleWin );
@@ -75,17 +78,14 @@ DBoxFE::DBoxFE ( QWidget *parent, Qt::WFlags flags ) : QWidget ( parent, flags )
 
 #ifdef Q_OS_MACX
 	setWindowTitle ( titleMac );
-	QApplication::setStyle ( "plastique" );
 #endif
 
 #ifdef Q_OS_MAC9
 	setWindowTitle ( titleMac );
-	QApplication::setStyle ( "plastique" );
 #endif
 
 #ifdef Q_OS_UNIX
 	setWindowTitle ( titleLin );
-	QApplication::setStyle ( "plastique" );
 #endif
 
 	// center the application on desktop screen
@@ -103,8 +103,8 @@ DBoxFE::~DBoxFE()
 {}
 
 /**
- * TODO Initial: configuration
- **/
+* TODO Initial: configuration
+**/
 void DBoxFE::init()
 {
 	m_file = QDir::homePath();
@@ -126,8 +126,8 @@ void DBoxFE::init()
 }
 
 /**
- * TODO Close event
- **/
+* TODO Close event
+**/
 void DBoxFE::closeEvent ( QCloseEvent *e )
 {
 	slotSaveGP();
@@ -136,8 +136,8 @@ void DBoxFE::closeEvent ( QCloseEvent *e )
 }
 
 /**
- * TODO Save game profile
- **/
+* TODO Save game profile
+**/
 void DBoxFE::slotSaveGP()
 {
 	XMLPreferences settGP ( "DBoxFE", "Alexander Saal" );
@@ -181,8 +181,8 @@ void DBoxFE::slotSearchBin()
 {}
 
 /**
- * TODO Create game profile file
- **/
+* TODO Create game profile file
+**/
 void DBoxFE::slotCreateGP()
 {
 	gpItem = new QListWidgetItem;
@@ -204,8 +204,8 @@ void DBoxFE::slotCreateGP()
 }
 
 /**
- * TODO Start dosbox with configuration file
- **/
+* TODO Start dosbox with configuration file
+**/
 void DBoxFE::slotStartDBox()
 {
 	gpItem = new QListWidgetItem;
@@ -238,8 +238,8 @@ void DBoxFE::slotStartDBox()
 }
 
 /**
- * TODO Remove gameprofile from list
- **/
+* TODO Remove gameprofile from list
+**/
 void DBoxFE::slotRemoveGP()
 {
 	gpItem = new QListWidgetItem;
@@ -266,33 +266,33 @@ void DBoxFE::slotRemoveGP()
 
 		switch ( QMessageBox::information ( this, winTitle(), tr ( "Would you like delete the profile and configuration file?\nIf you click 'No' only the profile from list will be removed." ), tr ( "Yes" ), tr ( "No" ), tr ( "Cancel" ), 0, 2 ) )
 		{
-			case 0:               // Yes clicked
-				delete lwProfile->currentItem();
+		case 0:               // Yes clicked
+			delete lwProfile->currentItem();
 
-				if ( f.exists() )
-				{
-					f.remove();
-				}
+			if ( f.exists() )
+			{
+				f.remove();
+			}
 
-				lwOutPut->addItem ( tr ( "Game Profile -> " ) + gpTxt + tr ( " was deleted" ) );
-				lwOutPut->addItem ( tr ( "Game configuration -> " ) + f.fileName() + tr ( " was deleted" ) );
-				lwOutPut->update();
-				break;
-			case 1:               // No clicked but delete profile from list
-				delete lwProfile->currentItem();
-				lwOutPut->addItem ( tr ( "Game Profile -> " ) + gpTxt + tr ( " was deleted" ) );
-				lwOutPut->update();
-				break;
-			case 2:               // Cancel clicked or Escape pressed
-				return ;
-				break;
+			lwOutPut->addItem ( tr ( "Game Profile -> " ) + gpTxt + tr ( " was deleted" ) );
+			lwOutPut->addItem ( tr ( "Game configuration -> " ) + f.fileName() + tr ( " was deleted" ) );
+			lwOutPut->update();
+			break;
+		case 1:               // No clicked but delete profile from list
+			delete lwProfile->currentItem();
+			lwOutPut->addItem ( tr ( "Game Profile -> " ) + gpTxt + tr ( " was deleted" ) );
+			lwOutPut->update();
+			break;
+		case 2:               // Cancel clicked or Escape pressed
+			return ;
+			break;
 		}
 	}
 }
 
 /**
- * TODO DOSBox language, eg.: german is my language :)
- **/
+* TODO DOSBox language, eg.: german is my language :)
+**/
 void DBoxFE::slotLanguage()
 {
 	QString strLng = QFileDialog::getOpenFileName ( this, tr ( "Open language file" ), QDir::homePath(), tr ( "Language file (*.*)" ) );
@@ -302,8 +302,8 @@ void DBoxFE::slotLanguage()
 }
 
 /**
- * TODO Choose stabel binary of dosbox and return the vesions number
- **/
+* TODO Choose stabel binary of dosbox and return the vesions number
+**/
 void DBoxFE::slotChooseDbxBinary()
 {
 	QString strDbxStabel = QFileDialog::getOpenFileName ( this, tr ( "Open DOSBox binary" ), QDir::currentPath(), tr ( "DOSBox binary (dosbox);;DOSBox binary (*.exe)" ) );
@@ -396,8 +396,8 @@ void DBoxFE::slotChooseDbxBinary()
 }
 
 /**
- * TODO Select game from database and insert in to Autoexec section
- **/
+* TODO Select game from database and insert in to Autoexec section
+**/
 void DBoxFE::slotGame()
 {
 	DBoxFE_Game * dbfe_game = new DBoxFE_Game();
@@ -419,8 +419,8 @@ void DBoxFE::slotGame()
 }
 
 /**
- * TODO Misc (Modem, Autoexec, Dos)
- **/
+* TODO Misc (Modem, Autoexec, Dos)
+**/
 void DBoxFE::slotAutoexecAdd()
 {
 	QList<QListWidgetItem *> it ( lwAutoexec->findItems ( "mount " + cbxDrive->currentText().toLower(), Qt::MatchContains ) );
@@ -446,12 +446,34 @@ void DBoxFE::slotAutoexecAdd()
 	{
 		switch ( cbxAutoexecDirectoryOption->currentIndex() )
 		{
-			case 0:               // Default
+		case 0:               // Default
+			if ( chkBoxLabelCDDVD->isChecked() )
+			{
+				if ( !LEDeviceLabel->text().isEmpty() )
+				{
+					addStr = "mount " + cbxDrive->currentText().toLower() + " " + LEDrives->text() + " -label " + LEDeviceLabel->text();
+				}
+				else
+				{
+					QMessageBox::information ( this, winTitle(), tr ( "Please enter a valid name for label." ) );
+					return ;
+				}
+			}
+			else
+			{
+				LEDeviceLabel->setText ( "" );
+				addStr = "mount " + cbxDrive->currentText().toLower() + " " + LEDrives->text();
+			}
+			break;
+		case 1:               // CD/DVD
+			switch ( cbxAutoexecCDDVDROMOption->currentIndex() )
+			{
+			case 0:             // Windows 2000/XP/Linux
 				if ( chkBoxLabelCDDVD->isChecked() )
 				{
 					if ( !LEDeviceLabel->text().isEmpty() )
 					{
-						addStr = "mount " + cbxDrive->currentText().toLower() + " " + LEDrives->text() + " -label " + LEDeviceLabel->text();
+						addStr = "mount " + cbxDrive->currentText().toLower() + " " + LEDrives->text() + " -t cdrom -usecd 0 -ioctl -label " + LEDeviceLabel->text();
 					}
 					else
 					{
@@ -462,58 +484,15 @@ void DBoxFE::slotAutoexecAdd()
 				else
 				{
 					LEDeviceLabel->setText ( "" );
-					addStr = "mount " + cbxDrive->currentText().toLower() + " " + LEDrives->text();
+					addStr = "mount " + cbxDrive->currentText().toLower() + " " + LEDrives->text() + " -t cdrom -usecd 0 -ioctl";
 				}
 				break;
-			case 1:               // Use Directory as CD/DVD
-				switch ( cbxAutoexecCDDVDROMOption->currentIndex() )
-				{
-					case 0:             // Windows 2000/XP/Linux
-						if ( chkBoxLabelCDDVD->isChecked() )
-						{
-							if ( !LEDeviceLabel->text().isEmpty() )
-							{
-								addStr = "mount " + cbxDrive->currentText().toLower() + " " + LEDrives->text() + " -t cdrom -usecd 0 -ioctl -label " + LEDeviceLabel->text();
-							}
-							else
-							{
-								QMessageBox::information ( this, winTitle(), tr ( "Please enter a valid name for label." ) );
-								return ;
-							}
-						}
-						else
-						{
-							LEDeviceLabel->setText ( "" );
-							addStr = "mount " + cbxDrive->currentText().toLower() + " " + LEDrives->text() + " -t cdrom -usecd 0 -ioctl";
-						}
-						break;
-					case 1:             // Windows 98
-						if ( chkBoxLabelCDDVD->isChecked() )
-						{
-							if ( !LEDeviceLabel->text().isEmpty() )
-							{
-								addStr = "mount " + cbxDrive->currentText().toLower() + " " + LEDrives->text() + " -t cdrom -usecd 0 -aspi -label " + LEDeviceLabel->text();
-							}
-							else
-							{
-								QMessageBox::information ( this, winTitle(), tr ( "Please enter a valid name for label." ) );
-								return ;
-							}
-						}
-						else
-						{
-							LEDeviceLabel->setText ( "" );
-							addStr = "mount " + cbxDrive->currentText().toLower() + " " + LEDrives->text() + " -t cdrom -usecd 0 -aspi";
-						}
-						break;
-				}
-				break;
-			case 2:               // Use Directory as Floppy
+			case 1:             // Windows 98
 				if ( chkBoxLabelCDDVD->isChecked() )
 				{
 					if ( !LEDeviceLabel->text().isEmpty() )
 					{
-						addStr = "mount " + cbxDrive->currentText().toLower() + " " + LEDrives->text() + " -t floppy -label " + LEDeviceLabel->text();
+						addStr = "mount " + cbxDrive->currentText().toLower() + " " + LEDrives->text() + " -t cdrom -usecd 0 -aspi -label " + LEDeviceLabel->text();
 					}
 					else
 					{
@@ -524,9 +503,32 @@ void DBoxFE::slotAutoexecAdd()
 				else
 				{
 					LEDeviceLabel->setText ( "" );
-					addStr = "mount " + cbxDrive->currentText().toLower() + " " + LEDrives->text() + " -t floppy";
+					addStr = "mount " + cbxDrive->currentText().toLower() + " " + LEDrives->text() + " -t cdrom -usecd 0 -aspi";
 				}
 				break;
+			}
+			break;
+		case 2:               // Floppy
+			if ( chkBoxLabelCDDVD->isChecked() )
+			{
+				if ( !LEDeviceLabel->text().isEmpty() )
+				{
+					addStr = "mount " + cbxDrive->currentText().toLower() + " " + LEDrives->text() + " -t floppy -label " + LEDeviceLabel->text();
+				}
+				else
+				{
+					QMessageBox::information ( this, winTitle(), tr ( "Please enter a valid name for label." ) );
+					return ;
+				}
+			}
+			else
+			{
+				LEDeviceLabel->setText ( "" );
+				addStr = "mount " + cbxDrive->currentText().toLower() + " " + LEDrives->text() + " -t floppy";
+			}
+			break;
+		case 3:               // Image
+			break;
 		}
 	}
 
@@ -547,8 +549,8 @@ void DBoxFE::slotAutoexecAdd()
 }
 
 /**
- * TODO Autoexec option
- **/
+* TODO Autoexec option
+**/
 void DBoxFE::slotAutoexecRemove()
 {
 	QListWidgetItem * item = lwAutoexec->currentItem();
@@ -563,16 +565,16 @@ void DBoxFE::slotAutoexecRemove()
 }
 
 /**
- * TODO Update autexec item in the list
- **/
+* TODO Update autexec item in the list
+**/
 void DBoxFE::slotAutoexecUpdate()
 {
 	qDebug ( "void DBoxFE::slotAutexecUpdate()" );
 }
 
 /**
- * TODO Open the autexec drive, for automaunt in dosbox
- **/
+* TODO Open the autexec drive, for automaunt in dosbox
+**/
 void DBoxFE::slotAutoexecDrive()
 {
 	QString strAutoDrive = QFileDialog::getExistingDirectory ( this, tr ( "Open directory for mount in dosbox" ), QDir::homePath() );
@@ -583,8 +585,8 @@ void DBoxFE::slotAutoexecDrive()
 }
 
 /**
- * TODO move autexec item up
- **/
+* TODO move autexec item up
+**/
 void DBoxFE::slotAutoexecUp()
 {
 	if ( lwAutoexec->currentItem() == NULL )
@@ -599,8 +601,8 @@ void DBoxFE::slotAutoexecUp()
 }
 
 /**
- * TODO move autexec item down
- **/
+* TODO move autexec item down
+**/
 void DBoxFE::slotAutoexecDown()
 {
 	if ( lwAutoexec->currentItem() == NULL )
@@ -613,8 +615,8 @@ void DBoxFE::slotAutoexecDown()
 }
 
 /**
- * TODO Serial option add
- **/
+* TODO Serial option add
+**/
 void DBoxFE::slotSerialAdd()
 {
 	// Check if the item availabel in the list then show a message and exit function
@@ -644,41 +646,41 @@ void DBoxFE::slotSerialAdd()
 
 	switch ( cbxDSOption->currentIndex() )
 	{
-		case 0:               // diasabled
-			item->setText ( 1, cbxDSOption->currentText() );
-			break;
-		case 1:               // dummy
-			item->setText ( 1, cbxDSOption->currentText() );
-			break;
-		case 2:               // modem
-			serialOption = cbxDSOption->currentText() + " " +
-			               "listenport:" + LEDSListenPort->text() + " " +
-			               "realport:" + cbxDSRealPort->currentText() + " " +
-			               "startbps:" + LEDSBps->text() + " " +
-			               "parity:" + cbxDSParity->currentText() + " " +
-			               "bytesize:" + cbxDSByteSize->currentText() + " " +
-			               "stopbits:" + cbxDSStopBit->currentText() + " " +
-			               "irq:" + LEDSIrq->text();
+	case 0:               // diasabled
+		item->setText ( 1, cbxDSOption->currentText() );
+		break;
+	case 1:               // dummy
+		item->setText ( 1, cbxDSOption->currentText() );
+		break;
+	case 2:               // modem
+		serialOption = cbxDSOption->currentText() + " " +
+			"listenport:" + LEDSListenPort->text() + " " +
+			"realport:" + cbxDSRealPort->currentText() + " " +
+			"startbps:" + LEDSBps->text() + " " +
+			"parity:" + cbxDSParity->currentText() + " " +
+			"bytesize:" + cbxDSByteSize->currentText() + " " +
+			"stopbits:" + cbxDSStopBit->currentText() + " " +
+			"irq:" + LEDSIrq->text();
 
-			item->setText ( 1, serialOption );
-			break;
-		case 3:               // directserial
-			serialOption = cbxDSOption->currentText() + " " +
-			               "realport:" + cbxDSRealPort->currentText() + " " +
-			               "startbps:" + LEDSBps->text() + " " +
-			               "parity:" + cbxDSParity->currentText() + " " +
-			               "bytesize:" + cbxDSByteSize->currentText() + " " +
-			               "stopbits:" + cbxDSStopBit->currentText() + " " +
-			               "irq:" + LEDSIrq->text();
+		item->setText ( 1, serialOption );
+		break;
+	case 3:               // directserial
+		serialOption = cbxDSOption->currentText() + " " +
+			"realport:" + cbxDSRealPort->currentText() + " " +
+			"startbps:" + LEDSBps->text() + " " +
+			"parity:" + cbxDSParity->currentText() + " " +
+			"bytesize:" + cbxDSByteSize->currentText() + " " +
+			"stopbits:" + cbxDSStopBit->currentText() + " " +
+			"irq:" + LEDSIrq->text();
 
-			item->setText ( 1, serialOption );
-			break;
+		item->setText ( 1, serialOption );
+		break;
 	}
 }
 
 /**
- * TODO Serial option remove
- **/
+* TODO Serial option remove
+**/
 void DBoxFE::slotSerialRemove()
 {
 	QTreeWidgetItem * item = twSerial->currentItem();
@@ -693,8 +695,8 @@ void DBoxFE::slotSerialRemove()
 }
 
 /**
- * TODO Open the Profilewizard
- **/
+* TODO Open the Profilewizard
+**/
 void DBoxFE::slotWizard()
 {
 	DBoxFE_ProfileWizard * dbfe_profilewizard = new DBoxFE_ProfileWizard();
@@ -706,8 +708,8 @@ void DBoxFE::slotWizard()
 }
 
 /**
- * TODO Gamepreferences
- **/
+* TODO Gamepreferences
+**/
 void DBoxFE::slotGameSettings()
 {
 	DBoxFE_GameSettings * dbfe_gamesettings = new DBoxFE_GameSettings();
@@ -715,8 +717,8 @@ void DBoxFE::slotGameSettings()
 }
 
 /**
- * TODO Open the configuration file for selected profile
- **/
+* TODO Open the configuration file for selected profile
+**/
 void DBoxFE::slotListWidget ( QListWidgetItem* item )
 {
 	DB_BASE gpIni;
@@ -734,8 +736,8 @@ void DBoxFE::slotListWidget ( QListWidgetItem* item )
 }
 
 /**
- * TODO Clear Log output or save it ....
- **/
+* TODO Clear Log output or save it ....
+**/
 void DBoxFE::slotListWidgetOutPut ( QPoint point )
 {
 	QMenu menu ( this );
@@ -792,143 +794,225 @@ void DBoxFE::slotListWidgetOutPut ( QPoint point )
 }
 
 /**
- * TODO Disable/Enable Serial option
- **/
+* TODO Disable/Enable Serial option
+**/
 void DBoxFE::slotCbxSerialIndexChanged ( int index )
 {
 	switch ( index )
 	{
-		case 0:               // diasabled
-			gBoxSerialOption->setEnabled ( false );
-			break;
-		case 1:               // dummy
-			gBoxSerialOption->setEnabled ( false );
-			break;
-		case 2:               // modem
-			gBoxSerialOption->setEnabled ( true );
-			lblDSRealPort->setEnabled ( true );
-			cbxDSRealPort->setEnabled ( true );
-			lblDSIrq->setEnabled ( true );
-			LEDSIrq->setEnabled ( true );
-			lblDSDefaultBps->setEnabled ( true );
-			LEDSBps->setEnabled ( true );
-			lblDSByteSize->setEnabled ( true );
-			cbxDSByteSize->setEnabled ( true );
-			lblDSStopBit->setEnabled ( true );
-			cbxDSStopBit->setEnabled ( true );
-			lblDSParity->setEnabled ( true );
-			cbxDSParity->setEnabled ( true );
-			lblDSComPort->setEnabled ( false );
-			cbxDSComPort->setEnabled ( false );
-			break;
-		case 3:               // directserial
-			gBoxSerialOption->setEnabled ( true );
-			lblDSRealPort->setEnabled ( true );
-			cbxDSRealPort->setEnabled ( true );
-			lblDSIrq->setEnabled ( true );
-			LEDSIrq->setEnabled ( true );
-			lblDSDefaultBps->setEnabled ( true );
-			LEDSBps->setEnabled ( true );
-			lblDSByteSize->setEnabled ( true );
-			cbxDSByteSize->setEnabled ( true );
-			lblDSStopBit->setEnabled ( true );
-			cbxDSStopBit->setEnabled ( true );
-			lblDSParity->setEnabled ( true );
-			cbxDSParity->setEnabled ( true );
-			lblDSComPort->setEnabled ( false );
-			cbxDSComPort->setEnabled ( false );
-			break;
+	case 0:               // diasabled
+		gBoxSerialOption->setEnabled ( false );
+		break;
+	case 1:               // dummy
+		gBoxSerialOption->setEnabled ( false );
+		break;
+	case 2:               // modem
+		gBoxSerialOption->setEnabled ( true );
+		lblDSRealPort->setEnabled ( true );
+		cbxDSRealPort->setEnabled ( true );
+		lblDSIrq->setEnabled ( true );
+		LEDSIrq->setEnabled ( true );
+		lblDSDefaultBps->setEnabled ( true );
+		LEDSBps->setEnabled ( true );
+		lblDSByteSize->setEnabled ( true );
+		cbxDSByteSize->setEnabled ( true );
+		lblDSStopBit->setEnabled ( true );
+		cbxDSStopBit->setEnabled ( true );
+		lblDSParity->setEnabled ( true );
+		cbxDSParity->setEnabled ( true );
+		lblDSComPort->setEnabled ( false );
+		cbxDSComPort->setEnabled ( false );
+		break;
+	case 3:               // directserial
+		gBoxSerialOption->setEnabled ( true );
+		lblDSRealPort->setEnabled ( true );
+		cbxDSRealPort->setEnabled ( true );
+		lblDSIrq->setEnabled ( true );
+		LEDSIrq->setEnabled ( true );
+		lblDSDefaultBps->setEnabled ( true );
+		LEDSBps->setEnabled ( true );
+		lblDSByteSize->setEnabled ( true );
+		cbxDSByteSize->setEnabled ( true );
+		lblDSStopBit->setEnabled ( true );
+		cbxDSStopBit->setEnabled ( true );
+		lblDSParity->setEnabled ( true );
+		cbxDSParity->setEnabled ( true );
+		lblDSComPort->setEnabled ( false );
+		cbxDSComPort->setEnabled ( false );
+		break;
 	}
 }
 
-
 /**
- * TODO Disable/Enable Serial option
- **/
+* TODO Disable/Enable Autoexec option
+**/
 void DBoxFE::slotCbxAutoexecIndexChanged ( int index )
 {
 	switch ( index )
 	{
-		case 0:               // Default
-			lblAutoexecCDDVDROMOption->setEnabled ( false );
-			cbxAutoexecCDDVDROMOption->setEnabled ( false );
+	case 0:               // Default
+		lblAutoexecCDDVDROMOption->setEnabled ( false );
+		cbxAutoexecCDDVDROMOption->setEnabled ( false );
+
+		lblAutoexecImageTyp->setEnabled( false );
+		cbxAutoexecImageTyp->setEnabled( false );
+
+		lblAutoexecImageFormat->setEnabled( false );
+		cbxAutoexecImageFormat->setEnabled( false );
+
+		lblAutoexecImageSize->setEnabled( false );
+		LEImageSize->setEnabled( false );
+
+		lblAutoexecImageHddMode->setEnabled( false );
+		cbxAutoexecImageHddMode->setEnabled( false );
+		break;
+	case 1:               // CD/DVD ROM
+		lblAutoexecCDDVDROMOption->setEnabled ( true );
+		cbxAutoexecCDDVDROMOption->setEnabled ( true );
+
+		lblAutoexecImageTyp->setEnabled( false );
+		cbxAutoexecImageTyp->setEnabled( false );
+
+		lblAutoexecImageFormat->setEnabled( false );
+		cbxAutoexecImageFormat->setEnabled( false );
+
+		lblAutoexecImageSize->setEnabled( false );
+		LEImageSize->setEnabled( false );
+
+		lblAutoexecImageHddMode->setEnabled( false );
+		cbxAutoexecImageHddMode->setEnabled( false );
+		break;
+	case 2:               // Floppy
+		lblAutoexecCDDVDROMOption->setEnabled ( false );
+		cbxAutoexecCDDVDROMOption->setEnabled ( false );
+
+		lblAutoexecImageTyp->setEnabled( false );
+		cbxAutoexecImageTyp->setEnabled( false );
+
+		lblAutoexecImageFormat->setEnabled( false );
+		cbxAutoexecImageFormat->setEnabled( false );
+
+		lblAutoexecImageSize->setEnabled( false );
+		LEImageSize->setEnabled( false );
+
+		lblAutoexecImageHddMode->setEnabled( false );
+		cbxAutoexecImageHddMode->setEnabled( false );
+		break;
+	case 3:               // Image
+		lblAutoexecCDDVDROMOption->setEnabled ( false );
+		cbxAutoexecCDDVDROMOption->setEnabled ( false );
+
+		lblAutoexecImageTyp->setEnabled( true );
+		cbxAutoexecImageTyp->setEnabled( true );
+
+		lblAutoexecImageFormat->setEnabled( true );
+		cbxAutoexecImageFormat->setEnabled( true );
+
+		lblAutoexecImageSize->setEnabled( false );
+		LEImageSize->setEnabled( false );
+
+		lblAutoexecImageHddMode->setEnabled( false );
+		cbxAutoexecImageHddMode->setEnabled( false );
+		break;
+	}
+}
+
+/**
+* TODO Disable/Enable Autoexec Image option
+**/
+void DBoxFE::slotCbxAutoexecImageFormatIndexChanged( int index )
+{
+	switch( index )
+	{
+		case 0:               // iso
+			lblAutoexecImageSize->setEnabled( false );
+			LEImageSize->setEnabled( false );
+
+			lblAutoexecImageHddMode->setEnabled( false );
+			cbxAutoexecImageHddMode->setEnabled( false );
 			break;
-		case 1:               // Use directory as CD/DVD ROM
-			lblAutoexecCDDVDROMOption->setEnabled ( true );
-			cbxAutoexecCDDVDROMOption->setEnabled ( true );
+		case 1:               // fat
+			lblAutoexecImageSize->setEnabled( false );
+			LEImageSize->setEnabled( false );
+
+			lblAutoexecImageHddMode->setEnabled( false );
+			cbxAutoexecImageHddMode->setEnabled( false );
 			break;
-		case 2:               // Use directory as floppy drive
-			lblAutoexecCDDVDROMOption->setEnabled ( false );
-			cbxAutoexecCDDVDROMOption->setEnabled ( false );
+		case 2:               // none
+			lblAutoexecImageSize->setEnabled( true );
+			LEImageSize->setEnabled( true );
+
+			lblAutoexecImageHddMode->setEnabled( true );
+			cbxAutoexecImageHddMode->setEnabled( true );
 			break;
 	}
 }
 
 /**
- * TODO Set Text for varios keyboardlayouts.
- **/
+* TODO Set Text for varios keyboardlayouts.
+**/
 void DBoxFE::slotCbxKeyboardLayoutIndexChanged ( int index )
 {
 	lblKeyboardLayoutInfo->setText ( "******" );
 	switch ( index )
 	{
-		case 0:
-			lblKeyboardLayoutInfo->setText ( tr ( "No keyboardlayot" ) );			/* none	 */
-			break;
-		case 1:
-			lblKeyboardLayoutInfo->setText ( tr ( "Bulgaria" ) );				/* BG	 */
-			break;
-		case 2:
-			lblKeyboardLayoutInfo->setText ( tr ( "Czech Republic" ) );			/* CZ243 */
-			break;
-		case 3:
-			lblKeyboardLayoutInfo->setText ( tr ( "France" ) );					/* FR	 */
-			break;
-		case 4:
-			lblKeyboardLayoutInfo->setText ( tr ( "Greece" ) );					/* GK	 */
-			break;
-		case 5:
-			lblKeyboardLayoutInfo->setText ( tr ( "Germany" ) );				/* GR	 */
-			break;
-		case 6:
-			lblKeyboardLayoutInfo->setText ( tr ( "Croatia" ) );				/* HR	 */
-			break;
-		case 7:
-			lblKeyboardLayoutInfo->setText ( tr ( "Hungary" ) );				/* HU	 */
-			break;
-		case 8:
-			lblKeyboardLayoutInfo->setText ( tr ( "Italy" ) );					/* IT	 */
-			break;
-		case 9:
-			lblKeyboardLayoutInfo->setText ( tr ( "Netherlands" ) );			/* NL	 */
-			break;
-		case 10:
-			lblKeyboardLayoutInfo->setText ( tr ( "Norway" ) );				/* NO	 */
-			break;
-		case 11:
-			lblKeyboardLayoutInfo->setText ( tr ( "Poland" ) );				/* PL	 */
-			break;
-		case 12:
-			lblKeyboardLayoutInfo->setText ( tr ( "Russian Federation" ) );	/* RU	 */
-			break;
-		case 13:
-			lblKeyboardLayoutInfo->setText ( tr ( "Slovakia" ) );				/* SK	 */
-			break;
-		case 14:
-			lblKeyboardLayoutInfo->setText ( tr ( "Spain" ) );					/* SP	 */
-			break;
-		case 15:
-			lblKeyboardLayoutInfo->setText ( tr ( "Finland" ) );				/* SU	 */
-			break;
-		case 16:
-			lblKeyboardLayoutInfo->setText ( tr ( "Sweden" ) );				/* SV	 */
-			break;
+	case 0:
+		lblKeyboardLayoutInfo->setText ( tr ( "No keyboardlayot" ) );			/* none	 */
+		break;
+	case 1:
+		lblKeyboardLayoutInfo->setText ( tr ( "Bulgaria" ) );				/* BG	 */
+		break;
+	case 2:
+		lblKeyboardLayoutInfo->setText ( tr ( "Czech Republic" ) );			/* CZ243 */
+		break;
+	case 3:
+		lblKeyboardLayoutInfo->setText ( tr ( "France" ) );					/* FR	 */
+		break;
+	case 4:
+		lblKeyboardLayoutInfo->setText ( tr ( "Greece" ) );					/* GK	 */
+		break;
+	case 5:
+		lblKeyboardLayoutInfo->setText ( tr ( "Germany" ) );				/* GR	 */
+		break;
+	case 6:
+		lblKeyboardLayoutInfo->setText ( tr ( "Croatia" ) );				/* HR	 */
+		break;
+	case 7:
+		lblKeyboardLayoutInfo->setText ( tr ( "Hungary" ) );				/* HU	 */
+		break;
+	case 8:
+		lblKeyboardLayoutInfo->setText ( tr ( "Italy" ) );					/* IT	 */
+		break;
+	case 9:
+		lblKeyboardLayoutInfo->setText ( tr ( "Netherlands" ) );			/* NL	 */
+		break;
+	case 10:
+		lblKeyboardLayoutInfo->setText ( tr ( "Norway" ) );				/* NO	 */
+		break;
+	case 11:
+		lblKeyboardLayoutInfo->setText ( tr ( "Poland" ) );				/* PL	 */
+		break;
+	case 12:
+		lblKeyboardLayoutInfo->setText ( tr ( "Russian Federation" ) );	/* RU	 */
+		break;
+	case 13:
+		lblKeyboardLayoutInfo->setText ( tr ( "Slovakia" ) );				/* SK	 */
+		break;
+	case 14:
+		lblKeyboardLayoutInfo->setText ( tr ( "Spain" ) );					/* SP	 */
+		break;
+	case 15:
+		lblKeyboardLayoutInfo->setText ( tr ( "Finland" ) );				/* SU	 */
+		break;
+	case 16:
+		lblKeyboardLayoutInfo->setText ( tr ( "Sweden" ) );				/* SV	 */
+		break;
 	}
 }
 
 /**
- * TODO Function for create symlink into autostart from windowmanager....
- **/
+* TODO Function for create symlink into autostart from windowmanager....
+**/
 void DBoxFE::slotChkBoxStartTrayIconToggled ( bool toggle )
 {
 	if ( toggle )
@@ -958,8 +1042,8 @@ void DBoxFE::slotAbout()
 }
 
 /**
- * TODO Function for start dosbox and read output
- **/
+* TODO Function for start dosbox and read output
+**/
 void DBoxFE::start ( const QString& bin, const QString &param, const QString &conf )
 {
 
@@ -1000,8 +1084,8 @@ void DBoxFE::start ( const QString& bin, const QString &param, const QString &co
 }
 
 /**
- * TODO Function for start dosbox and read output
- **/
+* TODO Function for start dosbox and read output
+**/
 void DBoxFE::readOutput()
 {
 	while ( dBox->canReadLine() )
@@ -1013,8 +1097,8 @@ void DBoxFE::readOutput()
 }
 
 /**
- * TODO dosbox process was exited
- **/
+* TODO dosbox process was exited
+**/
 void DBoxFE::finish ( int exitCode, QProcess::ExitStatus exitStatus )
 {
 	this->show();
@@ -1047,46 +1131,46 @@ void DBoxFE::finish ( int exitCode, QProcess::ExitStatus exitStatus )
 
 	switch ( exitStatus )
 	{
-		case QProcess::NormalExit:
-			lwOutPut->addItem ( tr ( "dboxfe: dosbox process exited normally" ) );
-			qDebug() << exitCode;
-			break;
-		case QProcess::CrashExit:
-			lwOutPut->addItem ( tr ( "dboxfe: dosbox process crashed" ) );
-			qDebug() << exitCode;
-			break;
+	case QProcess::NormalExit:
+		lwOutPut->addItem ( tr ( "dboxfe: dosbox process exited normally" ) );
+		qDebug() << exitCode;
+		break;
+	case QProcess::CrashExit:
+		lwOutPut->addItem ( tr ( "dboxfe: dosbox process crashed" ) );
+		qDebug() << exitCode;
+		break;
 	}
 
 	btnStartDBox->setEnabled ( true );
 }
 
 /**
- * TODO dosbox process was exited amd have an error returned
- **/
+* TODO dosbox process was exited amd have an error returned
+**/
 void DBoxFE::err ( QProcess::ProcessError error )
 {
 	this->show();
 
 	switch ( error )
 	{
-		case QProcess::FailedToStart:
-			lwOutPut->addItem ( tr ( "dboxfe: the dosbox process failed to start" ) );
-			break;
-		case QProcess::Crashed:
-			lwOutPut->addItem ( tr ( "dboxfe: dosbox process crashed some time after starting successfully" ) );
-			break;
-		case QProcess::Timedout:
-			lwOutPut->addItem ( tr ( "dboxfe: last waitFor...() function timed out" ) );
-			break;
-		case QProcess::WriteError:
-			lwOutPut->addItem ( tr ( "dboxfe: an error occurred when attempting to write to the dosbox process" ) );
-			break;
-		case QProcess::ReadError:
-			lwOutPut->addItem ( tr ( "dboxfe: an error occurred when attempting to read from the dosbox process" ) );
-			break;
-		case QProcess::UnknownError:
-			lwOutPut->addItem ( tr ( "dboxfe: An unknown error occurred" ) );
-			break;
+	case QProcess::FailedToStart:
+		lwOutPut->addItem ( tr ( "dboxfe: the dosbox process failed to start" ) );
+		break;
+	case QProcess::Crashed:
+		lwOutPut->addItem ( tr ( "dboxfe: dosbox process crashed some time after starting successfully" ) );
+		break;
+	case QProcess::Timedout:
+		lwOutPut->addItem ( tr ( "dboxfe: last waitFor...() function timed out" ) );
+		break;
+	case QProcess::WriteError:
+		lwOutPut->addItem ( tr ( "dboxfe: an error occurred when attempting to write to the dosbox process" ) );
+		break;
+	case QProcess::ReadError:
+		lwOutPut->addItem ( tr ( "dboxfe: an error occurred when attempting to read from the dosbox process" ) );
+		break;
+	case QProcess::UnknownError:
+		lwOutPut->addItem ( tr ( "dboxfe: An unknown error occurred" ) );
+		break;
 	}
 
 	btnStartDBox->setEnabled ( true );

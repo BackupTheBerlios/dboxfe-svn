@@ -32,7 +32,7 @@ class DBoxFE : public QWidget, public Ui::DBoxFE
 		DBoxFE ( QWidget *parent = 0, Qt::WFlags flags = 0 );
 		~DBoxFE();
 
-		QString getAppVersion() { return tr ( "v0.1.3" ); }
+		QString getAppVersion() { return tr ( "v0.1.4" ); }
 		QString winTitle() { return tr ( "DBox Front End" ); }
 
 	private:
@@ -49,6 +49,7 @@ class DBoxFE : public QWidget, public Ui::DBoxFE
 		void slotListWidgetOutPut ( QPoint );
 		void slotCbxSerialIndexChanged ( int );
 		void slotCbxAutoexecIndexChanged ( int );
+		void slotCbxAutoexecImageFormatIndexChanged( int );
 		void slotCbxKeyboardLayoutIndexChanged ( int );
 		void slotChkBoxStartTrayIconToggled ( bool );
 		void slotAutoexecDrive();
@@ -67,7 +68,6 @@ class DBoxFE : public QWidget, public Ui::DBoxFE
 		void slotWizard();
 		void slotSearchBin();
 		void slotGameSettings();
-
 
 		void slotAutoexecUp();
 		void slotAutoexecDown();
