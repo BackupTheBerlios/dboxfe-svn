@@ -18,7 +18,8 @@
 
 # Qt 4 Settings
 TEMPLATE = app
-DESTDIR = bin
+DESTDIR	= bin
+TARGET = dboxfe
 DEPENDPATH += include res src ui 3rdparty
 INCLUDEPATH += include 3rdparty
 RESOURCES += res/dboxfe.qrc
@@ -37,68 +38,66 @@ FORMS += ui/images.ui
 FORMS += ui/profilewizard.ui
 
 # Project Translation
-TRANSLATIONS += lng/dboxfe_de.ts
-TRANSLATIONS += lng/dboxfe_en.ts 
+TRANSLATIONS += lng/dboxfe_de.ts lng/dboxfe_en.ts
+TRANSLATIONS += lng/dboxfe_en.ts
 
 # Project Misc files
-DISTFILES += ChangeLog
+DISTFILES += ChangeLog LICENSE.GPL
 DISTFILES += LICENSE.GPL
 
 # Project Header
-HEADERS += include/dboxfe.h
-HEADERS += include/dboxfe_about.h
-HEADERS += include/dboxfe_base.h
-HEADERS += include/dboxfe_gamefile.h
-HEADERS += include/dboxfe_games.h
-HEADERS += include/dboxfe_gamesettings.h
-HEADERS += include/dboxfe_images.h
-HEADERS += include/dboxfe_profile.h
-HEADERS += include/dboxfe_profilewizard.h
-HEADERS += include/dboxfe_splash.h
+HEADERS	+= include/dboxfe.h
+HEADERS	+= include/dboxfe_about.h
+HEADERS	+= include/dboxfe_base.h
+HEADERS	+= include/dboxfe_gamefile.h
+HEADERS	+= include/dboxfe_games.h
+HEADERS	+= include/dboxfe_gamesettings.h
+HEADERS	+= include/dboxfe_images.h
+HEADERS	+= include/dboxfe_profile.h
+HEADERS	+= include/dboxfe_profilewizard.h
+HEADERS	+= include/dboxfe_splash.h
 
 # Project Source
-SOURCES += src/main.cpp
-SOURCES += src/dboxfe.cpp
-SOURCES += src/dboxfe_about.cpp
-SOURCES += src/dboxfe_base.cpp
-SOURCES += src/dboxfe_gamefile.cpp
-SOURCES += src/dboxfe_games.cpp
-SOURCES += src/dboxfe_gamesettings.cpp
-SOURCES += src/dboxfe_images.cpp
-SOURCES += src/dboxfe_profile.cpp
-SOURCES += src/dboxfe_profilewizard.cpp
-SOURCES += src/dboxfe_splash.cpp
+SOURCES	+= src/main.cpp
+SOURCES	+= src/dboxfe.cpp
+SOURCES	+= src/dboxfe_about.cpp
+SOURCES	+= src/dboxfe_base.cpp
+SOURCES	+= src/dboxfe_gamefile.cpp
+SOURCES	+= src/dboxfe_games.cpp
+SOURCES	+= src/dboxfe_gamesettings.cpp
+SOURCES	+= src/dboxfe_images.cpp
+SOURCES	+= src/dboxfe_profile.cpp
+SOURCES	+= src/dboxfe_profilewizard.cpp
+SOURCES	+= src/dboxfe_splash.cpp
 
 
 # 3rdparty Header
-HEADERS += 3rdparty/Base64.h
-HEADERS += 3rdparty/XMLWriter.h
-HEADERS += 3rdparty/XMLPreferences.h 
+HEADERS	+= 3rdparty/Base64.h
+HEADERS	+= 3rdparty/XMLWriter.h
+HEADERS	+= 3rdparty/XMLPreferences.h
 
 # 3rdparty Source
-SOURCES += 3rdparty/Base64.cpp
-SOURCES += 3rdparty/XMLPreferences.cpp
-SOURCES += 3rdparty/XMLWriter.cpp 
+SOURCES	+= 3rdparty/Base64.cpp
+SOURCES	+= 3rdparty/XMLPreferences.cpp
+SOURCES	+= 3rdparty/XMLWriter.cpp
 
 # Unix/Linux settings
-unix{
-  TARGET = dboxfe
-  #QMAKE_POST_LINK = strip -s bin/dboxfe
-  RCC_DIR = .unix/rcc
-  MOC_DIR += .unix/moc
-  OBJECTS_DIR += .unix/obj
-  UI_DIR += .unix/ui
+unix {
+	#QMAKE_POST_LINK = strip -s bin/dboxfe
+	RCC_DIR	= build/unix/rcc
+	MOC_DIR	+= build/unix/moc
+	OBJECTS_DIR += build/unix/obj
+	UI_DIR += build/unix/ui
 }
 
 # Windows settings
-win32{
-  #CONFIG += release thread warn_on qt embed_manifest_exe
-  CONFIG += debug thread warn_on qt embed_manifest_exe
-
-  RC_FILE = dboxfe.rc
-  TARGET = dboxfe
-  RCC_DIR = win/rcc
-  MOC_DIR += win/moc
-  OBJECTS_DIR += win/obj
-  UI_DIR += win/ui
+win32 {
+	#CONFIG += release thread warn_on qt embed_manifest_exe
+	CONFIG += debug thread warn_on qt embed_manifest_exe
+	
+	RC_FILE = dboxfe.rc
+	RCC_DIR	= build/win/rcc
+	MOC_DIR	+= build/win/moc
+	OBJECTS_DIR += build/win/obj
+	UI_DIR += build/win/ui
 }
