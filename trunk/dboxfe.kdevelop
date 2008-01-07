@@ -3,7 +3,7 @@
   <general>
     <author>Alexander Saal</author>
     <email>alex.saal@gmx.de</email>
-    <version>0.1.3 (SVN)</version>
+    <version>1</version>
     <projectmanagement>KDevTrollProject</projectmanagement>
     <primarylanguage>C++</primarylanguage>
     <keywords>
@@ -11,11 +11,6 @@
     </keywords>
     <projectname>dboxfe</projectname>
     <ignoreparts/>
-    <projectdirectory>.</projectdirectory>
-    <absoluteprojectpath>false</absoluteprojectpath>
-    <description/>
-    <defaultencoding/>
-    <versioncontrol/>
   </general>
   <kdevfileview>
     <groups>
@@ -72,19 +67,7 @@
   <kdevdebugger>
     <general>
       <dbgshell/>
-      <gdbpath/>
-      <configGdbScript/>
-      <runShellScript/>
-      <runGdbScript/>
-      <breakonloadinglibs>true</breakonloadinglibs>
-      <separatetty>false</separatetty>
-      <floatingtoolbar>false</floatingtoolbar>
     </general>
-    <display>
-      <staticmembers>false</staticmembers>
-      <demanglenames>true</demanglenames>
-      <outputradix>10</outputradix>
-    </display>
   </kdevdebugger>
   <kdevcppsupport>
     <qt>
@@ -93,15 +76,15 @@
       <includestyle>4</includestyle>
       <designerintegration>ExternalDesigner</designerintegration>
       <root>/usr/lib/qt4</root>
-      <qmake>/usr/bin/qmake-qt4</qmake>
-      <designer>/usr/bin/designer-qt4</designer>
+      <qmake>/usr/bin/qmake</qmake>
+      <designer>/usr/bin/designer</designer>
       <designerpluginpaths/>
     </qt>
     <references>
       <pcs>Qt4</pcs>
     </references>
     <codecompletion>
-      <automaticCodeCompletion>true</automaticCodeCompletion>
+      <automaticCodeCompletion>false</automaticCodeCompletion>
       <automaticArgumentsHint>true</automaticArgumentsHint>
       <automaticHeaderCompletion>true</automaticHeaderCompletion>
       <codeCompletionDelay>250</codeCompletionDelay>
@@ -120,32 +103,16 @@
       <resolveIncludePathsUsingMakeExperimental>false</resolveIncludePathsUsingMakeExperimental>
       <alwaysParseInBackground>true</alwaysParseInBackground>
       <usePermanentCaching>true</usePermanentCaching>
-      <alwaysIncludeNamespaces>true</alwaysIncludeNamespaces>
+      <alwaysIncludeNamespaces>false</alwaysIncludeNamespaces>
       <includePaths>.;</includePaths>
-      <parseMissingHeaders>false</parseMissingHeaders>
-      <resolveIncludePaths>true</resolveIncludePaths>
     </codecompletion>
-    <creategettersetter>
-      <prefixGet>get</prefixGet>
-      <prefixSet>set</prefixSet>
-      <prefixVariable>m_,_</prefixVariable>
-      <parameterName>value</parameterName>
-      <inlineGet>true</inlineGet>
-      <inlineSet>true</inlineSet>
-    </creategettersetter>
-    <splitheadersource>
-      <enabled>false</enabled>
-      <synchronize>true</synchronize>
-      <orientation>Vertical</orientation>
-    </splitheadersource>
   </kdevcppsupport>
   <kdevfilecreate>
-    <filetypes/>
     <useglobaltypes>
       <type ext="ui" />
-      <type ext="qrc" />
       <type ext="cpp" />
       <type ext="h" />
+      <type ext="qrc" />
     </useglobaltypes>
   </kdevfilecreate>
   <kdevtrollproject>
@@ -154,48 +121,6 @@
     </general>
     <run>
       <directoryradio>executable</directoryradio>
-      <mainprogram>/home/asaal/projekte/dboxfe</mainprogram>
-      <programargs/>
-      <globaldebugarguments/>
-      <globalcwd>/home/asaal/projekte/dboxfe</globalcwd>
-      <useglobalprogram>false</useglobalprogram>
-      <terminal>false</terminal>
-      <autocompile>false</autocompile>
-      <autoinstall>false</autoinstall>
-      <autokdesu>false</autokdesu>
-      <envvars/>
     </run>
-    <make>
-      <abortonerror>true</abortonerror>
-      <runmultiplejobs>false</runmultiplejobs>
-      <numberofjobs>1</numberofjobs>
-      <dontact>false</dontact>
-      <makebin/>
-      <prio>0</prio>
-      <envvars/>
-    </make>
-    <qmake>
-      <savebehaviour>2</savebehaviour>
-      <replacePaths>false</replacePaths>
-      <disableDefaultOpts>true</disableDefaultOpts>
-    </qmake>
   </kdevtrollproject>
-  <cppsupportpart>
-    <filetemplates>
-      <interfacesuffix>.h</interfacesuffix>
-      <implementationsuffix>.cpp</implementationsuffix>
-    </filetemplates>
-  </cppsupportpart>
-  <kdevdocumentation>
-    <projectdoc>
-      <docsystem/>
-      <docurl/>
-      <usermanualurl/>
-    </projectdoc>
-  </kdevdocumentation>
-  <ctagspart>
-    <customArguments/>
-    <customTagfilePath>/home/asaal/projekte/dboxfe/tags</customTagfilePath>
-    <activeTagsFiles/>
-  </ctagspart>
 </kdevelop>
