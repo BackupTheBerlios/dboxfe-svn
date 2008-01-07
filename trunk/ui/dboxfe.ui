@@ -878,7 +878,7 @@
         </widget>
        </item>
        <item row="2" column="0" >
-        <widget class="QGroupBox" name="groupBox_2" >
+        <widget class="QGroupBox" name="gBoxCpu" >
          <property name="title" >
           <string>CPU</string>
          </property>
@@ -919,7 +919,7 @@
              <number>0</number>
             </property>
             <item>
-             <widget class="QLabel" name="label_36" >
+             <widget class="QLabel" name="lblCPUCycleDown" >
               <property name="minimumSize" >
                <size>
                 <width>110</width>
@@ -1023,7 +1023,7 @@
              <number>0</number>
             </property>
             <item>
-             <widget class="QLabel" name="label_37" >
+             <widget class="QLabel" name="lblCPUCycleup" >
               <property name="minimumSize" >
                <size>
                 <width>110</width>
@@ -1219,7 +1219,7 @@
              <number>0</number>
             </property>
             <item>
-             <widget class="QLabel" name="label_38" >
+             <widget class="QLabel" name="lblCPUCycle" >
               <property name="minimumSize" >
                <size>
                 <width>110</width>
@@ -1485,7 +1485,7 @@
              <number>0</number>
             </property>
             <item>
-             <widget class="QLabel" name="label_35" >
+             <widget class="QLabel" name="lblCPUCore" >
               <property name="minimumSize" >
                <size>
                 <width>110</width>
@@ -1581,8 +1581,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>629</width>
-            <height>329</height>
+            <width>197</width>
+            <height>120</height>
            </rect>
           </property>
           <attribute name="label" >
@@ -1743,7 +1743,7 @@
                 <number>6</number>
                </property>
                <item row="1" column="0" >
-                <widget class="QLabel" name="label_3" >
+                <widget class="QLabel" name="lblMixerBlockSize" >
                  <property name="minimumSize" >
                   <size>
                    <width>110</width>
@@ -1765,7 +1765,7 @@
                 </widget>
                </item>
                <item row="0" column="0" >
-                <widget class="QLabel" name="label_2" >
+                <widget class="QLabel" name="lblMixerRate" >
                  <property name="minimumSize" >
                   <size>
                    <width>110</width>
@@ -1787,7 +1787,7 @@
                 </widget>
                </item>
                <item row="2" column="0" >
-                <widget class="QLabel" name="label_4" >
+                <widget class="QLabel" name="lblMixerPreBuffer" >
                  <property name="minimumSize" >
                   <size>
                    <width>110</width>
@@ -1819,8 +1819,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>424</width>
-            <height>130</height>
+            <width>394</width>
+            <height>122</height>
            </rect>
           </property>
           <attribute name="label" >
@@ -1906,7 +1906,7 @@
                   <number>6</number>
                  </property>
                  <item row="2" column="0" >
-                  <widget class="QLabel" name="label_7" >
+                  <widget class="QLabel" name="lblSBHDMA" >
                    <property name="minimumSize" >
                     <size>
                      <width>110</width>
@@ -1928,7 +1928,7 @@
                   </widget>
                  </item>
                  <item row="0" column="0" >
-                  <widget class="QLabel" name="label_5" >
+                  <widget class="QLabel" name="lblSBBase" >
                    <property name="minimumSize" >
                     <size>
                      <width>110</width>
@@ -1950,7 +1950,7 @@
                   </widget>
                  </item>
                  <item row="1" column="0" >
-                  <widget class="QLabel" name="label_6" >
+                  <widget class="QLabel" name="lblSBDMA" >
                    <property name="minimumSize" >
                     <size>
                      <width>110</width>
@@ -1972,7 +1972,7 @@
                   </widget>
                  </item>
                  <item row="3" column="0" >
-                  <widget class="QLabel" name="label_8" >
+                  <widget class="QLabel" name="lblSBOPLRate" >
                    <property name="minimumSize" >
                     <size>
                      <width>110</width>
@@ -2247,7 +2247,7 @@
                   <number>6</number>
                  </property>
                  <item row="0" column="0" >
-                  <widget class="QLabel" name="label_10" >
+                  <widget class="QLabel" name="lblSBType" >
                    <property name="minimumSize" >
                     <size>
                      <width>110</width>
@@ -2269,7 +2269,7 @@
                   </widget>
                  </item>
                  <item row="1" column="0" >
-                  <widget class="QLabel" name="label_11" >
+                  <widget class="QLabel" name="lblSBIRQ" >
                    <property name="minimumSize" >
                     <size>
                      <width>110</width>
@@ -2291,7 +2291,7 @@
                   </widget>
                  </item>
                  <item row="2" column="0" >
-                  <widget class="QLabel" name="label_9" >
+                  <widget class="QLabel" name="lblSBOPLMode" >
                    <property name="minimumSize" >
                     <size>
                      <width>110</width>
@@ -2347,8 +2347,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>238</width>
-            <height>185</height>
+            <width>224</width>
+            <height>172</height>
            </rect>
           </property>
           <attribute name="label" >
@@ -2436,7 +2436,7 @@
                 <number>6</number>
                </property>
                <item row="4" column="0" >
-                <widget class="QLabel" name="label_17" >
+                <widget class="QLabel" name="lblGUSUltraDir" >
                  <property name="minimumSize" >
                   <size>
                    <width>110</width>
@@ -2458,7 +2458,7 @@
                 </widget>
                </item>
                <item row="2" column="0" >
-                <widget class="QLabel" name="label_16" >
+                <widget class="QLabel" name="lblGUSIRQs" >
                  <property name="minimumSize" >
                   <size>
                    <width>110</width>
@@ -2480,7 +2480,7 @@
                 </widget>
                </item>
                <item row="1" column="0" >
-                <widget class="QLabel" name="label_14" >
+                <widget class="QLabel" name="lblGUSBase" >
                  <property name="minimumSize" >
                   <size>
                    <width>110</width>
@@ -2502,7 +2502,7 @@
                 </widget>
                </item>
                <item row="3" column="0" >
-                <widget class="QLabel" name="label_15" >
+                <widget class="QLabel" name="lblGUSDMAs" >
                  <property name="minimumSize" >
                   <size>
                    <width>110</width>
@@ -2524,7 +2524,7 @@
                 </widget>
                </item>
                <item row="0" column="0" >
-                <widget class="QLabel" name="label_12" >
+                <widget class="QLabel" name="lblGUSRate" >
                  <property name="minimumSize" >
                   <size>
                    <width>110</width>
@@ -2706,8 +2706,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>277</width>
-            <height>100</height>
+            <width>254</width>
+            <height>94</height>
            </rect>
           </property>
           <attribute name="label" >
@@ -2795,7 +2795,7 @@
                 <number>6</number>
                </property>
                <item row="0" column="0" >
-                <widget class="QLabel" name="label_18" >
+                <widget class="QLabel" name="lblSpeaker" >
                  <property name="minimumSize" >
                   <size>
                    <width>110</width>
@@ -2817,7 +2817,7 @@
                 </widget>
                </item>
                <item row="1" column="0" >
-                <widget class="QLabel" name="label_21" >
+                <widget class="QLabel" name="lblSpeakerTandy" >
                  <property name="minimumSize" >
                   <size>
                    <width>110</width>
@@ -2973,8 +2973,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>231</width>
-            <height>102</height>
+            <width>218</width>
+            <height>98</height>
            </rect>
           </property>
           <attribute name="label" >
@@ -3145,7 +3145,7 @@
               <number>6</number>
              </property>
              <item row="1" column="0" >
-              <widget class="QLabel" name="label_19" >
+              <widget class="QLabel" name="lblMDIDevice" >
                <property name="minimumSize" >
                 <size>
                  <width>110</width>
@@ -3167,7 +3167,7 @@
               </widget>
              </item>
              <item row="0" column="0" >
-              <widget class="QLabel" name="label_22" >
+              <widget class="QLabel" name="lblMDIMPU401" >
                <property name="minimumSize" >
                 <size>
                  <width>110</width>
@@ -3189,7 +3189,7 @@
               </widget>
              </item>
              <item row="2" column="0" >
-              <widget class="QLabel" name="label_34" >
+              <widget class="QLabel" name="lblMDIConfig" >
                <property name="minimumSize" >
                 <size>
                  <width>110</width>
@@ -3223,24 +3223,6 @@
        <string>Misc (I-Net, DOS, Autoexec)</string>
       </attribute>
       <layout class="QGridLayout" >
-       <property name="leftMargin" >
-        <number>9</number>
-       </property>
-       <property name="topMargin" >
-        <number>9</number>
-       </property>
-       <property name="rightMargin" >
-        <number>9</number>
-       </property>
-       <property name="bottomMargin" >
-        <number>9</number>
-       </property>
-       <property name="horizontalSpacing" >
-        <number>6</number>
-       </property>
-       <property name="verticalSpacing" >
-        <number>6</number>
-       </property>
        <item row="0" column="0" >
         <widget class="QTabWidget" name="twMisc" >
          <property name="currentIndex" >
@@ -4692,433 +4674,6 @@
            <string>Autoexec</string>
           </attribute>
           <layout class="QGridLayout" >
-           <property name="leftMargin" >
-            <number>9</number>
-           </property>
-           <property name="topMargin" >
-            <number>9</number>
-           </property>
-           <property name="rightMargin" >
-            <number>9</number>
-           </property>
-           <property name="bottomMargin" >
-            <number>9</number>
-           </property>
-           <property name="horizontalSpacing" >
-            <number>6</number>
-           </property>
-           <property name="verticalSpacing" >
-            <number>6</number>
-           </property>
-           <item row="5" column="0" colspan="2" >
-            <layout class="QHBoxLayout" >
-             <property name="spacing" >
-              <number>6</number>
-             </property>
-             <property name="leftMargin" >
-              <number>0</number>
-             </property>
-             <property name="topMargin" >
-              <number>0</number>
-             </property>
-             <property name="rightMargin" >
-              <number>0</number>
-             </property>
-             <property name="bottomMargin" >
-              <number>0</number>
-             </property>
-             <item>
-              <widget class="QPushButton" name="btnAutoexecAdd" >
-               <property name="minimumSize" >
-                <size>
-                 <width>110</width>
-                 <height>26</height>
-                </size>
-               </property>
-               <property name="maximumSize" >
-                <size>
-                 <width>110</width>
-                 <height>26</height>
-                </size>
-               </property>
-               <property name="text" >
-                <string> Add</string>
-               </property>
-               <property name="icon" >
-                <iconset resource="../res/dboxfe.qrc" >:/pics/images/add_16.png</iconset>
-               </property>
-               <property name="flat" >
-                <bool>false</bool>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <spacer>
-               <property name="orientation" >
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" >
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item>
-              <widget class="QPushButton" name="btnAutoexecRemove" >
-               <property name="minimumSize" >
-                <size>
-                 <width>110</width>
-                 <height>26</height>
-                </size>
-               </property>
-               <property name="maximumSize" >
-                <size>
-                 <width>110</width>
-                 <height>26</height>
-                </size>
-               </property>
-               <property name="text" >
-                <string> Remove</string>
-               </property>
-               <property name="icon" >
-                <iconset resource="../res/dboxfe.qrc" >:/pics/images/delete_16.png</iconset>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <spacer>
-               <property name="orientation" >
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" >
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item>
-              <widget class="QPushButton" name="btnAutoexecUpdate" >
-               <property name="enabled" >
-                <bool>false</bool>
-               </property>
-               <property name="minimumSize" >
-                <size>
-                 <width>110</width>
-                 <height>26</height>
-                </size>
-               </property>
-               <property name="maximumSize" >
-                <size>
-                 <width>110</width>
-                 <height>26</height>
-                </size>
-               </property>
-               <property name="text" >
-                <string> Update</string>
-               </property>
-               <property name="icon" >
-                <iconset resource="../res/dboxfe.qrc" >:/pics/images/undo_16.png</iconset>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="btnGame" >
-               <property name="enabled" >
-                <bool>false</bool>
-               </property>
-               <property name="minimumSize" >
-                <size>
-                 <width>110</width>
-                 <height>26</height>
-                </size>
-               </property>
-               <property name="maximumSize" >
-                <size>
-                 <width>110</width>
-                 <height>26</height>
-                </size>
-               </property>
-               <property name="text" >
-                <string> Game</string>
-               </property>
-               <property name="icon" >
-                <iconset resource="../res/dboxfe.qrc" >:/pics/images/disc-media_16.png</iconset>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item row="4" column="1" >
-            <layout class="QGridLayout" >
-             <property name="leftMargin" >
-              <number>0</number>
-             </property>
-             <property name="topMargin" >
-              <number>0</number>
-             </property>
-             <property name="rightMargin" >
-              <number>0</number>
-             </property>
-             <property name="bottomMargin" >
-              <number>0</number>
-             </property>
-             <property name="horizontalSpacing" >
-              <number>6</number>
-             </property>
-             <property name="verticalSpacing" >
-              <number>6</number>
-             </property>
-             <item row="1" column="0" >
-              <spacer>
-               <property name="orientation" >
-                <enum>Qt::Vertical</enum>
-               </property>
-               <property name="sizeHint" >
-                <size>
-                 <width>20</width>
-                 <height>40</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item row="2" column="0" >
-              <widget class="QPushButton" name="btnAutoexecDown" >
-               <property name="minimumSize" >
-                <size>
-                 <width>24</width>
-                 <height>24</height>
-                </size>
-               </property>
-               <property name="maximumSize" >
-                <size>
-                 <width>24</width>
-                 <height>24</height>
-                </size>
-               </property>
-               <property name="text" >
-                <string/>
-               </property>
-               <property name="icon" >
-                <iconset resource="../res/dboxfe.qrc" >:/pics/images/arrow-down_16.png</iconset>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="0" >
-              <widget class="QPushButton" name="btnAutoexecUp" >
-               <property name="minimumSize" >
-                <size>
-                 <width>24</width>
-                 <height>24</height>
-                </size>
-               </property>
-               <property name="maximumSize" >
-                <size>
-                 <width>24</width>
-                 <height>24</height>
-                </size>
-               </property>
-               <property name="text" >
-                <string/>
-               </property>
-               <property name="icon" >
-                <iconset resource="../res/dboxfe.qrc" >:/pics/images/arrow-up_16.png</iconset>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item row="3" column="0" colspan="2" >
-            <layout class="QGridLayout" >
-             <property name="leftMargin" >
-              <number>0</number>
-             </property>
-             <property name="topMargin" >
-              <number>0</number>
-             </property>
-             <property name="rightMargin" >
-              <number>0</number>
-             </property>
-             <property name="bottomMargin" >
-              <number>0</number>
-             </property>
-             <property name="horizontalSpacing" >
-              <number>6</number>
-             </property>
-             <property name="verticalSpacing" >
-              <number>6</number>
-             </property>
-             <item row="0" column="0" >
-              <widget class="QLabel" name="lblAutoexecCDDVDROMOption" >
-               <property name="enabled" >
-                <bool>false</bool>
-               </property>
-               <property name="minimumSize" >
-                <size>
-                 <width>110</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="maximumSize" >
-                <size>
-                 <width>110</width>
-                 <height>16777215</height>
-                </size>
-               </property>
-               <property name="text" >
-                <string>CDROM/DVD:</string>
-               </property>
-               <property name="buddy" >
-                <cstring>cbxAutoexecCDDVDROMOption</cstring>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="1" >
-              <widget class="QComboBox" name="cbxAutoexecCDDVDROMOption" >
-               <property name="enabled" >
-                <bool>false</bool>
-               </property>
-               <item>
-                <property name="text" >
-                 <string>Windows 2000/XP and Linux CD/DVD ROM</string>
-                </property>
-               </item>
-               <item>
-                <property name="text" >
-                 <string>Windows 98 CD/DVD ROM</string>
-                </property>
-               </item>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item row="2" column="0" colspan="2" >
-            <layout class="QGridLayout" >
-             <property name="leftMargin" >
-              <number>0</number>
-             </property>
-             <property name="topMargin" >
-              <number>0</number>
-             </property>
-             <property name="rightMargin" >
-              <number>0</number>
-             </property>
-             <property name="bottomMargin" >
-              <number>0</number>
-             </property>
-             <property name="horizontalSpacing" >
-              <number>6</number>
-             </property>
-             <property name="verticalSpacing" >
-              <number>6</number>
-             </property>
-             <item row="0" column="0" >
-              <widget class="QLabel" name="lblAutoexecDirectoryOption" >
-               <property name="minimumSize" >
-                <size>
-                 <width>110</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="maximumSize" >
-                <size>
-                 <width>110</width>
-                 <height>16777215</height>
-                </size>
-               </property>
-               <property name="text" >
-                <string>Directory:</string>
-               </property>
-               <property name="buddy" >
-                <cstring>cbxAutoexecDirectoryOption</cstring>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="1" >
-              <widget class="QComboBox" name="cbxAutoexecDirectoryOption" >
-               <item>
-                <property name="text" >
-                 <string>Default</string>
-                </property>
-               </item>
-               <item>
-                <property name="text" >
-                 <string>Use directory as CD/DVD ROM</string>
-                </property>
-               </item>
-               <item>
-                <property name="text" >
-                 <string>Use directory as floppy drive</string>
-                </property>
-               </item>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item row="1" column="0" colspan="2" >
-            <layout class="QGridLayout" >
-             <property name="leftMargin" >
-              <number>0</number>
-             </property>
-             <property name="topMargin" >
-              <number>0</number>
-             </property>
-             <property name="rightMargin" >
-              <number>0</number>
-             </property>
-             <property name="bottomMargin" >
-              <number>0</number>
-             </property>
-             <property name="horizontalSpacing" >
-              <number>6</number>
-             </property>
-             <property name="verticalSpacing" >
-              <number>6</number>
-             </property>
-             <item row="2" column="0" >
-              <widget class="QCheckBox" name="chkBoxLabelCDDVD" >
-               <property name="text" >
-                <string>Use label for CD/DVD ROM</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="0" >
-              <widget class="QLabel" name="lblDeviceName" >
-               <property name="enabled" >
-                <bool>false</bool>
-               </property>
-               <property name="minimumSize" >
-                <size>
-                 <width>110</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="maximumSize" >
-                <size>
-                 <width>110</width>
-                 <height>16777215</height>
-                </size>
-               </property>
-               <property name="text" >
-                <string>Label for device:</string>
-               </property>
-               <property name="buddy" >
-                <cstring>LEDeviceLabel</cstring>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0" >
-              <widget class="QLineEdit" name="LEDeviceLabel" >
-               <property name="enabled" >
-                <bool>false</bool>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
            <item row="0" column="0" colspan="2" >
             <layout class="QGridLayout" >
              <property name="leftMargin" >
@@ -5310,14 +4865,626 @@
                 </widget>
                </item>
                <item row="0" column="1" >
-                <widget class="QLineEdit" name="LEDrives" />
+                <widget class="QLineEdit" name="LEDrives" >
+                 <property name="text" >
+                  <string/>
+                 </property>
+                </widget>
                </item>
               </layout>
              </item>
             </layout>
            </item>
+           <item row="1" column="0" colspan="2" >
+            <layout class="QGridLayout" >
+             <property name="leftMargin" >
+              <number>0</number>
+             </property>
+             <property name="topMargin" >
+              <number>0</number>
+             </property>
+             <property name="rightMargin" >
+              <number>0</number>
+             </property>
+             <property name="bottomMargin" >
+              <number>0</number>
+             </property>
+             <property name="horizontalSpacing" >
+              <number>6</number>
+             </property>
+             <property name="verticalSpacing" >
+              <number>6</number>
+             </property>
+             <item row="2" column="0" >
+              <widget class="QCheckBox" name="chkBoxLabelCDDVD" >
+               <property name="text" >
+                <string>Use label for CD/DVD ROM</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0" >
+              <widget class="QLabel" name="lblDeviceName" >
+               <property name="enabled" >
+                <bool>false</bool>
+               </property>
+               <property name="minimumSize" >
+                <size>
+                 <width>110</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize" >
+                <size>
+                 <width>110</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text" >
+                <string>Label for device:</string>
+               </property>
+               <property name="buddy" >
+                <cstring>LEDeviceLabel</cstring>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0" >
+              <widget class="QLineEdit" name="LEDeviceLabel" >
+               <property name="enabled" >
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="2" column="0" colspan="2" >
+            <layout class="QHBoxLayout" >
+             <item>
+              <widget class="QLabel" name="lblAutoexecDirectoryOption" >
+               <property name="minimumSize" >
+                <size>
+                 <width>110</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize" >
+                <size>
+                 <width>110</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text" >
+                <string>Mount as:</string>
+               </property>
+               <property name="buddy" >
+                <cstring>cbxAutoexecDirectoryOption</cstring>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="cbxAutoexecDirectoryOption" >
+               <item>
+                <property name="text" >
+                 <string>Default</string>
+                </property>
+               </item>
+               <item>
+                <property name="text" >
+                 <string>CD/DVD ROM</string>
+                </property>
+               </item>
+               <item>
+                <property name="text" >
+                 <string>Floppy</string>
+                </property>
+               </item>
+               <item>
+                <property name="text" >
+                 <string>Image</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="3" column="0" colspan="2" >
+            <layout class="QGridLayout" >
+             <property name="leftMargin" >
+              <number>0</number>
+             </property>
+             <property name="topMargin" >
+              <number>0</number>
+             </property>
+             <property name="rightMargin" >
+              <number>0</number>
+             </property>
+             <property name="bottomMargin" >
+              <number>0</number>
+             </property>
+             <property name="horizontalSpacing" >
+              <number>6</number>
+             </property>
+             <property name="verticalSpacing" >
+              <number>6</number>
+             </property>
+             <item row="0" column="0" >
+              <widget class="QLabel" name="lblAutoexecCDDVDROMOption" >
+               <property name="enabled" >
+                <bool>false</bool>
+               </property>
+               <property name="minimumSize" >
+                <size>
+                 <width>110</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize" >
+                <size>
+                 <width>110</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text" >
+                <string>CDROM/DVD:</string>
+               </property>
+               <property name="buddy" >
+                <cstring>cbxAutoexecCDDVDROMOption</cstring>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1" >
+              <widget class="QComboBox" name="cbxAutoexecCDDVDROMOption" >
+               <property name="enabled" >
+                <bool>false</bool>
+               </property>
+               <item>
+                <property name="text" >
+                 <string>Windows 2000/XP and Linux CD/DVD ROM</string>
+                </property>
+               </item>
+               <item>
+                <property name="text" >
+                 <string>Windows 98 CD/DVD ROM</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+            </layout>
+           </item>
            <item row="4" column="0" >
-            <widget class="QListWidget" name="lwAutoexec" />
+            <layout class="QHBoxLayout" >
+             <item>
+              <widget class="QLabel" name="lblAutoexecImageTyp" >
+               <property name="enabled" >
+                <bool>false</bool>
+               </property>
+               <property name="minimumSize" >
+                <size>
+                 <width>110</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize" >
+                <size>
+                 <width>110</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text" >
+                <string>Imagetyp</string>
+               </property>
+               <property name="buddy" >
+                <cstring>cbxAutoexecCDDVDROMOption</cstring>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="cbxAutoexecImageTyp" >
+               <property name="enabled" >
+                <bool>false</bool>
+               </property>
+               <item>
+                <property name="text" >
+                 <string>floppy</string>
+                </property>
+               </item>
+               <item>
+                <property name="text" >
+                 <string>iso</string>
+                </property>
+               </item>
+               <item>
+                <property name="text" >
+                 <string>hdd</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="4" column="1" >
+            <layout class="QHBoxLayout" >
+             <item>
+              <widget class="QLabel" name="lblAutoexecImageFormat" >
+               <property name="enabled" >
+                <bool>false</bool>
+               </property>
+               <property name="minimumSize" >
+                <size>
+                 <width>110</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize" >
+                <size>
+                 <width>110</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text" >
+                <string>Imageformat</string>
+               </property>
+               <property name="buddy" >
+                <cstring>cbxAutoexecCDDVDROMOption</cstring>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="cbxAutoexecImageFormat" >
+               <property name="enabled" >
+                <bool>false</bool>
+               </property>
+               <item>
+                <property name="text" >
+                 <string>iso</string>
+                </property>
+               </item>
+               <item>
+                <property name="text" >
+                 <string>fat</string>
+                </property>
+               </item>
+               <item>
+                <property name="text" >
+                 <string>none</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="5" column="0" >
+            <layout class="QHBoxLayout" >
+             <item>
+              <widget class="QLabel" name="lblAutoexecImageSize" >
+               <property name="enabled" >
+                <bool>false</bool>
+               </property>
+               <property name="minimumSize" >
+                <size>
+                 <width>110</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize" >
+                <size>
+                 <width>110</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text" >
+                <string>Size:</string>
+               </property>
+               <property name="buddy" >
+                <cstring>cbxAutoexecCDDVDROMOption</cstring>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="LEImageSize" >
+               <property name="enabled" >
+                <bool>false</bool>
+               </property>
+               <property name="toolTip" >
+                <string>sectorsbytesize, sectorsperhead, heads, cylinders</string>
+               </property>
+               <property name="statusTip" >
+                <string>sectorsbytesize, sectorsperhead, heads, cylinders</string>
+               </property>
+               <property name="whatsThis" >
+                <string>sectorsbytesize, sectorsperhead, heads, cylinders</string>
+               </property>
+               <property name="text" >
+                <string>512,63,16,142</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="5" column="1" >
+            <layout class="QHBoxLayout" >
+             <item>
+              <widget class="QLabel" name="lblAutoexecImageHddMode" >
+               <property name="enabled" >
+                <bool>false</bool>
+               </property>
+               <property name="minimumSize" >
+                <size>
+                 <width>110</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize" >
+                <size>
+                 <width>110</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text" >
+                <string>HDD mode:</string>
+               </property>
+               <property name="buddy" >
+                <cstring>cbxAutoexecCDDVDROMOption</cstring>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="cbxAutoexecImageHddMode" >
+               <property name="enabled" >
+                <bool>false</bool>
+               </property>
+               <property name="minimumSize" >
+                <size>
+                 <width>100</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="maximumSize" >
+                <size>
+                 <width>100</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <item>
+                <property name="text" >
+                 <string>Master</string>
+                </property>
+               </item>
+               <item>
+                <property name="text" >
+                 <string>Slave</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="6" column="0" colspan="2" >
+            <layout class="QGridLayout" >
+             <item row="0" column="0" >
+              <widget class="QListWidget" name="lwAutoexec" />
+             </item>
+             <item row="0" column="1" >
+              <layout class="QGridLayout" >
+               <property name="leftMargin" >
+                <number>0</number>
+               </property>
+               <property name="topMargin" >
+                <number>0</number>
+               </property>
+               <property name="rightMargin" >
+                <number>0</number>
+               </property>
+               <property name="bottomMargin" >
+                <number>0</number>
+               </property>
+               <property name="horizontalSpacing" >
+                <number>6</number>
+               </property>
+               <property name="verticalSpacing" >
+                <number>6</number>
+               </property>
+               <item row="1" column="0" >
+                <spacer>
+                 <property name="orientation" >
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" >
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="2" column="0" >
+                <widget class="QPushButton" name="btnAutoexecDown" >
+                 <property name="minimumSize" >
+                  <size>
+                   <width>24</width>
+                   <height>24</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize" >
+                  <size>
+                   <width>24</width>
+                   <height>24</height>
+                  </size>
+                 </property>
+                 <property name="text" >
+                  <string/>
+                 </property>
+                 <property name="icon" >
+                  <iconset resource="../res/dboxfe.qrc" >:/pics/images/arrow-down_16.png</iconset>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0" >
+                <widget class="QPushButton" name="btnAutoexecUp" >
+                 <property name="minimumSize" >
+                  <size>
+                   <width>24</width>
+                   <height>24</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize" >
+                  <size>
+                   <width>24</width>
+                   <height>24</height>
+                  </size>
+                 </property>
+                 <property name="text" >
+                  <string/>
+                 </property>
+                 <property name="icon" >
+                  <iconset resource="../res/dboxfe.qrc" >:/pics/images/arrow-up_16.png</iconset>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+           <item row="7" column="0" colspan="2" >
+            <layout class="QHBoxLayout" >
+             <property name="spacing" >
+              <number>6</number>
+             </property>
+             <property name="leftMargin" >
+              <number>0</number>
+             </property>
+             <property name="topMargin" >
+              <number>0</number>
+             </property>
+             <property name="rightMargin" >
+              <number>0</number>
+             </property>
+             <property name="bottomMargin" >
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QPushButton" name="btnAutoexecAdd" >
+               <property name="minimumSize" >
+                <size>
+                 <width>110</width>
+                 <height>26</height>
+                </size>
+               </property>
+               <property name="maximumSize" >
+                <size>
+                 <width>110</width>
+                 <height>26</height>
+                </size>
+               </property>
+               <property name="text" >
+                <string> Add</string>
+               </property>
+               <property name="icon" >
+                <iconset resource="../res/dboxfe.qrc" >:/pics/images/add_16.png</iconset>
+               </property>
+               <property name="flat" >
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer>
+               <property name="orientation" >
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" >
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btnAutoexecRemove" >
+               <property name="minimumSize" >
+                <size>
+                 <width>110</width>
+                 <height>26</height>
+                </size>
+               </property>
+               <property name="maximumSize" >
+                <size>
+                 <width>110</width>
+                 <height>26</height>
+                </size>
+               </property>
+               <property name="text" >
+                <string> Remove</string>
+               </property>
+               <property name="icon" >
+                <iconset resource="../res/dboxfe.qrc" >:/pics/images/delete_16.png</iconset>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer>
+               <property name="orientation" >
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" >
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btnAutoexecUpdate" >
+               <property name="enabled" >
+                <bool>false</bool>
+               </property>
+               <property name="minimumSize" >
+                <size>
+                 <width>110</width>
+                 <height>26</height>
+                </size>
+               </property>
+               <property name="maximumSize" >
+                <size>
+                 <width>110</width>
+                 <height>26</height>
+                </size>
+               </property>
+               <property name="text" >
+                <string> Update</string>
+               </property>
+               <property name="icon" >
+                <iconset resource="../res/dboxfe.qrc" >:/pics/images/undo_16.png</iconset>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btnGame" >
+               <property name="enabled" >
+                <bool>false</bool>
+               </property>
+               <property name="minimumSize" >
+                <size>
+                 <width>110</width>
+                 <height>26</height>
+                </size>
+               </property>
+               <property name="maximumSize" >
+                <size>
+                 <width>110</width>
+                 <height>26</height>
+                </size>
+               </property>
+               <property name="text" >
+                <string> Game</string>
+               </property>
+               <property name="icon" >
+                <iconset resource="../res/dboxfe.qrc" >:/pics/images/disc-media_16.png</iconset>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
           </layout>
          </widget>
@@ -6265,7 +6432,7 @@
   <connection>
    <sender>chkBoxGUS</sender>
    <signal>toggled(bool)</signal>
-   <receiver>label_17</receiver>
+   <receiver>lblGUSUltraDir</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel" >
@@ -6281,7 +6448,7 @@
   <connection>
    <sender>chkBoxGUS</sender>
    <signal>toggled(bool)</signal>
-   <receiver>label_15</receiver>
+   <receiver>lblGUSDMAs</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel" >
@@ -6297,7 +6464,7 @@
   <connection>
    <sender>chkBoxGUS</sender>
    <signal>toggled(bool)</signal>
-   <receiver>label_16</receiver>
+   <receiver>lblGUSIRQs</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel" >
@@ -6313,7 +6480,7 @@
   <connection>
    <sender>chkBoxGUS</sender>
    <signal>toggled(bool)</signal>
-   <receiver>label_14</receiver>
+   <receiver>lblGUSBase</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel" >
@@ -6329,7 +6496,7 @@
   <connection>
    <sender>chkBoxGUS</sender>
    <signal>toggled(bool)</signal>
-   <receiver>label_12</receiver>
+   <receiver>lblGUSRate</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel" >
