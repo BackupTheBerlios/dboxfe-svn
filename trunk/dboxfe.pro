@@ -95,7 +95,7 @@ win32 {
 	#CONFIG += release thread warn_on qt embed_manifest_exe
 	CONFIG += debug thread warn_on qt embed_manifest_exe
 	
-	RC_FILE = dboxfe.rc
+	RC_FILE = res/dboxfe.rc
 	RCC_DIR	= build/win/rcc
 	MOC_DIR	+= build/win/moc
 	OBJECTS_DIR += build/win/obj
