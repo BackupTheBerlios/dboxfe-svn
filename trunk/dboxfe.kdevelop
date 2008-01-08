@@ -3,7 +3,7 @@
   <general>
     <author>Alexander Saal</author>
     <email>alex.saal@gmx.de</email>
-    <version>1</version>
+    <version>0.1.4.0</version>
     <projectmanagement>KDevTrollProject</projectmanagement>
     <primarylanguage>C++</primarylanguage>
     <keywords>
@@ -23,7 +23,7 @@
     </groups>
     <tree>
       <hidepatterns>*.o,*.lo,CVS</hidepatterns>
-      <hidenonprojectfiles>false</hidenonprojectfiles>
+      <hidenonprojectfiles>true</hidenonprojectfiles>
     </tree>
   </kdevfileview>
   <kdevdoctreeview>
@@ -84,7 +84,7 @@
       <pcs>Qt4</pcs>
     </references>
     <codecompletion>
-      <automaticCodeCompletion>false</automaticCodeCompletion>
+      <automaticCodeCompletion>true</automaticCodeCompletion>
       <automaticArgumentsHint>true</automaticArgumentsHint>
       <automaticHeaderCompletion>true</automaticHeaderCompletion>
       <codeCompletionDelay>250</codeCompletionDelay>
