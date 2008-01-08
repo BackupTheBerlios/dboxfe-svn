@@ -18,8 +18,8 @@
 
 #define MyAppName "DBoxFE - DOSBox Frontend"
 #define MyAppNameTray "DBoxFE - DOSBox Frontend (TrayIcon)"
-#define MyAppVerName "DBoxFE - DOSBox Frontend v0.1.3.9"
-#define MyAppVersion "0.1.3.9"
+#define MyAppVerName "DBoxFE - DOSBox Frontend v0.1.4.0"
+#define MyAppVersion "0.1.4.0"
 #define MyAppPublisher "Privat - Alexander Saal"
 #define MyAppURL "http://chmaster.freeforge.net"
 #define MyAppCopyright "(C)opyright ©'2004-2007 by Alexander Saal"
