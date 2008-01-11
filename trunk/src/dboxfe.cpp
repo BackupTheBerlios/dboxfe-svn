@@ -284,7 +284,7 @@ void DBoxFE::slotRemoveGP()
 			lwOutPut->update();
 			break;
 		case 2:               // Cancel clicked or Escape pressed
-			return ;
+			return;
 			break;
 		}
 	}
@@ -528,6 +528,28 @@ void DBoxFE::slotAutoexecAdd()
 			}
 			break;
 		case 3:               // Image
+			switch( cbxAutoexecImageTyp->currentIndex() )
+			{
+				case 0: // floppy
+					switch( cbxAutoexecImageFormat->currentIndex() )
+					{
+						case 0: // iso
+							addStr = "imgmount " + cbxDrive->currentText().toLower() + " " + LEDrives->text() + " -t iso";
+							break;
+						case 1: // fat
+							addStr = "imgmount " + cbxDrive->currentText().toLower() + " " + LEDrives->text() + " -t fat";
+							break;
+						case 2: // none
+							QMessageBox::information ( this, winTitle(), tr ( "Not used by floppy!" ) );
+							return;
+					}
+					break;
+				case 1: // iso
+					break;
+				case 2: // hdd
+					break;
+			}
+
 			break;
 		}
 	}
@@ -577,7 +599,12 @@ void DBoxFE::slotAutoexecUpdate()
 **/
 void DBoxFE::slotAutoexecDrive()
 {
-	QString strAutoDrive = QFileDialog::getExistingDirectory ( this, tr ( "Open directory for mount in dosbox" ), QDir::homePath() );
+	QString strAutoDrive = QString( "" );
+	if( cbxAutoexecDirectoryOption->currentIndex() == 3 )
+		strAutoDrive = QFileDialog::getOpenFileName( this, tr( "Open image file" ), QDir::homePath(),  "ISOs (*.iso);;CUE (*.cue);;BIN (*.bin)" );
+	else
+		strAutoDrive = QFileDialog::getExistingDirectory ( this, tr ( "Open directory for mount in dosbox" ), QDir::homePath() );
+
 	if ( strAutoDrive.isEmpty() )
 		return ;
 
