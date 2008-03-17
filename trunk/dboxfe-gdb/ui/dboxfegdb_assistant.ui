@@ -140,7 +140,7 @@
          <item>
           <widget class="QLabel" name="labelCopyright" >
            <property name="text" >
-            <string>Developed by Alexander Saal ©' 2007</string>
+            <string>Developed by Alexander Saal ©' 2007-2008</string>
            </property>
           </widget>
          </item>
