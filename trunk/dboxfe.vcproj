@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="8,00"
+	Version="9,00"
 	Name="dboxfe"
 	ProjectGUID="{86156C63-9294-347A-B184-B3D6ADB40A98}"
 	Keyword="Qt4VSv1.0"
+	TargetFrameworkVersion="131072"
 	>
 	<Platforms>
 		<Platform
@@ -79,6 +80,8 @@
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile=""
 				SubSystem="2"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -97,9 +100,6 @@
 			/>
 			<Tool
 				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCWebDeploymentTool"
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
@@ -171,6 +171,8 @@
 				GenerateDebugInformation="false"
 				ProgramDatabaseFile=""
 				SubSystem="2"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -189,9 +191,6 @@
 			/>
 			<Tool
 				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCWebDeploymentTool"
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
