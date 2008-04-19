@@ -67,10 +67,10 @@ DBoxFE::DBoxFE ( QWidget *parent, Qt::WFlags flags ) : QWidget ( parent, flags )
 	connect ( cbxKeyboardLayout, SIGNAL ( currentIndexChanged ( int ) ), this, SLOT ( slotCbxKeyboardLayoutIndexChanged ( int ) ) );
 	connect ( chkBoxStartTrayIcon, SIGNAL ( toggled ( bool ) ), this, SLOT ( slotChkBoxStartTrayIconToggled ( bool ) ) );
 
-	// windows title for the application
-	titleLin = tr ( "DBoxFE - Front End for DOSBox 0.72 - Linux Version " ) + getAppVersion();
-	titleWin = tr ( "DBoxFE - Front End for DOSBox 0.72 - Windows Version " ) + getAppVersion();
-	titleMac = tr ( "DBoxFE - Front End for DOSBox 0.72 - Mac Version " ) + getAppVersion();
+	// title for the application
+	titleLin = tr ( "DBoxFE - Front End for DOSBox 0.7x - Linux Version " ) + getAppVersion();
+	titleWin = tr ( "DBoxFE - Front End for DOSBox 0.7x - Windows Version " ) + getAppVersion();
+	titleMac = tr ( "DBoxFE - Front End for DOSBox 0.7x - Mac Version " ) + getAppVersion();
 
 #ifdef Q_OS_WIN32
 	setWindowTitle ( titleWin );
@@ -748,6 +748,9 @@ void DBoxFE::slotGameSettings()
 **/
 void DBoxFE::slotListWidget ( QListWidgetItem* item )
 {
+	if( item == NULL )
+		return;
+
 	DB_BASE gpIni;
 
 	QString file;
@@ -758,8 +761,7 @@ void DBoxFE::slotListWidget ( QListWidgetItem* item )
 	if ( !f.exists() )
 		return ;
 
-	// gpIni.readGPIni( file, lwProfile  );
-	gpIni.readConf ( file, this );
+	gpIni.readConf( file, this );
 }
 
 /**
