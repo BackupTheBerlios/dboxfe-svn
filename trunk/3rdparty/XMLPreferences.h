@@ -28,14 +28,21 @@
 #include <QString>
 
 class QFile;
+
 class QByteArray;
+
 class QBitArray;
+
 class QStringList;
+
 class QRect;
+
 class QPoint;
+
 class QSize;
 
 #ifndef QT_CORE_ONLY
+
 class QColor;
 #endif
 
@@ -43,6 +50,7 @@ class XMLPreferencesPrivate;
 
 class XMLPreferences
 {
+
     public:
         enum BinEncodingType { CommaSeparatedValues, Base64 };
 

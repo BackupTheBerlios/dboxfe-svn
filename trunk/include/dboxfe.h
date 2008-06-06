@@ -26,61 +26,68 @@
 
 class DBoxFE : public QWidget, public Ui::DBoxFE
 {
-		Q_OBJECT
+        Q_OBJECT
 
-	public:
-		DBoxFE ( QWidget *parent = 0, Qt::WFlags flags = 0 );
-		~DBoxFE();
+    public:
+        DBoxFE( QWidget *parent = 0, Qt::WFlags flags = 0 );
+        ~DBoxFE();
 
-		QString getAppVersion() { return tr ( "v0.1.4" ); }
-		QString winTitle() { return tr ( "DBox Front End" ); }
+        QString getAppVersion()
+        {
+            return tr( "v0.1.4" );
+        }
 
-	private:
-		QString titleLin, titleWin, titleMac, gpTxt, m_result, m_conf, m_file;
-		QStringList m_param;
-		QProcess *dBox;
-		QListWidgetItem *gpItem;
+        QString winTitle()
+        {
+            return tr( "DBox Front End" );
+        }
 
-	protected:
-		void closeEvent ( QCloseEvent *e );
+    private:
+        QString titleLin, titleWin, titleMac, gpTxt, m_result, m_conf, m_file;
+        QStringList m_param;
+        QProcess *dBox;
+        QListWidgetItem *gpItem;
 
-	private slots:
-		void slotListWidget ( QListWidgetItem* );
-		void slotListWidgetOutPut ( QPoint );
-		void slotCbxSerialIndexChanged ( int );
-		void slotCbxAutoexecIndexChanged ( int );
-		void slotCbxAutoexecImageFormatIndexChanged( int );
-		void slotCbxKeyboardLayoutIndexChanged ( int );
-		void slotChkBoxStartTrayIconToggled ( bool );
-		void slotAutoexecDrive();
-		void slotAutoexecUpdate();
-		void slotAutoexecRemove();
-		void slotAutoexecAdd();
-		void slotSerialRemove();
-		void slotSerialAdd();
-		void slotChooseDbxBinary();
-		void slotLanguage();
-		void slotRemoveGP();
-		void slotStartDBox();
-		void slotGame();
-		void slotCreateGP();
-		void slotSaveGP();
-		void slotWizard();
-		void slotSearchBin();
-		void slotGameSettings();
+    protected:
+        void closeEvent( QCloseEvent *e );
 
-		void slotAutoexecUp();
-		void slotAutoexecDown();
+    private slots:
+        void slotListWidget( QListWidgetItem* );
+        void slotListWidgetOutPut( QPoint );
+        void slotCbxSerialIndexChanged( int );
+        void slotCbxAutoexecIndexChanged( int );
+        void slotCbxAutoexecImageFormatIndexChanged( int );
+        void slotCbxKeyboardLayoutIndexChanged( int );
+        void slotChkBoxStartTrayIconToggled( bool );
+        void slotAutoexecDrive();
+        void slotAutoexecUpdate();
+        void slotAutoexecRemove();
+        void slotAutoexecAdd();
+        void slotSerialRemove();
+        void slotSerialAdd();
+        void slotChooseDbxBinary();
+        void slotLanguage();
+        void slotRemoveGP();
+        void slotStartDBox();
+        void slotGame();
+        void slotCreateGP();
+        void slotSaveGP();
+        void slotWizard();
+        void slotSearchBin();
+        void slotGameSettings();
 
-		void slotAbout();
+        void slotAutoexecUp();
+        void slotAutoexecDown();
 
-		void start ( const QString& bin, const QString &param, const QString &conf );
-		void readOutput();
-		void finish ( int, QProcess::ExitStatus );
-		void err ( QProcess::ProcessError );
+        void slotAbout();
 
-	public slots:
-		void init();
+        void start( const QString& bin, const QString &param, const QString &conf );
+        void readOutput();
+        void finish( int, QProcess::ExitStatus );
+        void err( QProcess::ProcessError );
+
+    public slots:
+        void init();
 };
 
 #endif // DBOXFE_H

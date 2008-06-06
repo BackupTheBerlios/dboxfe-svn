@@ -146,54 +146,87 @@ void DB_BASE::readConf( const QString &dbconf, DBoxFE* dbfe )
 
     // PC Speaker settings
     getConf->beginGroup( "speaker" );
+
     if ( getConf->value( "pcspeaker" ).toString() == "true" )
         dbfe->cbxSpeaker->setCurrentIndex( 0 );
     else
         dbfe->cbxSpeaker->setCurrentIndex( 1 );
 
     int pcrate = dbfe->cbxSpeakerRate->findText( getConf->value( "pcrate" ).toString() );
+
     dbfe->cbxSpeakerRate->setCurrentIndex( pcrate );
+
     int tandy = dbfe->cbxSpeakerTandy->findText( getConf->value( "tandy" ).toString() );
+
     dbfe->cbxSpeakerTandy->setCurrentIndex( tandy );
+
     int tandyrate = dbfe->cbxSpeakerTandyRate->findText( getConf->value( "tandyrate" ).toString() );
+
     dbfe->cbxSpeakerTandyRate->setCurrentIndex( tandyrate );
+
     dbfe->chkBoxDisney->setChecked( getConf->value( "disney" ).toBool() );
+
     getConf->endGroup();
 
     // joystick settings
     getConf->beginGroup( "joystick" );
+
     int joysticktype = dbfe->cbxJoystickType->findText( getConf->value( "joysticktype" ).toString() );
+
     dbfe->cbxJoystickType->setCurrentIndex( joysticktype );
-    
-	dbfe->chkBoxTimed->setChecked( getConf->value( "timed" ).toBool() );
-	dbfe->chkBoxAutofire->setChecked( getConf->value( "autofire" ).toBool() );
-	dbfe->chkBoxSwap34->setChecked( getConf->value( "swap34" ).toBool() );
-	dbfe->chkBoxButtonWrap->setChecked( getConf->value( "buttonwrap" ).toBool() );
-	getConf->endGroup();
+
+    dbfe->chkBoxTimed->setChecked( getConf->value( "timed" ).toBool() );
+
+    dbfe->chkBoxAutofire->setChecked( getConf->value( "autofire" ).toBool() );
+
+    dbfe->chkBoxSwap34->setChecked( getConf->value( "swap34" ).toBool() );
+
+    dbfe->chkBoxButtonWrap->setChecked( getConf->value( "buttonwrap" ).toBool() );
+
+    getConf->endGroup();
 
     // Serial settings
     getConf->beginGroup( "serial" );
+
     dbfe->twSerial->clear();
+
     QTreeWidgetItem *serial1 = new QTreeWidgetItem( dbfe->twSerial );
+
     serial1->setText( 0, "serial1" );
+
     serial1->setText( 1, getConf->value( "serial1" ).toString() );
+
     QTreeWidgetItem *serial2 = new QTreeWidgetItem( dbfe->twSerial );
+
     serial2->setText( 0, "serial2" );
+
     serial2->setText( 1, getConf->value( "serial2" ).toString() );
+
     QTreeWidgetItem *serial3 = new QTreeWidgetItem( dbfe->twSerial );
+
     serial3->setText( 0, "serial3" );
+
     serial3->setText( 1, getConf->value( "serial3" ).toString() );
+
     QTreeWidgetItem *serial4 = new QTreeWidgetItem( dbfe->twSerial );
+
     serial4->setText( 0, "serial4" );
+
     serial4->setText( 1, getConf->value( "serial4" ).toString() );
+
     getConf->endGroup();
 
     // DOS settings
     getConf->beginGroup( "dos" );
+
     dbfe->chkBoxXMS->setChecked( getConf->value( "xms" ).toBool() );
+
     dbfe->chkBoxEMS->setChecked( getConf->value( "ems" ).toBool() );
+
     dbfe->chkBoxUMB->setChecked( getConf->value( "umb" ).toBool() );
+
     int kbdl = dbfe->cbxKeyboardLayout->findText( getConf->value( "keyboardlayout" ).toString() );
+
     dbfe->cbxKeyboardLayout->setCurrentIndex( kbdl );
 
 
@@ -202,38 +235,47 @@ void DB_BASE::readConf( const QString &dbconf, DBoxFE* dbfe )
 
     // IPX settings
     getConf->beginGroup( "ipx" );
+
     dbfe->chkBoxIPX->setChecked( getConf->value( "ipx" ).toBool() );
+
     getConf->endGroup();
 
 
     // Autoexec settings
     QFile f( dbconf );
 
-    if ( !f.open( QIODevice::ReadOnly | QIODevice::Text ) ) {
+    if ( !f.open( QIODevice::ReadOnly | QIODevice::Text ) )
+    {
         delete getConf;
         return ;
     }
 
     QTextStream in( &f );
+
     QString line;
 
     dbfe->lwAutoexec->clear();
 
-    while ( !in.atEnd() ) {
+    while ( !in.atEnd() )
+    {
         line = in.readLine();
-        if ( line == "[autoexec]" ) {
-            while ( !in.atEnd() ) {
+
+        if ( line == "[autoexec]" )
+        {
+            while ( !in.atEnd() )
+            {
                 line = in.readLine();
                 QListWidgetItem *autoexec = new QListWidgetItem( dbfe->lwAutoexec );
                 autoexec->setText( line );
 
-				if( line.startsWith("[") && line.endsWith("]") )
-					break;
+                if ( line.startsWith( "[" ) && line.endsWith( "]" ) )
+                    break;
             }
         }
     }
 
     f.close();
+
     delete getConf;
 }
 
@@ -292,11 +334,16 @@ void DB_BASE::saveConf( const QString &dbconf, DBoxFE* dbfe )
     settConf->beginGroup( "midi" );
     settConf->setValue( "mpu401", dbfe->cbxMDIMPU->currentText() );
     settConf->setValue( "device", dbfe->cbxMDIDevice->currentText() );
-    if ( !dbfe->LEMDIConfig->text().isEmpty() ) {
+
+    if ( !dbfe->LEMDIConfig->text().isEmpty() )
+    {
         settConf->setValue( "config", dbfe->LEMDIConfig->text() );
-    } else {
+    }
+    else
+    {
         settConf->setValue( "config", "" );
     }
+
     settConf->endGroup();
 
     // Soundblaster settings
@@ -325,39 +372,54 @@ void DB_BASE::saveConf( const QString &dbconf, DBoxFE* dbfe )
 
     // PC Speaker settings
     settConf->beginGroup( "speaker" );
+
     if ( dbfe->cbxSpeaker->currentText() == "on" )
         settConf->setValue( "pcspeaker", "true" );
     else
         settConf->setValue( "pcspeaker", "false" );
 
     settConf->setValue( "pcrate", dbfe->cbxSpeakerRate->currentText() );
+
     settConf->setValue( "tandy", dbfe->cbxSpeakerTandy->currentText() );
+
     settConf->setValue( "tandyrate", dbfe->cbxSpeakerTandyRate->currentText() );
+
     settConf->setValue( "disney", dbfe->chkBoxDisney->isChecked() );
+
     settConf->endGroup();
 
     // Joystick settings
     settConf->beginGroup( "joystick" );
+
     settConf->setValue( "joysticktype", dbfe->cbxJoystickType->currentText() );
-	settConf->setValue( "timed", dbfe->chkBoxTimed->isChecked() );
-	settConf->setValue( "autofire", dbfe->chkBoxAutofire->isChecked() );
-	settConf->setValue( "swap34", dbfe->chkBoxSwap34->isChecked() );
-	settConf->setValue( "buttonwrap", dbfe->chkBoxButtonWrap->isChecked() );
+
+    settConf->setValue( "timed", dbfe->chkBoxTimed->isChecked() );
+
+    settConf->setValue( "autofire", dbfe->chkBoxAutofire->isChecked() );
+
+    settConf->setValue( "swap34", dbfe->chkBoxSwap34->isChecked() );
+
+    settConf->setValue( "buttonwrap", dbfe->chkBoxButtonWrap->isChecked() );
+
     settConf->endGroup();
 
     // Serial settings
     settConf->beginGroup( "serial" );
-    for ( int i = 0; i < dbfe->twSerial->topLevelItemCount(); i++ ) {
+
+    for ( int i = 0; i < dbfe->twSerial->topLevelItemCount(); i++ )
+    {
         QTreeWidgetItem *item = dbfe->twSerial->topLevelItem( i );
         settConf->setValue( item->text( 0 ), item->text( 1 ) );
     }
 
-    if ( dbfe->twSerial->topLevelItemCount() <= 0 ) {
+    if ( dbfe->twSerial->topLevelItemCount() <= 0 )
+    {
         settConf->setValue( "serial1", "dummy" );
         settConf->setValue( "serial2", "dummy" );
         settConf->setValue( "serial3", "disabled" );
         settConf->setValue( "serial4", "disabled" );
     }
+
     settConf->endGroup();
 
     // DOS settings
@@ -378,19 +440,23 @@ void DB_BASE::saveConf( const QString &dbconf, DBoxFE* dbfe )
     // Autoexec settings
     QFile f( dbconf );
 
-    if ( !f.open( QFile::Append | QFile::WriteOnly ) ) {
+    if ( !f.open( QFile::Append | QFile::WriteOnly ) )
+    {
         delete settConf;
         return ;
     }
 
     QTextStream t( &f );
+
     t << "\n[autoexec]\n";
 
-    for ( int q = 0; q < dbfe->lwAutoexec->count(); q++ ) {
+    for ( int q = 0; q < dbfe->lwAutoexec->count(); q++ )
+    {
         t << dbfe->lwAutoexec->item( q )->text() << "\n";
     }
 
     t.flush();
+
     f.close();
 
     delete settConf;
@@ -414,18 +480,24 @@ void DB_BASE::findGames( const QString &dirName, QTreeWidget* qtw )
     QListIterator<QFileInfo> it( fil );
     QStringList lst;
 
-    while ( it.hasNext() ) {
+    while ( it.hasNext() )
+    {
         fi = it.next();
 
         if ( fi.fileName() == "." || fi.fileName() == ".." )
             ;
-        else {
+        else
+        {
             if ( fi.isDir() && fi.isReadable() )
                 findGames( fi.absoluteFilePath(), qtw );
-            else {
-                for ( int i = 0; i < gameList.size(); ++i ) {
+            else
+            {
+                for ( int i = 0; i < gameList.size(); ++i )
+                {
                     lst = gameList[ i ].split( ";" );
-                    if ( fi.fileName() == lst.value( 1 ) ) {
+
+                    if ( fi.fileName() == lst.value( 1 ) )
+                    {
                         QTreeWidgetItem * item = new QTreeWidgetItem( qtw );
                         item->setText( 0, lst.value( 0 ) );
                         item->setText( 1, fi.absolutePath() );
@@ -443,52 +515,63 @@ void DB_BASE::createGameProfiles( const QString &file, QStringList &gamesList, D
 {
 
     /* init settings from mainwindow */
-	dbfe->lwProfile->clear();
+    dbfe->lwProfile->clear();
     dbfe->init();
 
-	/* remove double entries from list */
-	for ( int x = 0; x < gamesList.size(); ++x ) {
-		if( isDoubleEntry( gamesList.value( x ), dbfe ) ) {
-			gamesList.removeAt( x );
-		}
-	}
+    /* remove double entries from list */
 
-	QString fileName;
+    for ( int x = 0; x < gamesList.size(); ++x )
+    {
+        if ( isDoubleEntry( gamesList.value( x ), dbfe ) )
+        {
+            gamesList.removeAt( x );
+        }
+    }
+
+    QString fileName;
+
     fileName = ":/default/default.conf";
 
     XMLPreferences settGP( "DBoxFE", "Alexander Saal" );
     settGP.setVersion( dbfe->getAppVersion() );
 
-	settGP.setStringList( "Profile", "Name", gamesList );
-	settGP.setString( "DOSBox", "binary", dbfe->LEDbxStabel->text() );
+    settGP.setStringList( "Profile", "Name", gamesList );
+    settGP.setString( "DOSBox", "binary", dbfe->LEDbxStabel->text() );
     settGP.setString( "DOSBox", "version", dbfe->LEDbxVersion->text() );
     settGP.setBool( "DBoxFE", "winHide", dbfe->chkBoxWindowHide->isChecked() );
     settGP.setBool( "DBoxFE", "keyMapper", dbfe->chkBoxStartmapper->isChecked() );
-	settGP.save( file );
+    settGP.save( file );
 
     QFile readFile( fileName );
-    if ( !readFile.open( QIODevice::ReadOnly | QIODevice::Text ) ) {
+
+    if ( !readFile.open( QIODevice::ReadOnly | QIODevice::Text ) )
+    {
         return ;
     }
 
     QTextStream in( &readFile );
+
     QString line = in.readAll();
     readFile.close();
 
-    for ( int x = 0; x < gamesList.size(); ++x ) {
+    for ( int x = 0; x < gamesList.size(); ++x )
+    {
         fileName = "";
         fileName = QDir::homePath();
         fileName.append( "/.dboxfe/" + gamesList.value( x ) + ".conf" );
 
-		createFile = new QFile( fileName );
+        createFile = new QFile( fileName );
 
-		if ( !createFile->open( QIODevice::WriteOnly | QIODevice::Text ) )
-			return;
+        if ( !createFile->open( QIODevice::WriteOnly | QIODevice::Text ) )
+            return;
 
-		QTextStream out( createFile );
-		out << line;
-		out.flush();
-		createFile->close();
+        QTextStream out( createFile );
+
+        out << line;
+
+        out.flush();
+
+        createFile->close();
     }
 
     line = "";
@@ -505,26 +588,38 @@ QStringList DB_BASE::loadImage( const QString &imageDirectory )
     const QFileInfoList fil = dir.entryInfoList( QDir::Files | QDir::Dirs, QDir::Name );
     QListIterator<QFileInfo> it( fil );
 
-    while ( it.hasNext() ) {
+    while ( it.hasNext() )
+    {
         fi = it.next();
 
         if ( fi.fileName() == "." || fi.fileName() == ".." )
             ;
-        else {
+        else
+        {
             if ( fi.isDir() && fi.isReadable() )
                 loadImage( fi.absoluteFilePath() );
-            else {
-                if ( fi.suffix() == "jpg" ) {
+            else
+            {
+                if ( fi.suffix() == "jpg" )
+                {
                     lstImages += fi.baseName() + ";" + fi.absoluteFilePath();
-				} else if ( fi.suffix() == "jpeg" ) {
+                }
+                else if ( fi.suffix() == "jpeg" )
+                {
                     lstImages += fi.baseName() + ";" + fi.absoluteFilePath();
-				} else if ( fi.suffix() == "png" ) {
+                }
+                else if ( fi.suffix() == "png" )
+                {
                     lstImages += fi.baseName() + ";" + fi.absoluteFilePath();
-				} else if ( fi.suffix() == "bmp" ) {
+                }
+                else if ( fi.suffix() == "bmp" )
+                {
                     lstImages += fi.baseName() + ";" + fi.absoluteFilePath();
-				} else if ( fi.suffix() == "gif" ) {
+                }
+                else if ( fi.suffix() == "gif" )
+                {
                     lstImages += fi.baseName() + ";" + fi.absoluteFilePath();
-				}
+                }
             }
         }
     }
@@ -551,6 +646,7 @@ int DB_BASE::removeGameFromDb( QTreeWidget* qtw )
 {
     if ( qtw->currentItem() != NULL )
         delete qtw->currentItem();
+
     return qtw->topLevelItemCount();
 }
 
@@ -562,7 +658,8 @@ void DB_BASE::saveGameDb( const QString &file, QTreeWidget* qtw, int col1, int c
     XMLPreferences games( "DBoxFE", "Alexander Saal" );
     games.setVersion( "v0.1.2" );
 
-    for ( int i = 0; i < qtw->topLevelItemCount(); ++i ) {
+    for ( int i = 0; i < qtw->topLevelItemCount(); ++i )
+    {
         QTreeWidgetItem *item = qtw->topLevelItem( i );
         gamesList.append( item->text( col1 ) + ";" + item->text( col2 ) );
     }
@@ -575,70 +672,93 @@ void DB_BASE::saveGameDb( const QString &file, QTreeWidget* qtw, int col1, int c
  */
 void DB_BASE::readGameDb( const QString &file, QProgressBar *pBar, QTreeWidget* qtw )
 {
-	int i;
-	QFile xmlFile( file );
+    int i;
+    QFile xmlFile( file );
 
-	if( !xmlFile.open( QIODevice::ReadOnly ) ){
-		return;
-	}
+    if ( !xmlFile.open( QIODevice::ReadOnly ) )
+    {
+        return;
+    }
 
     QDomDocument doc;
+
     doc.setContent( &xmlFile );
     xmlFile.close();
     QDomNode item = doc.documentElement().firstChild();
 
-	while ( !item.isNull() ) {
-      if ( item.isElement() && item.nodeName() == "game" ) {
-        QDomNode subitem = item.toElement().firstChild();
+    while ( !item.isNull() )
+    {
+        if ( item.isElement() && item.nodeName() == "game" )
+        {
+            QDomNode subitem = item.toElement().firstChild();
 
-		QTreeWidgetItem *qtwItem = new QTreeWidgetItem( qtw );
-        while ( !subitem.isNull() ) {
-			if( pBar != NULL ) {
-				i = 0;
-				pBar->setMaximum( subitem.childNodes().count() );
-			}
-/*
-		<title>007: License to kill</title>
-		<year>1989</year>
-		<sw_house>Domark</sw_house>
-		<link>http://dosbox.sourceforge.net/comp_list.php?showID=426</link>
-		<dosbox>
-			<info version="0.58" comp_percent="80"/>
-			<info version="0.63" comp_percent="100"/>
-		</dosbox>
-*/
-			if ( subitem.toElement().tagName() == "title" ) {
-				qtwItem->setText( 0, subitem.toElement().text() );
+            QTreeWidgetItem *qtwItem = new QTreeWidgetItem( qtw );
 
-			} else if ( subitem.toElement().tagName() == "year" ) {
-				qtwItem->setText( 3, subitem.toElement().text() );
+            while ( !subitem.isNull() )
+            {
+                if ( pBar != NULL )
+                {
+                    i = 0;
+                    pBar->setMaximum( subitem.childNodes().count() );
+                }
 
-			} else if ( subitem.toElement().tagName() == "sw_house" ) {
-				qtwItem->setText( 2, subitem.toElement().text() );
+                /*
+                  <title>007: License to kill</title>
+                  <year>1989</year>
+                  <sw_house>Domark</sw_house>
+                  <link>http://dosbox.sourceforge.net/comp_list.php?showID=426</link>
+                  <dosbox>
+                   <info version="0.58" comp_percent="80"/>
+                   <info version="0.63" comp_percent="100"/>
+                  </dosbox>
+                */
+                if ( subitem.toElement().tagName() == "title" )
+                {
+                    qtwItem->setText( 0, subitem.toElement().text() );
 
-			} else if ( subitem.toElement().tagName() == "link" ) {
-				qtwItem->setText( 6, subitem.toElement().text() );
+                }
+                else if ( subitem.toElement().tagName() == "year" )
+                {
+                    qtwItem->setText( 3, subitem.toElement().text() );
 
-			} else if ( subitem.toElement().tagName() == "dosbox" ) {
-				QDomNode subSubItem = subitem.toElement().firstChild();
-				while ( !subSubItem.isNull() ) {
-					if ( subSubItem.toElement().tagName() == "info" ) {
+                }
+                else if ( subitem.toElement().tagName() == "sw_house" )
+                {
+                    qtwItem->setText( 2, subitem.toElement().text() );
+
+                }
+                else if ( subitem.toElement().tagName() == "link" )
+                {
+                    qtwItem->setText( 6, subitem.toElement().text() );
+
+                }
+                else if ( subitem.toElement().tagName() == "dosbox" )
+                {
+                    QDomNode subSubItem = subitem.toElement().firstChild();
+
+                    while ( !subSubItem.isNull() )
+                    {
+                        if ( subSubItem.toElement().tagName() == "info" )
+                        {
 
 
-					}
-					subSubItem = subSubItem.nextSibling();
-				}
-			}
-			subitem = subitem.nextSibling();
-			
-			if( pBar != NULL ) {
-				i = i + 1;
-				pBar->setValue( i );
-			}
-		}
-	  }
-	  
-      item = item.nextSibling();
+                        }
+
+                        subSubItem = subSubItem.nextSibling();
+                    }
+                }
+
+                subitem = subitem.nextSibling();
+
+                if ( pBar != NULL )
+                {
+                    i = i + 1;
+                    pBar->setValue( i );
+                }
+            }
+        }
+
+        item = item.nextSibling();
     }
 }
 
@@ -647,18 +767,21 @@ void DB_BASE::readGameDb( const QString &file, QProgressBar *pBar, QTreeWidget* 
  */
 void DB_BASE::importDFendProfile( const QString &file, DBoxFE *dbfe )
 {
-	// DFend Profile is a native dosboxconfigurationfile ...
-	QFileInfo fi( file );
+    // DFend Profile is a native dosboxconfigurationfile ...
+    QFileInfo fi( file );
 
-	if( !file.isEmpty() || !file.isNull() ) {
-		if( isDoubleEntry( fi.baseName(), dbfe ) ) {
-			QMessageBox::information( 0, dbfe->winTitle(), QObject::tr( "Can not add the same profilename: '" ) + fi.baseName() + QObject::tr( "' to the list." ) );
-			return;
-		}
+    if ( !file.isEmpty() || !file.isNull() )
+    {
+        if ( isDoubleEntry( fi.baseName(), dbfe ) )
+        {
+            QMessageBox::information( 0, dbfe->winTitle(), QObject::tr( "Can not add the same profilename: '" ) + fi.baseName() + QObject::tr( "' to the list." ) );
+            return;
+        }
 
-		dbfe->lwProfile->addItem( fi.baseName() );
-		readConf( file, dbfe );
-	}
+        dbfe->lwProfile->addItem( fi.baseName() );
+
+        readConf( file, dbfe );
+    }
 }
 
 /*
@@ -666,16 +789,21 @@ void DB_BASE::importDFendProfile( const QString &file, DBoxFE *dbfe )
  */
 bool DB_BASE::isDoubleEntry( const QString &name, DBoxFE* dbfe )
 {
-	if( !name.isEmpty() || !name.isNull() ) {
-	    QList<QListWidgetItem *> it( dbfe->lwProfile->findItems( name, Qt::MatchExactly ) );
-		for ( int a = 0; a < it.size(); ++a ) {
-			QListWidgetItem *sItem;
-			sItem = it.value( a );
-			if( sItem->text() == name ) {
-				return true;
-			}
-		}
-	}
+    if ( !name.isEmpty() || !name.isNull() )
+    {
+        QList<QListWidgetItem *> it( dbfe->lwProfile->findItems( name, Qt::MatchExactly ) );
 
-	return false;	
+        for ( int a = 0; a < it.size(); ++a )
+        {
+            QListWidgetItem *sItem;
+            sItem = it.value( a );
+
+            if ( sItem->text() == name )
+            {
+                return true;
+            }
+        }
+    }
+
+    return false;
 }

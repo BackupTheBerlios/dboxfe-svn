@@ -29,19 +29,19 @@
 #include "XMLWriter.h"
 
 /*!
-	\class XMLWriter xmlwriter.h
-	\ingroup OSDaB
- 
-	\brief The XMLWriter class provides a convenient interface for
-	writing XML files.
+ \class XMLWriter xmlwriter.h
+ \ingroup OSDaB
+
+ \brief The XMLWriter class provides a convenient interface for
+ writing XML files.
 */
 
 /*!
-	\enum XMLWriter::LineBreakType The type of line breaks to be used by this writer.
- 
-	\value Unix Unix-style \\n only
-	\value Windows Windows-style \\r\\n
-	\value Macintosh Mac-style \\r only
+ \enum XMLWriter::LineBreakType The type of line breaks to be used by this writer.
+
+ \value Unix Unix-style \\n only
+ \value Windows Windows-style \\r\\n
+ \value Macintosh Mac-style \\r only
 */
 
 
@@ -50,8 +50,10 @@ XMLWriterPrivate interface
 *************************************************************************/
 
 //! \internal
+
 class XMLWriterPrivate
 {
+
     public:
         XMLWriterPrivate( QIODevice* device, QTextCodec* codec, bool writeEncoding );
         ~XMLWriterPrivate();
@@ -74,17 +76,24 @@ class XMLWriterPrivate
 XMLWriterPrivate::XMLWriterPrivate( QIODevice* device, QTextCodec* codec, bool writeEncoding )
 {
     stream = new QTextStream( device );
+
     if ( codec == 0 )
         stream->setCodec( "UTF-8" );
     else
         stream->setCodec( codec );
 
     indentString = "\t";
+
     autoLineBreak = true;
+
     lineBreak = "\r\n";
+
     indentLevel = 0;
+
     pauseIndent = false;
+
     skipEmptyTags = false;
+
     skipEmptyAttributes = false;
 
     // <?xml version="1.0" encoding="SELECTED_ENCODING"?>
@@ -116,8 +125,10 @@ QString XMLWriterPrivate::openTag( const QString& tag, const QHash<QString, QStr
 {
     QString out = "<" + escape( tag );
 
-    if ( attributes != 0 ) {
-        for ( QHash<QString, QString>::ConstIterator itr = attributes->constBegin(); itr != attributes->constEnd(); ++itr ) {
+    if ( attributes != 0 )
+    {
+        for ( QHash<QString, QString>::ConstIterator itr = attributes->constBegin(); itr != attributes->constEnd(); ++itr )
+        {
             if ( skipEmptyAttributes && itr.value().isEmpty() )
                 continue;
 
@@ -126,6 +137,7 @@ QString XMLWriterPrivate::openTag( const QString& tag, const QHash<QString, QStr
     }
 
     out += ">";
+
     return out;
 }
 
@@ -135,12 +147,12 @@ Public interface
 *************************************************************************/
 
 /*!
-	Builds a new XML writer for \a device using \a codec to encode
-	text. A first line with XML encoding type is written if \a writeEncoding is true.
-	UTF-8 encoding is used if \a codec is 0.
-	Indenting uses the ASCII horizontal tab char (\t) by default.
-	CRLF is automatically added after each tag. This behavior can be changed by
-	calling \link setAutoNewLine(bool)
+ Builds a new XML writer for \a device using \a codec to encode
+ text. A first line with XML encoding type is written if \a writeEncoding is true.
+ UTF-8 encoding is used if \a codec is 0.
+ Indenting uses the ASCII horizontal tab char (\t) by default.
+ CRLF is automatically added after each tag. This behavior can be changed by
+ calling \link setAutoNewLine(bool)
 */
 XMLWriter::XMLWriter( QIODevice* device, QTextCodec* codec, bool writeEncoding )
 {
@@ -148,7 +160,7 @@ XMLWriter::XMLWriter( QIODevice* device, QTextCodec* codec, bool writeEncoding )
 }
 
 /*!
-	Flushes any remaining buffered data and destroys this object.
+ Flushes any remaining buffered data and destroys this object.
 */
 XMLWriter::~XMLWriter()
 {
@@ -156,7 +168,7 @@ XMLWriter::~XMLWriter()
 }
 
 /*!
-	Returns the type of line breaks used by this writer.
+ Returns the type of line breaks used by this writer.
 */
 XMLWriter::LineBreakType XMLWriter::lineBreakType() const
 {
@@ -164,25 +176,29 @@ XMLWriter::LineBreakType XMLWriter::lineBreakType() const
 }
 
 /*!
-	Sets the type of line breaks the writer should use to either Unix (LF only),
-	Windows (CRLF), or Mac (CR only) style.
+ Sets the type of line breaks the writer should use to either Unix (LF only),
+ Windows (CRLF), or Mac (CR only) style.
 */
 void XMLWriter::setLineBreakType( LineBreakType type )
 {
-    switch ( type ) {
+    switch ( type )
+    {
+
         case Macintosh:
             d->lineBreak = "\r";
             break;
+
         case Windows:
             d->lineBreak = "\r\n";
             break;
+
         case Unix:
             d->lineBreak = "\n";
     }
 }
 
 /*!
-	Writes a string to the stream encoding not allowed chars.
+ Writes a string to the stream encoding not allowed chars.
 */
 void XMLWriter::writeString( const QString& string )
 {
@@ -190,9 +206,9 @@ void XMLWriter::writeString( const QString& string )
 }
 
 /*!
-	Writes an opening tag named \a name containing attributes from the \a attrs hash.
-	No attributes are added if \a attrs is 0.
-	Example: \verbatim <itemName attr1="value1"> \endverbatim
+ Writes an opening tag named \a name containing attributes from the \a attrs hash.
+ No attributes are added if \a attrs is 0.
+ Example: \verbatim <itemName attr1="value1"> \endverbatim
 */
 void XMLWriter::writeOpenTag( const QString& name, const QHash<QString, QString>* attrs )
 {
@@ -209,8 +225,8 @@ void XMLWriter::writeOpenTag( const QString& name, const QHash<QString, QString>
 }
 
 /*!
-	Writes a closing tag named \a name.
-	Example: \verbatim </itemName> \endverbatim
+ Writes a closing tag named \a name.
+ Example: \verbatim </itemName> \endverbatim
 */
 void XMLWriter::writeCloseTag( const QString& name )
 {
@@ -221,14 +237,15 @@ void XMLWriter::writeCloseTag( const QString& name )
             ( *d->stream ) << d->indentString;
 
     ( *d->stream ) << "</" << d->escape( name ) << ">";
+
     if ( d->autoLineBreak )
         ( *d->stream ) << d->lineBreak;
 }
 
 /*!
-	Writes an atom named \a name with attributes from hash \a attrs.
-	No attributes are added if \a attrs is 0.
-	Example: \verbatim <itemName attr1="value1"/> \endverbatim
+ Writes an atom named \a name with attributes from hash \a attrs.
+ No attributes are added if \a attrs is 0.
+ Example: \verbatim <itemName attr1="value1"/> \endverbatim
 */
 void XMLWriter::writeAtomTag( const QString& name, const QHash<QString, QString>* attrs )
 {
@@ -237,7 +254,9 @@ void XMLWriter::writeAtomTag( const QString& name, const QHash<QString, QString>
             ( *d->stream ) << d->indentString;
 
     QString atom = d->openTag( name, attrs );
+
     atom.truncate( atom.length() - 1 );
+
     ( *d->stream ) << atom << "/>";
 
     if ( d->autoLineBreak )
@@ -245,9 +264,9 @@ void XMLWriter::writeAtomTag( const QString& name, const QHash<QString, QString>
 }
 
 /*!
-	Writes an opening tag, a string and a closing tag.
-	No attributes are added if \a attrs is 0.
-	Example: \verbatim <itemName attr1="value1">Some funny text</itemName> \endverbatim
+ Writes an opening tag, a string and a closing tag.
+ No attributes are added if \a attrs is 0.
+ Example: \verbatim <itemName attr1="value1">Some funny text</itemName> \endverbatim
 */
 void XMLWriter::writeTaggedString( const QString& name, const QString& string, const QHash<QString, QString>* attrs )
 {
@@ -265,8 +284,8 @@ void XMLWriter::writeTaggedString( const QString& name, const QString& string, c
 }
 
 /*!
-	Writes a comment tag.
-	Example: \verbatim <!-- comment string --> \endverbatim
+ Writes a comment tag.
+ Example: \verbatim <!-- comment string --> \endverbatim
 */
 void XMLWriter::writeComment( const QString& comment )
 {
@@ -276,6 +295,7 @@ void XMLWriter::writeComment( const QString& comment )
 
     // we do not want the comments to end before WE want it ;)
     QString com( comment );
+
     com.replace( QString( "-->" ), QString( "==>" ) );
 
     ( *d->stream ) << "<!-- " << com << " -->";
@@ -285,7 +305,7 @@ void XMLWriter::writeComment( const QString& comment )
 }
 
 /*
-	Starts a comment tag. No line break is added.
+ Starts a comment tag. No line break is added.
 */
 void XMLWriter::startComment()
 {
@@ -297,7 +317,7 @@ void XMLWriter::startComment()
 }
 
 /*!
-	Closes a comment tag. No line break or indent is added.
+ Closes a comment tag. No line break or indent is added.
 */
 void XMLWriter::endComment()
 {
@@ -305,8 +325,8 @@ void XMLWriter::endComment()
 }
 
 /*!
-	Outputs a line break using the style set with \link
-	XMLWriter::setLineBreakType(LineBreakType)
+ Outputs a line break using the style set with \link
+ XMLWriter::setLineBreakType(LineBreakType)
 */
 void XMLWriter::writeLine()
 {
@@ -314,8 +334,8 @@ void XMLWriter::writeLine()
 }
 
 /*!
-	Writes out some indent (level is determined by previous tags).
-	Ignores any previous call to XMLWriter::pauseIndent(bool).
+ Writes out some indent (level is determined by previous tags).
+ Ignores any previous call to XMLWriter::pauseIndent(bool).
 */
 void XMLWriter::writeCurrentIndent()
 {
@@ -324,8 +344,8 @@ void XMLWriter::writeCurrentIndent()
 }
 
 /*!
-	Returns true if indent has been previously suspended by calling
-	\link XMLWriter::setPauseIndent(bool)
+ Returns true if indent has been previously suspended by calling
+ \link XMLWriter::setPauseIndent(bool)
 */
 bool XMLWriter::pauseIndent() const
 {
@@ -333,8 +353,8 @@ bool XMLWriter::pauseIndent() const
 }
 
 /*!
-	Stops writing out indents.
-	Indentation level is still recorded as tags get opened or closed.
+ Stops writing out indents.
+ Indentation level is still recorded as tags get opened or closed.
 */
 void XMLWriter::setPauseIndent( bool pause )
 {
@@ -342,7 +362,7 @@ void XMLWriter::setPauseIndent( bool pause )
 }
 
 /*!
-	Returns the number of space chars used for indenting or -1 if the ASCII HTAB char is used.
+ Returns the number of space chars used for indenting or -1 if the ASCII HTAB char is used.
 */
 int XMLWriter::indentType() const
 {
@@ -350,21 +370,22 @@ int XMLWriter::indentType() const
 }
 
 /*!
-	Sets the number of spaces to use for indent. Uses ASCII HTAB "\t" tabs if \a spaces
-	is negative.
+ Sets the number of spaces to use for indent. Uses ASCII HTAB "\t" tabs if \a spaces
+ is negative.
 */
 void XMLWriter::setIndentType( int spaces )
 {
     if ( spaces < 0 )
         d->indentString = "\t";
-    else {
+    else
+    {
         d->indentString.clear();
         d->indentString.fill( ' ', spaces );
     }
 }
 
 /*!
-	Return true if a line break is automatically added after each tag.
+ Return true if a line break is automatically added after each tag.
 */
 bool XMLWriter::autoNewLine() const
 {
@@ -372,7 +393,7 @@ bool XMLWriter::autoNewLine() const
 }
 
 /*!
-	Automatically adds a line break after each tag if \a on is true.
+ Automatically adds a line break after each tag if \a on is true.
 */
 void XMLWriter::setAutoNewLine( bool on )
 {
@@ -380,10 +401,10 @@ void XMLWriter::setAutoNewLine( bool on )
 }
 
 /*!
-	Returns true if empty tags should not be written (i.e. no tag is written if you call
-	writeTaggedString() passing an empty string). Default behavior is to write empty tags too.
-	Only affects tags added by
-	XMLWriter::writeTaggedString(const QString&, const QString&, const QHash<QString,QString>*)
+ Returns true if empty tags should not be written (i.e. no tag is written if you call
+ writeTaggedString() passing an empty string). Default behavior is to write empty tags too.
+ Only affects tags added by
+ XMLWriter::writeTaggedString(const QString&, const QString&, const QHash<QString,QString>*)
 */
 bool XMLWriter::skipEmptyTags() const
 {
@@ -391,7 +412,7 @@ bool XMLWriter::skipEmptyTags() const
 }
 
 /*!
-	Sets whether empty tags should be written or not.
+ Sets whether empty tags should be written or not.
 */
 void XMLWriter::setSkipEmptyTags( bool skip )
 {
@@ -399,8 +420,8 @@ void XMLWriter::setSkipEmptyTags( bool skip )
 }
 
 /*!
-	Returns true if empty attributes should not be written.
-	Default behavior is to write empty attributes too.
+ Returns true if empty attributes should not be written.
+ Default behavior is to write empty attributes too.
 */
 bool XMLWriter::skipEmptyAttributes() const
 {
@@ -408,7 +429,7 @@ bool XMLWriter::skipEmptyAttributes() const
 }
 
 /*!
-	Sets whether empty attributes should be written or not.
+ Sets whether empty attributes should be written or not.
 */
 void XMLWriter::setSkipEmptyAttributes( bool skip )
 {

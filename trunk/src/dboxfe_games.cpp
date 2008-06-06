@@ -23,25 +23,25 @@
 #include <QtCore>
 #include <QtGui>
 
-DBoxFE_Game::DBoxFE_Game ( QDialog *parent, Qt::WFlags flags )
-		: QDialog ( parent, flags )
+DBoxFE_Game::DBoxFE_Game( QDialog *parent, Qt::WFlags flags )
+        : QDialog( parent, flags )
 {
-	// setup grafical user interface (gui)
-	setupUi ( this );
+    // setup grafical user interface (gui)
+    setupUi( this );
 
-	// center the wiget on desktop screen
-	QDesktopWidget *desktop = qApp->desktop();
-	const QRect rect = desktop->availableGeometry ( desktop->primaryScreen() );
-	int left = ( rect.width() - width() ) / 2;
-	int top = ( rect.height() - height() ) / 2;
-	setGeometry ( left, top, width(), height() );
+    // center the wiget on desktop screen
+    QDesktopWidget *desktop = qApp->desktop();
+    const QRect rect = desktop->availableGeometry( desktop->primaryScreen() );
+    int left = ( rect.width() - width() ) / 2;
+    int top = ( rect.height() - height() ) / 2;
+    setGeometry( left, top, width(), height() );
 
-	DB_BASE gpIni;
-	QString m_file;
-	m_file = QDir::homePath();
-	m_file.append ( "/.dboxfe/profile/games.xml" );
+    DB_BASE gpIni;
+    QString m_file;
+    m_file = QDir::homePath();
+    m_file.append( "/.dboxfe/profile/games.xml" );
 
-	//gpIni.readGameDb( m_file, twGame );
+    //gpIni.readGameDb( m_file, twGame );
 }
 
 DBoxFE_Game::~DBoxFE_Game() {}

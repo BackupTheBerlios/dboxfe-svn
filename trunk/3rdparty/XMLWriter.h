@@ -27,12 +27,14 @@
 #include <QHash>
 
 class QIODevice;
+
 class QTextCodec;
 
 class XMLWriterPrivate;
 
 class XMLWriter
 {
+
     public:
         XMLWriter( QIODevice* device, QTextCodec* codec = 0, bool writeEncoding = true );
         virtual ~XMLWriter();

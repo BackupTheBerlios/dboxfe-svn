@@ -31,13 +31,16 @@
 #define OSDAB_BASE64_H
 
 class QString;
+
 class QBitArray;
+
 class QByteArray;
 
 class Base64Private;
 
 class Base64
 {
+
     public:
         static QByteArray decode( const QString& encoded );
         static QBitArray decode( const QString& encoded, unsigned int size );

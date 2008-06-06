@@ -36,19 +36,27 @@ DBoxFE_About::DBoxFE_About( QWidget *parent, Qt::WFlags flags )
     setGeometry( left, top, width(), height() );
 
     QFile thx( QString::fromUtf8( ":/files/thanks" ) );
-    if ( !thx.open( QIODevice::ReadOnly | QIODevice::Text ) ) {
+
+    if ( !thx.open( QIODevice::ReadOnly | QIODevice::Text ) )
+    {
         return ;
     }
+
     QTextStream thxIn( &thx );
+
     QString lineThx = thxIn.readAll();
     readThxFile( lineThx );
     thx.close();
 
     QFile lic( QString::fromUtf8( ":/files/LICENSE.GPL" ) );
-    if ( !lic.open( QIODevice::ReadOnly | QIODevice::Text ) ) {
+
+    if ( !lic.open( QIODevice::ReadOnly | QIODevice::Text ) )
+    {
         return ;
     }
+
     QTextStream LicIn( &lic );
+
     QString lineLic = LicIn.readAll();
     readLicFile( lineLic );
     lic.close();

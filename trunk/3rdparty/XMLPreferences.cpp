@@ -45,33 +45,33 @@
 #include "XMLWriter.h"
 
 /*!
-	\class XMLPreferences xmlpreferences.h
- 
-	\brief The XMLPreferences class allows to easily store and retrieve
-	application preferences from XML files.
- 
-	Adding support for new data types involves the following steps:
-	<ul>
-	<li>add the get and set methods to the header file interface
-	<li>implement a getTYPE method; this usually involves
-		<ul>
-		<li>changing the type returned in case of error
-		<li>changing QVariant::TYPE to your type
-		<li>changing return itr.value().data.toTYPE() to your type
-		</ul>
-	 <li>implement a setTYPE method (usually tou only need to change the method parameters)
-		<ul>
-		<li>add a case entry to the writeSection() method to serialize the data type to a string
-		<li>add an else if entry to the parseSection() method to deserialize the data type from a string
-		</ul>
-	 </ul>
+ \class XMLPreferences xmlpreferences.h
+
+ \brief The XMLPreferences class allows to easily store and retrieve
+ application preferences from XML files.
+
+ Adding support for new data types involves the following steps:
+ <ul>
+ <li>add the get and set methods to the header file interface
+ <li>implement a getTYPE method; this usually involves
+  <ul>
+  <li>changing the type returned in case of error
+  <li>changing QVariant::TYPE to your type
+  <li>changing return itr.value().data.toTYPE() to your type
+  </ul>
+  <li>implement a setTYPE method (usually tou only need to change the method parameters)
+  <ul>
+  <li>add a case entry to the writeSection() method to serialize the data type to a string
+  <li>add an else if entry to the parseSection() method to deserialize the data type from a string
+  </ul>
+  </ul>
 */
 
 /*!
-	\enum XMLPreferences::BinEncodingType Identifies how binary data should be encoded.
- 
-	\value CommaSeparatedValues Separates values using a simple comma
-	\value Base64 Encodes binary data using base 64 encoding
+ \enum XMLPreferences::BinEncodingType Identifies how binary data should be encoded.
+
+ \value CommaSeparatedValues Separates values using a simple comma
+ \value Base64 Encodes binary data using base 64 encoding
 */
 
 
@@ -80,8 +80,10 @@ Private interface
 *************************************************************************/
 
 //! \internal
+
 class XMLPreferencesPrivate
 {
+
     public:
         XMLPreferencesPrivate( const QString& name, const QString& company );
         ~XMLPreferencesPrivate();
@@ -123,9 +125,11 @@ XMLPreferencesPrivate::XMLPreferencesPrivate( const QString& name, const QString
     defaultSectionName = new QString( "default" );
     autoAddSections = true;
 
-    if ( name.isEmpty() ) {
+    if ( name.isEmpty() )
+    {
         QString myself = QCoreApplication::applicationFilePath();
         myself = myself.section( "/", -1, -1 );
+
         if ( myself.toLower().endsWith( ".exe" ) )
             myself.truncate( myself.length() - 4 );
 
@@ -133,7 +137,8 @@ XMLPreferencesPrivate::XMLPreferencesPrivate( const QString& name, const QString
             appName = new QString( name );
         else
             appName = new QString( myself );
-    } else
+    }
+    else
         appName = new QString( name );
 
     if ( company.isEmpty() )
@@ -142,10 +147,13 @@ XMLPreferencesPrivate::XMLPreferencesPrivate( const QString& name, const QString
         appCompany = new QString( company );
 
     ignoreMissingVersion = true;
+
     versionMajor = -1;
+
     versionMinor = -1;
 
     documentRoot = 0;
+
     defaultSection = 0;
 }
 
@@ -180,8 +188,10 @@ void XMLPreferencesPrivate::writeSection( XMLWriter& out, const QString& name, c
     out.writeOpenTag( "section", attrs );
     attrs->clear();
 
-    while ( itr != map.constEnd() ) {
-        if ( itr.value().data.isNull() ) {
+    while ( itr != map.constEnd() )
+    {
+        if ( itr.value().data.isNull() )
+        {
             ++itr;
             continue;
         }
@@ -189,94 +199,135 @@ void XMLPreferencesPrivate::writeSection( XMLWriter& out, const QString& name, c
         attrs->insert( "name", itr.key() );
 
         // Supported types: QString, bool, int, QByteArray, QBitArray, QColor
-        switch ( itr.value().data.type() ) {
+
+        switch ( itr.value().data.type() )
+        {
+
             case QVariant::String :
                 attrs->insert( "type", "qstring" );
                 out.writeTaggedString( "setting", itr.value().data.toString(), attrs );
                 break;
-            case QVariant::StringList : {
-                    attrs->insert( "type", "qstringlist" );
-                    out.writeOpenTag( "setting", attrs );
-                    attrs->clear();
-                    QStringList list = itr.value().data.toStringList();
-                    QStringList::Iterator listItr = list.begin();
-                    while ( listItr != list.end() ) {
-                        out.writeTaggedString( "value", *listItr, attrs );
-                        ++listItr;
-                    }
-                    out.writeCloseTag( "setting" );
+
+            case QVariant::StringList :
+            {
+                attrs->insert( "type", "qstringlist" );
+                out.writeOpenTag( "setting", attrs );
+                attrs->clear();
+                QStringList list = itr.value().data.toStringList();
+                QStringList::Iterator listItr = list.begin();
+
+                while ( listItr != list.end() )
+                {
+                    out.writeTaggedString( "value", *listItr, attrs );
+                    ++listItr;
                 }
-                break;
+
+                out.writeCloseTag( "setting" );
+            }
+
+            break;
+
             case QVariant::Bool :
                 attrs->insert( "type", "bool" );
                 out.writeTaggedString( "setting", itr.value().data.toBool() ? "true" : "false", attrs );
                 break;
+
             case QVariant::Int :
                 attrs->insert( "type", "int" );
                 out.writeTaggedString( "setting", QString::number( itr.value().data.toInt() ), attrs );
                 break;
+
             case QVariant::LongLong :
                 attrs->insert( "type", "int64" );
                 out.writeTaggedString( "setting", QString::number( itr.value().data.toLongLong() ), attrs );
                 break;
-            case QVariant::Rect : {
-                    attrs->insert( "type", "qrect" );
-                    QRect rect = itr.value().data.toRect();
-                    QString s = QString( "%1;%2;%3;%4" ).arg( rect.x() ).arg( rect.y() ).arg( rect.width() ).arg( rect.height() );
-                    out.writeTaggedString( "setting", s, attrs );
+
+            case QVariant::Rect :
+            {
+                attrs->insert( "type", "qrect" );
+                QRect rect = itr.value().data.toRect();
+                QString s = QString( "%1;%2;%3;%4" ).arg( rect.x() ).arg( rect.y() ).arg( rect.width() ).arg( rect.height() );
+                out.writeTaggedString( "setting", s, attrs );
+            }
+
+            break;
+
+            case QVariant::Point :
+            {
+                attrs->insert( "type", "qpoint" );
+                QPoint point = itr.value().data.toPoint();
+                QString s = QString( "%1;%2" ).arg( point.x() ).arg( point.y() );
+                out.writeTaggedString( "setting", s, attrs );
+            }
+
+            break;
+
+            case QVariant::Size :
+            {
+                attrs->insert( "type", "qsize" );
+                QSize size = itr.value().data.toSize();
+                QString s = QString( "%1;%2" ).arg( size.width() ).arg( size.height() );
+                out.writeTaggedString( "setting", s, attrs );
+            }
+
+            break;
+
+            case QVariant::ByteArray :
+            {
+                attrs->insert( "type", "qbytearray" );
+                const QByteArray ba = itr.value().data.toByteArray();
+
+                switch ( itr.value().encoding )
+                {
+
+                    case XMLPreferences::Base64:
+                        attrs->insert( "encoding", "base64" );
+                        out.writeTaggedString( "setting", Base64::encode( ba ), attrs );
+                        break;
+
+                    default:
+                        attrs->insert( "encoding", "csv" );
+                        QString s;
+
+                        for ( uint i = 0; i < ( uint ) ba.size(); ++i )
+                            ( i != 0 ) ? s += "," + QString::number(( uint ) ba.at( i ), 16 ) : s += QString::number(( uint ) ba.at( i ), 16 );
+
+                        out.writeTaggedString( "setting", s, attrs );
                 }
-                break;
-            case QVariant::Point : {
-                    attrs->insert( "type", "qpoint" );
-                    QPoint point = itr.value().data.toPoint();
-                    QString s = QString( "%1;%2" ).arg( point.x() ).arg( point.y() );
-                    out.writeTaggedString( "setting", s, attrs );
+
+                attrs->clear();
+            }
+
+            break;
+
+            case QVariant::BitArray :
+            {
+                attrs->insert( "type", "qbitarray" );
+                const QBitArray ba = itr.value().data.toBitArray();
+                attrs->insert( "size", QString::number( ba.size() ) );
+
+                switch ( itr.value().encoding )
+                {
+
+                    case XMLPreferences::Base64:
+                        attrs->insert( "encoding", "base64" );
+                        out.writeTaggedString( "setting", Base64::encode( ba ), attrs );
+                        break;
+
+                    default:
+                        attrs->insert( "encoding", "csv" );
+                        QString s;
+
+                        for ( uint i = 0; i < ( uint ) ba.size(); ++i )
+                        ( i != 0 ) ? s += ba.testBit( i ) ? ",1" : ",0" : s += ba.testBit( i ) ? "1" : "0";
+
+                        out.writeTaggedString( "setting", s, attrs );
                 }
-                break;
-            case QVariant::Size : {
-                    attrs->insert( "type", "qsize" );
-                    QSize size = itr.value().data.toSize();
-                    QString s = QString( "%1;%2" ).arg( size.width() ).arg( size.height() );
-                    out.writeTaggedString( "setting", s, attrs );
-                }
-                break;
-            case QVariant::ByteArray : {
-                    attrs->insert( "type", "qbytearray" );
-                    const QByteArray ba = itr.value().data.toByteArray();
-                    switch ( itr.value().encoding ) {
-                        case XMLPreferences::Base64:
-                            attrs->insert( "encoding", "base64" );
-                            out.writeTaggedString( "setting", Base64::encode( ba ), attrs );
-                            break;
-                        default:
-                            attrs->insert( "encoding", "csv" );
-                            QString s;
-                            for ( uint i = 0; i < ( uint ) ba.size(); ++i )
-                                ( i != 0 ) ? s += "," + QString::number( ( uint ) ba.at( i ), 16 ) : s += QString::number( ( uint ) ba.at( i ), 16 );
-                            out.writeTaggedString( "setting", s, attrs );
-                    }
-                    attrs->clear();
-                }
-                break;
-            case QVariant::BitArray : {
-                    attrs->insert( "type", "qbitarray" );
-                    const QBitArray ba = itr.value().data.toBitArray();
-                    attrs->insert( "size", QString::number( ba.size() ) );
-                    switch ( itr.value().encoding ) {
-                        case XMLPreferences::Base64:
-                            attrs->insert( "encoding", "base64" );
-                            out.writeTaggedString( "setting", Base64::encode( ba ), attrs );
-                            break;
-                        default:
-                            attrs->insert( "encoding", "csv" );
-                            QString s;
-                            for ( uint i = 0; i < ( uint ) ba.size(); ++i )
-                            ( i != 0 ) ? s += ba.testBit( i ) ? ",1" : ",0" : s += ba.testBit( i ) ? "1" : "0";
-                            out.writeTaggedString( "setting", s, attrs );
-                    }
-                    attrs->clear();
-                }
-                break;
+
+                attrs->clear();
+            }
+
+            break;
 #ifndef QT_CORE_ONLY
 
             case QVariant::Color :
@@ -293,6 +344,7 @@ void XMLPreferencesPrivate::writeSection( XMLWriter& out, const QString& name, c
     }
 
     out.writeCloseTag( "section" );
+
     delete attrs;
 }
 
@@ -303,21 +355,26 @@ bool XMLPreferencesPrivate::checkVersion( const QString& version )
         return ignoreMissingVersion;
 
     QString sub = version.section( '.', 0, 0 );
+
     if ( sub.isEmpty() )
         return false;
 
     bool ok;
+
     int tmp = sub.toInt( &ok );
+
     if ( !ok || ( tmp < 0 ) || ( tmp > 1 ) )
         return false;
 
     versionMajor = tmp;
 
     sub = version.section( '.', 1, 1 );
+
     if ( sub.isEmpty() )
         return false;
 
     tmp = sub.toInt( &ok );
+
     if ( !ok || ( tmp < 0 ) )
         return false;
 
@@ -332,201 +389,291 @@ void XMLPreferencesPrivate::parseSection( const QDomElement& rootEl, QHash<QStri
     QDomNode node = rootEl.firstChild();
     QDomElement el;
 
-    while ( !node.isNull() ) {
+    while ( !node.isNull() )
+    {
         el = node.toElement();
-        if ( el.tagName() != "setting" ) {
+
+        if ( el.tagName() != "setting" )
+        {
             node = node.nextSibling();
             continue;
         }
 
         QString name = el.attribute( "name" );
+
         QString type = el.attribute( "type" );
-        if ( name.isEmpty() || type.isEmpty() ) {
+
+        if ( name.isEmpty() || type.isEmpty() )
+        {
             node = node.nextSibling();
             continue;
         }
 
         // Supported types: QString, bool, int, QByteArray, QBitArray, QColor
-        if ( type == "qstring" ) {
+        if ( type == "qstring" )
+        {
             EncVariant v;
             v.data = QVariant( el.text() );
             map.insert( name, v );
-        } else if ( type == "qstringlist" ) {
+        }
+        else if ( type == "qstringlist" )
+        {
             QDomNode listNode = el.firstChild();
             QString listText;
             QStringList list;
-            while ( !listNode.isNull() ) {
+
+            while ( !listNode.isNull() )
+            {
                 listText = listNode.toElement().text();
+
                 if ( !listText.isEmpty() )
                     list.append( listText );
+
                 listNode = listNode.nextSibling();
             }
+
             EncVariant v;
+
             v.data = QVariant( list );
             map.insert( name, v );
-        } else if ( type == "bool" ) {
+        }
+        else if ( type == "bool" )
+        {
             EncVariant v;
             v.data = QVariant( el.text() == "true" );
             map.insert( name, v );
-        } else if ( type == "int" ) {
+        }
+        else if ( type == "int" )
+        {
             bool ok;
             int i = el.text().toInt( &ok );
-            if ( ok ) {
+
+            if ( ok )
+            {
                 EncVariant v;
                 v.data = QVariant( i );
                 map.insert( name, v );
             }
-        } else if ( type == "int64" ) {
+        }
+        else if ( type == "int64" )
+        {
             bool ok;
             qlonglong i = el.text().toLongLong( &ok );
-            if ( ok ) {
+
+            if ( ok )
+            {
                 EncVariant v;
                 v.data = QVariant( i );
                 map.insert( name, v );
             }
-        } else if ( type == "qrect" ) {
+        }
+        else if ( type == "qrect" )
+        {
             QStringList lst = el.text().split( ';', QString::KeepEmptyParts );
 
             // a qrect has 4 values: xpos, ypos, width and height
-            if ( lst.size() == 4 ) {
+
+            if ( lst.size() == 4 )
+            {
                 int x, y, w, h;
                 int count = 0;
                 bool ok;
 
                 x = lst[ 0 ].toInt( &ok );
-                if ( ok )
-                    ++count;
-                y = lst[ 1 ].toInt( &ok );
-                if ( ok )
-                    ++count;
-                w = lst[ 2 ].toInt( &ok );
-                if ( ok )
-                    ++count;
-                h = lst[ 3 ].toInt( &ok );
+
                 if ( ok )
                     ++count;
 
-                if ( count == 4 ) {
+                y = lst[ 1 ].toInt( &ok );
+
+                if ( ok )
+                    ++count;
+
+                w = lst[ 2 ].toInt( &ok );
+
+                if ( ok )
+                    ++count;
+
+                h = lst[ 3 ].toInt( &ok );
+
+                if ( ok )
+                    ++count;
+
+                if ( count == 4 )
+                {
                     EncVariant v;
                     v.data = QVariant( QRect( x, y, w, h ) );
                     map.insert( name, v );
                 }
             }
-        } else if ( type == "qpoint" ) {
+        }
+        else if ( type == "qpoint" )
+        {
             QStringList lst = el.text().split( ';', QString::KeepEmptyParts );
 
             // a qrect has 2 values, the x and y coordinates
-            if ( lst.size() == 2 ) {
+
+            if ( lst.size() == 2 )
+            {
                 int x, y;
                 int count = 0;
                 bool ok;
 
                 x = lst[ 0 ].toInt( &ok );
-                if ( ok )
-                    ++count;
-                y = lst[ 1 ].toInt( &ok );
+
                 if ( ok )
                     ++count;
 
-                if ( count == 2 ) {
+                y = lst[ 1 ].toInt( &ok );
+
+                if ( ok )
+                    ++count;
+
+                if ( count == 2 )
+                {
                     EncVariant v;
                     v.data = QVariant( QPoint( x, y ) );
                     map.insert( name, v );
                 }
             }
-        } else if ( type == "qsize" ) {
+        }
+        else if ( type == "qsize" )
+        {
             QStringList lst = el.text().split( ';', QString::KeepEmptyParts );
 
             // a qrect has 2 values: width and height
-            if ( lst.size() == 2 ) {
+
+            if ( lst.size() == 2 )
+            {
                 int w, h;
                 int count = 0;
                 bool ok;
 
                 w = lst[ 0 ].toInt( &ok );
-                if ( ok )
-                    ++count;
-                h = lst[ 1 ].toInt( &ok );
+
                 if ( ok )
                     ++count;
 
-                if ( count == 2 ) {
+                h = lst[ 1 ].toInt( &ok );
+
+                if ( ok )
+                    ++count;
+
+                if ( count == 2 )
+                {
                     EncVariant v;
                     v.data = QVariant( QSize( w, h ) );
                     map.insert( name, v );
                 }
             }
-        } else if ( type == "qbytearray" ) {
+        }
+        else if ( type == "qbytearray" )
+        {
             QString enc = el.attribute( "encoding" );
-            if ( enc == "base64" ) {
+
+            if ( enc == "base64" )
+            {
                 QByteArray ba = Base64::decode( el.text() );
                 EncVariant v;
                 v.data = QVariant( ba );
                 v.encoding = XMLPreferences::Base64;
                 map.insert( name, v );
-            } else if ( enc == "csv" ) {
+            }
+            else if ( enc == "csv" )
+            {
                 QStringList lst = el.text().split( ',', QString::SkipEmptyParts );
                 uint sz = lst.size();
                 QByteArray ba( sz, '\0' );
                 bool ok;
                 uint count = 0;
-                for ( QStringList::ConstIterator itr = lst.constBegin(); itr != lst.constEnd(); ++itr ) {
+
+                for ( QStringList::ConstIterator itr = lst.constBegin(); itr != lst.constEnd(); ++itr )
+                {
                     uint n = ( *itr ).toUInt( &ok, 16 );
+
                     if ( ok )
-                        ba.data() [ count++ ] = ( uchar ) n;
+                        ba.data()[ count++ ] = ( uchar ) n;
                 }
+
                 if ( count < sz )
                     ba.resize( count );
+
                 EncVariant v;
+
                 v.data = QVariant( ba );
+
                 v.encoding = XMLPreferences::CommaSeparatedValues;
+
                 map.insert( name, v );
             }
-        } else if ( type == "qbitarray" ) {
+        }
+        else if ( type == "qbitarray" )
+        {
             bool ok;
             uint arr_sz = el.attribute( "size" ).toUInt( &ok );
-            if ( !ok ) {
+
+            if ( !ok )
+            {
                 node = node.nextSibling();
                 continue;
             }
 
             QString enc = el.attribute( "encoding" );
-            if ( enc == "base64" ) {
+
+            if ( enc == "base64" )
+            {
                 QBitArray ba = Base64::decode( el.text(), arr_sz );
                 EncVariant v;
                 v.data = QVariant( ba );
                 v.encoding = XMLPreferences::Base64;
                 map.insert( name, v );
-            } else if ( enc == "csv" ) {
+            }
+            else if ( enc == "csv" )
+            {
                 QStringList lst = el.text().split( ',', QString::SkipEmptyParts );
                 uint sz = lst.size();
+
                 if ( arr_sz < sz )
                     sz = arr_sz;
+
                 QBitArray ba( sz );
+
                 uint count = 0;
-                for ( QStringList::ConstIterator itr = lst.constBegin(); itr != lst.constEnd(); ++itr ) {
+
+                for ( QStringList::ConstIterator itr = lst.constBegin(); itr != lst.constEnd(); ++itr )
+                {
                     if ( *itr == "1" )
                         ba.setBit( count++, true );
                     else if ( *itr == "0" )
                         ba.setBit( count++, false );
                 }
+
                 if ( count < sz )
                     ba.resize( count );
+
                 EncVariant v;
+
                 v.data = QVariant( ba );
+
                 v.encoding = XMLPreferences::CommaSeparatedValues;
+
                 map.insert( name, v );
             }
         }
+
 #ifndef QT_CORE_ONLY
-        else if ( type == "qcolor" ) {
+        else if ( type == "qcolor" )
+        {
             QColor col( el.text() );
-            if ( col.isValid() ) {
+
+            if ( col.isValid() )
+            {
                 EncVariant v;
                 v.data = QVariant( col );
                 map.insert( name, v );
             }
         }
+
 #endif // QT_CORE_ONLY
 
         node = node.nextSibling();
@@ -540,9 +687,9 @@ Public interface
 *************************************************************************/
 
 /*!
-	Creates a new XML preferences manager.
-	\a name and \a company are used in the XML file header.
-	Application file name is used if \a name is empty.
+ Creates a new XML preferences manager.
+ \a name and \a company are used in the XML file header.
+ Application file name is used if \a name is empty.
 */
 XMLPreferences::XMLPreferences( const QString& name, const QString& company )
 {
@@ -550,7 +697,7 @@ XMLPreferences::XMLPreferences( const QString& name, const QString& company )
 }
 
 /*!
-	Frees any allocated resources.
+ Frees any allocated resources.
 */
 XMLPreferences::~XMLPreferences()
 {
@@ -558,7 +705,7 @@ XMLPreferences::~XMLPreferences()
 }
 
 /*!
-	Returns true if there are no preferences set.
+ Returns true if there are no preferences set.
 */
 bool XMLPreferences::isNull()
 {
@@ -566,8 +713,8 @@ bool XMLPreferences::isNull()
 }
 
 /*!
-	Attempts to load settings from a file.
-	Returns false on error.
+ Attempts to load settings from a file.
+ Returns false on error.
 */
 bool XMLPreferences::load( const QString& filename )
 {
@@ -577,13 +724,15 @@ bool XMLPreferences::load( const QString& filename )
         return false;
 
     bool res = load( &file );
+
     file.close();
+
     return res;
 }
 
 /*!
-	Attempts to load settings from a file.
-	Returns false on error.
+ Attempts to load settings from a file.
+ Returns false on error.
 */
 bool XMLPreferences::load( QFile* file )
 {
@@ -591,10 +740,12 @@ bool XMLPreferences::load( QFile* file )
         return false;
 
     QDomDocument doc;
+
     if ( !doc.setContent( file, false ) )
         return false;
 
     QDomElement docroot = doc.documentElement();
+
     if ( docroot.isNull() )
         return false;
 
@@ -605,6 +756,7 @@ bool XMLPreferences::load( QFile* file )
 
     // get file version
     attribute = docroot.attribute( "update" );
+
     if ( !d->checkVersion( attribute ) )
         return false;
 
@@ -612,30 +764,39 @@ bool XMLPreferences::load( QFile* file )
         d->init();
 
     QDomNode node = docroot.firstChild();
+
     QDomElement el;
 
-    while ( !node.isNull() ) {
+    while ( !node.isNull() )
+    {
         el = node.toElement();
 
-        if ( ( el.tagName() == "section" ) && el.hasChildNodes() ) {
+        if (( el.tagName() == "section" ) && el.hasChildNodes() )
+        {
             QString sName = el.attribute( "name" );
-            if ( sName.isEmpty() ) {
+
+            if ( sName.isEmpty() )
+            {
                 node = node.nextSibling();
                 continue;
             }
 
             if ( sName == ( *d->defaultSectionName ) )
                 d->parseSection( el, *d->defaultSection );
-            else {
+            else
+            {
                 // find or create the right section
                 QHash<QString, QHash<QString, XMLPreferencesPrivate::EncVariant> >::Iterator itr =
                     d->documentRoot->find( sName );
-                if ( itr == d->documentRoot->end() ) {
+
+                if ( itr == d->documentRoot->end() )
+                {
                     // create a new section
                     QHash<QString, XMLPreferencesPrivate::EncVariant> section;
                     d->parseSection( el, section );
                     d->documentRoot->insert( sName, section );
-                } else
+                }
+                else
                     d->documentRoot->insert( sName, itr.value() );
             }
         }
@@ -648,23 +809,26 @@ bool XMLPreferences::load( QFile* file )
 }
 
 /*!
-	Attempts to write the settings to a file.
-	Returns false on error.
+ Attempts to write the settings to a file.
+ Returns false on error.
 */
 bool XMLPreferences::save( const QString& filename )
 {
     QFile file( filename );
+
     if ( !file.open( QIODevice::WriteOnly ) )
         return false;
 
     bool res = save( &file );
+
     file.close();
+
     return res;
 }
 
 /*!
-	Attempts to write the settings to a file.
-	Returns false on error.
+ Attempts to write the settings to a file.
+ Returns false on error.
 */
 bool XMLPreferences::save( QFile* file )
 {
@@ -675,17 +839,23 @@ bool XMLPreferences::save( QFile* file )
         d->init();
 
     XMLWriter out( file );
+
     QHash<QString, QString>* attrs = new QHash<QString, QString>();
 
     attrs->insert( "version", "1.0" );
+
     out.writeOpenTag( "XMLPreferences", attrs );
+
     attrs->clear();
 
     if ( d->appCompany != 0 )
         attrs->insert( "company", *d->appCompany );
+
     if ( d->versionMajor > 0 )
         attrs->insert( "version", QString( "%1.%2" ).arg( d->versionMajor ).arg( d->versionMinor ) );
+
     attrs->insert( "product", *d->appName );
+
     out.writeAtomTag( "software_info", attrs );
 
     delete attrs;
@@ -698,7 +868,8 @@ bool XMLPreferences::save( QFile* file )
     QHash<QString, QHash<QString, XMLPreferencesPrivate::EncVariant> >::Iterator itr
     = d->documentRoot->begin();
 
-    while ( itr != d->documentRoot->end() ) {
+    while ( itr != d->documentRoot->end() )
+    {
         d->writeSection( out, itr.key(), itr.value() );
         ++itr;
     }
@@ -709,8 +880,8 @@ bool XMLPreferences::save( QFile* file )
 }
 
 /*!
-	Returns the string value associated to \a name in the default section.
-	Returns QString() if no such value could be found.
+ Returns the string value associated to \a name in the default section.
+ Returns QString() if no such value could be found.
 */
 QString XMLPreferences::getString( const QString& name )
 {
@@ -718,39 +889,54 @@ QString XMLPreferences::getString( const QString& name )
 }
 
 /*!
-	Returns the string value associated to \a name in \a section or in the
-	default section if the \a section name is empty.
-	Returns QString() if no such value could be found.
+ Returns the string value associated to \a name in \a section or in the
+ default section if the \a section name is empty.
+ Returns QString() if no such value could be found.
 */
 QString XMLPreferences::getString( const QString& section, const QString& name )
 {
     if ( d->documentRoot == 0 )
         return QString();
 
-    if ( section.isEmpty() ) {
+    if ( section.isEmpty() )
+    {
         QHash<QString, XMLPreferencesPrivate::EncVariant>::Iterator itr =
             d->defaultSection->find( name );
-        if ( itr == d->defaultSection->end() ) {
+
+        if ( itr == d->defaultSection->end() )
+        {
             // no such value
             return QString();
-        } else {
+        }
+        else
+        {
             if ( itr.value().data.type() != QVariant::String )
                 return QString();
             else
                 return itr.value().data.toString();
         }
-    } else {
+    }
+    else
+    {
         QHash<QString, QHash<QString, XMLPreferencesPrivate::EncVariant> >::Iterator sec =
             d->documentRoot->find( section );
-        if ( sec == d->documentRoot->end() ) {
+
+        if ( sec == d->documentRoot->end() )
+        {
             // no such section
             return QString();
-        } else {
+        }
+        else
+        {
             QHash<QString, XMLPreferencesPrivate::EncVariant>::Iterator itr = sec.value().find( name );
-            if ( itr == sec.value().end() ) {
+
+            if ( itr == sec.value().end() )
+            {
                 // no such value
                 return QString();
-            } else {
+            }
+            else
+            {
                 if ( itr.value().data.type() != QVariant::String )
                     return QString();
                 else
@@ -764,8 +950,8 @@ QString XMLPreferences::getString( const QString& section, const QString& name )
 
 
 /*!
-	Returns the string list associated to \a name in the default section.
-	Returns an empty list if no such value could be found.
+ Returns the string list associated to \a name in the default section.
+ Returns an empty list if no such value could be found.
 */
 QStringList XMLPreferences::getStringList( const QString& name )
 {
@@ -773,39 +959,54 @@ QStringList XMLPreferences::getStringList( const QString& name )
 }
 
 /*!
-	Returns the string list associated to \a name in \a section or in the
-	default section if the \a section name is empty.
-	Returns an empty list if no such value could be found.
+ Returns the string list associated to \a name in \a section or in the
+ default section if the \a section name is empty.
+ Returns an empty list if no such value could be found.
 */
 QStringList XMLPreferences::getStringList( const QString& section, const QString& name )
 {
     if ( d->documentRoot == 0 )
         return QStringList();
 
-    if ( section.isEmpty() ) {
+    if ( section.isEmpty() )
+    {
         QHash<QString, XMLPreferencesPrivate::EncVariant>::Iterator itr =
             d->defaultSection->find( name );
-        if ( itr == d->defaultSection->end() ) {
+
+        if ( itr == d->defaultSection->end() )
+        {
             // no such value
             return QStringList();
-        } else {
+        }
+        else
+        {
             if ( itr.value().data.type() != QVariant::StringList )
                 return QStringList();
             else
                 return itr.value().data.toStringList();
         }
-    } else {
+    }
+    else
+    {
         QHash<QString, QHash<QString, XMLPreferencesPrivate::EncVariant> >::Iterator sec =
             d->documentRoot->find( section );
-        if ( sec == d->documentRoot->end() ) {
+
+        if ( sec == d->documentRoot->end() )
+        {
             // no such section
             return QStringList();
-        } else {
+        }
+        else
+        {
             QHash<QString, XMLPreferencesPrivate::EncVariant>::Iterator itr = sec.value().find( name );
-            if ( itr == sec.value().end() ) {
+
+            if ( itr == sec.value().end() )
+            {
                 // no such value
                 return QStringList();
-            } else {
+            }
+            else
+            {
                 if ( itr.value().data.type() != QVariant::StringList )
                     return QStringList();
                 else
@@ -818,8 +1019,8 @@ QStringList XMLPreferences::getStringList( const QString& section, const QString
 }
 
 /*!
-	Returns the boolean value associated to \a name in the default section.
-	Sets \a ok to false if no such value could be found and \a ok is not null.
+ Returns the boolean value associated to \a name in the default section.
+ Sets \a ok to false if no such value could be found and \a ok is not null.
 */
 bool XMLPreferences::getBool( const QString& name, bool* ok )
 {
@@ -827,57 +1028,83 @@ bool XMLPreferences::getBool( const QString& name, bool* ok )
 }
 
 /*!
-	Returns the boolean value associated to \a name in \a section or in the
-	default section if the \a section name is empty.
-	Sets \a ok to false if no such value could be found and \a ok is not null.
+ Returns the boolean value associated to \a name in \a section or in the
+ default section if the \a section name is empty.
+ Sets \a ok to false if no such value could be found and \a ok is not null.
 */
 bool XMLPreferences::getBool( const QString& section, const QString& name, bool* ok )
 {
-    if ( d->documentRoot == 0 ) {
+    if ( d->documentRoot == 0 )
+    {
         if ( ok != 0 )
             * ok = false;
+
         return false;
     }
 
     if ( ok != 0 )
         * ok = true;
 
-    if ( section.isEmpty() ) {
+    if ( section.isEmpty() )
+    {
         QHash<QString, XMLPreferencesPrivate::EncVariant>::Iterator itr = d->defaultSection->find( name );
-        if ( itr == d->defaultSection->end() ) {
+
+        if ( itr == d->defaultSection->end() )
+        {
             // no such value
             if ( ok != 0 )
                 * ok = false;
+
             return false;
-        } else {
-            if ( itr.value().data.type() != QVariant::Bool ) {
+        }
+        else
+        {
+            if ( itr.value().data.type() != QVariant::Bool )
+            {
                 if ( ok != 0 )
                     * ok = false;
+
                 return false;
-            } else
+            }
+            else
                 return itr.value().data.toBool();
         }
-    } else {
+    }
+    else
+    {
         QHash<QString, QHash<QString, XMLPreferencesPrivate::EncVariant> >::Iterator sec =
             d->documentRoot->find( section );
-        if ( sec == d->documentRoot->end() ) {
+
+        if ( sec == d->documentRoot->end() )
+        {
             // no such section
             if ( ok != 0 )
                 * ok = false;
+
             return false;
-        } else {
+        }
+        else
+        {
             QHash<QString, XMLPreferencesPrivate::EncVariant>::Iterator itr = sec.value().find( name );
-            if ( itr == sec.value().end() ) {
+
+            if ( itr == sec.value().end() )
+            {
                 // no such value
                 if ( ok != 0 )
                     * ok = false;
+
                 return false;
-            } else {
-                if ( itr.value().data.type() != QVariant::Bool ) {
+            }
+            else
+            {
+                if ( itr.value().data.type() != QVariant::Bool )
+                {
                     if ( ok != 0 )
                         * ok = false;
+
                     return false;
-                } else
+                }
+                else
                     return itr.value().data.toBool();
             }
         }
@@ -885,12 +1112,13 @@ bool XMLPreferences::getBool( const QString& section, const QString& name, bool*
 
     if ( ok != 0 )
         * ok = false;
+
     return false;
 }
 
 /*!
-	Returns the integer value associated to \a name in the default section.
-	Sets \a ok to false if no such value could be found and \a ok is not null.
+ Returns the integer value associated to \a name in the default section.
+ Sets \a ok to false if no such value could be found and \a ok is not null.
 */
 int XMLPreferences::getInt( const QString& name, bool* ok )
 {
@@ -898,58 +1126,84 @@ int XMLPreferences::getInt( const QString& name, bool* ok )
 }
 
 /*!
-	Returns the integer value associated to \a name in \a section or in the
-	default section if the \a section name is empty.
-	Sets \a ok to false if no such value could be found and \a ok is not null.
+ Returns the integer value associated to \a name in \a section or in the
+ default section if the \a section name is empty.
+ Sets \a ok to false if no such value could be found and \a ok is not null.
 */
 int XMLPreferences::getInt( const QString& section, const QString& name, bool* ok )
 {
-    if ( d->documentRoot == 0 ) {
+    if ( d->documentRoot == 0 )
+    {
         if ( ok != 0 )
             * ok = false;
+
         return 0;
     }
 
     if ( ok != 0 )
         * ok = true;
 
-    if ( section.isEmpty() ) {
+    if ( section.isEmpty() )
+    {
         QHash<QString, XMLPreferencesPrivate::EncVariant>::Iterator itr =
             d->defaultSection->find( name );
-        if ( itr == d->defaultSection->end() ) {
+
+        if ( itr == d->defaultSection->end() )
+        {
             // no such value
             if ( ok != 0 )
                 * ok = false;
+
             return 0;
-        } else {
-            if ( itr.value().data.type() != QVariant::Int ) {
+        }
+        else
+        {
+            if ( itr.value().data.type() != QVariant::Int )
+            {
                 if ( ok != 0 )
                     * ok = false;
+
                 return 0;
-            } else
+            }
+            else
                 return itr.value().data.toInt();
         }
-    } else {
+    }
+    else
+    {
         QHash<QString, QHash<QString, XMLPreferencesPrivate::EncVariant> >::Iterator sec =
             d->documentRoot->find( section );
-        if ( sec == d->documentRoot->end() ) {
+
+        if ( sec == d->documentRoot->end() )
+        {
             // no such section
             if ( ok != 0 )
                 * ok = false;
+
             return 0;
-        } else {
+        }
+        else
+        {
             QHash<QString, XMLPreferencesPrivate::EncVariant>::Iterator itr = sec.value().find( name );
-            if ( itr == sec.value().end() ) {
+
+            if ( itr == sec.value().end() )
+            {
                 // no such value
                 if ( ok != 0 )
                     * ok = false;
+
                 return 0;
-            } else {
-                if ( itr.value().data.type() != QVariant::Int ) {
+            }
+            else
+            {
+                if ( itr.value().data.type() != QVariant::Int )
+                {
                     if ( ok != 0 )
                         * ok = false;
+
                     return 0;
-                } else
+                }
+                else
                     return itr.value().data.toInt();
             }
         }
@@ -957,12 +1211,13 @@ int XMLPreferences::getInt( const QString& section, const QString& name, bool* o
 
     if ( ok != 0 )
         * ok = false;
+
     return 0;
 }
 
 /*!
-	Returns the 64bit integer value associated to \a name in the default section.
-	Sets \a ok to false if no such value could be found and \a ok is not null.
+ Returns the 64bit integer value associated to \a name in the default section.
+ Sets \a ok to false if no such value could be found and \a ok is not null.
 */
 qint64 XMLPreferences::getInt64( const QString& name, bool* ok )
 {
@@ -970,58 +1225,84 @@ qint64 XMLPreferences::getInt64( const QString& name, bool* ok )
 }
 
 /*!
-	Returns the 64bit integer value associated to \a name in \a section or in the
-	default section if the \a section name is empty.
-	Sets \a ok to false if no such value could be found and \a ok is not null.
+ Returns the 64bit integer value associated to \a name in \a section or in the
+ default section if the \a section name is empty.
+ Sets \a ok to false if no such value could be found and \a ok is not null.
 */
 qint64 XMLPreferences::getInt64( const QString& section, const QString& name, bool* ok )
 {
-    if ( d->documentRoot == 0 ) {
+    if ( d->documentRoot == 0 )
+    {
         if ( ok != 0 )
             * ok = false;
+
         return Q_INT64_C( 0 );
     }
 
     if ( ok != 0 )
         * ok = true;
 
-    if ( section.isEmpty() ) {
+    if ( section.isEmpty() )
+    {
         QHash<QString, XMLPreferencesPrivate::EncVariant>::Iterator itr =
             d->defaultSection->find( name );
-        if ( itr == d->defaultSection->end() ) {
+
+        if ( itr == d->defaultSection->end() )
+        {
             // no such value
             if ( ok != 0 )
                 * ok = false;
+
             return Q_INT64_C( 0 );
-        } else {
-            if ( itr.value().data.type() != QVariant::LongLong ) {
+        }
+        else
+        {
+            if ( itr.value().data.type() != QVariant::LongLong )
+            {
                 if ( ok != 0 )
                     * ok = false;
+
                 return Q_INT64_C( 0 );
-            } else
+            }
+            else
                 return ( qint64 ) itr.value().data.toLongLong();
         }
-    } else {
+    }
+    else
+    {
         QHash<QString, QHash<QString, XMLPreferencesPrivate::EncVariant> >::Iterator sec =
             d->documentRoot->find( section );
-        if ( sec == d->documentRoot->end() ) {
+
+        if ( sec == d->documentRoot->end() )
+        {
             // no such section
             if ( ok != 0 )
                 * ok = false;
+
             return Q_INT64_C( 0 );
-        } else {
+        }
+        else
+        {
             QHash<QString, XMLPreferencesPrivate::EncVariant>::Iterator itr = sec.value().find( name );
-            if ( itr == sec.value().end() ) {
+
+            if ( itr == sec.value().end() )
+            {
                 // no such value
                 if ( ok != 0 )
                     * ok = false;
+
                 return Q_INT64_C( 0 );
-            } else {
-                if ( itr.value().data.type() != QVariant::LongLong ) {
+            }
+            else
+            {
+                if ( itr.value().data.type() != QVariant::LongLong )
+                {
                     if ( ok != 0 )
                         * ok = false;
+
                     return Q_INT64_C( 0 );
-                } else
+                }
+                else
                     return ( qint64 ) itr.value().data.toLongLong();
             }
         }
@@ -1029,12 +1310,13 @@ qint64 XMLPreferences::getInt64( const QString& section, const QString& name, bo
 
     if ( ok != 0 )
         * ok = false;
+
     return Q_INT64_C( 0 );
 }
 
 /*!
-	Returns the bit array associated to \a name in the default section.
-	Returns an empty array if no such value could be found
+ Returns the bit array associated to \a name in the default section.
+ Returns an empty array if no such value could be found
 */
 QBitArray XMLPreferences::getBitArray( const QString& name )
 {
@@ -1042,39 +1324,54 @@ QBitArray XMLPreferences::getBitArray( const QString& name )
 }
 
 /*!
-	Returns the bit array associated to \a name in \a section or in the
-	default section if the \a section name is empty.
-	Returns an empty array if no such value could be found
+ Returns the bit array associated to \a name in \a section or in the
+ default section if the \a section name is empty.
+ Returns an empty array if no such value could be found
 */
 QBitArray XMLPreferences::getBitArray( const QString& section, const QString& name )
 {
     if ( d->documentRoot == 0 )
         return QBitArray();
 
-    if ( section.isEmpty() ) {
+    if ( section.isEmpty() )
+    {
         QHash<QString, XMLPreferencesPrivate::EncVariant>::Iterator itr =
             d->defaultSection->find( name );
-        if ( itr == d->defaultSection->end() ) {
+
+        if ( itr == d->defaultSection->end() )
+        {
             // no such value
             return QBitArray();
-        } else {
+        }
+        else
+        {
             if ( itr.value().data.type() != QVariant::BitArray )
                 return QBitArray();
             else
                 return itr.value().data.toBitArray();
         }
-    } else {
+    }
+    else
+    {
         QHash<QString, QHash<QString, XMLPreferencesPrivate::EncVariant> >::Iterator sec =
             d->documentRoot->find( section );
-        if ( sec == d->documentRoot->end() ) {
+
+        if ( sec == d->documentRoot->end() )
+        {
             // no such section
             return QBitArray();
-        } else {
+        }
+        else
+        {
             QHash<QString, XMLPreferencesPrivate::EncVariant>::Iterator itr = sec.value().find( name );
-            if ( itr == sec.value().end() ) {
+
+            if ( itr == sec.value().end() )
+            {
                 // no such value
                 return QBitArray();
-            } else {
+            }
+            else
+            {
                 if ( itr.value().data.type() != QVariant::BitArray )
                     return QBitArray();
                 else
@@ -1087,8 +1384,8 @@ QBitArray XMLPreferences::getBitArray( const QString& section, const QString& na
 }
 
 /*!
-	Returns the byte array associated to \a name in the default section.
-	Returns an empty array if no such value could be found
+ Returns the byte array associated to \a name in the default section.
+ Returns an empty array if no such value could be found
 */
 QByteArray XMLPreferences::getByteArray( const QString& name )
 {
@@ -1096,39 +1393,54 @@ QByteArray XMLPreferences::getByteArray( const QString& name )
 }
 
 /*!
-	Returns the byte array associated to \a name in \a section or in the
-	default section if the \a section name is empty.
-	Returns an empty array if no such value could be found
+ Returns the byte array associated to \a name in \a section or in the
+ default section if the \a section name is empty.
+ Returns an empty array if no such value could be found
 */
 QByteArray XMLPreferences::getByteArray( const QString& section, const QString& name )
 {
     if ( d->documentRoot == 0 )
         return QByteArray();
 
-    if ( section.isEmpty() ) {
+    if ( section.isEmpty() )
+    {
         QHash<QString, XMLPreferencesPrivate::EncVariant>::Iterator itr =
             d->defaultSection->find( name );
-        if ( itr == d->defaultSection->end() ) {
+
+        if ( itr == d->defaultSection->end() )
+        {
             // no such value
             return QByteArray();
-        } else {
+        }
+        else
+        {
             if ( itr.value().data.type() != QVariant::ByteArray )
                 return QByteArray();
             else
                 return itr.value().data.toByteArray();
         }
-    } else {
+    }
+    else
+    {
         QHash<QString, QHash<QString, XMLPreferencesPrivate::EncVariant> >::Iterator sec =
             d->documentRoot->find( section );
-        if ( sec == d->documentRoot->end() ) {
+
+        if ( sec == d->documentRoot->end() )
+        {
             // no such section
             return QByteArray();
-        } else {
+        }
+        else
+        {
             QHash<QString, XMLPreferencesPrivate::EncVariant>::Iterator itr = sec.value().find( name );
-            if ( itr == sec.value().end() ) {
+
+            if ( itr == sec.value().end() )
+            {
                 // no such value
                 return QByteArray();
-            } else {
+            }
+            else
+            {
                 if ( itr.value().data.type() != QVariant::ByteArray )
                     return QByteArray();
                 else
@@ -1141,8 +1453,8 @@ QByteArray XMLPreferences::getByteArray( const QString& section, const QString& 
 }
 
 /*!
-	Returns the rectangle associated to \a name in the default section.
-	Returns an empty rectangle if no such value could be found
+ Returns the rectangle associated to \a name in the default section.
+ Returns an empty rectangle if no such value could be found
 */
 QRect XMLPreferences::getRect( const QString& name )
 {
@@ -1150,43 +1462,63 @@ QRect XMLPreferences::getRect( const QString& name )
 }
 
 /*!
-	Returns the rectangle associated to \a name in \a section or in the
-	default section if the \a section name is empty.
-	Returns an empty rectangle if no such value could be found
+ Returns the rectangle associated to \a name in \a section or in the
+ default section if the \a section name is empty.
+ Returns an empty rectangle if no such value could be found
 */
 QRect XMLPreferences::getRect( const QString& section, const QString& name )
 {
-    if ( d->documentRoot == 0 ) {
+    if ( d->documentRoot == 0 )
+    {
         return QRect();
     }
 
-    if ( section.isEmpty() ) {
+    if ( section.isEmpty() )
+    {
         QHash<QString, XMLPreferencesPrivate::EncVariant>::Iterator itr =
             d->defaultSection->find( name );
-        if ( itr == d->defaultSection->end() ) {
+
+        if ( itr == d->defaultSection->end() )
+        {
             // no such value
             return QRect();
-        } else {
-            if ( itr.value().data.type() != QVariant::Rect ) {
+        }
+        else
+        {
+            if ( itr.value().data.type() != QVariant::Rect )
+            {
                 return QRect();
-            } else
+            }
+            else
                 return itr.value().data.toRect();
         }
-    } else {
+    }
+    else
+    {
         QHash<QString, QHash<QString, XMLPreferencesPrivate::EncVariant> >::Iterator sec =
             d->documentRoot->find( section );
-        if ( sec == d->documentRoot->end() ) {
+
+        if ( sec == d->documentRoot->end() )
+        {
             // no such section
             return QRect();
-        } else {
+        }
+        else
+        {
             QHash<QString, XMLPreferencesPrivate::EncVariant>::Iterator itr = sec.value().find( name );
-            if ( itr == sec.value().end() ) {
+
+            if ( itr == sec.value().end() )
+            {
                 // no such value
                 return QRect();
-            } else {
-                if ( itr.value().data.type() != QVariant::Rect ) {
+            }
+            else
+            {
+                if ( itr.value().data.type() != QVariant::Rect )
+                {
                     return QRect();
-                } else
+                }
+                else
                     return itr.value().data.toRect();
             }
         }
@@ -1196,8 +1528,8 @@ QRect XMLPreferences::getRect( const QString& section, const QString& name )
 }
 
 /*!
-	Returns the point associated to \a name in the default section.
-	Returns an invalid point if no such value could be found
+ Returns the point associated to \a name in the default section.
+ Returns an invalid point if no such value could be found
 */
 QPoint XMLPreferences::getPoint( const QString& name )
 {
@@ -1205,43 +1537,63 @@ QPoint XMLPreferences::getPoint( const QString& name )
 }
 
 /*!
-	Returns the point associated to \a name in \a section or in the
-	default section if the \a section name is empty.
-	Returns an invalid point if no such value could be found
+ Returns the point associated to \a name in \a section or in the
+ default section if the \a section name is empty.
+ Returns an invalid point if no such value could be found
 */
 QPoint XMLPreferences::getPoint( const QString& section, const QString& name )
 {
-    if ( d->documentRoot == 0 ) {
+    if ( d->documentRoot == 0 )
+    {
         return QPoint();
     }
 
-    if ( section.isEmpty() ) {
+    if ( section.isEmpty() )
+    {
         QHash<QString, XMLPreferencesPrivate::EncVariant>::Iterator itr =
             d->defaultSection->find( name );
-        if ( itr == d->defaultSection->end() ) {
+
+        if ( itr == d->defaultSection->end() )
+        {
             // no such value
             return QPoint();
-        } else {
-            if ( itr.value().data.type() != QVariant::Point ) {
+        }
+        else
+        {
+            if ( itr.value().data.type() != QVariant::Point )
+            {
                 return QPoint();
-            } else
+            }
+            else
                 return itr.value().data.toPoint();
         }
-    } else {
+    }
+    else
+    {
         QHash<QString, QHash<QString, XMLPreferencesPrivate::EncVariant> >::Iterator sec =
             d->documentRoot->find( section );
-        if ( sec == d->documentRoot->end() ) {
+
+        if ( sec == d->documentRoot->end() )
+        {
             // no such section
             return QPoint();
-        } else {
+        }
+        else
+        {
             QHash<QString, XMLPreferencesPrivate::EncVariant>::Iterator itr = sec.value().find( name );
-            if ( itr == sec.value().end() ) {
+
+            if ( itr == sec.value().end() )
+            {
                 // no such value
                 return QPoint();
-            } else {
-                if ( itr.value().data.type() != QVariant::Point ) {
+            }
+            else
+            {
+                if ( itr.value().data.type() != QVariant::Point )
+                {
                     return QPoint();
-                } else
+                }
+                else
                     return itr.value().data.toPoint();
             }
         }
@@ -1251,8 +1603,8 @@ QPoint XMLPreferences::getPoint( const QString& section, const QString& name )
 }
 
 /*!
-	Returns the size associated to \a name in the default section.
-	Returns an invalid size if no such value could be found
+ Returns the size associated to \a name in the default section.
+ Returns an invalid size if no such value could be found
 */
 QSize XMLPreferences::getSize( const QString& name )
 {
@@ -1260,43 +1612,63 @@ QSize XMLPreferences::getSize( const QString& name )
 }
 
 /*!
-	Returns the size associated to \a name in \a section or in the
-	default section if the \a section name is empty.
-	Returns an invalid size if no such value could be found
+ Returns the size associated to \a name in \a section or in the
+ default section if the \a section name is empty.
+ Returns an invalid size if no such value could be found
 */
 QSize XMLPreferences::getSize( const QString& section, const QString& name )
 {
-    if ( d->documentRoot == 0 ) {
+    if ( d->documentRoot == 0 )
+    {
         return QSize();
     }
 
-    if ( section.isEmpty() ) {
+    if ( section.isEmpty() )
+    {
         QHash<QString, XMLPreferencesPrivate::EncVariant>::Iterator itr =
             d->defaultSection->find( name );
-        if ( itr == d->defaultSection->end() ) {
+
+        if ( itr == d->defaultSection->end() )
+        {
             // no such value
             return QSize();
-        } else {
-            if ( itr.value().data.type() != QVariant::Size ) {
+        }
+        else
+        {
+            if ( itr.value().data.type() != QVariant::Size )
+            {
                 return QSize();
-            } else
+            }
+            else
                 return itr.value().data.toSize();
         }
-    } else {
+    }
+    else
+    {
         QHash<QString, QHash<QString, XMLPreferencesPrivate::EncVariant> >::Iterator sec =
             d->documentRoot->find( section );
-        if ( sec == d->documentRoot->end() ) {
+
+        if ( sec == d->documentRoot->end() )
+        {
             // no such section
             return QSize();
-        } else {
+        }
+        else
+        {
             QHash<QString, XMLPreferencesPrivate::EncVariant>::Iterator itr = sec.value().find( name );
-            if ( itr == sec.value().end() ) {
+
+            if ( itr == sec.value().end() )
+            {
                 // no such value
                 return QSize();
-            } else {
-                if ( itr.value().data.type() != QVariant::Size ) {
+            }
+            else
+            {
+                if ( itr.value().data.type() != QVariant::Size )
+                {
                     return QSize();
-                } else
+                }
+                else
                     return itr.value().data.toSize();
             }
         }
@@ -1308,8 +1680,8 @@ QSize XMLPreferences::getSize( const QString& section, const QString& name )
 #ifndef QT_CORE_ONLY
 
 /*!
-	Returns the color associated to \a name in the default section.
-	Returns a null color if no such value could be found
+ Returns the color associated to \a name in the default section.
+ Returns a null color if no such value could be found
 */
 QColor XMLPreferences::getColor( const QString& name )
 {
@@ -1317,39 +1689,54 @@ QColor XMLPreferences::getColor( const QString& name )
 }
 
 /*!
-	Returns the color associated to \a name in \a section or in the
-	default section if the \a section name is empty.
-	Returns a null color if no such value could be found
+ Returns the color associated to \a name in \a section or in the
+ default section if the \a section name is empty.
+ Returns a null color if no such value could be found
 */
 QColor XMLPreferences::getColor( const QString& section, const QString& name )
 {
     if ( d->documentRoot == 0 )
         return QColor();
 
-    if ( section.isEmpty() ) {
+    if ( section.isEmpty() )
+    {
         QHash<QString, XMLPreferencesPrivate::EncVariant>::Iterator itr =
             d->defaultSection->find( name );
-        if ( itr == d->defaultSection->end() ) {
+
+        if ( itr == d->defaultSection->end() )
+        {
             // no such value
             return QColor();
-        } else {
+        }
+        else
+        {
             if ( itr.value().data.type() != QVariant::Color )
                 return QColor();
             else
                 return itr.value().data.value<QColor>();
         }
-    } else {
+    }
+    else
+    {
         QHash<QString, QHash<QString, XMLPreferencesPrivate::EncVariant> >::Iterator sec =
             d->documentRoot->find( section );
-        if ( sec == d->documentRoot->end() ) {
+
+        if ( sec == d->documentRoot->end() )
+        {
             // no such section
             return QColor();
-        } else {
+        }
+        else
+        {
             QHash<QString, XMLPreferencesPrivate::EncVariant>::Iterator itr = sec.value().find( name );
-            if ( itr == sec.value().end() ) {
+
+            if ( itr == sec.value().end() )
+            {
                 // no such value
                 return QColor();
-            } else {
+            }
+            else
+            {
                 if ( itr.value().data.type() != QVariant::Color )
                     return QColor();
                 else
@@ -1364,7 +1751,7 @@ QColor XMLPreferences::getColor( const QString& section, const QString& name )
 #endif // QT_CORE_ONLY
 
 /*!
-	Adds a new section to the settings.
+ Adds a new section to the settings.
 */
 void XMLPreferences::addSection( const QString& section )
 {
@@ -1378,36 +1765,40 @@ void XMLPreferences::addSection( const QString& section )
         return ;
 
     QHash<QString, XMLPreferencesPrivate::EncVariant> map;
+
     d->documentRoot->insert( section, map );
 }
 
 
 /*!
-	Removes a section and all its data.
-	Returns false if no such section exists.
+ Removes a section and all its data.
+ Returns false if no such section exists.
  */
 bool XMLPreferences::deleteSection( const QString& section )
 {
     if ( d->documentRoot == 0 )
         return false;
 
-    if ( section.isEmpty() || ( section == *d->defaultSectionName ) ) {
+    if ( section.isEmpty() || ( section == *d->defaultSectionName ) )
+    {
         delete d->defaultSection;
         d->defaultSection = new QHash<QString, XMLPreferencesPrivate::EncVariant>();
         return true;
     }
 
     QHash<QString, QHash<QString, XMLPreferencesPrivate::EncVariant> >::Iterator itr = d->documentRoot->find( section );
+
     if ( itr == d->documentRoot->end() )
         return false;
 
     d->documentRoot->erase( itr );
+
     return true;
 }
 
 /*!
-	Adds a string type value to the default section and binds it to \a name.
-	Returns false if the value could not be added (invalid value or section or name).
+ Adds a string type value to the default section and binds it to \a name.
+ Returns false if the value could not be added (invalid value or section or name).
 */
 bool XMLPreferences::setString( const QString& name, const QString& value )
 {
@@ -1415,9 +1806,9 @@ bool XMLPreferences::setString( const QString& name, const QString& value )
 }
 
 /*!
-	Adds a string type value to \a section or to the default section if \a section is empty
-	and binds it to \a name.
-	Returns false if the value could not be added (invalid value or section or name).
+ Adds a string type value to \a section or to the default section if \a section is empty
+ and binds it to \a name.
+ Returns false if the value could not be added (invalid value or section or name).
  */
 bool XMLPreferences::setString( const QString& section, const QString& name, const QString& value )
 {
@@ -1427,20 +1818,28 @@ bool XMLPreferences::setString( const QString& section, const QString& name, con
     if ( d->documentRoot == 0 )
         d->init();
 
-    if ( section.isEmpty() || ( section == *d->defaultSectionName ) ) {
+    if ( section.isEmpty() || ( section == *d->defaultSectionName ) )
+    {
         XMLPreferencesPrivate::EncVariant v;
         v.data = QVariant( value );
         d->defaultSection->insert( name, v );
-    } else {
+    }
+    else
+    {
         QHash<QString, QHash<QString, XMLPreferencesPrivate::EncVariant> >::Iterator itr = d->documentRoot->find( section );
-        if ( itr == d->documentRoot->end() ) {
+
+        if ( itr == d->documentRoot->end() )
+        {
             if ( !d->autoAddSections )
                 return false;
+
             QHash<QString, XMLPreferencesPrivate::EncVariant> map;
+
             itr = d->documentRoot->insert( section, map );
         }
 
         XMLPreferencesPrivate::EncVariant v;
+
         v.data = QVariant( value );
         itr.value().insert( name, v );
     }
@@ -1449,8 +1848,8 @@ bool XMLPreferences::setString( const QString& section, const QString& name, con
 }
 
 /*!
-	Adds a string list type value to the default section and binds it to \a name.
-	Returns false if the value could not be added (invalid value or section or name).
+ Adds a string list type value to the default section and binds it to \a name.
+ Returns false if the value could not be added (invalid value or section or name).
 */
 bool XMLPreferences::setStringList( const QString& name, const QStringList& value )
 {
@@ -1458,9 +1857,9 @@ bool XMLPreferences::setStringList( const QString& name, const QStringList& valu
 }
 
 /*!
-	Adds a string list type value to \a section or to the default section if \a section is empty
-	and binds it to \a name.
-	Returns false if the value could not be added (invalid value or section or name).
+ Adds a string list type value to \a section or to the default section if \a section is empty
+ and binds it to \a name.
+ Returns false if the value could not be added (invalid value or section or name).
 */
 bool XMLPreferences::setStringList( const QString& section, const QString& name, const QStringList& value )
 {
@@ -1470,21 +1869,29 @@ bool XMLPreferences::setStringList( const QString& section, const QString& name,
     if ( d->documentRoot == 0 )
         d->init();
 
-    if ( section.isEmpty() || ( section == *d->defaultSectionName ) ) {
+    if ( section.isEmpty() || ( section == *d->defaultSectionName ) )
+    {
         XMLPreferencesPrivate::EncVariant v;
         v.data = QVariant( value );
         d->defaultSection->insert( name, v );
-    } else {
+    }
+    else
+    {
         QHash<QString, QHash<QString, XMLPreferencesPrivate::EncVariant> >::Iterator itr =
             d->documentRoot->find( section );
-        if ( itr == d->documentRoot->end() ) {
+
+        if ( itr == d->documentRoot->end() )
+        {
             if ( !d->autoAddSections )
                 return false;
+
             QHash<QString, XMLPreferencesPrivate::EncVariant> map;
+
             itr = d->documentRoot->insert( section, map );
         }
 
         XMLPreferencesPrivate::EncVariant v;
+
         v.data = QVariant( value );
         itr.value().insert( name, v );
     }
@@ -1493,8 +1900,8 @@ bool XMLPreferences::setStringList( const QString& section, const QString& name,
 }
 
 /*!
-	Adds a boolean type value to the default section and binds it to \a name.
-	Returns false if the value could not be added (invalid value or section or name).
+ Adds a boolean type value to the default section and binds it to \a name.
+ Returns false if the value could not be added (invalid value or section or name).
 */
 bool XMLPreferences::setBool( const QString& name, bool value )
 {
@@ -1502,9 +1909,9 @@ bool XMLPreferences::setBool( const QString& name, bool value )
 }
 
 /*!
-	Adds a boolean type value to \a section or to the default section if \a section is empty
-	and binds it to \a name.
-	Returns false if the value could not be added (invalid value or section or name).
+ Adds a boolean type value to \a section or to the default section if \a section is empty
+ and binds it to \a name.
+ Returns false if the value could not be added (invalid value or section or name).
 */
 bool XMLPreferences::setBool( const QString& section, const QString& name, bool value )
 {
@@ -1514,21 +1921,29 @@ bool XMLPreferences::setBool( const QString& section, const QString& name, bool 
     if ( d->documentRoot == 0 )
         d->init();
 
-    if ( section.isEmpty() || ( section == *d->defaultSectionName ) ) {
+    if ( section.isEmpty() || ( section == *d->defaultSectionName ) )
+    {
         XMLPreferencesPrivate::EncVariant v;
         v.data = QVariant( value );
         d->defaultSection->insert( name, v );
-    } else {
+    }
+    else
+    {
         QHash<QString, QHash<QString, XMLPreferencesPrivate::EncVariant> >::Iterator itr =
             d->documentRoot->find( section );
-        if ( itr == d->documentRoot->end() ) {
+
+        if ( itr == d->documentRoot->end() )
+        {
             if ( !d->autoAddSections )
                 return false;
+
             QHash<QString, XMLPreferencesPrivate::EncVariant> map;
+
             itr = d->documentRoot->insert( section, map );
         }
 
         XMLPreferencesPrivate::EncVariant v;
+
         v.data = QVariant( value );
         itr.value().insert( name, v );
     }
@@ -1537,8 +1952,8 @@ bool XMLPreferences::setBool( const QString& section, const QString& name, bool 
 }
 
 /*!
-	Adds an integer type value to the default section and binds it to \a name.
-	Returns false if the value could not be added (invalid value or section or name).
+ Adds an integer type value to the default section and binds it to \a name.
+ Returns false if the value could not be added (invalid value or section or name).
 */
 bool XMLPreferences::setInt( const QString& name, int value )
 {
@@ -1546,9 +1961,9 @@ bool XMLPreferences::setInt( const QString& name, int value )
 }
 
 /*!
-	Adds an integer type value to \a section or to the default section if \a section is empty
-	and binds it to \a name.
-	Returns false if the value could not be added (invalid value or section or name).
+ Adds an integer type value to \a section or to the default section if \a section is empty
+ and binds it to \a name.
+ Returns false if the value could not be added (invalid value or section or name).
 */
 bool XMLPreferences::setInt( const QString& section, const QString& name, int value )
 {
@@ -1558,21 +1973,29 @@ bool XMLPreferences::setInt( const QString& section, const QString& name, int va
     if ( d->documentRoot == 0 )
         d->init();
 
-    if ( section.isEmpty() || ( section == *d->defaultSectionName ) ) {
+    if ( section.isEmpty() || ( section == *d->defaultSectionName ) )
+    {
         XMLPreferencesPrivate::EncVariant v;
         v.data = QVariant( value );
         d->defaultSection->insert( name, v );
-    } else {
+    }
+    else
+    {
         QHash<QString, QHash<QString, XMLPreferencesPrivate::EncVariant> >::Iterator itr =
             d->documentRoot->find( section );
-        if ( itr == d->documentRoot->end() ) {
+
+        if ( itr == d->documentRoot->end() )
+        {
             if ( !d->autoAddSections )
                 return false;
+
             QHash<QString, XMLPreferencesPrivate::EncVariant> map;
+
             itr = d->documentRoot->insert( section, map );
         }
 
         XMLPreferencesPrivate::EncVariant v;
+
         v.data = QVariant( value );
         itr.value().insert( name, v );
     }
@@ -1581,8 +2004,8 @@ bool XMLPreferences::setInt( const QString& section, const QString& name, int va
 }
 
 /*!
-	Adds a 64bit integer type value to the default section and binds it to \a name.
-	Returns false if the value could not be added (invalid value or section or name).
+ Adds a 64bit integer type value to the default section and binds it to \a name.
+ Returns false if the value could not be added (invalid value or section or name).
 */
 bool XMLPreferences::setInt64( const QString& name, qint64 value )
 {
@@ -1590,9 +2013,9 @@ bool XMLPreferences::setInt64( const QString& name, qint64 value )
 }
 
 /*!
-	Adds a 64bit integer type value to \a section or to the default section if \a section is empty
-	and binds it to \a name.
-	Returns false if the value could not be added (invalid value or section or name).
+ Adds a 64bit integer type value to \a section or to the default section if \a section is empty
+ and binds it to \a name.
+ Returns false if the value could not be added (invalid value or section or name).
 */
 bool XMLPreferences::setInt64( const QString& section, const QString& name, qint64 value )
 {
@@ -1602,21 +2025,29 @@ bool XMLPreferences::setInt64( const QString& section, const QString& name, qint
     if ( d->documentRoot == 0 )
         d->init();
 
-    if ( section.isEmpty() || ( section == *d->defaultSectionName ) ) {
+    if ( section.isEmpty() || ( section == *d->defaultSectionName ) )
+    {
         XMLPreferencesPrivate::EncVariant v;
-        v.data = QVariant( ( qlonglong ) value );
+        v.data = QVariant(( qlonglong ) value );
         d->defaultSection->insert( name, v );
-    } else {
+    }
+    else
+    {
         QHash<QString, QHash<QString, XMLPreferencesPrivate::EncVariant> >::Iterator itr =
             d->documentRoot->find( section );
-        if ( itr == d->documentRoot->end() ) {
+
+        if ( itr == d->documentRoot->end() )
+        {
             if ( !d->autoAddSections )
                 return false;
+
             QHash<QString, XMLPreferencesPrivate::EncVariant> map;
+
             itr = d->documentRoot->insert( section, map );
         }
 
         XMLPreferencesPrivate::EncVariant v;
+
         v.data = QVariant( value );
         itr.value().insert( name, v );
     }
@@ -1625,8 +2056,8 @@ bool XMLPreferences::setInt64( const QString& section, const QString& name, qint
 }
 
 /*!
-	Adds a bit array type value to the default section and binds it to \a name.
-	Returns false if the value could not be added (invalid value or section or name).
+ Adds a bit array type value to the default section and binds it to \a name.
+ Returns false if the value could not be added (invalid value or section or name).
 */
 bool XMLPreferences::setBitArray( const QString& name, const QBitArray& value, BinEncodingType encoding )
 {
@@ -1634,9 +2065,9 @@ bool XMLPreferences::setBitArray( const QString& name, const QBitArray& value, B
 }
 
 /*!
-	Adds a bit array integer type value to \a section or to the default section if \a section is empty
-	and binds it to \a name.
-	Returns false if the value could not be added (invalid value or section or name).
+ Adds a bit array integer type value to \a section or to the default section if \a section is empty
+ and binds it to \a name.
+ Returns false if the value could not be added (invalid value or section or name).
 */
 bool XMLPreferences::setBitArray( const QString& section, const QString& name, const QBitArray& value, BinEncodingType encoding )
 {
@@ -1646,22 +2077,30 @@ bool XMLPreferences::setBitArray( const QString& section, const QString& name, c
     if ( d->documentRoot == 0 )
         d->init();
 
-    if ( section.isEmpty() || ( section == *d->defaultSectionName ) ) {
+    if ( section.isEmpty() || ( section == *d->defaultSectionName ) )
+    {
         XMLPreferencesPrivate::EncVariant v;
         v.data = QVariant( value );
         v.encoding = encoding;
         d->defaultSection->insert( name, v );
-    } else {
+    }
+    else
+    {
         QHash<QString, QHash<QString, XMLPreferencesPrivate::EncVariant> >::Iterator itr =
             d->documentRoot->find( section );
-        if ( itr == d->documentRoot->end() ) {
+
+        if ( itr == d->documentRoot->end() )
+        {
             if ( !d->autoAddSections )
                 return false;
+
             QHash<QString, XMLPreferencesPrivate::EncVariant> map;
+
             itr = d->documentRoot->insert( section, map );
         }
 
         XMLPreferencesPrivate::EncVariant v;
+
         v.data = QVariant( value );
         v.encoding = encoding;
         itr.value().insert( name, v );
@@ -1671,8 +2110,8 @@ bool XMLPreferences::setBitArray( const QString& section, const QString& name, c
 }
 
 /*!
-	Adds a byte array type value to the default section and binds it to \a name.
-	Returns false if the value could not be added (invalid value or section or name).
+ Adds a byte array type value to the default section and binds it to \a name.
+ Returns false if the value could not be added (invalid value or section or name).
 */
 bool XMLPreferences::setByteArray( const QString& name, const QByteArray& value, BinEncodingType encoding )
 {
@@ -1680,9 +2119,9 @@ bool XMLPreferences::setByteArray( const QString& name, const QByteArray& value,
 }
 
 /*!
-	Adds a byte array integer type value to \a section or to the default section if \a section is empty
-	and binds it to \a name.
-	Returns false if the value could not be added (invalid value or section or name).
+ Adds a byte array integer type value to \a section or to the default section if \a section is empty
+ and binds it to \a name.
+ Returns false if the value could not be added (invalid value or section or name).
 */
 bool XMLPreferences::setByteArray( const QString& section, const QString& name, const QByteArray& value, BinEncodingType encoding )
 {
@@ -1692,22 +2131,30 @@ bool XMLPreferences::setByteArray( const QString& section, const QString& name, 
     if ( d->documentRoot == 0 )
         d->init();
 
-    if ( section.isEmpty() || ( section == *d->defaultSectionName ) ) {
+    if ( section.isEmpty() || ( section == *d->defaultSectionName ) )
+    {
         XMLPreferencesPrivate::EncVariant v;
         v.data = QVariant( value );
         v.encoding = encoding;
         d->defaultSection->insert( name, v );
-    } else {
+    }
+    else
+    {
         QHash<QString, QHash<QString, XMLPreferencesPrivate::EncVariant> >::Iterator itr =
             d->documentRoot->find( section );
-        if ( itr == d->documentRoot->end() ) {
+
+        if ( itr == d->documentRoot->end() )
+        {
             if ( !d->autoAddSections )
                 return false;
+
             QHash<QString, XMLPreferencesPrivate::EncVariant> map;
+
             itr = d->documentRoot->insert( section, map );
         }
 
         XMLPreferencesPrivate::EncVariant v;
+
         v.data = QVariant( value );
         v.encoding = encoding;
         itr.value().insert( name, v );
@@ -1717,8 +2164,8 @@ bool XMLPreferences::setByteArray( const QString& section, const QString& name, 
 }
 
 /*!
-	Adds a rectangle type value to the default section and binds it to \a name.
-	Returns false if the value could not be added (invalid value or section or name).
+ Adds a rectangle type value to the default section and binds it to \a name.
+ Returns false if the value could not be added (invalid value or section or name).
 */
 bool XMLPreferences::setRect( const QString& name, const QRect& value )
 {
@@ -1726,9 +2173,9 @@ bool XMLPreferences::setRect( const QString& name, const QRect& value )
 }
 
 /*!
-	Adds a rectangle type value to \a section or to the default section if \a section is empty
-	and binds it to \a name.
-	Returns false if the value could not be added (invalid value or section or name).
+ Adds a rectangle type value to \a section or to the default section if \a section is empty
+ and binds it to \a name.
+ Returns false if the value could not be added (invalid value or section or name).
 */
 bool XMLPreferences::setRect( const QString& section, const QString& name, const QRect& value )
 {
@@ -1738,21 +2185,29 @@ bool XMLPreferences::setRect( const QString& section, const QString& name, const
     if ( d->documentRoot == 0 )
         d->init();
 
-    if ( section.isEmpty() || ( section == *d->defaultSectionName ) ) {
+    if ( section.isEmpty() || ( section == *d->defaultSectionName ) )
+    {
         XMLPreferencesPrivate::EncVariant v;
         v.data = value;
         d->defaultSection->insert( name, v );
-    } else {
+    }
+    else
+    {
         QHash<QString, QHash<QString, XMLPreferencesPrivate::EncVariant> >::Iterator itr =
             d->documentRoot->find( section );
-        if ( itr == d->documentRoot->end() ) {
+
+        if ( itr == d->documentRoot->end() )
+        {
             if ( !d->autoAddSections )
                 return false;
+
             QHash<QString, XMLPreferencesPrivate::EncVariant> map;
+
             itr = d->documentRoot->insert( section, map );
         }
 
         XMLPreferencesPrivate::EncVariant v;
+
         v.data = value;
         itr.value().insert( name, v );
     }
@@ -1761,8 +2216,8 @@ bool XMLPreferences::setRect( const QString& section, const QString& name, const
 }
 
 /*!
-	Adds a size type value to the default section and binds it to \a name.
-	Returns false if the value could not be added (invalid value or section or name).
+ Adds a size type value to the default section and binds it to \a name.
+ Returns false if the value could not be added (invalid value or section or name).
 */
 bool XMLPreferences::setSize( const QString& name, const QSize& value )
 {
@@ -1770,9 +2225,9 @@ bool XMLPreferences::setSize( const QString& name, const QSize& value )
 }
 
 /*!
-	Adds a size type value to \a section or to the default section if \a section is empty
-	and binds it to \a name.
-	Returns false if the value could not be added (invalid value or section or name).
+ Adds a size type value to \a section or to the default section if \a section is empty
+ and binds it to \a name.
+ Returns false if the value could not be added (invalid value or section or name).
 */
 bool XMLPreferences::setSize( const QString& section, const QString& name, const QSize& value )
 {
@@ -1782,21 +2237,29 @@ bool XMLPreferences::setSize( const QString& section, const QString& name, const
     if ( d->documentRoot == 0 )
         d->init();
 
-    if ( section.isEmpty() || ( section == *d->defaultSectionName ) ) {
+    if ( section.isEmpty() || ( section == *d->defaultSectionName ) )
+    {
         XMLPreferencesPrivate::EncVariant v;
         v.data = value;
         d->defaultSection->insert( name, v );
-    } else {
+    }
+    else
+    {
         QHash<QString, QHash<QString, XMLPreferencesPrivate::EncVariant> >::Iterator itr =
             d->documentRoot->find( section );
-        if ( itr == d->documentRoot->end() ) {
+
+        if ( itr == d->documentRoot->end() )
+        {
             if ( !d->autoAddSections )
                 return false;
+
             QHash<QString, XMLPreferencesPrivate::EncVariant> map;
+
             itr = d->documentRoot->insert( section, map );
         }
 
         XMLPreferencesPrivate::EncVariant v;
+
         v.data = value;
         itr.value().insert( name, v );
     }
@@ -1805,8 +2268,8 @@ bool XMLPreferences::setSize( const QString& section, const QString& name, const
 }
 
 /*!
-	Adds a point type value to the default section and binds it to \a name.
-	Returns false if the value could not be added (invalid value or section or name).
+ Adds a point type value to the default section and binds it to \a name.
+ Returns false if the value could not be added (invalid value or section or name).
 */
 bool XMLPreferences::setPoint( const QString& name, const QPoint& value )
 {
@@ -1814,9 +2277,9 @@ bool XMLPreferences::setPoint( const QString& name, const QPoint& value )
 }
 
 /*!
-	Adds a point type value to \a section or to the default section if \a section is empty
-	and binds it to \a name.
-	Returns false if the value could not be added (invalid value or section or name).
+ Adds a point type value to \a section or to the default section if \a section is empty
+ and binds it to \a name.
+ Returns false if the value could not be added (invalid value or section or name).
 */
 bool XMLPreferences::setPoint( const QString& section, const QString& name, const QPoint& value )
 {
@@ -1826,21 +2289,29 @@ bool XMLPreferences::setPoint( const QString& section, const QString& name, cons
     if ( d->documentRoot == 0 )
         d->init();
 
-    if ( section.isEmpty() || ( section == *d->defaultSectionName ) ) {
+    if ( section.isEmpty() || ( section == *d->defaultSectionName ) )
+    {
         XMLPreferencesPrivate::EncVariant v;
         v.data = value;
         d->defaultSection->insert( name, v );
-    } else {
+    }
+    else
+    {
         QHash<QString, QHash<QString, XMLPreferencesPrivate::EncVariant> >::Iterator itr =
             d->documentRoot->find( section );
-        if ( itr == d->documentRoot->end() ) {
+
+        if ( itr == d->documentRoot->end() )
+        {
             if ( !d->autoAddSections )
                 return false;
+
             QHash<QString, XMLPreferencesPrivate::EncVariant> map;
+
             itr = d->documentRoot->insert( section, map );
         }
 
         XMLPreferencesPrivate::EncVariant v;
+
         v.data = value;
         itr.value().insert( name, v );
     }
@@ -1851,8 +2322,8 @@ bool XMLPreferences::setPoint( const QString& section, const QString& name, cons
 #ifndef QT_CORE_ONLY
 
 /*!
-	Adds a color type value to the default section and binds it to \a name.
-	Returns false if the value could not be added (invalid value or section or name).
+ Adds a color type value to the default section and binds it to \a name.
+ Returns false if the value could not be added (invalid value or section or name).
 */
 bool XMLPreferences::setColor( const QString& name, const QColor& value )
 {
@@ -1860,9 +2331,9 @@ bool XMLPreferences::setColor( const QString& name, const QColor& value )
 }
 
 /*!
-	Adds a color type value to \a section or to the default section if \a section is empty
-	and binds it to \a name.
-	Returns false if the value could not be added (invalid value or section or name).
+ Adds a color type value to \a section or to the default section if \a section is empty
+ and binds it to \a name.
+ Returns false if the value could not be added (invalid value or section or name).
 */
 bool XMLPreferences::setColor( const QString& section, const QString& name, const QColor& value )
 {
@@ -1872,21 +2343,29 @@ bool XMLPreferences::setColor( const QString& section, const QString& name, cons
     if ( d->documentRoot == 0 )
         d->init();
 
-    if ( section.isEmpty() || ( section == *d->defaultSectionName ) ) {
+    if ( section.isEmpty() || ( section == *d->defaultSectionName ) )
+    {
         XMLPreferencesPrivate::EncVariant v;
         v.data = value;
         d->defaultSection->insert( name, v );
-    } else {
+    }
+    else
+    {
         QHash<QString, QHash<QString, XMLPreferencesPrivate::EncVariant> >::Iterator itr =
             d->documentRoot->find( section );
-        if ( itr == d->documentRoot->end() ) {
+
+        if ( itr == d->documentRoot->end() )
+        {
             if ( !d->autoAddSections )
                 return false;
+
             QHash<QString, XMLPreferencesPrivate::EncVariant> map;
+
             itr = d->documentRoot->insert( section, map );
         }
 
         XMLPreferencesPrivate::EncVariant v;
+
         v.data = value;
         itr.value().insert( name, v );
     }
@@ -1897,7 +2376,7 @@ bool XMLPreferences::setColor( const QString& section, const QString& name, cons
 #endif // QT_CORE_ONLY
 
 /*!
-	Clears all the data.
+ Clears all the data.
  */
 void XMLPreferences::clear()
 {
@@ -1908,18 +2387,19 @@ void XMLPreferences::clear()
 }
 
 /*!
-	Sets the company name if \a name is not empty.
+ Sets the company name if \a name is not empty.
  */
 void XMLPreferences::setCompany( const QString& name )
 {
-    if ( !name.isEmpty() ) {
+    if ( !name.isEmpty() )
+    {
         delete d->appCompany;
         d->appCompany = new QString( name );
     }
 }
 
 /*!
-	Sets the product version.
+ Sets the product version.
  */
 void XMLPreferences::setVersion( const QString& version )
 {
@@ -1927,7 +2407,7 @@ void XMLPreferences::setVersion( const QString& version )
 }
 
 /*!
-	Sets the product version.
+ Sets the product version.
  */
 void XMLPreferences::setVersion( int major, int minor )
 {
@@ -1937,19 +2417,20 @@ void XMLPreferences::setVersion( int major, int minor )
 
 
 /*!
-	Sets the name of the default section if \a name is not empty.
+ Sets the name of the default section if \a name is not empty.
  */
 void XMLPreferences::setDefaultSection( const QString& name )
 {
-    if ( !name.isEmpty() ) {
+    if ( !name.isEmpty() )
+    {
         delete d->defaultSectionName;
         d->defaultSectionName = new QString( name );
     }
 }
 
 /*!
-	Returns true if nonexistent sections are automatically created when items are going
-	to be added into them
+ Returns true if nonexistent sections are automatically created when items are going
+ to be added into them
  */
 bool XMLPreferences::autoAddSections() const
 {
@@ -1957,8 +2438,8 @@ bool XMLPreferences::autoAddSections() const
 }
 
 /*!
-	If enabled, automatically creates nonexistent sections when items are going
-	to be added into them
+ If enabled, automatically creates nonexistent sections when items are going
+ to be added into them
 */
 void XMLPreferences::setAutoAddSections( bool enable )
 {
