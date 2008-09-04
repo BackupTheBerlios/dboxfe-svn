@@ -26,37 +26,33 @@
 #include <QtCore>
 #include <QtGui>
 
-DBoxFE_Image::DBoxFE_Image( QDialog *parent, Qt::WFlags flags ) : QDialog( parent, flags )
-{
-    setupUi( this );
+DBoxFE_Image::DBoxFE_Image( QDialog *parent, Qt::WFlags flags ) : QDialog( parent, flags ) {
+  setupUi( this );
 
-    // connection
-    connect( btnApply, SIGNAL( clicked() ), this, SLOT( slotApply() ) );
-    connect( btnAbort, SIGNAL( clicked() ), this, SLOT( slotAbort() ) );
+  // connection
+  connect( btnApply, SIGNAL( clicked() ), this, SLOT( slotApply() ) );
+  connect( btnAbort, SIGNAL( clicked() ), this, SLOT( slotAbort() ) );
 
-    // center the wiget on desktop screen
-    QDesktopWidget *desktop = qApp->desktop();
-    const QRect rect = desktop->availableGeometry( desktop->primaryScreen() );
-    int left = ( rect.width() - width() ) / 2;
-    int top = ( rect.height() - height() ) / 2;
-    setGeometry( left, top, width(), height() );
+  // center the wiget on desktop screen
+  QDesktopWidget *desktop = qApp->desktop();
+  const QRect rect = desktop->availableGeometry( desktop->primaryScreen() );
+  int left = ( rect.width() - width() ) / 2;
+  int top = ( rect.height() - height() ) / 2;
+  setGeometry( left, top, width(), height() );
 }
 
 DBoxFE_Image::~DBoxFE_Image() {}
 
-void DBoxFE_Image::slotApply()
-{
-    QListWidgetItem * qlwItem = lwImage->currentItem();
+void DBoxFE_Image::slotApply() {
+  QListWidgetItem * qlwItem = lwImage->currentItem();
 
-    if ( qlwItem == NULL )
-    {
-        QMessageBox::information( this, "DBox Front End", "No item was selected." );
-    }
+  if ( qlwItem == NULL ) {
+    QMessageBox::information( this, "DBox Front End", "No item was selected." );
+  }
 
-    QDialog::accept();
+  QDialog::accept();
 }
 
-void DBoxFE_Image::slotAbort()
-{
-    QDialog::reject();
+void DBoxFE_Image::slotAbort() {
+  QDialog::reject();
 }

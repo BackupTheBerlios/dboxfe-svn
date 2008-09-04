@@ -3,7 +3,7 @@
   <general>
     <author>Alexander Saal</author>
     <email>alex.saal@gmx.de</email>
-    <version>0.1.4.0</version>
+    <version>1</version>
     <projectmanagement>KDevTrollProject</projectmanagement>
     <primarylanguage>C++</primarylanguage>
     <keywords>
@@ -28,8 +28,7 @@
     </groups>
     <tree>
       <hidepatterns>*.o,*.lo,CVS</hidepatterns>
-      <hidenonprojectfiles>true</hidenonprojectfiles>
-      <showvcsfields>false</showvcsfields>
+      <hidenonprojectfiles>false</hidenonprojectfiles>
     </tree>
   </kdevfileview>
   <kdevdoctreeview>
@@ -99,9 +98,6 @@
       <designer>/usr/bin/designer</designer>
       <designerpluginpaths/>
     </qt>
-    <references>
-      <pcs>Qt4</pcs>
-    </references>
     <codecompletion>
       <automaticCodeCompletion>true</automaticCodeCompletion>
       <automaticArgumentsHint>true</automaticArgumentsHint>
@@ -117,7 +113,7 @@
       <namespaceAliases>std=_GLIBCXX_STD;__gnu_cxx=std</namespaceAliases>
       <processPrimaryTypes>true</processPrimaryTypes>
       <processFunctionArguments>false</processFunctionArguments>
-      <preProcessAllHeaders>false</preProcessAllHeaders>
+      <preProcessAllHeaders>true</preProcessAllHeaders>
       <parseMissingHeadersExperimental>false</parseMissingHeadersExperimental>
       <resolveIncludePathsUsingMakeExperimental>false</resolveIncludePathsUsingMakeExperimental>
       <alwaysParseInBackground>true</alwaysParseInBackground>
@@ -126,10 +122,10 @@
       <includePaths>.;</includePaths>
     </codecompletion>
     <creategettersetter>
-      <prefixGet>get</prefixGet>
+      <prefixGet>ge</prefixGet>
       <prefixSet>set</prefixSet>
       <prefixVariable>m_,_</prefixVariable>
-      <parameterName>value</parameterName>
+      <parameterName>theValue</parameterName>
       <inlineGet>true</inlineGet>
       <inlineSet>true</inlineSet>
     </creategettersetter>
@@ -138,6 +134,9 @@
       <synchronize>true</synchronize>
       <orientation>Vertical</orientation>
     </splitheadersource>
+    <references>
+      <pcs>Qt4</pcs>
+    </references>
   </kdevcppsupport>
   <kdevfilecreate>
     <filetypes/>
@@ -154,10 +153,10 @@
     </general>
     <run>
       <directoryradio>executable</directoryradio>
-      <mainprogram>/home/asaal/projekte/cpp/dboxfe</mainprogram>
+      <mainprogram>/home/projekte/cpp/private/dboxfe</mainprogram>
       <programargs></programargs>
       <globaldebugarguments></globaldebugarguments>
-      <globalcwd>/home/asaal/projekte/cpp/dboxfe</globalcwd>
+      <globalcwd>/home/projekte/cpp/private/dboxfe</globalcwd>
       <useglobalprogram>false</useglobalprogram>
       <terminal>false</terminal>
       <autocompile>true</autocompile>
@@ -176,9 +175,9 @@
     </make>
     <qmake>
       <savebehaviour>2</savebehaviour>
-      <replacePaths>true</replacePaths>
+      <replacePaths>false</replacePaths>
       <disableDefaultOpts>true</disableDefaultOpts>
-      <enableFilenamesOnly>false</enableFilenamesOnly>
+      <enableFilenamesOnly>true</enableFilenamesOnly>
       <showVariablesInTree>true</showVariablesInTree>
       <showParseErrors>true</showParseErrors>
     </qmake>
@@ -191,14 +190,14 @@
   </cppsupportpart>
   <kdevdocumentation>
     <projectdoc>
-      <docsystem/>
-      <docurl/>
-      <usermanualurl/>
+      <docsystem></docsystem>
+      <docurl></docurl>
+      <usermanualurl></usermanualurl>
     </projectdoc>
   </kdevdocumentation>
   <ctagspart>
-    <customArguments/>
-    <customTagfilePath>/home/asaal/projekte/dboxfe/tags</customTagfilePath>
+    <customArguments></customArguments>
+    <customTagfilePath>/home/projekte/cpp/private/dboxfe/tags</customTagfilePath>
     <activeTagsFiles/>
   </ctagspart>
 </kdevelop>

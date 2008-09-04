@@ -24,105 +24,100 @@
 #include <QtCore>
 #include <QtGui>
 
-int main( int argc, char **argv )
-{
-    QApplication app( argc, argv );
+int main( int argc, char **argv ) {
+  QApplication app( argc, argv );
 
-    DBoxFE w;
+  DBoxFE w;
 
-    QString m_file, m_profile_dir, m_tmpl_dir, lng;
+  QString m_file, m_profile_dir, m_tmpl_dir, lng;
 
-    DBoxFE_Splash *splash;
-    splash = new DBoxFE_Splash( QPixmap( ":/pics/images/logo.png" ) );
-    app.processEvents();
+  DBoxFE_Splash *splash;
+  splash = new DBoxFE_Splash( QPixmap( ":/pics/images/logo.png" ) );
+  app.processEvents();
 
-    if ( splash )
-        splash->show();
+  if ( splash )
+    splash->show();
 
-    if ( splash )
-        splash->showMessage( QApplication::translate( "DBoxFE", "Read Language settings ..." ) );
+  if ( splash )
+    splash->showMessage( QApplication::translate( "DBoxFE", "Read Language settings ..." ) );
 
-    QTranslator translator;
+  QTranslator translator;
 
-    QString trFile = QLocale::languageToString( QLocale::system().language() );
+  QString trFile = QLocale::languageToString( QLocale::system().language() );
 
-    if ( trFile == "German" )
-        trFile = "de";
-    else
-        trFile = "en";
+  if ( trFile == "German" )
+    trFile = "de";
+  else
+    trFile = "en";
 
-    trFile = ":/lng/dboxfe_" + trFile + ".qm";
+  trFile = ":/lng/dboxfe_" + trFile + ".qm";
 
-    qApp->processEvents();
+  qApp->processEvents();
 
-    translator.load( trFile );
+  translator.load( trFile );
 
-    app.installTranslator( &translator );
+  app.installTranslator( &translator );
 
-    if ( splash )
-        splash->showMessage( QApplication::translate( "DBoxFE", "Create/Search application Directory ..." ) );
+  if ( splash )
+    splash->showMessage( QApplication::translate( "DBoxFE", "Create/Search application Directory ..." ) );
 
-    // TODO Create application directory if dosn't exists
-    m_file = QDir::homePath();
+  // TODO Create application directory if dosn't exists
+  m_file = QDir::homePath();
 
-    m_file.append( "/.dboxfe" );
+  m_file.append( "/.dboxfe" );
 
-    QDir appDir( m_file );
+  QDir appDir( m_file );
 
-    if ( !appDir.exists( m_file ) )
-    {
-        appDir.mkdir( m_file );
-    }
+  if ( !appDir.exists( m_file ) ) {
+    appDir.mkdir( m_file );
+  }
 
-    if ( splash )
-        splash->showMessage( QApplication::translate( "DBoxFE", "Create Directory " ) + m_file + "..." );
+  if ( splash )
+    splash->showMessage( QApplication::translate( "DBoxFE", "Create Directory " ) + m_file + "..." );
 
-    // TODO Create profile directory if dosn't exists
-    m_profile_dir = QDir::homePath();
+  // TODO Create profile directory if dosn't exists
+  m_profile_dir = QDir::homePath();
 
-    m_profile_dir.append( "/.dboxfe/profile" );
+  m_profile_dir.append( "/.dboxfe/profile" );
 
-    QDir proDir( m_profile_dir );
+  QDir proDir( m_profile_dir );
 
-    if ( !proDir.exists( m_profile_dir ) )
-    {
-        proDir.mkdir( m_profile_dir );
-    }
+  if ( !proDir.exists( m_profile_dir ) ) {
+    proDir.mkdir( m_profile_dir );
+  }
 
-    if ( splash )
-        splash->showMessage( QApplication::translate( "DBoxFE", "Create Directory " ) + m_profile_dir + "..." );
+  if ( splash )
+    splash->showMessage( QApplication::translate( "DBoxFE", "Create Directory " ) + m_profile_dir + "..." );
 
-    // TODO Create Template directory if dosn't exists
-    m_tmpl_dir = QDir::homePath();
+  // TODO Create Template directory if dosn't exists
+  m_tmpl_dir = QDir::homePath();
 
-    m_tmpl_dir.append( "/.dboxfe/tmpl" );
+  m_tmpl_dir.append( "/.dboxfe/tmpl" );
 
-    QDir tmplDir( m_tmpl_dir );
+  QDir tmplDir( m_tmpl_dir );
 
-    if ( !tmplDir.exists( m_tmpl_dir ) )
-    {
-        tmplDir.mkdir( m_tmpl_dir );
-    }
+  if ( !tmplDir.exists( m_tmpl_dir ) ) {
+    tmplDir.mkdir( m_tmpl_dir );
+  }
 
-    if ( splash )
-        splash->showMessage( QApplication::translate( "DBoxFE", "Create Directory " ) + m_tmpl_dir + "..." );
+  if ( splash )
+    splash->showMessage( QApplication::translate( "DBoxFE", "Create Directory " ) + m_tmpl_dir + "..." );
 
 
-    if ( splash )
-        splash->showMessage( QApplication::translate( "DBoxFE", "Loading Profiles ..." ) );
+  if ( splash )
+    splash->showMessage( QApplication::translate( "DBoxFE", "Loading Profiles ..." ) );
 
-    w.init();
+  w.init();
 
-    if ( splash )
-        splash->showMessage( QApplication::translate( "DBoxFE", "Starting GUI ..." ) );
+  if ( splash )
+    splash->showMessage( QApplication::translate( "DBoxFE", "Starting GUI ..." ) );
 
-    w.show();
+  w.show();
 
-    if ( splash )
-        delete splash;
+  if ( splash )
+    delete splash;
 
-    app.connect( &app, SIGNAL( lastWindowClosed() ), &app, SLOT( quit() ) );
+  app.connect( &app, SIGNAL( lastWindowClosed() ), &app, SLOT( quit() ) );
 
-
-    return app.exec();
+  return app.exec();
 }

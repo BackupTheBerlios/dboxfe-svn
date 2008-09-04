@@ -23,13 +23,12 @@
 
 #include <QtGui>
 
-class DBoxFE_Game : public QDialog, public Ui::DBoxFE_Game
-{
-        Q_OBJECT
+class DBoxFE_Game : public QDialog, public Ui::DBoxFE_Game {
+    Q_OBJECT
 
-    public:
-        DBoxFE_Game( QDialog *parent = 0, Qt::WFlags flags = 0 );
-        ~DBoxFE_Game();
+  public:
+    DBoxFE_Game( QDialog *parent = 0, Qt::WFlags flags = 0 );
+    ~DBoxFE_Game();
 };
 
 #endif // DBOXFE_GAMES_H

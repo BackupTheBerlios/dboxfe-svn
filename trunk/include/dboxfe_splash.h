@@ -24,25 +24,24 @@
 #include <QtCore>
 #include <Qt>
 
-class DBoxFE_Splash : public QSplashScreen
-{
-        Q_OBJECT
+class DBoxFE_Splash : public QSplashScreen {
+    Q_OBJECT
 
-    public:
-        DBoxFE_Splash( const QPixmap& pixmap, Qt::WFlags f = 0 );
-        virtual ~DBoxFE_Splash();
+  public:
+    DBoxFE_Splash( const QPixmap& pixmap, Qt::WFlags f = 0 );
+    virtual ~DBoxFE_Splash();
 
-    protected:
-        void drawContents( QPainter * painter );
+  protected:
+    void drawContents( QPainter * painter );
 
-    public slots:
-        void animate();
-        void showMessage( const QString &str, int flags = Qt::AlignLeft, const QColor &color = Qt::white );
+  public slots:
+    void animate();
+    void showMessage( const QString &str, int flags = Qt::AlignLeft, const QColor &color = Qt::white );
 
-    private:
-        int state;
-        int progress_bar_size;
-        QString m_string;
+  private:
+    int state;
+    int progress_bar_size;
+    QString m_string;
 
 };
 

@@ -34,38 +34,37 @@ class QHttp;
 
 class QHttpResponseHeader;
 
-class DBoxFE_ProfileWizard : public QDialog, public Ui::DBoxFE_ProfileWizard
-{
-        Q_OBJECT
+class DBoxFE_ProfileWizard : public QDialog, public Ui::DBoxFE_ProfileWizard {
+    Q_OBJECT
 
-    public:
-        DBoxFE_ProfileWizard( QDialog *parent = 0, Qt::WFlags flags = 0 );
-        ~DBoxFE_ProfileWizard();
+  public:
+    DBoxFE_ProfileWizard( QDialog *parent = 0, Qt::WFlags flags = 0 );
+    ~DBoxFE_ProfileWizard();
 
-        DBoxFE *dbfe;
+    DBoxFE *dbfe;
 
-    private:
-        QStringList gpList;
-        QString m_gp_file;
-        QHttp *m_http;
-        QFile *m_file;
+  private:
+    QStringList gpList;
+    QString m_gp_file;
+    QHttp *m_http;
+    QFile *m_file;
 
-        int httpGetId;
-        bool httpRequestAborted;
-        int page;
+    int httpGetId;
+    bool httpRequestAborted;
+    int page;
 
-    private slots:
-        void slotBack();
-        void slotNext();
-        void slotHelp();
-        void slotAbort();
-        void slotFinish();
-        void slotSelectDir();
-        void slotSearch();
-        void downloadFile();
+  private slots:
+    void slotBack();
+    void slotNext();
+    void slotHelp();
+    void slotAbort();
+    void slotFinish();
+    void slotSelectDir();
+    void slotSearch();
+    void downloadFile();
 
-        void httpRequestFinished( int requestId, bool error );
-        void readResponseHeader( const QHttpResponseHeader &responseHeader );
+    void httpRequestFinished( int requestId, bool error );
+    void readResponseHeader( const QHttpResponseHeader &responseHeader );
 };
 
 #endif // DBOXFE_PROFILEWIZARD_H

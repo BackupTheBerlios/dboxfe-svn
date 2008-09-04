@@ -24,25 +24,24 @@
 
 #include "ui_gamesettings.h"
 
-class DBoxFE_GameSettings : public QWidget, public Ui::DBoxFE_GameSettings
-{
-        Q_OBJECT
+class DBoxFE_GameSettings : public QWidget, public Ui::DBoxFE_GameSettings {
+    Q_OBJECT
 
-    public:
-        DBoxFE_GameSettings( QWidget *parent = 0, Qt::WFlags flags = 0 );
-        ~DBoxFE_GameSettings();
+  public:
+    DBoxFE_GameSettings( QWidget *parent = 0, Qt::WFlags flags = 0 );
+    ~DBoxFE_GameSettings();
 
-    private slots:
-        void slotAdd();
-        void slotRemove();
-        void slotChange();
-        void slotPreview();
-        void slotSave();
-        void slotImage();
-        void slotItemClicked( QTreeWidgetItem*, int );
+  private slots:
+    void slotAdd();
+    void slotRemove();
+    void slotChange();
+    void slotPreview();
+    void slotSave();
+    void slotImage();
+    void slotItemClicked( QTreeWidgetItem*, int );
 
-    protected:
-        void closeEvent( QCloseEvent *e );
+  protected:
+    void closeEvent( QCloseEvent *e );
 };
 
 #endif // DBOXFE_GAMESETTINGS_H

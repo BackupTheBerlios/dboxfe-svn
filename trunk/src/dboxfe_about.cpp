@@ -22,54 +22,49 @@
 #include "dboxfe_about.h"
 
 DBoxFE_About::DBoxFE_About( QWidget *parent, Qt::WFlags flags )
-        : QWidget( parent, flags )
-{
+    : QWidget( parent, flags ) {
 
-    setupUi( this );
+  setupUi( this );
 
-    connect( btnAboutQt, SIGNAL( clicked() ), qApp, SLOT( aboutQt() ) );
+  connect( btnAboutQt, SIGNAL( clicked() ), qApp, SLOT( aboutQt() ) );
 
-    QDesktopWidget *desktop = qApp->desktop();
-    const QRect rect = desktop->availableGeometry( desktop->primaryScreen() );
-    int left = ( rect.width() - width() ) / 2;
-    int top = ( rect.height() - height() ) / 2;
-    setGeometry( left, top, width(), height() );
+  QDesktopWidget *desktop = qApp->desktop();
+  const QRect rect = desktop->availableGeometry( desktop->primaryScreen() );
+  int left = ( rect.width() - width() ) / 2;
+  int top = ( rect.height() - height() ) / 2;
+  setGeometry( left, top, width(), height() );
 
-    QFile thx( QString::fromUtf8( ":/files/thanks" ) );
+  QFile thx( QString::fromUtf8( ":/files/thanks" ) );
 
-    if ( !thx.open( QIODevice::ReadOnly | QIODevice::Text ) )
-    {
-        return ;
-    }
+  if ( !thx.open( QIODevice::ReadOnly | QIODevice::Text ) ) {
+    return ;
+  }
 
-    QTextStream thxIn( &thx );
+  QTextStream thxIn( &thx );
 
-    QString lineThx = thxIn.readAll();
-    readThxFile( lineThx );
-    thx.close();
+  QString lineThx = thxIn.readAll();
+  readThxFile( lineThx );
+  thx.close();
 
-    QFile lic( QString::fromUtf8( ":/files/LICENSE.GPL" ) );
+  QFile lic( QString::fromUtf8( ":/files/LICENSE.GPL" ) );
 
-    if ( !lic.open( QIODevice::ReadOnly | QIODevice::Text ) )
-    {
-        return ;
-    }
+  if ( !lic.open( QIODevice::ReadOnly | QIODevice::Text ) ) {
+    return ;
+  }
 
-    QTextStream LicIn( &lic );
+  QTextStream LicIn( &lic );
 
-    QString lineLic = LicIn.readAll();
-    readLicFile( lineLic );
-    lic.close();
+  QString lineLic = LicIn.readAll();
+  readLicFile( lineLic );
+  lic.close();
 }
 
 DBoxFE_About::~DBoxFE_About() {}
 
-void DBoxFE_About::readThxFile( const QString &thxFile )
-{
-    TEThanks->setPlainText( thxFile );
+void DBoxFE_About::readThxFile( const QString &thxFile ) {
+  TEThanks->setPlainText( thxFile );
 }
 
-void DBoxFE_About::readLicFile( const QString &licFile )
-{
-    TELicense->setPlainText( licFile );
+void DBoxFE_About::readLicFile( const QString &licFile ) {
+  TELicense->setPlainText( licFile );
 }

@@ -38,14 +38,13 @@ class QByteArray;
 
 class Base64Private;
 
-class Base64
-{
+class Base64 {
 
-    public:
-        static QByteArray decode( const QString& encoded );
-        static QBitArray decode( const QString& encoded, unsigned int size );
-        static QString encode( const QByteArray& decoded, bool limitLines = false );
-        static QString encode( const QBitArray& decoded, bool limitLines = false );
+  public:
+    static QByteArray decode( const QString& encoded );
+    static QBitArray decode( const QString& encoded, unsigned int size );
+    static QString encode( const QByteArray& decoded, bool limitLines = false );
+    static QString encode( const QBitArray& decoded, bool limitLines = false );
 };
 
 #endif // OSDAB_BASE64_H
