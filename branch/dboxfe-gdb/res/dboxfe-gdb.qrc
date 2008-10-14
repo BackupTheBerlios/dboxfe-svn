@@ -1,0 +1,34 @@
+<RCC>
+	<qresource prefix="/misc" >
+		<file>LICENSE.GPL</file>
+		<file>game_database.sql</file>
+	</qresource>
+
+	<qresource prefix="/images" >
+		<file>dboxfegdb.ico</file>
+		<file>dboxfegdb-assistant.png</file>
+		<file>dboxfegdb-assistant-small.png</file>
+		<file>add.png</file>
+		<file>applications.png</file>
+		<file>arrow-back.png</file>
+		<file>arrow-down.png</file>
+		<file>arrow-forward.png</file>
+		<file>arrow-up.png</file>
+		<file>computer.png</file>
+		<file>copy.png</file>
+		<file>cut.png</file>
+		<file>delete.png</file>
+		<file>disc-media.png</file>
+		<file>documents.png</file>
+		<file>folder-closed.png</file>
+		<file>folder-open.png</file>
+		<file>home.png</file>
+		<file>mail.png</file>
+		<file>paste.png</file>
+		<file>print.png</file>
+		<file>redo.png</file>
+		<file>save.png</file>
+		<file>trash.png</file>
+		<file>undo.png</file>
+	</qresource>
+</RCC>
