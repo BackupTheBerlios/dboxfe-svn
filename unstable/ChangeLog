@@ -1,0 +1,330 @@
+2007-09-22  Alexander Saal  <alex.saal@gmx.de>
+ * RELEASE:	new version of dboxfe
+ * ADD:		source of setup script (inno setup script)
+ * CHANGED:	to version 0.1.3
+ * CHANGED:	"chkBoxStartTrayIcon->setVisible( false );" (futur release) (dboxfe.cpp)
+ * REMOVED:	[Code] section (dboxfe.iss)
+
+2007-09-20/21  Alexander Saal  <alex.saal@gmx.de>
+ * ADD:		new param to function "updateGames(...) and insertGames(...)"
+ * ADD:		new gui element - dosbox version (dboxfegdb.ui)
+ * INIT:	first import of dboxfe-gdb
+ * FIXED:	compile error (dboxfegdb_sql.h/cpp
+
+2007-09-09  Alexander Saal  <alex.saal@gmx.de>
+ * UPDATE:	(vcproj)
+ * UPDATE:	source code again (foramt)
+ * UPDATE:	kdevelop 3.4.1 - project file
+ * UPDATE:	..... (main.cpp)
+ * UPDATE:	language pack again
+ * CHANGED:	versions number to 0.1.3 (SVN)
+ * CHANGED:	versions number (rc)
+ * FIXED:	problem with reload of system tray icon menu
+ * FIXED:	problems with some linux distribution (configure script)
+ * FIXED:	problem with select dosbox binary under windows and linux
+ * FIXED:	set correct tab on main window (dboxfe.ui)
+
+2007-08-04  Alexander Saal  <alex.saal@gmx.de>
+ * UPDATE:	update (vcproj)
+ * FIXED:	correct date (configure.bat)
+
+2007-05-15  Alexander Saal  <alex.saal@gmx.de>
+ * FIXED:	timer interval higher to 15000 ms (dboxfetray)
+ * FIXED:	fixed problem with load autoexec section
+
+2007-03-18  Alexander Saal  <alex.saal@gmx.de>
+ * NEW:		add dboxfetray to dboxfe svn tree
+ * ADD:		new feature: start dboxfetray with window manager (not complete)
+ * UPDATE:	project file
+ * FIXED:	problem with reaload context menu
+ * FIXED:	problem with start dboxfe binary under linux systems
+ * FIXED:	problem with load entries in [autexec] section
+ * REMOVED:	depedency ...
+ * INTERN:	update ...
+
+2007-03-04  Alexander Saal  <alex.saal@gmx.de>
+ * ADD:		method for display name of country if you choose a keyboardlayout
+ * ADD:		new funktion for DOSBox 0.70 (new scaler, keyboard-layout, ...)
+ * ADD:		new method: importDFendProfile( ..., ... )
+ * UPDATE:	info of dosbox version (it is kompatible with 0.65 and higher)
+ * UPDATE:	the languagepack (clear language, i add this later)
+ * UPDATE:	information...
+ * UPDATE:	header information
+ * UPDATE:	default config file. is now DOSBoix 0.70 compatible
+ * CHANGED:	old feature to new feature for new dosbox version 0.70
+ * FIXED:	problem with settings in new dosbox version
+
+2007-02-25  Alexander Saal  <alex.saal@gmx.de>
+ * ADD:		new function, to return true or false if profile exists and fixed problems with double profile entries (Thanks to Obi-Wahn (Tobias Henze - obi-wahn [at] osnanet.de))
+ * UPDATE:	clean up unused code
+ * UPDATE:	german language file
+ * UPDATE:	ChangeLog
+ 
+2007-02-22  Alexander Saal  <alex.saal@gmx.de>
+ * ADD:		rc file again
+ * ADD:		native Windows Look & Feel (better performance)     
+ * FIXED:	icon and versions problems
+ * FIXED:	problem with load language (language support for gemran not complete)
+ * UPDATE:	file is up to date
+
+2006-08-30/31  Alexander Saal  <alex.saal@gmx.de>
+ * FIXED:	problemm with download game_database.xml ...
+ * FIXED:	parse problem with this xml file
+ * FIXED:	minor bug (intern)
+ * CHANGED:	parseGame.... function to private
+ * UPDATE:	code cleanup ;)
+
+2006-08-29  Alexander Saal  <alex.saal@gmx.de>
+ * ADD:		dboxfe.dsp (it is for Dev C++ to inport this file)
+ * ADD:		new widget - Gamefile for download and parse dosbox.sf.net game xml
+ * FIXED:	compile errors
+ * UPDATE:	dboxfe.pro, dboxfe_base.cpp/h dboxfe_gamesettings.h
+ * UPDATE:	project files
+
+2006-08-28  Alexander Saal  <alex.saal@gmx.de>
+ * ADD:		missing files
+ * FIXED:	crash, if you click finish on Gamewizard
+ * FIXED:	compile error in dboxfe_base.cpp
+ * UDPATE:	vcproj file (more project files included)
+ * UPDATE:	dboxfe.pro
+ * UPDATE:	ChangeLog
+
+2006-07-24  Alexander Saal  <alex.saal@gmx.de>
+ * FIXED:	problem with layout in Gamewizard dialog
+ * UDPATE:	language file
+ * CHANGED:	quelcode format
+
+2006-06-17/18 Alexander Saal  <alex.saal@gmx.de>
+ * FIXED:	a small bug in XMLPreferences.cpp (I tell this bug to the Author of XMLPreferences - was fixed)
+ * NEW:		new XMLPreferences Class from OsDab project
+
+2006-06-10  Alexander Saal  <alex.saal@gmx.de>
+ * ADD:		header/source file for gamesettings
+ * ADD:		dboxfe.h / dboxfe.cpp ( add slot - slotGameSettings() )
+ * ADD:		dboxfe_base.h / dboxfe_base.cpp ( new function - loadImage(...) )
+ * ADD:		new widgets (gamesattings and gamepreview)
+ * UDPATE:	dboxfe.pro ( add header/source )
+ * UDPATE:	header/source
+ * UDPATE:	gamesettings.ui and gampreview.ui
+ * UDPATE:	kdevelop projectfile
+ * REMOVED:	unused gamedatabase ....
+
+2006-05-08  Alexander Saal  <alex.saal@gmx.de>
+ * UPDATE:	vcproj
+
+2006-05-06  Alexander Saal  <alex.saal@gmx.de>
+ * ADD:		custom menu in autexec list (save or clear)
+ * CHANGED:	clean up code (removed unused ode)
+ * REMOVED:	unused controls ...
+ * UDPATE:	rc file (change versions number to 0.1.1.2 - is equal to 0.1.1-beta2)
+ * UDPATE:	0.1.1-beta2
+
+2006-05-01  Alexander Saal  <alex.saal@gmx.de>
+ * FIXED:	Bug #7343, Bug #7344, Bug #7345
+ * FIXED:	you can now choose dosbox binary on windows (only windows)
+ * FIXED:	version is now displayed of dosbox on windows (only windows)
+ * FIXED:	dosbox starts now with costum configuration file (only windows)
+ * FIXED:	dosbox output is now displayed on log tab (only windows)
+ * ADD:		rc file for icon in dboxfe.exe (only windows)
+ * UPDATE:	dboxfe.pro
+ * UPDATE:	release the BETA 0.1.1 version
+
+2006-04-26  Alexander Saal  <alex.saal@gmx.de>
+ * FIXED:	you can now start dosbox with keymapper if the checkbox 'start Keymapper' is checked ...
+ * ADD:		thanks and license text is now diplay on about dialog
+ * FIXED:	the size of about dialog (no resize)
+ * FIXED:	the settings (you can now save the option 'start Keymapper')
+ * UPDATE:	disabeld language option (i work on german translation)
+ * UPDATE:	kdevelop project file
+ * UPDATE:	release the first BETA 0.1.0 version
+
+2006-04-25  Alexander Saal  <alex.saal@gmx.de>
+ * UPDATE:	header
+ * UPDATE:	LICENSE.GPL (wrong text in this file)
+ * CHANGED:	from QPL/GPL to complete GPL
+ * REMOVED:	LICENSE.QPL
+
+2006-04-18  Alexander Saal  <alex.saal@gmx.de>
+ * ADD:		translation to main.cpp
+ * FIXED:	minor bug
+ * FIXED:	porblem if you click on profile and the fields are empty
+ * FIXED:	problem with modem option (you can now select option and add this to list)
+ * REMOVED:	message if you quit
+ * CHANGED:	the position of autexec/serial list
+ * CHANGED:	layout in mainwindow (set the correct size of labels/buttons/widgets)
+ * UPDATE:	release day of 0.1.0 is very nearly :)
+ * UPDATE:	vcproj file
+ * UPDATE:	language file
+ * UPDATE:	kdevelop project file
+
+2006-04-16  Alexander Saal  <alex.saal@gmx.de>
+ * ADD:		2 buttons to Autoexec Tab for move down/up entries in the list
+ * ADD:		you can now move items in autexec option (down or up)
+ * UPDATE:	quellcode formating
+ * UPDATE:	language file
+ * UPDATE:	kdevelop project file
+ * UPDATE:	pro file (add debug option again)
+ * UPDATE:	you can now add autoexec option
+ * CHANGED:	the CDROM/DVD option (dboxfe.ui)
+
+2006-04-12  Alexander Saal  <alex.saal@gmx.de>
+ * ADD:		default setting (provide by dosbox self) if file not found and profile was created and selected
+ * FIXED:	the problem with save settings (tow section not saved - bios and dos)
+ * FIXED:	the problem, wrong parameter if you select on/of by pcspeaker
+ * FIXED: 	the problem with default settings by UMB
+ * UPDATE:	the language files
+ * UPDATE:	the KDevelop Projectfile
+
+2006-04-03  Alexander Saal  <alex.saal@gmx.de>
+ * ADD:		code for create default profiles if games was found on harddisk
+ * ADD:		default.conf to resource (it used by create game profiles)
+ * ADD:		missing items in cycle, scaler combobox (dboxfe.ui)
+ * ADD:		code for reading the config settings ... not complete... (it time to sleep for me) ;-)
+ * ADD:		better handling for read autoexec section
+ * FIXED:		the problem with dosbox start, wrong parameter
+ * REMOVED:	snapshot directory (dboxfe.ui)
+ * REMOVED:	strip -s from pro file (i need debug info for debug dboxfe) :)
+		- it would be add in the final version
+ * COMPLETE:	gamewizard dialog is now complete (status display is missing)
+ * COMPLETE:	read the config file is now complete
+ * UPDATE:	main.cpp (wrong file handling)
+ * UPDATE:	the language files
+ * UPDATE:	the KDevelop Projectfile
+ * REMOVED:	parseAutoexecSection(...)
+ 
+2006-04-02  Alexander Saal  <alex.saal@gmx.de>
+ * ADD:		MSVC Projectfile
+
+2006-03-20  Alexander Saal  <alex.saal@gmx.de>
+ * ADD:		game dialog to select a game for mount in dosbox
+ * ADD:		correct save the autexec section (no more double entries [autoexec])
+ * UPDATE:	language (untraslated)
+
+2006-03-18  Alexander Saal  <alex.saal@gmx.de>
+ * ADD:		checking for lupdate, lrelease in configure script
+ * ADD:		checking for lupdate and lupdate version (if this the right version) in configure script
+ 
+2006-03-05  Alexander Saal  <alex.saal@gmx.de>
+ * ADD:		logo to about tab
+ * FIXED:	correct display settings
+ * CHANGED:	configure script, based on the configure script of KVideoEncoder by Philipp Ludwig.
+ 
+2006-03-04  Alexander Saal  <alex.saal@gmx.de>
+ * ADD:		project to SVN on developer.berlios.de
+ 
+2006-02-28  Alexander Saal  <alex.saal@gmx.de>
+ * PORT:		to Qt 4.1.x (dialogs complet, code not complet)
+ * CHANGED:	rewrite code (not port with qt3to4 tool)
+ * CHNAGED:	change the version to 0.1.0 (it can be use for all plattforms, if qt4 supported)
+
+2005-01-30  Alexander Saal  <alex.saal@gmx.de>
+ * VERSION:	last 0.0.5-0.63 version on linux
+ * ADD:		src/gamedownload, src/searchengine, src/updatewizard (i mean i added loadable libs)
+ * ADD:		source for launch updatewizard in src/dosboxfe.cpp/h 
+ * ADD:		to dosboxfe_wizard.cpp/h search-game code (beta) 
+ * ADD:		Splashscreensource in main.cpp 
+ * ADD:		new Logo dbfe.png to cvs, install dboxfe - this picture will be install in $KDEDIR/apps/dboxfe/pics 
+ * FIXED:		downloading the version file is working now. if the (new) version ist greater than the specified version, the update button will be enabled, otherwise it is disable
+ * FIXED:		Layout (too small)
+ * FIXED:		many minor bugs and project cleanup ;) 
+ * CHANCHED:	GUI is more user friendly :) 
+ * MOVED:	Preference to extra tab 
+ * MOVED:	Gamedownload button to Preference tab 
+ * MOVED:	Logoutput to extra tab 
+ * REMOVED:	search-game (executable)
+
+2004-12-20  Alexander Saal  <alex.saal@gmx.de>
+ * FIXED:	choose snap dir is function
+ * CHANGED:	*.conf_cvs to *.conf_curr
+
+2004-12-15  Alexander Saal  <alex.saal@gmx.de>
+ * ADD:		Listbox for output in GUI
+ * MOVED:	CPU & Render tab to SDL tab
+ * MOVED:	"Choose DOSBox version" to DosBox tab
+ 
+2004-12-14  Alexander Saal  <alex.saal@gmx.de>
+ * FIXED:	admin/cvs.sh (automake 1.9.x added)
+ * DISABLED:	Gamelist and Savegamelist (sorry guys)
+ * CHANGED:	to version 0.0.5-0.63 (compatible with DOSBox 0.63)
+ * REMOVED:	cvs version of DOSBox (disabled - is not funktion - code removed)
+
+2004-10-03  Alexander Saal  <alex.saal@gmx.de>
+ * ADD:		src/dboxfe_logo.ui		|
+		src/dosboxfe_logo.cpp	|---> new splashscreen :)
+		src/dosboxfe_logo.h		|
+ * ADD:		src/dosboxfe.cpp -> you can now remove a savegamedir from list
+ * ADD:		src/main.cpp -> splashscreen come first for init the dboxfe
+ * ADD:		src/dbfe_maindlg.ui -> Games moved to first Tab
+ * ADD:		src/dbfe_maindlg -> add logo to AboutTab
+ 
+2004-09-13/14  Alexander Saal  <alex.saal@gmx.de>
+ * ADD:		Gamelist for select a gamefile (*.exe etc.), 
+ 		you can now choose a exe files for open automatical in DOSBox ( not complete )
+ * NEW:		new project hp: dboxfe.linuxmind.de
+ 
+2004-09-08  Alexander Saal  <alex.saal@gmx.de>
+ * FIXED:	layout problem ( to large )
+
+2004-09-03  Alexander Saal  <alex.saal@gmx.de>
+ * ADD:		you can remove and creat a Game Profile over Popup Menu
+
+2004-09-02  Alexander Saal  <alex.saal@gmx.de>
+ * REMOVED:	ListBox ( Priority )
+ * ADD:		DropDown Menu ( Focused,Unfocused - with 16 entries: lower, normal etc....)
+
+2004-08-31  Alexander Saal  <alex.saal@gmx.de>
+ * ADD:		you can now choose a dosbox binary ( cvs or stabel )
+ * ADD:		dosbox-cvs priority added ( is new in the configfile )
+
+2004-08-29  Alexander Saal  <alex.saal@gmx.de>
+ * FIXED:	cms checkbox (autoChecked disabled)
+
+2004-07-27  Alexander Saal  <alex.saal@gmx.de>
+ * ADD:		add to cvs src/adventure.h gprofile.h
+		adventure.h -> decleration of game download
+		gprofile.h -> decleration of DOSBox current or cvs version
+ * ADD:     	examine version available src/dosboxfe.cpp
+
+2004-07-26  Alexander Saal  <alex.saal@gmx.de>
+ * ADD:     	add to cvs src/update.h
+ * ADD:     	updatefuncion is now availabel
+ * ADD:    	src/dosboxfe.h // slot_Download_Update(),  slot_Verify_Update(), slot_Update_Progress( .... )
+
+2004-07-23  Alexander Saal  <alex.saal@gmx.de>
+ * FIXED:   	cpu config now correctly one reads in
+
+2004-07-22  Alexander Saal  <alex.saal@gmx.de>
+ * ADD:     	you can now delete a dir from the autoexec listbox
+ * ADD:    	it's to be loaded folder into a Autoexec ListBox now,
+      		thus local dir are loaded into DOSBox as HD or loaded as CDROM
+
+2004-07-21  Alexander Saal  <alex.saal@gmx.de>
+ * REMOVED:   	Autoexec ListView
+ * ADD:     	Autoexec ListBox
+ * UPDATE:   	registercard misc ( more user friendly )
+ * ADD:     	you can add a folder into the Autoexec ListBox (normal or as cdrom)
+ * ADD:     	you can select a folder:
+		snapdir
+      		autexecdir ( for mount in the DOSBox )
+
+2004-07-16  Alexander Saal  <alex.saal@gmx.de>
+ * ADD:    	game download dialog category
+ * ADD:    	you can remove selected game profile now
+ * ADD:    	remove button enabled
+ * CHANGED:  	v0.0.3 ( CVS )
+ * FIXED:  	code clean up and those configuration file of DOSBox cvs is now read
+
+2004-07-15  Alexander Saal  <alex.saal@gmx.de>
+ * ADD:  	one click in the listbox and a config file is loaded
+ * FIXED: 	layout correct set and new info added
+
+2004-07-13  Alexander Saal  <alex.saal@gmx.de>
+ * ADD:  	Which DOSBox version would you like to use?
+ * FIXED: 	remove button and game downlad button disabled
+ * ADD:  	cvs version of DOSBox
+
+2004-07-12  Alexander Saal  <alex.saal@gmx.de>
+ * FIXED: 	correct layout set
+ * ADD:  	games download dialog
+ * CHANGE: 	version 0.0.2
+ * 		initial import into CVS tree

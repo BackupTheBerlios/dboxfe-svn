@@ -1,0 +1,149 @@
+#!/bin/sh
+# Configure script for dboxfe, this script is based on KVideoEncoder by Philipp Ludwig
+
+clear
+
+if [ "$1" = "--help" ]; then
+echo "Usage: configure"
+exit 0
+fi
+
+if [ "$1" = "-help" ]; then
+echo "Usage: configure"
+exit 0
+fi
+
+if [ "$1" = "--v" ]; then
+echo "DBoxFE v0.1.3"
+exit 0
+fi
+
+if [ "$1" = "-v" ]; then
+echo "DBoxFE v0.1.3"
+exit 0
+fi
+
+# Checking for Qt...
+echo "Configurescript for DBoxFE 0.1.3"
+echo
+printf "Checking for qmake... "
+qmake=`which qmake`
+qmake_qt4=`which qmake-qt4`
+tmp_qmake=""
+
+
+if [ "$qmake" = "" ] && [ "$qmake_qt4" = "" ]; then
+	echo "not found!"
+	echo
+	echo "Make sure you have the Qt development packages installed!"
+	exit 1
+elif [ "$qmake" != "" ]; then
+	tmp_qmake=$qmake
+	echo $tmp_qmake
+elif [ "$qmake_qt4" != "" ]; then
+	tmp_qmake=$qmake_qt4
+	echo $tmp_qmake
+fi
+
+printf "Checking for lupdate... "
+lupdate_qt4="`which lupdate-qt4`"
+lupdate="`which lupdate`"
+tmp_lupdate=""
+
+if [ "$lupdate" = "" ] && [ "$lupdate_qt4" = "" ]; then
+	echo "not found!"
+	echo
+	echo "Make sure you have the Qt development packages installed!"
+	exit 1
+elif [ "$lupdate" != "" ]; then
+	tmp_lupdate=$lupdate
+	echo $tmp_lupdate
+elif [ "$lupdate_qt4" != "" ]; then
+	tmp_lupdate=$lupdate_qt4
+	echo $tmp_lupdate
+fi
+
+printf "Checking for lrelease... "
+lrelease_qt4="`which lrelease-qt4`"
+lrelease="`which lrelease`"
+tmp_lrelease=""
+
+if [ "$lrelease" = "" ] && [ "$lrelease_qt4" = "" ]; then
+	echo "not found!"
+	echo
+	echo "Make sure you have the Qt development packages installed!"
+	exit 1
+elif [ "$lrelease" != "" ]; then
+	tmp_lrelease=$lrelease
+	echo $tmp_lrelease
+elif [ "$lrelease_qt4" != "" ]; then
+	tmp_lrelease=$lrelease_qt4
+	echo $tmp_lrelease
+fi
+
+printf "Checking for qmake version... "
+$tmp_qmake -v &>qmake.ver
+ver=`sed 's/[a-z,A-Z].//g' qmake.ver | sed -n '1,1p'`
+if [ "$ver" = " 1.07( 3.3.6)" ]; then
+	echo $ver;
+	echo
+	echo "version too old! Make sure you have the Qt 4.3.x installed!"
+	rm -rf qmake.ver
+	exit 1
+else
+	echo $ver;
+	rm -rf qmake.ver
+fi
+
+printf "Checking for lupdate version... "
+$tmp_lupdate -version &>lupdate.ver
+ver=`sed 's/[a-z,A-Z].//g' lupdate.ver | sed -n '1,1p'`
+if [ "$ver" = "3.3.6" ]; then
+	echo $ver;
+	echo
+	echo "version too old! Make sure you have the Qt 4.3.x installed!"
+	rm -rf lupdate.ver
+	exit 1
+else
+	echo $ver;
+	#$tmp_lupdate dboxfe.pro
+	rm -rf lupdate.ver
+fi
+
+printf "Checking for lrelease version... "
+$tmp_lrelease -version &>lrelease.ver
+ver=`sed 's/[a-z,A-Z].//g' lrelease.ver | sed -n '1,1p'`
+if [ "$ver" = "3.3.6" ]; then
+	echo $ver;
+	echo
+	echo "version too old! Make sure you have the Qt 4.3.x installed!"
+	rm -rf lrealse.ver
+	exit 1
+else
+	echo $ver;
+	#$tmp_lrelease dboxfe.pro
+	rm -rf lrelease.ver
+fi
+
+# Now create the makefile
+printf "Creating Makefile... "
+cd dboxfetray && $tmp_qmake -o Makefile dboxfetray.pro && cd .. && $tmp_qmake -o Makefile dboxfe.pro
+if [ $? -eq 0 ]; then
+	echo ok
+
+	echo
+	echo Good - your configure finished. Start make now.
+	echo
+	echo You can use the follow commands for create a
+	echo binary:
+	echo "        make -f Makefile"
+	echo "        cd dboxfetray"
+	echo "        make -f Makefile"
+	echo "        cd ../bin"
+	echo "        ./dboxfe"
+	echo
+	exit 0
+else 
+    exit 1
+fi
+
