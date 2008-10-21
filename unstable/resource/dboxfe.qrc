@@ -1,0 +1,52 @@
+<RCC>
+	<qresource prefix="/dosbox_lng" >
+        <file>language/CZ/cestina.lng</file>
+        <file>language/DK/dk.lng</file>
+        <file>language/FR/francais.lng</file>
+        <file>language/GER/deutsch.lng</file>
+        <file>language/HGR/magyar.lng</file>
+        <file>language/ITA/ita.lng</file>
+        <file>language/KOR/korean.lng</file>
+        <file>language/PG/portuguese.lng</file>
+        <file>language/RUS/russian.lng</file>
+    </qresource>
+    <qresource prefix="/files" >
+        <file>LICENSE.GPL</file>
+        <file>thanks</file>
+    </qresource>
+    <qresource prefix="/default" >
+        <file>default.conf</file>
+    </qresource>
+    <qresource prefix="/pics/images" >
+        <file>add_16.png</file>
+        <file>applications_16.png</file>
+        <file>arrow-back_16.png</file>
+        <file>arrow-down_16.png</file>
+        <file>arrow-forward_16.png</file>
+        <file>arrow-up_16.png</file>
+        <file>computer_16.png</file>
+        <file>copy_16.png</file>
+        <file>cpu.png</file>
+        <file>cut_16.png</file>
+        <file>de.png</file>
+        <file>default.png</file>
+        <file>delete_16.png</file>
+        <file>disc-media_16.png</file>
+        <file>documents_16.png</file>
+        <file>en.png</file>
+        <file>folder-closed_16.png</file>
+        <file>folder-open_16.png</file>
+        <file>home_16.png</file>
+        <file>logo.png</file>
+        <file>mail_16.png</file>
+        <file>midi.png</file>
+        <file>misc.png</file>
+        <file>paste_16.png</file>
+        <file>print_16.png</file>
+        <file>redo_16.png</file>
+        <file>save_16.png</file>
+        <file>trash_16.png</file>
+        <file>undo_16.png</file>
+        <file>wiz_internet.png</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,401 @@
+<ui version="4.0" >
+ <class>UiInstallPage</class>
+ <widget class="QWizardPage" name="UiInstallPage" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>500</height>
+   </rect>
+  </property>
+  <property name="minimumSize" >
+   <size>
+    <width>600</width>
+    <height>500</height>
+   </size>
+  </property>
+  <property name="maximumSize" >
+   <size>
+    <width>600</width>
+    <height>500</height>
+   </size>
+  </property>
+  <property name="windowTitle" >
+   <string>Installation</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_3" >
+   <item row="0" column="0" >
+    <widget class="QGroupBox" name="groupBoxDOSBoxBinary" >
+     <property name="title" >
+      <string>DOSBox</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout" >
+      <item row="0" column="0" >
+       <layout class="QHBoxLayout" name="horizontalLayout" >
+        <item>
+         <widget class="QLabel" name="labelDosBoxBinary" >
+          <property name="minimumSize" >
+           <size>
+            <width>110</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize" >
+           <size>
+            <width>110</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="text" >
+           <string>DOSBox binary:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="lineEditDosBoxBinary" />
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnDosBoxFile" >
+          <property name="minimumSize" >
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize" >
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="text" >
+           <string>...</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="1" column="0" >
+    <widget class="QGroupBox" name="groupBoxDOSBoxBinary_2" >
+     <property name="title" >
+      <string>Game</string>
+     </property>
+     <layout class="QGridLayout" name="glGame" >
+      <item row="0" column="0" >
+       <layout class="QHBoxLayout" name="hlGameName" >
+        <item>
+         <widget class="QLabel" name="labelDosBoxBinary_2" >
+          <property name="minimumSize" >
+           <size>
+            <width>110</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize" >
+           <size>
+            <width>110</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="text" >
+           <string>Name:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="lineEditGameName" />
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnGame" >
+          <property name="minimumSize" >
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize" >
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="text" >
+           <string>...</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="2" column="0" >
+    <widget class="QGroupBox" name="groupBoxInstallSettings" >
+     <property name="title" >
+      <string>Installation</string>
+     </property>
+     <property name="flat" >
+      <bool>false</bool>
+     </property>
+     <property name="checkable" >
+      <bool>true</bool>
+     </property>
+     <property name="checked" >
+      <bool>false</bool>
+     </property>
+     <layout class="QGridLayout" name="glInstallation" >
+      <item row="0" column="0" >
+       <layout class="QVBoxLayout" name="vlInstallation" >
+        <item>
+         <layout class="QHBoxLayout" name="hlInstallSetupFile" >
+          <item>
+           <widget class="QLabel" name="labelInstallSetupFile" >
+            <property name="minimumSize" >
+             <size>
+              <width>110</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize" >
+             <size>
+              <width>110</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text" >
+             <string>Setupfile:</string>
+            </property>
+            <property name="buddy" >
+             <cstring>lineEditInstallSetupFile</cstring>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEditInstallSetupFile" />
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnSetupFile" >
+            <property name="minimumSize" >
+             <size>
+              <width>20</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="maximumSize" >
+             <size>
+              <width>20</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="text" >
+             <string>...</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="hlInstallFolder" >
+          <item>
+           <widget class="QLabel" name="labelInstallFolder" >
+            <property name="minimumSize" >
+             <size>
+              <width>110</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize" >
+             <size>
+              <width>110</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text" >
+             <string>Installationfolder:</string>
+            </property>
+            <property name="buddy" >
+             <cstring>lineEditInstallFolder</cstring>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEditInstallFolder" />
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnInstallFolder" >
+            <property name="minimumSize" >
+             <size>
+              <width>20</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="maximumSize" >
+             <size>
+              <width>20</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="text" >
+             <string>...</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="3" column="0" >
+    <widget class="QGroupBox" name="groupBoxGameSettings" >
+     <property name="title" >
+      <string>Gamesettings</string>
+     </property>
+     <property name="flat" >
+      <bool>false</bool>
+     </property>
+     <property name="checkable" >
+      <bool>true</bool>
+     </property>
+     <property name="checked" >
+      <bool>false</bool>
+     </property>
+     <layout class="QGridLayout" name="glGameSettings" >
+      <item row="0" column="0" >
+       <layout class="QVBoxLayout" name="vlGameSettings" >
+        <item>
+         <layout class="QHBoxLayout" name="hlGameFile" >
+          <item>
+           <widget class="QLabel" name="labelGameFile" >
+            <property name="minimumSize" >
+             <size>
+              <width>110</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize" >
+             <size>
+              <width>110</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text" >
+             <string>Gamefile:</string>
+            </property>
+            <property name="buddy" >
+             <cstring>lineEditGameFile</cstring>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEditGameFile" />
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnGameFile" >
+            <property name="minimumSize" >
+             <size>
+              <width>20</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="maximumSize" >
+             <size>
+              <width>20</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="text" >
+             <string>...</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="hlGameFolder" >
+          <item>
+           <widget class="QLabel" name="labelGameFolder" >
+            <property name="minimumSize" >
+             <size>
+              <width>110</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize" >
+             <size>
+              <width>110</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text" >
+             <string>Gamefolder:</string>
+            </property>
+            <property name="buddy" >
+             <cstring>lineEditGameFolder</cstring>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEditGameFolder" />
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnGameFolder" >
+            <property name="minimumSize" >
+             <size>
+              <width>20</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="maximumSize" >
+             <size>
+              <width>20</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="text" >
+             <string>...</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="4" column="0" >
+    <spacer name="vsGameSettings" >
+     <property name="orientation" >
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0" >
+      <size>
+       <width>548</width>
+       <height>295</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>groupBoxInstallSettings</tabstop>
+  <tabstop>btnSetupFile</tabstop>
+  <tabstop>lineEditInstallSetupFile</tabstop>
+  <tabstop>btnInstallFolder</tabstop>
+  <tabstop>lineEditInstallFolder</tabstop>
+  <tabstop>groupBoxGameSettings</tabstop>
+  <tabstop>btnGameFile</tabstop>
+  <tabstop>lineEditGameFile</tabstop>
+  <tabstop>btnGameFolder</tabstop>
+  <tabstop>lineEditGameFolder</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

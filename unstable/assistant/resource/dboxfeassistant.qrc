@@ -1,0 +1,8 @@
+<RCC>
+  <qresource prefix="/" >
+    <file alias="logo_wizard_image">gamewizardlogo.png</file>
+    <file alias="watermark_wizard_image">gamewizard.png</file>
+    <file alias="default_conf">default.conf</file>
+    <file alias="install_conf">installation.conf</file>
+  </qresource>
+</RCC>

@@ -1,0 +1,33 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE KDevPrjSession>
+<KDevPrjSession>
+ <DocsAndViews NumberOfDocuments="3" >
+  <Doc0 NumberOfViews="1" URL="file:///home/alex/projekte/dboxfe/assistant/include/gamewizard.h" >
+   <View0 Encoding="" line="114" Type="Source" />
+  </Doc0>
+  <Doc1 NumberOfViews="1" URL="file:///home/alex/projekte/dboxfe/assistant/src/gamewizard.cpp" >
+   <View0 Encoding="" line="66" Type="Source" />
+  </Doc1>
+  <Doc2 NumberOfViews="1" URL="file:///home/alex/projekte/dboxfe/assistant/src/installpage.cpp" >
+   <View0 Encoding="" line="7" Type="Source" />
+  </Doc2>
+ </DocsAndViews>
+ <pluginList>
+  <kdevdebugger>
+   <breakpointList/>
+   <showInternalCommands value="0" />
+  </kdevdebugger>
+  <kdevastyle>
+   <AStyle FStyle="GLOBAL" />
+  </kdevastyle>
+  <kdevbookmarks>
+   <bookmarks/>
+  </kdevbookmarks>
+  <kdevvalgrind>
+   <executable path="" params="" />
+   <valgrind path="" params="" />
+   <calltree path="" params="" />
+   <kcachegrind path="" />
+  </kdevvalgrind>
+ </pluginList>
+</KDevPrjSession>
