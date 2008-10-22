@@ -79,10 +79,20 @@ namespace asaal {
     QTextStream installTextStream( &installConf );
     QString m_conf = installTextStream.readAll();
 
+    QString keyboardLayout = QLocale::languageToString( QLocale::system().language() );
+    if( keyboardLayout == "German" ) {
+      keyboardLayout = "GR";
+
+    } else {
+      keyboardLayout = "none";
+    }
+
     QFileInfo dvdDirectory( installSetupFile );
+
+    m_conf.replace( "$(KEYBOARD_LAYOUT)", keyboardLayout );
     m_conf.replace( "$(DVD_CD_DIRECTORY)", dvdDirectory.absolutePath() );
     m_conf.replace( "$(INSTALLATION_DIRECTORY)", installFolder );
-    m_conf.replace( "$(SETUP_EXECUTABLE)", installSetupFile );
+    m_conf.replace( "$(SETUP_EXECUTABLE)", dvdDirectory.fileName() );
 
     // Close install config
     installConf.flush();
