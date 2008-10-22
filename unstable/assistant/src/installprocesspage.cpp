@@ -205,18 +205,19 @@ namespace asaal {
     connect( m_installProcess, SIGNAL( error( QProcess::ProcessError ) ), this, SLOT( processError( QProcess::ProcessError ) ) );
 
     progressBarInstallation->setValue( 70 );
-    listWidgetDosBoxProcessStatus->addItem( tr( "        connect process" ) );
+    listWidgetDosBoxProcessStatus->addItem( tr( "        wait for user" ) );
     listWidgetDosBoxProcessStatus->addItem( "" );
 
     while ( m_installProcess->waitForFinished() ) {
 
       if ( button ) {
+        button->setEnabled( true );
+        
         progressBarInstallation->setValue( 100 );
         listWidgetDosBoxProcessStatus->addItem( "" );
         listWidgetDosBoxProcessStatus->addItem( tr( "        finish" ) );
         listWidgetDosBoxProcessStatus->addItem( "" );
         listWidgetDosBoxProcessStatus->addItem( tr( "dboxfe: click 'Next' to configure your game" ) );
-        button->setEnabled( true );
       }
     }
 
