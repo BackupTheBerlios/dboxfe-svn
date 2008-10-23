@@ -1,8 +1,12 @@
 <RCC>
   <qresource prefix="/" >
-    <file alias="logo_wizard_image">gamewizardlogo.png</file>
-    <file alias="watermark_wizard_image">gamewizard.png</file>
-    <file alias="default_conf">default.conf</file>
-    <file alias="install_conf">installation.conf</file>
+    <file alias="logo_wizard_image" >gamewizardlogo.png</file>
+    <file alias="watermark_wizard_image" >gamewizard.png</file>
+    <file alias="default_conf" >default.conf</file>
+    <file alias="install_conf" >installation.conf</file>
+    <file alias="arrow_up" >../../resource/arrow-up_16.png</file>
+    <file alias="arrow_down" >../../resource/arrow-down_16.png</file>
+    <file alias="folder_open" >../../resource/folder-open_16.png</file>
+    <file alias="dboxfe_image" >../../resource/default.png</file>
   </qresource>
 </RCC>
