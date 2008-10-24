@@ -38,7 +38,7 @@
       <attribute name="title" >
        <string>Autoexec</string>
       </attribute>
-      <layout class="QGridLayout" name="glAutoexecConfig" >
+      <layout class="QGridLayout" name="gridLayout" >
        <item row="0" column="0" >
         <layout class="QVBoxLayout" name="vlAutoexecMount" >
          <item>
@@ -61,12 +61,12 @@
               <string>Mount as:</string>
              </property>
              <property name="buddy" >
-              <cstring>cbxAutoexecDirectoryOption</cstring>
+              <cstring>comboBoxAutoexecDirectory</cstring>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QComboBox" name="cbxAutoexecDirectoryOption" >
+            <widget class="QComboBox" name="comboBoxAutoexecDirectory" >
              <item>
               <property name="text" >
                <string>Default</string>
@@ -114,12 +114,12 @@
               <string>CDROM/DVD:</string>
              </property>
              <property name="buddy" >
-              <cstring>cbxAutoexecCDDVDROMOption</cstring>
+              <cstring>comboBoxAutoexecCDDVD</cstring>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QComboBox" name="cbxAutoexecCDDVDROMOption" >
+            <widget class="QComboBox" name="comboBoxAutoexecCDDVD" >
              <property name="enabled" >
               <bool>false</bool>
              </property>
@@ -160,12 +160,12 @@
               <string>Imagetyp</string>
              </property>
              <property name="buddy" >
-              <cstring>cbxAutoexecCDDVDROMOption</cstring>
+              <cstring>comboBoxAutoexecCDDVD</cstring>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QComboBox" name="cbxAutoexecImageTyp" >
+            <widget class="QComboBox" name="comboBoxAutoexecImageTyp" >
              <property name="enabled" >
               <bool>false</bool>
              </property>
@@ -207,12 +207,12 @@
               <string>Imageformat</string>
              </property>
              <property name="buddy" >
-              <cstring>cbxAutoexecCDDVDROMOption</cstring>
+              <cstring>comboBoxAutoexecCDDVD</cstring>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QComboBox" name="cbxAutoexecImageFormat" >
+            <widget class="QComboBox" name="comboBoxAutoexecImageFormat" >
              <property name="enabled" >
               <bool>false</bool>
              </property>
@@ -258,12 +258,12 @@
               <string>Size:</string>
              </property>
              <property name="buddy" >
-              <cstring>cbxAutoexecCDDVDROMOption</cstring>
+              <cstring>comboBoxAutoexecCDDVD</cstring>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="LEImageSize" >
+            <widget class="QLineEdit" name="lineEditImageSize" >
              <property name="enabled" >
               <bool>false</bool>
              </property>
@@ -302,12 +302,12 @@
               <string>HDD mode:</string>
              </property>
              <property name="buddy" >
-              <cstring>cbxAutoexecCDDVDROMOption</cstring>
+              <cstring>comboBoxAutoexecCDDVD</cstring>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QComboBox" name="cbxAutoexecImageHddMode" >
+            <widget class="QComboBox" name="comboBoxAutoexecImageHddMode" >
              <property name="enabled" >
               <bool>false</bool>
              </property>

@@ -36,6 +36,9 @@ namespace asaal {
     setupUi( this );
     setTitle( tr( "Misc. option" ) );
     setSubTitle( tr( "Specify basic information about the misc. for selected game." ) );
+    
+    // register fields
+    registerField( "", NULL );
   }
 
   int MiscPage::nextId() const {
