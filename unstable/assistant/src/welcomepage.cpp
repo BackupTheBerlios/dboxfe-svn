@@ -34,6 +34,8 @@ namespace asaal {
   WelcomePage::WelcomePage( QWidget *parent ) : QWizardPage( parent ) {
 
     setupUi( this );
+    setTitle( tr( "Welcome" ) );
+    setSubTitle( tr( "Read this information carefully!" ) );
   }
 
   int WelcomePage::nextId() const {
