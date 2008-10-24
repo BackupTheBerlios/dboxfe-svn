@@ -15,7 +15,7 @@
     <absoluteprojectpath>false</absoluteprojectpath>
     <description/>
     <defaultencoding/>
-    <versioncontrol/>
+    <versioncontrol>kdevsubversion</versioncontrol>
   </general>
   <kdevfileview>
     <groups>
@@ -29,6 +29,7 @@
     <tree>
       <hidepatterns>*.o,*.lo,CVS</hidepatterns>
       <hidenonprojectfiles>false</hidenonprojectfiles>
+      <showvcsfields>false</showvcsfields>
     </tree>
   </kdevfileview>
   <kdevdoctreeview>
@@ -94,8 +95,8 @@
       <includestyle>4</includestyle>
       <designerintegration>ExternalDesigner</designerintegration>
       <root>/usr/lib/qt4</root>
-      <qmake>/usr/bin/qmake</qmake>
-      <designer>/usr/bin/designer</designer>
+      <qmake>/usr/bin/qmake-qt4</qmake>
+      <designer>/usr/bin/designer-qt4</designer>
       <designerpluginpaths/>
     </qt>
     <codecompletion>
@@ -153,10 +154,10 @@
     </general>
     <run>
       <directoryradio>executable</directoryradio>
-      <mainprogram/>
+      <mainprogram>/home/alex/projekte/qt/dboxfe</mainprogram>
       <programargs/>
       <globaldebugarguments/>
-      <globalcwd/>
+      <globalcwd>/home/alex/projekte/qt/dboxfe</globalcwd>
       <useglobalprogram>false</useglobalprogram>
       <terminal>false</terminal>
       <autocompile>true</autocompile>
@@ -197,7 +198,7 @@
   </kdevdocumentation>
   <ctagspart>
     <customArguments/>
-    <customTagfilePath>/home/projekte/cpp/private/dboxfe/tags</customTagfilePath>
+    <customTagfilePath>/home/alex/projekte/qt/dboxfe/tags</customTagfilePath>
     <activeTagsFiles/>
   </ctagspart>
 </kdevelop>
