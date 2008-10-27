@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="/" >
     <file alias="dboxfe_image" >../../resource/default.png</file>
+    <file alias="license">../../resource/LICENSE.GPL</file>
   </qresource>
 </RCC>

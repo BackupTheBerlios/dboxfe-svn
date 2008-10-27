@@ -23,46 +23,29 @@
 *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
 ***************************************************************************/
 
-#ifndef TRAY_H
-#define TRAY_H
+#ifndef TRAYICONABOUT_H
+#define TRAYICONABOUT_H
+
+#include <ui_about.h>
 
 #include <QtGui>
 #include <QtCore>
 
 namespace asaal {
 
-  class TrayIcon : public QWidget {
+  class TrayIconAbout : public QWidget, public Ui::UiTrayAbout {
+
       Q_OBJECT
 
     public:
-      TrayIcon();
+      TrayIconAbout( QWidget *parent = 0, const QString &license = QString() );
+      inline virtual ~TrayIconAbout() {}
 
-      void setVisible( bool visible );
-
-    private:
-      QString getAppVersion() { return tr( "v0.2.5" ); }
-      QString getAppTitel() { return tr( "DBoxFE - TrayIcon" ); }
-
-      QSystemTrayIcon *trayIcon;
-      QMenu *trayIconMenu;
-      QAction *trayAction;
-      QString m_file;
-      QString dosbox;
-      QProcess *m_DosBoxProcess;
-      QProcess *m_ProcessDboxfe;
-      QStringList m_param;
-      QTimer *update;
-
+	  private:
+      QString m_License;
+	  
     protected:
       void closeEvent( QCloseEvent *e );
-
-    private slots:
-      void aboutTrayIcon();
-      void createMenu();
-      void reloadMenu();
-      void startGame();
-      void startdboxfe();
-      void start( const QString& bin, const QString &param, const QString &conf );
   };
 }
 

@@ -29,10 +29,12 @@ QT += xml
 FORMS += ui/about.ui
 
 # Project Header
+HEADERS += include/about.h
 HEADERS += include/tray.h
 
 # Project Source
 SOURCES += src/main.cpp
+SOURCES += src/about.cpp
 SOURCES += src/tray.cpp
 
 # 3rdparty Header

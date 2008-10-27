@@ -24,6 +24,7 @@
 ***************************************************************************/
 
 #include <tray.h>
+#include <about.h>
 #include <XMLPreferences.h>
 
 #include <QtGui>
@@ -96,14 +97,20 @@ namespace asaal {
     /* Create action after profile menus */
     trayIconMenu->addSeparator();
 
-    QAction *dboxfeAction = new QAction( "&DBoxFE", this );
+    QAction *dboxfeAction = new QAction( "&Start DBoxFE", this );
     connect( dboxfeAction, SIGNAL( triggered() ), this, SLOT( startdboxfe() ) );
+
+    QAction *dboxfeAboutAction = new QAction( "&About", this );
+    connect( dboxfeAboutAction, SIGNAL( triggered() ), this, SLOT( aboutTrayIcon() ) );
+
+    trayIconMenu->addSeparator();
 
     QAction *quitAction = new QAction( tr( "&Quit" ), this );
     connect( quitAction, SIGNAL( triggered() ), qApp, SLOT( quit() ) );
 
     /* Create trayicon now and set the context menu */
     trayIconMenu->addAction( dboxfeAction );
+    trayIconMenu->addAction( dboxfeAboutAction );
     trayIconMenu->addAction( quitAction );
   }
 
@@ -114,6 +121,12 @@ namespace asaal {
     createMenu();
 
     update->start( 10000 );
+  }
+
+  void TrayIcon::aboutTrayIcon() {
+
+    TrayIconAbout *traiconAbout = new TrayIconAbout();
+    traiconAbout->show();
   }
 
   void TrayIcon::startGame() {

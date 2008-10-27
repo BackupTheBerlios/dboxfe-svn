@@ -23,47 +23,47 @@
 *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
 ***************************************************************************/
 
-#ifndef TRAY_H
-#define TRAY_H
+#include <about.h>
 
-#include <QtGui>
 #include <QtCore>
+#include <QtGui>
 
 namespace asaal {
 
-  class TrayIcon : public QWidget {
-      Q_OBJECT
+  TrayIconAbout::TrayIconAbout( QWidget * parent, const QString &license ) : QWidget( parent ), m_License( license ) {
 
-    public:
-      TrayIcon();
+    setupUi( this );
 
-      void setVisible( bool visible );
+    connect( btnAboutQt, SIGNAL( clicked() ), this, SLOT( aboutQt() ) );
 
-    private:
-      QString getAppVersion() { return tr( "v0.2.5" ); }
-      QString getAppTitel() { return tr( "DBoxFE - TrayIcon" ); }
+    if( !m_License.isEmpty() || !m_License.isNull() ) {
+      textEditTrayAboutLicense->setPlainText( m_License );
 
-      QSystemTrayIcon *trayIcon;
-      QMenu *trayIconMenu;
-      QAction *trayAction;
-      QString m_file;
-      QString dosbox;
-      QProcess *m_DosBoxProcess;
-      QProcess *m_ProcessDboxfe;
-      QStringList m_param;
-      QTimer *update;
+    } else {
+      QString lic = QString( ":/license" );
 
-    protected:
-      void closeEvent( QCloseEvent *e );
+      QFile licFile( lic );
+      if( !licFile.open( QIODevice::ReadOnly | QIODevice::Text) ) {
 
-    private slots:
-      void aboutTrayIcon();
-      void createMenu();
-      void reloadMenu();
-      void startGame();
-      void startdboxfe();
-      void start( const QString& bin, const QString &param, const QString &conf );
-  };
+        return;
+      }
+
+      QTextStream licStream( &licFile );
+      lic = licStream.readAll();
+      licFile.close();
+
+      textEditTrayAboutLicense->setPlainText( lic );
+    }
+
+    QDesktopWidget *desktop = qApp->desktop();
+    const QRect rect = desktop->availableGeometry( desktop->primaryScreen() );
+    int left = ( rect.width() - width() ) / 2;
+    int top = ( rect.height() - height() ) / 2;
+    setGeometry( left, top, width(), height() );
+  }
+  
+  void TrayIconAbout::closeEvent( QCloseEvent *e ) {
+
+    e->accept();
+  }
 }
-
-#endif // TRAY_H
