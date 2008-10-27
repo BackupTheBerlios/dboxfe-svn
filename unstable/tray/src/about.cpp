@@ -34,7 +34,7 @@ namespace asaal {
 
     setupUi( this );
 
-    connect( btnAboutQt, SIGNAL( clicked() ), this, SLOT( aboutQt() ) );
+    connect( btnAboutQt, SIGNAL( clicked() ), qApp, SLOT( aboutQt() ) );
 
     if( !m_License.isEmpty() || !m_License.isNull() ) {
       textEditTrayAboutLicense->setPlainText( m_License );
