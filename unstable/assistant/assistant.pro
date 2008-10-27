@@ -32,6 +32,7 @@ FORMS += ui/graphicpage.ui
 FORMS += ui/installpage.ui
 FORMS += ui/installprocesspage.ui
 FORMS += ui/miscpage.ui
+FORMS += ui/settingpage.ui
 FORMS += ui/soundpage.ui
 FORMS += ui/welcomepage.ui
 
@@ -42,6 +43,7 @@ HEADERS += include/graphicpage.h
 HEADERS += include/installpage.h
 HEADERS += include/installprocesspage.h
 HEADERS += include/miscpage.h
+HEADERS += include/settingpage.h
 HEADERS += include/soundpage.h
 HEADERS += include/welcomepage.h
 
@@ -53,6 +55,7 @@ SOURCES += src/graphicpage.cpp
 SOURCES += src/installpage.cpp
 SOURCES += src/installprocesspage.cpp
 SOURCES += src/miscpage.cpp
+SOURCES += src/settingpage.cpp
 SOURCES += src/soundpage.cpp
 SOURCES += src/welcomepage.cpp
 
