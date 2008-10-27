@@ -1,553 +1,747 @@
-<?xml version="1.0" encoding = "Windows-1252"?>
+<?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9,00"
 	Name="dboxfeassistant"
 	ProjectGUID="{26F6AA84-9CEE-3FEF-B56F-E96AD0711884}"
-	Keyword="Qt4VSv1.0">
+	Keyword="Qt4VSv1.0"
+	TargetFrameworkVersion="0"
+	>
 	<Platforms>
 		<Platform
-			Name="Win32"/>
+			Name="Win32"
+		/>
 	</Platforms>
+	<ToolFiles>
+	</ToolFiles>
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
 			OutputDirectory="."
-			ATLMinimizesCRunTimeLibraryUsage="false"
-			ConfigurationType="1"
 			IntermediateDirectory="..\build\dboxfeassistant\win\obj\"
-			UseOfMfc="0">
+			ConfigurationType="1"
+			UseOfMFC="0"
+			ATLMinimizesCRunTimeLibraryUsage="false"
+			>
 			<Tool
-				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="&quot;$(QTDIR)\include\QtCore&quot;,&quot;$(QTDIR)\include\QtCore&quot;,&quot;$(QTDIR)\include\QtGui&quot;,&quot;$(QTDIR)\include\QtGui&quot;,&quot;$(QTDIR)\include\QtXml&quot;,&quot;$(QTDIR)\include\QtXml&quot;,&quot;$(QTDIR)\include&quot;,&quot;include&quot;,&quot;ui&quot;,&quot;..\3rdparty&quot;,&quot;$(QTDIR)\include\ActiveQt&quot;,&quot;..\build\dboxfeassistant\win\moc&quot;,&quot;..\build\dboxfeassistant\win\ui&quot;,$(QTDIR)\mkspecs\win32-msvc2008"
-				AdditionalOptions="-Zm200 -w34100 -w34189 -Zm200 -w34100 -w34189 -w34100 -w34189"
-				AssemblerListingLocation="..\build\dboxfeassistant\win\obj\"
-				BufferSecurityCheck="false"
-				DebugInformationFormat="3"
-				ExceptionHandling="1"
-				GeneratePreprocessedFile="0"
-				ObjectFile="..\build\dboxfeassistant\win\obj\"
-				Optimization ="4"
-				PreprocessorDefinitions="_WINDOWS,UNICODE,WIN32,QT_LARGEFILE_SUPPORT,QT_DLL,QT_XML_LIB,QT_GUI_LIB,QT_CORE_LIB,QT_THREAD_SUPPORT"
-				ProgramDataBaseFileName=".\"
-				RuntimeLibrary="3"
-				RuntimeTypeInfo="true"
-				SuppressStartupBanner="true"
-				TreatWChar_tAsBuiltInType="false"
-				WarningLevel="3"/>
+				Name="VCPreBuildEventTool"
+			/>
 			<Tool
-				Name="VCCustomBuildTool"/>
+				Name="VCCustomBuildTool"
+			/>
 			<Tool
-				Name="VCLinkerTool"
-				AdditionalDependencies="$(QTDIR)\lib\qtmaind.lib $(QTDIR)\lib\QtXmld4.lib $(QTDIR)\lib\QtGuid4.lib $(QTDIR)\lib\QtCored4.lib"
-				AdditionalLibraryDirectories="$(QTDIR)\lib"
-				AdditionalOptions="&quot;/MANIFESTDEPENDENCY:type=&apos;win32&apos; name=&apos;Microsoft.Windows.Common-Controls&apos; version=&apos;6.0.0.0&apos; publicKeyToken=&apos;6595b64144ccf1df&apos; language=&apos;*&apos; processorArchitecture=&apos;*&apos;&quot; &quot;/MANIFESTDEPENDENCY:type=&apos;win32&apos; name=&apos;Microsoft.Windows.Common-Controls&apos; version=&apos;6.0.0.0&apos; publicKeyToken=&apos;6595b64144ccf1df&apos; language=&apos;*&apos; processorArchitecture=&apos;*&apos;&quot;"
-				GenerateDebugInformation="true"
-				IgnoreImportLibrary="true"
-				LinkTimeCodeGeneration="0"
-				OutputFile="..\bin\dboxfeassistant.exe"
-				ProgramDatabaseFile=""
-				SubSystem="2"
-				SuppressStartupBanner="true"/>
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
 			<Tool
 				Name="VCMIDLTool"
+				WarningLevel="0"
 				DefaultCharType="0"
 				EnableErrorChecks="1"
-				WarningLevel="0"/>
+			/>
 			<Tool
-				Name="VCPostBuildEventTool"/>
+				Name="VCCLCompilerTool"
+				AdditionalOptions="-Zm200 -w34100 -w34189 -Zm200 -w34100 -w34189 -w34100 -w34189"
+				Optimization="0"
+				AdditionalIncludeDirectories="&quot;$(QTDIR)\include\QtCore&quot;,&quot;$(QTDIR)\include\QtCore&quot;,&quot;$(QTDIR)\include\QtGui&quot;,&quot;$(QTDIR)\include\QtGui&quot;,&quot;$(QTDIR)\include\QtXml&quot;,&quot;$(QTDIR)\include\QtXml&quot;,&quot;$(QTDIR)\include&quot;,&quot;include&quot;,&quot;ui&quot;,&quot;..\3rdparty&quot;,&quot;$(QTDIR)\include\ActiveQt&quot;,&quot;..\build\dboxfeassistant\win\moc&quot;,&quot;..\build\dboxfeassistant\win\ui&quot;,$(QTDIR)\mkspecs\win32-msvc2008"
+				PreprocessorDefinitions="_WINDOWS,UNICODE,WIN32,QT_LARGEFILE_SUPPORT,QT_DLL,QT_XML_LIB,QT_GUI_LIB,QT_CORE_LIB,QT_THREAD_SUPPORT"
+				GeneratePreprocessedFile="0"
+				ExceptionHandling="1"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="3"
+				BufferSecurityCheck="false"
+				TreatWChar_tAsBuiltInType="false"
+				RuntimeTypeInfo="true"
+				AssemblerListingLocation="..\build\dboxfeassistant\win\obj\"
+				ObjectFile="..\build\dboxfeassistant\win\obj\"
+				ProgramDataBaseFileName=".\"
+				WarningLevel="3"
+				SuppressStartupBanner="true"
+				DebugInformationFormat="3"
+			/>
 			<Tool
-				Name="VCPreBuildEventTool"/>
-			<Tool
-				Name="VCPreLinkEventTool"/>
+				Name="VCManagedResourceCompilerTool"
+			/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="_WINDOWS,UNICODE,WIN32,QT_LARGEFILE_SUPPORT,QT_DLL,QT_XML_LIB,QT_GUI_LIB,QT_CORE_LIB,QT_THREAD_SUPPORT,_DEBUG"/>
+				PreprocessorDefinitions="_WINDOWS,UNICODE,WIN32,QT_LARGEFILE_SUPPORT,QT_DLL,QT_XML_LIB,QT_GUI_LIB,QT_CORE_LIB,QT_THREAD_SUPPORT,_DEBUG"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				IgnoreImportLibrary="true"
+				AdditionalOptions="&quot;/MANIFESTDEPENDENCY:type=&apos;win32&apos; name=&apos;Microsoft.Windows.Common-Controls&apos; version=&apos;6.0.0.0&apos; publicKeyToken=&apos;6595b64144ccf1df&apos; language=&apos;*&apos; processorArchitecture=&apos;*&apos;&quot; &quot;/MANIFESTDEPENDENCY:type=&apos;win32&apos; name=&apos;Microsoft.Windows.Common-Controls&apos; version=&apos;6.0.0.0&apos; publicKeyToken=&apos;6595b64144ccf1df&apos; language=&apos;*&apos; processorArchitecture=&apos;*&apos;&quot;"
+				AdditionalDependencies="$(QTDIR)\lib\qtmaind.lib $(QTDIR)\lib\QtXmld4.lib $(QTDIR)\lib\QtGuid4.lib $(QTDIR)\lib\QtCored4.lib"
+				OutputFile="..\bin\dboxfeassistant.exe"
+				SuppressStartupBanner="true"
+				AdditionalLibraryDirectories="$(QTDIR)\lib"
+				GenerateDebugInformation="true"
+				ProgramDatabaseFile=""
+				SubSystem="2"
+				LinkTimeCodeGeneration="0"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="."
-			ATLMinimizesCRunTimeLibraryUsage="false"
-			ConfigurationType="1"
 			IntermediateDirectory="..\build\dboxfeassistant\win\obj\"
-			UseOfMfc="0">
+			ConfigurationType="1"
+			UseOfMFC="0"
+			ATLMinimizesCRunTimeLibraryUsage="false"
+			>
 			<Tool
-				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="&quot;$(QTDIR)\include\QtCore&quot;,&quot;$(QTDIR)\include\QtCore&quot;,&quot;$(QTDIR)\include\QtGui&quot;,&quot;$(QTDIR)\include\QtGui&quot;,&quot;$(QTDIR)\include\QtXml&quot;,&quot;$(QTDIR)\include\QtXml&quot;,&quot;$(QTDIR)\include&quot;,&quot;include&quot;,&quot;ui&quot;,&quot;..\3rdparty&quot;,&quot;$(QTDIR)\include\ActiveQt&quot;,&quot;..\build\dboxfeassistant\win\moc&quot;,&quot;..\build\dboxfeassistant\win\ui&quot;,$(QTDIR)\mkspecs\win32-msvc2008"
-				AdditionalOptions="-Zm200 -w34100 -w34189 -Zm200 -w34100 -w34189 -w34100 -w34189"
-				AssemblerListingLocation="..\build\dboxfeassistant\win\obj\"
-				BufferSecurityCheck="false"
-				DebugInformationFormat="0"
-				ExceptionHandling="1"
-				GeneratePreprocessedFile="0"
-				ObjectFile="..\build\dboxfeassistant\win\obj\"
-				Optimization ="2"
-				PreprocessorDefinitions="QT_NO_DEBUG,NDEBUG,_WINDOWS,UNICODE,WIN32,QT_LARGEFILE_SUPPORT,QT_DLL,QT_NO_DEBUG,QT_XML_LIB,QT_GUI_LIB,QT_CORE_LIB,QT_THREAD_SUPPORT,NDEBUG"
-				ProgramDataBaseFileName=".\"
-				RuntimeLibrary="2"
-				RuntimeTypeInfo="true"
-				SuppressStartupBanner="true"
-				TreatWChar_tAsBuiltInType="false"
-				WarningLevel="3"/>
+				Name="VCPreBuildEventTool"
+			/>
 			<Tool
-				Name="VCCustomBuildTool"/>
+				Name="VCCustomBuildTool"
+			/>
 			<Tool
-				Name="VCLinkerTool"
-				AdditionalDependencies="$(QTDIR)\lib\qtmain.lib $(QTDIR)\lib\QtXml4.lib $(QTDIR)\lib\QtGui4.lib $(QTDIR)\lib\QtCore4.lib"
-				AdditionalLibraryDirectories="$(QTDIR)\lib"
-				AdditionalOptions="&quot;/MANIFESTDEPENDENCY:type=&apos;win32&apos; name=&apos;Microsoft.Windows.Common-Controls&apos; version=&apos;6.0.0.0&apos; publicKeyToken=&apos;6595b64144ccf1df&apos; language=&apos;*&apos; processorArchitecture=&apos;*&apos;&quot; &quot;/MANIFESTDEPENDENCY:type=&apos;win32&apos; name=&apos;Microsoft.Windows.Common-Controls&apos; version=&apos;6.0.0.0&apos; publicKeyToken=&apos;6595b64144ccf1df&apos; language=&apos;*&apos; processorArchitecture=&apos;*&apos;&quot;"
-				GenerateDebugInformation="false"
-				IgnoreImportLibrary="true"
-				LinkIncremental="1"
-				LinkTimeCodeGeneration="0"
-				OutputFile="..\bin\dboxfeassistant.exe"
-				ProgramDatabaseFile=""
-				SubSystem="2"
-				SuppressStartupBanner="true"/>
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
 			<Tool
 				Name="VCMIDLTool"
+				WarningLevel="0"
 				DefaultCharType="0"
 				EnableErrorChecks="1"
-				WarningLevel="0"/>
+			/>
 			<Tool
-				Name="VCPostBuildEventTool"/>
+				Name="VCCLCompilerTool"
+				AdditionalOptions="-Zm200 -w34100 -w34189 -Zm200 -w34100 -w34189 -w34100 -w34189"
+				Optimization="0"
+				AdditionalIncludeDirectories="&quot;$(QTDIR)\include\QtCore&quot;,&quot;$(QTDIR)\include\QtCore&quot;,&quot;$(QTDIR)\include\QtGui&quot;,&quot;$(QTDIR)\include\QtGui&quot;,&quot;$(QTDIR)\include\QtXml&quot;,&quot;$(QTDIR)\include\QtXml&quot;,&quot;$(QTDIR)\include&quot;,&quot;include&quot;,&quot;ui&quot;,&quot;..\3rdparty&quot;,&quot;$(QTDIR)\include\ActiveQt&quot;,&quot;..\build\dboxfeassistant\win\moc&quot;,&quot;..\build\dboxfeassistant\win\ui&quot;,$(QTDIR)\mkspecs\win32-msvc2008"
+				PreprocessorDefinitions="QT_NO_DEBUG,NDEBUG,_WINDOWS,UNICODE,WIN32,QT_LARGEFILE_SUPPORT,QT_DLL,QT_NO_DEBUG,QT_XML_LIB,QT_GUI_LIB,QT_CORE_LIB,QT_THREAD_SUPPORT,NDEBUG"
+				GeneratePreprocessedFile="0"
+				ExceptionHandling="1"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="2"
+				BufferSecurityCheck="false"
+				TreatWChar_tAsBuiltInType="false"
+				RuntimeTypeInfo="true"
+				AssemblerListingLocation="..\build\dboxfeassistant\win\obj\"
+				ObjectFile="..\build\dboxfeassistant\win\obj\"
+				ProgramDataBaseFileName=".\"
+				WarningLevel="3"
+				SuppressStartupBanner="true"
+				DebugInformationFormat="0"
+			/>
 			<Tool
-				Name="VCPreBuildEventTool"/>
-			<Tool
-				Name="VCPreLinkEventTool"/>
+				Name="VCManagedResourceCompilerTool"
+			/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="QT_NO_DEBUG,NDEBUG,_WINDOWS,UNICODE,WIN32,QT_LARGEFILE_SUPPORT,QT_DLL,QT_NO_DEBUG,QT_XML_LIB,QT_GUI_LIB,QT_CORE_LIB,QT_THREAD_SUPPORT"/>
+				PreprocessorDefinitions="QT_NO_DEBUG,NDEBUG,_WINDOWS,UNICODE,WIN32,QT_LARGEFILE_SUPPORT,QT_DLL,QT_NO_DEBUG,QT_XML_LIB,QT_GUI_LIB,QT_CORE_LIB,QT_THREAD_SUPPORT"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				IgnoreImportLibrary="true"
+				AdditionalOptions="&quot;/MANIFESTDEPENDENCY:type=&apos;win32&apos; name=&apos;Microsoft.Windows.Common-Controls&apos; version=&apos;6.0.0.0&apos; publicKeyToken=&apos;6595b64144ccf1df&apos; language=&apos;*&apos; processorArchitecture=&apos;*&apos;&quot; &quot;/MANIFESTDEPENDENCY:type=&apos;win32&apos; name=&apos;Microsoft.Windows.Common-Controls&apos; version=&apos;6.0.0.0&apos; publicKeyToken=&apos;6595b64144ccf1df&apos; language=&apos;*&apos; processorArchitecture=&apos;*&apos;&quot;"
+				AdditionalDependencies="$(QTDIR)\lib\qtmain.lib $(QTDIR)\lib\QtXml4.lib $(QTDIR)\lib\QtGui4.lib $(QTDIR)\lib\QtCore4.lib"
+				OutputFile="..\bin\dboxfeassistant.exe"
+				LinkIncremental="1"
+				SuppressStartupBanner="true"
+				AdditionalLibraryDirectories="$(QTDIR)\lib"
+				GenerateDebugInformation="false"
+				ProgramDatabaseFile=""
+				SubSystem="2"
+				LinkTimeCodeGeneration="0"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
 		</Configuration>
 	</Configurations>
+	<References>
+	</References>
 	<Files>
 		<Filter
 			Name="Source Files"
 			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx"
-			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}">
+			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
+			>
 			<File
-				RelativePath="..\3rdparty\Base64.cpp"/>
+				RelativePath="..\3rdparty\Base64.cpp"
+				>
+			</File>
 			<File
-				RelativePath="..\3rdparty\XMLPreferences.cpp"/>
+				RelativePath="src\finishpage.cpp"
+				>
+			</File>
 			<File
-				RelativePath="..\3rdparty\XMLWriter.cpp"/>
+				RelativePath="src\gamewizard.cpp"
+				>
+			</File>
 			<File
-				RelativePath="src\finishpage.cpp"/>
+				RelativePath="src\graphicpage.cpp"
+				>
+			</File>
 			<File
-				RelativePath="src\gamewizard.cpp"/>
+				RelativePath="src\installpage.cpp"
+				>
+			</File>
 			<File
-				RelativePath="src\graphicpage.cpp"/>
+				RelativePath="src\installprocesspage.cpp"
+				>
+			</File>
 			<File
-				RelativePath="src\installpage.cpp"/>
+				RelativePath="src\main.cpp"
+				>
+			</File>
 			<File
-				RelativePath="src\installprocesspage.cpp"/>
+				RelativePath="src\miscpage.cpp"
+				>
+			</File>
 			<File
-				RelativePath="src\main.cpp"/>
+				RelativePath="src\soundpage.cpp"
+				>
+			</File>
 			<File
-				RelativePath="src\miscpage.cpp"/>
+				RelativePath="src\welcomepage.cpp"
+				>
+			</File>
 			<File
-				RelativePath="src\soundpage.cpp"/>
+				RelativePath="..\3rdparty\XMLPreferences.cpp"
+				>
+			</File>
 			<File
-				RelativePath="src\welcomepage.cpp"/>
+				RelativePath="..\3rdparty\XMLWriter.cpp"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
-			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}">
+			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
+			>
 			<File
-				RelativePath="..\3rdparty\Base64.h"/>
+				RelativePath="..\3rdparty\Base64.h"
+				>
+			</File>
 			<File
-				RelativePath="..\3rdparty\XMLPreferences.h"/>
-			<File
-				RelativePath="..\3rdparty\XMLWriter.h"/>
-			<File
-				RelativePath="include\finishpage.h">
+				RelativePath="include\finishpage.h"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCustomBuildTool"
-						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\finishpage.h"
-						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfeassistant\win\moc&quot; -I&quot;..\build\dboxfeassistant\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\finishpage.h -o ..\build\dboxfeassistant\win\moc\moc_finishpage.cpp"
 						Description="MOC include\finishpage.h"
-						Outputs="..\build\dboxfeassistant\win\moc\moc_finishpage.cpp"
-						Path="$(QTDIR)\bin"/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
+						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfeassistant\win\moc&quot; -I&quot;..\build\dboxfeassistant\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\finishpage.h -o ..\build\dboxfeassistant\win\moc\moc_finishpage.cpp&#x0D;&#x0A;"
 						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\finishpage.h"
-						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfeassistant\win\moc&quot; -I&quot;..\build\dboxfeassistant\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\finishpage.h -o ..\build\dboxfeassistant\win\moc\moc_finishpage.cpp"
-						Description="MOC include\finishpage.h"
 						Outputs="..\build\dboxfeassistant\win\moc\moc_finishpage.cpp"
-						Path="$(QTDIR)\bin"/>
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC include\finishpage.h"
+						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfeassistant\win\moc&quot; -I&quot;..\build\dboxfeassistant\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\finishpage.h -o ..\build\dboxfeassistant\win\moc\moc_finishpage.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\finishpage.h"
+						Outputs="..\build\dboxfeassistant\win\moc\moc_finishpage.cpp"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="include\gamewizard.h">
+				RelativePath="include\gamewizard.h"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCustomBuildTool"
-						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\gamewizard.h"
-						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfeassistant\win\moc&quot; -I&quot;..\build\dboxfeassistant\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\gamewizard.h -o ..\build\dboxfeassistant\win\moc\moc_gamewizard.cpp"
 						Description="MOC include\gamewizard.h"
-						Outputs="..\build\dboxfeassistant\win\moc\moc_gamewizard.cpp"
-						Path="$(QTDIR)\bin"/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
+						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfeassistant\win\moc&quot; -I&quot;..\build\dboxfeassistant\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\gamewizard.h -o ..\build\dboxfeassistant\win\moc\moc_gamewizard.cpp&#x0D;&#x0A;"
 						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\gamewizard.h"
-						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfeassistant\win\moc&quot; -I&quot;..\build\dboxfeassistant\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\gamewizard.h -o ..\build\dboxfeassistant\win\moc\moc_gamewizard.cpp"
-						Description="MOC include\gamewizard.h"
 						Outputs="..\build\dboxfeassistant\win\moc\moc_gamewizard.cpp"
-						Path="$(QTDIR)\bin"/>
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC include\gamewizard.h"
+						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfeassistant\win\moc&quot; -I&quot;..\build\dboxfeassistant\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\gamewizard.h -o ..\build\dboxfeassistant\win\moc\moc_gamewizard.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\gamewizard.h"
+						Outputs="..\build\dboxfeassistant\win\moc\moc_gamewizard.cpp"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="include\graphicpage.h">
+				RelativePath="include\graphicpage.h"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCustomBuildTool"
-						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\graphicpage.h"
-						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfeassistant\win\moc&quot; -I&quot;..\build\dboxfeassistant\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\graphicpage.h -o ..\build\dboxfeassistant\win\moc\moc_graphicpage.cpp"
 						Description="MOC include\graphicpage.h"
-						Outputs="..\build\dboxfeassistant\win\moc\moc_graphicpage.cpp"
-						Path="$(QTDIR)\bin"/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
+						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfeassistant\win\moc&quot; -I&quot;..\build\dboxfeassistant\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\graphicpage.h -o ..\build\dboxfeassistant\win\moc\moc_graphicpage.cpp&#x0D;&#x0A;"
 						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\graphicpage.h"
-						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfeassistant\win\moc&quot; -I&quot;..\build\dboxfeassistant\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\graphicpage.h -o ..\build\dboxfeassistant\win\moc\moc_graphicpage.cpp"
-						Description="MOC include\graphicpage.h"
 						Outputs="..\build\dboxfeassistant\win\moc\moc_graphicpage.cpp"
-						Path="$(QTDIR)\bin"/>
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC include\graphicpage.h"
+						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfeassistant\win\moc&quot; -I&quot;..\build\dboxfeassistant\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\graphicpage.h -o ..\build\dboxfeassistant\win\moc\moc_graphicpage.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\graphicpage.h"
+						Outputs="..\build\dboxfeassistant\win\moc\moc_graphicpage.cpp"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="include\installpage.h">
+				RelativePath="include\installpage.h"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCustomBuildTool"
-						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\installpage.h"
-						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfeassistant\win\moc&quot; -I&quot;..\build\dboxfeassistant\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\installpage.h -o ..\build\dboxfeassistant\win\moc\moc_installpage.cpp"
 						Description="MOC include\installpage.h"
-						Outputs="..\build\dboxfeassistant\win\moc\moc_installpage.cpp"
-						Path="$(QTDIR)\bin"/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
+						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfeassistant\win\moc&quot; -I&quot;..\build\dboxfeassistant\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\installpage.h -o ..\build\dboxfeassistant\win\moc\moc_installpage.cpp&#x0D;&#x0A;"
 						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\installpage.h"
-						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfeassistant\win\moc&quot; -I&quot;..\build\dboxfeassistant\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\installpage.h -o ..\build\dboxfeassistant\win\moc\moc_installpage.cpp"
-						Description="MOC include\installpage.h"
 						Outputs="..\build\dboxfeassistant\win\moc\moc_installpage.cpp"
-						Path="$(QTDIR)\bin"/>
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC include\installpage.h"
+						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfeassistant\win\moc&quot; -I&quot;..\build\dboxfeassistant\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\installpage.h -o ..\build\dboxfeassistant\win\moc\moc_installpage.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\installpage.h"
+						Outputs="..\build\dboxfeassistant\win\moc\moc_installpage.cpp"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="include\installprocesspage.h">
+				RelativePath="include\installprocesspage.h"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCustomBuildTool"
-						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\installprocesspage.h"
-						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfeassistant\win\moc&quot; -I&quot;..\build\dboxfeassistant\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\installprocesspage.h -o ..\build\dboxfeassistant\win\moc\moc_installprocesspage.cpp"
 						Description="MOC include\installprocesspage.h"
-						Outputs="..\build\dboxfeassistant\win\moc\moc_installprocesspage.cpp"
-						Path="$(QTDIR)\bin"/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
+						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfeassistant\win\moc&quot; -I&quot;..\build\dboxfeassistant\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\installprocesspage.h -o ..\build\dboxfeassistant\win\moc\moc_installprocesspage.cpp&#x0D;&#x0A;"
 						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\installprocesspage.h"
-						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfeassistant\win\moc&quot; -I&quot;..\build\dboxfeassistant\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\installprocesspage.h -o ..\build\dboxfeassistant\win\moc\moc_installprocesspage.cpp"
-						Description="MOC include\installprocesspage.h"
 						Outputs="..\build\dboxfeassistant\win\moc\moc_installprocesspage.cpp"
-						Path="$(QTDIR)\bin"/>
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC include\installprocesspage.h"
+						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfeassistant\win\moc&quot; -I&quot;..\build\dboxfeassistant\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\installprocesspage.h -o ..\build\dboxfeassistant\win\moc\moc_installprocesspage.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\installprocesspage.h"
+						Outputs="..\build\dboxfeassistant\win\moc\moc_installprocesspage.cpp"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="include\miscpage.h">
+				RelativePath="include\miscpage.h"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCustomBuildTool"
-						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\miscpage.h"
-						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfeassistant\win\moc&quot; -I&quot;..\build\dboxfeassistant\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\miscpage.h -o ..\build\dboxfeassistant\win\moc\moc_miscpage.cpp"
 						Description="MOC include\miscpage.h"
-						Outputs="..\build\dboxfeassistant\win\moc\moc_miscpage.cpp"
-						Path="$(QTDIR)\bin"/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
+						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfeassistant\win\moc&quot; -I&quot;..\build\dboxfeassistant\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\miscpage.h -o ..\build\dboxfeassistant\win\moc\moc_miscpage.cpp&#x0D;&#x0A;"
 						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\miscpage.h"
-						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfeassistant\win\moc&quot; -I&quot;..\build\dboxfeassistant\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\miscpage.h -o ..\build\dboxfeassistant\win\moc\moc_miscpage.cpp"
-						Description="MOC include\miscpage.h"
 						Outputs="..\build\dboxfeassistant\win\moc\moc_miscpage.cpp"
-						Path="$(QTDIR)\bin"/>
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC include\miscpage.h"
+						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfeassistant\win\moc&quot; -I&quot;..\build\dboxfeassistant\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\miscpage.h -o ..\build\dboxfeassistant\win\moc\moc_miscpage.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\miscpage.h"
+						Outputs="..\build\dboxfeassistant\win\moc\moc_miscpage.cpp"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="include\soundpage.h">
+				RelativePath="include\soundpage.h"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCustomBuildTool"
-						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\soundpage.h"
-						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfeassistant\win\moc&quot; -I&quot;..\build\dboxfeassistant\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\soundpage.h -o ..\build\dboxfeassistant\win\moc\moc_soundpage.cpp"
 						Description="MOC include\soundpage.h"
+						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfeassistant\win\moc&quot; -I&quot;..\build\dboxfeassistant\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\soundpage.h -o ..\build\dboxfeassistant\win\moc\moc_soundpage.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\soundpage.h"
 						Outputs="..\build\dboxfeassistant\win\moc\moc_soundpage.cpp"
-						Path="$(QTDIR)\bin"/>
+					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Release|Win32">
+					Name="Release|Win32"
+					>
 					<Tool
 						Name="VCCustomBuildTool"
-						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\soundpage.h"
-						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfeassistant\win\moc&quot; -I&quot;..\build\dboxfeassistant\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\soundpage.h -o ..\build\dboxfeassistant\win\moc\moc_soundpage.cpp"
 						Description="MOC include\soundpage.h"
+						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfeassistant\win\moc&quot; -I&quot;..\build\dboxfeassistant\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\soundpage.h -o ..\build\dboxfeassistant\win\moc\moc_soundpage.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\soundpage.h"
 						Outputs="..\build\dboxfeassistant\win\moc\moc_soundpage.cpp"
-						Path="$(QTDIR)\bin"/>
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="include\welcomepage.h">
+				RelativePath="include\welcomepage.h"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCustomBuildTool"
-						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\welcomepage.h"
-						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfeassistant\win\moc&quot; -I&quot;..\build\dboxfeassistant\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\welcomepage.h -o ..\build\dboxfeassistant\win\moc\moc_welcomepage.cpp"
 						Description="MOC include\welcomepage.h"
+						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfeassistant\win\moc&quot; -I&quot;..\build\dboxfeassistant\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\welcomepage.h -o ..\build\dboxfeassistant\win\moc\moc_welcomepage.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\welcomepage.h"
 						Outputs="..\build\dboxfeassistant\win\moc\moc_welcomepage.cpp"
-						Path="$(QTDIR)\bin"/>
+					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Release|Win32">
+					Name="Release|Win32"
+					>
 					<Tool
 						Name="VCCustomBuildTool"
-						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\welcomepage.h"
-						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfeassistant\win\moc&quot; -I&quot;..\build\dboxfeassistant\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\welcomepage.h -o ..\build\dboxfeassistant\win\moc\moc_welcomepage.cpp"
 						Description="MOC include\welcomepage.h"
+						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfeassistant\win\moc&quot; -I&quot;..\build\dboxfeassistant\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\welcomepage.h -o ..\build\dboxfeassistant\win\moc\moc_welcomepage.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\welcomepage.h"
 						Outputs="..\build\dboxfeassistant\win\moc\moc_welcomepage.cpp"
-						Path="$(QTDIR)\bin"/>
+					/>
 				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\3rdparty\XMLPreferences.h"
+				>
+			</File>
+			<File
+				RelativePath="..\3rdparty\XMLWriter.h"
+				>
 			</File>
 		</Filter>
 		<Filter
 			Name="Generated Files"
 			Filter="cpp;c;cxx;moc;h;def;odl;idl;res;"
-			UniqueIdentifier="{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}">
+			UniqueIdentifier="{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}"
+			>
 			<File
-				RelativePath="..\build\dboxfeassistant\win\obj\dboxfeassistant.res"/>
+				RelativePath="..\build\dboxfeassistant\win\obj\dboxfeassistant.res"
+				>
+			</File>
 			<File
-				RelativePath="..\build\dboxfeassistant\win\moc\moc_finishpage.cpp"/>
+				RelativePath="..\build\dboxfeassistant\win\moc\moc_finishpage.cpp"
+				>
+			</File>
 			<File
-				RelativePath="..\build\dboxfeassistant\win\moc\moc_gamewizard.cpp"/>
+				RelativePath="..\build\dboxfeassistant\win\moc\moc_gamewizard.cpp"
+				>
+			</File>
 			<File
-				RelativePath="..\build\dboxfeassistant\win\moc\moc_graphicpage.cpp"/>
+				RelativePath="..\build\dboxfeassistant\win\moc\moc_graphicpage.cpp"
+				>
+			</File>
 			<File
-				RelativePath="..\build\dboxfeassistant\win\moc\moc_installpage.cpp"/>
+				RelativePath="..\build\dboxfeassistant\win\moc\moc_installpage.cpp"
+				>
+			</File>
 			<File
-				RelativePath="..\build\dboxfeassistant\win\moc\moc_installprocesspage.cpp"/>
+				RelativePath="..\build\dboxfeassistant\win\moc\moc_installprocesspage.cpp"
+				>
+			</File>
 			<File
-				RelativePath="..\build\dboxfeassistant\win\moc\moc_miscpage.cpp"/>
+				RelativePath="..\build\dboxfeassistant\win\moc\moc_miscpage.cpp"
+				>
+			</File>
 			<File
-				RelativePath="..\build\dboxfeassistant\win\moc\moc_soundpage.cpp"/>
+				RelativePath="..\build\dboxfeassistant\win\moc\moc_soundpage.cpp"
+				>
+			</File>
 			<File
-				RelativePath="..\build\dboxfeassistant\win\moc\moc_welcomepage.cpp"/>
+				RelativePath="..\build\dboxfeassistant\win\moc\moc_welcomepage.cpp"
+				>
+			</File>
 			<File
-				RelativePath="..\build\dboxfeassistant\win\rcc\qrc_dboxfeassistant.cpp"/>
+				RelativePath="..\build\dboxfeassistant\win\rcc\qrc_dboxfeassistant.cpp"
+				>
+			</File>
 			<File
-				RelativePath="..\build\dboxfeassistant\win\ui\ui_finishpage.h"/>
+				RelativePath="..\build\dboxfeassistant\win\ui\ui_finishpage.h"
+				>
+			</File>
 			<File
-				RelativePath="..\build\dboxfeassistant\win\ui\ui_graphicpage.h"/>
+				RelativePath="..\build\dboxfeassistant\win\ui\ui_graphicpage.h"
+				>
+			</File>
 			<File
-				RelativePath="..\build\dboxfeassistant\win\ui\ui_installpage.h"/>
+				RelativePath="..\build\dboxfeassistant\win\ui\ui_installpage.h"
+				>
+			</File>
 			<File
-				RelativePath="..\build\dboxfeassistant\win\ui\ui_installprocesspage.h"/>
+				RelativePath="..\build\dboxfeassistant\win\ui\ui_installprocesspage.h"
+				>
+			</File>
 			<File
-				RelativePath="..\build\dboxfeassistant\win\ui\ui_miscpage.h"/>
+				RelativePath="..\build\dboxfeassistant\win\ui\ui_miscpage.h"
+				>
+			</File>
 			<File
-				RelativePath="..\build\dboxfeassistant\win\ui\ui_soundpage.h"/>
+				RelativePath="..\build\dboxfeassistant\win\ui\ui_soundpage.h"
+				>
+			</File>
 			<File
-				RelativePath="..\build\dboxfeassistant\win\ui\ui_welcomepage.h"/>
+				RelativePath="..\build\dboxfeassistant\win\ui\ui_welcomepage.h"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Form Files"
 			Filter="ui"
 			UniqueIdentifier="{99349809-55BA-4b9d-BF79-8FDBB0286EB3}"
-			ParseFiles="false">
+			ParseFiles="false"
+			>
 			<File
-				RelativePath="ui\finishpage.ui">
+				RelativePath="ui\finishpage.ui"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCustomBuildTool"
-						AdditionalDependencies="$(QTDIR)\bin\uic.exe;ui\finishpage.ui"
-						CommandLine="$(QTDIR)\bin\uic.exe ui\finishpage.ui -o ..\build\dboxfeassistant\win\ui\ui_finishpage.h"
 						Description="UIC ui\finishpage.ui"
-						Outputs="..\build\dboxfeassistant\win\ui\ui_finishpage.h"
-						Path="$(QTDIR)\bin"/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
+						CommandLine="$(QTDIR)\bin\uic.exe ui\finishpage.ui -o ..\build\dboxfeassistant\win\ui\ui_finishpage.h&#x0D;&#x0A;"
 						AdditionalDependencies="$(QTDIR)\bin\uic.exe;ui\finishpage.ui"
-						CommandLine="$(QTDIR)\bin\uic.exe ui\finishpage.ui -o ..\build\dboxfeassistant\win\ui\ui_finishpage.h"
-						Description="UIC ui\finishpage.ui"
 						Outputs="..\build\dboxfeassistant\win\ui\ui_finishpage.h"
-						Path="$(QTDIR)\bin"/>
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="UIC ui\finishpage.ui"
+						CommandLine="$(QTDIR)\bin\uic.exe ui\finishpage.ui -o ..\build\dboxfeassistant\win\ui\ui_finishpage.h&#x0D;&#x0A;"
+						AdditionalDependencies="$(QTDIR)\bin\uic.exe;ui\finishpage.ui"
+						Outputs="..\build\dboxfeassistant\win\ui\ui_finishpage.h"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="ui\graphicpage.ui">
+				RelativePath="ui\graphicpage.ui"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCustomBuildTool"
-						AdditionalDependencies="$(QTDIR)\bin\uic.exe;ui\graphicpage.ui"
-						CommandLine="$(QTDIR)\bin\uic.exe ui\graphicpage.ui -o ..\build\dboxfeassistant\win\ui\ui_graphicpage.h"
 						Description="UIC ui\graphicpage.ui"
-						Outputs="..\build\dboxfeassistant\win\ui\ui_graphicpage.h"
-						Path="$(QTDIR)\bin"/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
+						CommandLine="$(QTDIR)\bin\uic.exe ui\graphicpage.ui -o ..\build\dboxfeassistant\win\ui\ui_graphicpage.h&#x0D;&#x0A;"
 						AdditionalDependencies="$(QTDIR)\bin\uic.exe;ui\graphicpage.ui"
-						CommandLine="$(QTDIR)\bin\uic.exe ui\graphicpage.ui -o ..\build\dboxfeassistant\win\ui\ui_graphicpage.h"
-						Description="UIC ui\graphicpage.ui"
 						Outputs="..\build\dboxfeassistant\win\ui\ui_graphicpage.h"
-						Path="$(QTDIR)\bin"/>
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="UIC ui\graphicpage.ui"
+						CommandLine="$(QTDIR)\bin\uic.exe ui\graphicpage.ui -o ..\build\dboxfeassistant\win\ui\ui_graphicpage.h&#x0D;&#x0A;"
+						AdditionalDependencies="$(QTDIR)\bin\uic.exe;ui\graphicpage.ui"
+						Outputs="..\build\dboxfeassistant\win\ui\ui_graphicpage.h"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="ui\installpage.ui">
+				RelativePath="ui\installpage.ui"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCustomBuildTool"
-						AdditionalDependencies="$(QTDIR)\bin\uic.exe;ui\installpage.ui"
-						CommandLine="$(QTDIR)\bin\uic.exe ui\installpage.ui -o ..\build\dboxfeassistant\win\ui\ui_installpage.h"
 						Description="UIC ui\installpage.ui"
-						Outputs="..\build\dboxfeassistant\win\ui\ui_installpage.h"
-						Path="$(QTDIR)\bin"/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
+						CommandLine="$(QTDIR)\bin\uic.exe ui\installpage.ui -o ..\build\dboxfeassistant\win\ui\ui_installpage.h&#x0D;&#x0A;"
 						AdditionalDependencies="$(QTDIR)\bin\uic.exe;ui\installpage.ui"
-						CommandLine="$(QTDIR)\bin\uic.exe ui\installpage.ui -o ..\build\dboxfeassistant\win\ui\ui_installpage.h"
-						Description="UIC ui\installpage.ui"
 						Outputs="..\build\dboxfeassistant\win\ui\ui_installpage.h"
-						Path="$(QTDIR)\bin"/>
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="UIC ui\installpage.ui"
+						CommandLine="$(QTDIR)\bin\uic.exe ui\installpage.ui -o ..\build\dboxfeassistant\win\ui\ui_installpage.h&#x0D;&#x0A;"
+						AdditionalDependencies="$(QTDIR)\bin\uic.exe;ui\installpage.ui"
+						Outputs="..\build\dboxfeassistant\win\ui\ui_installpage.h"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="ui\installprocesspage.ui">
+				RelativePath="ui\installprocesspage.ui"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCustomBuildTool"
-						AdditionalDependencies="$(QTDIR)\bin\uic.exe;ui\installprocesspage.ui"
-						CommandLine="$(QTDIR)\bin\uic.exe ui\installprocesspage.ui -o ..\build\dboxfeassistant\win\ui\ui_installprocesspage.h"
 						Description="UIC ui\installprocesspage.ui"
-						Outputs="..\build\dboxfeassistant\win\ui\ui_installprocesspage.h"
-						Path="$(QTDIR)\bin"/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
+						CommandLine="$(QTDIR)\bin\uic.exe ui\installprocesspage.ui -o ..\build\dboxfeassistant\win\ui\ui_installprocesspage.h&#x0D;&#x0A;"
 						AdditionalDependencies="$(QTDIR)\bin\uic.exe;ui\installprocesspage.ui"
-						CommandLine="$(QTDIR)\bin\uic.exe ui\installprocesspage.ui -o ..\build\dboxfeassistant\win\ui\ui_installprocesspage.h"
-						Description="UIC ui\installprocesspage.ui"
 						Outputs="..\build\dboxfeassistant\win\ui\ui_installprocesspage.h"
-						Path="$(QTDIR)\bin"/>
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="UIC ui\installprocesspage.ui"
+						CommandLine="$(QTDIR)\bin\uic.exe ui\installprocesspage.ui -o ..\build\dboxfeassistant\win\ui\ui_installprocesspage.h&#x0D;&#x0A;"
+						AdditionalDependencies="$(QTDIR)\bin\uic.exe;ui\installprocesspage.ui"
+						Outputs="..\build\dboxfeassistant\win\ui\ui_installprocesspage.h"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="ui\miscpage.ui">
+				RelativePath="ui\miscpage.ui"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCustomBuildTool"
-						AdditionalDependencies="$(QTDIR)\bin\uic.exe;ui\miscpage.ui"
-						CommandLine="$(QTDIR)\bin\uic.exe ui\miscpage.ui -o ..\build\dboxfeassistant\win\ui\ui_miscpage.h"
 						Description="UIC ui\miscpage.ui"
-						Outputs="..\build\dboxfeassistant\win\ui\ui_miscpage.h"
-						Path="$(QTDIR)\bin"/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
+						CommandLine="$(QTDIR)\bin\uic.exe ui\miscpage.ui -o ..\build\dboxfeassistant\win\ui\ui_miscpage.h&#x0D;&#x0A;"
 						AdditionalDependencies="$(QTDIR)\bin\uic.exe;ui\miscpage.ui"
-						CommandLine="$(QTDIR)\bin\uic.exe ui\miscpage.ui -o ..\build\dboxfeassistant\win\ui\ui_miscpage.h"
-						Description="UIC ui\miscpage.ui"
 						Outputs="..\build\dboxfeassistant\win\ui\ui_miscpage.h"
-						Path="$(QTDIR)\bin"/>
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="UIC ui\miscpage.ui"
+						CommandLine="$(QTDIR)\bin\uic.exe ui\miscpage.ui -o ..\build\dboxfeassistant\win\ui\ui_miscpage.h&#x0D;&#x0A;"
+						AdditionalDependencies="$(QTDIR)\bin\uic.exe;ui\miscpage.ui"
+						Outputs="..\build\dboxfeassistant\win\ui\ui_miscpage.h"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="ui\soundpage.ui">
+				RelativePath="ui\soundpage.ui"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCustomBuildTool"
-						AdditionalDependencies="$(QTDIR)\bin\uic.exe;ui\soundpage.ui"
-						CommandLine="$(QTDIR)\bin\uic.exe ui\soundpage.ui -o ..\build\dboxfeassistant\win\ui\ui_soundpage.h"
 						Description="UIC ui\soundpage.ui"
+						CommandLine="$(QTDIR)\bin\uic.exe ui\soundpage.ui -o ..\build\dboxfeassistant\win\ui\ui_soundpage.h&#x0D;&#x0A;"
+						AdditionalDependencies="$(QTDIR)\bin\uic.exe;ui\soundpage.ui"
 						Outputs="..\build\dboxfeassistant\win\ui\ui_soundpage.h"
-						Path="$(QTDIR)\bin"/>
+					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Release|Win32">
+					Name="Release|Win32"
+					>
 					<Tool
 						Name="VCCustomBuildTool"
-						AdditionalDependencies="$(QTDIR)\bin\uic.exe;ui\soundpage.ui"
-						CommandLine="$(QTDIR)\bin\uic.exe ui\soundpage.ui -o ..\build\dboxfeassistant\win\ui\ui_soundpage.h"
 						Description="UIC ui\soundpage.ui"
+						CommandLine="$(QTDIR)\bin\uic.exe ui\soundpage.ui -o ..\build\dboxfeassistant\win\ui\ui_soundpage.h&#x0D;&#x0A;"
+						AdditionalDependencies="$(QTDIR)\bin\uic.exe;ui\soundpage.ui"
 						Outputs="..\build\dboxfeassistant\win\ui\ui_soundpage.h"
-						Path="$(QTDIR)\bin"/>
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="ui\welcomepage.ui">
+				RelativePath="ui\welcomepage.ui"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCustomBuildTool"
-						AdditionalDependencies="$(QTDIR)\bin\uic.exe;ui\welcomepage.ui"
-						CommandLine="$(QTDIR)\bin\uic.exe ui\welcomepage.ui -o ..\build\dboxfeassistant\win\ui\ui_welcomepage.h"
 						Description="UIC ui\welcomepage.ui"
+						CommandLine="$(QTDIR)\bin\uic.exe ui\welcomepage.ui -o ..\build\dboxfeassistant\win\ui\ui_welcomepage.h&#x0D;&#x0A;"
+						AdditionalDependencies="$(QTDIR)\bin\uic.exe;ui\welcomepage.ui"
 						Outputs="..\build\dboxfeassistant\win\ui\ui_welcomepage.h"
-						Path="$(QTDIR)\bin"/>
+					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Release|Win32">
+					Name="Release|Win32"
+					>
 					<Tool
 						Name="VCCustomBuildTool"
-						AdditionalDependencies="$(QTDIR)\bin\uic.exe;ui\welcomepage.ui"
-						CommandLine="$(QTDIR)\bin\uic.exe ui\welcomepage.ui -o ..\build\dboxfeassistant\win\ui\ui_welcomepage.h"
 						Description="UIC ui\welcomepage.ui"
+						CommandLine="$(QTDIR)\bin\uic.exe ui\welcomepage.ui -o ..\build\dboxfeassistant\win\ui\ui_welcomepage.h&#x0D;&#x0A;"
+						AdditionalDependencies="$(QTDIR)\bin\uic.exe;ui\welcomepage.ui"
 						Outputs="..\build\dboxfeassistant\win\ui\ui_welcomepage.h"
-						Path="$(QTDIR)\bin"/>
+					/>
 				</FileConfiguration>
 			</File>
 		</Filter>
@@ -555,49 +749,71 @@
 			Name="Resource Files"
 			Filter="qrc;*"
 			UniqueIdentifier="{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}"
-			ParseFiles="false">
+			ParseFiles="false"
+			>
 			<File
-				RelativePath="..\resource\arrow-down_16.png"/>
+				RelativePath="..\resource\arrow-down_16.png"
+				>
+			</File>
 			<File
-				RelativePath="..\resource\arrow-up_16.png"/>
+				RelativePath="..\resource\arrow-up_16.png"
+				>
+			</File>
 			<File
-				RelativePath="resource\dboxfeassistant.qrc">
+				RelativePath="resource\dboxfeassistant.qrc"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					>
 					<Tool
 						Name="VCCustomBuildTool"
-						AdditionalDependencies="..\resource\arrow-down_16.png;..\resource\arrow-up_16.png;..\resource\default.png;..\resource\folder-open_16.png;$(QTDIR)\bin\rcc.exe;resource\dboxfeassistant.qrc;resource\default.conf;resource\gamewizard.png;resource\gamewizardlogo.png;resource\installation.conf"
-						CommandLine="$(QTDIR)\bin\rcc.exe -name dboxfeassistant resource\dboxfeassistant.qrc -o ..\build\dboxfeassistant\win\rcc\qrc_dboxfeassistant.cpp"
 						Description="RCC resource\dboxfeassistant.qrc"
+						CommandLine="$(QTDIR)\bin\rcc.exe -name dboxfeassistant resource\dboxfeassistant.qrc -o ..\build\dboxfeassistant\win\rcc\qrc_dboxfeassistant.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="..\resource\arrow-down_16.png;..\resource\arrow-up_16.png;..\resource\default.png;..\resource\folder-open_16.png;$(QTDIR)\bin\rcc.exe;resource\dboxfeassistant.qrc;resource\default.conf;resource\gamewizard.png;resource\gamewizardlogo.png;resource\installation.conf"
 						Outputs="..\build\dboxfeassistant\win\rcc\qrc_dboxfeassistant.cpp"
-						Path="$(QTDIR)\bin"/>
+					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Release|Win32">
+					Name="Release|Win32"
+					>
 					<Tool
 						Name="VCCustomBuildTool"
-						AdditionalDependencies="..\resource\arrow-down_16.png;..\resource\arrow-up_16.png;..\resource\default.png;..\resource\folder-open_16.png;$(QTDIR)\bin\rcc.exe;resource\dboxfeassistant.qrc;resource\default.conf;resource\gamewizard.png;resource\gamewizardlogo.png;resource\installation.conf"
-						CommandLine="$(QTDIR)\bin\rcc.exe -name dboxfeassistant resource\dboxfeassistant.qrc -o ..\build\dboxfeassistant\win\rcc\qrc_dboxfeassistant.cpp"
 						Description="RCC resource\dboxfeassistant.qrc"
+						CommandLine="$(QTDIR)\bin\rcc.exe -name dboxfeassistant resource\dboxfeassistant.qrc -o ..\build\dboxfeassistant\win\rcc\qrc_dboxfeassistant.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="..\resource\arrow-down_16.png;..\resource\arrow-up_16.png;..\resource\default.png;..\resource\folder-open_16.png;$(QTDIR)\bin\rcc.exe;resource\dboxfeassistant.qrc;resource\default.conf;resource\gamewizard.png;resource\gamewizardlogo.png;resource\installation.conf"
 						Outputs="..\build\dboxfeassistant\win\rcc\qrc_dboxfeassistant.cpp"
-						Path="$(QTDIR)\bin"/>
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="resource\default.conf"/>
+				RelativePath="resource\default.conf"
+				>
+			</File>
 			<File
-				RelativePath="..\resource\default.png"/>
+				RelativePath="..\resource\default.png"
+				>
+			</File>
 			<File
-				RelativePath="..\resource\folder-open_16.png"/>
+				RelativePath="..\resource\folder-open_16.png"
+				>
+			</File>
 			<File
-				RelativePath="resource\gamewizard.png"/>
+				RelativePath="resource\gamewizard.png"
+				>
+			</File>
 			<File
-				RelativePath="resource\gamewizardlogo.png"/>
+				RelativePath="resource\gamewizardlogo.png"
+				>
+			</File>
 			<File
-				RelativePath="resource\installation.conf"/>
+				RelativePath="resource\installation.conf"
+				>
+			</File>
 		</Filter>
 		<File
-			RelativePath="resource\dboxfeassistant.rc"/>
+			RelativePath="resource\dboxfeassistant.rc"
+			>
+		</File>
 	</Files>
 	<Globals>
 	</Globals>
