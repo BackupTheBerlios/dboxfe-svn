@@ -90,7 +90,7 @@ namespace asaal {
 
       trayAction = new QAction( sList.value( i ), this );
       connect( trayAction, SIGNAL( triggered() ), this, SLOT( startGame() ) );
-      trayIconMenu->addAction( dbfe_trayAction );
+      trayIconMenu->addAction( trayAction );
     }
 
     /* Create action after profile menus */
@@ -121,7 +121,7 @@ namespace asaal {
     QAction *action = qobject_cast< QAction* >( sender() );
     QString gProfile = QDir::homePath() + "/.dboxfe/" + action->text() + ".conf";
 
-    if ( dosbox.isEmpty() || dbox_bin.isNull() ) {
+    if ( dosbox.isEmpty() || dosbox.isNull() ) {
       QMessageBox::information( this, getAppTitel(), tr( "Can not start dosbox, no dosbox binary was selected.\nPlease choose dosbox binary." ) );
       return;
     }
@@ -156,9 +156,9 @@ namespace asaal {
     m_ProcessDboxfe = new QProcess( this );
 
 #ifdef Q_OS_WIN32
-    m_ProcessDboxfe = QCoreApplication::applicationDirPath() + "/dboxfe.exe";
+    dbfeBin = QCoreApplication::applicationDirPath() + "/dboxfe.exe";
 #else
-    m_ProcessDboxfe = QCoreApplication::applicationDirPath() + "/dboxfe";
+    dbfeBin = QCoreApplication::applicationDirPath() + "/dboxfe";
 #endif
 
     m_ProcessDboxfe->start( dbfeBin, QStringList() );

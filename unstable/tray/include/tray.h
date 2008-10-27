@@ -35,7 +35,7 @@ namespace asaal {
       Q_OBJECT
 
     public:
-      TrayIcon( QWidget *parent = 0 );
+      TrayIcon();
 
       void setVisible( bool visible );
 
