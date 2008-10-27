@@ -20,7 +20,7 @@
 TEMPLATE = app
 DESTDIR	= ../bin
 TARGET = dboxfeassistant
-DEPENDPATH += include src ui ../3rdparty
+DEPENDPATH += include src ui resource ../3rdparty
 INCLUDEPATH += include ui ../3rdparty
 RESOURCES += resource/dboxfeassistant.qrc
 CONFIG += debug thread warn_on qt
@@ -78,6 +78,7 @@ unix {
 win32 {
 	CONFIG += embed_manifest_exe
 	
+	RC_FILE = resource/dboxfeassistant.rc
 	RCC_DIR	= ../build/dboxfeassistant/win/rcc
 	MOC_DIR	+= ../build/dboxfeassistant/win/moc
 	OBJECTS_DIR += ../build/dboxfeassistant/win/obj
