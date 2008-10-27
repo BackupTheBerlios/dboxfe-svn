@@ -21,7 +21,7 @@ TEMPLATE = app
 DESTDIR = ../bin
 DEPENDPATH += include src resource ../3rdparty
 INCLUDEPATH += include ../3rdparty
-RESOURCES +=resource/tray.qrc
+RESOURCES += resource/tray.qrc
 CONFIG += debug thread warn_on qt
 QT += xml
 
@@ -49,10 +49,10 @@ SOURCES += ../3rdparty/XMLWriter.cpp
 unix{
   TARGET = dboxfetray
   #QMAKE_POST_LINK = strip -s bin/dboxfetray
-  RCC_DIR = .unix/rcc
-  MOC_DIR += .unix/moc
-  OBJECTS_DIR += .unix/obj
-  UI_DIR += .unix/ui
+  RCC_DIR = ../build/dboxfetray/unix/rcc
+  MOC_DIR += ../build/dboxfetray/unix/moc
+  OBJECTS_DIR += ../build/dboxfetray/unix/obj
+  UI_DIR += ../build/dboxfetray/unix/ui
 }
 
 # Windows settings
@@ -61,8 +61,8 @@ win32{
 
   TARGET = dboxfetray
   RC_FILE = resource/tray.rc
-  RCC_DIR = win/rcc
-  MOC_DIR += win/moc
-  OBJECTS_DIR += win/obj
-  UI_DIR += win/ui
+  RCC_DIR = ../build/dboxfetray/win/rcc
+  MOC_DIR += ../build/dboxfetray/win/moc
+  OBJECTS_DIR += ../build/dboxfetray/win/obj
+  UI_DIR += ../build/dboxfetray/win/ui
 }
