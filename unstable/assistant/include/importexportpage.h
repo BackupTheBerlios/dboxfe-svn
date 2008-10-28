@@ -48,6 +48,17 @@ namespace asaal {
       ImportExportPage( QWidget *parent = 0 );
 
       int nextId() const;
+
+      /**
+       * Hides the modal dialog and sets the result code to Accepted.
+       */
+      void accept();
+
+    private slots:
+      void chooseDfendDirectory();
+      void chooseDboxFeDirectory();
+      void markAllProfiles();
+      void unmarkAllProfiles();
   };
 }
 

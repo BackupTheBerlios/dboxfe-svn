@@ -71,6 +71,8 @@ namespace asaal {
     QString profile = field( "gameName" ).toString();
     if( createGameProfile( profile ) ) {
     }
+
+    qApp->quit();
   }
 
   bool GameWizard::createGameProfile( const QString &profile ) {
