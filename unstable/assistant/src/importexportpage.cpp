@@ -43,7 +43,7 @@ namespace asaal {
     connect( btnDFend, SIGNAL( clicked() ), this, SLOT( chooseDfendDirectory() ) );
     connect( btnDboxFe, SIGNAL( clicked() ), this, SLOT( chooseDboxFeDirectory() ) );
     connect( btnMarkAll, SIGNAL( clicked() ), this, SLOT( markAllProfiles() ) );
-    connect( btnUnmarkAll, SIGNAL( clicked() ), this, SLOT( unmarkAllProfiles() ) );    
+    connect( btnUnmarkAll, SIGNAL( clicked() ), this, SLOT( unmarkAllProfiles() ) );
   }
 
   int ImportExportPage::nextId() const {
@@ -56,12 +56,12 @@ namespace asaal {
     QString dfendDirectory = field( "dfendDirectory" ).toString();
     QString dboxfeDirectory = field( "dboxfeDirectory" ).toString();
 
-    if( ( dfendDirectory.isNull() || dfendDirectory.isEmpty() ) ) {
+    if (( dfendDirectory.isNull() || dfendDirectory.isEmpty() ) ) {
       QMessageBox::warning( 0, "Game Assistant", tr( "D-Fend directory can't be empty." ) );
       return;
     }
 
-    if( ( dboxfeDirectory.isNull() || dboxfeDirectory.isEmpty() ) ) {
+    if (( dboxfeDirectory.isNull() || dboxfeDirectory.isEmpty() ) ) {
       QMessageBox::warning( 0, "Game Assistant", tr( "DBoxFE directory can't be empty." ) );
       return;
     }
@@ -70,11 +70,12 @@ namespace asaal {
   }
 
   void ImportExportPage::chooseDfendDirectory() {
-    
+
     QString dfendFolder = QFileDialog::getExistingDirectory( this, tr( "Open D-Fend folder" ), QDir::homePath(), QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks );
 
     QDir dfendProfileFolder( dfendFolder + "/Confs" );
-    if( !dfendProfileFolder.exists() ) {
+
+    if ( !dfendProfileFolder.exists() ) {
       QMessageBox::warning( 0, "Game Assistant", tr( "This is not a D-Fend Reloaded directory." ) );
       return;
     }
@@ -83,7 +84,7 @@ namespace asaal {
       lineEditDFendDirectory->setText( dfendFolder );
     }
 
-    if( rbtnImport->isChecked() ) {
+    if ( rbtnImport->isChecked() ) {
 
       QApplication::setOverrideCursor( Qt::WaitCursor );
 
@@ -103,29 +104,30 @@ namespace asaal {
           ;
         } else {
 
-          if( fi.isFile() && fi.isReadable() && fi.fileName().endsWith( ".prof" ) ) {
+          if ( fi.isFile() && fi.isReadable() && fi.fileName().endsWith( ".prof" ) ) {
 
             dfendProf = new QTreeWidgetItem( treeWidgetImportExport );
             treeWidgetImportExport->setItemWidget( dfendProf, 0, new QCheckBox( fi.baseName() ) );
-            QCheckBox *checkBox = (QCheckBox*)treeWidgetImportExport->itemWidget( dfendProf, 0 );
+            QCheckBox *checkBox = ( QCheckBox* )treeWidgetImportExport->itemWidget( dfendProf, 0 );
 
-            if( checkBox ) {
+            if ( checkBox ) {
               checkBox->setCheckState( Qt::Checked );
             }
           }
         }
       }
+
+      QApplication::restoreOverrideCursor();
     }
-    
-    QApplication::restoreOverrideCursor();
   }
 
   void ImportExportPage::chooseDboxFeDirectory() {
-    
+
     QString dboxfeFolder = QFileDialog::getExistingDirectory( this, tr( "Open DBoxFE folder" ), QDir::homePath() + "/.dboxfe", QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks );
 
     QFileInfo dboxfeProfile( dboxfeFolder + "/profile/profile.xml" );
-    if( !dboxfeProfile.exists() ) {
+
+    if ( !dboxfeProfile.exists() ) {
       QMessageBox::warning( 0, "Game Assistant", tr( "This is not a DBoxFE directory." ) );
       return;
     }
@@ -134,24 +136,59 @@ namespace asaal {
       lineEditDboxFeDirectory->setText( dboxfeFolder );
     }
 
-    if( rbtnExport->isChecked() ) {
+    if ( rbtnExport->isChecked() ) {
+      
+      QApplication::setOverrideCursor( Qt::WaitCursor );
+
+      QDir dboxfeProfDir( dboxfeFolder );
+      treeWidgetImportExport->headerItem()->setText( 0, "DBoxFE Profiles" );
+      QTreeWidgetItem *dboxfeProf;
+      QFileInfo fi;
+      const QFileInfoList fil = dboxfeProfDir.entryInfoList( QDir::Files, QDir::Name );
+      QListIterator< QFileInfo > it( fil );
+      QStringList lst;
+
+      while ( it.hasNext() ) {
+        qApp->processEvents();
+
+        fi = it.next();
+
+        if ( fi.fileName() == "." || fi.fileName() == ".." ) {
+          ;
+        } else {
+
+          if ( fi.isFile() && fi.isReadable() && fi.fileName().endsWith( ".conf" ) ) {
+
+            dboxfeProf = new QTreeWidgetItem( treeWidgetImportExport );
+            treeWidgetImportExport->setItemWidget( dboxfeProf, 0, new QCheckBox( fi.baseName() ) );
+            QCheckBox *checkBox = ( QCheckBox* )treeWidgetImportExport->itemWidget( dboxfeProf, 0 );
+
+            if ( checkBox ) {
+              checkBox->setCheckState( Qt::Checked );
+            }
+          }
+        }
+      }
+
+      QApplication::restoreOverrideCursor();
     }
   }
 
-  
+
   void ImportExportPage::markAllProfiles() {
 
     QApplication::setOverrideCursor( Qt::WaitCursor );
 
-    for( int a = 0; a < treeWidgetImportExport->topLevelItemCount(); a++ ) {
+    for ( int a = 0; a < treeWidgetImportExport->topLevelItemCount(); a++ ) {
 
       qApp->processEvents();
 
       QTreeWidgetItem *item = treeWidgetImportExport->topLevelItem( a );
-      QCheckBox *checkBox = (QCheckBox*)treeWidgetImportExport->itemWidget( item, 0 );
-      if( checkBox ) {
+      QCheckBox *checkBox = ( QCheckBox* )treeWidgetImportExport->itemWidget( item, 0 );
 
-        if( checkBox->checkState() != Qt::Checked ) {
+      if ( checkBox ) {
+
+        if ( checkBox->checkState() != Qt::Checked ) {
 
           checkBox->setCheckState( Qt::Checked );
         }
@@ -165,15 +202,16 @@ namespace asaal {
 
     QApplication::setOverrideCursor( Qt::WaitCursor );
 
-    for( int a = 0; a < treeWidgetImportExport->topLevelItemCount(); a++ ) {
+    for ( int a = 0; a < treeWidgetImportExport->topLevelItemCount(); a++ ) {
 
       qApp->processEvents();
 
       QTreeWidgetItem *item = treeWidgetImportExport->topLevelItem( a );
-      QCheckBox *checkBox = (QCheckBox*)treeWidgetImportExport->itemWidget( item, 0 );
-      if( checkBox ) {
+      QCheckBox *checkBox = ( QCheckBox* )treeWidgetImportExport->itemWidget( item, 0 );
 
-        if( checkBox->checkState() == Qt::Checked ) {
+      if ( checkBox ) {
+
+        if ( checkBox->checkState() == Qt::Checked ) {
 
           checkBox->setCheckState( Qt::Unchecked );
         }
