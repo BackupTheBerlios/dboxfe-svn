@@ -27,6 +27,7 @@
 #include <gamewizard.h>
 #include <graphicpage.h>
 #include <installpage.h>
+#include <importexportpage.h>
 #include <installprocesspage.h>
 #include <miscpage.h>
 #include <settingpage.h>
@@ -43,15 +44,17 @@ namespace asaal {
     setWindowTitle( tr( "Game Wizard" ) );
     gameWizard = this;
 
+    ie = new ImportExportPage();
     ip = new InstallPage();
     ipp = new InstallProcessPage();
     gp = new GraphicPage();
-    sp = new SetingPage();
+    settp = new SettingPage();
     sp = new SoundPage();
     mp = new MiscPage();
 
     setPage( PAGE_WELCOME, new WelcomePage );
-    setPage( PAGE_SETTING, sp );
+    setPage( PAGE_SETTING, settp );
+    setPage( PAGE_IMPORTEXPORT, ie );
     setPage( PAGE_INSTALL, ip );
     setPage( PAGE_INSTALLPROCESS, ipp );
     setPage( PAGE_GRAPHIC, gp );

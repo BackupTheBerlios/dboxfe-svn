@@ -28,6 +28,7 @@
 
 #include <finishpage.h>
 #include <graphicpage.h>
+#include <importexportpage.h>
 #include <installpage.h>
 #include <installprocesspage.h>
 #include <miscpage.h>
@@ -72,13 +73,9 @@ namespace asaal {
         */
         PAGE_INSTALLPROCESS,
         /**
-         * Impot page
-         */
-        PAGE_IMPORTPROFILE,
-        /**
          * Export page
          */
-        PAGE_EXPORTPROFILE,
+        PAGE_IMPORTEXPORT,
         /**
         * Graphic config page
         */
@@ -128,10 +125,11 @@ namespace asaal {
       bool createGameProfile( const QString &profile );
 
       WelcomePage *wp;
+      ImportExportPage *ie;
       InstallPage *ip;
       InstallProcessPage *ipp;
       GraphicPage *gp;
-      SettingPage *sp;      
+      SettingPage *settp;      
       SoundPage *sp;
       MiscPage *mp;
       FinishPage *fp;

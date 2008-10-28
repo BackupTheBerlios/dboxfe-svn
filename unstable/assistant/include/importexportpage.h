@@ -23,10 +23,10 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-#ifndef MISCPAGE_H
-#define MISCPAGE_H
+#ifndef IMPORTEXPORTPAGE_H
+#define IMPORTEXPORTPAGE_H
 
-#include <ui_miscpage.h>
+#include <ui_importexportpage.h>
 
 #include <QtGui>
 
@@ -36,7 +36,7 @@ namespace asaal {
    * @brief $(CLASSNAME)
    */
 
-  class MiscPage : public QWizardPage, public Ui::UiMiscPage {
+  class ImportExportPage : public QWizardPage, public Ui::UiImportExportPage {
       Q_OBJECT
 
     public:
@@ -45,10 +45,10 @@ namespace asaal {
        *
        * @param parent the optional parent widget
        */
-      MiscPage( QWidget *parent = 0 );
+      ImportExportPage( QWidget *parent = 0 );
 
       int nextId() const;
   };
 }
 
-#endif // MISCPAGE_H
+#endif // IMPORTEXPORTPAGE_H

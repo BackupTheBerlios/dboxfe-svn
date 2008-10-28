@@ -44,11 +44,8 @@ namespace asaal {
     if ( rbtnInstallAddGame->isChecked() ) {
       return GameWizard::PAGE_INSTALL;
 
-    } else if ( rbtnImportDFendProfile->isCheckable() ) {
-      return GameWizard::PAGE_IMPORTPROFILE;
-
-    } else if ( rbtnExportDboxFeProfile->isCheckable() ) {
-      return GameWizard::PAGE_EXPORTPROFILEPAGE_SETTING;
+    } else if ( rbtnImportExportProfile->isCheckable() ) {
+      return GameWizard::PAGE_IMPORTEXPORT;
 
     }
 

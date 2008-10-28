@@ -23,32 +23,23 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-#ifndef MISCPAGE_H
-#define MISCPAGE_H
+#include <gamewizard.h>
+#include <importexportpage.h>
 
-#include <ui_miscpage.h>
-
+#include <QtCore>
 #include <QtGui>
 
 namespace asaal {
 
-  /**
-   * @brief $(CLASSNAME)
-   */
+  ImportExportPage::ImportExportPage( QWidget *parent ) : QWizardPage( parent ) {
 
-  class MiscPage : public QWizardPage, public Ui::UiMiscPage {
-      Q_OBJECT
+    setupUi( this );
+    setTitle( tr( "Import / Export" ) );
+    setSubTitle( tr( "Please select an option and select your profiles from list which profiles you want to import and/or export." ) );
+  }
 
-    public:
-      /**
-       * @brief $(CONSTRUCTORNAME)
-       *
-       * @param parent the optional parent widget
-       */
-      MiscPage( QWidget *parent = 0 );
+  int ImportExportPage::nextId() const {
 
-      int nextId() const;
-  };
+    return -1;
+  }
 }
-
-#endif // MISCPAGE_H
