@@ -31,15 +31,15 @@ using namespace asaal;
 
 int main( int argc, char *argv[] ) {
 
-    QApplication app(argc, argv);
+  QApplication app( argc, argv );
 
-    if ( !QSystemTrayIcon::isSystemTrayAvailable() ) {
-        QMessageBox::critical( 0, QObject::tr( "DBoxFE - TrayIcon" ), QObject::tr( "I couldn't detect any system tray on this system." ) );
-        return -1;
-    }
+  if ( !QSystemTrayIcon::isSystemTrayAvailable() ) {
+    QMessageBox::critical( 0, QObject::tr( "DBoxFE - TrayIcon" ), QObject::tr( "I couldn't detect any system tray on this system." ) );
+    return -1;
+  }
 
-    TrayIcon *tray = new TrayIcon();
-    tray->show();
+  TrayIcon *tray = new TrayIcon();
+  tray->show();
 
-    return app.exec();
+  return app.exec();
 }

@@ -29,6 +29,7 @@
 #include <installpage.h>
 #include <installprocesspage.h>
 #include <miscpage.h>
+#include <settingpage.h>
 #include <soundpage.h>
 #include <welcomepage.h>
 
@@ -45,10 +46,12 @@ namespace asaal {
     ip = new InstallPage();
     ipp = new InstallProcessPage();
     gp = new GraphicPage();
+    sp = new SetingPage();
     sp = new SoundPage();
     mp = new MiscPage();
 
     setPage( PAGE_WELCOME, new WelcomePage );
+    setPage( PAGE_SETTING, sp );
     setPage( PAGE_INSTALL, ip );
     setPage( PAGE_INSTALLPROCESS, ipp );
     setPage( PAGE_GRAPHIC, gp );

@@ -31,6 +31,7 @@ FORMS += ui/finishpage.ui
 FORMS += ui/graphicpage.ui
 FORMS += ui/installpage.ui
 FORMS += ui/installprocesspage.ui
+FORMS += ui/importexportpage.ui
 FORMS += ui/miscpage.ui
 FORMS += ui/settingpage.ui
 FORMS += ui/soundpage.ui

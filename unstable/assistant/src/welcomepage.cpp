@@ -40,6 +40,6 @@ namespace asaal {
 
   int WelcomePage::nextId() const {
 
-    return GameWizard::PAGE_INSTALL;
+    return GameWizard::PAGE_SETTING;
   }
 }

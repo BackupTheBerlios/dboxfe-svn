@@ -40,8 +40,13 @@ namespace asaal {
       void setVisible( bool visible );
 
     private:
-      QString getAppVersion() { return tr( "v0.2.5" ); }
-      QString getAppTitel() { return tr( "DBoxFE - TrayIcon" ); }
+      QString getAppVersion() {
+        return tr( "v0.2.5" );
+      }
+
+      QString getAppTitel() {
+        return tr( "DBoxFE - TrayIcon" );
+      }
 
       QSystemTrayIcon *trayIcon;
       QMenu *trayIconMenu;

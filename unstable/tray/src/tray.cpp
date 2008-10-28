@@ -34,7 +34,7 @@ namespace asaal {
 
   TrayIcon::TrayIcon() {
 
-    trayIconMenu = new QMenu( this );	
+    trayIconMenu = new QMenu( this );
     trayIcon = new QSystemTrayIcon( this );
 
     createMenu();
@@ -86,6 +86,7 @@ namespace asaal {
     dosbox = settGP.getString( "DOSBox", "binary" );
 
     /* Add dynamical menu entries of gameprofiles */
+
     for ( int i = 0; i < sList.size(); i++ ) {
       qApp->processEvents();
 
@@ -98,19 +99,24 @@ namespace asaal {
     trayIconMenu->addSeparator();
 
     QAction *dboxfeAction = new QAction( "&Start DBoxFE", this );
+
     connect( dboxfeAction, SIGNAL( triggered() ), this, SLOT( startdboxfe() ) );
 
     QAction *dboxfeAboutAction = new QAction( "&About", this );
+
     connect( dboxfeAboutAction, SIGNAL( triggered() ), this, SLOT( aboutTrayIcon() ) );
 
     trayIconMenu->addSeparator();
 
     QAction *quitAction = new QAction( tr( "&Quit" ), this );
+
     connect( quitAction, SIGNAL( triggered() ), qApp, SLOT( quit() ) );
 
     /* Create trayicon now and set the context menu */
     trayIconMenu->addAction( dboxfeAction );
+
     trayIconMenu->addAction( dboxfeAboutAction );
+
     trayIconMenu->addAction( quitAction );
   }
 

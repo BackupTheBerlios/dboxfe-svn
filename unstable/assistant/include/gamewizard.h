@@ -31,6 +31,7 @@
 #include <installpage.h>
 #include <installprocesspage.h>
 #include <miscpage.h>
+#include <settingpage.h>
 #include <soundpage.h>
 #include <welcomepage.h>
 
@@ -59,6 +60,10 @@ namespace asaal {
         */
         PAGE_WELCOME,
         /**
+         * Setting config page
+         */
+        PAGE_SETTING,
+        /**
         * Installation page
         */
         PAGE_INSTALL,
@@ -67,12 +72,20 @@ namespace asaal {
         */
         PAGE_INSTALLPROCESS,
         /**
+         * Impot page
+         */
+        PAGE_IMPORTPROFILE,
+        /**
+         * Export page
+         */
+        PAGE_EXPORTPROFILE,
+        /**
         * Graphic config page
         */
         PAGE_GRAPHIC,
         /**
-        * Sound config page
-        */
+         * Sound config page
+         */
         PAGE_SOUND,
         /**
         * Misc. config page
@@ -118,6 +131,7 @@ namespace asaal {
       InstallPage *ip;
       InstallProcessPage *ipp;
       GraphicPage *gp;
+      SettingPage *sp;      
       SoundPage *sp;
       MiscPage *mp;
       FinishPage *fp;
