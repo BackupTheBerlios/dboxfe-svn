@@ -74,7 +74,6 @@ namespace asaal {
     QString dfendFolder = QFileDialog::getExistingDirectory( this, tr( "Open D-Fend folder" ), QDir::homePath(), QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks );
 
     QDir dfendProfileFolder( dfendFolder + "/Confs" );
-
     if ( !dfendProfileFolder.exists() ) {
       QMessageBox::warning( 0, "Game Assistant", tr( "This is not a D-Fend Reloaded directory." ) );
       return;
@@ -85,6 +84,8 @@ namespace asaal {
     }
 
     if ( rbtnImport->isChecked() ) {
+
+      profileList.clear();
 
       QApplication::setOverrideCursor( Qt::WaitCursor );
 
@@ -113,6 +114,8 @@ namespace asaal {
             if ( checkBox ) {
               checkBox->setCheckState( Qt::Checked );
             }
+
+            profileList.insert( fi.baseName(), fi.absolutePath() );
           }
         }
       }
@@ -126,7 +129,6 @@ namespace asaal {
     QString dboxfeFolder = QFileDialog::getExistingDirectory( this, tr( "Open DBoxFE folder" ), QDir::homePath() + "/.dboxfe", QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks );
 
     QFileInfo dboxfeProfile( dboxfeFolder + "/profile/profile.xml" );
-
     if ( !dboxfeProfile.exists() ) {
       QMessageBox::warning( 0, "Game Assistant", tr( "This is not a DBoxFE directory." ) );
       return;
@@ -137,7 +139,9 @@ namespace asaal {
     }
 
     if ( rbtnExport->isChecked() ) {
-      
+
+      profileList.clear();
+
       QApplication::setOverrideCursor( Qt::WaitCursor );
 
       QDir dboxfeProfDir( dboxfeFolder );
@@ -166,6 +170,8 @@ namespace asaal {
             if ( checkBox ) {
               checkBox->setCheckState( Qt::Checked );
             }
+
+            profileList.insert( fi.baseName(), fi.absolutePath() );
           }
         }
       }

@@ -55,10 +55,29 @@ namespace asaal {
       void accept();
 
     private slots:
+      /*
+       * Choose D-Fend Reloaded directory
+       */
       void chooseDfendDirectory();
+
+      /*
+       * Choose D-Fend Reloaded directory
+       */
       void chooseDboxFeDirectory();
+
+      /*
+       * Make all profiles as marked
+       */
       void markAllProfiles();
+
+      /*
+       * Make all profiles as unmarked
+       */
       void unmarkAllProfiles();
+
+    private:
+      QMap< QString, QString > profileList;
+
   };
 }
 
