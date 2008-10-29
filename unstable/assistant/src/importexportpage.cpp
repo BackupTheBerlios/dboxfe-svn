@@ -65,6 +65,38 @@ namespace asaal {
       QMessageBox::warning( 0, "Game Assistant", tr( "DBoxFE directory can't be empty." ) );
       return;
     }
+      
+    if( profileList.size() >= 1 ) {
+      QMap< QString, QString >::const_iterator proIt = profileList.begin();
+      bool import = rbtnImport->isChecked();
+
+      if( import ) {    
+        while( proIt != profileList.end() ) {
+
+          qApp->processEvents();
+
+          QString profileName = proIt.key();
+          QString profilePath = proIt.value();
+
+          importDfendProfiles( profilePath, profileName );
+
+          proIt++;
+        }
+
+      } else {
+        while( proIt != profileList.end() ) {
+
+          qApp->processEvents();
+
+          QString profileName = proIt.key();
+          QString profilePath = proIt.value();
+
+          exportDboxFeProfile( profilePath, profileName );
+
+          proIt++;
+        }
+      }
+    }
 
     qApp->quit();
   }
@@ -225,5 +257,11 @@ namespace asaal {
     }
 
     QApplication::restoreOverrideCursor();
+  }
+
+  void ImportExportPage::importDfendProfiles( const QString &path, const QString &name ) {
+  }
+
+  void ImportExportPage::exportDboxFeProfile( const QString &path, const QString &name ) {
   }
 }
