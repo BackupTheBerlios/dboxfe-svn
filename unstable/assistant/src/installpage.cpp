@@ -296,8 +296,13 @@ namespace asaal {
       if ( progressDialog.wasCanceled() ) {
         break;
       }
-
-      QSettings gameFileSetting( templates.value( i ), QSettings::IniFormat );
+      
+      QFileInfo gameFile( templates.value( i ) );
+      if( !gameFile.exists() ) {
+        continue;
+      }
+      
+      QSettings gameFileSetting( gameFile.absoluteFilePath(), QSettings::IniFormat );
 
       gameFileSetting.beginGroup( "Extra" );
       exec = gameFileSetting.value( "Exe" ).toString();
