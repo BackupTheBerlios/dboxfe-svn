@@ -26,6 +26,8 @@
 #include <gamewizard.h>
 #include <installpage.h>
 
+#include <md5hash.h>
+
 #include <QtCore>
 #include <QtGui>
 

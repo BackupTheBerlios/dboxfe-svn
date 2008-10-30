@@ -65,11 +65,13 @@ SOURCES += src/welcomepage.cpp
 
 # 3rdparty Header
 HEADERS += ../3rdparty/Base64.h
+HEADERS += ../3rdparty/md5hash.h
 HEADERS += ../3rdparty/XMLWriter.h
 HEADERS += ../3rdparty/XMLPreferences.h
 
 # 3rdparty Source
 SOURCES += ../3rdparty/Base64.cpp
+SOURCES += ../3rdparty/md5hash.cpp
 SOURCES += ../3rdparty/XMLPreferences.cpp
 SOURCES += ../3rdparty/XMLWriter.cpp
 
