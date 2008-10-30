@@ -97,6 +97,7 @@ namespace asaal {
     if ( !dosboxBinary.isEmpty() ) {
 
       QString version = checkDosBoxVersion( dosboxBinary );
+
       if ( version >= "0.70" && version != "UKNOWN" ) {
         lineEditDosBoxBinary->setText( dosboxBinary );
 
@@ -113,6 +114,9 @@ namespace asaal {
 
     if ( !gameSetupFile.isEmpty() ) {
       lineEditInstallSetupFile->setText( gameSetupFile );
+
+      if ( checkGameExecutable( gameSetupFile ) ) {
+      }
     }
   }
 
@@ -169,6 +173,7 @@ namespace asaal {
     }
 
     QFileInfo dosboxBinary( dosbox );
+
     QStringList m_param;
 
 #ifdef Q_OS_WIN32
@@ -248,10 +253,10 @@ namespace asaal {
     return "UNKOWN";
   }
 
-  bool InstallPage::checkGameExecutable( const QString &executable ){
+  bool InstallPage::checkGameExecutable( const QString &executable ) {
 
     QStringList templates;
-    QString exec, execMD5, setup, setupMD5, applicationDirPath;
+    QString gameName, exec, execMD5, setup, setupMD5, applicationDirPath;
 
 #ifdef Q_OS_WIN32
     applicationDirPath = QApplication::applicationDirPath() + "/templates";
@@ -272,29 +277,28 @@ namespace asaal {
       if ( fi.fileName() == "." || fi.fileName() == ".." ) {
         ;
       } else {
-        if( fi.isFile() && fi.isReadable() && fi.fileName().endsWith( ".exe" ) ) {
+        if ( fi.isFile() && fi.isReadable() && fi.fileName().endsWith( ".prof" ) ) {
           templates.append( fi.absoluteFilePath() );
         }
       }
     }
 
-    QProgressDialog progressDialog( tr( "Game search" ), tr( "&Cancel" ), 0, templates.size(), this );
-    progressDialog.setWindowTitle( tr( "Searching game, please wait ..." ) );
+    QProgressDialog progressDialog( tr( "Searching game, please wait ..." ), tr( "&Cancel" ), 0, templates.size(), this );
+    progressDialog.setWindowTitle( tr( "Game search" ) );
     progressDialog.setWindowModality( Qt::WindowModal );
+    progressDialog.show();
 
-    for( int i = 0; i < templates.size(); i++ ) {
-      progressDialog.setValue(i);
+    for ( int i = 0; i < templates.size(); i++ ) {
+      qApp->processEvents();
+
+      progressDialog.setValue( i );
 
       if ( progressDialog.wasCanceled() ) {
         break;
       }
 
-      QFile gameFile( templates.value( i ) );
-      if( !gameFile.open( QIODevice::ReadOnly | QIODevice::Text ) ) {
-        continue;
-      }
-
       QSettings gameFileSetting( templates.value( i ), QSettings::IniFormat );
+
       gameFileSetting.beginGroup( "Extra" );
       exec = gameFileSetting.value( "Exe" ).toString();
       execMD5 = gameFileSetting.value( "ExeMD5" ).toString();
@@ -302,8 +306,32 @@ namespace asaal {
       setupMD5 = gameFileSetting.value( "SetupMD5" ).toString();
       gameFileSetting.endGroup();
 
+      gameFileSetting.beginGroup( "ExtraInfo" );
+      gameName = gameFileSetting.value( "Name" ).toString();
+      gameFileSetting.endGroup();
+
+      QString setupMD5Hash = MD5Hash::hashFile( lineEditInstallSetupFile->text() );
+
+      if ( lineEditInstallSetupFile->text() == setup && setupMD5 == setupMD5Hash ) {
+        lineEditGameName->setText( gameName );
+
+        progressDialog.setValue( templates.size() );
+        progressDialog.close();
+
+        templates.clear();
+        setupMD5Hash.clear();
+        setupMD5Hash = QString( "" );
+        return true;
+      }
+
+      setupMD5Hash.clear();
+
+      setupMD5Hash = QString( "" );
     }
+
     progressDialog.setValue( templates.size() );
     templates.clear();
+
+    return false;
   }
 }
