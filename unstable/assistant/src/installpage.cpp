@@ -311,8 +311,9 @@ namespace asaal {
       gameFileSetting.endGroup();
 
       QString setupMD5Hash = MD5Hash::hashFile( lineEditInstallSetupFile->text() );
+      QString execMD5Hash = MD5Hash::hashFile( lineEditGameFile->text() );
 
-      if ( lineEditInstallSetupFile->text() == setup && setupMD5 == setupMD5Hash ) {
+      if ( setupMD5 == setupMD5Hash ) {
         lineEditGameName->setText( gameName );
 
         progressDialog.setValue( templates.size() );
@@ -322,11 +323,23 @@ namespace asaal {
         setupMD5Hash.clear();
         setupMD5Hash = QString( "" );
         return true;
+
+      } else if ( execMD5 == execMD5Hash ) {
+        lineEditGameName->setText( gameName );
+
+        progressDialog.setValue( templates.size() );
+        progressDialog.close();
+
+        templates.clear();
+        execMD5Hash.clear();
+        execMD5Hash = QString( "" );
+        return true;
       }
 
       setupMD5Hash.clear();
-
+      execMD5Hash.clear();
       setupMD5Hash = QString( "" );
+      execMD5Hash = QString( "" );
     }
 
     progressDialog.setValue( templates.size() );
