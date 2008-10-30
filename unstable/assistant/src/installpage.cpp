@@ -248,7 +248,7 @@ namespace asaal {
     return "UNKOWN";
   }
 
-  bool InstallPage::checkGameExectuable( const QString &executable ){
+  bool InstallPage::checkGameExecutable( const QString &executable ){
 
     QStringList templates;
     QString exec, execMD5, setup, setupMD5, applicationDirPath;
@@ -273,7 +273,7 @@ namespace asaal {
         ;
       } else {
         if( fi.isFile() && fi.isReadable() && fi.fileName().endsWith( ".exe" ) ) {
-          templates.append( fi.absoluteFilePath );
+          templates.append( fi.absoluteFilePath() );
         }
       }
     }
@@ -303,7 +303,7 @@ namespace asaal {
       gameFileSetting.endGroup();
 
     }
-    progress.setValue( templates.size() );
+    progressDialog.setValue( templates.size() );
     templates.clear();
   }
 }

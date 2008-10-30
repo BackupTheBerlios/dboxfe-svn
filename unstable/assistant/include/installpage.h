@@ -104,7 +104,7 @@ namespace asaal {
        *
        * @param executable
        */
-      bool checkGameExectuable( const QString &executable );
+      bool checkGameExecutable( const QString &executable );
   };
 }
 
