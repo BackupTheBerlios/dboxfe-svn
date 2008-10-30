@@ -1,27 +1,27 @@
 /***************************************************************************
- *   Copyright (c) 2008 by Alexander Saal                                  *
- *   alex.saal@gmx.de                                                      *
- *                                                                         *
- *   File: ${filename}.${extension}                                        *
- *   Desc: ${description}                                                  *
- *                                                                         *
- *   This file is part of DBoxFE - DOSBox Front End                        *
- *                                                                         *
- *   This program is free software; you can redistribute it and/or modify  *
- *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
- *   (at your option) any later version.                                   *
- *                                                                         *
- *   This program is distributed in the hope that it will be useful,       *
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
- *   GNU General Public License for more details.                          *
- *                                                                         *
- *   You should have received a copy of the GNU General Public License     *
- *   along with this program; if not, write to the                         *
- *   Free Software Foundation, Inc.,                                       *
- *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
- ***************************************************************************/
+*   Copyright (c) 2008 by Alexander Saal                                  *
+*   alex.saal@gmx.de                                                      *
+*                                                                         *
+*   File: ${filename}.${extension}                                        *
+*   Desc: ${description}                                                  *
+*                                                                         *
+*   This file is part of DBoxFE - DOSBox Front End                        *
+*                                                                         *
+*   This program is free software; you can redistribute it and/or modify  *
+*   it under the terms of the GNU General Public License as published by  *
+*   the Free Software Foundation; either version 2 of the License, or     *
+*   (at your option) any later version.                                   *
+*                                                                         *
+*   This program is distributed in the hope that it will be useful,       *
+*   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+*   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+*   GNU General Public License for more details.                          *
+*                                                                         *
+*   You should have received a copy of the GNU General Public License     *
+*   along with this program; if not, write to the                         *
+*   Free Software Foundation, Inc.,                                       *
+*   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+***************************************************************************/
 
 #include <gamewizard.h>
 #include <installpage.h>
@@ -84,7 +84,7 @@ namespace asaal {
 
       return GameWizard::PAGE_GRAPHIC;
     }
-    
+
     return GameWizard::PAGE_INSTALL;
   }
 
@@ -244,5 +244,64 @@ namespace asaal {
 #endif
 
     return "UNKOWN";
+  }
+
+  bool InstallPage::checkGameExectuable( const QString &executable ){
+
+    QStringList templates;
+    QString exec, execMD5, setup, setupMD5, applicationDirPath;
+
+#ifdef Q_OS_WIN32
+    applicationDirPath = QApplication::applicationDirPath() + "/templates";
+#else
+    applicationDirPath = "/usr/share/dboxfe/templates";
+#endif
+
+    QDir templateFolder( applicationDirPath );
+
+    QFileInfo fi;
+    const QFileInfoList fil = templateFolder.entryInfoList( QDir::Files, QDir::Name );
+    QListIterator< QFileInfo > it( fil );
+    QStringList lst;
+
+    while ( it.hasNext() ) {
+      fi = it.next();
+
+      if ( fi.fileName() == "." || fi.fileName() == ".." ) {
+        ;
+      } else {
+        if( fi.isFile() && fi.isReadable() && fi.fileName().endsWith( ".exe" ) ) {
+          templates.append( fi.absoluteFilePath );
+        }
+      }
+    }
+
+    QProgressDialog progressDialog( tr( "Game search" ), tr( "&Cancel" ), 0, templates.size(), this );
+    progressDialog.setWindowTitle( tr( "Searching game, please wait ..." ) );
+    progressDialog.setWindowModality( Qt::WindowModal );
+
+    for( int i = 0; i < templates.size(); i++ ) {
+      progressDialog.setValue(i);
+
+      if ( progressDialog.wasCanceled() ) {
+        break;
+      }
+
+      QFile gameFile( templates.value( i ) );
+      if( !gameFile.open( QIODevice::ReadOnly | QIODevice::Text ) ) {
+        continue;
+      }
+
+      QSettings gameFileSetting( templates.value( i ), QSettings::IniFormat );
+      gameFileSetting.beginGroup( "Extra" );
+      exec = gameFileSetting.value( "Exe" ).toString();
+      execMD5 = gameFileSetting.value( "ExeMD5" ).toString();
+      setup = gameFileSetting.value( "Setup" ).toString();
+      setupMD5 = gameFileSetting.value( "SetupMD5" ).toString();
+      gameFileSetting.endGroup();
+
+    }
+    progress.setValue( templates.size() );
+    templates.clear();
   }
 }

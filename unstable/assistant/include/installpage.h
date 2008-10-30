@@ -98,6 +98,13 @@ namespace asaal {
        * @param dosbox
        */
       QString checkDosBoxVersion( const QString &dosbox );
+  
+      /**
+       * Check game/setup executable
+       *
+       * @param executable
+       */
+      bool checkGameExectuable( const QString &executable );
   };
 }
 
