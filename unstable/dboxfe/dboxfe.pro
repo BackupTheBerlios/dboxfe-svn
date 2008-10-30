@@ -23,6 +23,7 @@ TARGET = dboxfe
 DEPENDPATH += include src ui ../3rdparty
 INCLUDEPATH += include ui ../3rdparty
 RESOURCES += ../resource/dboxfe.qrc
+RESOURCES += ../resource/templates.qrc
 CONFIG += debug thread warn_on qt
 QT += xml network
 
