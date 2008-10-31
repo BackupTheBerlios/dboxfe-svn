@@ -343,8 +343,10 @@
 		  <file alias="The Incredible Machine 2">templates/The Incredible Machine 2.prof</file>
 		  <file alias="The Incredible Machine">templates/The Incredible Machine.prof</file>
 		  <file alias="The legend of Kyrandia 2 - Hand of Fate">templates/The legend of Kyrandia 2 - Hand of Fate.prof</file>
+      <file alias="The legend of Kyrandia 2 - Hand of Fate (German)">templates/The legend of Kyrandia 2 - Hand of Fate (German).prof</file>
 		  <file alias="The legend of Kyrandia 3 - Malcolms Revenge">templates/The legend of Kyrandia 3 - Malcolms Revenge.prof</file>
 		  <file alias="The legend of Kyrandia">templates/The legend of Kyrandia.prof</file>
+      <file alias="The legend of Kyrandia (German)">templates/The legend of Kyrandia (German).prof</file>
 		  <file alias="The Simpsons">templates/The Simpsons.prof</file>
 		  <file alias="The Terminator - Future Shock">templates/The Terminator - Future Shock.prof</file>
 		  <file alias="The Terminator - SkyNET">templates/The Terminator - SkyNET.prof</file>

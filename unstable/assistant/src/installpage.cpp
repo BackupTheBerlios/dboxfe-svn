@@ -261,7 +261,7 @@ namespace asaal {
 #ifdef Q_OS_WIN32
     applicationDirPath = QApplication::applicationDirPath() + "/templates";
 #else
-    applicationDirPath = "/usr/share/dboxfe/templates";
+    applicationDirPath = QDir::homePath() + "/.dboxfe/templates"
 #endif
 
     QDir templateFolder( applicationDirPath );
