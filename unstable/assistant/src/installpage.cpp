@@ -115,7 +115,7 @@ namespace asaal {
     if ( !gameSetupFile.isEmpty() ) {
       lineEditInstallSetupFile->setText( gameSetupFile );
 
-      if ( checkGameExecutable( gameSetupFile ) ) {
+      if ( checkGameExecutable( gameSetupFile, true ) ) {
       }
     }
   }
@@ -135,6 +135,9 @@ namespace asaal {
 
     if ( !gameFile.isEmpty() ) {
       lineEditGameFile->setText( gameFile );
+
+      if ( checkGameExecutable( gameFile, false ) ) {
+      }
     }
   }
 
@@ -173,7 +176,6 @@ namespace asaal {
     }
 
     QFileInfo dosboxBinary( dosbox );
-
     QStringList m_param;
 
 #ifdef Q_OS_WIN32
@@ -253,7 +255,7 @@ namespace asaal {
     return "UNKOWN";
   }
 
-  bool InstallPage::checkGameExecutable( const QString &executable ) {
+  bool InstallPage::checkGameExecutable( const QString &executable, bool install ) {
 
     QStringList templates;
     QString gameName, exec, execMD5, setup, setupMD5, applicationDirPath;
@@ -307,32 +309,41 @@ namespace asaal {
       QSettings gameFileSetting( gameFile.absoluteFilePath(), QSettings::IniFormat );
 
       gameFileSetting.beginGroup( "Extra" );
-      exec = gameFileSetting.value( "Exe" ).toString();
       execMD5 = gameFileSetting.value( "ExeMD5" ).toString().toUpper();
-      setup = gameFileSetting.value( "Setup" ).toString();
       setupMD5 = gameFileSetting.value( "SetupMD5" ).toString().toUpper();
       gameFileSetting.endGroup();
       gameFileSetting.clear();
 
-      QString setupMD5Hash = MD5Hash::hashFile( lineEditInstallSetupFile->text() ).toUpper();
-      QString execMD5Hash = MD5Hash::hashFile( lineEditGameFile->text() ).toUpper();
+      if( install ) {
+        // Check installation file
+        QString setupMD5Hash = MD5Hash::hashFile( lineEditInstallSetupFile->text() ).toUpper();
+        if (( !lineEditInstallSetupFile->text().isNull() || !lineEditInstallSetupFile->text().isEmpty() ) && setupMD5 == setupMD5Hash ) {
+          lineEditGameName->setText( gameFile.baseName() );
+          setupMD5Hash.clear();
+          setupMD5Hash = QString( "" );
+          progressDialog.setValue( templates.size() );
+          return true;
+        }
 
-      if (( !lineEditInstallSetupFile->text().isNull() || !lineEditInstallSetupFile->text().isEmpty() ) && setupMD5 == setupMD5Hash ) {
-        lineEditGameName->setText( gameFile.baseName() );
-
-        qDebug() << gameName << ": " << gameFile.absoluteFilePath() << "\n";
-        qDebug() << setup << " = " << setupMD5Hash << "\n\n";
+      } else {
+        // Check game file
+        QString execMD5Hash = MD5Hash::hashFile( lineEditGameFile->text() ).toUpper();
+        if (( !lineEditGameFile->text().isNull() || !lineEditGameFile->text().isEmpty() ) && execMD5 == execMD5Hash ) {
+          lineEditGameName->setText( gameFile.baseName() );
+          execMD5Hash.clear();
+          execMD5Hash = QString( "" );
+          progressDialog.setValue( templates.size() );
+          return true;
+        }
       }
 
       setupMD5Hash.clear();
-
       execMD5Hash.clear();
       setupMD5Hash = QString( "" );
       execMD5Hash = QString( "" );
     }
 
     progressDialog.setValue( templates.size() );
-
     templates.clear();
 
     return false;

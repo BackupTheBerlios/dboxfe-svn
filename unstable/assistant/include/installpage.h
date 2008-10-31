@@ -103,8 +103,9 @@ namespace asaal {
        * Check game/setup executable
        *
        * @param executable
+       * @param install
        */
-      bool checkGameExecutable( const QString &executable );
+      bool checkGameExecutable( const QString &executable, bool install = false );
   };
 }
 
