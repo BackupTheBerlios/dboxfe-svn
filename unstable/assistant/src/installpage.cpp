@@ -336,11 +336,6 @@ namespace asaal {
           return true;
         }
       }
-
-      setupMD5Hash.clear();
-      execMD5Hash.clear();
-      setupMD5Hash = QString( "" );
-      execMD5Hash = QString( "" );
     }
 
     progressDialog.setValue( templates.size() );

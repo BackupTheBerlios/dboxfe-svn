@@ -25,7 +25,7 @@
 
 #include <tray.h>
 #include <about.h>
-#include <XMLPreferences.h>
+#include <xmlpreferences.h>
 
 #include <QtGui>
 #include <QtCore>
@@ -77,8 +77,9 @@ namespace asaal {
     m_file = QDir::homePath();
     m_file.append( "/.dboxfe/profile/profile.xml" );
 
-    XMLPreferences settGP( "DBoxFE", "Alexander Saal" );
-    settGP.setVersion( getAppVersion() );
+    XmlPreferences settGP = XmlPreferences::instance();
+    settGP.setProductInfo( "Alexander Saal", "DBoxFE" );
+    settGP.setProductVersion( 2 );
     settGP.load( m_file );
 
     /* Get the preferences from dboxfe profile */
@@ -99,24 +100,19 @@ namespace asaal {
     trayIconMenu->addSeparator();
 
     QAction *dboxfeAction = new QAction( "&Start DBoxFE", this );
-
     connect( dboxfeAction, SIGNAL( triggered() ), this, SLOT( startdboxfe() ) );
 
     QAction *dboxfeAboutAction = new QAction( "&About", this );
-
     connect( dboxfeAboutAction, SIGNAL( triggered() ), this, SLOT( aboutTrayIcon() ) );
 
     trayIconMenu->addSeparator();
 
     QAction *quitAction = new QAction( tr( "&Quit" ), this );
-
     connect( quitAction, SIGNAL( triggered() ), qApp, SLOT( quit() ) );
 
     /* Create trayicon now and set the context menu */
     trayIconMenu->addAction( dboxfeAction );
-
     trayIconMenu->addAction( dboxfeAboutAction );
-
     trayIconMenu->addAction( quitAction );
   }
 
