@@ -20,8 +20,8 @@
 TEMPLATE = app
 DESTDIR	= ../bin
 TARGET = dboxfe
-DEPENDPATH += include src ui ../3rdparty
-INCLUDEPATH += include ui ../3rdparty
+DEPENDPATH += include src ui ../3rdparty ../base
+INCLUDEPATH += include ui ../3rdparty ../base
 RESOURCES += ../resource/dboxfe.qrc
 RESOURCES += ../resource/templates.qrc
 CONFIG += debug thread warn_on qt
@@ -40,7 +40,6 @@ DISTFILES += ../resource/LICENSE.GPL
 
 # Project Header
 HEADERS += include/about.h
-HEADERS	+= include/base.h
 HEADERS	+= include/dboxfe.h
 HEADERS	+= include/profile.h
 HEADERS	+= include/splash.h
@@ -48,7 +47,6 @@ HEADERS	+= include/startscreen.h
 
 # Project Source
 SOURCES += src/about.cpp
-SOURCES	+= src/base.cpp
 SOURCES	+= src/dboxfe.cpp
 SOURCES	+= src/main.cpp
 SOURCES	+= src/profile.cpp
@@ -56,16 +54,20 @@ SOURCES	+= src/splash.cpp
 SOURCES	+= src/startscreen.cpp
 
 # 3rdparty Header
-HEADERS	+= ../3rdparty/base64.h
-HEADERS	+= ../3rdparty/xmlpreferences.h
-HEADERS	+= ../3rdparty/xmlpreferences_p.h
-HEADERS	+= ../3rdparty/xmlwriter.h
-HEADERS	+= ../3rdparty/xmlwriter_p.h
+HEADERS += ../base/base.h
+HEADERS += ../3rdparty/base64.h
+HEADERS += ../3rdparty/md5hash.h
+HEADERS += ../3rdparty/xmlpreferences.h
+HEADERS += ../3rdparty/xmlpreferences_p.h
+HEADERS += ../3rdparty/xmlwriter.h
+HEADERS += ../3rdparty/xmlwriter_p.h
 
 # 3rdparty Source
-SOURCES	+= ../3rdparty/base64.cpp
-SOURCES	+= ../3rdparty/xmlpreferences.cpp
-SOURCES	+= ../3rdparty/xmlwriter.cpp
+SOURCES += ../base/base.cpp
+SOURCES += ../3rdparty/base64.cpp
+SOURCES += ../3rdparty/md5hash.cpp
+SOURCES += ../3rdparty/xmlpreferences.cpp
+SOURCES += ../3rdparty/xmlwriter.cpp
 
 # Unix/Linux settings
 unix {

@@ -20,8 +20,8 @@
 TEMPLATE = app
 DESTDIR	= ../bin
 TARGET = dboxfeassistant
-DEPENDPATH += include src ui resource ../3rdparty
-INCLUDEPATH += include ui ../3rdparty
+DEPENDPATH += include src ui resource ../3rdparty ../base
+INCLUDEPATH += include ui ../3rdparty ../base
 RESOURCES += resource/dboxfeassistant.qrc
 RESOURCES += ../resource/templates.qrc
 CONFIG += debug thread warn_on qt
@@ -64,6 +64,7 @@ SOURCES += src/soundpage.cpp
 SOURCES += src/welcomepage.cpp
 
 # 3rdparty Header
+HEADERS += ../base/base.h
 HEADERS	+= ../3rdparty/base64.h
 HEADERS += ../3rdparty/md5hash.h
 HEADERS	+= ../3rdparty/xmlpreferences.h
@@ -72,6 +73,7 @@ HEADERS	+= ../3rdparty/xmlwriter.h
 HEADERS	+= ../3rdparty/xmlwriter_p.h
 
 # 3rdparty Source
+SOURCES += ../base/base.cpp
 SOURCES	+= ../3rdparty/base64.cpp
 SOURCES += ../3rdparty/md5hash.cpp
 SOURCES	+= ../3rdparty/xmlpreferences.cpp
