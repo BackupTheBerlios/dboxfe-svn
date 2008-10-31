@@ -18,5 +18,6 @@
 
 TEMPLATE = subdirs
 CONFIG += ordered
-SUBDIRS += assistant
+SUBDIRS += dboxfe
 SUBDIRS += tray
+SUBDIRS += assistant
