@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<XMLPreferences version="1.0">
+	<software_info product="DBoxFE" company="Alexander Saal"/>
+	<!-- Templates from D-Fend Reloaded. Thanks to Alexander Herzog -->
+	<section name="Templates">
+		  <setting type="qstring" name="A-Train">templates/A-Train.prof</setting>
+		  <setting type="qstring" name="Absolute Pinball">templates/Absolute Pinball.prof</setting>
+		  <setting type="qstring" name="Aces of the Pacific">templates/Aces of the Pacific.prof</setting>
+		  <setting type="qstring" name="Aces over Europe">templates/Aces over Europe.prof</setting>
+		  <setting type="qstring" name="Advanced Civilization">templates/Advanced Civilization.prof</setting>
+		  <setting type="qstring" name="Advantage Tennis">templates/Advantage Tennis.prof</setting>
+		  <setting type="qstring" name="Adventures of Robbo">templates/Adventures of Robbo.prof</setting>
+		  <setting type="qstring" name="Airbus A320">templates/Airbus A320.prof</setting>
+		  <setting type="qstring" name="Aladin">templates/Aladin.prof</setting>
+		  <setting type="qstring" name="Aldo Again (Aldo 2)">templates/Aldo Again (Aldo 2).prof</setting>
+		  <setting type="qstring" name="Aldos Adventure (Aldo 1)">templates/Aldos Adventure (Aldo 1).prof</setting>
+		  <setting type="qstring" name="Aldos Assault (Aldo 3)">templates/Aldos Assault (Aldo 3).prof</setting>
+		  <setting type="qstring" name="Alien Carnage (Halloween Harry Special Edition)">templates/Alien Carnage (Halloween Harry Special Edition).prof</setting>
+		  <setting type="qstring" name="Alone in the dark 2">templates/Alone in the dark 2.prof</setting>
+		  <setting type="qstring" name="Alone in the dark">templates/Alone in the dark.prof</setting>
+		  <setting type="qstring" name="Ancients 1 Deathwatch">templates/Ancients 1 Deathwatch.prof</setting>
+		  <setting type="qstring" name="AnsiDraw 3.0">templates/AnsiDraw 3.0.prof</setting>
+		  <setting type="qstring" name="Arctic Fox">templates/Arctic Fox.prof</setting>
+		  <setting type="qstring" name="Armored Fist">templates/Armored Fist.prof</setting>
+		  <setting type="qstring" name="Atomix">templates/Atomix.prof</setting>
+		  <setting type="qstring" name="Auto Sketch 1.0">templates/Auto Sketch 1.0.prof</setting>
+		  <setting type="qstring" name="Bananoid">templates/Bananoid.prof</setting>
+		  <setting type="qstring" name="Bannermania">templates/Bannermania.prof</setting>
+		  <setting type="qstring" name="Bart Simpson vs. Space Mutants">templates/Bart Simpson vs. Space Mutants.prof</setting>
+		  <setting type="qstring" name="Bart Simpsons House of Weirdness">templates/Bart Simpsons House of Weirdness.prof</setting>
+		  <setting type="qstring" name="Battle Bugs">templates/Battle Bugs.prof</setting>
+		  <setting type="qstring" name="Battle Chess 4000">templates/Battle Chess 4000.prof</setting>
+		  <setting type="qstring" name="Battle Chess">templates/Battle Chess.prof</setting>
+		  <setting type="qstring" name="Battle Isle 2">templates/Battle Isle 2.prof</setting>
+		  <setting type="qstring" name="Battle Isle">templates/Battle Isle.prof</setting>
+		  <setting type="qstring" name="Battle Zone">templates/Battle Zone.prof</setting>
+		  <setting type="qstring" name="BC-Race">templates/BC-Race.prof</setting>
+		  <setting type="qstring" name="Beast">templates/Beast.prof</setting>
+		  <setting type="qstring" name="Beneath a Steel Sky">templates/Beneath a Steel Sky.prof</setting>
+		  <setting type="qstring" name="Betrayal at Krondor">templates/Betrayal at Krondor.prof</setting>
+		  <setting type="qstring" name="Beyond the Titanic">templates/Beyond the Titanic.prof</setting>
+		  <setting type="qstring" name="Bio Menace">templates/Bio Menace.prof</setting>
+		  <setting type="qstring" name="Black Thorne">templates/Black Thorne.prof</setting>
+		  <setting type="qstring" name="Blake Stone Aliens of Gold">templates/Blake Stone Aliens of Gold.prof</setting>
+		  <setting type="qstring" name="Blood">templates/Blood.prof</setting>
+		  <setting type="qstring" name="Blue Force">templates/Blue Force.prof</setting>
+		  <setting type="qstring" name="Blues Brothers 2">templates/Blues Brothers 2.prof</setting>
+		  <setting type="qstring" name="Blues Brothers">templates/Blues Brothers.prof</setting>
+		  <setting type="qstring" name="Borland C 2.0">templates/Borland C 2.0.prof</setting>
+		  <setting type="qstring" name="Borland Pascal 7.0">templates/Borland Pascal 7.0.prof</setting>
+		  <setting type="qstring" name="Brix">templates/Brix.prof</setting>
+		  <setting type="qstring" name="Bureau 13">templates/Bureau 13.prof</setting>
+		  <setting type="qstring" name="Cannon Fodder 2">templates/Cannon Fodder 2.prof</setting>
+		  <setting type="qstring" name="Captain Comic 2">templates/Captain Comic 2.prof</setting>
+		  <setting type="qstring" name="Captain Comic">templates/Captain Comic.prof</setting>
+		  <setting type="qstring" name="Castle Adventure">templates/Castle Adventure.prof</setting>
+		  <setting type="qstring" name="Civilization">templates/Civilization.prof</setting>
+		  <setting type="qstring" name="Clock (Pink Panter)">templates/Clock (Pink Panter).prof</setting>
+		  <setting type="qstring" name="Clock (Rolex)">templates/Clock (Rolex).prof</setting>
+		  <setting type="qstring" name="Clock (Seiko)">templates/Clock (Seiko).prof</setting>
+		  <setting type="qstring" name="Codename Iceman">templates/Codename Iceman.prof</setting>
+		  <setting type="qstring" name="Colonization">templates/Colonization.prof</setting>
+		  <setting type="qstring" name="Comanche 2.0">templates/Comanche 2.0.prof</setting>
+		  <setting type="qstring" name="Comanche 3">templates/Comanche 3.prof</setting>
+		  <setting type="qstring" name="Commanche">templates/Commanche.prof</setting>
+		  <setting type="qstring" name="Command  Conquer">templates/Command  Conquer.prof</setting>
+		  <setting type="qstring" name="Commander Keen 1 (Marooned on Mars)">templates/Commander Keen 1 (Marooned on Mars).prof</setting>
+		  <setting type="qstring" name="Commander Keen 2 (The Earth Explodes)">templates/Commander Keen 2 (The Earth Explodes).prof</setting>
+		  <setting type="qstring" name="Commander Keen 3 (Keen Must Die)">templates/Commander Keen 3 (Keen Must Die).prof</setting>
+		  <setting type="qstring" name="Commander Keen 4 (Secret of the Oracle)">templates/Commander Keen 4 (Secret of the Oracle).prof</setting>
+		  <setting type="qstring" name="Commander Keen 5 (The Armageddon Machine)">templates/Commander Keen 5 (The Armageddon Machine).prof</setting>
+		  <setting type="qstring" name="Commander Keen 6 (Aliens Ate my Baby Sitter)">templates/Commander Keen 6 (Aliens Ate my Baby Sitter).prof</setting>
+		  <setting type="qstring" name="Commander Keen 7 (Keen Dreams)">templates/Commander Keen 7 (Keen Dreams).prof</setting>
+		  <setting type="qstring" name="Cosmos Cosmic Adventure">templates/Cosmos Cosmic Adventure.prof</setting>
+		  <setting type="qstring" name="Crash Course">templates/Crash Course.prof</setting>
+		  <setting type="qstring" name="Crusader - No Remorse">templates/Crusader - No Remorse.prof</setting>
+		  <setting type="qstring" name="Crystal Caves">templates/Crystal Caves.prof</setting>
+		  <setting type="qstring" name="Cyrus Chess">templates/Cyrus Chess.prof</setting>
+		  <setting type="qstring" name="Dame 12">templates/Dame 12.prof</setting>
+		  <setting type="qstring" name="Dark Forces">templates/Dark Forces.prof</setting>
+		  <setting type="qstring" name="Das Erbe">templates/Das Erbe.prof</setting>
+		  <setting type="qstring" name="Das schwarze Auge 2">templates/Das schwarze Auge 2.prof</setting>
+		  <setting type="qstring" name="Das schwarze Auge">templates/Das schwarze Auge.prof</setting>
+		  <setting type="qstring" name="Day of the Tentacle">templates/Day of the Tentacle.prof</setting>
+		  <setting type="qstring" name="dBase III Plus">templates/dBase III Plus.prof</setting>
+		  <setting type="qstring" name="Death Rally">templates/Death Rally.prof</setting>
+		  <setting type="qstring" name="Der Patrizier">templates/Der Patrizier.prof</setting>
+		  <setting type="qstring" name="Descent 2">templates/Descent 2.prof</setting>
+		  <setting type="qstring" name="Destruction Derby">templates/Destruction Derby.prof</setting>
+		  <setting type="qstring" name="Digger">templates/Digger.prof</setting>
+		  <setting type="qstring" name="Dinopark Tycoon">templates/Dinopark Tycoon.prof</setting>
+		  <setting type="qstring" name="Discworld 2">templates/Discworld 2.prof</setting>
+		  <setting type="qstring" name="Discworld">templates/Discworld.prof</setting>
+		  <setting type="qstring" name="Doom 2">templates/Doom 2.prof</setting>
+		  <setting type="qstring" name="Doom 3">templates/Doom 3.prof</setting>
+		  <setting type="qstring" name="Doom">templates/Doom.prof</setting>
+		  <setting type="qstring" name="DOSBox Info (DB-Info 1.0.2)">templates/DOSBox Info (DB-Info 1.0.2).prof</setting>
+		  <setting type="qstring" name="DOSShell (MS-DOS 4.01)">templates/DOSShell (MS-DOS 4.01).prof</setting>
+		  <setting type="qstring" name="DOSShell (MS-DOS 5.0)">templates/DOSShell (MS-DOS 5.0).prof</setting>
+		  <setting type="qstring" name="Dr. Genius 3.0">templates/Dr. Genius 3.0.prof</setting>
+		  <setting type="qstring" name="Duke Nukem 1">templates/Duke Nukem 1.prof</setting>
+		  <setting type="qstring" name="Duke Nukem 2">templates/Duke Nukem 2.prof</setting>
+		  <setting type="qstring" name="Duke Nukem 3D">templates/Duke Nukem 3D.prof</setting>
+		  <setting type="qstring" name="Dune 2 - The Building of a Dynasty">templates/Dune 2 - The Building of a Dynasty.prof</setting>
+		  <setting type="qstring" name="Dune">templates/Dune.prof</setting>
+		  <setting type="qstring" name="Dyna Blaster">templates/Dyna Blaster.prof</setting>
+		  <setting type="qstring" name="Ecstatica">templates/Ecstatica.prof</setting>
+		  <setting type="qstring" name="Eishockey Manager">templates/Eishockey Manager.prof</setting>
+		  <setting type="qstring" name="Electro Man">templates/Electro Man.prof</setting>
+		  <setting type="qstring" name="Elite Plus">templates/Elite Plus.prof</setting>
+		  <setting type="qstring" name="Elite">templates/Elite.prof</setting>
+		  <setting type="qstring" name="Epic Pinball">templates/Epic Pinball.prof</setting>
+		  <setting type="qstring" name="Epic Pinnball">templates/Epic Pinnball.prof</setting>
+		  <setting type="qstring" name="Extreme Pinball">templates/Extreme Pinball.prof</setting>
+		  <setting type="qstring" name="F14 Tomcat">templates/F14 Tomcat.prof</setting>
+		  <setting type="qstring" name="F15 Strike Eagle">templates/F15 Strike Eagle.prof</setting>
+		  <setting type="qstring" name="F22 Lightning II">templates/F22 Lightning II.prof</setting>
+		  <setting type="qstring" name="F29 Retaliator">templates/F29 Retaliator.prof</setting>
+		  <setting type="qstring" name="Falcon 3">templates/Falcon 3.prof</setting>
+		  <setting type="qstring" name="Fanta Vision">templates/Fanta Vision.prof</setting>
+		  <setting type="qstring" name="Fasttracker 2">templates/Fasttracker 2.prof</setting>
+		  <setting type="qstring" name="Formula 1 Grand Prix">templates/Formula 1 Grand Prix.prof</setting>
+		  <setting type="qstring" name="FreeDOS (Boot-Image)">templates/FreeDOS (Boot-Image).prof</setting>
+		  <setting type="qstring" name="Frontier Elite 2">templates/Frontier Elite 2.prof</setting>
+		  <setting type="qstring" name="Frosch">templates/Frosch.prof</setting>
+		  <setting type="qstring" name="Game of Robot (Junior)">templates/Game of Robot (Junior).prof</setting>
+		  <setting type="qstring" name="Game of Robot 1">templates/Game of Robot 1.prof</setting>
+		  <setting type="qstring" name="Game of Robot 2">templates/Game of Robot 2.prof</setting>
+		  <setting type="qstring" name="Game of Robot 3">templates/Game of Robot 3.prof</setting>
+		  <setting type="qstring" name="Game of Robot 4">templates/Game of Robot 4.prof</setting>
+		  <setting type="qstring" name="Gene Wars">templates/Gene Wars.prof</setting>
+		  <setting type="qstring" name="Gobliiins 2">templates/Gobliiins 2.prof</setting>
+		  <setting type="qstring" name="Gobliiins 3">templates/Gobliiins 3.prof</setting>
+		  <setting type="qstring" name="Gobliiins">templates/Gobliiins.prof</setting>
+		  <setting type="qstring" name="Gods">templates/Gods.prof</setting>
+		  <setting type="qstring" name="Grand Prix Circuit">templates/Grand Prix Circuit.prof</setting>
+		  <setting type="qstring" name="Gunship 2000">templates/Gunship 2000.prof</setting>
+		  <setting type="qstring" name="Gunship">templates/Gunship.prof</setting>
+		  <setting type="qstring" name="GW-Basic 3.22">templates/GW-Basic 3.22.prof</setting>
+		  <setting type="qstring" name="Halloween Harry - Alien Carnage">templates/Halloween Harry - Alien Carnage.prof</setting>
+		  <setting type="qstring" name="Halloween Harry">templates/Halloween Harry.prof</setting>
+		  <setting type="qstring" name="Harvard Graphics 3">templates/Harvard Graphics 3.prof</setting>
+		  <setting type="qstring" name="Heartlight PC">templates/Heartlight PC.prof</setting>
+		  <setting type="qstring" name="Heretic">templates/Heretic.prof</setting>
+		  <setting type="qstring" name="Hexen">templates/Hexen.prof</setting>
+		  <setting type="qstring" name="Highway Hunter">templates/Highway Hunter.prof</setting>
+		  <setting type="qstring" name="History Line">templates/History Line.prof</setting>
+		  <setting type="qstring" name="Hocus Pocus">templates/Hocus Pocus.prof</setting>
+		  <setting type="qstring" name="Holiday Lemmings 1993">templates/Holiday Lemmings 1993.prof</setting>
+		  <setting type="qstring" name="Holiday Lemmings 1994">templates/Holiday Lemmings 1994.prof</setting>
+		  <setting type="qstring" name="Humans">templates/Humans.prof</setting>
+		  <setting type="qstring" name="Indiana Jones 3 (EGA)">templates/Indiana Jones 3 (EGA).prof</setting>
+		  <setting type="qstring" name="Indiana Jones 3 (VGA)">templates/Indiana Jones 3 (VGA).prof</setting>
+		  <setting type="qstring" name="Indiana Jones 4">templates/Indiana Jones 4.prof</setting>
+		  <setting type="qstring" name="Indiana Jones and the Last Crusade">templates/Indiana Jones and the Last Crusade.prof</setting>
+		  <setting type="qstring" name="Indiana Jones and the Revenge of the Ancients">templates/Indiana Jones and the Revenge of the Ancients.prof</setting>
+		  <setting type="qstring" name="Indiana Jones and the temple of doom">templates/Indiana Jones and the temple of doom.prof</setting>
+		  <setting type="qstring" name="Ishido">templates/Ishido.prof</setting>
+		  <setting type="qstring" name="Jazz Jackrabbit Holiday Hare 1995">templates/Jazz Jackrabbit Holiday Hare 1995.prof</setting>
+		  <setting type="qstring" name="Jazz Jackrabbit Holiday Hare">templates/Jazz Jackrabbit Holiday Hare.prof</setting>
+		  <setting type="qstring" name="Jazz Jackrabbit">templates/Jazz Jackrabbit.prof</setting>
+		  <setting type="qstring" name="Jet Willy">templates/Jet Willy.prof</setting>
+		  <setting type="qstring" name="Jill goes underground (2)">templates/Jill goes underground (2).prof</setting>
+		  <setting type="qstring" name="Jill of the jungle (1)">templates/Jill of the jungle (1).prof</setting>
+		  <setting type="qstring" name="Jill of the Jungle">templates/Jill of the Jungle.prof</setting>
+		  <setting type="qstring" name="Jill saves the prince (3)">templates/Jill saves the prince (3).prof</setting>
+		  <setting type="qstring" name="Kens Labyrinth">templates/Kens Labyrinth.prof</setting>
+		  <setting type="qstring" name="KGB">templates/KGB.prof</setting>
+		  <setting type="qstring" name="Kiloblaster">templates/Kiloblaster.prof</setting>
+		  <setting type="qstring" name="Kings Quest 4">templates/Kings Quest 4.prof</setting>
+		  <setting type="qstring" name="Kings Quest 5">templates/Kings Quest 5.prof</setting>
+		  <setting type="qstring" name="Kings Quest 6">templates/Kings Quest 6.prof</setting>
+		  <setting type="qstring" name="Lamborghini">templates/Lamborghini.prof</setting>
+		  <setting type="qstring" name="Lands of Lore - The Throne of Chaos">templates/Lands of Lore - The Throne of Chaos.prof</setting>
+		  <setting type="qstring" name="Larry 1 VGA">templates/Larry 1 VGA.prof</setting>
+		  <setting type="qstring" name="Larry 1">templates/Larry 1.prof</setting>
+		  <setting type="qstring" name="Larry 2">templates/Larry 2.prof</setting>
+		  <setting type="qstring" name="Larry 3">templates/Larry 3.prof</setting>
+		  <setting type="qstring" name="Laura Bow 2">templates/Laura Bow 2.prof</setting>
+		  <setting type="qstring" name="Laura Bow">templates/Laura Bow.prof</setting>
+		  <setting type="qstring" name="Lemmings 2 The Tribes Demo">templates/Lemmings 2 The Tribes Demo.prof</setting>
+		  <setting type="qstring" name="Lemmings 2">templates/Lemmings 2.prof</setting>
+		  <setting type="qstring" name="Lemmings 3">templates/Lemmings 3.prof</setting>
+		  <setting type="qstring" name="Lemmings 3D Demo">templates/Lemmings 3D Demo.prof</setting>
+		  <setting type="qstring" name="Lemmings 3D Winterland Demo">templates/Lemmings 3D Winterland Demo.prof</setting>
+		  <setting type="qstring" name="Lemmings Demo">templates/Lemmings Demo.prof</setting>
+		  <setting type="qstring" name="Lemmings">templates/Lemmings.prof</setting>
+		  <setting type="qstring" name="LHX - Attack Chopper">templates/LHX - Attack Chopper.prof</setting>
+		  <setting type="qstring" name="Links - The Challenge of Golf">templates/Links - The Challenge of Golf.prof</setting>
+		  <setting type="qstring" name="Locomotion">templates/Locomotion.prof</setting>
+		  <setting type="qstring" name="Lollypop">templates/Lollypop.prof</setting>
+		  <setting type="qstring" name="Loom">templates/Loom.prof</setting>
+		  <setting type="qstring" name="Lord of the Rings - The Two Towers">templates/Lord of the Rings - The Two Towers.prof</setting>
+		  <setting type="qstring" name="Lotus 123">templates/Lotus 123.prof</setting>
+		  <setting type="qstring" name="Lotus Symphony 3">templates/Lotus Symphony 3.prof</setting>
+		  <setting type="qstring" name="Lotus">templates/Lotus.prof</setting>
+		  <setting type="qstring" name="Low Blow">templates/Low Blow.prof</setting>
+		  <setting type="qstring" name="Lure of the Temptress">templates/Lure of the Temptress.prof</setting>
+		  <setting type="qstring" name="M1 Tank Platoon">templates/M1 Tank Platoon.prof</setting>
+		  <setting type="qstring" name="Macadam Bumper">templates/Macadam Bumper.prof</setting>
+		  <setting type="qstring" name="Mad TV">templates/Mad TV.prof</setting>
+		  <setting type="qstring" name="Magjongg VGA">templates/Magjongg VGA.prof</setting>
+		  <setting type="qstring" name="Major Stryker">templates/Major Stryker.prof</setting>
+		  <setting type="qstring" name="Maniac Mansion">templates/Maniac Mansion.prof</setting>
+		  <setting type="qstring" name="Mario Brothers">templates/Mario Brothers.prof</setting>
+		  <setting type="qstring" name="Mario">templates/Mario.prof</setting>
+		  <setting type="qstring" name="Master of Magic">templates/Master of Magic.prof</setting>
+		  <setting type="qstring" name="Math Rescue">templates/Math Rescue.prof</setting>
+		  <setting type="qstring" name="Micro Machines 2">templates/Micro Machines 2.prof</setting>
+		  <setting type="qstring" name="Micro Machines">templates/Micro Machines.prof</setting>
+		  <setting type="qstring" name="Microsoft Flightsimulator 4">templates/Microsoft Flightsimulator 4.prof</setting>
+		  <setting type="qstring" name="Microsoft Flightsimulator 5.1">templates/Microsoft Flightsimulator 5.1.prof</setting>
+		  <setting type="qstring" name="Microsoft Space Simulator">templates/Microsoft Space Simulator.prof</setting>
+		  <setting type="qstring" name="Midwinter 2">templates/Midwinter 2.prof</setting>
+		  <setting type="qstring" name="Midwinter">templates/Midwinter.prof</setting>
+		  <setting type="qstring" name="Mission Impossible 2">templates/Mission Impossible 2.prof</setting>
+		  <setting type="qstring" name="Monkey Island 1">templates/Monkey Island 1.prof</setting>
+		  <setting type="qstring" name="Monkey Island 2">templates/Monkey Island 2.prof</setting>
+		  <setting type="qstring" name="Monster Bash">templates/Monster Bash.prof</setting>
+		  <setting type="qstring" name="Moonstone">templates/Moonstone.prof</setting>
+		  <setting type="qstring" name="Mortal Combat 2">templates/Mortal Combat 2.prof</setting>
+		  <setting type="qstring" name="Mortal Combat">templates/Mortal Combat.prof</setting>
+		  <setting type="qstring" name="Mystic Towers">templates/Mystic Towers.prof</setting>
+		  <setting type="qstring" name="Muehle 12">templates/Muehle 12.prof</setting>
+		  <setting type="qstring" name="Nascar Racing 2">templates/Nascar Racing 2.prof</setting>
+		  <setting type="qstring" name="Nascar Racing">templates/Nascar Racing.prof</setting>
+		  <setting type="qstring" name="Necromancers Dos Navigator (NC Clone)">templates/Necromancers Dos Navigator (NC Clone).prof</setting>
+		  <setting type="qstring" name="NeoPaint 3.2d">templates/NeoPaint 3.2d.prof</setting>
+		  <setting type="qstring" name="Neuromancer">templates/Neuromancer.prof</setting>
+		  <setting type="qstring" name="North  South">templates/North  South.prof</setting>
+		  <setting type="qstring" name="Norton Commander 1.0">templates/Norton Commander 1.0.prof</setting>
+		  <setting type="qstring" name="Norton Commander 5.5 (deutsch)">templates/Norton Commander 5.5 (deutsch).prof</setting>
+		  <setting type="qstring" name="Norton Commander 5.51 (english)">templates/Norton Commander 5.51 (english).prof</setting>
+		  <setting type="qstring" name="Oh no more Lemmings">templates/Oh no more Lemmings.prof</setting>
+		  <setting type="qstring" name="Oil Imperium">templates/Oil Imperium.prof</setting>
+		  <setting type="qstring" name="One Must Fall 2097">templates/One Must Fall 2097.prof</setting>
+		  <setting type="qstring" name="OpenGEM">templates/OpenGEM.prof</setting>
+		  <setting type="qstring" name="Overkill">templates/Overkill.prof</setting>
+		  <setting type="qstring" name="Papanitzu">templates/Papanitzu.prof</setting>
+		  <setting type="qstring" name="PC Auto 1.5">templates/PC Auto 1.5.prof</setting>
+		  <setting type="qstring" name="PC Globe 3.0">templates/PC Globe 3.0.prof</setting>
+		  <setting type="qstring" name="PC Globe 5.0">templates/PC Globe 5.0.prof</setting>
+		  <setting type="qstring" name="PC Rally">templates/PC Rally.prof</setting>
+		  <setting type="qstring" name="PC Raumfahrt 1.5">templates/PC Raumfahrt 1.5.prof</setting>
+		  <setting type="qstring" name="Perestroika">templates/Perestroika.prof</setting>
+		  <setting type="qstring" name="Pinball Dreams 2">templates/Pinball Dreams 2.prof</setting>
+		  <setting type="qstring" name="Pinball Dreams">templates/Pinball Dreams.prof</setting>
+		  <setting type="qstring" name="Pinball Fantasies">templates/Pinball Fantasies.prof</setting>
+		  <setting type="qstring" name="Pinball Illusions">templates/Pinball Illusions.prof</setting>
+		  <setting type="qstring" name="Pinball Mania">templates/Pinball Mania.prof</setting>
+		  <setting type="qstring" name="Pirates Gold">templates/Pirates Gold.prof</setting>
+		  <setting type="qstring" name="Pizza Tycoon">templates/Pizza Tycoon.prof</setting>
+		  <setting type="qstring" name="Police Quest">templates/Police Quest.prof</setting>
+		  <setting type="qstring" name="Populous">templates/Populous.prof</setting>
+		  <setting type="qstring" name="Ports of Call">templates/Ports of Call.prof</setting>
+		  <setting type="qstring" name="Prehistorik 1">templates/Prehistorik 1.prof</setting>
+		  <setting type="qstring" name="Prehistorik 2">templates/Prehistorik 2.prof</setting>
+		  <setting type="qstring" name="Prince of Persia 2">templates/Prince of Persia 2.prof</setting>
+		  <setting type="qstring" name="Prince of Persia">templates/Prince of Persia.prof</setting>
+		  <setting type="qstring" name="Pushover">templates/Pushover.prof</setting>
+		  <setting type="qstring" name="Pyrotechnica">templates/Pyrotechnica.prof</setting>
+		  <setting type="qstring" name="QBasic">templates/QBasic.prof</setting>
+		  <setting type="qstring" name="Quake Mission Pack I - Scourge of Armagon">templates/Quake Mission Pack I - Scourge of Armagon.prof</setting>
+		  <setting type="qstring" name="Quake Mission Pack II - Dissolution of Eternity">templates/Quake Mission Pack II - Dissolution of Eternity.prof</setting>
+		  <setting type="qstring" name="Quake">templates/Quake.prof</setting>
+		  <setting type="qstring" name="QuickBasic 4.5">templates/QuickBasic 4.5.prof</setting>
+		  <setting type="qstring" name="QuickBasic Extended 7.1">templates/QuickBasic Extended 7.1.prof</setting>
+		  <setting type="qstring" name="Radix Beyond the Void">templates/Radix Beyond the Void.prof</setting>
+		  <setting type="qstring" name="Railroad Tycoon Deluxe">templates/Railroad Tycoon Deluxe.prof</setting>
+		  <setting type="qstring" name="Railroad Tycoon">templates/Railroad Tycoon.prof</setting>
+		  <setting type="qstring" name="Rally Championship">templates/Rally Championship.prof</setting>
+		  <setting type="qstring" name="Ramona das Apfelwuermchen">templates/Ramona das Apfelwuermchen.prof</setting>
+		  <setting type="qstring" name="Raptor">templates/Raptor.prof</setting>
+		  <setting type="qstring" name="Rayman">templates/Rayman.prof</setting>
+		  <setting type="qstring" name="Realms of Chaos">templates/Realms of Chaos.prof</setting>
+		  <setting type="qstring" name="Red Baron">templates/Red Baron.prof</setting>
+		  <setting type="qstring" name="Rings of the Medusa 2">templates/Rings of the Medusa 2.prof</setting>
+		  <setting type="qstring" name="Rings of the Medusa">templates/Rings of the Medusa.prof</setting>
+		  <setting type="qstring" name="Rise of the Triad">templates/Rise of the Triad.prof</setting>
+		  <setting type="qstring" name="Sam  Max (deutsch)">templates/Sam  Max (deutsch).prof</setting>
+		  <setting type="qstring" name="Sam  Max">templates/Sam  Max.prof</setting>
+		  <setting type="qstring" name="Sango Fighter 2">templates/Sango Fighter 2.prof</setting>
+		  <setting type="qstring" name="Sango Fighter">templates/Sango Fighter.prof</setting>
+		  <setting type="qstring" name="Scenario">templates/Scenario.prof</setting>
+		  <setting type="qstring" name="Screamball">templates/Screamball.prof</setting>
+		  <setting type="qstring" name="Screamer">templates/Screamer.prof</setting>
+		  <setting type="qstring" name="ScreamTracker 3.21">templates/ScreamTracker 3.21.prof</setting>
+		  <setting type="qstring" name="Seal 2">templates/Seal 2.prof</setting>
+		  <setting type="qstring" name="Second Reality">templates/Second Reality.prof</setting>
+		  <setting type="qstring" name="Secret Agent">templates/Secret Agent.prof</setting>
+		  <setting type="qstring" name="Seek and Destroy">templates/Seek and Destroy.prof</setting>
+		  <setting type="qstring" name="Sensible Soccer">templates/Sensible Soccer.prof</setting>
+		  <setting type="qstring" name="Shadow Warrior">templates/Shadow Warrior.prof</setting>
+		  <setting type="qstring" name="Siedler 2">templates/Siedler 2.prof</setting>
+		  <setting type="qstring" name="Silent Service 2">templates/Silent Service 2.prof</setting>
+		  <setting type="qstring" name="Silent Service">templates/Silent Service.prof</setting>
+		  <setting type="qstring" name="Silverball">templates/Silverball.prof</setting>
+		  <setting type="qstring" name="Sim Ant">templates/Sim Ant.prof</setting>
+		  <setting type="qstring" name="Sim City (CD-Version)">templates/Sim City (CD-Version).prof</setting>
+		  <setting type="qstring" name="Sim City 2000">templates/Sim City 2000.prof</setting>
+		  <setting type="qstring" name="Sim City">templates/Sim City.prof</setting>
+		  <setting type="qstring" name="SimEarth">templates/SimEarth.prof</setting>
+		  <setting type="qstring" name="SimFarm">templates/SimFarm.prof</setting>
+		  <setting type="qstring" name="Simon the Sorcerer 2">templates/Simon the Sorcerer 2.prof</setting>
+		  <setting type="qstring" name="Simon the Sorcerer">templates/Simon the Sorcerer.prof</setting>
+		  <setting type="qstring" name="SlicksnSlide">templates/SlicksnSlide.prof</setting>
+		  <setting type="qstring" name="Solar Winds">templates/Solar Winds.prof</setting>
+		  <setting type="qstring" name="Space Chase">templates/Space Chase.prof</setting>
+		  <setting type="qstring" name="Space Quest 4">templates/Space Quest 4.prof</setting>
+		  <setting type="qstring" name="Space Quest 5">templates/Space Quest 5.prof</setting>
+		  <setting type="qstring" name="Star Base">templates/Star Base.prof</setting>
+		  <setting type="qstring" name="Star Goose">templates/Star Goose.prof</setting>
+		  <setting type="qstring" name="Star Trek - 25th Anniversary">templates/Star Trek - 25th Anniversary.prof</setting>
+		  <setting type="qstring" name="Star Trek - Judgment Rites">templates/Star Trek - Judgment Rites.prof</setting>
+		  <setting type="qstring" name="Star Trek - The Next Generation - The Transinium Challenge">templates/Star Trek - The Next Generation - The Transinium Challenge.prof</setting>
+		  <setting type="qstring" name="Star Trek - The Rebel Universe">templates/Star Trek - The Rebel Universe.prof</setting>
+		  <setting type="qstring" name="Star Writer Compact">templates/Star Writer Compact.prof</setting>
+		  <setting type="qstring" name="Stratego">templates/Stratego.prof</setting>
+		  <setting type="qstring" name="Strike Commander">templates/Strike Commander.prof</setting>
+		  <setting type="qstring" name="Striker">templates/Striker.prof</setting>
+		  <setting type="qstring" name="Stund Island">templates/Stund Island.prof</setting>
+		  <setting type="qstring" name="Stunts">templates/Stunts.prof</setting>
+		  <setting type="qstring" name="Summer Games">templates/Summer Games.prof</setting>
+		  <setting type="qstring" name="Super Street Fighter 2 Turbo">templates/Super Street Fighter 2 Turbo.prof</setting>
+		  <setting type="qstring" name="Super Tetris">templates/Super Tetris.prof</setting>
+		  <setting type="qstring" name="Super ZZT">templates/Super ZZT.prof</setting>
+		  <setting type="qstring" name="Supernova">templates/Supernova.prof</setting>
+		  <setting type="qstring" name="Syndicate">templates/Syndicate.prof</setting>
+		  <setting type="qstring" name="Terminal Velocity">templates/Terminal Velocity.prof</setting>
+		  <setting type="qstring" name="Test Drive 1">templates/Test Drive 1.prof</setting>
+		  <setting type="qstring" name="Test Drive 2">templates/Test Drive 2.prof</setting>
+		  <setting type="qstring" name="Test Drive 3">templates/Test Drive 3.prof</setting>
+		  <setting type="qstring" name="Tetris Classic">templates/Tetris Classic.prof</setting>
+		  <setting type="qstring" name="Tetris">templates/Tetris.prof</setting>
+		  <setting type="qstring" name="The Adventures of Maddog Williams">templates/The Adventures of Maddog Williams.prof</setting>
+		  <setting type="qstring" name="The big red Adventure">templates/The big red Adventure.prof</setting>
+		  <setting type="qstring" name="The Clue">templates/The Clue.prof</setting>
+		  <setting type="qstring" name="The Draw 4.63">templates/The Draw 4.63.prof</setting>
+		  <setting type="qstring" name="The Even More Incredible Machine">templates/The Even More Incredible Machine.prof</setting>
+		  <setting type="qstring" name="The game of Robot - Junior">templates/The game of Robot - Junior.prof</setting>
+		  <setting type="qstring" name="The game of Robot 1">templates/The game of Robot 1.prof</setting>
+		  <setting type="qstring" name="The game of Robot 2">templates/The game of Robot 2.prof</setting>
+		  <setting type="qstring" name="The game of Robot 3">templates/The game of Robot 3.prof</setting>
+		  <setting type="qstring" name="The game of Robot 4">templates/The game of Robot 4.prof</setting>
+		  <setting type="qstring" name="The Horde">templates/The Horde.prof</setting>
+		  <setting type="qstring" name="The Incredible Machine 2">templates/The Incredible Machine 2.prof</setting>
+		  <setting type="qstring" name="The Incredible Machine">templates/The Incredible Machine.prof</setting>
+		  <setting type="qstring" name="The legend of Kyrandia 2 - Hand of Fate">templates/The legend of Kyrandia 2 - Hand of Fate.prof</setting>
+		  <setting type="qstring" name="The legend of Kyrandia 2 - Hand of Fate (German)">templates/The legend of Kyrandia 2 - Hand of Fate (German).prof</setting>
+		  <setting type="qstring" name="The legend of Kyrandia 3 - Malcolms Revenge">templates/The legend of Kyrandia 3 - Malcolms Revenge.prof</setting>
+		  <setting type="qstring" name="The legend of Kyrandia">templates/The legend of Kyrandia.prof</setting>
+		  <setting type="qstring" name="The legend of Kyrandia (German)">templates/The legend of Kyrandia (German).prof</setting>
+		  <setting type="qstring" name="The Simpsons">templates/The Simpsons.prof</setting>
+		  <setting type="qstring" name="The Terminator - Future Shock">templates/The Terminator - Future Shock.prof</setting>
+		  <setting type="qstring" name="The Terminator - SkyNET">templates/The Terminator - SkyNET.prof</setting>
+		  <setting type="qstring" name="The Wild Science Arcade">templates/The Wild Science Arcade.prof</setting>
+		  <setting type="qstring" name="Theme Park">templates/Theme Park.prof</setting>
+		  <setting type="qstring" name="Tie-Fighter">templates/Tie-Fighter.prof</setting>
+		  <setting type="qstring" name="Tomb Raider">templates/Tomb Raider.prof</setting>
+		  <setting type="qstring" name="Tornado">templates/Tornado.prof</setting>
+		  <setting type="qstring" name="Traffic Department 2192">templates/Traffic Department 2192.prof</setting>
+		  <setting type="qstring" name="Transport Tycoon Deluxe">templates/Transport Tycoon Deluxe.prof</setting>
+		  <setting type="qstring" name="Transport Tycoon">templates/Transport Tycoon.prof</setting>
+		  <setting type="qstring" name="Turbo Pascal 6.0">templates/Turbo Pascal 6.0.prof</setting>
+		  <setting type="qstring" name="Tutor">templates/Tutor.prof</setting>
+		  <setting type="qstring" name="Tyrian 2000">templates/Tyrian 2000.prof</setting>
+		  <setting type="qstring" name="UFO - Enemy Unknown">templates/UFO - Enemy Unknown.prof</setting>
+		  <setting type="qstring" name="Ugh">templates/Ugh.prof</setting>
+		  <setting type="qstring" name="Ultima 1 - The First Age of Darkness">templates/Ultima 1 - The First Age of Darkness.prof</setting>
+		  <setting type="qstring" name="Ultima 2 - Revenge of the Enchantress">templates/Ultima 2 - Revenge of the Enchantress.prof</setting>
+		  <setting type="qstring" name="Ultima 3 - Exodus">templates/Ultima 3 - Exodus.prof</setting>
+		  <setting type="qstring" name="Ultima 4 - Quest of the Avatar">templates/Ultima 4 - Quest of the Avatar.prof</setting>
+		  <setting type="qstring" name="Ultima 5 - Warriors of Destiny">templates/Ultima 5 - Warriors of Destiny.prof</setting>
+		  <setting type="qstring" name="Ultima 6 - The False Prophet">templates/Ultima 6 - The False Prophet.prof</setting>
+		  <setting type="qstring" name="Ultima 7 - The Black Gate">templates/Ultima 7 - The Black Gate.prof</setting>
+		  <setting type="qstring" name="Ultima 7 Part Two - Serpent Isle">templates/Ultima 7 Part Two - Serpent Isle.prof</setting>
+		  <setting type="qstring" name="Ultima 8 - Pagan">templates/Ultima 8 - Pagan.prof</setting>
+		  <setting type="qstring" name="Ultima Underworld - The Stygian Abyss">templates/Ultima Underworld - The Stygian Abyss.prof</setting>
+		  <setting type="qstring" name="Ultima Underworld 2">templates/Ultima Underworld 2.prof</setting>
+		  <setting type="qstring" name="Unreal">templates/Unreal.prof</setting>
+		  <setting type="qstring" name="VGA Copy 6.25">templates/VGA Copy 6.25.prof</setting>
+		  <setting type="qstring" name="VisiCalc">templates/VisiCalc.prof</setting>
+		  <setting type="qstring" name="Visual Basic for DOS 1.0">templates/Visual Basic for DOS 1.0.prof</setting>
+		  <setting type="qstring" name="Voka 10">templates/Voka 10.prof</setting>
+		  <setting type="qstring" name="Wacky Wheels">templates/Wacky Wheels.prof</setting>
+		  <setting type="qstring" name="Warcraft 2">templates/Warcraft 2.prof</setting>
+		  <setting type="qstring" name="Warcraft">templates/Warcraft.prof</setting>
+		  <setting type="qstring" name="Welltris">templates/Welltris.prof</setting>
+		  <setting type="qstring" name="Windows 2.03">templates/Windows 2.03.prof</setting>
+		  <setting type="qstring" name="Windows 3.0">templates/Windows 3.0.prof</setting>
+		  <setting type="qstring" name="Windows 3.1">templates/Windows 3.1.prof</setting>
+		  <setting type="qstring" name="Windows for Workgroups 3.11">templates/Windows for Workgroups 3.11.prof</setting>
+		  <setting type="qstring" name="Wing Commander Privateer">templates/Wing Commander Privateer.prof</setting>
+		  <setting type="qstring" name="Wing Commander">templates/Wing Commander.prof</setting>
+		  <setting type="qstring" name="Winter Games">templates/Winter Games.prof</setting>
+		  <setting type="qstring" name="Wipeout">templates/Wipeout.prof</setting>
+		  <setting type="qstring" name="Wolfenstein 3D - Spear of Destiny Add-on I">templates/Wolfenstein 3D - Spear of Destiny Add-on I.prof</setting>
+		  <setting type="qstring" name="Wolfenstein 3D - Spear of Destiny Add-on II">templates/Wolfenstein 3D - Spear of Destiny Add-on II.prof</setting>
+		  <setting type="qstring" name="Wolfenstein 3D">templates/Wolfenstein 3D.prof</setting>
+		  <setting type="qstring" name="Wolfpack">templates/Wolfpack.prof</setting>
+		  <setting type="qstring" name="Word 5.0">templates/Word 5.0.prof</setting>
+		  <setting type="qstring" name="Word 5.5">templates/Word 5.5.prof</setting>
+		  <setting type="qstring" name="Word Perfect 5.1">templates/Word Perfect 5.1.prof</setting>
+		  <setting type="qstring" name="Word Rescue">templates/Word Rescue.prof</setting>
+		  <setting type="qstring" name="Works 3.0">templates/Works 3.0.prof</setting>
+		  <setting type="qstring" name="Worms Plus">templates/Worms Plus.prof</setting>
+		  <setting type="qstring" name="Worms">templates/Worms.prof</setting>
+		  <setting type="qstring" name="X-COM - Terror from the Deep">templates/X-COM - Terror from the Deep.prof</setting>
+		  <setting type="qstring" name="X-Com 2">templates/X-Com 2.prof</setting>
+		  <setting type="qstring" name="X-Wing">templates/X-Wing.prof</setting>
+		  <setting type="qstring" name="Xargon">templates/Xargon.prof</setting>
+		  <setting type="qstring" name="Xenon 2">templates/Xenon 2.prof</setting>
+		  <setting type="qstring" name="Xenon">templates/Xenon.prof</setting>
+		  <setting type="qstring" name="Xenophage Alien Bloodsport">templates/Xenophage Alien Bloodsport.prof</setting>
+		  <setting type="qstring" name="XMas Lemmings 91 Demo">templates/XMas Lemmings 91 Demo.prof</setting>
+		  <setting type="qstring" name="XMas Lemmings 92 Demo">templates/XMas Lemmings 92 Demo.prof</setting>
+		  <setting type="qstring" name="XMas-Lemmings 1991">templates/XMas-Lemmings 1991.prof</setting>
+		  <setting type="qstring" name="XMas-Lemmings 1993">templates/XMas-Lemmings 1993.prof</setting>
+		  <setting type="qstring" name="XTree Gold 3.0">templates/XTree Gold 3.0.prof</setting>
+		  <setting type="qstring" name="Zak McKracken">templates/Zak McKracken.prof</setting>
+		  <setting type="qstring" name="Zone 66">templates/Zone 66.prof</setting>
+		  <setting type="qstring" name="Oekopoly">templates/Oekopoly.prof</setting>
+	</section>
+</XMLPreferences>
