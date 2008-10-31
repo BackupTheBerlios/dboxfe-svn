@@ -284,6 +284,7 @@ namespace asaal {
     }
 
     QProgressDialog progressDialog( tr( "Searching game, please wait ..." ), tr( "&Cancel" ), 0, templates.size(), this );
+
     progressDialog.setWindowTitle( tr( "Game search" ) );
     progressDialog.setWindowModality( Qt::WindowModal );
     progressDialog.show();
@@ -296,58 +297,42 @@ namespace asaal {
       if ( progressDialog.wasCanceled() ) {
         break;
       }
-      
+
       QFileInfo gameFile( templates.value( i ) );
-      if( !gameFile.exists() ) {
+
+      if ( !gameFile.exists() ) {
         continue;
       }
-      
+
       QSettings gameFileSetting( gameFile.absoluteFilePath(), QSettings::IniFormat );
 
       gameFileSetting.beginGroup( "Extra" );
       exec = gameFileSetting.value( "Exe" ).toString();
-      execMD5 = gameFileSetting.value( "ExeMD5" ).toString();
+      execMD5 = gameFileSetting.value( "ExeMD5" ).toString().toUpper();
       setup = gameFileSetting.value( "Setup" ).toString();
-      setupMD5 = gameFileSetting.value( "SetupMD5" ).toString();
+      setupMD5 = gameFileSetting.value( "SetupMD5" ).toString().toUpper();
       gameFileSetting.endGroup();
+      gameFileSetting.clear();
 
-      gameFileSetting.beginGroup( "ExtraInfo" );
-      gameName = gameFileSetting.value( "Name" ).toString();
-      gameFileSetting.endGroup();
+      QString setupMD5Hash = MD5Hash::hashFile( lineEditInstallSetupFile->text() ).toUpper();
+      QString execMD5Hash = MD5Hash::hashFile( lineEditGameFile->text() ).toUpper();
 
-      QString setupMD5Hash = MD5Hash::hashFile( lineEditInstallSetupFile->text() );
-      QString execMD5Hash = MD5Hash::hashFile( lineEditGameFile->text() );
+      if (( !lineEditInstallSetupFile->text().isNull() || !lineEditInstallSetupFile->text().isEmpty() ) && setupMD5 == setupMD5Hash ) {
+        lineEditGameName->setText( gameFile.baseName() );
 
-      if ( setupMD5 == setupMD5Hash ) {
-        lineEditGameName->setText( gameName );
-
-        progressDialog.setValue( templates.size() );
-        progressDialog.close();
-
-        templates.clear();
-        setupMD5Hash.clear();
-        setupMD5Hash = QString( "" );
-        return true;
-
-      } else if ( execMD5 == execMD5Hash ) {
-        lineEditGameName->setText( gameName );
-
-        progressDialog.setValue( templates.size() );
-        progressDialog.close();
-
-        templates.clear();
-        execMD5Hash.clear();
-        execMD5Hash = QString( "" );
-        return true;
+        qDebug() << gameName << ": " << gameFile.absoluteFilePath() << "\n";
+        qDebug() << setup << " = " << setupMD5Hash << "\n\n";
       }
 
       setupMD5Hash.clear();
+
       execMD5Hash.clear();
       setupMD5Hash = QString( "" );
       execMD5Hash = QString( "" );
     }
 
     progressDialog.setValue( templates.size() );
+
     templates.clear();
 
     return false;
