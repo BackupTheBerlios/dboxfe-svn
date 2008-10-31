@@ -22,3 +22,29 @@
 *   Free Software Foundation, Inc.,                                       *
 *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
 ***************************************************************************/
+
+#include <base.h>
+#include <xmlpreferences.h>
+
+#include <QtCore>
+
+namespace asaal {
+
+  ConfigBase::ConfigBase( QObject *parent ) : QObject( parent ) {
+
+    m_Parent = parent;
+  }
+
+  ConfigBaee::~ConfigBase() {
+  }
+
+  Configuration ConfigBase::readConfiguration( const QString &profile ) {
+  }
+
+  Configuration ConfigBase::convertConfiguration( const QString &profile ) {
+  }
+
+  void ConfigBase::writeConfiguration( const QString &profile, const Configuration &config ) {
+  }
+
+}
