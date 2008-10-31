@@ -56,14 +56,16 @@ SOURCES	+= src/splash.cpp
 SOURCES	+= src/startscreen.cpp
 
 # 3rdparty Header
-HEADERS	+= ../3rdparty/Base64.h
-HEADERS	+= ../3rdparty/XMLWriter.h
-HEADERS	+= ../3rdparty/XMLPreferences.h
+HEADERS	+= ../3rdparty/base64.h
+HEADERS	+= ../3rdparty/xmlpreferences.h
+HEADERS	+= ../3rdparty/xmlpreferences_p.h
+HEADERS	+= ../3rdparty/xmlwriter.h
+HEADERS	+= ../3rdparty/xmlwriter_p.h
 
 # 3rdparty Source
-SOURCES	+= ../3rdparty/Base64.cpp
-SOURCES	+= ../3rdparty/XMLPreferences.cpp
-SOURCES	+= ../3rdparty/XMLWriter.cpp
+SOURCES	+= ../3rdparty/base64.cpp
+SOURCES	+= ../3rdparty/xmlpreferences.cpp
+SOURCES	+= ../3rdparty/xmlwriter.cpp
 
 # Unix/Linux settings
 unix {
@@ -71,11 +73,13 @@ unix {
 	MOC_DIR	+= ../build/dboxfe/unix/moc
 	OBJECTS_DIR += ../build/dboxfe/unix/obj
 	UI_DIR += ../build/dboxfe/unix/ui
+	LIBS += -lxml2
 }
 
 # Windows settings
 win32 {
 	CONFIG += embed_manifest_exe
+	LIBS += -llibxml2
 	
 	RC_FILE = ../resource/dboxfe.rc
 	RCC_DIR	= ../build/dboxfe/win/rcc
