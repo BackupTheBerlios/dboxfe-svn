@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/" >
+		  <file alias="template_xml">templates.xml</file>
 		  <file alias="A-Train">templates/A-Train.prof</file>
 		  <file alias="Absolute Pinball">templates/Absolute Pinball.prof</file>
 		  <file alias="Aces of the Pacific">templates/Aces of the Pacific.prof</file>
