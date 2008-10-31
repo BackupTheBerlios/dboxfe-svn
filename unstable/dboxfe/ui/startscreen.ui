@@ -79,7 +79,7 @@ z-index: 99;</string>
      <string>Games</string>
     </property>
    </widget>
-   <widget class="QWidget" name="" >
+   <widget class="QWidget" name="layoutWidget" >
     <property name="geometry" >
      <rect>
       <x>10</x>
@@ -334,6 +334,9 @@ background-color: white;</string>
     <enum>QFrame::StyledPanel</enum>
    </property>
    <widget class="QLabel" name="labelGameScreenshot" >
+    <property name="enabled" >
+     <bool>false</bool>
+    </property>
     <property name="geometry" >
      <rect>
       <x>10</x>
@@ -384,6 +387,73 @@ border-radius: 7px;</string>
      <string>Screenshot</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="pushButton_6" >
+    <property name="enabled" >
+     <bool>false</bool>
+    </property>
+    <property name="geometry" >
+     <rect>
+      <x>470</x>
+      <y>0</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet" >
+     <string notr="true" >background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 lightblue, stop: 1 navy);
+color: white;
+border-width: 2px;
+padding: 2px;
+border-style: solid;
+border-left: none;
+border-color: navy;
+border-radius: 3px;</string>
+    </property>
+    <property name="text" >
+     <string/>
+    </property>
+    <property name="icon" >
+     <iconset resource="../../resource/dboxfe.qrc" >
+      <normaloff>:/pics/images/redo_16.png</normaloff>:/pics/images/redo_16.png</iconset>
+    </property>
+    <property name="flat" >
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_7" >
+    <property name="enabled" >
+     <bool>false</bool>
+    </property>
+    <property name="geometry" >
+     <rect>
+      <x>440</x>
+      <y>0</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet" >
+     <string notr="true" >background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 lightblue, stop: 1 navy);
+color: white;
+border-width: 2px;
+padding: 2px;
+border-style: solid;
+border-left: none;
+border-right: none;
+border-color: navy;
+border-radius: 3px;</string>
+    </property>
+    <property name="text" >
+     <string/>
+    </property>
+    <property name="icon" >
+     <iconset resource="../../resource/dboxfe.qrc" >
+      <normaloff>:/pics/images/undo_16.png</normaloff>:/pics/images/undo_16.png</iconset>
+    </property>
+    <property name="flat" >
+     <bool>true</bool>
+    </property>
+   </widget>
   </widget>
   <widget class="QFrame" name="frameGameDescription" >
    <property name="geometry" >
@@ -406,6 +476,9 @@ background-color: white;</string>
     <enum>QFrame::StyledPanel</enum>
    </property>
    <widget class="QTextEdit" name="textEditGameDescription" >
+    <property name="enabled" >
+     <bool>false</bool>
+    </property>
     <property name="geometry" >
      <rect>
       <x>10</x>
@@ -445,6 +518,73 @@ border-radius: 7px;</string>
     </property>
     <property name="text" >
      <string>Description</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_5" >
+    <property name="enabled" >
+     <bool>false</bool>
+    </property>
+    <property name="geometry" >
+     <rect>
+      <x>470</x>
+      <y>0</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet" >
+     <string notr="true" >background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 lightblue, stop: 1 navy);
+color: white;
+border-width: 2px;
+padding: 2px;
+border-style: solid;
+border-left: none;
+border-color: navy;
+border-radius: 3px;</string>
+    </property>
+    <property name="text" >
+     <string/>
+    </property>
+    <property name="icon" >
+     <iconset resource="../../resource/dboxfe.qrc" >
+      <normaloff>:/pics/images/redo_16.png</normaloff>:/pics/images/redo_16.png</iconset>
+    </property>
+    <property name="flat" >
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_8" >
+    <property name="enabled" >
+     <bool>false</bool>
+    </property>
+    <property name="geometry" >
+     <rect>
+      <x>440</x>
+      <y>0</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet" >
+     <string notr="true" >background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 lightblue, stop: 1 navy);
+color: white;
+border-width: 2px;
+padding: 2px;
+border-style: solid;
+border-left: none;
+border-right: none;
+border-color: navy;
+border-radius: 3px;</string>
+    </property>
+    <property name="text" >
+     <string/>
+    </property>
+    <property name="icon" >
+     <iconset resource="../../resource/dboxfe.qrc" >
+      <normaloff>:/pics/images/undo_16.png</normaloff>:/pics/images/undo_16.png</iconset>
+    </property>
+    <property name="flat" >
+     <bool>true</bool>
     </property>
    </widget>
   </widget>
