@@ -35,16 +35,44 @@ namespace asaal {
     m_Parent = parent;
   }
 
-  ConfigBaee::~ConfigBase() {
+  ConfigBase::~ConfigBase() {
   }
 
   Configuration ConfigBase::readConfiguration( const QString &profile ) {
+
+    clearSettings();
+    QFile configFile( profile );
+
+    if ( !configFile.exists() ) {
+      m_Configuration.clear();
+      return m_Configuration;
+    }
+
+    QSettings readConf( profile, QSettings::IniFormat );
+
+    return m_Configuration;
   }
 
   Configuration ConfigBase::convertConfiguration( const QString &profile ) {
+
+    clearSettings();
+    QFile configFile( profile );
+
+    if ( !configFile.exists() ) {
+      m_Configuration.clear();
+      return m_Configuration;
+    }
+
+    QSettings readConf( profile, QSettings::IniFormat );
+
+    return m_Configuration;
   }
 
   void ConfigBase::writeConfiguration( const QString &profile, const Configuration &config ) {
+
+    if ( config.isEmpty() ) {
+      return;
+    }
   }
 
 }
