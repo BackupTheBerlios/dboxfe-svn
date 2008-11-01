@@ -24,7 +24,7 @@
  ***************************************************************************/
 
 
-#ifdef BASE_H
+#ifndef BASE_H
 #define BASE_H
 
 #include <QtCore>
@@ -84,7 +84,71 @@ namespace asaal {
       /** Set/Get autoexec settings */
       QString autoexec;
 
-      clear() {
+
+      /**
+       * Returns true if other points the same item of other; otherwise returns false.
+       */
+      bool operator == ( const Configuration &other ) const {
+        return sdl == other.sdl &&
+               dosbox == other.dosbox &&
+               render == other.render &&
+               cpu == other.cpu &&
+               mixer == other.mixer &&
+               mdi == other.mdi &&
+               sblaster == other.sblaster &&
+               gus == other.gus &&
+               speaker == other.speaker &&
+               joystick == other.joystick &&
+               serial == other.serial &&
+               dos == other.dos &&
+               ipx == other.ipx &&
+               autoexec == other.autoexec;
+      }
+
+      /**
+       * Returns true if other points to a different item than this other; otherwise returns false.
+       */
+      bool operator != ( const Configuration &other ) const {
+        return sdl != other.sdl ||
+               dosbox != other.dosbox ||
+               render != other.render ||
+               cpu != other.cpu ||
+               mixer != other.mixer ||
+               mdi != other.mdi ||
+               sblaster != other.sblaster ||
+               gus != other.gus ||
+               speaker != other.speaker ||
+               joystick != other.joystick ||
+               serial != other.serial ||
+               dos != other.dos ||
+               ipx != other.ipx ||
+               autoexec != other.autoexec;
+      }
+
+      /**
+       * Returns true if the cache contains no objects; otherwise returns false.
+       */
+      bool isEmpty() const {
+        return sdl.isEmpty() &&
+               dosbox.isEmpty() &&
+               render.isEmpty() &&
+               cpu.isEmpty() &&
+               mixer.isEmpty() &&
+               mdi.isEmpty() &&
+               sblaster.isEmpty() &&
+               gus.isEmpty() &&
+               speaker.isEmpty() &&
+               joystick.isEmpty() &&
+               serial.isEmpty() &&
+               dos.isEmpty() &&
+               ipx.isEmpty() &&
+               ( autoexec.isEmpty() || autoexec.isNull() );
+      }
+
+      /**
+       * Deletes all the objects in the cache.
+       */
+      void clear() {
         sdl.clear();
         dosbox.clear();
         render.clear();
@@ -163,6 +227,26 @@ namespace asaal {
       void writeConfiguration( const QString &profile, const Configuration &config );
 
     private:
+      /**
+       * Deletes all the objects in the cache.
+       */
+      void clearSettings() {
+        m_Sdl.clear();
+        m_Dosbox.clear();
+        m_Render.clear();
+        m_Cpu.clear();
+        m_Mixer.clear();
+        m_Mdi.clear();
+        m_Sblaster.clear();
+        m_Gus.clear();
+        m_Speaker.clear();
+        m_Joystick.clear();
+        m_Serial.clear();
+        m_Dos.clear();
+        m_Ipx.clear();
+        m_Autoexec = QString( "" );
+      }
+
       static ConfigBase* m_Instance;
       Configuration m_Configuration;
       QObject *m_Parent;
