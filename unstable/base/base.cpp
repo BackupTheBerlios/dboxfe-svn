@@ -31,8 +31,6 @@
 namespace asaal {
 
   ConfigBase::ConfigBase( QObject *parent ) : QObject( parent ) {
-
-    m_Parent = parent;
   }
 
   ConfigBase::~ConfigBase() {
@@ -41,10 +39,13 @@ namespace asaal {
   Configuration ConfigBase::readConfiguration( const QString &profile ) {
 
     m_Configuration.clear();
-    QFile configFile( profile );
 
+    if( profile.isEmpty() || profile.isNull() ) {
+      return m_Configuration;
+    }
+
+    QFile configFile( profile );
     if ( !configFile.exists() ) {
-      m_Configuration.clear();
       return m_Configuration;
     }
 
@@ -195,10 +196,14 @@ namespace asaal {
 
   Configuration ConfigBase::convertConfiguration( const QString &profile ) {
 
-    QFile configFile( profile );
+    m_Configuration.clear();
 
+    if( profile.isEmpty() || profile.isNull() ) {
+      return m_Configuration;
+    }
+
+    QFile configFile( profile );
     if ( !configFile.exists() ) {
-      m_Configuration.clear();
       return m_Configuration;
     }
 
@@ -209,9 +214,162 @@ namespace asaal {
 
   void ConfigBase::writeConfiguration( const QString &profile, const Configuration &config ) {
 
-    if ( config.isEmpty() ) {
+    m_Configuration.clear();
+    m_Configuration = config;
+
+    if( config.isEmpty() ) {
       return;
     }
-  }
 
+    if( profile.isEmpty() || profile.isNull() ) {
+      return;
+    }
+
+    QSettings writeConf( profile, QSettings::IniFormat );
+
+    // SDL settings
+    writeConf.beginGroup( "sdl" );
+    QMap< QString, QVariant >::const_iterator m_Sdl = config.sdl.constBegin();
+    while( m_Sdl != config.sdl.constEnd() ) {
+      qApp->processEvents();
+
+      writeConf.setValue( m_Sdl.key(), m_Sdl.value() );
+      ++m_Sdl;
+    }
+    writeConf.endGroup();
+
+    // DOSBox settings
+    writeConf.beginGroup( "dosbox" );
+    QMap< QString, QVariant >::const_iterator m_Dosbox = config.dosbox.constBegin();
+    while( m_Dosbox != config.dosbox.constEnd() ) {
+      qApp->processEvents();
+
+      writeConf.setValue( m_Dosbox.key(), m_Dosbox.value() );
+      ++m_Dosbox;
+    }
+    writeConf.endGroup();
+
+    // Render settings
+    writeConf.beginGroup( "render" );
+    QMap< QString, QVariant >::const_iterator m_Render = config.render.constBegin();
+    while( m_Render != config.render.constEnd() ) {
+      qApp->processEvents();
+
+      writeConf.setValue( m_Render.key(), m_Render.value() );
+      ++m_Render;
+    }
+    writeConf.endGroup();
+
+    // CPU settings
+    writeConf.beginGroup( "cpu" );
+    QMap< QString, QVariant >::const_iterator m_Cpu = config.cpu.constBegin();
+    while( m_Cpu != config.cpu.constEnd() ) {
+      qApp->processEvents();
+
+      writeConf.setValue( m_Cpu.key(), m_Cpu.value() );
+      ++m_Cpu;
+    }
+    writeConf.endGroup();
+
+    // Mixer settings
+    writeConf.beginGroup( "mixer" );
+    QMap< QString, QVariant >::const_iterator m_Mixer = config.mixer.constBegin();
+    while( m_Mixer != config.mixer.constEnd() ) {
+      qApp->processEvents();
+
+      writeConf.setValue( m_Mixer.key(), m_Mixer.value() );
+      ++m_Mixer;
+    }
+    writeConf.endGroup();
+
+    // Mdi settings
+    writeConf.beginGroup( "mdi" );
+    QMap< QString, QVariant >::const_iterator m_Mdi = config.mdi.constBegin();
+    while( m_Mdi != config.mdi.constEnd() ) {
+      qApp->processEvents();
+
+      writeConf.setValue( m_Mdi.key(), m_Mdi.value() );
+      ++m_Mdi;
+    }
+    writeConf.endGroup();
+
+    // Soundblaster settings
+    writeConf.beginGroup( "sblaster" );
+    QMap< QString, QVariant >::const_iterator m_SBlaster = config.sblaster.constBegin();
+    while( m_SBlaster != config.sblaster.constEnd() ) {
+      qApp->processEvents();
+
+      writeConf.setValue( m_SBlaster.key(), m_SBlaster.value() );
+      ++m_SBlaster;
+    }
+    writeConf.endGroup();
+
+    // GUS settings
+    writeConf.beginGroup( "gus" );
+    QMap< QString, QVariant >::const_iterator m_Gus = config.gus.constBegin();
+    while( m_Gus != config.gus.constEnd() ) {
+      qApp->processEvents();
+
+      writeConf.setValue( m_Gus.key(), m_Gus.value() );
+      ++m_Gus;
+    }
+    writeConf.endGroup();
+
+    // PC Speaker settings
+    writeConf.beginGroup( "speaker" );
+    QMap< QString, QVariant >::const_iterator m_Speaker = config.speaker.constBegin();
+    while( m_Speaker != config.speaker.constEnd() ) {
+      qApp->processEvents();
+
+      writeConf.setValue( m_Speaker.key(), m_Speaker.value() );
+      ++m_Speaker;
+    }
+    writeConf.endGroup();
+
+    // joystick settings
+    writeConf.beginGroup( "joystick" );
+    QMap< QString, QVariant >::const_iterator m_Joystick = config.joystick.constBegin();
+    while( m_Joystick != config.joystick.constEnd() ) {
+      qApp->processEvents();
+
+      writeConf.setValue( m_Joystick.key(), m_Joystick.value() );
+      ++m_Joystick;
+    }
+    writeConf.endGroup();
+
+    // Serial settings
+    writeConf.beginGroup( "serial" );
+    QMap< QString, QVariant >::const_iterator m_Serial = config.serial.constBegin();
+    while( m_Serial != config.serial.constEnd() ) {
+      qApp->processEvents();
+
+      writeConf.setValue( m_Serial.key(), m_Serial.value() );
+      ++m_Serial;
+    }
+    writeConf.endGroup();
+
+    // DOS settings
+    writeConf.beginGroup( "dos" );
+    QMap< QString, QVariant >::const_iterator m_Dos = config.dos.constBegin();
+    while( m_Dos != config.dos.constEnd() ) {
+      qApp->processEvents();
+
+      writeConf.setValue( m_Dos.key(), m_Dos.value() );
+      ++m_Dos;
+    }
+    writeConf.endGroup();
+
+    // IPX settings
+    writeConf.beginGroup( "ipx" );
+    writeConf.setValue( "ipx", config.ipx );
+    writeConf.endGroup();
+
+    // Autoexec settings
+    writeConf.beginGroup( "autoexec" );
+    writeConf.setValue( "autoexec", config.autoexec );
+    writeConf.endGroup();
+    
+    writeConf.sync();
+    m_Configuration.clear();
+  }
 }

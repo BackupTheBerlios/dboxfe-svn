@@ -31,205 +31,204 @@
 namespace asaal {
 
   /**
-   * Configuration handles all objects from dosbox configuration file
-   *
-   * @author Alexander Saal <alex.saal@gmx.de>
-   * @sa http://dboxfe.belios.de/index
-   * @date 2008/31/10
-   * @version 0.2.5
-   * @since 0.2.5
-   */
+  * Configuration handles all objects from dosbox configuration file
+  *
+  * @author Alexander Saal <alex.saal@gmx.de>
+  * @sa http://dboxfe.belios.de/index
+  * @date 2008/31/10
+  * @version 0.2.5
+  * @since 0.2.5
+  */
   class Configuration {
 
-    public:
-      /** Set/Get sdl settings */
-      QMap< QString, QVariant > sdl;
+  public:
+    /** Set/Get sdl settings */
+    QMap< QString, QVariant > sdl;
 
-      /** Set/Get dosbox settings */
-      QMap< QString, QVariant > dosbox;
+    /** Set/Get dosbox settings */
+    QMap< QString, QVariant > dosbox;
 
-      /** Set/Get render settings */
-      QMap< QString, QVariant > render;
+    /** Set/Get render settings */
+    QMap< QString, QVariant > render;
 
-      /** Set/Get ipx settings */
-      QMap< QString, QVariant > cpu;
+    /** Set/Get ipx settings */
+    QMap< QString, QVariant > cpu;
 
-      /** Set/Get mixer settings */
-      QMap< QString, QVariant > mixer;
+    /** Set/Get mixer settings */
+    QMap< QString, QVariant > mixer;
 
-      /** Set/Get mdi settings */
-      QMap< QString, QVariant > mdi;
+    /** Set/Get mdi settings */
+    QMap< QString, QVariant > mdi;
 
-      /** Set/Get sblaster settings */
-      QMap< QString, QVariant > sblaster;
+    /** Set/Get sblaster settings */
+    QMap< QString, QVariant > sblaster;
 
-      /** Set/Get gus settings */
-      QMap< QString, QVariant > gus;
+    /** Set/Get gus settings */
+    QMap< QString, QVariant > gus;
 
-      /** Set/Get speaker settings */
-      QMap< QString, QVariant > speaker;
+    /** Set/Get speaker settings */
+    QMap< QString, QVariant > speaker;
 
-      /** Set/Get joystick settings */
-      QMap< QString, QVariant > joystick;
+    /** Set/Get joystick settings */
+    QMap< QString, QVariant > joystick;
 
-      /** Set/Get serial settings */
-      QMap< QString, QVariant > serial;
+    /** Set/Get serial settings */
+    QMap< QString, QVariant > serial;
 
-      /** Set/Get dos settings */
-      QMap< QString, QVariant > dos;
+    /** Set/Get dos settings */
+    QMap< QString, QVariant > dos;
 
-      /** Set/Get ipx settings */
-      QString ipx;
+    /** Set/Get ipx settings */
+    QString ipx;
 
-      /** Set/Get autoexec settings */
-      QString autoexec;
+    /** Set/Get autoexec settings */
+    QString autoexec;
 
-      /**
-       * Returns true if other points the same item of other; otherwise returns false.
-       */
-      bool operator == ( const Configuration &other ) const {
-        return sdl == other.sdl &&
-               dosbox == other.dosbox &&
-               render == other.render &&
-               cpu == other.cpu &&
-               mixer == other.mixer &&
-               mdi == other.mdi &&
-               sblaster == other.sblaster &&
-               gus == other.gus &&
-               speaker == other.speaker &&
-               joystick == other.joystick &&
-               serial == other.serial &&
-               dos == other.dos &&
-               ipx == other.ipx &&
-               autoexec == other.autoexec;
-      }
+    /**
+    * Returns true if other points the same item of other; otherwise returns false.
+    */
+    bool operator == ( const Configuration &other ) const {
+      return  sdl == other.sdl &&
+              dosbox == other.dosbox &&
+              render == other.render &&
+              cpu == other.cpu &&
+              mixer == other.mixer &&
+              mdi == other.mdi &&
+              sblaster == other.sblaster &&
+              gus == other.gus &&
+              speaker == other.speaker &&
+              joystick == other.joystick &&
+              serial == other.serial &&
+              dos == other.dos &&
+              ipx == other.ipx &&
+              autoexec == other.autoexec;
+    }
 
-      /**
-       * Returns true if other points to a different item than this other; otherwise returns false.
-       */
-      bool operator != ( const Configuration &other ) const {
-        return sdl != other.sdl ||
-               dosbox != other.dosbox ||
-               render != other.render ||
-               cpu != other.cpu ||
-               mixer != other.mixer ||
-               mdi != other.mdi ||
-               sblaster != other.sblaster ||
-               gus != other.gus ||
-               speaker != other.speaker ||
-               joystick != other.joystick ||
-               serial != other.serial ||
-               dos != other.dos ||
-               ipx != other.ipx ||
-               autoexec != other.autoexec;
-      }
+    /**
+    * Returns true if other points to a different item than this other; otherwise returns false.
+    */
+    bool operator != ( const Configuration &other ) const {
+      return  sdl != other.sdl ||
+              dosbox != other.dosbox ||
+              render != other.render ||
+              cpu != other.cpu ||
+              mixer != other.mixer ||
+              mdi != other.mdi ||
+              sblaster != other.sblaster ||
+              gus != other.gus ||
+              speaker != other.speaker ||
+              joystick != other.joystick ||
+              serial != other.serial ||
+              dos != other.dos ||
+              ipx != other.ipx ||
+              autoexec != other.autoexec;
+    }
 
-      /**
-       * Returns true if the cache contains no objects; otherwise returns false.
-       */
-      bool isEmpty() const {
-        return sdl.isEmpty() &&
-               dosbox.isEmpty() &&
-               render.isEmpty() &&
-               cpu.isEmpty() &&
-               mixer.isEmpty() &&
-               mdi.isEmpty() &&
-               sblaster.isEmpty() &&
-               gus.isEmpty() &&
-               speaker.isEmpty() &&
-               joystick.isEmpty() &&
-               serial.isEmpty() &&
-               dos.isEmpty() &&
-               ( ipx.isEmpty() || ipx.isNull() ) &&
-               ( autoexec.isEmpty() || autoexec.isNull() );
-      }
+    /**
+    * Returns true if the cache contains no objects; otherwise returns false.
+    */
+    bool isEmpty() const {
+      return  sdl.isEmpty() &&
+              dosbox.isEmpty() &&
+              render.isEmpty() &&
+              cpu.isEmpty() &&
+              mixer.isEmpty() &&
+              mdi.isEmpty() &&
+              sblaster.isEmpty() &&
+              gus.isEmpty() &&
+              speaker.isEmpty() &&
+              joystick.isEmpty() &&
+              serial.isEmpty() &&
+              dos.isEmpty() &&
+              ( ipx.isEmpty() || ipx.isNull() ) &&
+              ( autoexec.isEmpty() || autoexec.isNull() );
+    }
 
-      /**
-       * Deletes all the objects in the cache.
-       */
-      void clear() {
-        sdl.clear();
-        dosbox.clear();
-        render.clear();
-        cpu.clear();
-        mixer.clear();
-        mdi.clear();
-        sblaster.clear();
-        gus.clear();
-        speaker.clear();
-        joystick.clear();
-        serial.clear();
-        dos.clear();
-        ipx.clear();
-        autoexec = QString( "" );
-      }
+    /**
+    * Deletes all the objects in the cache.
+    */
+    void clear() {
+      sdl.clear();
+      dosbox.clear();
+      render.clear();
+      cpu.clear();
+      mixer.clear();
+      mdi.clear();
+      sblaster.clear();
+      gus.clear();
+      speaker.clear();
+      joystick.clear();
+      serial.clear();
+      dos.clear();
+      ipx.clear();
+      autoexec = QString( "" );
+    }
   };
 
   /**
-   * ConfigBase handles read, write and convert of dosbox configuration files
-   *
-   * @author Alexander Saal <alex.saal@gmx.de>
-   * @sa http://dboxfe.belios.de/index
-   * @date 2008/31/10
-   * @version 0.2.5
-   * @since 0.2.5
-   */
+  * ConfigBase handles read, write and convert of dosbox configuration files
+  *
+  * @author Alexander Saal <alex.saal@gmx.de>
+  * @sa http://dboxfe.belios.de/index
+  * @date 2008/31/10
+  * @version 0.2.5
+  * @since 0.2.5
+  */
   class ConfigBase : public QObject {
 
-      Q_OBJECT
+    Q_OBJECT
 
-    public:
-      /**
-       * @brief Constructor
-       *
-       * @param parent The optional QObject object
-       */
-      ConfigBase( QObject *parent = 0 );
+  public:
+    /**
+    * @brief Constructor
+    *
+    * @param parent The optional QObject object
+    */
+    ConfigBase( QObject *parent = 0 );
 
-      /**
-       * @brief Destructor
-       */
-      ~ConfigBase();
+    /**
+    * @brief Destructor
+    */
+    ~ConfigBase();
 
-      /**
-       * Get instance of @link ConfigBase
-       */
-      inline static ConfigBase* innstance() {
+    /**
+    * Get instance of @link ConfigBase
+    */
+    inline static ConfigBase* innstance() {
 
-        if ( !m_Instance ) {
-          m_Instance = new ConfigBase();
-        }
-
-        return m_Instance;
+      if ( !m_Instance ) {
+        m_Instance = new ConfigBase();
       }
 
-      /**
-       * Get @link Configuration for the given profile
-       *
-       * @param profile The DBoxFE profile
-       */
-      Configuration readConfiguration( const QString &profile );
+      return m_Instance;
+    }
 
-      /**
-       * Convert D-Fend Reloaded profiles to DBoxFE profiles
-       *
-       * @param profile The D-Fend Reloaded profile
-       */
-      Configuration convertConfiguration( const QString &profile );
+    /**
+    * Get @link Configuration for the given profile
+    *
+    * @param profile The DBoxFE profile
+    */
+    Configuration readConfiguration( const QString &profile );
+
+    /**
+    * Convert D-Fend Reloaded profiles to DBoxFE profiles
+    *
+    * @param profile The D-Fend Reloaded profile
+    */
+    Configuration convertConfiguration( const QString &profile );
 
     public slots:
       /**
-       * Convert D-Fend Reloaded profiles to DBoxFE profiles
-       *
-       * @param profile The DBoxFE profile
-       * @param config The @link Configuration
-       */
+      * Convert D-Fend Reloaded profiles to DBoxFE profiles
+      *
+      * @param profile The DBoxFE profile
+      * @param config The @link Configuration
+      */
       void writeConfiguration( const QString &profile, const Configuration &config );
 
-    private:
-      static ConfigBase* m_Instance;
-      Configuration m_Configuration;
-      QObject *m_Parent;
+  private:
+    static ConfigBase* m_Instance;
+    Configuration m_Configuration;
   };
 }
 
