@@ -23,7 +23,6 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-
 #ifndef BASE_H
 #define BASE_H
 
@@ -32,13 +31,14 @@
 namespace asaal {
 
   /**
+   * Configuration handles all objects from dosbox configuration file
+   *
    * @author Alexander Saal <alex.saal@gmx.de>
    * @sa http://dboxfe.belios.de/index
    * @date 2008/31/10
    * @version 0.2.5
    * @since 0.2.5
    */
-
   class Configuration {
 
     public:
@@ -79,11 +79,10 @@ namespace asaal {
       QMap< QString, QVariant > dos;
 
       /** Set/Get ipx settings */
-      QMap< QString, QVariant > ipx;
+      QString ipx;
 
       /** Set/Get autoexec settings */
       QString autoexec;
-
 
       /**
        * Returns true if other points the same item of other; otherwise returns false.
@@ -141,7 +140,7 @@ namespace asaal {
                joystick.isEmpty() &&
                serial.isEmpty() &&
                dos.isEmpty() &&
-               ipx.isEmpty() &&
+               ( ipx.isEmpty() || ipx.isNull() ) &&
                ( autoexec.isEmpty() || autoexec.isNull() );
       }
 
@@ -167,13 +166,14 @@ namespace asaal {
   };
 
   /**
+   * ConfigBase handles read, write and convert of dosbox configuration files
+   *
    * @author Alexander Saal <alex.saal@gmx.de>
    * @sa http://dboxfe.belios.de/index
    * @date 2008/31/10
    * @version 0.2.5
    * @since 0.2.5
    */
-
   class ConfigBase : public QObject {
 
       Q_OBJECT

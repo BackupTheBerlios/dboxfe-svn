@@ -39,7 +39,7 @@ namespace asaal {
   }
 
   Configuration ConfigBase::readConfiguration( const QString &profile ) {
-    
+
     m_Configuration.clear();
     QFile configFile( profile );
 
@@ -50,6 +50,7 @@ namespace asaal {
 
     QSettings readConf( profile, QSettings::IniFormat );
 
+    // SDL settings
     readConf.beginGroup( "sdl" );
     m_Configuration.sdl.insert( "fullscreen", readConf.value( "fullscreen" ) );
     m_Configuration.sdl.insert( "fulldouble", readConf.value( "fulldouble" ) );
@@ -62,7 +63,7 @@ namespace asaal {
     m_Configuration.sdl.insert( "usescancodes", readConf.value( "usescancodes" ) );
     m_Configuration.sdl.insert( "sensitivity", readConf.value( "sensitivity" ) );
     m_Configuration.sdl.insert( "sensitivity", readConf.value( "sensitivity" ) );
-    m_Sdl.insert( "mapperfile", readConf.value( "mapperfile" ) );
+    m_Configuration.sdl.insert( "mapperfile", readConf.value( "mapperfile" ) );
     readConf.endGroup();
 
     // DOSBox settings
@@ -117,138 +118,69 @@ namespace asaal {
 
     // GUS settings
     readConf.beginGroup( "gus" );
-    dbfe->chkBoxGUS->setChecked( readConf.value( "gus" ) );
-    int gusrate = dbfe->cbxGUSRate->findText( readConf.value( "gusrate" ) );
-    dbfe->cbxGUSRate->setCurrentIndex( gusrate );
-    int gusbase = dbfe->cbxGUSBase->findText( readConf.value( "gusbase" ) );
-    dbfe->cbxGUSBase->setCurrentIndex( gusbase );
-    int irq1 = dbfe->cbxGUSIrq_1->findText( readConf.value( "irq1" ) );
-    dbfe->cbxGUSIrq_1->setCurrentIndex( irq1 );
-    int irq2 = dbfe->cbxGUSIrq_2->findText( readConf.value( "irq2" ) );
-    dbfe->cbxGUSIrq_2->setCurrentIndex( irq2 );
-    int dma1 = dbfe->cbxGUSDMA_1->findText( readConf.value( "dma1" ) );
-    dbfe->cbxGUSDMA_1->setCurrentIndex( dma1 );
-    int dma2 = dbfe->cbxGUSDMA_2->findText( readConf.value( "dma2" ) );
-    dbfe->cbxGUSDMA_2->setCurrentIndex( dma2 );
-    dbfe->LEGUSUltraDir->setText( readConf.value( "ultradir" ) );
+    m_Configuration.gus.insert( "gus", readConf.value( "gus" ) );
+    m_Configuration.gus.insert( "gusrate", readConf.value( "gusrate" ) );
+    m_Configuration.gus.insert( "gusbase", readConf.value( "gusbase" ) );
+    m_Configuration.gus.insert( "irq1", readConf.value( "irq1" ) );
+    m_Configuration.gus.insert( "irq2", readConf.value( "irq2" ) );
+    m_Configuration.gus.insert( "dma1", readConf.value( "dma1" ) );
+    m_Configuration.gus.insert( "dma2", readConf.value( "dma2" ) );
+    m_Configuration.gus.insert( "ultradir", readConf.value( "ultradir" ) );
     readConf.endGroup();
 
     // PC Speaker settings
     readConf.beginGroup( "speaker" );
-
-    if ( readConf.value( "pcspeaker" ) == "true" )
-      dbfe->cbxSpeaker->setCurrentIndex( 0 );
-    else
-      dbfe->cbxSpeaker->setCurrentIndex( 1 );
-
-    int pcrate = dbfe->cbxSpeakerRate->findText( readConf.value( "pcrate" ) );
-
-    dbfe->cbxSpeakerRate->setCurrentIndex( pcrate );
-
-    int tandy = dbfe->cbxSpeakerTandy->findText( readConf.value( "tandy" ) );
-
-    dbfe->cbxSpeakerTandy->setCurrentIndex( tandy );
-
-    int tandyrate = dbfe->cbxSpeakerTandyRate->findText( readConf.value( "tandyrate" ) );
-
-    dbfe->cbxSpeakerTandyRate->setCurrentIndex( tandyrate );
-
-    dbfe->chkBoxDisney->setChecked( readConf.value( "disney" ) );
-
+    m_Configuration.speaker.insert( "pcspeaker", readConf.value( "pcspeaker" ) );
+    m_Configuration.speaker.insert( "pcrate", readConf.value( "pcrate" ) );
+    m_Configuration.speaker.insert( "tandy", readConf.value( "tandy" ) );
+    m_Configuration.speaker.insert( "tandyrate", readConf.value( "tandyrate" ) );
+    m_Configuration.speaker.insert( "disney", readConf.value( "disney" ) );
     readConf.endGroup();
 
     // joystick settings
     readConf.beginGroup( "joystick" );
-
-    int joysticktype = dbfe->cbxJoystickType->findText( readConf.value( "joysticktype" ) );
-
-    dbfe->cbxJoystickType->setCurrentIndex( joysticktype );
-
-    dbfe->chkBoxTimed->setChecked( readConf.value( "timed" ) );
-
-    dbfe->chkBoxAutofire->setChecked( readConf.value( "autofire" ) );
-
-    dbfe->chkBoxSwap34->setChecked( readConf.value( "swap34" ) );
-
-    dbfe->chkBoxButtonWrap->setChecked( readConf.value( "buttonwrap" ) );
-
+    m_Configuration.joystick.insert( "joysticktype", readConf.value( "joysticktype" ) );
+    m_Configuration.joystick.insert( "timed", readConf.value( "timed" ) );
+    m_Configuration.joystick.insert( "autofire", readConf.value( "autofire" ) );
+    m_Configuration.joystick.insert( "swap34", readConf.value( "swap34" ) );
+    m_Configuration.joystick.insert( "buttonwrap", readConf.value( "buttonwrap" ) );
     readConf.endGroup();
 
     // Serial settings
     readConf.beginGroup( "serial" );
-
-    dbfe->twSerial->clear();
-
-    QTreeWidgetItem *serial1 = new QTreeWidgetItem( dbfe->twSerial );
-
-    serial1->setText( 0, "serial1" );
-
-    serial1->setText( 1, readConf.value( "serial1" ) );
-
-    QTreeWidgetItem *serial2 = new QTreeWidgetItem( dbfe->twSerial );
-
-    serial2->setText( 0, "serial2" );
-
-    serial2->setText( 1, readConf.value( "serial2" ) );
-
-    QTreeWidgetItem *serial3 = new QTreeWidgetItem( dbfe->twSerial );
-
-    serial3->setText( 0, "serial3" );
-
-    serial3->setText( 1, readConf.value( "serial3" ) );
-
-    QTreeWidgetItem *serial4 = new QTreeWidgetItem( dbfe->twSerial );
-
-    serial4->setText( 0, "serial4" );
-
-    serial4->setText( 1, readConf.value( "serial4" ) );
-
+    m_Configuration.serial.insert( "serial1", readConf.value( "serial1" ) );
+    m_Configuration.serial.insert( "serial2", readConf.value( "serial2" ) );
+    m_Configuration.serial.insert( "serial3", readConf.value( "serial3" ) );
+    m_Configuration.serial.insert( "serial4", readConf.value( "serial4" ) );
     readConf.endGroup();
 
     // DOS settings
     readConf.beginGroup( "dos" );
-
-    dbfe->chkBoxXMS->setChecked( readConf.value( "xms" ) );
-
-    dbfe->chkBoxEMS->setChecked( readConf.value( "ems" ) );
-
-    dbfe->chkBoxUMB->setChecked( readConf.value( "umb" ) );
-
-    int kbdl = dbfe->cbxKeyboardLayout->findText( readConf.value( "keyboardlayout" ) );
-
-    dbfe->cbxKeyboardLayout->setCurrentIndex( kbdl );
-
+    m_Configuration.dos.insert( "xms", readConf.value( "xms" ) );
+    m_Configuration.dos.insert( "ems", readConf.value( "ems" ) );
+    m_Configuration.dos.insert( "umb", readConf.value( "umb" ) );
+    m_Configuration.dos.insert( "keyboardlayout", readConf.value( "keyboardlayout" ) );
     readConf.endGroup();
 
     // IPX settings
     readConf.beginGroup( "ipx" );
-
-    dbfe->chkBoxIPX->setChecked( readConf.value( "ipx" ) );
-
+    m_Configuration.ipx = readConf.value( "ipx" ).toString();
     readConf.endGroup();
 
     // Autoexec settings
-    QFile f( profile );
-
-    if ( !f.open( QIODevice::ReadOnly | QIODevice::Text ) ) {
-      delete getConf;
-      return ;
+    if ( !configFile.open( QIODevice::ReadOnly | QIODevice::Text ) ) {
+      return m_Configuration;
     }
 
-    QTextStream in( &f );
-
+    QTextStream in( &configFile );
     QString line;
-
-    dbfe->lwAutoexec->clear();
 
     while ( !in.atEnd() ) {
       line = in.readLine();
 
       if ( line == "[autoexec]" ) {
         while ( !in.atEnd() ) {
-          line = in.readLine();
-          QListWidgetItem *autoexec = new QListWidgetItem( dbfe->lwAutoexec );
-          autoexec->setText( line );
+          m_Configuration.autoexec += in.readLine() + "\n";
 
           if ( line.startsWith( "[" ) && line.endsWith( "]" ) )
             break;
@@ -256,7 +188,7 @@ namespace asaal {
       }
     }
 
-    f.close();
+    configFile.close();
 
     return m_Configuration;
   }
