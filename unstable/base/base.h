@@ -43,43 +43,43 @@ namespace asaal {
 
     public:
       /** Set/Get sdl settings */
-      QMap< QString, QString > sdl;
+      QMap< QString, QVariant > sdl;
 
       /** Set/Get dosbox settings */
-      QMap< QString, QString > dosbox;
+      QMap< QString, QVariant > dosbox;
 
       /** Set/Get render settings */
-      QMap< QString, QString > render;
+      QMap< QString, QVariant > render;
 
       /** Set/Get ipx settings */
-      QMap< QString, QString > cpu;
+      QMap< QString, QVariant > cpu;
 
       /** Set/Get mixer settings */
-      QMap< QString, QString > mixer;
+      QMap< QString, QVariant > mixer;
 
       /** Set/Get mdi settings */
-      QMap< QString, QString > mdi;
+      QMap< QString, QVariant > mdi;
 
       /** Set/Get sblaster settings */
-      QMap< QString, QString > sblaster;
+      QMap< QString, QVariant > sblaster;
 
       /** Set/Get gus settings */
-      QMap< QString, QString > gus;
+      QMap< QString, QVariant > gus;
 
       /** Set/Get speaker settings */
-      QMap< QString, QString > speaker;
+      QMap< QString, QVariant > speaker;
 
       /** Set/Get joystick settings */
-      QMap< QString, QString > joystick;
+      QMap< QString, QVariant > joystick;
 
       /** Set/Get serial settings */
-      QMap< QString, QString > serial;
+      QMap< QString, QVariant > serial;
 
       /** Set/Get dos settings */
-      QMap< QString, QString > dos;
+      QMap< QString, QVariant > dos;
 
       /** Set/Get ipx settings */
-      QMap< QString, QString > ipx;
+      QMap< QString, QVariant > ipx;
 
       /** Set/Get autoexec settings */
       QString autoexec;
@@ -227,32 +227,9 @@ namespace asaal {
       void writeConfiguration( const QString &profile, const Configuration &config );
 
     private:
-      /**
-       * Deletes all the objects in the cache.
-       */
-      void clearSettings() {
-        m_Sdl.clear();
-        m_Dosbox.clear();
-        m_Render.clear();
-        m_Cpu.clear();
-        m_Mixer.clear();
-        m_Mdi.clear();
-        m_Sblaster.clear();
-        m_Gus.clear();
-        m_Speaker.clear();
-        m_Joystick.clear();
-        m_Serial.clear();
-        m_Dos.clear();
-        m_Ipx.clear();
-        m_Autoexec = QString( "" );
-      }
-
       static ConfigBase* m_Instance;
       Configuration m_Configuration;
       QObject *m_Parent;
-
-      QMap< QString, QString >  m_Sdl, m_Dosbox, m_Render, m_Cpu, m_Mixer, m_Mdi, m_Sblaster, m_Gus, m_Speaker, m_Joystick, m_Serial,  m_Dos, m_Ipx;
-      QString m_Autoexec;
   };
 }
 
