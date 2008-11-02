@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dboxfeassistant", "assistant\dboxfeassistant.vcproj", "{030EE012-8ACA-3C51-BA6F-6EE583C37796}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dboxfeassistant", "assistant\dboxfeassistant.vcproj", "{06A1D750-958C-312C-B780-17E8D575D6FC}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dboxfetray", "tray\dboxfetray.vcproj", "{2EDF7CF8-BEC4-3844-8CE5-A26B4F578913}"
 EndProject
@@ -10,10 +10,10 @@ Global
 		Release|Win32 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{030EE012-8ACA-3C51-BA6F-6EE583C37796}.Debug|Win32.ActiveCfg = Debug|Win32
-		{030EE012-8ACA-3C51-BA6F-6EE583C37796}.Debug|Win32.Build.0 = Debug|Win32
-		{030EE012-8ACA-3C51-BA6F-6EE583C37796}.Release|Win32.ActiveCfg = Release|Win32
-		{030EE012-8ACA-3C51-BA6F-6EE583C37796}.Release|Win32.Build.0 = Release|Win32
+		{06A1D750-958C-312C-B780-17E8D575D6FC}.Debug|Win32.ActiveCfg = Debug|Win32
+		{06A1D750-958C-312C-B780-17E8D575D6FC}.Debug|Win32.Build.0 = Debug|Win32
+		{06A1D750-958C-312C-B780-17E8D575D6FC}.Release|Win32.ActiveCfg = Release|Win32
+		{06A1D750-958C-312C-B780-17E8D575D6FC}.Release|Win32.Build.0 = Release|Win32
 		{2EDF7CF8-BEC4-3844-8CE5-A26B4F578913}.Debug|Win32.ActiveCfg = Debug|Win32
 		{2EDF7CF8-BEC4-3844-8CE5-A26B4F578913}.Debug|Win32.Build.0 = Debug|Win32
 		{2EDF7CF8-BEC4-3844-8CE5-A26B4F578913}.Release|Win32.ActiveCfg = Release|Win32
