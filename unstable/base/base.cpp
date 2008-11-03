@@ -194,7 +194,7 @@ namespace asaal {
     return m_Configuration;
   }
 
-  Configuration ConfigBase::convertConfiguration( const QString &profile ) {
+  Configuration ConfigBase::convertConfiguration( const QString &profile, ProfileType type ) {
 
     m_Configuration.clear();
 
@@ -208,6 +208,12 @@ namespace asaal {
     }
 
     QSettings readConf( profile, QSettings::IniFormat );
+    switch( type ) {
+      case ConfigBase::DFEND:
+        break;
+      case ConfigBase::DBOXFE:
+        break;
+    }
 
     return m_Configuration;
   }

@@ -180,6 +180,18 @@ namespace asaal {
 
   public:
     /**
+     * Profile type
+     */
+    enum profileType {
+      /** D-Fend Reloaded to DBoxFE */
+      DFEND = 0,
+      
+      /** DBoxFE to D-Fend Reloaded */
+      DBOXFE = 1
+		};
+		Q_DECLARE_FLAGS( ProfileType, profileType )
+
+    /**
     * @brief Constructor
     *
     * @param parent The optional QObject object
@@ -203,23 +215,26 @@ namespace asaal {
       return m_Instance;
     }
 
-    /**
+   /**
     * Get @link Configuration for the given profile
     *
     * @param profile The DBoxFE profile
     */
     Configuration readConfiguration( const QString &profile );
 
-    /**
-    * Convert D-Fend Reloaded profiles to DBoxFE profiles
+   /**
+    * Convert D-Fend Reloaded profiles to DBoxFE profiles or DBoxFE to D-Fend Reloaded
     *
-    * @param profile The D-Fend Reloaded profile
+    * @param profile The D-Fend Reloaded profile or DBoxFE profile
+    * @param type The @link ProfileType
+    *
+    * @return @link Configuration
     */
-    Configuration convertConfiguration( const QString &profile );
+    Configuration convertConfiguration( const QString &profile, ProfileType type );
 
-    public slots:
-      /**
-      * Convert D-Fend Reloaded profiles to DBoxFE profiles
+  public slots:
+     /**
+      * Write @link Configuration
       *
       * @param profile The DBoxFE profile
       * @param config The @link Configuration
@@ -230,6 +245,8 @@ namespace asaal {
     static ConfigBase* m_Instance;
     Configuration m_Configuration;
   };
+  
+  Q_DECLARE_OPERATORS_FOR_FLAGS( ConfigBase::ProfileType )
 }
 
 #endif // BASE_H
