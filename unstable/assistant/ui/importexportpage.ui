@@ -191,23 +191,38 @@
     </widget>
    </item>
    <item row="3" column="0" >
-    <layout class="QHBoxLayout" name="hlMark" >
+    <layout class="QHBoxLayout" name="hlMarkUnmarkAll" >
      <item>
-      <spacer name="horizontalSpacer" >
-       <property name="orientation" >
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0" >
+      <widget class="QProgressBar" name="progressBarImportExport" >
+       <property name="minimumSize" >
         <size>
-         <width>40</width>
-         <height>20</height>
+         <width>0</width>
+         <height>23</height>
         </size>
        </property>
-      </spacer>
+       <property name="maximumSize" >
+        <size>
+         <width>16777215</width>
+         <height>23</height>
+        </size>
+       </property>
+       <property name="value" >
+        <number>0</number>
+       </property>
+       <property name="textVisible" >
+        <bool>false</bool>
+       </property>
+      </widget>
      </item>
      <item>
       <widget class="QPushButton" name="btnMarkAll" >
        <property name="minimumSize" >
+        <size>
+         <width>75</width>
+         <height>23</height>
+        </size>
+       </property>
+       <property name="maximumSize" >
         <size>
          <width>75</width>
          <height>23</height>
@@ -221,6 +236,12 @@
      <item>
       <widget class="QPushButton" name="btnUnmarkAll" >
        <property name="minimumSize" >
+        <size>
+         <width>75</width>
+         <height>23</height>
+        </size>
+       </property>
+       <property name="maximumSize" >
         <size>
          <width>75</width>
          <height>23</height>
