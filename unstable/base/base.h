@@ -184,10 +184,7 @@ namespace asaal {
      */
     enum profileType {
       /** D-Fend Reloaded to DBoxFE */
-      DFEND = 0,
-      
-      /** DBoxFE to D-Fend Reloaded */
-      DBOXFE = 1
+      DFEND = 0
 		};
 		Q_DECLARE_FLAGS( ProfileType, profileType )
 
@@ -230,7 +227,7 @@ namespace asaal {
     *
     * @return @link Configuration
     */
-    Configuration convertConfiguration( const QString &profile, ProfileType type );
+    Configuration convertConfiguration( const QString &profile, ProfileType type = ConfigBase::DFEND );
 
   public slots:
      /**

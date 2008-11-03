@@ -109,6 +109,9 @@
        <layout class="QHBoxLayout" name="glDboxFe" >
         <item>
          <widget class="QLabel" name="labelDboxFe" >
+          <property name="enabled" >
+           <bool>false</bool>
+          </property>
           <property name="minimumSize" >
            <size>
             <width>110</width>
@@ -130,10 +133,17 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEditDboxFeDirectory" />
+         <widget class="QLineEdit" name="lineEditDboxFeDirectory" >
+          <property name="enabled" >
+           <bool>false</bool>
+          </property>
+         </widget>
         </item>
         <item>
          <widget class="QPushButton" name="btnDboxFe" >
+          <property name="enabled" >
+           <bool>false</bool>
+          </property>
           <property name="minimumSize" >
            <size>
             <width>20</width>
@@ -228,11 +238,111 @@
  <tabstops>
   <tabstop>rbtnImport</tabstop>
   <tabstop>rbtnExport</tabstop>
-  <tabstop>lineEditDFendDirectory</tabstop>
   <tabstop>btnDFend</tabstop>
-  <tabstop>lineEditDboxFeDirectory</tabstop>
+  <tabstop>lineEditDFendDirectory</tabstop>
   <tabstop>btnDboxFe</tabstop>
+  <tabstop>lineEditDboxFeDirectory</tabstop>
+  <tabstop>treeWidgetImportExport</tabstop>
+  <tabstop>btnMarkAll</tabstop>
+  <tabstop>btnUnmarkAll</tabstop>
  </tabstops>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>rbtnImport</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>labelDboxFe</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>27</x>
+     <y>50</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>27</x>
+     <y>144</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rbtnImport</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>lineEditDboxFeDirectory</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>201</x>
+     <y>50</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>201</x>
+     <y>144</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rbtnImport</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>btnDboxFe</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>579</x>
+     <y>50</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>579</x>
+     <y>144</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rbtnExport</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>labelDFend</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>58</x>
+     <y>65</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>58</x>
+     <y>127</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rbtnExport</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>lineEditDFendDirectory</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>337</x>
+     <y>72</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>337</x>
+     <y>116</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rbtnExport</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>btnDFend</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>560</x>
+     <y>74</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>560</x>
+     <y>121</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

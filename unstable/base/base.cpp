@@ -196,6 +196,7 @@ namespace asaal {
 
   Configuration ConfigBase::convertConfiguration( const QString &profile, ProfileType type ) {
 
+    bool isDfendProf = false;
     m_Configuration.clear();
 
     if( profile.isEmpty() || profile.isNull() ) {
@@ -208,10 +209,17 @@ namespace asaal {
     }
 
     QSettings readConf( profile, QSettings::IniFormat );
+    QStringList allKeys = readConf.allKeys();
+    foreach( QString key, allKeys ) {
+      if( (key == "ExtraInfo") || (key == "Extra") ) {
+        isDfendProf = true;
+        break;
+      }
+    }
+
     switch( type ) {
       case ConfigBase::DFEND:
-        break;
-      case ConfigBase::DBOXFE:
+        m_Configuration = readConfiguration( profile );
         break;
     }
 
