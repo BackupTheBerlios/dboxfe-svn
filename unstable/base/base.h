@@ -39,130 +39,131 @@ namespace asaal {
   * @version 0.2.5
   * @since 0.2.5
   */
+
   class Configuration {
 
-  public:
-    /** Set/Get sdl settings */
-    QMap< QString, QVariant > sdl;
+    public:
+      /** Set/Get sdl settings */
+      QMap< QString, QVariant > sdl;
 
-    /** Set/Get dosbox settings */
-    QMap< QString, QVariant > dosbox;
+      /** Set/Get dosbox settings */
+      QMap< QString, QVariant > dosbox;
 
-    /** Set/Get render settings */
-    QMap< QString, QVariant > render;
+      /** Set/Get render settings */
+      QMap< QString, QVariant > render;
 
-    /** Set/Get ipx settings */
-    QMap< QString, QVariant > cpu;
+      /** Set/Get ipx settings */
+      QMap< QString, QVariant > cpu;
 
-    /** Set/Get mixer settings */
-    QMap< QString, QVariant > mixer;
+      /** Set/Get mixer settings */
+      QMap< QString, QVariant > mixer;
 
-    /** Set/Get mdi settings */
-    QMap< QString, QVariant > mdi;
+      /** Set/Get mdi settings */
+      QMap< QString, QVariant > mdi;
 
-    /** Set/Get sblaster settings */
-    QMap< QString, QVariant > sblaster;
+      /** Set/Get sblaster settings */
+      QMap< QString, QVariant > sblaster;
 
-    /** Set/Get gus settings */
-    QMap< QString, QVariant > gus;
+      /** Set/Get gus settings */
+      QMap< QString, QVariant > gus;
 
-    /** Set/Get speaker settings */
-    QMap< QString, QVariant > speaker;
+      /** Set/Get speaker settings */
+      QMap< QString, QVariant > speaker;
 
-    /** Set/Get joystick settings */
-    QMap< QString, QVariant > joystick;
+      /** Set/Get joystick settings */
+      QMap< QString, QVariant > joystick;
 
-    /** Set/Get serial settings */
-    QMap< QString, QVariant > serial;
+      /** Set/Get serial settings */
+      QMap< QString, QVariant > serial;
 
-    /** Set/Get dos settings */
-    QMap< QString, QVariant > dos;
+      /** Set/Get dos settings */
+      QMap< QString, QVariant > dos;
 
-    /** Set/Get ipx settings */
-    QString ipx;
+      /** Set/Get ipx settings */
+      QString ipx;
 
-    /** Set/Get autoexec settings */
-    QString autoexec;
+      /** Set/Get autoexec settings */
+      QString autoexec;
 
-    /**
-    * Returns true if other points the same item of other; otherwise returns false.
-    */
-    bool operator == ( const Configuration &other ) const {
-      return  sdl == other.sdl &&
-              dosbox == other.dosbox &&
-              render == other.render &&
-              cpu == other.cpu &&
-              mixer == other.mixer &&
-              mdi == other.mdi &&
-              sblaster == other.sblaster &&
-              gus == other.gus &&
-              speaker == other.speaker &&
-              joystick == other.joystick &&
-              serial == other.serial &&
-              dos == other.dos &&
-              ipx == other.ipx &&
-              autoexec == other.autoexec;
-    }
+      /**
+      * Returns true if other points the same item of other; otherwise returns false.
+      */
+      bool operator == ( const Configuration &other ) const {
+        return  sdl == other.sdl &&
+                dosbox == other.dosbox &&
+                render == other.render &&
+                cpu == other.cpu &&
+                mixer == other.mixer &&
+                mdi == other.mdi &&
+                sblaster == other.sblaster &&
+                gus == other.gus &&
+                speaker == other.speaker &&
+                joystick == other.joystick &&
+                serial == other.serial &&
+                dos == other.dos &&
+                ipx == other.ipx &&
+                autoexec == other.autoexec;
+      }
 
-    /**
-    * Returns true if other points to a different item than this other; otherwise returns false.
-    */
-    bool operator != ( const Configuration &other ) const {
-      return  sdl != other.sdl ||
-              dosbox != other.dosbox ||
-              render != other.render ||
-              cpu != other.cpu ||
-              mixer != other.mixer ||
-              mdi != other.mdi ||
-              sblaster != other.sblaster ||
-              gus != other.gus ||
-              speaker != other.speaker ||
-              joystick != other.joystick ||
-              serial != other.serial ||
-              dos != other.dos ||
-              ipx != other.ipx ||
-              autoexec != other.autoexec;
-    }
+      /**
+      * Returns true if other points to a different item than this other; otherwise returns false.
+      */
+      bool operator != ( const Configuration &other ) const {
+        return  sdl != other.sdl ||
+                dosbox != other.dosbox ||
+                render != other.render ||
+                cpu != other.cpu ||
+                mixer != other.mixer ||
+                mdi != other.mdi ||
+                sblaster != other.sblaster ||
+                gus != other.gus ||
+                speaker != other.speaker ||
+                joystick != other.joystick ||
+                serial != other.serial ||
+                dos != other.dos ||
+                ipx != other.ipx ||
+                autoexec != other.autoexec;
+      }
 
-    /**
-    * Returns true if the cache contains no objects; otherwise returns false.
-    */
-    bool isEmpty() const {
-      return  sdl.isEmpty() &&
-              dosbox.isEmpty() &&
-              render.isEmpty() &&
-              cpu.isEmpty() &&
-              mixer.isEmpty() &&
-              mdi.isEmpty() &&
-              sblaster.isEmpty() &&
-              gus.isEmpty() &&
-              speaker.isEmpty() &&
-              joystick.isEmpty() &&
-              serial.isEmpty() &&
-              dos.isEmpty() &&
-              ( ipx.isEmpty() || ipx.isNull() ) &&
-              ( autoexec.isEmpty() || autoexec.isNull() );
-    }
+      /**
+      * Returns true if the cache contains no objects; otherwise returns false.
+      */
+      bool isEmpty() const {
+        return  sdl.isEmpty() &&
+                dosbox.isEmpty() &&
+                render.isEmpty() &&
+                cpu.isEmpty() &&
+                mixer.isEmpty() &&
+                mdi.isEmpty() &&
+                sblaster.isEmpty() &&
+                gus.isEmpty() &&
+                speaker.isEmpty() &&
+                joystick.isEmpty() &&
+                serial.isEmpty() &&
+                dos.isEmpty() &&
+                ( ipx.isEmpty() || ipx.isNull() ) &&
+                ( autoexec.isEmpty() || autoexec.isNull() );
+      }
 
-    /**
-    * Deletes all the objects in the cache.
-    */
-    void clear() {
-      sdl.clear();
-      dosbox.clear();
-      render.clear();
-      cpu.clear();
-      mixer.clear();
-      mdi.clear();
-      sblaster.clear();
-      gus.clear();
-      speaker.clear();
-      joystick.clear();
-      serial.clear();
-      dos.clear();
-      ipx.clear();
-      autoexec = QString( "" );
-    }
+      /**
+      * Deletes all the objects in the cache.
+      */
+      void clear() {
+        sdl.clear();
+        dosbox.clear();
+        render.clear();
+        cpu.clear();
+        mixer.clear();
+        mdi.clear();
+        sblaster.clear();
+        gus.clear();
+        speaker.clear();
+        joystick.clear();
+        serial.clear();
+        dos.clear();
+        ipx.clear();
+        autoexec = QString( "" );
+      }
   };
 
   /**
@@ -174,83 +175,92 @@ namespace asaal {
   * @version 0.2.5
   * @since 0.2.5
   */
+
   class ConfigBase : public QObject {
 
-    Q_OBJECT
+      Q_OBJECT
 
-  public:
-    /**
-     * Profile type
-     */
-    enum profileType {
-      /** D-Fend Reloaded to DBoxFE */
-      DFEND = 0
-		};
-		Q_DECLARE_FLAGS( ProfileType, profileType )
+    public:
+      /**
+       * Profile type
+       */
+      enum profileType {
+        /** D-Fend Reloaded to DBoxFE */
+        DFEND = 0
+      };
+      Q_DECLARE_FLAGS( ProfileType, profileType )
 
-    /**
-    * @brief Constructor
-    *
-    * @param parent The optional QObject object
-    */
-    ConfigBase( QObject *parent = 0 );
+      /**
+      * @brief Constructor
+      *
+      * @param parent The optional QObject object
+      */
+      ConfigBase( QObject *parent = 0 );
 
-    /**
-    * @brief Destructor
-    */
-    ~ConfigBase();
+      /**
+      * @brief Destructor
+      */
+      ~ConfigBase();
 
-    /**
-    * Get instance of @link ConfigBase
-    */
-    inline static ConfigBase* innstance() {
+      /**
+      * Get instance of @link ConfigBase
+      */
+      inline static ConfigBase* innstance() {
 
-      if ( !m_Instance ) {
-        m_Instance = new ConfigBase();
+        if ( !m_Instance ) {
+          m_Instance = new ConfigBase();
+        }
+
+        return m_Instance;
       }
 
-      return m_Instance;
-    }
+      /**
+       * Get @link Configuration for the given profile
+       *
+       * @param profile The DBoxFE profile
+       */
+      Configuration readConfiguration( const QString &profile );
 
-   /**
-    * Get @link Configuration for the given profile
-    *
-    * @param profile The DBoxFE profile
-    */
-    Configuration readConfiguration( const QString &profile );
+      /**
+       * Convert D-Fend Reloaded profiles to DBoxFE profiles or DBoxFE to D-Fend Reloaded
+       *
+       * @param profile The D-Fend Reloaded profile or DBoxFE profile
+       * @param type The @link ProfileType
+       *
+       * @return @link Configuration
+       */
+      Configuration convertConfiguration( const QString &profile, ProfileType type = ConfigBase::DFEND );
 
-   /**
-    * Convert D-Fend Reloaded profiles to DBoxFE profiles or DBoxFE to D-Fend Reloaded
-    *
-    * @param profile The D-Fend Reloaded profile or DBoxFE profile
-    * @param type The @link ProfileType
-    *
-    * @return @link Configuration
-    */
-    Configuration convertConfiguration( const QString &profile, ProfileType type = ConfigBase::DFEND );
+      /**
+       * Export DBoxFE profile to D-Fend Reloaded
+       *
+       * @param name The name of profile
+       * @param config The @link Configuration
+       */
+      bool exportConfiguration( const QString &name, const Configuration &config );
 
-     /**
-      * Export DBoxFE profile to D-Fend Reloaded  
-      *
-      * @param name The name of profile
-      * @param config The @link Configuration
-      */
-    bool exportConfiguration( const QString &name, const Configuration &config );
+    public slots:
+      /**
+       * Write @link Configuration
+       *
+       * @param profile The DBoxFE profile
+       * @param config The @link Configuration
+       */
+      void writeConfiguration( const QString &profile, const Configuration &config );
 
-  public slots:
-     /**
-      * Write @link Configuration
-      *
-      * @param profile The DBoxFE profile
-      * @param config The @link Configuration
-      */
-    void writeConfiguration( const QString &profile, const Configuration &config );
+    private:
+      /**
+       * Get files/directories for D-Fend Reloaded exported ziparchiv.
+       *
+       * @param directory The directory with all datas for export to zip
+       * @return QStringList with all files
+       */
+      QStringList exportData( const QString &directory );
 
-  private:
-    static ConfigBase* m_Instance;
-    Configuration m_Configuration;
+      static ConfigBase* m_Instance;
+      Configuration m_Configuration;
   };
-  
+
   Q_DECLARE_OPERATORS_FOR_FLAGS( ConfigBase::ProfileType )
 }
 
