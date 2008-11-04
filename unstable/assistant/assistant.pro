@@ -20,8 +20,8 @@
 TEMPLATE = app
 DESTDIR	= ../bin
 TARGET = dboxfeassistant
-DEPENDPATH += include src ui resource ../3rdparty ../base
-INCLUDEPATH += include ui ../3rdparty ../base
+DEPENDPATH += include src ui resource ../3rdparty ../3rdparty/Zip ../base
+INCLUDEPATH += include ui ../3rdparty ../3rdparty/Zip  ../base
 RESOURCES += resource/dboxfeassistant.qrc
 RESOURCES += ../resource/templates.qrc
 CONFIG += debug thread warn_on qt
@@ -71,6 +71,11 @@ HEADERS	+= ../3rdparty/xmlpreferences.h
 HEADERS	+= ../3rdparty/xmlpreferences_p.h
 HEADERS	+= ../3rdparty/xmlwriter.h
 HEADERS	+= ../3rdparty/xmlwriter_p.h
+HEADERS += ../3rdparty/unzip.h
+HEADERS += ../3rdparty/unzip_p.h
+HEADERS += ../3rdparty/zipentry_p.h
+HEADERS += ../3rdparty/zip.h
+HEADERS += ../3rdparty/zip_p.h
 
 # 3rdparty Source
 SOURCES += ../base/base.cpp
@@ -78,6 +83,8 @@ SOURCES	+= ../3rdparty/base64.cpp
 SOURCES += ../3rdparty/md5hash.cpp
 SOURCES	+= ../3rdparty/xmlpreferences.cpp
 SOURCES	+= ../3rdparty/xmlwriter.cpp
+SOURCES += ../3rdparty/unzip.cpp
+SOURCES += ../3rdparty/zip.cpp
 
 # Unix/Linux settings
 unix {
@@ -87,6 +94,7 @@ unix {
 	UI_DIR += ../build/dboxfeassistant/unix/ui
 
 	LIBS += -lxml2
+  LIBS += -lz 
 }
 
 # Windows settings
@@ -100,4 +108,5 @@ win32 {
 	UI_DIR += ../build/dboxfeassistant/win/ui
 
 	LIBS += -llibxml2
+  LIBS += -lzlib
 }

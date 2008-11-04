@@ -229,6 +229,14 @@ namespace asaal {
     */
     Configuration convertConfiguration( const QString &profile, ProfileType type = ConfigBase::DFEND );
 
+     /**
+      * Export DBoxFE profile to D-Fend Reloaded  
+      *
+      * @param name The name of profile
+      * @param config The @link Configuration
+      */
+    bool exportConfiguration( const QString &name, const Configuration &config );
+
   public slots:
      /**
       * Write @link Configuration
@@ -236,7 +244,7 @@ namespace asaal {
       * @param profile The DBoxFE profile
       * @param config The @link Configuration
       */
-      void writeConfiguration( const QString &profile, const Configuration &config );
+    void writeConfiguration( const QString &profile, const Configuration &config );
 
   private:
     static ConfigBase* m_Instance;

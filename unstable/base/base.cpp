@@ -217,6 +217,11 @@ namespace asaal {
       }
     }
 
+    if( !isDfendProf ) {
+      m_Configuration.clear();
+      return m_Configuration;
+    }
+
     switch( type ) {
       case ConfigBase::DFEND:
         m_Configuration = readConfiguration( profile );
@@ -226,6 +231,34 @@ namespace asaal {
     return m_Configuration;
   }
 
+  bool ConfigBase::exportConfiguration( const QString &name, const Configuration &config ) {
+
+    if( name.isNull() || name.isEmpty() ) {
+      return false;
+    }
+
+    if( config.isEmpty() ) {
+      return false;
+    }
+    
+    QString homePath = QDir::homePath();
+    homePath.append( "/.dboxfe" );
+    
+    QDir exportDir( homePath + "/export/" + name  );
+    if( exportDir.exists() ) {
+      exportDir.mkpath( homePath + "/export/" name );
+    }
+
+    writeConfiguration( homePath + "/export/" + name + "/" + name + ".conf", config );
+    
+    QSettings exportConf( homePath + "/export/" + name + "/" + name + ".conf", QSeetings::IniFormat );
+    exportConf.beginGroup( "" );
+    QString capture = exportConf.value( "" ).toString();
+    exportConf.endGroup();
+    
+
+  }
+  
   void ConfigBase::writeConfiguration( const QString &profile, const Configuration &config ) {
 
     m_Configuration.clear();
