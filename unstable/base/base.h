@@ -255,7 +255,7 @@ namespace asaal {
        * @param directory The directory with all datas for export to zip
        * @return QStringList with all files
        */
-      QStringList exportData( const QString &directory );
+      QMap< QString, QString> exportData( const QString &directory );
 
       static ConfigBase* m_Instance;
       Configuration m_Configuration;

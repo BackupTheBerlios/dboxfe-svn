@@ -256,12 +256,12 @@ namespace asaal {
     QDir exportDir( homePath + "/export/" + name );
 
     if ( exportDir.exists() ) {
-      exportDir.mkpath( homePath + "/export/" name );
+      exportDir.mkpath( homePath + "/export/" + name );
     }
 
     writeConfiguration( homePath + "/export/" + name + "/" + name + ".conf", config );
 
-    QSettings exportConf( homePath + "/export/" + name + "/" + name + ".conf", QSeetings::IniFormat );
+    QSettings exportConf( homePath + "/export/" + name + "/" + name + ".conf", QSettings::IniFormat );
     exportConf.beginGroup( "dosbox" );
     QString language = exportConf.value( "language" ).toString();
     QString captures = exportConf.value( "captures" ).toString();
@@ -288,13 +288,25 @@ namespace asaal {
           autoexec = in.readAll();
           mountDirectory = autoexec.split( " " ).value( 2 );
 
-          QStringList zipData = exportData( mountDirectory );
-          foreach( QString data, zipData ) {
-            QFile copyFile( data );
-            if( copyFile.exists() ) {
+          QMap< QString, QString> zipData = exportData( mountDirectory );
+          QMap< QString, QString>::const_iterator zipDataIt = zipData.constBegin();
+
+          while ( zipDataIt != zipData.end() ) {
+            QString fileDirectory = zipDataIt.key();
+            QString fileName = zipDataIt.value();
+            QString file = fileDirectory + fileName;
+
+            QFile copyFile( file );
+
+            if ( copyFile.exists() ) {
               QFileInfo copyFileInfo( copyFile );
-              QDir copyFileDir( homePath + "/export/" + name + "/" );
+              bool ok = copyFile.copy( homePath + "/export/" + name + "/" + fileName );
+              if( !ok ) {
+                return false;
+              }
             }
+
+            ++zipDataIt;
           }
 
           if ( line.startsWith( "[" ) && line.endsWith( "]" ) )
@@ -526,14 +538,14 @@ namespace asaal {
     m_Configuration.clear();
   }
 
-  QStringList ConfigBase::exportData( const QString &directory ) {
+  QMap< QString, QString> ConfigBase::exportData( const QString &directory ) {
 
     QDir copyDirectory( directory );
 
     QFileInfo fi;
     const QFileInfoList fil = copyDirectory.entryInfoList( QDir::Dirs | QDir::Files , QDir::Name );
     QListIterator< QFileInfo > it( fil );
-    QStringList zipData;
+    QMap< QString, QString> zipData;
 
     while ( it.hasNext() ) {
       fi = it.next();
@@ -545,11 +557,11 @@ namespace asaal {
           exportData( fi.absoluteFilePath() );
 
         } else if ( fi.isFile() && fi.isReadable() ) {
-          zipData.append( fi.absoluteFilePath() );
+          zipData.insert( fi.absolutePath(), fi.fileName() );
         }
       }
     }
-    
+
     return zipData;
   }
 }
