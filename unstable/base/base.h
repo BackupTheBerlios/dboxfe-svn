@@ -86,8 +86,8 @@ namespace asaal {
       QString autoexec;
 
       /**
-      * Returns true if other points the same item of other; otherwise returns false.
-      */
+       * Returns true if other points the same item of other; otherwise returns false.
+       */
       bool operator == ( const Configuration &other ) const {
         return  sdl == other.sdl &&
                 dosbox == other.dosbox &&
@@ -106,8 +106,8 @@ namespace asaal {
       }
 
       /**
-      * Returns true if other points to a different item than this other; otherwise returns false.
-      */
+       * Returns true if other points to a different item than this other; otherwise returns false.
+       */
       bool operator != ( const Configuration &other ) const {
         return  sdl != other.sdl ||
                 dosbox != other.dosbox ||
@@ -126,8 +126,8 @@ namespace asaal {
       }
 
       /**
-      * Returns true if the cache contains no objects; otherwise returns false.
-      */
+       * Returns true if the cache contains no objects; otherwise returns false.
+       */
       bool isEmpty() const {
         return  sdl.isEmpty() &&
                 dosbox.isEmpty() &&
@@ -146,8 +146,8 @@ namespace asaal {
       }
 
       /**
-      * Deletes all the objects in the cache.
-      */
+       * Deletes all the objects in the cache.
+       */
       void clear() {
         sdl.clear();
         dosbox.clear();
@@ -198,13 +198,13 @@ namespace asaal {
       ConfigBase( QObject *parent = 0 );
 
       /**
-      * @brief Destructor
-      */
+       * @brief Destructor
+       */
       ~ConfigBase();
 
       /**
-      * Get instance of @link ConfigBase
-      */
+       * Get instance of @link ConfigBase
+       */
       inline static ConfigBase* innstance() {
 
         if ( !m_Instance ) {
@@ -222,7 +222,8 @@ namespace asaal {
       Configuration readConfiguration( const QString &profile );
 
       /**
-       * Convert D-Fend Reloaded profiles to DBoxFE profiles or DBoxFE to D-Fend Reloaded
+       * Convert D-Fend Reloaded profiles to DBoxFE profiles or DBoxFE to D-Fend Reloaded.<br>
+       * At this time only D-Fend Reloaded profiles are supported.
        *
        * @param profile The D-Fend Reloaded profile or DBoxFE profile
        * @param type The @link ProfileType
@@ -235,7 +236,7 @@ namespace asaal {
        * Export DBoxFE profile to D-Fend Reloaded
        *
        * @param name The name of profile
-       * @param config The @link Configuration
+       * @param config The current @link Configuration
        */
       bool exportConfiguration( const QString &name, const Configuration &config );
 

@@ -65,7 +65,7 @@ namespace asaal {
 
     if ( fieldName.isNull() || fieldName.isEmpty() ) {
 
-      return 0;
+      return QVariant();
     }
 
     if ( fieldName == "sdlOutout" ) {

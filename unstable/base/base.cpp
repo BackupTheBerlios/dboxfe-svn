@@ -239,13 +239,9 @@ namespace asaal {
     return m_Configuration;
   }
 
-  bool ConfigBase::exportConfiguration( const QString &name, const Configuration &config ) {
+  bool ConfigBase::exportConfiguration( const QString &name, const Configuration  &config ) {
 
     if ( name.isNull() || name.isEmpty() ) {
-      return false;
-    }
-
-    if ( config.isEmpty() ) {
       return false;
     }
 
@@ -269,7 +265,6 @@ namespace asaal {
 
     // autoexec
     QFile configFile( homePath + "/export/" + name + "/" + name + ".conf" );
-
     if ( !configFile.open( QIODevice::ReadOnly | QIODevice::Text ) ) {
       return false;
     }
@@ -302,7 +297,7 @@ namespace asaal {
               QFileInfo copyFileInfo( copyFile );
               bool ok = copyFile.copy( homePath + "/export/" + name + "/" + fileName );
               if( !ok ) {
-                return false;
+                ++zipDataIt;
               }
             }
 
@@ -338,9 +333,8 @@ namespace asaal {
     }
 
     QString zipComment = QString( "" );
-
     zipComment += tr( "This archive has been created using OSDaB Zip (http://osdab.sourceforge.net/)." ) + "\n";
-    zipComment += tr( "This archive was created by DBoxFE - Assistant." );
+    zipComment += tr( "This archive was created by DBoxFE." );
 
     iz.setArchiveComment( zipComment );
 
