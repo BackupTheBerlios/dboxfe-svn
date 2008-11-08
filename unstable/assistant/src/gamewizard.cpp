@@ -132,7 +132,7 @@ namespace asaal {
     m_Config.sblaster.insert( "mixer", field( "soundBlasterMixer" ) );
 
     // Sound page: GUS settings
-    m_Config.sblaster.insert( "gus", field( "gus" ).toBool();
+    m_Config.sblaster.insert( "gus", field( "gus" ) );
     m_Config.sblaster.insert( "gusrate", sp->fieldWidgetValue( "gusRate" ) );
     m_Config.sblaster.insert( "gusase", sp->fieldWidgetValue( "gusBase" ) );
     m_Config.sblaster.insert( "ultradir", field( "gusUltraDir" ) );
@@ -154,12 +154,9 @@ namespace asaal {
     m_Config.sblaster.insert( "device", sp->fieldWidgetValue( "mdiDevice" ) );
 
     // Save configuration
-    if( configBase->writeConfiguration( profile, m_Config ) ) {
-      
-      m_Config.clear();
-      return true;
-    }
+    configBase->writeConfiguration( profile, m_Config );
     
-    return false;
+    m_Config.clear();
+    return true;
   }
 }
