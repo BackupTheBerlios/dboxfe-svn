@@ -66,7 +66,7 @@ namespace asaal {
     setStartId( PAGE_WELCOME );
     setPixmap( QWizard::LogoPixmap, QPixmap( ":/logo_wizard_image" ) );
 
-    configBase = ConfigBase::instance();
+    configBase = new ConfigBase( this );
   }
 
   void GameWizard::accept() {

@@ -203,18 +203,6 @@ namespace asaal {
       ~ConfigBase();
 
       /**
-       * Get instance of @link ConfigBase
-       */
-      inline static ConfigBase* instance() {
-
-        if ( !m_Instance ) {
-          m_Instance = new ConfigBase();
-        }
-
-        return m_Instance;
-      }
-
-      /**
        * Get @link Configuration for the given profile
        *
        * @param profile The DBoxFE profile
@@ -258,7 +246,6 @@ namespace asaal {
        */
       QMap< QString, QString> exportDatas( const QString &directory );
 
-      static ConfigBase* m_Instance;
       Configuration m_Configuration;
   };
 

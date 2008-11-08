@@ -171,7 +171,6 @@ namespace asaal {
     readConf.endGroup();
 
     // Autoexec settings
-
     if ( !configFile.open( QIODevice::ReadOnly | QIODevice::Text ) ) {
       return m_Configuration;
     }
