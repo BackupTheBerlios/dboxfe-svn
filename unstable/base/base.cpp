@@ -66,7 +66,6 @@ namespace asaal {
     m_Configuration.sdl.insert( "waitonerror", readConf.value( "waitonerror" ) );
     m_Configuration.sdl.insert( "usescancodes", readConf.value( "usescancodes" ) );
     m_Configuration.sdl.insert( "sensitivity", readConf.value( "sensitivity" ) );
-    m_Configuration.sdl.insert( "sensitivity", readConf.value( "sensitivity" ) );
     m_Configuration.sdl.insert( "mapperfile", readConf.value( "mapperfile" ) );
     readConf.endGroup();
 
@@ -283,7 +282,7 @@ namespace asaal {
           autoexec = in.readAll();
           mountDirectory = autoexec.split( " " ).value( 2 );
 
-          QMap< QString, QString> zipData = exportData( mountDirectory );
+          QMap< QString, QString> zipData = exportDatas( mountDirectory );
           QMap< QString, QString>::const_iterator zipDataIt = zipData.constBegin();
 
           while ( zipDataIt != zipData.end() ) {
@@ -291,6 +290,9 @@ namespace asaal {
             QString fileName = zipDataIt.value();
             QString file = fileDirectory + fileName;
 
+            // TODO make sure that you create directory before you create/copy file
+            // insert code here ...
+            
             QFile copyFile( file );
 
             if ( copyFile.exists() ) {
@@ -532,7 +534,7 @@ namespace asaal {
     m_Configuration.clear();
   }
 
-  QMap< QString, QString> ConfigBase::exportData( const QString &directory ) {
+  QMap< QString, QString> ConfigBase::exportDatas( const QString &directory ) {
 
     QDir copyDirectory( directory );
 
@@ -548,7 +550,7 @@ namespace asaal {
         ;
       } else {
         if ( fi.isDir() && fi.isReadable() ) {
-          exportData( fi.absoluteFilePath() );
+          exportDatas( fi.absoluteFilePath() );
 
         } else if ( fi.isFile() && fi.isReadable() ) {
           zipData.insert( fi.absolutePath(), fi.fileName() );

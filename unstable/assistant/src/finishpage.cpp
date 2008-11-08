@@ -26,8 +26,8 @@
 #include <gamewizard.h>
 #include <finishpage.h>
 
-#include <QtCore>
-#include <QtGui>
+#include <QWidget>
+#include <QWizardPage>
 
 namespace asaal {
 

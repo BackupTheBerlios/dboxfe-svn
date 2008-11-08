@@ -23,6 +23,7 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
+#include <base.h>
 #include <finishpage.h>
 #include <gamewizard.h>
 #include <graphicpage.h>
@@ -64,18 +65,24 @@ namespace asaal {
 
     setStartId( PAGE_WELCOME );
     setPixmap( QWizard::LogoPixmap, QPixmap( ":/logo_wizard_image" ) );
+
+    configBase = ConfigBase::instance();
   }
 
   void GameWizard::accept() {
 
     QString profile = field( "gameName" ).toString();
-    if( createGameProfile( profile ) ) {
+
+    if ( createGameProfile( profile ) ) {
     }
 
     qApp->quit();
   }
 
   bool GameWizard::createGameProfile( const QString &profile ) {
+
+    Configuration m_Config;
+
 
     // Installation page
     QString dosBoxBinary = field( "dosBoxBinary" ).toString();
@@ -84,54 +91,74 @@ namespace asaal {
     QString gameFile = field( "gameFile" ).toString();
     QString gameFolder = field( "gameFolder" ).toString();
 
-    // Graphic page
-    bool sdlFullScreen = field( "sdlFullScreen" ).toBool();
-    bool sdlFullDouble = field( "sdlFullDouble" ).toBool();
-    bool sdlWaitOnError = field( "sdlWaitOnError" ).toBool();
-    bool sdlAutolock = field( "sdlAutolock" ).toBool();
-    bool sdlUseScanCode = field( "sdlUseScanCode" ).toBool();
-    bool renderAspect = field( "renderAspect" ).toBool();
-    int renderScaler = gp->fieldWidgetValue( "renderScaler" ).toInt();
-    int frameScip = gp->fieldWidgetValue( "frameScip" ).toInt();
-    QString sdlOutout = gp->fieldWidgetValue( "sdlOutout" ).toString();
-    QString sdlFocusUnfocus = gp->fieldWidgetValue( "sdlFocusUnfocus" ).toString();
-    QString sdlWindowWightHigh = gp->fieldWidgetValue( "sdlWindowWightHigh" ).toString();
-    QString sdlFullWightHigh = gp->fieldWidgetValue( "sdlFullWightHigh" ).toString();
-    QString sdlSensitivity = gp->fieldWidgetValue( "sdlSensitivity" ).toString();
-    QString cpuCore = gp->fieldWidgetValue( "cpuCore" ).toString();
-    QString cpuCycleUp = gp->fieldWidgetValue( "cpuCycleUp" ).toString();
-    QString cpuCycles = gp->fieldWidgetValue( "cpuCycles" ).toString();
-    QString cpuCycleDown = gp->fieldWidgetValue( "cpuCycleDown" ).toString();
+    // Graphic page: SDL settings
+    m_Config.sdl.insert( "fullscreen", field( "sdlFullScreen" ) );
+    m_Config.sdl.insert( "fulldouble", field( "sdlFullDouble" ) );
+    m_Config.sdl.insert( "fullwighthigh", gp->fieldWidgetValue( "sdlFullWightHigh" ) );
+    m_Config.sdl.insert( "windowresolution", gp->fieldWidgetValue( "sdlWindowWightHigh" ) );
+    m_Config.sdl.insert( "priority", gp->fieldWidgetValue( "sdlFocusUnfocus" ) );
+    m_Config.sdl.insert( "outout", gp->fieldWidgetValue( "sdlOutout" ) );
+    m_Config.sdl.insert( "autolock", field( "sdlAutolock" ) );
+    m_Config.sdl.insert( "waitonerror", field( "sdlWaitOnError" ) );
+    m_Config.sdl.insert( "usescancode", field( "sdlUseScanCode" ) );
+    m_Config.sdl.insert( "sensitivity", gp->fieldWidgetValue( "sdlSensitivity" ) );
+    m_Config.sdl.insert( "mapperfile", QVariant( "mapperfile" ) );
 
-    // Sound page
-    bool mixerNoSound = field( "mixerNoSound" ).toBool();
-    bool soundBlasterMixer = field( "soundBlasterMixer" ).toBool();
-    bool gus = field( "gus" ).toBool();
-    bool disney = field( "disney" ).toBool();
-    int prebuffer = sp->fieldWidgetValue( "prebuffer" ).toInt();
-    QString gusUltraDir = field( "gusUltraDir" ).toString();
-    QString mdiConfig = field( "mdiConfig" ).toString();
-    QString mixerRate = sp->fieldWidgetValue( "mixerRate" ).toString();
-    QString mixerBlockSize = sp->fieldWidgetValue( "mixerBlockSize" ).toString();
-    QString soundBlasterType = sp->fieldWidgetValue( "soundBlasterType" ).toString();
-    QString soundBlasterBase = sp->fieldWidgetValue( "soundBlasterBase" ).toString();
-    QString soundBlasterIRQ = sp->fieldWidgetValue( "soundBlasterIRQ" ).toString();
-    QString soundBlasterDMA = sp->fieldWidgetValue( "soundBlasterDMA" ).toString();
-    QString soundBlasterOplMode = sp->fieldWidgetValue( "soundBlasterOplMode" ).toString();
-    QString soundBlasterHDMA = sp->fieldWidgetValue( "soundBlasterHDMA" ).toString();
-    QString soundBlasterOPLRate = sp->fieldWidgetValue( "soundBlasterOPLRate" ).toString();
-    QString gusRate = sp->fieldWidgetValue( "gusRate" ).toString();
-    QString gusBase = sp->fieldWidgetValue( "gusBase" ).toString();
-    QString gusIrq_1 = sp->fieldWidgetValue( "gusIrq_1" ).toString();
-    QString gusIrq_2 = sp->fieldWidgetValue( "gusIrq_2" ).toString();
-    QString gusDMA_1 = sp->fieldWidgetValue( "gusDMA_1" ).toString();
-    QString gusDMA_2 = sp->fieldWidgetValue( "gusDMA_2" ).toString();
-    QString speaker = sp->fieldWidgetValue( "speaker" ).toString();
-    QString speakerRate = sp->fieldWidgetValue( "speakerRate" ).toString();
-    QString speakerTandy = sp->fieldWidgetValue( "speakerTandy" ).toString();
-    QString speakerTandyRate = sp->fieldWidgetValue( "speakerTandyRate" ).toString();
-    QString mdiMPU = sp->fieldWidgetValue( "mdiMPU" ).toString();
-    QString mdiDevice = sp->fieldWidgetValue( "mdiDevice" ).toString();
+    // Graphic page: Render settings
+    m_Config.render.insert( "renderaspect", field( "renderAspect" ) );
+    m_Config.render.insert( "renderscaler", gp->fieldWidgetValue( "renderScaler" ) );
+    m_Config.render.insert( "framescip", gp->fieldWidgetValue( "frameScip" ) );
+
+    // Graphic page: CPU settings
+    m_Config.cpu.insert( "cpucore", gp->fieldWidgetValue( "cpuCore" ) );
+    m_Config.cpu.insert( "cpucycleup", gp->fieldWidgetValue( "cpuCycleUp" ) );
+    m_Config.cpu.insert( "cpucycles", gp->fieldWidgetValue( "cpuCycles" ) );
+    m_Config.cpu.insert( "cpucycledown", gp->fieldWidgetValue( "cpuCycleDown" ) );
+
+    // Sound page: Mixer settings
+    m_Config.mixer.insert( "nosound", field( "mixerNoSound" ) );
+    m_Config.mixer.insert( "rate", sp->fieldWidgetValue( "mixerRate" ) );
+    m_Config.mixer.insert( "blocksize", sp->fieldWidgetValue( "mixerBlockSize" ) );
+    m_Config.mixer.insert( "prebuffer", sp->fieldWidgetValue( "prebuffer" ) );
+
+    // Sound page: S-Blaster settings
+    m_Config.sblaster.insert( "sbtype", sp->fieldWidgetValue( "soundBlasterType" ) );
+    m_Config.sblaster.insert( "sbbase", sp->fieldWidgetValue( "soundBlasterBase" ) );
+    m_Config.sblaster.insert( "irq", sp->fieldWidgetValue( "soundBlasterIRQ" ) );
+    m_Config.sblaster.insert( "dma", sp->fieldWidgetValue( "soundBlasterDMA" ) );
+    m_Config.sblaster.insert( "oplmode", sp->fieldWidgetValue( "soundBlasterOplMode" ) );
+    m_Config.sblaster.insert( "hdma", sp->fieldWidgetValue( "soundBlasterHDMA" ) );
+    m_Config.sblaster.insert( "oplrate", sp->fieldWidgetValue( "soundBlasterOPLRate" ) );
+    m_Config.sblaster.insert( "mixer", field( "soundBlasterMixer" ) );
+
+    // Sound page: GUS settings
+    m_Config.sblaster.insert( "gus", field( "gus" ).toBool();
+    m_Config.sblaster.insert( "gusrate", sp->fieldWidgetValue( "gusRate" ) );
+    m_Config.sblaster.insert( "gusase", sp->fieldWidgetValue( "gusBase" ) );
+    m_Config.sblaster.insert( "ultradir", field( "gusUltraDir" ) );
+    m_Config.sblaster.insert( "irq1", sp->fieldWidgetValue( "gusIrq_1" ) );
+    m_Config.sblaster.insert( "irq2", sp->fieldWidgetValue( "gusIrq_2" ) );
+    m_Config.sblaster.insert( "dma1", sp->fieldWidgetValue( "gusDMA_1" ) );
+    m_Config.sblaster.insert( "dma2", sp->fieldWidgetValue( "gusDMA_2" ) );
+
+    // Sound page: Speacker settings
+    m_Config.sblaster.insert( "disney", field( "disney" ) );
+    m_Config.sblaster.insert( "pcspeaker", sp->fieldWidgetValue( "speaker" ) );
+    m_Config.sblaster.insert( "pcrate", sp->fieldWidgetValue( "speakerRate" ) );
+    m_Config.sblaster.insert( "tandy", sp->fieldWidgetValue( "speakerTandy" ) );
+    m_Config.sblaster.insert( "tandyrate", sp->fieldWidgetValue( "speakerTandyRate" ) );
+
+    // Sound page: MDI settings
+    m_Config.sblaster.insert( "config", field( "mdiConfig" ) );
+    m_Config.sblaster.insert( "mpu401", sp->fieldWidgetValue( "mdiMPU" ) );
+    m_Config.sblaster.insert( "device", sp->fieldWidgetValue( "mdiDevice" ) );
+
+    // Save configuration
+    if( configBase->writeConfiguration( profile, m_Config ) ) {
+      
+      m_Config.clear();
+      return true;
+    }
     
     return false;
   }

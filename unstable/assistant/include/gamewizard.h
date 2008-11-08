@@ -26,6 +26,7 @@
 #ifndef GAMEWIZARD_H
 #define GAMEWIZARD_H
 
+#include <base.h>
 #include <finishpage.h>
 #include <graphicpage.h>
 #include <importexportpage.h>
@@ -124,6 +125,7 @@ namespace asaal {
        */
       bool createGameProfile( const QString &profile );
 
+      ConfigBase *configBase;
       WelcomePage *wp;
       ImportExportPage *ie;
       InstallPage *ip;

@@ -205,7 +205,7 @@ namespace asaal {
       /**
        * Get instance of @link ConfigBase
        */
-      inline static ConfigBase* innstance() {
+      inline static ConfigBase* instance() {
 
         if ( !m_Instance ) {
           m_Instance = new ConfigBase();
@@ -253,10 +253,10 @@ namespace asaal {
       /**
        * Get files/directories for D-Fend Reloaded exported ziparchiv.
        *
-       * @param directory The directory with all datas for export to zip
-       * @return QStringList with all files
+       * @param directory The directory with all files/directories for export to zip
+       * @return QMap< QString, QString > with all files
        */
-      QMap< QString, QString> exportData( const QString &directory );
+      QMap< QString, QString> exportDatas( const QString &directory );
 
       static ConfigBase* m_Instance;
       Configuration m_Configuration;
