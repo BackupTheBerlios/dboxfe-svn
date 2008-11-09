@@ -44,6 +44,7 @@ namespace asaal {
 
   class GameWizard;
   extern GameWizard *gameWizard;
+  extern ConfigBase *configBase;
 
   /**
   *  \brief GameWizard
@@ -112,6 +113,11 @@ namespace asaal {
         return gameWizard;
       }
 
+      inline static ConfigBase *configBaseInstance() {
+
+        return configBase;
+      }
+
       /**
       * Hides the modal dialog and sets the result code to Accepted.
       */
@@ -125,7 +131,6 @@ namespace asaal {
        */
       bool createGameProfile( const QString &profile );
 
-      ConfigBase *configBase;
       WelcomePage *wp;
       ImportExportPage *ie;
       InstallPage *ip;

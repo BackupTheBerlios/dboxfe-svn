@@ -167,6 +167,56 @@ namespace asaal {
   };
 
   /**
+  * DFend_Configuration handles read, write and convert of dfend configuration files
+  *
+  * @author Alexander Saal <alex.saal@gmx.de>
+  * @sa http://dboxfe.belios.de/index
+  * @date 2008/09/11
+  * @version 0.2.5
+  * @since 0.2.5
+  */
+  class DFend_Configuration : public Configuration {
+
+    public:
+      /** Set/Get extra settings */
+      QMap< QString, QVariant > extra;
+
+      /** Set/Get extrainfo settings */
+      QMap< QString, QVariant > extrainfo;
+
+      /** Set/Get extra settings */
+      QMap< QString, QVariant > vga;
+
+      /** Set/Get printer settings */
+      QMap< QString, QVariant > printer;
+
+      /** Set/Get glide settings */
+      QString glide;
+
+      /**
+       * Returns true if the cache contains no objects; otherwise returns false.
+       */
+      bool isEmpty() const {
+        return  extra.isEmpty() &&
+                extrainfo.isEmpty() &&
+                vga.isEmpty() &&
+                printer.isEmpty() &&
+                ( glide.isEmpty() || glide.isNull() );
+      }
+
+      /**
+       * Deletes all the objects in the cache.
+       */
+      void clear() {
+        extra.clear();
+        extrainfo.clear();
+        vga.clear();
+        printer.clear();
+        glide = QString( "" );
+      }
+  };
+
+  /**
   * ConfigBase handles read, write and convert of dosbox configuration files
   *
   * @author Alexander Saal <alex.saal@gmx.de>
@@ -175,7 +225,6 @@ namespace asaal {
   * @version 0.2.5
   * @since 0.2.5
   */
-
   class ConfigBase : public QObject {
 
       Q_OBJECT

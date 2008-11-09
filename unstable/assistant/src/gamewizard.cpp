@@ -40,10 +40,10 @@
 namespace asaal {
 
   GameWizard *gameWizard = 0;
+  ConfigBase *configBase = 0;
   GameWizard::GameWizard( QWidget *parent ) : QWizard( parent ) {
 
     setWindowTitle( tr( "Game Wizard" ) );
-    gameWizard = this;
 
     ie = new ImportExportPage();
     ip = new InstallPage();
@@ -66,7 +66,8 @@ namespace asaal {
     setStartId( PAGE_WELCOME );
     setPixmap( QWizard::LogoPixmap, QPixmap( ":/logo_wizard_image" ) );
 
-    configBase = new ConfigBase( this );
+    gameWizard = this;
+    configBase = new ConfigBase( gameWizard );
   }
 
   void GameWizard::accept() {
@@ -82,7 +83,6 @@ namespace asaal {
   bool GameWizard::createGameProfile( const QString &profile ) {
 
     Configuration m_Config;
-
 
     // Installation page
     QString dosBoxBinary = field( "dosBoxBinary" ).toString();

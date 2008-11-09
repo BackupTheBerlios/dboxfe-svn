@@ -274,6 +274,9 @@ namespace asaal {
     QStringList lst;
 
     while ( it.hasNext() ) {
+
+      qApp->processEvents();
+
       fi = it.next();
 
       if ( fi.fileName() == "." || fi.fileName() == ".." ) {
@@ -295,24 +298,20 @@ namespace asaal {
       qApp->processEvents();
 
       progressDialog.setValue( i );
-
-      if ( progressDialog.wasCanceled() ) {
+      if( progressDialog.wasCanceled() ) {
         break;
       }
 
       QFileInfo gameFile( templates.value( i ) );
-
       if ( !gameFile.exists() ) {
         continue;
       }
 
       QSettings gameFileSetting( gameFile.absoluteFilePath(), QSettings::IniFormat );
-
       gameFileSetting.beginGroup( "Extra" );
       execMD5 = gameFileSetting.value( "ExeMD5" ).toString().toUpper();
       setupMD5 = gameFileSetting.value( "SetupMD5" ).toString().toUpper();
       gameFileSetting.endGroup();
-      gameFileSetting.clear();
 
       if( install ) {
         // Check installation file
