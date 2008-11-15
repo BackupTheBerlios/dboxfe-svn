@@ -171,6 +171,7 @@ namespace asaal {
     readConf.endGroup();
 
     // Autoexec settings
+
     if ( !configFile.open( QIODevice::ReadOnly | QIODevice::Text ) ) {
       return m_Configuration;
     }
@@ -263,6 +264,7 @@ namespace asaal {
 
     // autoexec
     QFile configFile( homePath + "/export/" + name + "/" + name + ".conf" );
+
     if ( !configFile.open( QIODevice::ReadOnly | QIODevice::Text ) ) {
       return false;
     }
@@ -291,13 +293,14 @@ namespace asaal {
 
             // TODO make sure that you create directory before you create/copy file
             // insert code here ...
-            
+
             QFile copyFile( file );
 
             if ( copyFile.exists() ) {
               QFileInfo copyFileInfo( copyFile );
               bool ok = copyFile.copy( homePath + "/export/" + name + "/" + fileName );
-              if( !ok ) {
+
+              if ( !ok ) {
                 ++zipDataIt;
               }
             }
@@ -334,6 +337,7 @@ namespace asaal {
     }
 
     QString zipComment = QString( "" );
+
     zipComment += tr( "This archive has been created using OSDaB Zip (http://osdab.sourceforge.net/)." ) + "\n";
     zipComment += tr( "This archive was created by DBoxFE." );
 
@@ -350,9 +354,6 @@ namespace asaal {
 
   void ConfigBase::writeConfiguration( const QString &profile, const Configuration &config ) {
 
-    m_Configuration.clear();
-    m_Configuration = config;
-
     if ( config.isEmpty() ) {
       return;
     }
@@ -361,176 +362,183 @@ namespace asaal {
       return;
     }
 
-    QSettings writeConf( profile, QSettings::IniFormat );
+    QSettings *writeConf = new QSettings( profile, QSettings::IniFormat );
 
     // SDL settings
-    writeConf.beginGroup( "sdl" );
+    writeConf->beginGroup( "sdl" );
     QMap< QString, QVariant >::const_iterator m_Sdl = config.sdl.constBegin();
 
     while ( m_Sdl != config.sdl.constEnd() ) {
       qApp->processEvents();
 
-      writeConf.setValue( m_Sdl.key(), m_Sdl.value() );
+      writeConf->setValue( m_Sdl.key(), m_Sdl.value() );
       ++m_Sdl;
     }
 
-    writeConf.endGroup();
+    writeConf->endGroup();
 
     // DOSBox settings
-    writeConf.beginGroup( "dosbox" );
+    writeConf->beginGroup( "dosbox" );
     QMap< QString, QVariant >::const_iterator m_Dosbox = config.dosbox.constBegin();
 
     while ( m_Dosbox != config.dosbox.constEnd() ) {
       qApp->processEvents();
 
-      writeConf.setValue( m_Dosbox.key(), m_Dosbox.value() );
+      writeConf->setValue( m_Dosbox.key(), m_Dosbox.value() );
       ++m_Dosbox;
     }
 
-    writeConf.endGroup();
+    writeConf->endGroup();
 
     // Render settings
-    writeConf.beginGroup( "render" );
+    writeConf->beginGroup( "render" );
     QMap< QString, QVariant >::const_iterator m_Render = config.render.constBegin();
 
     while ( m_Render != config.render.constEnd() ) {
       qApp->processEvents();
 
-      writeConf.setValue( m_Render.key(), m_Render.value() );
+      writeConf->setValue( m_Render.key(), m_Render.value() );
       ++m_Render;
     }
 
-    writeConf.endGroup();
+    writeConf->endGroup();
 
     // CPU settings
-    writeConf.beginGroup( "cpu" );
+    writeConf->beginGroup( "cpu" );
     QMap< QString, QVariant >::const_iterator m_Cpu = config.cpu.constBegin();
 
     while ( m_Cpu != config.cpu.constEnd() ) {
       qApp->processEvents();
 
-      writeConf.setValue( m_Cpu.key(), m_Cpu.value() );
+      writeConf->setValue( m_Cpu.key(), m_Cpu.value() );
       ++m_Cpu;
     }
 
-    writeConf.endGroup();
+    writeConf->endGroup();
 
     // Mixer settings
-    writeConf.beginGroup( "mixer" );
+    writeConf->beginGroup( "mixer" );
     QMap< QString, QVariant >::const_iterator m_Mixer = config.mixer.constBegin();
 
     while ( m_Mixer != config.mixer.constEnd() ) {
       qApp->processEvents();
 
-      writeConf.setValue( m_Mixer.key(), m_Mixer.value() );
+      writeConf->setValue( m_Mixer.key(), m_Mixer.value() );
       ++m_Mixer;
     }
 
-    writeConf.endGroup();
+    writeConf->endGroup();
 
     // Mdi settings
-    writeConf.beginGroup( "mdi" );
+    writeConf->beginGroup( "mdi" );
     QMap< QString, QVariant >::const_iterator m_Mdi = config.mdi.constBegin();
 
     while ( m_Mdi != config.mdi.constEnd() ) {
       qApp->processEvents();
 
-      writeConf.setValue( m_Mdi.key(), m_Mdi.value() );
+      writeConf->setValue( m_Mdi.key(), m_Mdi.value() );
       ++m_Mdi;
     }
 
-    writeConf.endGroup();
+    writeConf->endGroup();
 
     // Soundblaster settings
-    writeConf.beginGroup( "sblaster" );
+    writeConf->beginGroup( "sblaster" );
     QMap< QString, QVariant >::const_iterator m_SBlaster = config.sblaster.constBegin();
 
     while ( m_SBlaster != config.sblaster.constEnd() ) {
       qApp->processEvents();
 
-      writeConf.setValue( m_SBlaster.key(), m_SBlaster.value() );
+      writeConf->setValue( m_SBlaster.key(), m_SBlaster.value() );
       ++m_SBlaster;
     }
 
-    writeConf.endGroup();
+    writeConf->endGroup();
 
     // GUS settings
-    writeConf.beginGroup( "gus" );
+    writeConf->beginGroup( "gus" );
     QMap< QString, QVariant >::const_iterator m_Gus = config.gus.constBegin();
 
     while ( m_Gus != config.gus.constEnd() ) {
       qApp->processEvents();
 
-      writeConf.setValue( m_Gus.key(), m_Gus.value() );
+      writeConf->setValue( m_Gus.key(), m_Gus.value() );
       ++m_Gus;
     }
 
-    writeConf.endGroup();
+    writeConf->endGroup();
 
     // PC Speaker settings
-    writeConf.beginGroup( "speaker" );
+    writeConf->beginGroup( "speaker" );
     QMap< QString, QVariant >::const_iterator m_Speaker = config.speaker.constBegin();
 
     while ( m_Speaker != config.speaker.constEnd() ) {
       qApp->processEvents();
 
-      writeConf.setValue( m_Speaker.key(), m_Speaker.value() );
+      writeConf->setValue( m_Speaker.key(), m_Speaker.value() );
       ++m_Speaker;
     }
 
-    writeConf.endGroup();
+    writeConf->endGroup();
 
     // joystick settings
-    writeConf.beginGroup( "joystick" );
+    writeConf->beginGroup( "joystick" );
     QMap< QString, QVariant >::const_iterator m_Joystick = config.joystick.constBegin();
 
     while ( m_Joystick != config.joystick.constEnd() ) {
       qApp->processEvents();
 
-      writeConf.setValue( m_Joystick.key(), m_Joystick.value() );
+      writeConf->setValue( m_Joystick.key(), m_Joystick.value() );
       ++m_Joystick;
     }
 
-    writeConf.endGroup();
+    writeConf->endGroup();
 
     // Serial settings
-    writeConf.beginGroup( "serial" );
+    writeConf->beginGroup( "serial" );
     QMap< QString, QVariant >::const_iterator m_Serial = config.serial.constBegin();
 
     while ( m_Serial != config.serial.constEnd() ) {
       qApp->processEvents();
 
-      writeConf.setValue( m_Serial.key(), m_Serial.value() );
+      writeConf->setValue( m_Serial.key(), m_Serial.value() );
       ++m_Serial;
     }
 
-    writeConf.endGroup();
+    writeConf->endGroup();
 
     // DOS settings
-    writeConf.beginGroup( "dos" );
+    writeConf->beginGroup( "dos" );
     QMap< QString, QVariant >::const_iterator m_Dos = config.dos.constBegin();
 
     while ( m_Dos != config.dos.constEnd() ) {
       qApp->processEvents();
 
-      writeConf.setValue( m_Dos.key(), m_Dos.value() );
+      writeConf->setValue( m_Dos.key(), m_Dos.value() );
       ++m_Dos;
     }
 
-    writeConf.endGroup();
+    writeConf->endGroup();
 
     // IPX settings
-    writeConf.beginGroup( "ipx" );
-    writeConf.setValue( "ipx", config.ipx );
-    writeConf.endGroup();
+    writeConf->beginGroup( "ipx" );
+    writeConf->setValue( "ipx", config.ipx );
+    writeConf->endGroup();
+
+    delete writeConf;
 
     // Autoexec settings
-    writeConf.beginGroup( "autoexec" );
-    writeConf.setValue( "autoexec", config.autoexec );
-    writeConf.endGroup();
+    QFile configFile( profile );
+    if ( !configFile.open( QIODevice::ReadOnly | QIODevice::Text ) ) {
+      qDebug() << QDateTime::currentDateTime().toString( Qt::LocaleDate ) << tr( " - [ERROR] Unable to open and read profile: " ) << configFile.fileName() << endl;
+      return;
+    }
 
-    writeConf.sync();
-    m_Configuration.clear();
+    QTextStream out( &configFile );
+    out << "[autoexec]\n" << config.autoexec + "\n";
+    out.flush();
+    configFile.flush();
+    configFile.close();
   }
 
   QMap< QString, QString> ConfigBase::exportDatas( const QString &directory ) {

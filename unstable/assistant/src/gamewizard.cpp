@@ -73,11 +73,18 @@ namespace asaal {
   void GameWizard::accept() {
 
     QString profile = field( "gameName" ).toString();
+    QString profileDirectory = QDir::homePath();
+    profileDirectory.append( "/.dboxfe/" + profile + ".conf" );
 
-    if ( createGameProfile( profile ) ) {
+    if ( createGameProfile( profileDirectory ) ) {
+      
+      qApp->quit();
     }
-
-    qApp->quit();
+    else
+    {
+      return;
+    }
+    
   }
 
   bool GameWizard::createGameProfile( const QString &profile ) {
@@ -132,30 +139,33 @@ namespace asaal {
     m_Config.sblaster.insert( "mixer", field( "soundBlasterMixer" ) );
 
     // Sound page: GUS settings
-    m_Config.sblaster.insert( "gus", field( "gus" ) );
-    m_Config.sblaster.insert( "gusrate", sp->fieldWidgetValue( "gusRate" ) );
-    m_Config.sblaster.insert( "gusase", sp->fieldWidgetValue( "gusBase" ) );
-    m_Config.sblaster.insert( "ultradir", field( "gusUltraDir" ) );
-    m_Config.sblaster.insert( "irq1", sp->fieldWidgetValue( "gusIrq_1" ) );
-    m_Config.sblaster.insert( "irq2", sp->fieldWidgetValue( "gusIrq_2" ) );
-    m_Config.sblaster.insert( "dma1", sp->fieldWidgetValue( "gusDMA_1" ) );
+    m_Config.gus.insert( "gus", field( "gus" ) );
+    m_Config.gus.insert( "gusrate", sp->fieldWidgetValue( "gusRate" ) );
+    m_Config.gus.insert( "gusase", sp->fieldWidgetValue( "gusBase" ) );
+    m_Config.gus.insert( "ultradir", field( "gusUltraDir" ) );
+    m_Config.gus.insert( "irq1", sp->fieldWidgetValue( "gusIrq_1" ) );
+    m_Config.gus.insert( "irq2", sp->fieldWidgetValue( "gusIrq_2" ) );
+    m_Config.gus.insert( "dma1", sp->fieldWidgetValue( "gusDMA_1" ) );
     m_Config.sblaster.insert( "dma2", sp->fieldWidgetValue( "gusDMA_2" ) );
 
     // Sound page: Speacker settings
-    m_Config.sblaster.insert( "disney", field( "disney" ) );
-    m_Config.sblaster.insert( "pcspeaker", sp->fieldWidgetValue( "speaker" ) );
-    m_Config.sblaster.insert( "pcrate", sp->fieldWidgetValue( "speakerRate" ) );
-    m_Config.sblaster.insert( "tandy", sp->fieldWidgetValue( "speakerTandy" ) );
-    m_Config.sblaster.insert( "tandyrate", sp->fieldWidgetValue( "speakerTandyRate" ) );
+    m_Config.speaker.insert( "disney", field( "disney" ) );
+    m_Config.speaker.insert( "pcspeaker", sp->fieldWidgetValue( "speaker" ) );
+    m_Config.speaker.insert( "pcrate", sp->fieldWidgetValue( "speakerRate" ) );
+    m_Config.speaker.insert( "tandy", sp->fieldWidgetValue( "speakerTandy" ) );
+    m_Config.speaker.insert( "tandyrate", sp->fieldWidgetValue( "speakerTandyRate" ) );
 
     // Sound page: MDI settings
-    m_Config.sblaster.insert( "config", field( "mdiConfig" ) );
-    m_Config.sblaster.insert( "mpu401", sp->fieldWidgetValue( "mdiMPU" ) );
-    m_Config.sblaster.insert( "device", sp->fieldWidgetValue( "mdiDevice" ) );
+    m_Config.mdi.insert( "config", field( "mdiConfig" ) );
+    m_Config.mdi.insert( "mpu401", sp->fieldWidgetValue( "mdiMPU" ) );
+    m_Config.mdi.insert( "device", sp->fieldWidgetValue( "mdiDevice" ) );
 
+    // Misc page: DOS, BIOS and Joystick
+    m_Config.dos.insert( "", "" );
+    
     // Save configuration
     configBase->writeConfiguration( profile, m_Config );
-    
+
     m_Config.clear();
     return true;
   }
