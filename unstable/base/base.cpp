@@ -198,7 +198,7 @@ namespace asaal {
     return m_Configuration;
   }
 
-  Configuration ConfigBase::convertConfiguration( const QString &profile, ProfileType type ) {
+  Configuration ConfigBase::convertConfiguration( const QString &profile ) {
 
     bool isDfendProf = false;
     m_Configuration.clear();
@@ -228,12 +228,17 @@ namespace asaal {
       return m_Configuration;
     }
 
-    switch ( type ) {
+    m_Configuration = readConfiguration( profile );
 
-      case ConfigBase::DFEND:
-        m_Configuration = readConfiguration( profile );
-        break;
-    }
+    DFend_Configuration dfend_config;
+    m_Configuration.dfendConfig = dfend_config;
+
+    return m_Configuration;
+  }
+
+  Configuration ConfigBase::importConfiguration( const QString &zipFile ) {
+
+    m_Configuration.clear();
 
     return m_Configuration;
   }
@@ -529,12 +534,14 @@ namespace asaal {
 
     // Autoexec settings
     QFile configFile( profile );
+
     if ( !configFile.open( QIODevice::ReadOnly | QIODevice::Text ) ) {
       qDebug() << QDateTime::currentDateTime().toString( Qt::LocaleDate ) << tr( " - [ERROR] Unable to open and read profile: " ) << configFile.fileName() << endl;
       return;
     }
 
     QTextStream out( &configFile );
+
     out << "[autoexec]\n" << config.autoexec + "\n";
     out.flush();
     configFile.flush();

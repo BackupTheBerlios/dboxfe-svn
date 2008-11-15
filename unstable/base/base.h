@@ -30,19 +30,94 @@
 
 namespace asaal {
 
+
   /**
-  * Configuration handles all objects from dosbox configuration file
-  *
-  * @author Alexander Saal <alex.saal@gmx.de>
-  * @sa http://dboxfe.belios.de/index
-  * @date 2008/31/10
-  * @version 0.2.5
-  * @since 0.2.5
-  */
+   * DFend_Configuration handles read, write and convert of dfend configuration files
+   *
+   * @author Alexander Saal <alex.saal@gmx.de>
+   * @sa http://dboxfe.belios.de/index
+   * @date 2008/09/11
+   * @version 0.2.5
+   * @since 0.2.5
+   */
+
+  class DFend_Configuration {
+
+    public:
+      /** Set/Get extra settings */
+      QMap< QString, QVariant > extra;
+
+      /** Set/Get extrainfo settings */
+      QMap< QString, QVariant > extrainfo;
+
+      /** Set/Get extra settings */
+      QMap< QString, QVariant > vga;
+
+      /** Set/Get printer settings */
+      QMap< QString, QVariant > printer;
+
+      /** Set/Get glide settings */
+      QString glide;
+
+      /**
+       * Returns true if other points the same item of other; otherwise returns false.
+       */
+      bool operator == ( const DFend_Configuration &other ) const {
+        return  extra == other.extra &&
+                extrainfo == other.extrainfo &&
+                vga == other.vga &&
+                printer == other.printer &&
+                glide == other.glide;
+      }
+
+      /**
+       * Returns true if other points to a different item than this other; otherwise returns false.
+       */
+      bool operator != ( const DFend_Configuration &other ) const {
+        return  extra != other.extra ||
+                extrainfo != other.extrainfo ||
+                vga != other.vga ||
+                printer != other.printer ||
+                glide != other.glide;
+      }
+
+      /**
+       * Returns true if the cache contains no objects; otherwise returns false.
+       */
+      bool isEmpty() const {
+        return  extra.isEmpty() &&
+                extrainfo.isEmpty() &&
+                vga.isEmpty() &&
+                printer.isEmpty() &&
+                glide.isEmpty();
+      }
+
+      /**
+       * Deletes all the objects in the cache.
+       */
+      void clear() {
+        extra.clear();
+        extrainfo.clear();
+        vga.clear();
+        printer.clear();
+        glide = QString( "" );
+      }
+  };
+
+  /**
+   * Configuration handles all objects from dosbox configuration file
+   *
+   * @author Alexander Saal <alex.saal@gmx.de>
+   * @sa http://dboxfe.belios.de/index
+   * @date 2008/31/10
+   * @version 0.2.5
+   * @since 0.2.5
+   */
 
   class Configuration {
 
     public:
+
       /** Set/Get sdl settings */
       QMap< QString, QVariant > sdl;
 
@@ -85,6 +160,9 @@ namespace asaal {
       /** Set/Get autoexec settings */
       QString autoexec;
 
+      /** DFend - Realoded Configuraion */
+      DFend_Configuration dfendConfig;
+
       /**
        * Returns true if other points the same item of other; otherwise returns false.
        */
@@ -102,6 +180,7 @@ namespace asaal {
                 serial == other.serial &&
                 dos == other.dos &&
                 ipx == other.ipx &&
+                dfendConfig == other.dfendConfig &&
                 autoexec == other.autoexec;
       }
 
@@ -122,6 +201,7 @@ namespace asaal {
                 serial != other.serial ||
                 dos != other.dos ||
                 ipx != other.ipx ||
+                dfendConfig != other.dfendConfig ||
                 autoexec != other.autoexec;
       }
 
@@ -141,6 +221,7 @@ namespace asaal {
                 joystick.isEmpty() &&
                 serial.isEmpty() &&
                 dos.isEmpty() &&
+                dfendConfig.isEmpty() &&
                 ( ipx.isEmpty() || ipx.isNull() ) &&
                 ( autoexec.isEmpty() || autoexec.isNull() );
       }
@@ -162,88 +243,31 @@ namespace asaal {
         serial.clear();
         dos.clear();
         ipx.clear();
+        dfendConfig.clear();
         autoexec = QString( "" );
       }
   };
 
   /**
-  * DFend_Configuration handles read, write and convert of dfend configuration files
-  *
-  * @author Alexander Saal <alex.saal@gmx.de>
-  * @sa http://dboxfe.belios.de/index
-  * @date 2008/09/11
-  * @version 0.2.5
-  * @since 0.2.5
-  */
-  class DFend_Configuration : public Configuration {
+   * ConfigBase handles read, write and convert of dosbox configuration files
+   *
+   * @author Alexander Saal <alex.saal@gmx.de>
+   * @sa http://dboxfe.belios.de/index
+   * @date 2008/31/10
+   * @version 0.2.5
+   * @since 0.2.5
+   */
 
-    public:
-      /** Set/Get extra settings */
-      QMap< QString, QVariant > extra;
-
-      /** Set/Get extrainfo settings */
-      QMap< QString, QVariant > extrainfo;
-
-      /** Set/Get extra settings */
-      QMap< QString, QVariant > vga;
-
-      /** Set/Get printer settings */
-      QMap< QString, QVariant > printer;
-
-      /** Set/Get glide settings */
-      QString glide;
-
-      /**
-       * Returns true if the cache contains no objects; otherwise returns false.
-       */
-      bool isEmpty() const {
-        return  extra.isEmpty() &&
-                extrainfo.isEmpty() &&
-                vga.isEmpty() &&
-                printer.isEmpty() &&
-                ( glide.isEmpty() || glide.isNull() );
-      }
-
-      /**
-       * Deletes all the objects in the cache.
-       */
-      void clear() {
-        extra.clear();
-        extrainfo.clear();
-        vga.clear();
-        printer.clear();
-        glide = QString( "" );
-      }
-  };
-
-  /**
-  * ConfigBase handles read, write and convert of dosbox configuration files
-  *
-  * @author Alexander Saal <alex.saal@gmx.de>
-  * @sa http://dboxfe.belios.de/index
-  * @date 2008/31/10
-  * @version 0.2.5
-  * @since 0.2.5
-  */
   class ConfigBase : public QObject {
 
       Q_OBJECT
 
     public:
       /**
-       * Profile type
+       * @brief Constructor
+       *
+       * @param parent The optional QObject object
        */
-      enum profileType {
-        /** D-Fend Reloaded to DBoxFE */
-        DFEND = 0
-      };
-      Q_DECLARE_FLAGS( ProfileType, profileType )
-
-      /**
-      * @brief Constructor
-      *
-      * @param parent The optional QObject object
-      */
       ConfigBase( QObject *parent = 0 );
 
       /**
@@ -252,37 +276,48 @@ namespace asaal {
       ~ConfigBase();
 
       /**
-       * Get @link Configuration for the given profile
+       * Read configuration
        *
        * @param profile The DBoxFE profile
+       *
+       * @return The configuration @see Configuration for readed profile
        */
       Configuration readConfiguration( const QString &profile );
 
       /**
-       * Convert D-Fend Reloaded profiles to DBoxFE profiles or DBoxFE to D-Fend Reloaded.<br>
-       * At this time only D-Fend Reloaded profiles are supported.
+       * Convert D-Fend Reloaded profile to DBoxFE.<br>
        *
-       * @param profile The D-Fend Reloaded profile or DBoxFE profile
-       * @param type The @link ProfileType
+       * @param profile The D-Fend Reloaded profile
        *
-       * @return @link Configuration
+       * @return The configuration @see Configuration from given profile
        */
-      Configuration convertConfiguration( const QString &profile, ProfileType type = ConfigBase::DFEND );
+      Configuration convertConfiguration( const QString &profile );
+
+      /**
+       * Import D-Fend Reloaded  profiles from ZIP file.
+       *
+       * @param zipFile The ZIP file with DFend Reloaded configuration
+       *
+       * @return The dosbox default configuration with all objects inclusive the dfend configuration. @see Configuration and @see DFend_Configuration
+       */
+      Configuration importConfiguration( const QString &zipFile );
 
       /**
        * Export DBoxFE profile to D-Fend Reloaded
        *
        * @param name The name of profile
-       * @param config The current @link Configuration
+       * @param config The config @see Configuration
+       *
+       * @return true was write ok; otherwise false
        */
       bool exportConfiguration( const QString &name, const Configuration &config );
 
     public slots:
       /**
-       * Write @link Configuration
+       * Write configuration
        *
        * @param profile The DBoxFE profile
-       * @param config The @link Configuration
+       * @param config The config @see Configuration
        */
       void writeConfiguration( const QString &profile, const Configuration &config );
 
@@ -295,10 +330,9 @@ namespace asaal {
        */
       QMap< QString, QString> exportDatas( const QString &directory );
 
+      /** Internal configuration variable */
       Configuration m_Configuration;
   };
-
-  Q_DECLARE_OPERATORS_FOR_FLAGS( ConfigBase::ProfileType )
 }
 
 #endif // BASE_H
