@@ -28,6 +28,7 @@
 
 #include <ui_miscpage.h>
 
+#include <QtCore>
 #include <QtGui>
 
 namespace asaal {
@@ -48,6 +49,8 @@ namespace asaal {
       MiscPage( QWidget *parent = 0 );
 
       int nextId() const;
+      
+      QVariant fieldWidgetValue( const QString &fieldName );
   };
 }
 

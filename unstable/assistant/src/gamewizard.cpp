@@ -159,9 +159,25 @@ namespace asaal {
     m_Config.mdi.insert( "config", field( "mdiConfig" ) );
     m_Config.mdi.insert( "mpu401", sp->fieldWidgetValue( "mdiMPU" ) );
     m_Config.mdi.insert( "device", sp->fieldWidgetValue( "mdiDevice" ) );
+    
+    // Misc page: DOS
+    m_Config.dos.insert( "xms", "" );
+    m_Config.dos.insert( "ems", "" );
+    m_Config.dos.insert( "umb", "" );
+    m_Config.dos.insert( "keyboardlayout", "" );
 
-    // Misc page: DOS, BIOS and Joystick
-    m_Config.dos.insert( "", "" );
+    // Mis Page: DOSBox
+    m_Config.dosbox.insert( "language", "" );
+    m_Config.dosbox.insert( "machine", "" );
+    m_Config.dosbox.insert( "memsize", "" );
+    m_Config.dosbox.insert( "captures", "" );
+    
+    // Misc page: Joystick
+    m_Config.joystick.insert( "joysticktype", "" );
+    m_Config.joystick.insert( "timed", "" );
+    m_Config.joystick.insert( "autofire", "" );
+    m_Config.joystick.insert( "swap34", "" );
+    m_Config.joystick.insert( "buttonwrap", "" );
     
     // Save configuration
     configBase->writeConfiguration( profile, m_Config );

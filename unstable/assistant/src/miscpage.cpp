@@ -37,10 +37,54 @@ namespace asaal {
     setTitle( tr( "Misc. option" ) );
     setSubTitle( tr( "Specify basic information about the misc. for selected game." ) );
 
+    registerField( "autoexec", listWidgetAutoexec );
+    registerField( "language", lineEditDosBoxLanguage );
+
+    registerField( "machine", comboBoxDosBoxMachine );
+    registerField( "captures", comboBoxDosBoxCapture );
+    registerField( "memsize", comboBoxDosBoxMemSize );
+    registerField( "xms", checkBoxDosXMS );
+    registerField( "ems", checkBoxDosEMS );
+    registerField( "umb", checkBoxDosUMB );
+    registerField( "keyboardlayout", comboBoxDosKeyboardLayout );
+    registerField( "timed", checkBoxJoystickTimed );
+    registerField( "autofire", checkBoxJoystickAutofire );
+    registerField( "swap34", checkBoxJoystickSwap34 );
+    registerField( "buttonwrap", checkBoxJoystickButtonWrap );
+    registerField( "joysticktype", comboBoxJoystickType );
+
   }
 
   int MiscPage::nextId() const {
 
     return GameWizard::PAGE_FINSH;
+  }
+
+  QVariant MiscPage::fieldWidgetValue( const QString &fieldName ) {
+
+    if ( fieldName.isNull() || fieldName.isEmpty() ) {
+
+      return QVariant();
+    }
+
+    QStringList autoexec;
+
+    if ( fieldName == "machine" ) {
+    } else if ( fieldName == "captures" ) {
+
+    } else if ( fieldName == "memsize" ) {
+
+    } else if ( fieldName == "keyboardlayout" ) {
+
+    } else if ( fieldName == "autoexec" ) {
+
+      for ( int a = 0; a < listWidgetAutoexec->topLevelItemCount(); a++ ) {
+        autoexec.append( listWidgetAutoexec->topLevelItem( a ) );
+      }
+
+      return QVariant( autoexec );
+    }
+
+    return QVariant();
   }
 }
