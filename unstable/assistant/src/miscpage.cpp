@@ -78,8 +78,8 @@ namespace asaal {
 
     } else if ( fieldName == "autoexec" ) {
 
-      for ( int a = 0; a < listWidgetAutoexec->topLevelItemCount(); a++ ) {
-        autoexec.append( listWidgetAutoexec->topLevelItem( a ) );
+      for ( int a = 0; a < listWidgetAutoexec->count(); a++ ) {
+        autoexec.append( listWidgetAutoexec->item( a )->text() );
       }
 
       return QVariant( autoexec );
