@@ -50,10 +50,10 @@ namespace asaal {
       int nextId() const;
 
       /**
-       * Get field as widget
+       * Get field value from widget
        *
        * @parame fieldName The name of registered field
-       * @return QVariant valze with the assocciated field name
+       * @return QVariant value with the assocciated field name
        */
       QVariant fieldWidgetValue( const QString &fieldName ) const;
   };
