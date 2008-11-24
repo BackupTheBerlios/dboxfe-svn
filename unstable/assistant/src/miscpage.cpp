@@ -52,7 +52,6 @@ namespace asaal {
     registerField( "swap34", checkBoxJoystickSwap34 );
     registerField( "buttonwrap", checkBoxJoystickButtonWrap );
     registerField( "joysticktype", comboBoxJoystickType );
-
   }
 
   int MiscPage::nextId() const {
@@ -64,27 +63,32 @@ namespace asaal {
 
     if ( fieldName.isNull() || fieldName.isEmpty() ) {
 
-      return QVariant();
+      return QVariant( QString("") );
     }
 
-    QStringList autoexec;
 
     if ( fieldName == "machine" ) {
+      return QVariant( comboBoxDosBoxMachine->currentText() );
+
     } else if ( fieldName == "captures" ) {
+      return QVariant( comboBoxDosBoxCapture->currentText() );
 
     } else if ( fieldName == "memsize" ) {
+      return QVariant( comboBoxDosBoxMemSize->currentText() );
 
     } else if ( fieldName == "keyboardlayout" ) {
+      return QVariant( comboBoxDosKeyboardLayout->currentText() );
 
     } else if ( fieldName == "autoexec" ) {
+      QString autoexec;
 
       for ( int a = 0; a < listWidgetAutoexec->count(); a++ ) {
-        autoexec.append( listWidgetAutoexec->item( a )->text() );
+        autoexec += listWidgetAutoexec->item( a )->text() + "\n";
       }
 
       return QVariant( autoexec );
     }
 
-    return QVariant();
+    return QVariant( QString("") );
   }
 }
