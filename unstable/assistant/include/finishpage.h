@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2004-2008 by Alexander Saal                             *
+ *   Copyright (C) 2008 by Alexander Saal                                  *
  *   alex.saal@gmx.de                                                      *
  *                                                                         *
  *   File: ${filename}.${extension}                                        *
@@ -33,20 +33,30 @@
 namespace asaal {
 
   /**
-   * @brief $(CLASSNAME)
-   */
-
+   * \brief FinishPage
+   * 
+   * @author Alexander Saal
+   * @sa http://dboxfe.belios.de/index
+   * @date 2008/11/24
+   * @version 0.2.5
+   * @since 0.2.5
+   */ 
   class FinishPage : public QWizardPage, public Ui::UiFinishPage {
       Q_OBJECT
 
     public:
       /**
-       * @brief $(CONSTRUCTORNAME)
-       *
-       * @param parent the optional parent widget
-       */
+       * \brief Constructor
+       * 
+       * @param parent Tho optional qwidget
+       */ 
       FinishPage( QWidget *parent = 0 );
 
+      /**
+       * \brief The next id of QWizardPage
+       * 
+       * @return The next id for the wizard page or -1 for finish page.
+       */ 
       int nextId() const;
   };
 }

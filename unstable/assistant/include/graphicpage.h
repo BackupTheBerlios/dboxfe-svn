@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2004-2008 by Alexander Saal                             *
+ *   Copyright (C) 2008 by Alexander Saal                                  *
  *   alex.saal@gmx.de                                                      *
  *                                                                         *
  *   File: ${filename}.${extension}                                        *

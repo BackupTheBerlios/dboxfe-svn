@@ -28,11 +28,14 @@
 
 #include <QtCore>
 
+/**
+ * \brief Namespace asaal
+ */ 
 namespace asaal {
 
 
   /**
-   * DFend_Configuration handles read, write and convert of dfend configuration files
+   * \brief DFend_Configuration handles read, write and convert of dfend configuration files
    *
    * @author Alexander Saal <alex.saal@gmx.de>
    * @sa http://dboxfe.belios.de/index
@@ -60,7 +63,7 @@ namespace asaal {
       QString glide;
 
       /**
-       * Returns true if other points the same item of other; otherwise returns false.
+       * \brief Returns true if other points the same item of other; otherwise returns false.
        */
       bool operator == ( const DFend_Configuration &other ) const {
         return  extra == other.extra &&
@@ -71,7 +74,7 @@ namespace asaal {
       }
 
       /**
-       * Returns true if other points to a different item than this other; otherwise returns false.
+       * \brief Returns true if other points to a different item than this other; otherwise returns false.
        */
       bool operator != ( const DFend_Configuration &other ) const {
         return  extra != other.extra ||
@@ -82,7 +85,7 @@ namespace asaal {
       }
 
       /**
-       * Returns true if the cache contains no objects; otherwise returns false.
+       * \brief Returns true if the cache contains no objects; otherwise returns false.
        */
       bool isEmpty() const {
         return  extra.isEmpty() &&
@@ -93,7 +96,7 @@ namespace asaal {
       }
 
       /**
-       * Deletes all the objects in the cache.
+       * \brief Deletes all the objects in the cache.
        */
       void clear() {
         extra.clear();
@@ -105,7 +108,7 @@ namespace asaal {
   };
 
   /**
-   * Configuration handles all objects from dosbox configuration file
+   * \brief Configuration handles all objects from dosbox configuration file
    *
    * @author Alexander Saal <alex.saal@gmx.de>
    * @sa http://dboxfe.belios.de/index
@@ -113,7 +116,6 @@ namespace asaal {
    * @version 0.2.5
    * @since 0.2.5
    */
-
   class Configuration {
 
     public:
@@ -164,7 +166,7 @@ namespace asaal {
       DFend_Configuration dfendConfig;
 
       /**
-       * Returns true if other points the same item of other; otherwise returns false.
+       * \brief Returns true if other points the same item of other; otherwise returns false.
        */
       bool operator == ( const Configuration &other ) const {
         return  sdl == other.sdl &&
@@ -185,7 +187,7 @@ namespace asaal {
       }
 
       /**
-       * Returns true if other points to a different item than this other; otherwise returns false.
+       * \brief Returns true if other points to a different item than this other; otherwise returns false.
        */
       bool operator != ( const Configuration &other ) const {
         return  sdl != other.sdl ||
@@ -206,7 +208,7 @@ namespace asaal {
       }
 
       /**
-       * Returns true if the cache contains no objects; otherwise returns false.
+       * \brief Returns true if the cache contains no objects; otherwise returns false.
        */
       bool isEmpty() const {
         return  sdl.isEmpty() &&
@@ -227,8 +229,8 @@ namespace asaal {
       }
 
       /**
-       * Deletes all the objects in the cache.
-       */
+       * \brief Deletes all the objects in the cache.
+       */ 
       void clear() {
         sdl.clear();
         dosbox.clear();
@@ -249,7 +251,7 @@ namespace asaal {
   };
 
   /**
-   * ConfigBase handles read, write and convert of dosbox configuration files
+   * \brief ConfigBase handles read, write and convert of dosbox configuration files
    *
    * @author Alexander Saal <alex.saal@gmx.de>
    * @sa http://dboxfe.belios.de/index
@@ -257,64 +259,59 @@ namespace asaal {
    * @version 0.2.5
    * @since 0.2.5
    */
-
   class ConfigBase : public QObject {
 
       Q_OBJECT
 
     public:
       /**
-       * @brief Constructor
-       *
+       * \brief Constructor
+       * 
        * @param parent The optional QObject object
-       */
+       */ 
       ConfigBase( QObject *parent = 0 );
 
       /**
-       * @brief Destructor
-       */
+       * \brief Destructor
+       */ 
       ~ConfigBase();
 
       /**
-       * Read configuration
+       * \brief Read configuration
        *
        * @param profile The DBoxFE profile
-       *
        * @return The configuration @see Configuration for readed profile
        */
       Configuration readConfiguration( const QString &profile );
 
       /**
-       * Convert D-Fend Reloaded profile to DBoxFE.<br>
+       * \brief Convert D-Fend Reloaded profile to DBoxFE.<br>
        *
        * @param profile The D-Fend Reloaded profile
-       *
        * @return The configuration @see Configuration from given profile
        */
       Configuration convertConfiguration( const QString &profile );
 
       /**
-       * Import D-Fend Reloaded  profiles from ZIP file.
+       * \brief Import D-Fend Reloaded  profiles from ZIP file.
        *
        * @param zipFile The ZIP file with DFend Reloaded configuration
-       *
        * @return The dosbox default configuration with all objects inclusive the dfend configuration. @see Configuration and @see DFend_Configuration
        */
       Configuration importConfiguration( const QString &zipFile );
 
       /**
-       * Export DBoxFE profile to D-Fend Reloaded
+       * \brief Export DBoxFE profile to D-Fend Reloaded
        *
        * @param name The name of profile
        * @param config The config @see Configuration
-       *
        * @return true was write ok; otherwise false
        */
       bool exportConfiguration( const QString &name, const Configuration &config );
 
     public slots:
       /**
-       * Write configuration
+       * \brief Write configuration
        *
        * @param profile The DBoxFE profile
        * @param config The config @see Configuration
@@ -323,14 +320,16 @@ namespace asaal {
 
     private:
       /**
-       * Get files/directories for D-Fend Reloaded exported ziparchiv.
+       * \brief Get files/directories for D-Fend Reloaded exported ziparchiv.
        *
        * @param directory The directory with all files/directories for export to zip
        * @return QMap< QString, QString > with all files
        */
       QMap< QString, QString> exportDatas( const QString &directory );
 
-      /** Internal configuration variable */
+      /**
+       * Internal variables
+       */ 
       Configuration m_Configuration;
   };
 }
