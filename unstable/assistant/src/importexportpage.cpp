@@ -105,15 +105,16 @@ namespace asaal {
 
     QString dfendFolder = QFileDialog::getExistingDirectory( this, tr( "Open D-Fend folder" ), QDir::homePath(), QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks );
 
+    if ( !dfendFolder.isEmpty() ) {
+      lineEditDFendDirectory->setText( dfendFolder );
+    }
+
     QDir dfendProfileFolder( dfendFolder + "/Confs" );
     if ( !dfendProfileFolder.exists() ) {
       QMessageBox::warning( 0, "Game Assistant", tr( "This is not a D-Fend Reloaded directory." ) );
       return;
     }
 
-    if ( !dfendFolder.isEmpty() ) {
-      lineEditDFendDirectory->setText( dfendFolder );
-    }
 
     if ( rbtnImport->isChecked() ) {
 
