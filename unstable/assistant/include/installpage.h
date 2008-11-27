@@ -33,9 +33,14 @@
 namespace asaal {
 
   /**
-   * @brief $(CLASSNAME)
-   */
-
+   * @brief InstallPage
+   * 
+   * @author Alexander Saal <alex.saal@gmx.de>
+   * @sa http://dboxfe.belios.de/index
+   * @date 2008/09/11
+   * @version 0.2.5
+   * @since 0.2.5
+   */ 
   class InstallPage : public QWizardPage, public Ui::UiInstallPage {
       Q_OBJECT
 
@@ -47,6 +52,11 @@ namespace asaal {
        */
       InstallPage( QWidget *parent = 0 );
 
+      /**
+       * \brief Reimplemented from QWizardPage
+       * 
+       * @return The ID from QWizardPage for next page on QWizard
+       */ 
       int nextId() const;
 
     private slots:
@@ -81,10 +91,16 @@ namespace asaal {
        * @param install
        */
       void gameInstallOptionChanged( bool );
+
+      /**
+       * \brief Setting type was changed
+       * 
+       * @param settings
+       */ 
       void gameSettingOptionChanged( bool );
 
       /**
-       * Show information message
+       * \brief Show information message
        *
        * @param title the title of message
        * @param message the message to display
@@ -93,14 +109,14 @@ namespace asaal {
 
     private:
       /**
-       * Check dosbox version
+       * \brief Check dosbox version
        *
        * @param dosbox
        */
       QString checkDosBoxVersion( const QString &dosbox );
   
       /**
-       * Check game/setup executable
+       * \brief Check game/setup executable
        *
        * @param executable
        * @param install

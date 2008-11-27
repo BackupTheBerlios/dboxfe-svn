@@ -46,16 +46,16 @@ namespace asaal {
 
     public:
       /**
-       * \brief Constructor
+       * \brief Constructor of FinishPage
        * 
        * @param parent Tho optional qwidget
        */ 
       FinishPage( QWidget *parent = 0 );
 
       /**
-       * \brief The next id of QWizardPage
+       * \brief Reimplemented from QWizardPage
        * 
-       * @return The next id for the wizard page or -1 for finish page.
+       * @return The ID from QWizardPage for next page on QWizard
        */ 
       int nextId() const;
   };

@@ -30,30 +30,40 @@
 
 #include <QtGui>
 
+/**
+ * \brief Namespace asaal
+ */ 
 namespace asaal {
 
   /**
-  * @brief $(CLASSNAME)
-  */
-
+   * \brief GraphicPage handles all objects for garphic settings in the dosbox configuration
+   * 
+   * @author Alexander Saal <alex.saal@gmx.de>
+   * @sa http://dboxfe.belios.de/index
+   * @date 2008/09/11
+   * @version 0.2.5
+   * @since 0.2.5
+   */ 
   class GraphicPage : public QWizardPage, public Ui::UiGraphicPage {
       Q_OBJECT
 
     public:
       /**
-      * @brief $(CONSTRUCTORNAME)
-      *
-      * @param parent the optional parent widget
-      */
+       * \brief Constructor of @see GraphicPage
+       * 
+       * @param parent The optional parent widget
+       */ 
       GraphicPage( QWidget *parent = 0 );
 
       /**
-       * The next id
-       */
+       * \brief Reimplemented from QWizardPage
+       * 
+       * @return The ID from QWizardPage for next page on QWizard
+       */ 
       int nextId() const;
 
       /**
-       * Get field as widget
+       * \brief Get field as widget
        *
        * @parame fieldName The name of registered field
        * @return QVariant valze with the assocciated field name

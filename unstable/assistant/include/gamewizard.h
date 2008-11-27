@@ -47,16 +47,22 @@ namespace asaal {
   extern ConfigBase *configBase;
 
   /**
-  *  \brief GameWizard
-  */
-
+   * \brief GameWizard is the main class of the DBoxFE - Assistant
+   * 
+   * @author Alexander Saal <laex.saal@gmx.de>
+   * @sa http://dboxfe.belios.de/index
+   * @date 2008/09/11
+   * @version 0.2.5
+   * @since 0.2.5
+   */ 
   class GameWizard : public QWizard {
       Q_OBJECT
 
     public:
+
       /**
-      * @brief Enumeration for pages
-      */
+       * Enumeration for @see GameWizard
+       */ 
       enum {
         /**
         * Welcome page
@@ -66,9 +72,10 @@ namespace asaal {
          * Setting config page
          */
         PAGE_SETTING,
+
         /**
         * Installation page
-        */
+         */ 
         PAGE_INSTALL,
         /**
         * Installation process page
@@ -113,22 +120,29 @@ namespace asaal {
         return gameWizard;
       }
 
+      /**
+       * \brief Get the ConfigBase instance
+       * 
+       * @return The new instance of ConfigBase
+       */ 
       inline static ConfigBase *configBaseInstance() {
 
         return configBase;
       }
 
       /**
-      * Hides the modal dialog and sets the result code to Accepted.
-      */
+       * \brief Hides the modal dialog and sets the result code to Accepted. This function is reimplemented from QWizard
+       */ 
       void accept();
 
     private:
+
       /**
-       * Create game profile
-       *
-       * @param parent the profile name
-       */
+       * \brief Create game profile
+       * 
+       * @param profile The profile name (complete path with filename)
+       * @return True was profile created, othwerwise false
+       */ 
       bool createGameProfile( const QString &profile );
 
       WelcomePage *wp;

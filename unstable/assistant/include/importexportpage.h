@@ -33,25 +33,36 @@
 namespace asaal {
 
   /**
-   * @brief $(CLASSNAME)
-   */
-
+   * \brief ImportExportPage
+   * 
+   * @author Alexander Saal <alex.saal@gmx.de>
+   * @sa http://dboxfe.belios.de/index
+   * @date 2008/09/11
+   * @version 0.2.5
+   * @since 0.2.5
+   */ 
   class ImportExportPage : public QWizardPage, public Ui::UiImportExportPage {
       Q_OBJECT
 
     public:
+
       /**
-       * @brief $(CONSTRUCTORNAME)
-       *
-       * @param parent the optional parent widget
-       */
+       * \brief Constructor of ImportExportPage
+       * 
+       * @param parent The optional parent widget
+       */ 
       ImportExportPage( QWidget *parent = 0 );
 
+      /**
+       * \brief Reimplemented from QWizardPage
+       * 
+       * @return The id from QWizardPage for next page on QWizard
+       */ 
       int nextId() const;
 
       /**
-       * Hides the modal dialog and sets the result code to Accepted.
-       */
+       * \brief Hides the modal dialog and sets the result code to Accepted.
+       */ 
       void accept();
 
     private slots:

@@ -33,24 +33,34 @@
 namespace asaal {
 
   /**
-  * @brief $(CLASSNAME)
-  */
-
+  * @brief SoundPage
+   * 
+   * @author Alexander Saal <alex.saal@gmx.de>
+   * @sa http://dboxfe.belios.de/index
+   * @date 2008/09/11
+   * @version 0.2.5
+   * @since 0.2.5
+   */
   class SoundPage : public QWizardPage, public Ui::UiSoundPage {
       Q_OBJECT
 
     public:
       /**
-      * @brief $(CONSTRUCTORNAME)
+      * @brief Constructor of SoundPage
       *
       * @param parent the optional parent widget
       */
       SoundPage( QWidget *parent = 0 );
 
+      /**
+       * \brief Reimplemented from QWizardPage
+       * 
+       * @return The ID from QWizardPage for next page on QWizard
+       */ 
       int nextId() const;
 
       /**
-       * Get field value from widget
+       * \brief Get field value from widget
        *
        * @parame fieldName The name of registered field
        * @return QVariant value with the assocciated field name

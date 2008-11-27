@@ -34,22 +34,37 @@
 namespace asaal {
 
   /**
-   * @brief $(CLASSNAME)
-   */
-
+   * @brief MiscPage
+   * 
+   * @author Alexander Saal <alex.saal@gmx.de>
+   * @sa http://dboxfe.belios.de/index
+   * @date 2008/09/11
+   * @version 0.2.5
+   * @since 0.2.5
+   */ 
   class MiscPage : public QWizardPage, public Ui::UiMiscPage {
       Q_OBJECT
 
     public:
       /**
-       * @brief $(CONSTRUCTORNAME)
+       * \brief  Constructor of MiscPage
        *
        * @param parent the optional parent widget
        */
       MiscPage( QWidget *parent = 0 );
 
+      /**
+       * \brief Reimplemented from QWizardPage.
+       * 
+       * @return The ID from QWizardPage for next page on QWizard
+       */ 
       int nextId() const;
-      
+
+      /**
+       * \brief Get field widget value.
+       * 
+       * @param fieldName The registered field name on QWizardPage
+       */ 
       QVariant fieldWidgetValue( const QString &fieldName );
   };
 }

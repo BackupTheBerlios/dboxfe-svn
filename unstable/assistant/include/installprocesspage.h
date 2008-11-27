@@ -34,8 +34,13 @@ namespace asaal {
 
   /**
    * @brief $(CLASSNAME)
-   */
-
+   * 
+   * @author Alexander Saal <alex.saal@gmx.de>
+   * @sa http://dboxfe.belios.de/index
+   * @date 2008/09/11
+   * @version 0.2.5
+   * @since 0.2.5
+   */ 
   class InstallProcessPage : public QWizardPage, public Ui::UiInstallProcessPage {
       Q_OBJECT
 
@@ -47,13 +52,47 @@ namespace asaal {
        */
       InstallProcessPage( QWidget *parent = 0 );
 
+      /**
+       * \brief Reimplemented from QWizardPage
+       * 
+       * @return The ID from QWizardPage for next page on QWizard
+       */ 
       int nextId() const;
 
     private slots:
+      /**
+       * \brief Prepare installation
+       */ 
       void prepareInstallation();
+
+      /**
+       * \brief Install game with dosbox
+       * 
+       * @param bin The dosbox binary
+       * @param param The QStringList with all parameters
+       * @param conf The dosbox configuration file
+       * @param button 
+       */ 
       void install( const QString& bin, const QString &param, const QString &conf, QAbstractButton *button = 0 );
+
+      /**
+       * \brief 
+       */ 
       void processReadOutput();
+
+      /**
+       * \brief 
+       * 
+       * @param 
+       * @param 
+       */ 
       void processFinish( int, QProcess::ExitStatus );
+
+      /**
+       * \brief 
+       * 
+       * @param 
+       */ 
       void processError( QProcess::ProcessError );
 
     private:

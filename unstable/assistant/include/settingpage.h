@@ -33,7 +33,13 @@
 namespace asaal {
 
   /**
-   * \brief $(CLASSNAME)
+   * \brief SettingPage
+   * 
+   * @author Alexander Saal <alex.saal@gmx.de>
+   * @sa http://dboxfe.belios.de/index
+   * @date 2008/09/11
+   * @version 0.2.5
+   * @since 0.2.5
    */
   class SettingPage : public QWizardPage, public Ui::UiSettingPage {
 
@@ -41,12 +47,17 @@ namespace asaal {
 
     public:
       /**
-       * @brief $(CONSTRUCTORNAME)
+       * \brief Constructor of SettingPage
        *
        * @param parent the optional parent widget
        */
       SettingPage( QWidget * parent = 0 );
 
+      /**
+       * \brief Reimplemented from QWizardPage
+       * 
+       * @return The ID from QWizardPage for next page on QWizard
+       */ 
       int nextId() const;
   };
 }
