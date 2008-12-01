@@ -43,7 +43,7 @@ namespace asaal {
    * @version 0.2.5
    * @since 0.2.5
    */
-  class DFend_Configuration {
+   class DFend_Configuration {
 
     public:
       /** Set/Get extra settings */
@@ -295,7 +295,8 @@ namespace asaal {
        * \brief Import D-Fend Reloaded  profiles from ZIP file.
        *
        * @param zipFile The ZIP file with DFend Reloaded configuration
-       * @return The dosbox default configuration with all objects inclusive the dfend configuration. @see Configuration and @see DFend_Configuration
+       * @return The dosbox default configuration with all objects inclusive the dfend configuration.
+       * @see Configuration and @see DFend_Configuration
        */
       Configuration importConfiguration( const QString &zipFile );
 

@@ -67,27 +67,27 @@ namespace asaal {
 
     private slots:
       /**
-       * Choose D-Fend Reloaded directory
+       * \brief Choose D-Fend Reloaded directory
        */
       void chooseDfendDirectory();
 
       /**
-       * Choose D-Fend Reloaded directory
+       * \brief Choose D-Fend Reloaded directory
        */
       void chooseDboxFeDirectory();
 
       /**
-       * Make all profiles as marked
+       * \brief Make all profiles as marked
        */
       void markAllProfiles();
 
       /**
-       * Make all profiles as unmarked
+       * \brief Make all profiles as unmarked
        */
       void unmarkAllProfiles();
 
       /**
-       * Import D-Fend Reloaded profiles
+       * \brief Import D-Fend Reloaded profiles
        *
        * @param path the path of D-Fend profile
        * @param name the name of D-Fend profile
@@ -95,7 +95,7 @@ namespace asaal {
       void importDfendProfiles( const QString &path, const QString &name );
 
       /**
-       * Export DBoxFE profiles
+       * \brief Export DBoxFE profiles
        *
        * @param path the path of DBoxFE profile
        * @param name the name of DBoxFE profile
