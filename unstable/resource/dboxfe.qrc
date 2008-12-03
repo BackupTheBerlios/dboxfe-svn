@@ -49,5 +49,6 @@
         <file>undo_16.png</file>
         <file>wiz_internet.png</file>
 		<file>sdl_render_cpu.png</file>
+		<file>soundmixer.png</file>
     </qresource>
 </RCC>
