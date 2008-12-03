@@ -1,6 +1,6 @@
 <ui version="4.0" >
- <class>UiDBoxFEStartScreen</class>
- <widget class="QWidget" name="UiDBoxFEStartScreen" >
+ <class>UiDBoxFE</class>
+ <widget class="QWidget" name="UiDBoxFE" >
   <property name="enabled" >
    <bool>true</bool>
   </property>
