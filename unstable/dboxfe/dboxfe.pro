@@ -28,10 +28,10 @@ CONFIG += debug thread warn_on qt
 QT += xml network
 
 # Project Ui files
-FORMS += ui/profilesettings.ui
 FORMS += ui/about.ui
+FORMS += ui/dboxfe.ui
+FORMS += ui/profilesettings.ui
 FORMS += ui/profile.ui
-FORMS += ui/startscreen.ui
 
 
 # Project Misc files
@@ -40,18 +40,18 @@ DISTFILES += ../resource/LICENSE.GPL
 
 # Project Header
 HEADERS += include/about.h
-HEADERS	+= include/profilesettings.h
+HEADERS	+= include/dboxfe.h
 HEADERS	+= include/profile.h
+HEADERS	+= include/profilesettings.h
 HEADERS	+= include/splash.h
-HEADERS	+= include/startscreen.h
 
 # Project Source
 SOURCES += src/about.cpp
-SOURCES	+= src/profilesettings.cpp
+SOURCES	+= src/dboxfe.cpp
 SOURCES	+= src/main.cpp
 SOURCES	+= src/profile.cpp
+SOURCES	+= src/profilesettings.cpp
 SOURCES	+= src/splash.cpp
-SOURCES	+= src/startscreen.cpp
 
 # 3rdparty Header
 HEADERS += ../base/base.h
