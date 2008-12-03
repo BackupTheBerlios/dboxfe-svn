@@ -22,3 +22,23 @@
 *   Free Software Foundation, Inc.,                                       *
 *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
 ***************************************************************************/
+
+#ifndef DBOXFE_H
+#define DBOXFE_H
+
+#include <QtGui>
+
+#include "ui_dboxfe.h"
+
+namespace asaal {
+
+  class DBoxFE : public QWidget, public Ui::DBoxFE {
+      Q_OBJECT
+
+    public:
+      DBoxFE( QWidget *parent = 0, Qt::WFlags flags = 0 );
+      ~DBoxFE();
+  };
+}
+
+#endif // DBOXFE_H
