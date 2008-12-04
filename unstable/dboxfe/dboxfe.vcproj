@@ -316,6 +316,28 @@
 			<File
 				RelativePath="include\dboxfe.h"
 				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC include\dboxfe.h"
+						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;..\base&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfe\win\moc&quot; -I&quot;..\build\dboxfe\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\dboxfe.h -o ..\build\dboxfe\win\moc\moc_dboxfe.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\dboxfe.h"
+						Outputs="..\build\dboxfe\win\moc\moc_dboxfe.cpp"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC include\dboxfe.h"
+						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;..\base&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfe\win\moc&quot; -I&quot;..\build\dboxfe\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\dboxfe.h -o ..\build\dboxfe\win\moc\moc_dboxfe.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\dboxfe.h"
+						Outputs="..\build\dboxfe\win\moc\moc_dboxfe.cpp"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
 				RelativePath="..\3rdparty\md5hash.h"
@@ -431,6 +453,10 @@
 			</File>
 			<File
 				RelativePath="..\build\dboxfe\win\moc\moc_base.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\build\dboxfe\win\moc\moc_dboxfe.cpp"
 				>
 			</File>
 			<File
