@@ -29,25 +29,29 @@
 #include <QtCore>
 #include <QtGui>
 
-Profile::Profile( QDialog *parent, Qt::WFlags flags ) : QDialog( parent, flags ) {
+namespace asaal {
 
-  setupUi( this );
+  Profile::Profile( QDialog *parent, Qt::WFlags flags ) : QDialog( parent, flags ) {
 
-  connect( btnOk, SIGNAL( clicked() ), this, SLOT( slotAdd() ) );
+    setupUi( this );
 
-  QDesktopWidget *desktop = qApp->desktop();
-  const QRect rect = desktop->availableGeometry( desktop->primaryScreen() );
-  int left = ( rect.width() - width() ) / 2;
-  int top = ( rect.height() - height() ) / 2;
-  setGeometry( left, top, width(), height() );
-}
+    connect( btnOk, SIGNAL( clicked() ), this, SLOT( slotAdd() ) );
 
-Profile::~Profile() {}
+    QDesktopWidget *desktop = qApp->desktop();
+    const QRect rect = desktop->availableGeometry( desktop->primaryScreen() );
+    int left = ( rect.width() - width() ) / 2;
+    int top = ( rect.height() - height() ) / 2;
+    setGeometry( left, top, width(), height() );
+  }
 
-void Profile::slotAdd() {
-  if ( LEProfile->text().isEmpty() ) {
-    QMessageBox::information( this, "DOSBox Front End", "Please enter a profile name." );
-  } else {
-    QDialog::accept();
+  Profile::~Profile() {}
+
+  void Profile::slotAdd() {
+
+    if ( LEProfile->text().isEmpty() ) {
+      QMessageBox::information( this, "DOSBox Front End", "Please enter a profile name." );
+    } else {
+      QDialog::accept();
+    }
   }
 }

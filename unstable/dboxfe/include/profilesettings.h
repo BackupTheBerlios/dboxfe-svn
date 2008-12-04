@@ -2,7 +2,7 @@
  *   Copyright (C) 2004-2008 by Alexander Saal                             *
  *   alex.saal@gmx.de                                                      *
  *                                                                         *
- *    File: ${filename}.${extension}                                        *
+ *   File: ${filename}.${extension}                                        *
  *   Desc: ${description}                                                  *
  *                                                                         *
  *   This file is part of DBoxFE - DOSBox Front End                        *
@@ -26,19 +26,151 @@
 #ifndef PROFILESETTINGS_H
 #define PROFILESETTINGS_H
 
+#include <base.h>
+
 #include <QtGui>
 
 #include "ui_profilesettings.h"
 
+/**
+* \brief Namespace asaal
+*/ 
 namespace asaal {
 
-	class ProfileSettings : public QWidget, public Ui::UiProfileSettings {
-	    Q_OBJECT
+  /**
+   * \brief ProfileSettings
+   * 
+   * @author Alexander Saal <alex.saal@gmx.de>
+   * @sa http://dboxfe.belios.de/index
+   * @date 2008/09/11
+   * @version 0.2.5
+   * @since 0.2.5
+   */ 
+  class ProfileSettings : public QWidget, public Ui::UiProfileSettings {
 
-	  public:
-	    ProfileSettings( QWidget *parent = 0, Qt::WFlags flags = 0 );
-	    ~ProfileSettings();
-	};
+    Q_OBJECT
+
+    public:
+        /**
+         * \brief Constructor of ProfileSettings
+         * 
+         * @param parent The optional parent widget
+         * @param flags The optional window flags
+         */ 
+        ProfileSettings( QWidget *parent = 0, Qt::WFlags flags = 0 );
+
+        /**
+         * \brief De-Constructor of ProfileSettings
+         */ 
+        ~ProfileSettings();
+
+     public slots:
+        /**
+         * \brief Set profile name
+         * 
+         * @param name The profile name
+         */ 
+        inline void setProfileName( const QString &name ) { 
+          profName = name;
+        }
+
+      private slots:
+        /**
+         * \brief This event slot is called if you change index in the serial combobox
+         * 
+         * @param index the current index from QComboBox
+         */ 
+        void comboBoxSerialIndexChanged( int );
+
+        /**
+         * \brief This event slot is called if you change index in the autoexec combobox
+         * 
+         * @param index the current index from QComboBox
+         */
+        void comboBoxAutoexecIndexChanged( int );
+
+        /**
+         * \brief 
+         * 
+         * @param index The current index from QComboBox
+         */
+        void comboBoxAutoexecImageFormatIndexChanged( int );
+
+        /**
+         * \brief This event slot is called if you change keyboard layout for DOSBox
+         * 
+         * @param index the current index from QComboBox
+         */
+        void comboBoxKeyboardLayoutIndexChanged( int );
+
+        /**
+         * \brief Select autexec drive
+         */ 
+        void autoexecDrive();
+
+        /**
+         * \brief Update autoecex entry in the list
+         */ 
+        void autoexecUpdate();
+
+        /**
+         * \brief Remove autoecex entry to the list
+         */ 
+        void autoexecRemove();
+
+        /**
+         * \brief Add autoecex entry to the list
+         */ 
+        void autoexecAdd();
+
+        /**
+         * \brief Remove serial interface to the list
+         */ 
+        void serialRemove();
+
+        /**
+         * \brief Add serial interface to the list
+         */ 
+        void serialAdd();
+
+        /**
+         * \brief Open language file from file system.
+         */ 
+        void openLanguageFile();
+
+        /**
+         * \brief Save configuration for selected profile
+         * 
+         * @see Configuration
+         */ 
+        void saveConfiguration();
+
+        /**
+         * \brief Set default configuration
+         * 
+         * @see Configuration
+         */ 
+        void setDefaultConfiguration();
+
+        /**
+         * \brief Close widget
+         */ 
+        void closeWidget();
+
+    protected:
+      /**
+       * \brief This event slot is called if you close the current widget; overide from QWidget
+       * 
+       * @param e The QCloseEvent fired from QWidget
+       */ 
+       void closeEvent( QCloseEvent *e );
+
+    private:
+       /**
+        * Internal, private variables 
+        */ 
+       QString profName;
+  };
 }
 
 #endif // PROFILESETTINGS_H

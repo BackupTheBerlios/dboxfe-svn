@@ -36,4 +36,9 @@ namespace asaal {
   }
 
   DBoxFE::~DBoxFE() {}
+
+  
+  void DBoxFE::initialProfiles() {
+
+  }
 }

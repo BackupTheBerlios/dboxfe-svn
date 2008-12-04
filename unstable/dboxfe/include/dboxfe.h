@@ -32,12 +32,15 @@
 
 namespace asaal {
 
-  class DBoxFE : public QWidget, public Ui::DBoxFE {
+  class DBoxFE : public QWidget, public Ui::UiDBoxFE {
       Q_OBJECT
 
     public:
       DBoxFE( QWidget *parent = 0, Qt::WFlags flags = 0 );
       ~DBoxFE();
+
+    public slots:
+      void initialProfiles();
   };
 }
 
