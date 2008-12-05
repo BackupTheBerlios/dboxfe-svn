@@ -117,7 +117,7 @@ namespace asaal {
       void editGame();
       void deleteGame();
 
-      /**
+      /*
        * This signal is emitted when the text edit contextMenuPolicy is Qt::CustomContextMenu,
        * and the user has requested a context menu on the text edit. The position "pos" is the
        * position of the context menu event that the text edit receives.
