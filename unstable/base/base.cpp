@@ -38,6 +38,25 @@ namespace asaal {
   ConfigBase::~ConfigBase() {
   }
 
+  QStringList ConfigBase::readProfiles() {
+
+    profiles.clear();
+
+    XmlPreferences preferences = xmlPreferences();
+    profiles = preferences.getStringList( "Profile", "Name" );
+
+    return profiles;
+  }
+
+  XmlPreferences ConfigBase::xmlPreferences() {
+
+    XmlPreferences preferences = XmlPreferences::instance();
+    preferences.setProductInfo( "Alexander Saal", "DBoxFE" );
+    preferences.setProductVersion( 2 );
+
+    return preferences;
+  }
+
   Configuration ConfigBase::readConfiguration( const QString &profile ) {
 
     m_Configuration.clear();
@@ -171,7 +190,6 @@ namespace asaal {
     readConf.endGroup();
 
     // Autoexec settings
-
     if ( !configFile.open( QIODevice::ReadOnly | QIODevice::Text ) ) {
       return m_Configuration;
     }

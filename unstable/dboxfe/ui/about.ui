@@ -28,13 +28,7 @@
    <iconset resource="../../resource/dboxfe.qrc" >
     <normaloff>:/pics/images/default.png</normaloff>:/pics/images/default.png</iconset>
   </property>
-  <layout class="QGridLayout" >
-   <property name="margin" >
-    <number>9</number>
-   </property>
-   <property name="spacing" >
-    <number>6</number>
-   </property>
+  <layout class="QGridLayout" name="glAbout" >
    <item row="0" column="0" >
     <widget class="QTabWidget" name="tabWidgetAbout" >
      <property name="currentIndex" >
@@ -46,7 +40,7 @@
       </attribute>
       <layout class="QGridLayout" name="gridLayout" >
        <item row="0" column="1" >
-        <spacer>
+        <spacer name="vs1" >
          <property name="orientation" >
           <enum>Qt::Vertical</enum>
          </property>
@@ -59,7 +53,7 @@
         </spacer>
        </item>
        <item row="1" column="0" colspan="3" >
-        <layout class="QHBoxLayout" >
+        <layout class="QHBoxLayout" name="hlAbout" >
          <property name="spacing" >
           <number>6</number>
          </property>
@@ -101,14 +95,14 @@
             </font>
            </property>
            <property name="text" >
-            <string>DBoxFE - DOSBox Front End for Linux/Windows/Mac</string>
+            <string>DBoxFE - DOSBox Front End</string>
            </property>
           </widget>
          </item>
         </layout>
        </item>
        <item rowspan="3" row="2" column="0" >
-        <spacer>
+        <spacer name="hs1" >
          <property name="orientation" >
           <enum>Qt::Horizontal</enum>
          </property>
@@ -121,7 +115,7 @@
         </spacer>
        </item>
        <item row="2" column="1" >
-        <spacer>
+        <spacer name="vs2" >
          <property name="orientation" >
           <enum>Qt::Vertical</enum>
          </property>
@@ -134,7 +128,7 @@
         </spacer>
        </item>
        <item rowspan="3" row="2" column="2" >
-        <spacer>
+        <spacer name="hs2" >
          <property name="orientation" >
           <enum>Qt::Horizontal</enum>
          </property>
@@ -155,7 +149,7 @@
           <number>0</number>
          </property>
          <item>
-          <layout class="QHBoxLayout" >
+          <layout class="QHBoxLayout" name="hlAuthor" >
            <property name="spacing" >
             <number>6</number>
            </property>
@@ -163,7 +157,7 @@
             <number>0</number>
            </property>
            <item>
-            <widget class="QLabel" name="label_3" >
+            <widget class="QLabel" name="labelAuthor" >
              <property name="minimumSize" >
               <size>
                <width>110</width>
@@ -182,7 +176,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="label_9" >
+            <widget class="QLabel" name="labelAuthorName" >
              <property name="text" >
               <string>Alexander Saal</string>
              </property>
@@ -191,7 +185,7 @@
           </layout>
          </item>
          <item>
-          <layout class="QHBoxLayout" >
+          <layout class="QHBoxLayout" name="hlCopyright" >
            <property name="spacing" >
             <number>6</number>
            </property>
@@ -199,7 +193,7 @@
             <number>0</number>
            </property>
            <item>
-            <widget class="QLabel" name="label_6" >
+            <widget class="QLabel" name="labelCopyright" >
              <property name="minimumSize" >
               <size>
                <width>110</width>
@@ -218,7 +212,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="label_11" >
+            <widget class="QLabel" name="labelCopyrightInfo" >
              <property name="text" >
               <string>© '2004 - 2008 by Alexander Saal</string>
              </property>
@@ -227,7 +221,7 @@
           </layout>
          </item>
          <item>
-          <layout class="QHBoxLayout" >
+          <layout class="QHBoxLayout" name="hlUrl" >
            <property name="spacing" >
             <number>6</number>
            </property>
@@ -235,7 +229,7 @@
             <number>0</number>
            </property>
            <item>
-            <widget class="QLabel" name="label_7" >
+            <widget class="QLabel" name="labelUrl" >
              <property name="minimumSize" >
               <size>
                <width>110</width>
@@ -254,7 +248,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="label_10" >
+            <widget class="QLabel" name="labelUrlSide" >
              <property name="cursor" >
               <cursorShape>PointingHandCursor</cursorShape>
              </property>
@@ -266,7 +260,7 @@
           </layout>
          </item>
          <item>
-          <layout class="QHBoxLayout" >
+          <layout class="QHBoxLayout" name="hlEMail" >
            <property name="spacing" >
             <number>6</number>
            </property>
@@ -274,7 +268,7 @@
             <number>0</number>
            </property>
            <item>
-            <widget class="QLabel" name="label_8" >
+            <widget class="QLabel" name="labelEMail" >
              <property name="minimumSize" >
               <size>
                <width>110</width>
@@ -293,7 +287,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="label_14" >
+            <widget class="QLabel" name="labelEMailName" >
              <property name="cursor" >
               <cursorShape>PointingHandCursor</cursorShape>
              </property>
@@ -310,7 +304,7 @@
         </layout>
        </item>
        <item row="4" column="1" >
-        <spacer>
+        <spacer name="vs3" >
          <property name="orientation" >
           <enum>Qt::Vertical</enum>
          </property>
@@ -364,8 +358,8 @@
           <string>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
 &lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
 p, li { white-space: pre-wrap; }
-&lt;/style>&lt;/head>&lt;body style=" font-family:'Verdana'; font-size:7pt; font-weight:400; font-style:normal;">
-&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;">&lt;/p>&lt;/body>&lt;/html></string>
+&lt;/style>&lt;/head>&lt;body style=" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;">
+&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Verdana'; font-size:12pt;">&lt;/p>&lt;/body>&lt;/html></string>
          </property>
         </widget>
        </item>
@@ -374,7 +368,7 @@ p, li { white-space: pre-wrap; }
     </widget>
    </item>
    <item row="1" column="0" >
-    <layout class="QHBoxLayout" >
+    <layout class="QHBoxLayout" name="hlButtonGroup" >
      <property name="spacing" >
       <number>6</number>
      </property>
@@ -385,14 +379,14 @@ p, li { white-space: pre-wrap; }
       <widget class="QPushButton" name="btnAboutQt" >
        <property name="minimumSize" >
         <size>
-         <width>110</width>
-         <height>26</height>
+         <width>75</width>
+         <height>23</height>
         </size>
        </property>
        <property name="maximumSize" >
         <size>
-         <width>110</width>
-         <height>26</height>
+         <width>75</width>
+         <height>23</height>
         </size>
        </property>
        <property name="text" >
@@ -401,7 +395,7 @@ p, li { white-space: pre-wrap; }
       </widget>
      </item>
      <item>
-      <spacer>
+      <spacer name="hs3" >
        <property name="orientation" >
         <enum>Qt::Horizontal</enum>
        </property>
@@ -417,14 +411,14 @@ p, li { white-space: pre-wrap; }
       <widget class="QPushButton" name="btnOk" >
        <property name="minimumSize" >
         <size>
-         <width>110</width>
-         <height>26</height>
+         <width>75</width>
+         <height>23</height>
         </size>
        </property>
        <property name="maximumSize" >
         <size>
-         <width>110</width>
-         <height>26</height>
+         <width>75</width>
+         <height>23</height>
         </size>
        </property>
        <property name="text" >
@@ -437,6 +431,7 @@ p, li { white-space: pre-wrap; }
   </layout>
  </widget>
  <resources>
+  <include location="../../resource/dboxfe.qrc" />
   <include location="../../resource/dboxfe.qrc" />
   <include location="../../resource/dboxfe.qrc" />
  </resources>

@@ -26,6 +26,8 @@
 #ifndef BASE_H
 #define BASE_H
 
+#include <xmlpreferences.h>
+
 #include <QtCore>
 
 /**
@@ -276,6 +278,17 @@ namespace asaal {
       ~ConfigBase();
 
       /**
+       * \brief Returns the profiles for dboxfe in a QStringList
+       */ 
+      QStringList readProfiles();
+
+      /**
+       * \brief Returns the instance of XmlPreferences
+       * @see XmlPreferences
+       */ 
+      XmlPreferences xmlPreferences();
+
+      /**
        * \brief Read configuration
        *
        * @param profile The DBoxFE profile
@@ -331,6 +344,7 @@ namespace asaal {
        * Internal variables
        */ 
       Configuration m_Configuration;
+      QStringList profiles;
   };
 }
 

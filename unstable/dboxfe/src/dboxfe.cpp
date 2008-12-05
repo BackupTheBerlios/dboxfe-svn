@@ -23,16 +23,22 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
+#include <base.h>
+#include <dboxfe.h>
+
 #include <QtGui>
 #include <QtCore>
 
-#include <dboxfe.h>
-
 namespace asaal {
 
+  ConfigBase *configBase;
+  DBoxFE *dboxfe;
   DBoxFE::DBoxFE( QWidget *parent, Qt::WFlags flags ) : QWidget( parent, flags ) {
 
     setupUi( this );
+
+    dboxfe = this;
+    configBase = new ConfigBase( dboxfe );
   }
 
   DBoxFE::~DBoxFE() {}
@@ -40,5 +46,6 @@ namespace asaal {
   
   void DBoxFE::initialProfiles() {
 
+    QStringList profiles = configBase->readProfiles();
   }
 }
