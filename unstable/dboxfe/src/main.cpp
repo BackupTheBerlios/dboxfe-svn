@@ -37,7 +37,7 @@ int main( int argc, char *argv[] ) {
 
   QApplication app( argc, argv );
 
-  DBoxFE dboxfe;
+  DBoxFE *dboxfe = new DBoxFE();
 
   QString m_file, m_profile_dir, m_tmpl_dir, lng;
 
@@ -90,12 +90,12 @@ int main( int argc, char *argv[] ) {
   if ( splash )
     splash->showMessage( QApplication::translate( "DBoxFE", "Loading Profiles ..." ) );
 
-  dboxfe.initialProfiles();
+  dboxfe->initialProfiles();
 
   if ( splash )
     splash->showMessage( QApplication::translate( "DBoxFE", "Starting GUI ..." ) );
 
-  dboxfe.show();
+  dboxfe->show();
 
   if ( splash )
     delete splash;

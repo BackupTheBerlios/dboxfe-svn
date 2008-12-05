@@ -42,19 +42,9 @@ namespace asaal {
 
     profiles.clear();
 
-    XmlPreferences preferences = xmlPreferences();
-    profiles = preferences.getStringList( "Profile", "Name" );
+    profiles = xmlPreferences( settingFile() ).getStringList( "Name", "Profile");
 
     return profiles;
-  }
-
-  XmlPreferences ConfigBase::xmlPreferences() {
-
-    XmlPreferences preferences = XmlPreferences::instance();
-    preferences.setProductInfo( "Alexander Saal", "DBoxFE" );
-    preferences.setProductVersion( 2 );
-
-    return preferences;
   }
 
   Configuration ConfigBase::readConfiguration( const QString &profile ) {
@@ -373,6 +363,20 @@ namespace asaal {
     }
 
     return true;
+  }
+
+  void ConfigBase::writeSettings( const DBoxFE_Configuration &dboxfeConfig ) {
+
+    if( dboxfeConfig.isEmpty() ) {
+      return;
+    }
+
+    xmlPreferences().setString( "binary", dboxfeConfig.dosboxBinary, "DOSBox" );
+    xmlPreferences().setString( "version", dboxfeConfig.dosboxVersion, "DOSBox" );
+    xmlPreferences().setStringList( "Name", dboxfeConfig.profiles, "Profile" );
+    xmlPreferences().setBool( "winHide", dboxfeConfig.winHide, "DBoxFE" );
+    xmlPreferences().setBool( "keyMapper", dboxfeConfig.keyMapper, "DBoxFE" );
+    xmlPreferences().save( settingFile() );
   }
 
   void ConfigBase::writeConfiguration( const QString &profile, const Configuration &config ) {

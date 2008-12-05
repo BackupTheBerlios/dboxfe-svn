@@ -35,9 +35,78 @@
  */ 
 namespace asaal {
 
+  /**
+   * \brief DBoxFE_Configuration handles all settings from DBoxFE incl. game profiles
+   * 
+   * @author Alexander Saal <alex.saal@gmx.de>
+   * @sa http://dboxfe.belios.de/index
+   * @date 2008/05/12
+   * @version 0.2.5
+   * @since 0.2.5
+   */ 
+  class DBoxFE_Configuration {
+
+    public:
+      /** DOSBox binary */
+      QString dosboxBinary;
+
+      /** DOSBox version */
+      QString dosboxVersion;
+
+      /** Game profiles */
+      QStringList profiles;
+
+      /** Hide window after dosbox is started */
+      bool winHide;
+
+      /** Start key mapper on startup, if dosbox start */
+      bool keyMapper;
+      
+      /**
+       * \brief Returns true if other points the same item of other; otherwise returns false.
+       */
+      bool operator == ( const DBoxFE_Configuration &other ) const {
+        return  dosboxBinary == other.dosboxBinary &&
+                dosboxVersion == other.dosboxVersion &&
+                profiles == other.profiles &&
+                winHide == other.winHide &&
+                keyMapper == other.keyMapper;
+      }
+
+      /**
+       * \brief Returns true if other points to a different item than this other; otherwise returns false.
+       */
+      bool operator != ( const DBoxFE_Configuration &other ) const {
+        return  dosboxBinary != other.dosboxBinary ||
+                dosboxVersion != other.dosboxVersion ||
+                profiles != other.profiles ||
+                winHide != other.winHide ||
+                keyMapper != other.keyMapper;
+      }
+
+      /**
+       * \brief Returns true if the cache contains no objects; otherwise returns false.
+       */
+      bool isEmpty() const {
+        return ( dosboxBinary.isEmpty() || dosboxBinary.isNull() ) &&
+               ( dosboxVersion.isEmpty() || dosboxVersion.isNull() ) &&
+               profiles.isEmpty();
+      }
+
+      /**
+       * \brief Deletes all the objects in the cache.
+       */
+      void clear() {
+        dosboxBinary = QString( "" );
+        dosboxVersion = QString( "" );
+        profiles.clear();
+        winHide = false;
+        keyMapper = false;
+      }
+  };
 
   /**
-   * \brief DFend_Configuration handles read, write and convert of dfend configuration files
+   * \brief DFend_Configuration handles read, write dfend configuration files
    *
    * @author Alexander Saal <alex.saal@gmx.de>
    * @sa http://dboxfe.belios.de/index
@@ -283,12 +352,6 @@ namespace asaal {
       QStringList readProfiles();
 
       /**
-       * \brief Returns the instance of XmlPreferences
-       * @see XmlPreferences
-       */ 
-      XmlPreferences xmlPreferences();
-
-      /**
        * \brief Read configuration
        *
        * @param profile The DBoxFE profile
@@ -324,6 +387,15 @@ namespace asaal {
 
     public slots:
       /**
+       * \brief Write DBoxFE settings incl. game profiles
+       * 
+       * @param dboxfeConfig The configuration class
+       * 
+       * @see DBoxFE_Configuration
+       */ 
+      void writeSettings( const DBoxFE_Configuration &dboxfeConfig );
+
+      /**
        * \brief Write configuration
        *
        * @param profile The DBoxFE profile
@@ -332,6 +404,48 @@ namespace asaal {
       void writeConfiguration( const QString &profile, const Configuration &config );
 
     private:
+      /**
+       * \brief Returns the instance of xml preferences class with loaded file
+       * 
+       * @param file The xml setting file
+       * 
+       * @see XmlPreferences
+       */ 
+      XmlPreferences& xmlPreferences( const QString &file ) {
+
+        XmlPreferences& preferences = settings();
+        preferences.setProductInfo( "Alexander Saal", "DBoxFE" );
+        preferences.setProductVersion( 2 );
+        preferences.load( file );
+
+        return preferences;
+      }
+      
+      /**
+       * \brief Returns the instance of xml preferences class
+       * @see XmlPreferences
+       */ 
+      XmlPreferences& xmlPreferences() {
+
+        XmlPreferences& preferences = settings();
+        preferences.setProductInfo( "Alexander Saal", "DBoxFE" );
+        preferences.setProductVersion( 2 );
+
+        return preferences;
+      }
+
+      /**
+       * \brief Returns the internal setting file
+       */ 
+      QString settingFile() {
+        
+        QString m_file = QString( "" );
+        m_file = QDir::homePath();
+        m_file.append( "/.dboxfe/profile/profile.xml" );
+
+        return m_file;
+      }
+
       /**
        * \brief Get files/directories for D-Fend Reloaded exported ziparchiv.
        *
@@ -344,6 +458,7 @@ namespace asaal {
        * Internal variables
        */ 
       Configuration m_Configuration;
+      DBoxFE_Configuration m_DboxfeConfiguration;
       QStringList profiles;
   };
 }

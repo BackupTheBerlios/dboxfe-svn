@@ -39,13 +39,94 @@ namespace asaal {
 
     dboxfe = this;
     configBase = new ConfigBase( dboxfe );
+
+    connect( btnOpenDescriptionText, SIGNAL( clicked() ), this, SLOT( openDescription() ) );
+    connect( btnApplyDescriptionText, SIGNAL( clicked() ), this, SLOT( applyDescription() ) );
+    connect( btnClearDescriptionText, SIGNAL( clicked() ), this, SLOT( clearDescription() ) );
+
+    connect( btnOpenScreenCapture, SIGNAL( clicked() ), this, SLOT( openScreenCapture() ) );
+    connect( btnApplyScreenCapture, SIGNAL( clicked() ), this, SLOT( applyScreenCapture() ) );
+    connect( btnClearScreenCapture, SIGNAL( clicked() ), this, SLOT( clearScreenCapture() ) );
+
+    connect( btnStartGame, SIGNAL( clicked() ), this, SLOT( startGame() ) );
+    connect( btnNewProfile, SIGNAL( clicked() ), this, SLOT( newGame() ) );
+    connect( btnEditProfile, SIGNAL( clicked() ), this, SLOT( editGame() ) );
+    connect( btnDeleteProfile, SIGNAL( clicked() ), this, SLOT( deleteGame() ) );
+
+    connect( btnAssistant, SIGNAL( clicked() ), this, SLOT( newGameWithAssistant() ) );
+
+    connect( textEditGameDescription, SIGNAL( customContextMenuRequested ( const QPoint & ) ), this, SLOT( textEditCustomContextMenuRequested( const QPoint &) ) );
+
+    connect( listWidgetGames, SIGNAL( itemClicked( QListWidgetItem * ) ), this, SLOT( listWidgetItemClicked( QListWidgetItem * ) ) );
+    connect( listWidgetGames, SIGNAL( itemDoubleClicked( QListWidgetItem * ) ), this, SLOT( listWidgetItemDoubleClicked( QListWidgetItem * ) ) );
+
+    QDesktopWidget *desktop = qApp->desktop();
+    const QRect rect = desktop->availableGeometry( desktop->primaryScreen() );
+    int left = ( rect.width() - width() ) / 2;
+    int top = ( rect.height() - height() ) / 2;
+    setGeometry( left, top, width(), height() );
   }
 
   DBoxFE::~DBoxFE() {}
 
-  
+
   void DBoxFE::initialProfiles() {
 
     QStringList profiles = configBase->readProfiles();
+    listWidgetGames->addItems( profiles );
+   }
+
+  void DBoxFE::openDescription() {
+  }
+
+  void DBoxFE::applyDescription() {
+  }
+
+  void DBoxFE::clearDescription() {
+  }
+
+  void DBoxFE::openScreenCapture() {
+  }
+
+  void DBoxFE::applyScreenCapture() {
+  }
+
+  void DBoxFE::clearScreenCapture() {
+  }
+
+  void DBoxFE::startGame() {
+  }
+
+  void DBoxFE::newGame() {
+  }
+
+  void DBoxFE::editGame() {
+  }
+
+  void DBoxFE::deleteGame() {
+  }
+
+  void DBoxFE::textEditCustomContextMenuRequested( const QPoint &pos ) {
+  }
+
+  void DBoxFE::listWidgetItemClicked( QListWidgetItem *item ) {
+  }
+
+  void DBoxFE::listWidgetItemDoubleClicked( QListWidgetItem *item ) {
+  }
+
+  void DBoxFE::newGameWithAssistant() {
+  }
+
+  void DBoxFE::processStart( const QString& bin, const QString &param, const QString &conf ) {
+  }
+
+  void DBoxFE::processOutput() {
+  }
+
+  void DBoxFE::processFinish( int exitCode, QProcess::ExitStatus exitStatus ) {
+  }
+
+  void DBoxFE::processError( QProcess::ProcessError error ) {
   }
 }
