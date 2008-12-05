@@ -19,11 +19,13 @@
     </qresource>
     <qresource prefix="/pics/images" >
         <file>add_16.png</file>
+		<file>apply_16.png</file>
         <file>applications_16.png</file>
         <file>arrow-back_16.png</file>
         <file>arrow-down_16.png</file>
         <file>arrow-forward_16.png</file>
         <file>arrow-up_16.png</file>
+		<file>cancel_16.png</file>
         <file>computer_16.png</file>
         <file>copy_16.png</file>
         <file>cpu.png</file>
