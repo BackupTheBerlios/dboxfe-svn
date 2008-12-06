@@ -64,25 +64,19 @@ namespace asaal {
     int left = ( rect.width() - width() ) / 2;
     int top = ( rect.height() - height() ) / 2;
     setGeometry( left, top, width(), height() );
-    
-    profSettings = new ProfileSettings();
   }
 
   DBoxFE::~DBoxFE() {
 
-    configBase = NULL;
-    dboxfe = NULL;
+    configBase = 0;
+    dboxfe = 0;
+    profSettings = 0;
+    
   }
 
   void DBoxFE::closeEvent( QCloseEvent *event ) {
 
-    delete configBase;
-    configBase = 0;
-
     event->accept();
-    qApp->quit();
-    QApplication::quit();
-    QCoreApplication::quit();
   }
 
   void DBoxFE::initialProfiles() {
@@ -116,9 +110,26 @@ namespace asaal {
   }
 
   void DBoxFE::editGame() {
+
+    delete profSettings;
+    profSettings = 0;
     
-    profSettings->setProfileName( "" );
-    profSettings->show();
+    QString profileName = listWidgetGames->currentItem()->text();
+    if( profileName.isNull() || profileName.isEmpty() ) {
+      
+      QMessageBox::information( this, tr( "DBoxFE" ), tr( "No game was selected!" ) );
+      return;
+    }
+    
+    QString profile = QDir::homePath();
+    profile.append( "/.dboxfe/" + profileName + ".conf" );
+
+    profSettings = new ProfileSettings();
+    profSettings->setProfileName( profileName );
+    profSettings->initialConfiguration( profile );
+
+    if ( profSettings->exec() == QDialog::Accepted ) {
+    }
   }
 
   void DBoxFE::deleteGame() {
@@ -128,13 +139,18 @@ namespace asaal {
   }
 
   void DBoxFE::listWidgetItemDoubleClicked( QListWidgetItem *item ) {
+    
+    delete profSettings;
+    profSettings = 0;
 
     QString profile = QDir::homePath();
-    profile.append( "/.dboxfe/profile/" + item->text() + ".conf" );
+    profile.append( "/.dboxfe/" + item->text() + ".conf" );
+    
+    profSettings = new ProfileSettings();
+    profSettings->setProfileName( item->text() );
+    profSettings->initialConfiguration( profile );
 
-    profSettings->setProfileName( profile );
-    if( profSettings->exec() == QDialog::Accepted )
-    {
+    if ( profSettings->exec() == QDialog::Accepted ) {
     }
   }
 

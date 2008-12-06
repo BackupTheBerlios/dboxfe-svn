@@ -26,11 +26,11 @@
 #ifndef PROFILESETTINGS_H
 #define PROFILESETTINGS_H
 
+#include <ui_profilesettings.h>
+
 #include <base.h>
 
 #include <QtGui>
-
-#include "ui_profilesettings.h"
 
 /**
 * \brief Namespace asaal
@@ -73,9 +73,14 @@ namespace asaal {
         inline void setProfileName( const QString &name ) {
 
           profName = name;
-          setWindowTitle( tr( "Settings for %1" ).arg( profName ) );
-          loadConfiguration();
+          setWindowTitle( tr( "Settings for [ %1 ]" ).arg( profName ) );
         }
+        
+        inline void initialConfiguration( const QString &configFile ) {
+
+          profFile = configFile;
+          loadConfiguration();
+        } 
 
       private slots:
         /**
@@ -178,6 +183,7 @@ namespace asaal {
        /**
         * Internal, private variables 
         */ 
+       QString profFile;
        QString profName;
        Configuration profileConfiguration;
   };

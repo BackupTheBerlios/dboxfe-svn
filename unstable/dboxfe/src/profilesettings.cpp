@@ -32,8 +32,12 @@
 namespace asaal {
 
   ProfileSettings::ProfileSettings( QWidget *parent, Qt::WFlags flags ) : QDialog( parent, flags ) {
-    
+
     setupUi( this );
+
+    connect( btnSave, SIGNAL( clicked() ), this, SLOT( saveConfiguration() ) );
+    connect( btnDefault, SIGNAL( clicked() ), this, SLOT( setDefaultConfiguration() ) );
+    connect( btnAbort, SIGNAL( clicked() ), this, SLOT( closeWidget() ) );
   }
 
   ProfileSettings::~ProfileSettings() {}
@@ -75,19 +79,43 @@ namespace asaal {
   }
 
   void ProfileSettings::saveConfiguration() {
+
+    if ( !profileConfiguration.isEmpty() ) {
+
+      DBoxFE::configBaseInstance()->writeConfiguration( profFile, profileConfiguration );
+
+    }
+
+    accept();
   }
 
   void ProfileSettings::setDefaultConfiguration() {
+
+    profileConfiguration.clear();
+    profileConfiguration = DBoxFE::configBaseInstance()->readConfiguration( QString::fromUtf8( ":/default/default.conf" ) );
+
+    if ( !profileConfiguration.isEmpty() ) {
+
+      // intial settings from selected profile
+
+    }
   }
 
   void ProfileSettings::loadConfiguration() {
-    
-    profileConfiguration = DBoxFE::configBaseInstance()->readConfiguration( profName );
 
+    profileConfiguration.clear();
+    profileConfiguration = DBoxFE::configBaseInstance()->readConfiguration( profFile );
+
+    if ( !profileConfiguration.isEmpty() ) {
+
+      // intial settings from selected profile
+
+    }
   }
 
   void ProfileSettings::closeWidget() {
-    
-    close();
+
+    profileConfiguration.clear();
+    reject();
   }
 }
