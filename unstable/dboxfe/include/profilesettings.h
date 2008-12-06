@@ -46,7 +46,7 @@ namespace asaal {
    * @version 0.2.5
    * @since 0.2.5
    */ 
-  class ProfileSettings : public QWidget, public Ui::UiProfileSettings {
+  class ProfileSettings : public QDialog, public Ui::UiProfileSettings {
 
     Q_OBJECT
 

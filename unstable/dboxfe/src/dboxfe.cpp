@@ -57,7 +57,6 @@ namespace asaal {
 
     connect( textEditGameDescription, SIGNAL( customContextMenuRequested( const QPoint & ) ), this, SLOT( textEditCustomContextMenuRequested( const QPoint & ) ) );
 
-    connect( listWidgetGames, SIGNAL( itemClicked( QListWidgetItem * ) ), this, SLOT( listWidgetItemClicked( QListWidgetItem * ) ) );
     connect( listWidgetGames, SIGNAL( itemDoubleClicked( QListWidgetItem * ) ), this, SLOT( listWidgetItemDoubleClicked( QListWidgetItem * ) ) );
 
     QDesktopWidget *desktop = qApp->desktop();
@@ -65,6 +64,8 @@ namespace asaal {
     int left = ( rect.width() - width() ) / 2;
     int top = ( rect.height() - height() ) / 2;
     setGeometry( left, top, width(), height() );
+    
+    profSettings = new ProfileSettings();
   }
 
   DBoxFE::~DBoxFE() {
@@ -78,9 +79,6 @@ namespace asaal {
     delete configBase;
     configBase = 0;
 
-    delete dboxfe;
-    dboxfe = 0;
-
     event->accept();
     qApp->quit();
     QApplication::quit();
@@ -91,7 +89,6 @@ namespace asaal {
 
     QStringList profiles = configBase->readProfiles();
     listWidgetGames->addItems( profiles );
-
   }
 
   void DBoxFE::openDescription() {
@@ -113,13 +110,15 @@ namespace asaal {
   }
 
   void DBoxFE::startGame() {
-    initialProfiles();
   }
 
   void DBoxFE::newGame() {
   }
 
   void DBoxFE::editGame() {
+    
+    profSettings->setProfileName( "" );
+    profSettings->show();
   }
 
   void DBoxFE::deleteGame() {
@@ -128,10 +127,15 @@ namespace asaal {
   void DBoxFE::textEditCustomContextMenuRequested( const QPoint &pos ) {
   }
 
-  void DBoxFE::listWidgetItemClicked( QListWidgetItem *item ) {
-  }
-
   void DBoxFE::listWidgetItemDoubleClicked( QListWidgetItem *item ) {
+
+    QString profile = QDir::homePath();
+    profile.append( "/.dboxfe/profile/" + item->text() + ".conf" );
+
+    profSettings->setProfileName( profile );
+    if( profSettings->exec() == QDialog::Accepted )
+    {
+    }
   }
 
   void DBoxFE::newGameWithAssistant() {

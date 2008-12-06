@@ -27,10 +27,12 @@
 #define DBOXFE_H
 
 #include <base.h>
+#include <profilesettings.h>
+
+#include "ui_dboxfe.h"
 
 #include <QtGui>
 
-#include "ui_dboxfe.h"
 
 /**
  * \brief Namespace asaal
@@ -136,11 +138,6 @@ namespace asaal {
       void textEditCustomContextMenuRequested( const QPoint & );
 
       /*
-       * This signal is emitted with the specified item when a mouse button is clicked on an item in the widget.
-       */
-      void listWidgetItemClicked( QListWidgetItem * );
-
-      /*
        * This signal is emitted with the specified item when a mouse button is double clicked on an item in the widget.
        */
       void listWidgetItemDoubleClicked( QListWidgetItem * );
@@ -178,6 +175,9 @@ namespace asaal {
        * @param error The error information
        */
       void processError( QProcess::ProcessError );
+      
+    private:
+      ProfileSettings *profSettings;          
   };
 }
 
