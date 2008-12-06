@@ -29,6 +29,7 @@
 #include <zip.h>
 
 #include <QtCore>
+#include <QtXml>
 
 namespace asaal {
 
@@ -42,7 +43,7 @@ namespace asaal {
 
     profiles.clear();
 
-    profiles = xmlPreferences( settingFile() ).getStringList( "Name", "Profile");
+    profiles = xmlPreferences( settingFile() ).getStringList( "Name", "Profile" );
 
     return profiles;
   }
@@ -180,6 +181,7 @@ namespace asaal {
     readConf.endGroup();
 
     // Autoexec settings
+
     if ( !configFile.open( QIODevice::ReadOnly | QIODevice::Text ) ) {
       return m_Configuration;
     }
@@ -367,11 +369,12 @@ namespace asaal {
 
   void ConfigBase::writeSettings( const DBoxFE_Configuration &dboxfeConfig ) {
 
-    if( dboxfeConfig.isEmpty() ) {
+    if ( dboxfeConfig.isEmpty() ) {
       return;
     }
 
     xmlPreferences().setString( "binary", dboxfeConfig.dosboxBinary, "DOSBox" );
+
     xmlPreferences().setString( "version", dboxfeConfig.dosboxVersion, "DOSBox" );
     xmlPreferences().setStringList( "Name", dboxfeConfig.profiles, "Profile" );
     xmlPreferences().setBool( "winHide", dboxfeConfig.winHide, "DBoxFE" );

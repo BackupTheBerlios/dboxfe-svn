@@ -55,7 +55,7 @@ namespace asaal {
 
     connect( btnAssistant, SIGNAL( clicked() ), this, SLOT( newGameWithAssistant() ) );
 
-    connect( textEditGameDescription, SIGNAL( customContextMenuRequested ( const QPoint & ) ), this, SLOT( textEditCustomContextMenuRequested( const QPoint &) ) );
+    connect( textEditGameDescription, SIGNAL( customContextMenuRequested( const QPoint & ) ), this, SLOT( textEditCustomContextMenuRequested( const QPoint & ) ) );
 
     connect( listWidgetGames, SIGNAL( itemClicked( QListWidgetItem * ) ), this, SLOT( listWidgetItemClicked( QListWidgetItem * ) ) );
     connect( listWidgetGames, SIGNAL( itemDoubleClicked( QListWidgetItem * ) ), this, SLOT( listWidgetItemDoubleClicked( QListWidgetItem * ) ) );
@@ -67,14 +67,32 @@ namespace asaal {
     setGeometry( left, top, width(), height() );
   }
 
-  DBoxFE::~DBoxFE() {}
+  DBoxFE::~DBoxFE() {
 
+    configBase = NULL;
+    dboxfe = NULL;
+  }
+
+  void DBoxFE::closeEvent( QCloseEvent *event ) {
+
+    delete configBase;
+    configBase = 0;
+
+    delete dboxfe;
+    dboxfe = 0;
+
+    event->accept();
+    qApp->quit();
+    QApplication::quit();
+    QCoreApplication::quit();
+  }
 
   void DBoxFE::initialProfiles() {
 
     QStringList profiles = configBase->readProfiles();
     listWidgetGames->addItems( profiles );
-   }
+
+  }
 
   void DBoxFE::openDescription() {
   }
@@ -95,6 +113,7 @@ namespace asaal {
   }
 
   void DBoxFE::startGame() {
+    initialProfiles();
   }
 
   void DBoxFE::newGame() {

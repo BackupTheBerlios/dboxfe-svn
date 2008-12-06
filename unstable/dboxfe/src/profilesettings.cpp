@@ -23,15 +23,16 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
+#include <dboxfe.h>
+#include <profilesettings.h>
+
 #include <QtGui>
 #include <QtCore>
-
-#include <profilesettings.h>
 
 namespace asaal {
 
   ProfileSettings::ProfileSettings( QWidget *parent, Qt::WFlags flags ) : QWidget( parent, flags ) {
-
+    
     setupUi( this );
   }
 
@@ -79,6 +80,14 @@ namespace asaal {
   void ProfileSettings::setDefaultConfiguration() {
   }
 
+  void ProfileSettings::loadConfiguration() {
+    
+    profileConfiguration = DBoxFE::configBaseInstance()->readConfiguration( profName );
+
+  }
+
   void ProfileSettings::closeWidget() {
+    
+    close();
   }
 }

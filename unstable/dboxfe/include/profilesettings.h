@@ -70,8 +70,11 @@ namespace asaal {
          * 
          * @param name The profile name
          */ 
-        inline void setProfileName( const QString &name ) { 
+        inline void setProfileName( const QString &name ) {
+
           profName = name;
+          setWindowTitle( tr( "Settings for %1" ).arg( profName ) );
+          loadConfiguration();
         }
 
       private slots:
@@ -152,6 +155,12 @@ namespace asaal {
          */ 
         void setDefaultConfiguration();
 
+        
+        /**
+         * \brief Load configuration
+         */
+        void loadConfiguration();
+        
         /**
          * \brief Close widget
          */ 
@@ -170,6 +179,7 @@ namespace asaal {
         * Internal, private variables 
         */ 
        QString profName;
+       Configuration profileConfiguration;
   };
 }
 

@@ -27,10 +27,6 @@
   <property name="windowTitle" >
    <string>DBoxFE - Startscreen</string>
   </property>
-  <property name="windowIcon" >
-   <iconset resource="../../resource/dboxfe.qrc" >
-    <normaloff>:/pics/images/default.png</normaloff>:/pics/images/default.png</iconset>
-  </property>
   <property name="styleSheet" >
    <string notr="true" >QWidget#UiDBoxFEStartScreen {
 	background-color: white;
@@ -73,8 +69,7 @@ border-width: 2px;
 padding: 2px;
 border-style: solid;
 border-color: navy;
-border-radius: 7px;
-z-index: 99;</string>
+border-radius: 7px;</string>
     </property>
     <property name="frameShape" >
      <enum>QFrame::StyledPanel</enum>
@@ -83,7 +78,7 @@ z-index: 99;</string>
      <string>Games</string>
     </property>
    </widget>
-   <widget class="QWidget" name="" >
+   <widget class="QWidget" name="layoutWidget" >
     <property name="geometry" >
      <rect>
       <x>10</x>
