@@ -110,38 +110,50 @@ namespace asaal {
   }
 
   void DBoxFE::editGame() {
-
-    delete profSettings;
-    profSettings = 0;
     
-    QString profileName = listWidgetGames->currentItem()->text();
-    if( profileName.isNull() || profileName.isEmpty() ) {
+    QListWidgetItem *currentItem = listWidgetGames->currentItem();
+    if( currentItem == NULL ) {
       
-      QMessageBox::information( this, tr( "DBoxFE" ), tr( "No game was selected!" ) );
+      QMessageBox::information( this, tr( "DBoxFE" ), tr( "No game profile was selected!" ) );
+      return;
+    }
+
+    if( currentItem->text().isNull() || currentItem->text().isEmpty() ) {
+      
+      QMessageBox::information( this, tr( "DBoxFE" ), tr( "No game profile was selected!" ) );
       return;
     }
     
     QString profile = QDir::homePath();
-    profile.append( "/.dboxfe/" + profileName + ".conf" );
+    profile.append( "/.dboxfe/" + currentItem->text() + ".conf" );
 
     profSettings = new ProfileSettings();
-    profSettings->setProfileName( profileName );
+    profSettings->setProfileName( currentItem->text() );
     profSettings->initialConfiguration( profile );
 
     if ( profSettings->exec() == QDialog::Accepted ) {
     }
+
+    delete profSettings;
+    profSettings = 0;
   }
 
   void DBoxFE::deleteGame() {
+
+    QListWidgetItem *currentItem = listWidgetGames->currentItem();
+    if( currentItem == NULL ) {
+      
+      QMessageBox::information( this, tr( "DBoxFE" ), tr( "No game profile was selected!" ) );
+      return;
+    }
+
+    delete currentItem;
   }
 
   void DBoxFE::textEditCustomContextMenuRequested( const QPoint &pos ) {
   }
 
   void DBoxFE::listWidgetItemDoubleClicked( QListWidgetItem *item ) {
-    
-    delete profSettings;
-    profSettings = 0;
 
     QString profile = QDir::homePath();
     profile.append( "/.dboxfe/" + item->text() + ".conf" );
@@ -152,10 +164,28 @@ namespace asaal {
 
     if ( profSettings->exec() == QDialog::Accepted ) {
     }
+
+    delete profSettings;
+    profSettings = 0;
   }
 
   void DBoxFE::newGameWithAssistant() {
-  }
+
+    QString dbfeAssistant = QString( "" );
+    
+#ifdef Q_OS_WIN32
+    dbfeAssistant = QCoreApplication::applicationDirPath() + "/dboxfeassistant.exe";
+#else
+    dbfeAssistant = QCoreApplication::applicationDirPath() + "/dboxfeassistant";
+#endif
+
+    if( !QFile::exists( dbfeAssistant ) ) {
+      QMessageBox::information( this, tr( "DBoxFE" ), tr( "Can not start dboxfe game assistant! Binary not available." ) );
+      return;
+    }
+
+    // code here to start dboxfe game assistant
+  } 
 
   void DBoxFE::processStart( const QString& bin, const QString &param, const QString &conf ) {
   }

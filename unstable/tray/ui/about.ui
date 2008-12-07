@@ -411,6 +411,7 @@ p, li { white-space: pre-wrap; }
   <include location="../../resource/dboxfe.qrc" />
   <include location="../../resource/dboxfe.qrc" />
   <include location="../../resource/dboxfe.qrc" />
+  <include location="../../resource/dboxfe.qrc" />
  </resources>
  <connections>
   <connection>
