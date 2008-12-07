@@ -19,8 +19,8 @@
 # Qt 4 Settings
 TEMPLATE = app
 DESTDIR = ../bin
-DEPENDPATH += include src resource ../3rdparty
-INCLUDEPATH += include ../3rdparty
+DEPENDPATH += include src resource ui ../3rdparty ../3rdparty/Zip ../base
+INCLUDEPATH += include ui ../3rdparty ../3rdparty/Zip ../base
 RESOURCES += resource/tray.qrc
 CONFIG += debug thread warn_on qt
 QT += xml
@@ -38,6 +38,7 @@ SOURCES += src/about.cpp
 SOURCES += src/tray.cpp
 
 # 3rdparty Header
+HEADERS += ../base/base.h
 HEADERS	+= ../3rdparty/base64.h
 HEADERS	+= ../3rdparty/xmlpreferences.h
 HEADERS	+= ../3rdparty/xmlpreferences_p.h
@@ -45,6 +46,7 @@ HEADERS	+= ../3rdparty/xmlwriter.h
 HEADERS	+= ../3rdparty/xmlwriter_p.h
 
 # 3rdparty Source
+SOURCES += ../base/base.cpp
 SOURCES	+= ../3rdparty/base64.cpp
 SOURCES	+= ../3rdparty/xmlpreferences.cpp
 SOURCES	+= ../3rdparty/xmlwriter.cpp
@@ -58,19 +60,20 @@ unix{
   OBJECTS_DIR += ../build/dboxfetray/unix/obj
   UI_DIR += ../build/dboxfetray/unix/ui
 
-  LIBS += -lxml2
+	LIBS += -lxml2
+	LIBS += -lz
 }
 
 # Windows settings
 win32{
   CONFIG += embed_manifest_exe
-
-  LIBS += -llibxml2
-
   TARGET = dboxfetray
   RC_FILE = resource/tray.rc
   RCC_DIR = ../build/dboxfetray/win/rcc
   MOC_DIR += ../build/dboxfetray/win/moc
   OBJECTS_DIR += ../build/dboxfetray/win/obj
   UI_DIR += ../build/dboxfetray/win/ui
+	
+	LIBS += -llibxml2
+	LIBS += -lzlib
 }

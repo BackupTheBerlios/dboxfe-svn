@@ -87,7 +87,6 @@ namespace asaal {
     dosbox = settGP.getString( "DOSBox", "binary" );
 
     /* Add dynamical menu entries of gameprofiles */
-
     for ( int i = 0; i < sList.size(); i++ ) {
       qApp->processEvents();
 
