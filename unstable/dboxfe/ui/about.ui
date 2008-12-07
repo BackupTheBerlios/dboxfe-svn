@@ -5,20 +5,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>544</width>
-    <height>353</height>
+    <width>435</width>
+    <height>328</height>
    </rect>
   </property>
   <property name="minimumSize" >
    <size>
-    <width>544</width>
-    <height>353</height>
+    <width>435</width>
+    <height>328</height>
    </size>
   </property>
   <property name="maximumSize" >
    <size>
-    <width>544</width>
-    <height>353</height>
+    <width>435</width>
+    <height>328</height>
    </size>
   </property>
   <property name="windowTitle" >
@@ -28,7 +28,7 @@
    <iconset resource="../../resource/dboxfe.qrc" >
     <normaloff>:/pics/images/default.png</normaloff>:/pics/images/default.png</iconset>
   </property>
-  <layout class="QGridLayout" name="glAbout" >
+  <layout class="QGridLayout" name="gridLayout_2" >
    <item row="0" column="0" >
     <widget class="QTabWidget" name="tabWidgetAbout" >
      <property name="currentIndex" >
@@ -368,32 +368,7 @@ p, li { white-space: pre-wrap; }
     </widget>
    </item>
    <item row="1" column="0" >
-    <layout class="QHBoxLayout" name="hlButtonGroup" >
-     <property name="spacing" >
-      <number>6</number>
-     </property>
-     <property name="margin" >
-      <number>0</number>
-     </property>
-     <item>
-      <widget class="QPushButton" name="btnAboutQt" >
-       <property name="minimumSize" >
-        <size>
-         <width>75</width>
-         <height>23</height>
-        </size>
-       </property>
-       <property name="maximumSize" >
-        <size>
-         <width>75</width>
-         <height>23</height>
-        </size>
-       </property>
-       <property name="text" >
-        <string>&amp;About Qt</string>
-       </property>
-      </widget>
-     </item>
+    <layout class="QHBoxLayout" name="horizontalLayout" >
      <item>
       <spacer name="hs3" >
        <property name="orientation" >
@@ -401,7 +376,7 @@ p, li { white-space: pre-wrap; }
        </property>
        <property name="sizeHint" stdset="0" >
         <size>
-         <width>81</width>
+         <width>98</width>
          <height>20</height>
         </size>
        </property>
@@ -426,11 +401,32 @@ p, li { white-space: pre-wrap; }
        </property>
       </widget>
      </item>
+     <item>
+      <widget class="QPushButton" name="btnAboutQt" >
+       <property name="minimumSize" >
+        <size>
+         <width>75</width>
+         <height>23</height>
+        </size>
+       </property>
+       <property name="maximumSize" >
+        <size>
+         <width>75</width>
+         <height>23</height>
+        </size>
+       </property>
+       <property name="text" >
+        <string>&amp;About Qt</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </item>
   </layout>
  </widget>
  <resources>
+  <include location="../../resource/dboxfe.qrc" />
+  <include location="../../resource/dboxfe.qrc" />
   <include location="../../resource/dboxfe.qrc" />
   <include location="../../resource/dboxfe.qrc" />
   <include location="../../resource/dboxfe.qrc" />

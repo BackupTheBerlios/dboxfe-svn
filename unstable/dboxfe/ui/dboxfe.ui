@@ -90,6 +90,9 @@ border-radius: 7px;</string>
     <layout class="QVBoxLayout" name="verticalLayout_2" >
      <item>
       <widget class="QListWidget" name="listWidgetGames" >
+       <property name="contextMenuPolicy" >
+        <enum>Qt::CustomContextMenu</enum>
+       </property>
        <property name="styleSheet" >
         <string notr="true" >selection-background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 lightblue, stop: 1 navy);
 border: none;
@@ -244,58 +247,6 @@ border: none;
         </layout>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="hlAssistant" >
-         <item>
-          <widget class="QLabel" name="labelAssistant" >
-           <property name="minimumSize" >
-            <size>
-             <width>110</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="maximumSize" >
-            <size>
-             <width>110</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="styleSheet" >
-            <string notr="true" >border: none;</string>
-           </property>
-           <property name="text" >
-            <string>Assistant</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="btnAssistant" >
-           <property name="minimumSize" >
-            <size>
-             <width>0</width>
-             <height>22</height>
-            </size>
-           </property>
-           <property name="maximumSize" >
-            <size>
-             <width>16777215</width>
-             <height>22</height>
-            </size>
-           </property>
-           <property name="styleSheet" >
-            <string notr="true" >border-style: none;</string>
-           </property>
-           <property name="text" >
-            <string/>
-           </property>
-           <property name="icon" >
-            <iconset resource="../../resource/dboxfe.qrc" >
-             <normaloff>:/pics/images/computer_16.png</normaloff>:/pics/images/computer_16.png</iconset>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
         <layout class="QHBoxLayout" name="hlDeleteProfile" >
          <item>
           <widget class="QLabel" name="labelDeleteProfile" >
@@ -347,6 +298,58 @@ border: none;
          </item>
         </layout>
        </item>
+       <item>
+        <layout class="QHBoxLayout" name="hlAssistant" >
+         <item>
+          <widget class="QLabel" name="labelAssistant" >
+           <property name="minimumSize" >
+            <size>
+             <width>110</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize" >
+            <size>
+             <width>110</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="styleSheet" >
+            <string notr="true" >border: none;</string>
+           </property>
+           <property name="text" >
+            <string>Assistant</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnAssistant" >
+           <property name="minimumSize" >
+            <size>
+             <width>0</width>
+             <height>22</height>
+            </size>
+           </property>
+           <property name="maximumSize" >
+            <size>
+             <width>16777215</width>
+             <height>22</height>
+            </size>
+           </property>
+           <property name="styleSheet" >
+            <string notr="true" >border-style: none;</string>
+           </property>
+           <property name="text" >
+            <string/>
+           </property>
+           <property name="icon" >
+            <iconset resource="../../resource/dboxfe.qrc" >
+             <normaloff>:/pics/images/computer_16.png</normaloff>:/pics/images/computer_16.png</iconset>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
       </layout>
      </item>
     </layout>
@@ -383,6 +386,9 @@ background-color: white;</string>
       <width>481</width>
       <height>271</height>
      </rect>
+    </property>
+    <property name="contextMenuPolicy" >
+     <enum>Qt::CustomContextMenu</enum>
     </property>
     <property name="styleSheet" >
      <string notr="true" >padding: 1px;
