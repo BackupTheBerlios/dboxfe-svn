@@ -19,8 +19,8 @@
 # Qt 4 Settings
 TEMPLATE = app
 DESTDIR = ../bin
-DEPENDPATH += include src resource ui ../3rdparty ../3rdparty/Zip ../base
-INCLUDEPATH += include ui ../3rdparty ../3rdparty/Zip ../base
+DEPENDPATH += include src resource ui ../3rdparty
+INCLUDEPATH += include ui ../3rdparty
 RESOURCES += resource/tray.qrc
 CONFIG += debug thread warn_on qt
 QT += xml
@@ -38,7 +38,6 @@ SOURCES += src/about.cpp
 SOURCES += src/tray.cpp
 
 # 3rdparty Header
-HEADERS += ../base/base.h
 HEADERS	+= ../3rdparty/base64.h
 HEADERS	+= ../3rdparty/xmlpreferences.h
 HEADERS	+= ../3rdparty/xmlpreferences_p.h
@@ -46,7 +45,6 @@ HEADERS	+= ../3rdparty/xmlwriter.h
 HEADERS	+= ../3rdparty/xmlwriter_p.h
 
 # 3rdparty Source
-SOURCES += ../base/base.cpp
 SOURCES	+= ../3rdparty/base64.cpp
 SOURCES	+= ../3rdparty/xmlpreferences.cpp
 SOURCES	+= ../3rdparty/xmlwriter.cpp
@@ -61,7 +59,6 @@ unix{
   UI_DIR += ../build/dboxfetray/unix/ui
 
 	LIBS += -lxml2
-	LIBS += -lz
 }
 
 # Windows settings
@@ -75,5 +72,4 @@ win32{
   UI_DIR += ../build/dboxfetray/win/ui
 	
 	LIBS += -llibxml2
-	LIBS += -lzlib
 }
