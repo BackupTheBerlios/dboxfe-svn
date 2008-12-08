@@ -1,0 +1,128 @@
+<ui version="4.0" >
+ <class>UiMessageBox</class>
+ <widget class="QDialog" name="UiMessageBox" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>585</width>
+    <height>200</height>
+   </rect>
+  </property>
+  <property name="minimumSize" >
+   <size>
+    <width>585</width>
+    <height>200</height>
+   </size>
+  </property>
+  <property name="maximumSize" >
+   <size>
+    <width>585</width>
+    <height>200</height>
+   </size>
+  </property>
+  <property name="windowTitle" >
+   <string>Messagebox</string>
+  </property>
+  <property name="windowIcon" >
+   <iconset>
+    <normaloff>:/pics/images/default.png</normaloff>:/pics/images/default.png</iconset>
+  </property>
+  <layout class="QGridLayout" name="gridLayout" >
+   <item row="0" column="0" >
+    <widget class="QLabel" name="labelInstruction" >
+     <property name="font" >
+      <font>
+       <pointsize>11</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text" >
+      <string>What do you want to do with your profile?</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0" >
+    <widget class="QCommandLinkButton" name="cmdButtonOne" >
+     <property name="text" >
+      <string>Delete from list</string>
+     </property>
+     <property name="shortcut" >
+      <string>Ctrl+L</string>
+     </property>
+     <property name="default" >
+      <bool>true</bool>
+     </property>
+     <property name="description" >
+      <string>You delete profile from game list. You can load this profile again.</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0" >
+    <widget class="QCommandLinkButton" name="cmdButtonTwo" >
+     <property name="text" >
+      <string>Delete from list and filesystem</string>
+     </property>
+     <property name="shortcut" >
+      <string>Ctrl+F</string>
+     </property>
+     <property name="description" >
+      <string>You delete profile from list and filesystem. Use this option carefully, you can't load this profile again.</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0" >
+    <spacer name="verticalSpacer" >
+     <property name="orientation" >
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0" >
+      <size>
+       <width>20</width>
+       <height>33</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="4" column="0" >
+    <layout class="QHBoxLayout" name="horizontalLayout" >
+     <item>
+      <spacer name="horizontalSpacer" >
+       <property name="orientation" >
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0" >
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnCancel" >
+       <property name="minimumSize" >
+        <size>
+         <width>75</width>
+         <height>23</height>
+        </size>
+       </property>
+       <property name="maximumSize" >
+        <size>
+         <width>75</width>
+         <height>23</height>
+        </size>
+       </property>
+       <property name="text" >
+        <string>&amp;Cancel</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
