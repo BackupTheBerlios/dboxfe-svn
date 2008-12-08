@@ -31,7 +31,7 @@
 
 namespace asaal {
 
-  Profile::Profile( QDialog *parent, Qt::WFlags flags ) : QDialog( parent, flags ) {
+  Profile::Profile( QWidget *parent, Qt::WFlags flags ) : QDialog( parent, flags ) {
 
     setupUi( this );
 

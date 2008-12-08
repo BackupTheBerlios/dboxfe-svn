@@ -28,6 +28,7 @@
 
 #include <base.h>
 #include <messagebox.h>
+#include <profile.h>
 #include <profilesettings.h>
 
 #include "ui_dboxfe.h"
@@ -187,6 +188,7 @@ namespace asaal {
       void processError( QProcess::ProcessError );
       
     private:
+      Profile *profile;
       ProfileSettings *profSettings;     
       MessageBox *messageBox;
   };

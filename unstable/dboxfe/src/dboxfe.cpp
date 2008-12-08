@@ -64,12 +64,16 @@ namespace asaal {
 
     messageBox = new MessageBox( this, "DPFL", "DPFLAF" );
     connect( messageBox, SIGNAL( commandLinkButtonClicked( const QCommandLinkButton * ) ), this, SLOT( deleteProfile( const QCommandLinkButton * ) ) );
+
+    profile = new Profile();
   }
 
   DBoxFE::~DBoxFE() {
 
+    messageBox = 0;
     configBase = 0;
     dboxfe = 0;
+    profile = 0;
     profSettings = 0;
     
   }
@@ -107,6 +111,57 @@ namespace asaal {
   }
 
   void DBoxFE::newGame() {
+
+    profile->LEProfile->setText( "" );
+
+    if( profile->exec() == QDialog::Accepted ) {
+
+      QString profileName = profile->LEProfile->text();
+      if( !profileName.isNull() || !profileName.isEmpty() ) {
+
+        bool found = false;
+
+        for( int a = 0; a < listWidgetGames->count(); a++ ) {
+
+          qApp->processEvents();
+
+          QListWidgetItem *foundItem = listWidgetGames->item( a );
+          if( foundItem ) {
+
+            if( foundItem->text() == profileName ) {
+
+              found = true;
+              break;
+            }
+          }
+        }
+
+        if( found ) {
+
+          QMessageBox::information( this, tr( "DBoxFE" ), tr( "You can't add the same game name!" ) );
+          return;
+        }
+
+        QString profile = QDir::homePath();
+        profile.append( "/.dboxfe/" + profileName + ".conf" );
+
+        profSettings = new ProfileSettings();
+        profSettings->setProfileName( profileName );
+        profSettings->initialConfiguration( profile );
+
+        if ( profSettings->exec() == QDialog::Accepted ) {
+
+          QListWidgetItem *item = 0;
+          item = new QListWidgetItem( listWidgetGames );
+          item->setText( profileName );
+
+          listWidgetGames->setCurrentItem( item, QItemSelectionModel::Select );
+        }
+
+        delete profSettings;
+        profSettings = 0;
+      }
+    }
   }
 
   void DBoxFE::editGame() {

@@ -83,7 +83,6 @@ namespace asaal {
     if ( !profileConfiguration.isEmpty() ) {
 
       DBoxFE::configBaseInstance()->writeConfiguration( profFile, profileConfiguration );
-
     }
 
     accept();
@@ -96,7 +95,7 @@ namespace asaal {
 
     if ( !profileConfiguration.isEmpty() ) {
 
-      // intial settings from selected profile
+      // intial default settings
 
     }
   }
@@ -106,11 +105,14 @@ namespace asaal {
     profileConfiguration.clear();
     profileConfiguration = DBoxFE::configBaseInstance()->readConfiguration( profFile );
 
-    if ( !profileConfiguration.isEmpty() ) {
+    if ( profileConfiguration.isEmpty() ) {
 
-      // intial settings from selected profile
-
+      profileConfiguration = DBoxFE::configBaseInstance()->readConfiguration( QString::fromUtf8( ":/default/default.conf" ) );
     }
+
+    // initial settings
+    
+
   }
 
   void ProfileSettings::closeWidget() {

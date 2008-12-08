@@ -120,7 +120,7 @@
        </property>
        <property name="icon" >
         <iconset resource="../../resource/dboxfe.qrc" >
-         <normaloff>:/pics/images/add_16.png</normaloff>:/pics/images/add_16.png</iconset>
+         <normaloff>:/pics/images/apply_16.png</normaloff>:/pics/images/apply_16.png</iconset>
        </property>
       </widget>
      </item>
@@ -143,7 +143,7 @@
        </property>
        <property name="icon" >
         <iconset resource="../../resource/dboxfe.qrc" >
-         <normaloff>:/pics/images/delete_16.png</normaloff>:/pics/images/delete_16.png</iconset>
+         <normaloff>:/pics/images/cancel_16.png</normaloff>:/pics/images/cancel_16.png</iconset>
        </property>
       </widget>
      </item>

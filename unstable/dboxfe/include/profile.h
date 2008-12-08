@@ -36,7 +36,7 @@ namespace asaal {
 	    Q_OBJECT
 
 	  public:
-	    Profile( QDialog *parent = 0, Qt::WFlags flags = 0 );
+	    Profile( QWidget *parent = 0, Qt::WFlags flags = 0 );
 	    ~Profile();
 
 	  private slots:
