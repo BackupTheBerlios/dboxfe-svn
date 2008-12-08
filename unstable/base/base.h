@@ -32,18 +32,20 @@
 
 /**
  * \brief Namespace asaal
- */ 
+ */
+
 namespace asaal {
 
   /**
    * \brief DBoxFE_Configuration handles all settings from DBoxFE incl. game profiles
-   * 
+   *
    * @author Alexander Saal <alex.saal@gmx.de>
    * @sa http://dboxfe.belios.de/index
    * @date 2008/05/12
    * @version 0.2.5
    * @since 0.2.5
-   */ 
+   */
+
   class DBoxFE_Configuration {
 
     public:
@@ -61,7 +63,7 @@ namespace asaal {
 
       /** Start key mapper on startup, if dosbox start */
       bool keyMapper;
-      
+
       /**
        * \brief Returns true if other points the same item of other; otherwise returns false.
        */
@@ -114,7 +116,8 @@ namespace asaal {
    * @version 0.2.5
    * @since 0.2.5
    */
-   class DFend_Configuration {
+
+  class DFend_Configuration {
 
     public:
       /** Set/Get extra settings */
@@ -186,6 +189,7 @@ namespace asaal {
    * @version 0.2.5
    * @since 0.2.5
    */
+
   class Configuration {
 
     public:
@@ -300,7 +304,7 @@ namespace asaal {
 
       /**
        * \brief Deletes all the objects in the cache.
-       */ 
+       */
       void clear() {
         sdl.clear();
         dosbox.clear();
@@ -329,6 +333,7 @@ namespace asaal {
    * @version 0.2.5
    * @since 0.2.5
    */
+
   class ConfigBase : public QObject {
 
       Q_OBJECT
@@ -336,19 +341,19 @@ namespace asaal {
     public:
       /**
        * \brief Constructor
-       * 
+       *
        * @param parent The optional QObject object
-       */ 
+       */
       ConfigBase( QObject *parent = 0 );
 
       /**
        * \brief Destructor
-       */ 
+       */
       ~ConfigBase();
 
       /**
        * \brief Returns the profiles for dboxfe in a QStringList
-       */ 
+       */
       QStringList readProfiles();
 
       /**
@@ -377,6 +382,46 @@ namespace asaal {
       Configuration importConfiguration( const QString &zipFile );
 
       /**
+       * \brief Returns the instance of xml preferences class with loaded file
+       *
+       * @param file The xml setting file
+       *
+       * @see XmlPreferences
+       */
+      XmlPreferences& xmlPreferences( const QString &file ) {
+
+        XmlPreferences& preferences = xmlPreferences();
+        preferences.load( file );
+
+        return preferences;
+      }
+
+      /**
+       * \brief Returns the instance of xml preferences class
+       * @see XmlPreferences
+       */
+      XmlPreferences& xmlPreferences() {
+
+        XmlPreferences& preferences = settings();
+        preferences.setProductInfo( "Alexander Saal", "DBoxFE" );
+        preferences.setProductVersion( 2 );
+
+        return preferences;
+      }
+
+      /**
+       * \brief Returns the internal setting file
+       */
+      QString settingFile() {
+
+        QString m_file = QString( "" );
+        m_file = QDir::homePath();
+        m_file.append( "/.dboxfe/profile/profile.xml" );
+
+        return m_file;
+      }
+
+      /**
        * \brief Export DBoxFE profile to D-Fend Reloaded
        *
        * @param name The name of profile
@@ -388,11 +433,11 @@ namespace asaal {
     public slots:
       /**
        * \brief Write DBoxFE settings incl. game profiles
-       * 
+       *
        * @param dboxfeConfig The configuration class
-       * 
+       *
        * @see DBoxFE_Configuration
-       */ 
+       */
       void writeSettings( const DBoxFE_Configuration &dboxfeConfig );
 
       /**
@@ -405,48 +450,6 @@ namespace asaal {
 
     private:
       /**
-       * \brief Returns the instance of xml preferences class with loaded file
-       * 
-       * @param file The xml setting file
-       * 
-       * @see XmlPreferences
-       */ 
-      XmlPreferences& xmlPreferences( const QString &file ) {
-
-        XmlPreferences& preferences = settings();
-        preferences.setProductInfo( "Alexander Saal", "DBoxFE" );
-        preferences.setProductVersion( 2 );
-        preferences.load( file );
-
-        return preferences;
-      }
-      
-      /**
-       * \brief Returns the instance of xml preferences class
-       * @see XmlPreferences
-       */ 
-      XmlPreferences& xmlPreferences() {
-
-        XmlPreferences& preferences = settings();
-        preferences.setProductInfo( "Alexander Saal", "DBoxFE" );
-        preferences.setProductVersion( 2 );
-
-        return preferences;
-      }
-
-      /**
-       * \brief Returns the internal setting file
-       */ 
-      QString settingFile() {
-        
-        QString m_file = QString( "" );
-        m_file = QDir::homePath();
-        m_file.append( "/.dboxfe/profile/profile.xml" );
-
-        return m_file;
-      }
-
-      /**
        * \brief Get files/directories for D-Fend Reloaded exported ziparchiv.
        *
        * @param directory The directory with all files/directories for export to zip
@@ -456,7 +459,7 @@ namespace asaal {
 
       /**
        * Internal variables
-       */ 
+       */
       Configuration m_Configuration;
       DBoxFE_Configuration m_DboxfeConfiguration;
       QStringList profiles;

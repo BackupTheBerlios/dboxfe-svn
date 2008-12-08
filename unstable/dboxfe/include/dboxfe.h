@@ -188,6 +188,8 @@ namespace asaal {
       void processError( QProcess::ProcessError );
       
     private:
+      QProcess *dosbox;
+      QStringList processParameter;
       Profile *profile;
       ProfileSettings *profSettings;     
       MessageBox *messageBox;

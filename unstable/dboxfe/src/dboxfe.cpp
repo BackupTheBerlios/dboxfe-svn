@@ -75,7 +75,7 @@ namespace asaal {
     dboxfe = 0;
     profile = 0;
     profSettings = 0;
-    
+
   }
 
   void DBoxFE::closeEvent( QCloseEvent *event ) {
@@ -114,21 +114,23 @@ namespace asaal {
 
     profile->LEProfile->setText( "" );
 
-    if( profile->exec() == QDialog::Accepted ) {
+    if ( profile->exec() == QDialog::Accepted ) {
 
       QString profileName = profile->LEProfile->text();
-      if( !profileName.isNull() || !profileName.isEmpty() ) {
+
+      if ( !profileName.isNull() || !profileName.isEmpty() ) {
 
         bool found = false;
 
-        for( int a = 0; a < listWidgetGames->count(); a++ ) {
+        for ( int a = 0; a < listWidgetGames->count(); a++ ) {
 
           qApp->processEvents();
 
           QListWidgetItem *foundItem = listWidgetGames->item( a );
-          if( foundItem ) {
 
-            if( foundItem->text() == profileName ) {
+          if ( foundItem ) {
+
+            if ( foundItem->text() == profileName ) {
 
               found = true;
               break;
@@ -136,13 +138,14 @@ namespace asaal {
           }
         }
 
-        if( found ) {
+        if ( found ) {
 
           QMessageBox::information( this, tr( "DBoxFE" ), tr( "You can't add the same game name!" ) );
           return;
         }
 
         QString profile = QDir::homePath();
+
         profile.append( "/.dboxfe/" + profileName + ".conf" );
 
         profSettings = new ProfileSettings();
@@ -159,27 +162,30 @@ namespace asaal {
         }
 
         delete profSettings;
+
         profSettings = 0;
       }
     }
   }
 
   void DBoxFE::editGame() {
-    
+
     QListWidgetItem *currentItem = listWidgetGames->currentItem();
-    if( currentItem == NULL ) {
-      
+
+    if ( currentItem == NULL ) {
+
       QMessageBox::information( this, tr( "DBoxFE" ), tr( "No game profile was selected!" ) );
       return;
     }
 
-    if( currentItem->text().isNull() || currentItem->text().isEmpty() ) {
-      
+    if ( currentItem->text().isNull() || currentItem->text().isEmpty() ) {
+
       QMessageBox::information( this, tr( "DBoxFE" ), tr( "No game profile was selected!" ) );
       return;
     }
-    
+
     QString profile = QDir::homePath();
+
     profile.append( "/.dboxfe/" + currentItem->text() + ".conf" );
 
     profSettings = new ProfileSettings();
@@ -187,17 +193,20 @@ namespace asaal {
     profSettings->initialConfiguration( profile );
 
     if ( profSettings->exec() == QDialog::Accepted ) {
+
     }
 
     delete profSettings;
+
     profSettings = 0;
   }
 
   void DBoxFE::deleteGame() {
 
     QListWidgetItem *currentItem = listWidgetGames->currentItem();
-    if( currentItem == NULL ) {
-      
+
+    if ( currentItem == NULL ) {
+
       QMessageBox::information( this, tr( "DBoxFE" ), tr( "No game profile was selected!" ) );
       return;
     } else {
@@ -214,7 +223,7 @@ namespace asaal {
 
     QString profile = QDir::homePath();
     profile.append( "/.dboxfe/" + item->text() + ".conf" );
-    
+
     profSettings = new ProfileSettings();
     profSettings->setProfileName( item->text() );
     profSettings->initialConfiguration( profile );
@@ -223,27 +232,31 @@ namespace asaal {
     }
 
     delete profSettings;
+
     profSettings = 0;
   }
 
   void DBoxFE::deleteProfile( const QCommandLinkButton *commandLinkButton ) {
 
-    if( commandLinkButton ) {
+    if ( commandLinkButton ) {
 
       QListWidgetItem *currentItem = listWidgetGames->currentItem();
-      if( currentItem ) {
 
-        if( commandLinkButton->objectName() == "DPFL" ) {
+      if ( currentItem ) {
+
+        if ( commandLinkButton->objectName() == "DPFL" ) {
 
           delete currentItem;
-        } else if( commandLinkButton->objectName() == "DPFLAF" ) {
+        } else if ( commandLinkButton->objectName() == "DPFLAF" ) {
 
           QString profile = QDir::homePath();
           profile.append( "/.dboxfe/" + currentItem->text() + ".conf" );
-          if( QFile::exists( profile ) ) {
+
+          if ( QFile::exists( profile ) ) {
 
             bool removed = QFile::remove( profile );
-            if( removed ) {
+
+            if ( removed ) {
 
               delete currentItem;
             }
@@ -256,30 +269,148 @@ namespace asaal {
   void DBoxFE::newGameWithAssistant() {
 
     QString dbfeAssistant = QString( "" );
-    
+
 #ifdef Q_OS_WIN32
     dbfeAssistant = QCoreApplication::applicationDirPath() + "/dboxfeassistant.exe";
 #else
     dbfeAssistant = QCoreApplication::applicationDirPath() + "/dboxfeassistant";
 #endif
 
-    if( !QFile::exists( dbfeAssistant ) ) {
+    if ( !QFile::exists( dbfeAssistant ) ) {
       QMessageBox::information( this, tr( "DBoxFE" ), tr( "Can not start dboxfe game assistant! Binary not available." ) );
       return;
     }
 
     // code here to start dboxfe game assistant
-  } 
+    bool winHide = configBase->xmlPreferences( configBase->settingFile() ).getBool( "winHide", "DBoxFE" );
+    if( winHide ) {
+      
+      hide();
+    }
+    
+    processStart( dbfeAssistant, "", "" );
+  }
 
   void DBoxFE::processStart( const QString& bin, const QString &param, const QString &conf ) {
+
+    processParameter.clear();
+
+    if( dosbox ) {
+      
+      disconnect( dosbox );
+
+      dosbox->close();
+      
+      delete dosbox;
+      dosbox = 0;
+    }
+
+    dosbox = new QProcess( this );
+
+    if ( !param.isEmpty() && !conf.isEmpty() ) {
+
+#ifdef Q_OS_WIN32
+
+      processParameter.append( "-noconsole" );
+#endif
+
+      processParameter.append( param );
+      processParameter.append( conf );
+
+      bool startKeyMapper = configBase->xmlPreferences( configBase->settingFile() ).getBool( "keyMapper", "DBoxFE" );
+
+      if ( startKeyMapper )
+        processParameter.append( "-startmapper" );
+
+#ifdef Q_OS_WIN32
+
+      QFileInfo dboxBin( conf );
+      dosbox->setWorkingDirectory( dboxBin.absolutePath() );
+#endif
+    }
+
+    dosbox->start( bin, processParameter );
+
+    connect( dosbox, SIGNAL( readyReadStandardOutput() ), this, SLOT( processOutput() ) );
+    connect( dosbox, SIGNAL( finished( int, QProcess::ExitStatus ) ), this, SLOT( processFinish( int, QProcess::ExitStatus ) ) );
+    connect( dosbox, SIGNAL( error( QProcess::ProcessError ) ), this, SLOT( processError( QProcess::ProcessError ) ) );
   }
 
   void DBoxFE::processOutput() {
+
+    while ( dosbox->canReadLine() ) {
+      qDebug() << dosbox->readLine();
+    }
   }
 
   void DBoxFE::processFinish( int exitCode, QProcess::ExitStatus exitStatus ) {
+
+    show();
+
+#ifdef Q_OS_WIN32
+
+    QString path, outLine;
+    path = QDir::homePath();
+    path.append( "/.dboxfe/stdout.txt" );
+
+    QFile outFile( path );
+
+    if ( !outFile.open( QFile::ReadOnly | QFile::Text ) ) {
+      QMessageBox::information( this, winTitle(), tr( "Can not read file " ) + path );
+      outFile.close();
+      return;
+    }
+
+    QTextStream t( &outFile );
+
+    while ( !t.atEnd() ) {
+      qDebug() << t.readLine();
+    }
+
+    outFile.close();
+
+#endif
+
+    switch ( exitStatus ) {
+
+      case QProcess::NormalExit:
+        qDebug() << exitCode;
+        break;
+
+      case QProcess::CrashExit:
+        qDebug() << exitCode;
+        break;
+    }
   }
 
   void DBoxFE::processError( QProcess::ProcessError error ) {
+
+    switch ( error ) {
+
+      case QProcess::FailedToStart:
+        qDebug() << tr( "dboxfe: the dosbox process failed to start" );
+        break;
+
+      case QProcess::Crashed:
+        qDebug() << tr( "dboxfe: dosbox process crashed some time after starting successfully" );
+        break;
+
+      case QProcess::Timedout:
+        qDebug() << tr( "dboxfe: last waitFor...() function timed out" );
+        break;
+
+      case QProcess::WriteError:
+        qDebug() << tr( "dboxfe: an error occurred when attempting to write to the dosbox process" );
+        break;
+
+      case QProcess::ReadError:
+        qDebug() << tr( "dboxfe: an error occurred when attempting to read from the dosbox process" );
+        break;
+
+      case QProcess::UnknownError:
+        qDebug() << tr( "dboxfe: An unknown error occurred" );
+        break;
+    }
+
   }
 }
