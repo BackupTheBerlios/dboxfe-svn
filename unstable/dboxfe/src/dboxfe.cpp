@@ -203,7 +203,7 @@ namespace asaal {
     } else {
 
       messageBox->setMessageBoxTitle( tr( "Remove [ %1 ]" ).arg( currentItem->text() ) );
-      messageBox->show();
+      messageBox->exec();
     }
   }
 
