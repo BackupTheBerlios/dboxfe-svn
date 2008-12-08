@@ -30,9 +30,8 @@ QT += xml network
 # Project Ui files
 FORMS += ui/about.ui
 FORMS += ui/dboxfe.ui
-FORMS += ui/profilesettings.ui
 FORMS += ui/profile.ui
-
+FORMS += ui/profilesettings.ui
 
 # Project Misc files
 DISTFILES += ../resource/thanks
@@ -53,8 +52,12 @@ SOURCES	+= src/profile.cpp
 SOURCES	+= src/profilesettings.cpp
 SOURCES	+= src/splash.cpp
 
+# 3rdparty Forms
+FORMS += ../base/messagebox.ui
+
 # 3rdparty Header
 HEADERS += ../base/base.h
+HEADERS	+= ../base/messagebox.h
 HEADERS	+= ../3rdparty/base64.h
 HEADERS += ../3rdparty/md5hash.h
 HEADERS	+= ../3rdparty/xmlpreferences.h
@@ -69,6 +72,7 @@ HEADERS += ../3rdparty/zip_p.h
 
 # 3rdparty Source
 SOURCES += ../base/base.cpp
+SOURCES	+= ../base/messagebox.cpp
 SOURCES	+= ../3rdparty/base64.cpp
 SOURCES += ../3rdparty/md5hash.cpp
 SOURCES	+= ../3rdparty/xmlpreferences.cpp

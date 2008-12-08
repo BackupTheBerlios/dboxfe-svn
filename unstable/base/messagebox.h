@@ -31,47 +31,103 @@
 #include <QtCore>
 #include <QtGui>
 
+/**
+ * \brief Namespace asaal
+ */ 
 namespace asaal {
 
-	class MessageBox : public QDialog, public Ui::UiMessageBox {
+  /**
+   * \brief MessageBox to handles messages from dboxfe
+   * 
+   * @author Alexander Saal <alex.saal@gmx.de>
+   * @sa http://dboxfe.belios.de/index
+   * @date  2008/08/12
+   * @version 0.2.5
+   * @since 0.2.5
+   */ 
+  class MessageBox : public QDialog, public Ui::UiMessageBox {
 
-		Q_OBJECT
-		
-		public:
-			MessageBox( QWidget *parent = 0 );
-			~MessageBox()
+     Q_OBJECT
 
-		public slots:
-			void setMessageBoxTitle( const QString &title = QString ( "" ) );
+    public:
+      /**
+       * \brief Constructor of MessageBox
+       * 
+       * @param parent The optional parent widget
+       * 
+       * @see MessageBox
+       */ 
+      MessageBox( QWidget *parent = 0 );
 
-			void setMessageBoxInstruction( const QString &instruction = QString( "" ) );
+      /**
+       * \brief De-Constructor of MessageBox
+       * 
+       * @see MessageBox
+       */ 
+      ~MessageBox();
 
-			void setCommandButton1Text( const QString &text = QString( "" ) );
+      public slots:
+        /**
+         * \brief Set window title
+         * 
+         * @param title The title.
+         */ 
+        void setMessageBoxTitle( const QString &title = QString ( "" ) );
 
-			void setCommandButton1Description( const QString &description = QString( "" ) );
+        /**
+         * \brief Set instruction (message)
+         * 
+         * @param instruction The instruction
+         */ 
+        void setMessageBoxInstruction( const QString &instruction = QString( "" ) );
 
-			void setCommandButton2Text( const QString &text = QString( "" ) );
+        /**
+         * \brief Set text for the first command link button
+         * 
+         * @param text The text
+         */ 
+        void setCommandButton1Text( const QString &text = QString( "" ) );
 
-			void setCommandButton2Description( const QString &description = QString( "" ) );
+        /**
+         * \brief Set description for the first command link button
+         * 
+         * @param description The description
+         */ 
+        void setCommandButton1Description( const QString &description = QString( "" ) );
 
-		private slots:
-			void cmdButtonClicked();
-			
-		Q_SIGNALS:
-			void commandButton1Clicked();
-			void commandButton2Clicked();
-			
-		protected:
-			void closeEvent( QCloseEvent *e );
+        /**
+         * \brief Set text for the second command link button
+         * 
+         * @param text The text
+         */ 
+        void setCommandButton2Text( const QString &text = QString( "" ) );
 
-		private:
-			QString m_Title;
-			QString m_Instruction;
-			QString m_CmdBtn1Text;
-			QString m_CmdBtn1Description;
-			QString m_CmdBtn2Text;
-			QString m_CmdBtn2Description;
-	};
+        /**
+         * \brief Set description for the second command link button
+         * 
+         * @param description The description
+         */
+        void setCommandButton2Description( const QString &description = QString( "" ) );
+
+     private slots:
+          /**
+           * \brief This event is called if you clicked on a QCommandLinkButton
+           */ 
+          void commandLinkButtonClicked();
+
+Q_SIGNALS:
+          /**
+           * \brief This event is invoke if you click on a command link button in the MessageBox
+           */ 
+          void commandButtonClicked( QCommandLinkButton *commandButton );
+
+    protected:
+      /**
+       * \brief 
+       * @param e 
+       */ 
+      void closeEvent( QCloseEvent *e );
+  };
 }
 
 #endif // MESSAGEBOX_H

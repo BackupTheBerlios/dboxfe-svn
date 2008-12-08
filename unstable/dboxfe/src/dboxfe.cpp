@@ -43,20 +43,16 @@ namespace asaal {
     connect( btnOpenDescriptionText, SIGNAL( clicked() ), this, SLOT( openDescription() ) );
     connect( btnApplyDescriptionText, SIGNAL( clicked() ), this, SLOT( applyDescription() ) );
     connect( btnClearDescriptionText, SIGNAL( clicked() ), this, SLOT( clearDescription() ) );
-
     connect( btnOpenScreenCapture, SIGNAL( clicked() ), this, SLOT( openScreenCapture() ) );
     connect( btnApplyScreenCapture, SIGNAL( clicked() ), this, SLOT( applyScreenCapture() ) );
     connect( btnClearScreenCapture, SIGNAL( clicked() ), this, SLOT( clearScreenCapture() ) );
-
     connect( btnStartGame, SIGNAL( clicked() ), this, SLOT( startGame() ) );
     connect( btnNewProfile, SIGNAL( clicked() ), this, SLOT( newGame() ) );
     connect( btnEditProfile, SIGNAL( clicked() ), this, SLOT( editGame() ) );
     connect( btnDeleteProfile, SIGNAL( clicked() ), this, SLOT( deleteGame() ) );
-
     connect( btnAssistant, SIGNAL( clicked() ), this, SLOT( newGameWithAssistant() ) );
 
     connect( textEditGameDescription, SIGNAL( customContextMenuRequested( const QPoint & ) ), this, SLOT( textEditCustomContextMenuRequested( const QPoint & ) ) );
-
     connect( listWidgetGames, SIGNAL( itemDoubleClicked( QListWidgetItem * ) ), this, SLOT( listWidgetItemDoubleClicked( QListWidgetItem * ) ) );
 
     QDesktopWidget *desktop = qApp->desktop();
@@ -146,8 +142,10 @@ namespace asaal {
       QMessageBox::information( this, tr( "DBoxFE" ), tr( "No game profile was selected!" ) );
       return;
     }
+    else {
 
-    delete currentItem;
+      delete currentItem;
+    }
   }
 
   void DBoxFE::textEditCustomContextMenuRequested( const QPoint &pos ) {

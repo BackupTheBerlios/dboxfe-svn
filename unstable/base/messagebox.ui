@@ -28,7 +28,7 @@
    <iconset>
     <normaloff>:/pics/images/default.png</normaloff>:/pics/images/default.png</iconset>
   </property>
-  <layout class="QGridLayout" name="gridLayout" >
+  <layout class="QGridLayout" name="glMessageBox" >
    <item row="0" column="0" >
     <widget class="QLabel" name="labelInstruction" >
      <property name="font" >
@@ -73,7 +73,7 @@
     </widget>
    </item>
    <item row="3" column="0" >
-    <spacer name="verticalSpacer" >
+    <spacer name="vsMessageBox" >
      <property name="orientation" >
       <enum>Qt::Vertical</enum>
      </property>
@@ -86,9 +86,9 @@
     </spacer>
    </item>
    <item row="4" column="0" >
-    <layout class="QHBoxLayout" name="horizontalLayout" >
+    <layout class="QHBoxLayout" name="hlCancelMessageBox" >
      <item>
-      <spacer name="horizontalSpacer" >
+      <spacer name="hsMessageBox" >
        <property name="orientation" >
         <enum>Qt::Horizontal</enum>
        </property>
@@ -123,6 +123,28 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>cmdButtonOne</tabstop>
+  <tabstop>cmdButtonTwo</tabstop>
+  <tabstop>btnCancel</tabstop>
+ </tabstops>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>btnCancel</sender>
+   <signal>clicked()</signal>
+   <receiver>UiMessageBox</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>522</x>
+     <y>178</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>431</x>
+     <y>176</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
