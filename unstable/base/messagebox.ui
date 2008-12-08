@@ -5,19 +5,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>585</width>
+    <width>635</width>
     <height>200</height>
    </rect>
   </property>
   <property name="minimumSize" >
    <size>
-    <width>585</width>
+    <width>635</width>
     <height>200</height>
    </size>
   </property>
   <property name="maximumSize" >
    <size>
-    <width>585</width>
+    <width>635</width>
     <height>200</height>
    </size>
   </property>
@@ -39,12 +39,15 @@
       </font>
      </property>
      <property name="text" >
-      <string>What do you want to do with your profile?</string>
+      <string>What do you want to do with this profile?</string>
      </property>
     </widget>
    </item>
    <item row="1" column="0" >
     <widget class="QCommandLinkButton" name="cmdButtonOne" >
+     <property name="whatsThis" >
+      <string>This is the first command link button</string>
+     </property>
      <property name="text" >
       <string>Delete from list</string>
      </property>
@@ -55,12 +58,15 @@
       <bool>true</bool>
      </property>
      <property name="description" >
-      <string>You delete profile from game list. You can load this profile again.</string>
+      <string>You delete this profile only from game list. You can add/load this profile again.</string>
      </property>
     </widget>
    </item>
    <item row="2" column="0" >
     <widget class="QCommandLinkButton" name="cmdButtonTwo" >
+     <property name="whatsThis" >
+      <string>This is the second command link button</string>
+     </property>
      <property name="text" >
       <string>Delete from list and filesystem</string>
      </property>
@@ -68,7 +74,7 @@
       <string>Ctrl+F</string>
      </property>
      <property name="description" >
-      <string>You delete profile from list and filesystem. Use this option carefully, you can't load this profile again.</string>
+      <string>You delete this profile from list and filesystem. Use this option carefully, you can't load/add this profile again.</string>
      </property>
     </widget>
    </item>

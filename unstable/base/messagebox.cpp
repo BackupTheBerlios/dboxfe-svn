@@ -79,6 +79,10 @@ namespace asaal {
     if( cmdLinkButton ) {
 
       emit commandLinkButtonClicked( cmdLinkButton );
+      accept();
+    } else {
+
+      reject();
     }
   }
 

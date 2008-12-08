@@ -24,6 +24,7 @@
  ***************************************************************************/
 
 #include <base.h>
+#include <messagebox.h>
 #include <dboxfe.h>
 
 #include <QtGui>
@@ -60,6 +61,9 @@ namespace asaal {
     int left = ( rect.width() - width() ) / 2;
     int top = ( rect.height() - height() ) / 2;
     setGeometry( left, top, width(), height() );
+
+    messageBox = new MessageBox( this, "DPFL", "DPFLAF" );
+    connect( messageBox, SIGNAL( commandLinkButtonClicked( const QCommandLinkButton * ) ), this, SLOT( deleteProfile( const QCommandLinkButton * ) ) );
   }
 
   DBoxFE::~DBoxFE() {
@@ -141,10 +145,10 @@ namespace asaal {
       
       QMessageBox::information( this, tr( "DBoxFE" ), tr( "No game profile was selected!" ) );
       return;
-    }
-    else {
+    } else {
 
-      delete currentItem;
+      messageBox->setMessageBoxTitle( tr( "Remove [ %1 ]" ).arg( currentItem->text() ) );
+      messageBox->show();
     }
   }
 
@@ -165,6 +169,33 @@ namespace asaal {
 
     delete profSettings;
     profSettings = 0;
+  }
+
+  void DBoxFE::deleteProfile( const QCommandLinkButton *commandLinkButton ) {
+
+    if( commandLinkButton ) {
+
+      QListWidgetItem *currentItem = listWidgetGames->currentItem();
+      if( currentItem ) {
+
+        if( commandLinkButton->objectName() == "DPFL" ) {
+
+          delete currentItem;
+        } else if( commandLinkButton->objectName() == "DPFLAF" ) {
+
+          QString profile = QDir::homePath();
+          profile.append( "/.dboxfe/" + currentItem->text() + ".conf" );
+          if( QFile::exists( profile ) ) {
+
+            bool removed = QFile::remove( profile );
+            if( removed ) {
+
+              delete currentItem;
+            }
+          }
+        }
+      }
+    }
   }
 
   void DBoxFE::newGameWithAssistant() {

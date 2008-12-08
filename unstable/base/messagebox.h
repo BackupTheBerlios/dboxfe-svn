@@ -115,9 +115,9 @@ namespace asaal {
 
 Q_SIGNALS:
           /**
-           * \brief This event is invoke if you click on a command link button in the MessageBox
+           * \brief This signal is emitted when the command button on MessageBox is clicked.
            */ 
-          void commandLinkButtonClicked( QCommandLinkButton *commandButton );
+          void commandLinkButtonClicked( const QCommandLinkButton *commandButton );
 
     protected:
       /**

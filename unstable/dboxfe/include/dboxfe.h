@@ -27,6 +27,7 @@
 #define DBOXFE_H
 
 #include <base.h>
+#include <messagebox.h>
 #include <profilesettings.h>
 
 #include "ui_dboxfe.h"
@@ -148,6 +149,15 @@ namespace asaal {
       void newGameWithAssistant();
 
       /**
+       * \brief This signal is emitted when the command button on MessageBox is clicked.
+       * 
+       * @param commandLinkButton The command link button from MessageBox 
+       * 
+       * @see MessageBox
+       */ 
+      void deleteProfile( const QCommandLinkButton * );
+
+      /**
        * \brief Start dosbox
        *
        * @param bin The dosbox binary
@@ -177,7 +187,8 @@ namespace asaal {
       void processError( QProcess::ProcessError );
       
     private:
-      ProfileSettings *profSettings;          
+      ProfileSettings *profSettings;     
+      MessageBox *messageBox;
   };
 }
 
