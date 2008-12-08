@@ -53,16 +53,14 @@ namespace asaal {
       /**
        * \brief Constructor of MessageBox
        * 
-       * @param parent The optional parent widget
-       * 
-       * @see MessageBox
+       * @param parent Optional parent widget
+       * @param cmdBtn1Id The optional id for first command link button
+       * @param cmdBtn2Id The optional id for second command link button
        */ 
-      MessageBox( QWidget *parent = 0 );
+      MessageBox( QWidget *parent = 0, const QString &cmdBtn1Id = QString( "cmdButtonOne" ), const QString &cmdBtn2Id = QString( "cmdButtonTwo" ));
 
       /**
        * \brief De-Constructor of MessageBox
-       * 
-       * @see MessageBox
        */ 
       ~MessageBox();
 
@@ -113,13 +111,13 @@ namespace asaal {
           /**
            * \brief This event is called if you clicked on a QCommandLinkButton
            */ 
-          void commandLinkButtonClicked();
+          void commandButtonClicked();
 
 Q_SIGNALS:
           /**
            * \brief This event is invoke if you click on a command link button in the MessageBox
            */ 
-          void commandButtonClicked( QCommandLinkButton *commandButton );
+          void commandLinkButtonClicked( QCommandLinkButton *commandButton );
 
     protected:
       /**

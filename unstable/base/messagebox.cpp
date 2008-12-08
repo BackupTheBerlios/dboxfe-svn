@@ -30,34 +30,60 @@
 
 namespace asaal {
 
-  MessageBox::MessageBox( QWidget *parent ) : QDialog( parent )  {
+  MessageBox::MessageBox( QWidget *parent, const QString &cmdBtn1Id, const QString &cmdBtn2Id ) : QDialog( parent )  {
 
     setupUi( this );
+
+    connect( cmdButtonOne, SIGNAL( clicked() ), this, SLOT( commandButtonClicked() ) );
+    connect( cmdButtonTwo, SIGNAL( clicked() ), this, SLOT( commandButtonClicked() ) );
+
+    cmdButtonOne->setObjectName( cmdBtn1Id );
+    cmdButtonTwo->setObjectName( cmdBtn2Id );
   }
 
   MessageBox::~MessageBox() {}
 
   void MessageBox::setMessageBoxTitle( const QString &title ) {
+
+    setWindowTitle( title );
   }
 
   void MessageBox::setMessageBoxInstruction( const QString &instruction  ) {
+
+    labelInstruction->setText( instruction );
   }
 
   void MessageBox::setCommandButton1Text( const QString &text  ) {
+
+    cmdButtonOne->setText( text );
   }
 
   void MessageBox::setCommandButton1Description( const QString &description  ) {
+
+    cmdButtonOne->setDescription( description );
   }
 
   void MessageBox::setCommandButton2Text( const QString &text  ) {
+    
+    cmdButtonTwo->setText( text );
   }
 
   void MessageBox::setCommandButton2Description( const QString &description  ) {
+    
+    cmdButtonTwo->setDescription( description );
   }
 
-  void MessageBox::commandLinkButtonClicked() {
+  void MessageBox::commandButtonClicked() {
+
+    QCommandLinkButton *cmdLinkButton = qobject_cast< QCommandLinkButton* >( sender() );
+    if( cmdLinkButton ) {
+
+      emit commandLinkButtonClicked( cmdLinkButton );
+    }
   }
 
   void MessageBox::closeEvent( QCloseEvent *e ) {
+
+    e->accept();
   }
 }
