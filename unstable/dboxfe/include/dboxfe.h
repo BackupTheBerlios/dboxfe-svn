@@ -133,13 +133,6 @@ namespace asaal {
       void deleteGame();
 
       /*
-       * This signal is emitted when the text edit contextMenuPolicy is Qt::CustomContextMenu,
-       * and the user has requested a context menu on the text edit. The position "pos" is the
-       * position of the context menu event that the text edit receives.
-       */
-      void textEditCustomContextMenuRequested( const QPoint & );
-
-      /*
        * This signal is emitted with the specified item when a mouse button is double clicked on an item in the widget.
        */
       void listWidgetItemDoubleClicked( QListWidgetItem * );
