@@ -55,6 +55,7 @@ namespace asaal {
     connect( btnDeleteProfile, SIGNAL( clicked() ), this, SLOT( deleteGame() ) );
     connect( btnAssistant, SIGNAL( clicked() ), this, SLOT( newGameWithAssistant() ) );
 
+    connect( listWidgetGames, SIGNAL( itemClicked( QListWidgetItem * ) ), this, SLOT( listWidgetItemClicked( QListWidgetItem * ) ) );
     connect( listWidgetGames, SIGNAL( itemDoubleClicked( QListWidgetItem * ) ), this, SLOT( listWidgetItemDoubleClicked( QListWidgetItem * ) ) );
 
     QDesktopWidget *desktop = qApp->desktop();
@@ -133,14 +134,9 @@ namespace asaal {
       return;
     }
 
-    QString profile = QDir::homePath();
-
-    profile.append( "/.dboxfe/profile/profile_description.xml" );
-    
-    XmlPreferences &xmlPreferences = configBase->xmlPreferences();
-    xmlPreferences.setString( "Description", textEditGameDescription->toHtml(), currentItem->text() );
-    xmlPreferences.setString( "Image", !imageFile.isNull() || !imageFile.isEmpty() ? imageFile : QString( "" ), currentItem->text() );
-    xmlPreferences.save( profile );
+    configBase->xmlPreferences( configBase->settingFile() ).setString( "description", textEditGameDescription->toPlainText(), currentItem->text() );
+    configBase->xmlPreferences( configBase->settingFile() ).setString( "image", !imageFile.isNull() || !imageFile.isEmpty() ? imageFile : QString( "" ), currentItem->text() );
+    configBase->xmlPreferences().save( configBase->settingFile() );
   }
 
   /*
@@ -155,11 +151,13 @@ namespace asaal {
    * Open screen capture for selected game profile
    */
   void DBoxFE::openScreenCapture() {
-    
-    imageFile = QFileDialog::getOpenFileName( this, tr( "caption" ), QDir::homePath(), tr( "All image files (*.bmp, *.jpeg, *.jpg, *.png, *.gif)" ) );
+
+    imageFile = QFileDialog::getOpenFileName( this, tr( "caption" ), QDir::homePath(), tr( "All image files (*.bmp *.jpeg *.jpg *.png *.gif *.xpm)" ) );
 
     if ( !imageFile.isNull() || !imageFile.isEmpty() ) {
 
+      QPixmap pixmap( imageFile );
+      labelGameScreenshot->setPixmap( pixmap );
     }
   }
 
@@ -167,12 +165,17 @@ namespace asaal {
    * Apply screen capture for selected game profile
    */
   void DBoxFE::applyScreenCapture() {
+
+    applyDescription();
   }
 
   /*
    * Clear screen capture for selected game profile
    */
   void DBoxFE::clearScreenCapture() {
+
+    imageFile = QString( "" );
+    labelGameScreenshot->clear();
   }
 
   /*
@@ -341,7 +344,24 @@ namespace asaal {
   }
 
   /*
-   * Open the settings dialog for selected game if you double click on a game profile
+  * This signal is emitted with the specified item when a mouse button is clicked on an item in the widget.
+  */
+  void DBoxFE::listWidgetItemClicked( QListWidgetItem *item ) {
+    
+    labelGameScreenshot->clear();
+    textEditGameDescription->clear();
+
+    QPixmap pixmap( configBase->xmlPreferences( configBase->settingFile() ).getString( "image", item->text() ) );
+    QString description = configBase->xmlPreferences( configBase->settingFile() ).getString( "description", item->text() );
+
+    labelGameScreenshot->setPixmap( pixmap );
+    textEditGameDescription->setHtml( description );
+    
+    description = QString( "" );
+  }
+
+  /*
+   * This signal is emitted with the specified item when a mouse button is double clicked on an item in the widget.
    */
   void DBoxFE::listWidgetItemDoubleClicked( QListWidgetItem *item ) {
 

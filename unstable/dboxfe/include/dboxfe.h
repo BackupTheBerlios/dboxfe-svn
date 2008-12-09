@@ -133,6 +133,11 @@ namespace asaal {
       void deleteGame();
 
       /*
+      * This signal is emitted with the specified item when a mouse button is clicked on an item in the widget.
+      */
+      void listWidgetItemClicked( QListWidgetItem * );
+
+      /*
        * This signal is emitted with the specified item when a mouse button is double clicked on an item in the widget.
        */
       void listWidgetItemDoubleClicked( QListWidgetItem * );
