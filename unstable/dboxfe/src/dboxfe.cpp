@@ -134,8 +134,8 @@ namespace asaal {
       return;
     }
 
-    configBase->xmlPreferences( configBase->settingFile() ).setString( "description", textEditGameDescription->toPlainText(), currentItem->text() );
-    configBase->xmlPreferences( configBase->settingFile() ).setString( "image", !imageFile.isNull() || !imageFile.isEmpty() ? imageFile : QString( "" ), currentItem->text() );
+    configBase->xmlPreferences().setString( "description", textEditGameDescription->toHtml(), currentItem->text() );
+    configBase->xmlPreferences().setString( "image", imageFile, currentItem->text() );
     configBase->xmlPreferences().save( configBase->settingFile() );
   }
 
@@ -145,6 +145,8 @@ namespace asaal {
   void DBoxFE::clearDescription() {
 
     textEditGameDescription->clear();
+    textEditGameDescription->setHtml( QString( "" ) );
+    textEditGameDescription->setPlainText( QString( "" ) );
   }
 
   /*
