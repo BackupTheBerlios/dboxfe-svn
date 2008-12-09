@@ -66,6 +66,8 @@ namespace asaal {
     connect( messageBox, SIGNAL( commandLinkButtonClicked( const QCommandLinkButton * ) ), this, SLOT( deleteProfile( const QCommandLinkButton * ) ) );
 
     profile = new Profile();
+
+    initialMenus();
   }
 
   DBoxFE::~DBoxFE() {
@@ -217,6 +219,11 @@ namespace asaal {
   }
 
   void DBoxFE::textEditCustomContextMenuRequested( const QPoint &pos ) {
+
+    // add custom menu here ...
+
+    QMouseEvent *mevent = new QMouseEvent( QEvent::MouseButtonPress, pos, Qt::RightButton, Qt::RightButton, Qt::NoModifier );
+    descMenu->exec( mevent->globalPos() );
   }
 
   void DBoxFE::listWidgetItemDoubleClicked( QListWidgetItem *item ) {
@@ -283,11 +290,12 @@ namespace asaal {
 
     // code here to start dboxfe game assistant
     bool winHide = configBase->xmlPreferences( configBase->settingFile() ).getBool( "winHide", "DBoxFE" );
-    if( winHide ) {
-      
+
+    if ( winHide ) {
+
       hide();
     }
-    
+
     processStart( dbfeAssistant, "", "" );
   }
 
@@ -295,12 +303,12 @@ namespace asaal {
 
     processParameter.clear();
 
-    if( dosbox ) {
-      
+    if ( dosbox ) {
+
       disconnect( dosbox );
 
       dosbox->close();
-      
+
       delete dosbox;
       dosbox = 0;
     }
@@ -325,7 +333,9 @@ namespace asaal {
 #ifdef Q_OS_WIN32
 
       QFileInfo dboxBin( conf );
+
       dosbox->setWorkingDirectory( dboxBin.absolutePath() );
+
 #endif
     }
 
@@ -411,6 +421,68 @@ namespace asaal {
         qDebug() << tr( "dboxfe: An unknown error occurred" );
         break;
     }
+  }
 
+  void DBoxFE::initialMenus() {
+
+    descMenu = textEditGameDescription->createStandardContextMenu( QPoint( 20, 20 ) );
+
+    seperator = new QAction( "", this );
+    seperator->setSeparator( true );
+
+    centerText = new QAction( tr( "Center" ), this );
+    centerText->setObjectName( "centerText" );
+    connect( centerText, SIGNAL( triggered() ), this, SLOT( changeTextStyle() ) );
+
+    fatText = new QAction( tr( "Fat" ), this );
+    fatText->setObjectName( "fatText" );
+    connect( fatText, SIGNAL( triggered() ), this, SLOT( changeTextStyle() ) );
+
+    italicText = new QAction( tr( "Italic" ), this );
+    italicText->setObjectName( "italicText" );
+    connect( italicText, SIGNAL( triggered() ), this, SLOT( changeTextStyle() ) );
+
+    boldText = new QAction( tr( "Bold" ), this );
+    boldText->setObjectName( "boldText" );
+    connect( boldText, SIGNAL( triggered() ), this, SLOT( changeTextStyle() ) );
+
+    underlineText = new QAction( tr( "Underline" ), this );
+    underlineText->setObjectName( "underlineText" );
+    connect( underlineText, SIGNAL( triggered() ), this, SLOT( changeTextStyle() ) );
+
+    QList< QAction* > stdActions = descMenu->actions();
+    QList< QAction* > descActions;
+
+    descActions.append( centerText );
+    descActions.append( fatText );
+    descActions.append( italicText );
+    descActions.append( boldText );
+    descActions.append( underlineText );
+    descActions.append( seperator );
+
+    foreach( QAction *action, stdActions ) {
+
+      descActions.append( action );
+    }
+
+    descMenu->addActions( descActions );
+  }
+
+  void DBoxFE::changeTextStyle() {
+
+    QAction *action = qobject_cast< QAction * >( sender() );
+
+    if ( action ) {
+      // change style of text here
+      QTextDocument *document = textEditGameDescription->document();
+      QTextEdit *edit = textEditGameDescription;
+
+      if ( document ) {
+
+        if ( document->isEmpty() ) {
+
+        }
+      }
+    }
   }
 }
