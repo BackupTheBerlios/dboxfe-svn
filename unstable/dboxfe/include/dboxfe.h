@@ -186,27 +186,8 @@ namespace asaal {
        * @param error The error information
        */
       void processError( QProcess::ProcessError );
-
-      /**
-       * \brief Initial intern menus
-       */
-      void initialMenus();
-
-      /**
-       * \brief Change selected text
-       */
-      void changeTextStyle();
       
     private:
-      QMenu *descMenu;
-      
-      QAction *centerText;
-      QAction *fatText;
-      QAction *italicText;
-      QAction *boldText;
-      QAction *underlineText;
-      QAction *seperator;
-      
       QProcess *dosbox;
       QStringList processParameter;
       Profile *profile;

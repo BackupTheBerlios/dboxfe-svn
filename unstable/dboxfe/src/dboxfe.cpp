@@ -53,7 +53,6 @@ namespace asaal {
     connect( btnDeleteProfile, SIGNAL( clicked() ), this, SLOT( deleteGame() ) );
     connect( btnAssistant, SIGNAL( clicked() ), this, SLOT( newGameWithAssistant() ) );
 
-    connect( textEditGameDescription, SIGNAL( customContextMenuRequested( const QPoint & ) ), this, SLOT( textEditCustomContextMenuRequested( const QPoint & ) ) );
     connect( listWidgetGames, SIGNAL( itemDoubleClicked( QListWidgetItem * ) ), this, SLOT( listWidgetItemDoubleClicked( QListWidgetItem * ) ) );
 
     QDesktopWidget *desktop = qApp->desktop();
@@ -66,8 +65,6 @@ namespace asaal {
     connect( messageBox, SIGNAL( commandLinkButtonClicked( const QCommandLinkButton * ) ), this, SLOT( deleteProfile( const QCommandLinkButton * ) ) );
 
     profile = new Profile();
-
-    initialMenus();
   }
 
   DBoxFE::~DBoxFE() {
@@ -85,33 +82,103 @@ namespace asaal {
     event->accept();
   }
 
+  /*
+   * Initial profiles and load this into a internal QListWidget
+   */
   void DBoxFE::initialProfiles() {
 
     QStringList profiles = configBase->readProfiles();
     listWidgetGames->addItems( profiles );
   }
 
+  /*
+   * Open description for selected game profile
+   */
   void DBoxFE::openDescription() {
   }
 
+  /*
+   * Apply description for selected game profile
+   */
   void DBoxFE::applyDescription() {
   }
 
+  /*
+   * Clear description for selected game profile
+   */
   void DBoxFE::clearDescription() {
   }
 
+  /*
+   * Open screen capture for selected game profile
+   */
   void DBoxFE::openScreenCapture() {
   }
 
+  /*
+   * Apply screen capture for selected game profile
+   */
   void DBoxFE::applyScreenCapture() {
   }
 
+  /*
+   * Clear screen capture for selected game profile
+   */ 
   void DBoxFE::clearScreenCapture() {
   }
 
+  /*
+   * Start game with this configuration if this exist
+   */ 
   void DBoxFE::startGame() {
+
+    QListWidgetItem *currentItem = listWidgetGames->currentItem();
+    if ( currentItem == NULL ) {
+
+      QMessageBox::information( this, tr( "DBoxFE" ), tr( "No game profile was selected!" ) );
+      return;
+    }
+
+    if ( currentItem->text().isNull() || currentItem->text().isEmpty() ) {
+
+      QMessageBox::information( this, tr( "DBoxFE" ), tr( "No game profile was selected!" ) );
+      return;
+    }
+
+    QString dosboxBinary = configBase->xmlPreferences( configBase->settingFile() ).getString( "binary", "DOSBox" );
+    QString dosboxVersion = configBase->xmlPreferences( configBase->settingFile() ).getString( "version", "DOSBox" );
+
+    if( dosboxBinary.isNull() || dosboxBinary.isEmpty() ) {
+
+      QMessageBox::information( this, tr( "DBoxFE" ), tr( "DOSBox binary not found." ) );
+      return;
+    }
+
+    if( dosboxVersion != "0.72" ) {
+
+      QMessageBox::information( this, tr( "DBoxFE" ), tr( "Wrong dosbox version. Only dosbox 0.72 or higher is supported." ) );
+      return;
+    }
+
+    QString profile = QDir::homePath();
+    profile.append( "/.dboxfe/" + currentItem->text() + ".conf" );
+
+    if( !QFile::exists( profile ) ) {
+
+      QMessageBox::information( this, tr( "DBoxFE" ), tr( "Gameconfiguration '%1' dosn't exist!" ).arg( currentItem->text() ) );
+      return;
+    }
+
+    processStart( dosboxBinary, "-conf", """" + profile + """" );
+
+    profile = QString( "" );
+    dosboxBinary = QString( "" );
+    dosboxVersion = QString( "" );
   }
 
+  /*
+   * Create new game profile
+   */ 
   void DBoxFE::newGame() {
 
     profile->LEProfile->setText( "" );
@@ -119,7 +186,6 @@ namespace asaal {
     if ( profile->exec() == QDialog::Accepted ) {
 
       QString profileName = profile->LEProfile->text();
-
       if ( !profileName.isNull() || !profileName.isEmpty() ) {
 
         bool found = false;
@@ -129,7 +195,6 @@ namespace asaal {
           qApp->processEvents();
 
           QListWidgetItem *foundItem = listWidgetGames->item( a );
-
           if ( foundItem ) {
 
             if ( foundItem->text() == profileName ) {
@@ -147,7 +212,6 @@ namespace asaal {
         }
 
         QString profile = QDir::homePath();
-
         profile.append( "/.dboxfe/" + profileName + ".conf" );
 
         profSettings = new ProfileSettings();
@@ -164,12 +228,14 @@ namespace asaal {
         }
 
         delete profSettings;
-
         profSettings = 0;
       }
     }
   }
 
+  /*
+   * Edit selected game profile
+   */ 
   void DBoxFE::editGame() {
 
     QListWidgetItem *currentItem = listWidgetGames->currentItem();
@@ -196,13 +262,14 @@ namespace asaal {
 
     if ( profSettings->exec() == QDialog::Accepted ) {
 
+      delete profSettings;
+      profSettings = 0;
     }
-
-    delete profSettings;
-
-    profSettings = 0;
   }
 
+  /*
+   * Delete selected game profile
+   */
   void DBoxFE::deleteGame() {
 
     QListWidgetItem *currentItem = listWidgetGames->currentItem();
@@ -218,14 +285,9 @@ namespace asaal {
     }
   }
 
-  void DBoxFE::textEditCustomContextMenuRequested( const QPoint &pos ) {
-
-    // add custom menu here ...
-
-    QMouseEvent *mevent = new QMouseEvent( QEvent::MouseButtonPress, pos, Qt::RightButton, Qt::RightButton, Qt::NoModifier );
-    descMenu->exec( mevent->globalPos() );
-  }
-
+  /*
+   * Open the settings dialog for selected game if you double click on a game profile
+   */
   void DBoxFE::listWidgetItemDoubleClicked( QListWidgetItem *item ) {
 
     QString profile = QDir::homePath();
@@ -273,6 +335,9 @@ namespace asaal {
     }
   }
 
+  /*
+   * Open the new game assistant dialog. It is a QProcess to start dboxfeassistant.
+   */
   void DBoxFE::newGameWithAssistant() {
 
     QString dbfeAssistant = QString( "" );
@@ -288,9 +353,7 @@ namespace asaal {
       return;
     }
 
-    // code here to start dboxfe game assistant
     bool winHide = configBase->xmlPreferences( configBase->settingFile() ).getBool( "winHide", "DBoxFE" );
-
     if ( winHide ) {
 
       hide();
@@ -299,6 +362,9 @@ namespace asaal {
     processStart( dbfeAssistant, "", "" );
   }
 
+  /*
+   * Start process
+   */
   void DBoxFE::processStart( const QString& bin, const QString &param, const QString &conf ) {
 
     processParameter.clear();
@@ -306,7 +372,6 @@ namespace asaal {
     if ( dosbox ) {
 
       disconnect( dosbox );
-
       dosbox->close();
 
       delete dosbox;
@@ -326,16 +391,15 @@ namespace asaal {
       processParameter.append( conf );
 
       bool startKeyMapper = configBase->xmlPreferences( configBase->settingFile() ).getBool( "keyMapper", "DBoxFE" );
+      if ( startKeyMapper ) {
 
-      if ( startKeyMapper )
         processParameter.append( "-startmapper" );
+      }
 
 #ifdef Q_OS_WIN32
 
       QFileInfo dboxBin( conf );
-
       dosbox->setWorkingDirectory( dboxBin.absolutePath() );
-
 #endif
     }
 
@@ -346,6 +410,9 @@ namespace asaal {
     connect( dosbox, SIGNAL( error( QProcess::ProcessError ) ), this, SLOT( processError( QProcess::ProcessError ) ) );
   }
 
+  /*
+   * Get output from process
+   */
   void DBoxFE::processOutput() {
 
     while ( dosbox->canReadLine() ) {
@@ -353,6 +420,9 @@ namespace asaal {
     }
   }
 
+  /*
+   * Process was finished and read the result from file on windows systems
+   */
   void DBoxFE::processFinish( int exitCode, QProcess::ExitStatus exitStatus ) {
 
     show();
@@ -366,7 +436,7 @@ namespace asaal {
     QFile outFile( path );
 
     if ( !outFile.open( QFile::ReadOnly | QFile::Text ) ) {
-      QMessageBox::information( this, winTitle(), tr( "Can not read file " ) + path );
+      QMessageBox::information( this, tr( "DBoxFE" ), tr( "Can not read file " ) + path );
       outFile.close();
       return;
     }
@@ -393,6 +463,9 @@ namespace asaal {
     }
   }
 
+  /*
+   * A error has occured after process was finished. Display the error output.
+   */
   void DBoxFE::processError( QProcess::ProcessError error ) {
 
     switch ( error ) {
@@ -420,69 +493,6 @@ namespace asaal {
       case QProcess::UnknownError:
         qDebug() << tr( "dboxfe: An unknown error occurred" );
         break;
-    }
-  }
-
-  void DBoxFE::initialMenus() {
-
-    descMenu = textEditGameDescription->createStandardContextMenu( QPoint( 20, 20 ) );
-
-    seperator = new QAction( "", this );
-    seperator->setSeparator( true );
-
-    centerText = new QAction( tr( "Center" ), this );
-    centerText->setObjectName( "centerText" );
-    connect( centerText, SIGNAL( triggered() ), this, SLOT( changeTextStyle() ) );
-
-    fatText = new QAction( tr( "Fat" ), this );
-    fatText->setObjectName( "fatText" );
-    connect( fatText, SIGNAL( triggered() ), this, SLOT( changeTextStyle() ) );
-
-    italicText = new QAction( tr( "Italic" ), this );
-    italicText->setObjectName( "italicText" );
-    connect( italicText, SIGNAL( triggered() ), this, SLOT( changeTextStyle() ) );
-
-    boldText = new QAction( tr( "Bold" ), this );
-    boldText->setObjectName( "boldText" );
-    connect( boldText, SIGNAL( triggered() ), this, SLOT( changeTextStyle() ) );
-
-    underlineText = new QAction( tr( "Underline" ), this );
-    underlineText->setObjectName( "underlineText" );
-    connect( underlineText, SIGNAL( triggered() ), this, SLOT( changeTextStyle() ) );
-
-    QList< QAction* > stdActions = descMenu->actions();
-    QList< QAction* > descActions;
-
-    descActions.append( centerText );
-    descActions.append( fatText );
-    descActions.append( italicText );
-    descActions.append( boldText );
-    descActions.append( underlineText );
-    descActions.append( seperator );
-
-    foreach( QAction *action, stdActions ) {
-
-      descActions.append( action );
-    }
-
-    descMenu->addActions( descActions );
-  }
-
-  void DBoxFE::changeTextStyle() {
-
-    QAction *action = qobject_cast< QAction * >( sender() );
-
-    if ( action ) {
-      // change style of text here
-      QTextDocument *document = textEditGameDescription->document();
-      QTextEdit *edit = textEditGameDescription;
-
-      if ( document ) {
-
-        if ( document->isEmpty() ) {
-
-        }
-      }
     }
   }
 }
