@@ -400,9 +400,6 @@ background-color: white;
     <property name="text" >
      <string/>
     </property>
-    <property name="pixmap" >
-     <pixmap>C:/Dokumente und Einstellungen/Administrator/Desktop/monkey1.gif</pixmap>
-    </property>
     <property name="scaledContents" >
      <bool>true</bool>
     </property>

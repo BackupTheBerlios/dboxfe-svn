@@ -27,6 +27,8 @@
 #include <messagebox.h>
 #include <dboxfe.h>
 
+#include <xmlpreferences.h>
+
 #include <QtGui>
 #include <QtCore>
 
@@ -95,6 +97,27 @@ namespace asaal {
    * Open description for selected game profile
    */
   void DBoxFE::openDescription() {
+
+    QString description = QFileDialog::getOpenFileName( this, tr( "caption" ), QDir::homePath(), tr( "All files (*.*)" ) );
+
+    if ( !description.isNull() || !description.isEmpty() ) {
+
+      QFile descFile( description );
+
+      if ( !descFile.open( QIODevice::Text | QIODevice::ReadOnly ) ) {
+
+        QMessageBox::information( this, tr( "DBoxFE" ), tr( "Can not read file %1" ).arg( descFile.fileName() ) );
+        description = QString( "" );
+        return;
+      }
+
+      QTextStream in( &descFile );
+
+      textEditGameDescription->setHtml( in.readAll() );
+
+      descFile.close();
+      description = QString( "" );
+    }
   }
 
   /*
@@ -102,18 +125,42 @@ namespace asaal {
    */
   void DBoxFE::applyDescription() {
 
+    QListWidgetItem *currentItem = listWidgetGames->currentItem();
+
+    if ( currentItem == NULL ) {
+
+      QMessageBox::information( this, tr( "DBoxFE" ), tr( "No game profile was selected!" ) );
+      return;
+    }
+
+    QString profile = QDir::homePath();
+
+    profile.append( "/.dboxfe/profile/profile_description.xml" );
+    
+    XmlPreferences &xmlPreferences = configBase->xmlPreferences();
+    xmlPreferences.setString( "Description", textEditGameDescription->toHtml(), currentItem->text() );
+    xmlPreferences.setString( "Image", !imageFile.isNull() || !imageFile.isEmpty() ? imageFile : QString( "" ), currentItem->text() );
+    xmlPreferences.save( profile );
   }
 
   /*
    * Clear description for selected game profile
    */
   void DBoxFE::clearDescription() {
+
+    textEditGameDescription->clear();
   }
 
   /*
    * Open screen capture for selected game profile
    */
   void DBoxFE::openScreenCapture() {
+    
+    imageFile = QFileDialog::getOpenFileName( this, tr( "caption" ), QDir::homePath(), tr( "All image files (*.bmp, *.jpeg, *.jpg, *.png, *.gif)" ) );
+
+    if ( !imageFile.isNull() || !imageFile.isEmpty() ) {
+
+    }
   }
 
   /*
@@ -377,7 +424,7 @@ namespace asaal {
   void DBoxFE::processStart( const QString& bin, const QString &param, const QString &conf ) {
 
     processParameter.clear();
-    
+
     qApp->processEvents();
 
     dosbox = 0;

@@ -144,11 +144,11 @@ namespace asaal {
 
       /**
        * \brief This signal is emitted when the command button on MessageBox is clicked.
-       * 
-       * @param commandLinkButton The command link button from MessageBox 
-       * 
+       *
+       * @param commandLinkButton The command link button from MessageBox
+       *
        * @see MessageBox
-       */ 
+       */
       void deleteProfile( const QCommandLinkButton * );
 
       /**
@@ -179,13 +179,15 @@ namespace asaal {
        * @param error The error information
        */
       void processError( QProcess::ProcessError );
-      
+
     private:
       QProcess *dosbox;
       QStringList processParameter;
       Profile *profile;
-      ProfileSettings *profSettings;     
+      ProfileSettings *profSettings;
       MessageBox *messageBox;
+
+      QString imageFile;
   };
 }
 
