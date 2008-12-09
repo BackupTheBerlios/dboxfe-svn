@@ -369,15 +369,6 @@ namespace asaal {
 
     processParameter.clear();
 
-    if ( dosbox ) {
-
-      disconnect( dosbox );
-      dosbox->close();
-
-      delete dosbox;
-      dosbox = 0;
-    }
-
     dosbox = new QProcess( this );
 
     if ( !param.isEmpty() && !conf.isEmpty() ) {
