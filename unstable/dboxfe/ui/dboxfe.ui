@@ -441,9 +441,6 @@ border-radius: 7px;</string>
       <height>31</height>
      </rect>
     </property>
-    <property name="toolTip" >
-     <string>Clear screen capture</string>
-    </property>
     <property name="styleSheet" >
      <string notr="true" >background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 lightblue, stop: 1 navy);
 color: white;
@@ -467,9 +464,6 @@ border-radius: 1px;</string>
       <width>31</width>
       <height>31</height>
      </rect>
-    </property>
-    <property name="toolTip" >
-     <string>Apply screen capture</string>
     </property>
     <property name="styleSheet" >
      <string notr="true" >background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 lightblue, stop: 1 navy);
@@ -495,9 +489,6 @@ border-radius: 1px;</string>
       <width>31</width>
       <height>31</height>
      </rect>
-    </property>
-    <property name="toolTip" >
-     <string>Apply screen capture</string>
     </property>
     <property name="statusTip" >
      <string>Open screen capture</string>
@@ -599,9 +590,6 @@ border-radius: 7px;</string>
       <height>31</height>
      </rect>
     </property>
-    <property name="toolTip" >
-     <string>Apply description</string>
-    </property>
     <property name="styleSheet" >
      <string notr="true" >background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 lightblue, stop: 1 navy);
 color: white;
@@ -627,9 +615,6 @@ border-radius: 1px;</string>
       <height>31</height>
      </rect>
     </property>
-    <property name="toolTip" >
-     <string>Clear description</string>
-    </property>
     <property name="styleSheet" >
      <string notr="true" >background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 lightblue, stop: 1 navy);
 color: white;
@@ -653,9 +638,6 @@ border-radius: 1px;</string>
       <width>31</width>
       <height>31</height>
      </rect>
-    </property>
-    <property name="toolTip" >
-     <string>Open a existing text for description</string>
     </property>
     <property name="styleSheet" >
      <string notr="true" >background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 lightblue, stop: 1 navy);

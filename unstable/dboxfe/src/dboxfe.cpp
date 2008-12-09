@@ -101,6 +101,7 @@ namespace asaal {
    * Apply description for selected game profile
    */
   void DBoxFE::applyDescription() {
+
   }
 
   /*
@@ -123,16 +124,17 @@ namespace asaal {
 
   /*
    * Clear screen capture for selected game profile
-   */ 
+   */
   void DBoxFE::clearScreenCapture() {
   }
 
   /*
    * Start game with this configuration if this exist
-   */ 
+   */
   void DBoxFE::startGame() {
 
     QListWidgetItem *currentItem = listWidgetGames->currentItem();
+
     if ( currentItem == NULL ) {
 
       QMessageBox::information( this, tr( "DBoxFE" ), tr( "No game profile was selected!" ) );
@@ -146,24 +148,26 @@ namespace asaal {
     }
 
     QString dosboxBinary = configBase->xmlPreferences( configBase->settingFile() ).getString( "binary", "DOSBox" );
+
     QString dosboxVersion = configBase->xmlPreferences( configBase->settingFile() ).getString( "version", "DOSBox" );
 
-    if( dosboxBinary.isNull() || dosboxBinary.isEmpty() ) {
+    if ( dosboxBinary.isNull() || dosboxBinary.isEmpty() ) {
 
       QMessageBox::information( this, tr( "DBoxFE" ), tr( "DOSBox binary not found." ) );
       return;
     }
 
-    if( dosboxVersion != "0.72" ) {
+    if ( dosboxVersion != "0.72" ) {
 
       QMessageBox::information( this, tr( "DBoxFE" ), tr( "Wrong dosbox version. Only dosbox 0.72 or higher is supported." ) );
       return;
     }
 
     QString profile = QDir::homePath();
+
     profile.append( "/.dboxfe/" + currentItem->text() + ".conf" );
 
-    if( !QFile::exists( profile ) ) {
+    if ( !QFile::exists( profile ) ) {
 
       QMessageBox::information( this, tr( "DBoxFE" ), tr( "Gameconfiguration '%1' dosn't exist!" ).arg( currentItem->text() ) );
       return;
@@ -178,7 +182,7 @@ namespace asaal {
 
   /*
    * Create new game profile
-   */ 
+   */
   void DBoxFE::newGame() {
 
     profile->LEProfile->setText( "" );
@@ -186,6 +190,7 @@ namespace asaal {
     if ( profile->exec() == QDialog::Accepted ) {
 
       QString profileName = profile->LEProfile->text();
+
       if ( !profileName.isNull() || !profileName.isEmpty() ) {
 
         bool found = false;
@@ -195,6 +200,7 @@ namespace asaal {
           qApp->processEvents();
 
           QListWidgetItem *foundItem = listWidgetGames->item( a );
+
           if ( foundItem ) {
 
             if ( foundItem->text() == profileName ) {
@@ -212,6 +218,7 @@ namespace asaal {
         }
 
         QString profile = QDir::homePath();
+
         profile.append( "/.dboxfe/" + profileName + ".conf" );
 
         profSettings = new ProfileSettings();
@@ -228,6 +235,7 @@ namespace asaal {
         }
 
         delete profSettings;
+
         profSettings = 0;
       }
     }
@@ -235,7 +243,7 @@ namespace asaal {
 
   /*
    * Edit selected game profile
-   */ 
+   */
   void DBoxFE::editGame() {
 
     QListWidgetItem *currentItem = listWidgetGames->currentItem();
@@ -354,6 +362,7 @@ namespace asaal {
     }
 
     bool winHide = configBase->xmlPreferences( configBase->settingFile() ).getBool( "winHide", "DBoxFE" );
+
     if ( winHide ) {
 
       hide();
@@ -368,7 +377,10 @@ namespace asaal {
   void DBoxFE::processStart( const QString& bin, const QString &param, const QString &conf ) {
 
     processParameter.clear();
+    
+    qApp->processEvents();
 
+    dosbox = 0;
     dosbox = new QProcess( this );
 
     if ( !param.isEmpty() && !conf.isEmpty() ) {
@@ -382,6 +394,7 @@ namespace asaal {
       processParameter.append( conf );
 
       bool startKeyMapper = configBase->xmlPreferences( configBase->settingFile() ).getBool( "keyMapper", "DBoxFE" );
+
       if ( startKeyMapper ) {
 
         processParameter.append( "-startmapper" );
@@ -390,7 +403,9 @@ namespace asaal {
 #ifdef Q_OS_WIN32
 
       QFileInfo dboxBin( conf );
+
       dosbox->setWorkingDirectory( dboxBin.absolutePath() );
+
 #endif
     }
 
@@ -445,11 +460,11 @@ namespace asaal {
     switch ( exitStatus ) {
 
       case QProcess::NormalExit:
-        qDebug() << exitCode;
+        qDebug() << "Process exit normal with code: " << exitCode;
         break;
 
       case QProcess::CrashExit:
-        qDebug() << exitCode;
+        qDebug() << "Process exit with crash code: " << exitCode;
         break;
     }
   }
