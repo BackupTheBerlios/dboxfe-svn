@@ -65,10 +65,16 @@ namespace asaal {
    */
   void Preference::save() {
 
+    if ( dosboxBinary.isNull() || dosboxBinary.isEmpty() ) {
+
+      QMessageBox::information( this, tr( "DBoxFE" ), tr( "No dosbox binary was selected!" ) );
+      return;
+    }
 
     dboxfeConfig.clear();
-    dboxfeConfig.dosboxVersion = dosboxVersion;
+
     dboxfeConfig.dosboxBinary = dosboxBinary;
+    dboxfeConfig.dosboxVersion = dosboxVersion;
     dboxfeConfig.profiles = configBase->readProfiles();
     dboxfeConfig.winHide = checkBoxWindowsHide->isChecked();
     dboxfeConfig.keyMapper = checkBoxStartKeyMapper->isChecked();
@@ -77,6 +83,8 @@ namespace asaal {
 
     configBase = 0;
     delete configBase;
+
+    QDialog::accept();
   }
 
   /*
@@ -113,7 +121,7 @@ namespace asaal {
 
       if ( !dboxOutFile.open( QFile::ReadOnly | QFile::Text ) ) {
         QMessageBox::information( this, winTitle(), tr( "Can not read " ) + dboxOutFile.fileName() );
-        dosboxVersion = QString();
+        dosboxVersion = QString( "" );
         dosbox->close();
         delete dosbox;
         return;
@@ -128,7 +136,7 @@ namespace asaal {
       if ( QString( dosboxVersion.simplified() ).trimmed().isEmpty() ) {
 
         QMessageBox::information( this, tr( "DBoxFE" ), tr( "This is not a valid dosbox binary." ) );
-        dosboxVersion = QString();
+        dosboxVersion = QString( "" );
         dosbox->close();
         delete dosbox;
         return;
@@ -142,7 +150,7 @@ namespace asaal {
       } else {
 
         QMessageBox::information( this, tr( "DBoxFE" ), tr( "Wrong dosbox version %1, i need 0.7x or higher." ).arg( QString( dosboxVersion.simplified() ).trimmed() ) );
-        dosboxVersion = QString();
+        dosboxVersion = QString( "" );
         dosbox->close();
         delete dosbox;
         return;
@@ -179,7 +187,7 @@ namespace asaal {
       } else {
 
         QMessageBox::information( this, tr( "DBoxFE" ), tr( "Wrong dosbox version %1, i need 0.7x or higher." ).arg( QString( dosboxVersion.simplified() ).trimmed() ) );
-        dosboxVersion = QString();
+        dosboxVersion = QString( "" );
         dosbox->close();
         delete dosbox;
         return;
@@ -207,7 +215,7 @@ namespace asaal {
     }
 
     lineEditDosboxBinary->setText( dboxfeConfig.dosboxBinary );
-    lineEditDosboxVersion->setText( QString( tr( "DOSBox Version:  " ) + dboxfeConfig.dosboxVersion ) );
+    lineEditDosboxVersion->setText( QString( tr( "DOSBox Version: %1" ).arg( dboxfeConfig.dosboxVersion ) ) );
 
     checkBoxWindowsHide->setChecked( dboxfeConfig.winHide );
     checkBoxStartKeyMapper->setChecked( dboxfeConfig.keyMapper );
