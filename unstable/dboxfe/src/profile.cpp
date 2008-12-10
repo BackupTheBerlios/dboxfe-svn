@@ -49,8 +49,10 @@ namespace asaal {
   void Profile::slotAdd() {
 
     if ( LEProfile->text().isEmpty() ) {
-      QMessageBox::information( this, "DOSBox Front End", "Please enter a profile name." );
+
+      QMessageBox::information( this, "DBoxFE", "Please enter a profile name." );
     } else {
+
       QDialog::accept();
     }
   }

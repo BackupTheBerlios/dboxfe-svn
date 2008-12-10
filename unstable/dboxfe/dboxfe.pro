@@ -30,6 +30,7 @@ QT += xml network
 # Project Ui files
 FORMS += ui/about.ui
 FORMS += ui/dboxfe.ui
+FORMS += ui/preference.ui
 FORMS += ui/profile.ui
 FORMS += ui/profilesettings.ui
 
@@ -40,6 +41,7 @@ DISTFILES += ../resource/LICENSE.GPL
 # Project Header
 HEADERS += include/about.h
 HEADERS	+= include/dboxfe.h
+HEADERS += include/preference.h
 HEADERS	+= include/profile.h
 HEADERS	+= include/profilesettings.h
 HEADERS	+= include/splash.h
@@ -48,6 +50,7 @@ HEADERS	+= include/splash.h
 SOURCES += src/about.cpp
 SOURCES	+= src/dboxfe.cpp
 SOURCES	+= src/main.cpp
+SOURCES += src/preference.cpp
 SOURCES	+= src/profile.cpp
 SOURCES	+= src/profilesettings.cpp
 SOURCES	+= src/splash.cpp

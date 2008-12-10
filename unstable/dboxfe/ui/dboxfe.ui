@@ -8,27 +8,27 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>780</width>
-    <height>540</height>
+    <width>751</width>
+    <height>570</height>
    </rect>
   </property>
   <property name="minimumSize" >
    <size>
-    <width>780</width>
-    <height>540</height>
+    <width>751</width>
+    <height>570</height>
    </size>
   </property>
   <property name="maximumSize" >
    <size>
-    <width>780</width>
-    <height>540</height>
+    <width>751</width>
+    <height>570</height>
    </size>
   </property>
   <property name="windowTitle" >
    <string>DBoxFE - Startscreen</string>
   </property>
   <property name="styleSheet" >
-   <string notr="true" >QWidget#UiDBoxFEStartScreen {
+   <string notr="true" >QWidget#UiDBoxFE {
 	background-color: white;
 }
 </string>
@@ -38,8 +38,8 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>251</width>
-     <height>521</height>
+     <width>221</width>
+     <height>551</height>
     </rect>
    </property>
    <property name="styleSheet" >
@@ -58,7 +58,7 @@ background-color: white;</string>
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>251</width>
+      <width>221</width>
       <height>31</height>
      </rect>
     </property>
@@ -78,31 +78,30 @@ border-radius: 7px;</string>
      <string>Games</string>
     </property>
    </widget>
-   <widget class="QWidget" name="layoutWidget" >
+   <widget class="QWidget" name="" >
     <property name="geometry" >
      <rect>
       <x>10</x>
-      <y>33</y>
-      <width>231</width>
-      <height>481</height>
+      <y>40</y>
+      <width>201</width>
+      <height>501</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="verticalLayout_2" >
-     <item>
+    <layout class="QGridLayout" name="glGames" >
+     <item row="0" column="0" >
       <widget class="QListWidget" name="listWidgetGames" >
        <property name="contextMenuPolicy" >
         <enum>Qt::CustomContextMenu</enum>
        </property>
        <property name="styleSheet" >
         <string notr="true" >selection-background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 lightblue, stop: 1 navy);
-border: none;
-</string>
+border: none;</string>
        </property>
       </widget>
      </item>
-     <item>
-      <layout class="QVBoxLayout" name="verticalLayout" >
-       <item>
+     <item row="1" column="0" >
+      <layout class="QGridLayout" name="glButtonGroup" >
+       <item row="0" column="0" >
         <layout class="QHBoxLayout" name="hlStartGame" >
          <item>
           <widget class="QLabel" name="labelStartGame" >
@@ -154,10 +153,22 @@ border: none;
          </item>
         </layout>
        </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout" >
+       <item row="1" column="0" >
+        <layout class="QHBoxLayout" name="hlNewProfile" >
          <item>
           <widget class="QLabel" name="labelNewProfile" >
+           <property name="minimumSize" >
+            <size>
+             <width>110</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize" >
+            <size>
+             <width>110</width>
+             <height>16777215</height>
+            </size>
+           </property>
            <property name="styleSheet" >
             <string notr="true" >border: none;</string>
            </property>
@@ -194,7 +205,7 @@ border: none;
          </item>
         </layout>
        </item>
-       <item>
+       <item row="2" column="0" >
         <layout class="QHBoxLayout" name="hlEditProfile" >
          <item>
           <widget class="QLabel" name="labelEditProfile" >
@@ -246,7 +257,7 @@ border: none;
          </item>
         </layout>
        </item>
-       <item>
+       <item row="3" column="0" >
         <layout class="QHBoxLayout" name="hlDeleteProfile" >
          <item>
           <widget class="QLabel" name="labelDeleteProfile" >
@@ -298,7 +309,7 @@ border: none;
          </item>
         </layout>
        </item>
-       <item>
+       <item row="4" column="0" >
         <layout class="QHBoxLayout" name="hlAssistant" >
          <item>
           <widget class="QLabel" name="labelAssistant" >
@@ -350,6 +361,58 @@ border: none;
          </item>
         </layout>
        </item>
+       <item row="5" column="0" >
+        <layout class="QHBoxLayout" name="hlPreference" >
+         <item>
+          <widget class="QLabel" name="labelPreferences" >
+           <property name="minimumSize" >
+            <size>
+             <width>110</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize" >
+            <size>
+             <width>110</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="styleSheet" >
+            <string notr="true" >border: none;</string>
+           </property>
+           <property name="text" >
+            <string>Preferences</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnPreferences" >
+           <property name="minimumSize" >
+            <size>
+             <width>0</width>
+             <height>22</height>
+            </size>
+           </property>
+           <property name="maximumSize" >
+            <size>
+             <width>16777215</width>
+             <height>22</height>
+            </size>
+           </property>
+           <property name="styleSheet" >
+            <string notr="true" >border-style: none;</string>
+           </property>
+           <property name="text" >
+            <string/>
+           </property>
+           <property name="icon" >
+            <iconset resource="../../resource/dboxfe.qrc" >
+             <normaloff>:/pics/images/preferences.png</normaloff>:/pics/images/preferences.png</iconset>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
       </layout>
      </item>
     </layout>
@@ -358,8 +421,8 @@ border: none;
   <widget class="QFrame" name="frameGameScreenshot" >
    <property name="geometry" >
     <rect>
-     <x>270</x>
-     <y>210</y>
+     <x>240</x>
+     <y>240</y>
      <width>501</width>
      <height>321</height>
     </rect>
@@ -510,10 +573,10 @@ border-radius: 1px;</string>
   <widget class="QFrame" name="frameGameDescription" >
    <property name="geometry" >
     <rect>
-     <x>270</x>
+     <x>240</x>
      <y>10</y>
      <width>501</width>
-     <height>191</height>
+     <height>221</height>
     </rect>
    </property>
    <property name="styleSheet" >
@@ -536,7 +599,7 @@ background-color: white;</string>
       <x>10</x>
       <y>40</y>
       <width>481</width>
-      <height>141</height>
+      <height>171</height>
      </rect>
     </property>
     <property name="cursor" stdset="0" >

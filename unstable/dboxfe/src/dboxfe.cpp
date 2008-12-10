@@ -24,10 +24,10 @@
  ***************************************************************************/
 
 #include <base.h>
-#include <messagebox.h>
 #include <dboxfe.h>
+#include <messagebox.h>
 
-#include <xmlpreferences.h>
+#include <preference.h>
 
 #include <QtGui>
 #include <QtCore>
@@ -54,6 +54,7 @@ namespace asaal {
     connect( btnEditProfile, SIGNAL( clicked() ), this, SLOT( editGame() ) );
     connect( btnDeleteProfile, SIGNAL( clicked() ), this, SLOT( deleteGame() ) );
     connect( btnAssistant, SIGNAL( clicked() ), this, SLOT( newGameWithAssistant() ) );
+    connect( btnPreferences, SIGNAL( clicked() ), this, SLOT( preferences() ) );
 
     connect( listWidgetGames, SIGNAL( itemClicked( QListWidgetItem * ) ), this, SLOT( listWidgetItemClicked( QListWidgetItem * ) ) );
     connect( listWidgetGames, SIGNAL( itemDoubleClicked( QListWidgetItem * ) ), this, SLOT( listWidgetItemDoubleClicked( QListWidgetItem * ) ) );
@@ -73,6 +74,7 @@ namespace asaal {
   DBoxFE::~DBoxFE() {
 
     messageBox = 0;
+    prefrences = 0;
     configBase = 0;
     dboxfe = 0;
     profile = 0;
@@ -90,6 +92,15 @@ namespace asaal {
    */
   void DBoxFE::initialProfiles() {
 
+    QString profile = QDir::homePath();
+    profile.append( "/.dboxfe/profile/profile.xml" );
+
+    if( !configBase->convertProfile( profile ) ) {
+      
+      QMessageBox::information( this, tr( "DBoxFE" ), tr( "Can not convert old file %1" ).arg( profile ) );
+      return;      
+    }
+    
     QStringList profiles = configBase->readProfiles();
     listWidgetGames->addItems( profiles );
   }
@@ -99,7 +110,7 @@ namespace asaal {
    */
   void DBoxFE::openDescription() {
 
-    QString description = QFileDialog::getOpenFileName( this, tr( "caption" ), QDir::homePath(), tr( "All files (*.*)" ) );
+    QString description = QFileDialog::getOpenFileName( this, tr( "Open game screen capture" ), QDir::homePath(), tr( "All files (*.*)" ) );
 
     if ( !description.isNull() || !description.isEmpty() ) {
 
@@ -216,7 +227,6 @@ namespace asaal {
     }
 
     QString profile = QDir::homePath();
-
     profile.append( "/.dboxfe/" + currentItem->text() + ".conf" );
 
     if ( !QFile::exists( profile ) ) {
@@ -287,7 +297,6 @@ namespace asaal {
         }
 
         delete profSettings;
-
         profSettings = 0;
       }
     }
@@ -345,6 +354,16 @@ namespace asaal {
     }
   }
 
+  /*
+   * Open preference widget 
+   */
+  void DBoxFE::preferences() {
+
+    prefrences = 0;
+    prefrences = new Preference();
+    prefrences->exec();
+  }
+  
   /*
   * This signal is emitted with the specified item when a mouse button is clicked on an item in the widget.
   */

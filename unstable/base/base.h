@@ -360,9 +360,17 @@ namespace asaal {
        * \brief Read configuration
        *
        * @param profile The DBoxFE profile
-       * @return The configuration @see Configuration for readed profile
+       * 
+       * @see Configuration for readed profile
        */
       Configuration readConfiguration( const QString &profile );
+      
+      /**
+       * \brief Returns DBoxFE configuration
+       *
+       * @see DBoxFE_Configuration
+       */
+      DBoxFE_Configuration readSettings();
 
       /**
        * \brief Convert D-Fend Reloaded profile to DBoxFE.<br>
@@ -429,6 +437,13 @@ namespace asaal {
        * @return true was write ok; otherwise false
        */
       bool exportConfiguration( const QString &name, const Configuration &config );
+
+      /**
+       * \brief Convert old game profile 
+       *
+       * @param profile The profile xml
+       */
+      bool convertProfile( const QString &profile );
 
     public slots:
       /**

@@ -28,6 +28,7 @@
 
 #include <base.h>
 #include <messagebox.h>
+#include <preference.h>
 #include <profile.h>
 #include <profilesettings.h>
 
@@ -39,11 +40,11 @@
 /**
  * \brief Namespace asaal
  */
-
 namespace asaal {
 
   /**
    * Initial variable for ConfigBase
+   *
    * @see ConfigBase
    */
   extern ConfigBase *configBase;
@@ -60,7 +61,6 @@ namespace asaal {
    * @version 0.2.5
    * @since 0.2.5
    */
-
   class DBoxFE : public QWidget, public Ui::UiDBoxFE {
       Q_OBJECT
 
@@ -100,12 +100,13 @@ namespace asaal {
        */
       void initialProfiles();
 
+
     protected:
       /**
        * This event handler is called with the given event when Qt receives
        * a window close request for a top-level widget from the window system.
        *
-       * @param e The QCloseEvent
+       * @param event The QCloseEvent
        */
       void closeEvent( QCloseEvent *event );
 
@@ -131,6 +132,11 @@ namespace asaal {
       void newGame();
       void editGame();
       void deleteGame();
+      
+      /*
+       * Open preference widget
+       */
+      void preferences();
 
       /*
       * This signal is emitted with the specified item when a mouse button is clicked on an item in the widget.
@@ -191,6 +197,7 @@ namespace asaal {
       Profile *profile;
       ProfileSettings *profSettings;
       MessageBox *messageBox;
+      Preference *prefrences;
 
       QString imageFile;
   };

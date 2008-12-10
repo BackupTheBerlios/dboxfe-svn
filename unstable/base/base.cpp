@@ -208,6 +208,17 @@ namespace asaal {
     return m_Configuration;
   }
 
+  DBoxFE_Configuration ConfigBase::readSettings() {
+    
+    m_DboxfeConfiguration.clear();
+    m_DboxfeConfiguration.dosboxBinary = xmlPreferences( settingFile() ).getString( "binary", "DOSBox" );
+    m_DboxfeConfiguration.dosboxVersion = xmlPreferences( settingFile() ).getString( "version", "DOSBox" );
+    m_DboxfeConfiguration.winHide = xmlPreferences( settingFile() ).getBool( "winHide", "DBoxFE" );
+    m_DboxfeConfiguration.keyMapper = xmlPreferences( settingFile() ).getBool( "keyMapper", "DBoxFE" );
+    
+    return m_DboxfeConfiguration;
+  }
+  
   Configuration ConfigBase::convertConfiguration( const QString &profile ) {
 
     bool isDfendProf = false;
@@ -367,6 +378,106 @@ namespace asaal {
     return true;
   }
 
+  bool ConfigBase::convertProfile( const QString &profile ) {
+
+    if ( profile.isNull() || profile.isEmpty() ) {
+
+      return false;
+    }
+
+    QFile xml( profile );
+
+    if ( !xml.exists() ) {
+      return false;
+    }
+
+    xml.open( QIODevice::ReadOnly );
+
+    QDomDocument doc;
+    doc.setContent( &xml );
+
+    xml.close();
+
+    QDomNode node = doc.documentElement().firstChild();
+
+    QString dosboxBinary, dosboxVersion;
+    QStringList gameProfiles;
+    bool winHide;
+    bool keyMapper;
+
+    while ( !node.isNull() ) {
+      qApp->processEvents();
+
+      qDebug() << node.toElement().tagName();
+
+      // Check if this realy the old profile
+
+      if ( node.toElement().tagName() == "software_info" ) {
+
+        // iterate over section node
+        QDomNode sectionNode = node;
+        while ( !sectionNode.isNull() ) {
+          qApp->processEvents();
+
+          // iterate over setting node
+          QDomNode settingNode = sectionNode.firstChild();
+
+          while ( !settingNode.isNull() ) {
+            qApp->processEvents();
+
+            QString name = settingNode.toElement().attribute( "name" );
+
+            if ( name == "binary" ) {
+
+              dosboxBinary = settingNode.toElement().text();
+            } else if ( name == "version" ) {
+
+              dosboxVersion = settingNode.toElement().text();
+            } else if ( name == "winHide" ) {
+
+              winHide = settingNode.toElement().text() == "false" ? false : true;
+            } else if ( name == "keyMapper" ) {
+
+              keyMapper = settingNode.toElement().text() == "false" ? false : true;
+            } else if ( settingNode.hasChildNodes() ) {
+
+              // iterate over setting child nodes
+              QDomNode settingChildNode = settingNode.firstChild();
+
+              while ( !settingChildNode.isNull() ) {
+                qApp->processEvents();
+
+                if ( settingChildNode.toElement().tagName() == "value" ) {
+
+                  gameProfiles.append( settingChildNode.toElement().text() );
+                }
+
+                settingChildNode = settingChildNode.nextSibling();
+              }
+
+            }
+
+            settingNode = settingNode.nextSibling();
+          }
+
+          sectionNode = sectionNode.nextSibling();
+        }
+      }
+
+      node = node.nextSibling();
+    }
+
+    xmlPreferences().setString( "binary", dosboxBinary, "DOSBox" );
+
+    xmlPreferences().setString( "version", dosboxVersion, "DOSBox" );
+    xmlPreferences().setStringList( "Name", gameProfiles, "Profile" );
+    xmlPreferences().setBool( "winHide", winHide, "DBoxFE" );
+    xmlPreferences().setBool( "keyMapper", keyMapper, "DBoxFE" );
+    bool saved = xmlPreferences().save( settingFile() );
+
+    return saved;
+  }
+
   void ConfigBase::writeSettings( const DBoxFE_Configuration &dboxfeConfig ) {
 
     if ( dboxfeConfig.isEmpty() ) {
@@ -374,7 +485,6 @@ namespace asaal {
     }
 
     xmlPreferences().setString( "binary", dboxfeConfig.dosboxBinary, "DOSBox" );
-
     xmlPreferences().setString( "version", dboxfeConfig.dosboxVersion, "DOSBox" );
     xmlPreferences().setStringList( "Name", dboxfeConfig.profiles, "Profile" );
     xmlPreferences().setBool( "winHide", dboxfeConfig.winHide, "DBoxFE" );

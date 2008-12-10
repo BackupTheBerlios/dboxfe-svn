@@ -55,6 +55,9 @@
        <property name="text" >
         <string>Profilename:</string>
        </property>
+       <property name="buddy" >
+        <cstring>LEProfile</cstring>
+       </property>
       </widget>
      </item>
      <item>
@@ -152,6 +155,7 @@
   </layout>
  </widget>
  <tabstops>
+  <tabstop>LEProfile</tabstop>
   <tabstop>btnOk</tabstop>
   <tabstop>btnAbort</tabstop>
  </tabstops>
@@ -159,5 +163,22 @@
   <include location="../../resource/dboxfe.qrc" />
   <include location="../../resource/dboxfe.qrc" />
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>btnAbort</sender>
+   <signal>clicked()</signal>
+   <receiver>UiDBoxFEProfile</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>380</x>
+     <y>79</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>382</x>
+     <y>53</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
