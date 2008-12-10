@@ -80,6 +80,10 @@ namespace asaal {
 
   void ProfileSettings::saveConfiguration() {
 
+    profileConfiguration.clear();
+    
+    
+    
     if ( !profileConfiguration.isEmpty() ) {
 
       DBoxFE::configBaseInstance()->writeConfiguration( profFile, profileConfiguration );
