@@ -84,6 +84,15 @@ namespace asaal {
 
   void DBoxFE::closeEvent( QCloseEvent *event ) {
 
+    QStringList profiles;
+    for ( int a = 0; a < listWidgetGames->count(); a++ ) {
+
+      profiles.append( listWidgetGames->item( a )->text() );
+    }
+
+    configBase->xmlPreferences().setStringList( "Name", profiles, "Profile" );
+    configBase->xmlPreferences().save( configBase->settingFile() );
+
     event->accept();
   }
 
@@ -96,11 +105,11 @@ namespace asaal {
     profile.append( "/.dboxfe/profile/profile.xml" );
 
     if( !configBase->convertProfile( profile ) ) {
-      
+
       QMessageBox::information( this, tr( "DBoxFE" ), tr( "Can not convert old file %1" ).arg( profile ) );
-      return;      
+      return;
     }
-    
+
     QStringList profiles = configBase->readProfiles();
     listWidgetGames->addItems( profiles );
   }
@@ -146,6 +155,7 @@ namespace asaal {
     }
 
     configBase->xmlPreferences().setString( "description", textEditGameDescription->toHtml(), currentItem->text() );
+
     configBase->xmlPreferences().setString( "image", imageFile, currentItem->text() );
     configBase->xmlPreferences().save( configBase->settingFile() );
   }
@@ -227,6 +237,7 @@ namespace asaal {
     }
 
     QString profile = QDir::homePath();
+
     profile.append( "/.dboxfe/" + currentItem->text() + ".conf" );
 
     if ( !QFile::exists( profile ) ) {
@@ -297,6 +308,7 @@ namespace asaal {
         }
 
         delete profSettings;
+
         profSettings = 0;
       }
     }
@@ -355,7 +367,7 @@ namespace asaal {
   }
 
   /*
-   * Open preference widget 
+   * Open preference widget
    */
   void DBoxFE::preferences() {
 
@@ -363,12 +375,12 @@ namespace asaal {
     prefrences = new Preference();
     prefrences->exec();
   }
-  
+
   /*
   * This signal is emitted with the specified item when a mouse button is clicked on an item in the widget.
   */
   void DBoxFE::listWidgetItemClicked( QListWidgetItem *item ) {
-    
+
     labelGameScreenshot->clear();
     textEditGameDescription->clear();
 
@@ -377,7 +389,7 @@ namespace asaal {
 
     labelGameScreenshot->setPixmap( pixmap );
     textEditGameDescription->setHtml( description );
-    
+
     description = QString( "" );
   }
 
@@ -482,7 +494,6 @@ namespace asaal {
       processParameter.append( conf );
 
       bool startKeyMapper = configBase->xmlPreferences( configBase->settingFile() ).getBool( "keyMapper", "DBoxFE" );
-
       if ( startKeyMapper ) {
 
         processParameter.append( "-startmapper" );

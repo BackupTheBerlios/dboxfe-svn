@@ -85,7 +85,7 @@ namespace asaal {
       DBoxFE::configBaseInstance()->writeConfiguration( profFile, profileConfiguration );
     }
 
-    accept();
+    QDialog::accept();
   }
 
   void ProfileSettings::setDefaultConfiguration() {
@@ -96,7 +96,7 @@ namespace asaal {
     if ( !profileConfiguration.isEmpty() ) {
 
       // intial default settings
-
+      
     }
   }
 
@@ -111,7 +111,7 @@ namespace asaal {
     }
 
     // initial settings
-    
+
 
   }
 

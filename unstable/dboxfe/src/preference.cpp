@@ -65,7 +65,7 @@ namespace asaal {
    */
   void Preference::save() {
 
-    if ( dosboxBinary.isNull() || dosboxBinary.isEmpty() ) {
+    if ( lineEditDosboxBinary->text().isNull() || lineEditDosboxBinary->text().isEmpty() ) {
 
       QMessageBox::information( this, tr( "DBoxFE" ), tr( "No dosbox binary was selected!" ) );
       return;
@@ -73,8 +73,8 @@ namespace asaal {
 
     dboxfeConfig.clear();
 
-    dboxfeConfig.dosboxBinary = dosboxBinary;
-    dboxfeConfig.dosboxVersion = dosboxVersion;
+    dboxfeConfig.dosboxBinary = lineEditDosboxBinary->text();
+    dboxfeConfig.dosboxVersion = dosboxVersion.isNull() || dosboxVersion.isEmpty() ? "0.72" : dosboxVersion;
     dboxfeConfig.profiles = configBase->readProfiles();
     dboxfeConfig.winHide = checkBoxWindowsHide->isChecked();
     dboxfeConfig.keyMapper = checkBoxStartKeyMapper->isChecked();

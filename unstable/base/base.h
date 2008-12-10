@@ -471,6 +471,22 @@ namespace asaal {
        * @return QMap< QString, QString > with all files
        */
       QMap< QString, QString> exportDatas( const QString &directory );
+      
+      /**
+       * \brief Search game profiles in given directory
+       *
+       * @param directory The optional diertory. Default is QDir::homePath() + "/doxfe"
+       *
+       * @return QStringList with game profiles. (Only name of game profiles and without file extansion)
+       */
+      QStringList searchProfiles( const QString &directory = QString( QDir::homePath() + "/.dboxfe" ) );
+
+#ifdef Q_OS_UNIX
+      /**
+       * \brief Returns the path of dosbox binary
+       */
+      QString searchDosboxBinary();
+#endif
 
       /**
        * Internal variables

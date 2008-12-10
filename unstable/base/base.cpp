@@ -44,6 +44,10 @@ namespace asaal {
     profiles.clear();
 
     profiles = xmlPreferences( settingFile() ).getStringList( "Name", "Profile" );
+    if( profiles.isEmpty() || profiles.size() <= 0 ) {
+
+      profiles = searchProfiles();
+    }
 
     return profiles;
   }
@@ -401,17 +405,20 @@ namespace asaal {
     QDomNode node = doc.documentElement().firstChild();
 
     QString dosboxBinary, dosboxVersion;
+    
+#ifdef Q_OS_UNIX
+    dosboxBinary = searchDosboxBinary();
+    dosboxVersion = "0.72";
+#endif
+    
     QStringList gameProfiles;
-    bool winHide;
-    bool keyMapper;
+    bool winHide = true;
+    bool keyMapper = false;
 
     while ( !node.isNull() ) {
       qApp->processEvents();
 
-      qDebug() << node.toElement().tagName();
-
       // Check if this realy the old profile
-
       if ( node.toElement().tagName() == "software_info" ) {
 
         // iterate over section node
@@ -435,10 +442,10 @@ namespace asaal {
               dosboxVersion = settingNode.toElement().text();
             } else if ( name == "winHide" ) {
 
-              winHide = settingNode.toElement().text() == "false" ? false : true;
+              winHide = settingNode.toElement().text() == "false" || settingNode.toElement().text().isEmpty() || settingNode.toElement().text().isNull() ? false : true;
             } else if ( name == "keyMapper" ) {
 
-              keyMapper = settingNode.toElement().text() == "false" ? false : true;
+              keyMapper = settingNode.toElement().text() == "false" || settingNode.toElement().text().isEmpty() || settingNode.toElement().text().isNull() ? false : true;
             } else if ( settingNode.hasChildNodes() ) {
 
               // iterate over setting child nodes
@@ -469,6 +476,11 @@ namespace asaal {
 
     xmlPreferences().setString( "binary", dosboxBinary, "DOSBox" );
     xmlPreferences().setString( "version", dosboxVersion, "DOSBox" );
+
+    if( gameProfiles.isEmpty() || gameProfiles.size() <= 0 ) {
+      gameProfiles = readProfiles();
+    }
+    
     xmlPreferences().setStringList( "Name", gameProfiles, "Profile" );
     xmlPreferences().setBool( "winHide", winHide, "DBoxFE" );
     xmlPreferences().setBool( "keyMapper", keyMapper, "DBoxFE" );
@@ -708,4 +720,54 @@ namespace asaal {
 
     return zipData;
   }
+
+  QStringList ConfigBase::searchProfiles( const QString &directory ) {
+
+    QDir copyDirectory( directory );
+
+    QFileInfo fi;
+    const QFileInfoList fil = copyDirectory.entryInfoList( QDir::Files , QDir::Name );
+    QListIterator< QFileInfo > it( fil );
+    QStringList profiles;
+
+    while ( it.hasNext() ) {
+      fi = it.next();
+
+      if ( fi.fileName() == "." || fi.fileName() == ".." ) {
+        ;
+      } else {
+        if ( fi.isFile() && fi.isReadable() && fi.suffix() == "conf" ) {
+
+          profiles.append( fi.baseName() );
+        }
+      }
+    }
+
+    return profiles;
+    
+  }
+
+#ifdef Q_OS_UNIX
+  QString ConfigBase::searchDosboxBinary() {
+    
+    QStringList whichParameter;
+    QString dosboxBinary = QString( "" );
+
+    QProcess *which = new QProcess( this );
+    which->setWorkingDirectory( QDir::homePath() );
+
+    whichParameter.append( "dosbox" );
+    which->start( "which", whichParameter );
+
+    while ( which->waitForFinished() ) {
+      dosboxBinary = which->readAll();
+    }
+    
+    whichParameter.clear();
+    which->close();
+    delete which;
+    
+    return dosboxBinary.simplified().trimmed();
+  }
+#endif
 }
