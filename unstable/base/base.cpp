@@ -468,7 +468,6 @@ namespace asaal {
     }
 
     xmlPreferences().setString( "binary", dosboxBinary, "DOSBox" );
-
     xmlPreferences().setString( "version", dosboxVersion, "DOSBox" );
     xmlPreferences().setStringList( "Name", gameProfiles, "Profile" );
     xmlPreferences().setBool( "winHide", winHide, "DBoxFE" );
