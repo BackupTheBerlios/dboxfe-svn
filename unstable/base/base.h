@@ -234,7 +234,7 @@ namespace asaal {
       QString ipx;
 
       /** Set/Get autoexec settings */
-      QString autoexec;
+      QStringList autoexec;
 
       /** DFend - Realoded Configuraion */
       DFend_Configuration dfendConfig;
@@ -299,7 +299,7 @@ namespace asaal {
                 dos.isEmpty() &&
                 dfendConfig.isEmpty() &&
                 ( ipx.isEmpty() || ipx.isNull() ) &&
-                ( autoexec.isEmpty() || autoexec.isNull() );
+                autoexec.isEmpty();
       }
 
       /**
@@ -320,7 +320,7 @@ namespace asaal {
         dos.clear();
         ipx.clear();
         dfendConfig.clear();
-        autoexec = QString( "" );
+        autoexec.clear();
       }
   };
 
@@ -475,9 +475,9 @@ namespace asaal {
       /**
        * \brief Search game profiles in given directory
        *
-       * @param directory The optional diertory. Default is QDir::homePath() + "/doxfe"
+       * @param directory The optional diertory. Default is QDir::homePath() + "/.dboxfe"
        *
-       * @return QStringList with game profiles. (Only name of game profiles and without file extansion)
+       * @return QStringList with game profiles. (Only the base name of file and without file suffix.)
        */
       QStringList searchProfiles( const QString &directory = QString( QDir::homePath() + "/.dboxfe" ) );
 

@@ -81,13 +81,100 @@ namespace asaal {
   void ProfileSettings::saveConfiguration() {
 
     profileConfiguration.clear();
-    
-    
-    
-    if ( !profileConfiguration.isEmpty() ) {
 
-      DBoxFE::configBaseInstance()->writeConfiguration( profFile, profileConfiguration );
+    // Graphic  page
+    profileConfiguration.sdl.insert( "fullscreen", checkBoxSDLFullScreen->isChecked() );
+    profileConfiguration.sdl.insert( "fulldouble", checkBoxSDLFullDouble->isChecked() );
+    profileConfiguration.sdl.insert( "waitonerror", checkBoxSDLWaitOnError->isChecked() );
+    profileConfiguration.sdl.insert( "autolock", checkBoxSDLAutolock->isChecked() );
+    profileConfiguration.sdl.insert( "usescancodes", checkBoxSDLUseScanCode->isChecked() );
+    profileConfiguration.sdl.insert( "output", comboBoxSDLOutout->currentText() );
+    profileConfiguration.sdl.insert( "priority", comboBoxSDLFocusUnfocus->currentText() );
+    profileConfiguration.sdl.insert( "windowresolution", comboBoxSDLWindowWightHigh->currentText() );
+    profileConfiguration.sdl.insert( "fullresolution", comboBoxSDLFullWightHigh->currentText() );
+    profileConfiguration.sdl.insert( "sensitivity", lcdSDLSensitivity->intValue() );
+
+    profileConfiguration.render.insert( "scaler", comboBoxRenderScaler->currentText() );
+    profileConfiguration.render.insert( "frameskip", lcdRenderFrameScip->intValue() );
+    profileConfiguration.render.insert( "aspect", checkBoxRenderAspect->isChecked() );
+
+    profileConfiguration.cpu.insert( "core", comboBoxCPUCore->currentText() );
+    profileConfiguration.cpu.insert( "cycleup", comboBoxCPUCycleUp->currentText() );
+    profileConfiguration.cpu.insert( "cycles", comboBoxCPUCycles->currentText() );
+    profileConfiguration.cpu.insert( "cycledown", comboBoxCPUCycleDown->currentText() );
+
+    // Sound page
+    profileConfiguration.mixer.insert( "rate", comboBoxMixerRate->currentText() );
+    profileConfiguration.mixer.insert( "blocksize", comboBoxMixerBlockSize->currentText() );
+    profileConfiguration.mixer.insert( "rate", spinnBoxPrebuffer->value() );
+    profileConfiguration.mixer.insert( "nosound", checkBoxMixerNoSound->isChecked() );
+
+    profileConfiguration.sblaster.insert( "sbtype", comboBoxSBType->currentText() );
+    profileConfiguration.sblaster.insert( "sbbase", comboBoxSBBase->currentText() );
+    profileConfiguration.sblaster.insert( "irq", comboBoxSBIRQ->currentText() );
+    profileConfiguration.sblaster.insert( "dma", comboBoxSBDMA->currentText() );
+    profileConfiguration.sblaster.insert( "oplmode", comboBoxSBOplMode->currentText() );
+    profileConfiguration.sblaster.insert( "hdma", comboBoxSBHDMA->currentText() );
+    profileConfiguration.sblaster.insert( "oplrate", comboBoxSBOPLRate->currentText() );
+    profileConfiguration.sblaster.insert( "mixer", checkBoxSBMixer->isChecked() );
+
+    profileConfiguration.gus.insert( "gus", checkBoxGUS->isChecked() );
+    profileConfiguration.gus.insert( "gusrate", comboBoxGUSRate->currentText() );
+    profileConfiguration.gus.insert( "gusbase", comboBoxGUSBase->currentText() );
+    profileConfiguration.gus.insert( "irq1", comboBoxGUSIrq_1->currentText() );
+    profileConfiguration.gus.insert( "irq2", comboBoxGUSIrq_2->currentText() );
+    profileConfiguration.gus.insert( "dma1", comboBoxGUSDMA_1->currentText() );
+    profileConfiguration.gus.insert( "dma2", comboBoxGUSDMA_2->currentText() );
+    profileConfiguration.gus.insert( "ultradir", lineEditGUSUltraDir->text() );
+
+    profileConfiguration.speaker.insert( "pcspeaker", comboBoxSpeaker->currentText() );
+    profileConfiguration.speaker.insert( "pcrate", comboBoxSpeakerRate->currentText() );
+    profileConfiguration.speaker.insert( "tandy", comboBoxSpeakerTandy->currentText() );
+    profileConfiguration.speaker.insert( "tandyrate", comboBoxSpeakerTandyRate->currentText() );
+    profileConfiguration.speaker.insert( "disney", checkBoxDisney->isChecked() );
+
+    profileConfiguration.mdi.insert( "mpu401", comboBoxMDIMPU->currentText() );
+    profileConfiguration.mdi.insert( "device", comboBoxMDIDevice->currentText() );
+    profileConfiguration.mdi.insert( "config", lineEditMDIConfig->text() );
+
+    // Autoexec page
+    for ( int a = 0; a < lwAutoexec->count(); a++ ) {
+
+      qApp->processEvents();
+
+      QListWidgetItem *item = lwAutoexec->item( a );
+      profileConfiguration.autoexec.append( item->text() );
     }
+
+    // Inernet page
+    for ( int b = 0;  b < twSerial->topLevelItemCount(); b ++ ) {
+
+      qApp->processEvents();
+
+      QTreeWidgetItem *item = twSerial->topLevelItem( b );
+      profileConfiguration.serial.insert( item->text( 0 ), item->text( 1 ) );
+    }
+
+    profileConfiguration.ipx = QVariant( checkBoxIPX->isChecked() ).toString();
+
+    // DOS page
+    profileConfiguration.dosbox.insert( "language", lineEditLanguage->text() );
+    profileConfiguration.dosbox.insert( "machine", comboBoxMachine->currentText() );
+    profileConfiguration.dosbox.insert( "captures", comboBoxCaptures->currentText() );
+    profileConfiguration.dosbox.insert( "memsize", comboBoxMemsize->currentText() );
+
+    profileConfiguration.dos.insert( "xms", checkBoxXMS->isChecked() );
+    profileConfiguration.dos.insert( "ems", checkBoxEMS->isChecked() );
+    profileConfiguration.dos.insert( "umb", checkBoxUMB->isChecked() );
+    profileConfiguration.dos.insert( "keyboardlayout", comboBoxKeyboardLayout->currentText() );
+
+    profileConfiguration.joystick.insert( "timed", checkBoxTimed->isChecked() );
+    profileConfiguration.joystick.insert( "autofire", checkBoxAutofire->isChecked() );
+    profileConfiguration.joystick.insert( "swap34", checkBoxSwap34->isChecked() );
+    profileConfiguration.joystick.insert( "buttonwrap", checkBoxButtonWrap->isChecked() );
+    profileConfiguration.joystick.insert( "joysticktype", comboBoxJoystickType->currentText() );
+
+    DBoxFE::configBaseInstance()->writeConfiguration( profFile, profileConfiguration );
 
     QDialog::accept();
   }
@@ -100,7 +187,7 @@ namespace asaal {
     if ( !profileConfiguration.isEmpty() ) {
 
       // intial default settings
-      
+
     }
   }
 
@@ -114,9 +201,118 @@ namespace asaal {
       profileConfiguration = DBoxFE::configBaseInstance()->readConfiguration( QString::fromUtf8( ":/default/default.conf" ) );
     }
 
-    // initial settings
+    int comboBoxIndex = 0;
+/*
+    // Graphic  page
+    checkBoxSDLFullScreen->setChecked( profileConfiguration.sdl.value( "fullscreen" ).toBool() );
+    checkBoxSDLFullDouble->setChecked( profileConfiguration.sdl.value( "fulldouble" ).toBool() );
+    checkBoxSDLWaitOnError->setChecked( profileConfiguration.sdl.value( "waitonerror" ).toBool() );
+    checkBoxSDLAutolock->setChecked( profileConfiguration.sdl.value( "autolock" ).toBool() );
+    checkBoxSDLUseScanCode->setChecked( profileConfiguration.sdl.value( "usescancodes"  ).toBool() );
+    comboBoxIndex = comboBoxSDLOutout->findText( profileConfiguration.sdl.value( "output" ).toString(), Qt::MatchExactly );
+    comboBoxSDLOutout->setCurrentIndex( comboBoxIndex );
+    comboBoxIndex = comboBoxSDLFocusUnfocus->findText( profileConfiguration.sdl.value( "priority" ).toString(), Qt::MatchExactly );
+    comboBoxSDLFocusUnfocus->setCurrentIndex( comboBoxIndex );
+    comboBoxIndex = comboBoxSDLWindowWightHigh->findText( profileConfiguration.sdl.value( "windowresolution" ).toString(), Qt::MatchExactly );
+    comboBoxSDLWindowWightHigh->setCurrentIndex( comboBoxIndex );
+    comboBoxIndex = comboBoxSDLFullWightHigh->findText( profileConfiguration.sdl.value( "fullresolution" ).toString(), Qt::MatchExactly );
+    comboBoxSDLFullWightHigh->setCurrentIndex( comboBoxIndex );
+    lcdSDLSensitivity->display( profileConfiguration.sdl.value( "sensitivity").toInt() );
 
+    comboBoxIndex = comboBoxRenderScaler->findText( profileConfiguration.render.value( "scaler" ).toString(), Qt::MatchExactly );
+    comboBoxRenderScaler->setCurrentIndex( comboBoxIndex );
+    lcdRenderFrameScip->display( profileConfiguration.render.value( "frameskip" ).toInt() );
+    checkBoxRenderAspect->setChecked( profileConfiguration.render.value( "aspect" ).toBool() );
 
+    comboBoxIndex = comboBoxCPUCore->findText( profileConfiguration.cpu.value( "core" ).toString(), Qt::MatchExactly );
+    comboBoxCPUCore->setCurrentIndex( comboBoxIndex );    
+    comboBoxIndex = comboBoxCPUCycleUp->findText( profileConfiguration.cpu.value( "cycleup" ).toString(), Qt::MatchExactly );
+    comboBoxCPUCycleUp->setCurrentIndex( comboBoxIndex );    
+    comboBoxIndex = comboBoxCPUCycles->findText( profileConfiguration.cpu.value( "cycles" ).toString(), Qt::MatchExactly );
+    comboBoxCPUCycles->setCurrentIndex( comboBoxIndex );    
+    comboBoxIndex = comboBoxCPUCycleDown->findText( profileConfiguration.cpu.value( "cycledown" ).toString(), Qt::MatchExactly );
+    comboBoxCPUCycleDown->setCurrentIndex( comboBoxIndex );
+
+    // Sound page
+    comboBoxIndex = comboBoxMixerRate->findText( profileConfiguration.mixer.value( "rate" ).toString(), Qt::MatchExactly );
+    comboBoxMixerRate->setCurrentIndex( comboBoxIndex );    
+    comboBoxIndex = comboBoxMixerBlockSize->findText( profileConfiguration.mixer.value( "blocksize" ).toString(), Qt::MatchExactly );
+    comboBoxMixerBlockSize->setCurrentIndex( comboBoxIndex );
+    spinnBoxPrebuffer->setValue( profileConfiguration.mixer.value( "rate" ).toInt() );    
+    checkBoxMixerNoSound->setChecked( profileConfiguration.mixer.value( "nosound" ).toBool() );
+
+    comboBoxIndex = comboBoxSBType->findText( profileConfiguration.sblaster.value( "sbtype" ).toString(), Qt::MatchExactly );
+    comboBoxSBType->setCurrentIndex( comboBoxIndex );
+    comboBoxIndex = comboBoxSBBase->findText( profileConfiguration.sblaster.value( "sbbase" ).toString(), Qt::MatchExactly );
+    comboBoxSBBase->setCurrentIndex( comboBoxIndex );
+    comboBoxIndex = comboBoxSBIRQ->findText( profileConfiguration.sblaster.value( "irq" ).toString(), Qt::MatchExactly );
+    comboBoxSBIRQ->setCurrentIndex( comboBoxIndex );
+    comboBoxIndex = comboBoxSBDMA->findText( profileConfiguration.sblaster.value( "dma" ).toString(), Qt::MatchExactly );
+    comboBoxSBDMA->setCurrentIndex( comboBoxIndex );
+    comboBoxIndex = comboBoxSBOplMode->findText( profileConfiguration.sblaster.value( "oplmode" ).toString(), Qt::MatchExactly );
+    comboBoxSBOplMode->setCurrentIndex( comboBoxIndex );
+    comboBoxIndex = comboBoxSBHDMA->findText( profileConfiguration.sblaster.value( "hdma" ).toString(), Qt::MatchExactly );
+    comboBoxSBHDMA->setCurrentIndex( comboBoxIndex );
+    comboBoxIndex = comboBoxSBOPLRate->findText( profileConfiguration.sblaster.value( "oplrate" ).toString(), Qt::MatchExactly );
+    comboBoxSBOPLRate->setCurrentIndex( comboBoxIndex );
+    checkBoxSBMixer->setChecked( profileConfiguration.sblaster.value( "mixer" ).toBool() );
+
+    profileConfiguration.gus.value( "gus", checkBoxGUS->setChecked(  ) );
+    profileConfiguration.gus.value( "gusrate", comboBoxGUSRate->currentText() );
+    profileConfiguration.gus.value( "gusbase", comboBoxGUSBase->currentText() );
+    profileConfiguration.gus.value( "irq1", comboBoxGUSIrq_1->currentText() );
+    profileConfiguration.gus.value( "irq2", comboBoxGUSIrq_2->currentText() );
+    profileConfiguration.gus.value( "dma1", comboBoxGUSDMA_1->currentText() );
+    profileConfiguration.gus.value( "dma2", comboBoxGUSDMA_2->currentText() );
+    lineEditGUSUltraDir->setText( profileConfiguration.gus.value( "ultradir" ).toString() );
+
+    profileConfiguration.speaker.value( "pcspeaker", comboBoxSpeaker->currentText() );
+    profileConfiguration.speaker.value( "pcrate", comboBoxSpeakerRate->currentText() );
+    profileConfiguration.speaker.value( "tandy", comboBoxSpeakerTandy->currentText() );
+    profileConfiguration.speaker.value( "tandyrate", comboBoxSpeakerTandyRate->currentText() );
+    profileConfiguration.speaker.value( "disney", checkBoxDisney->setChecked(  ) );
+
+    profileConfiguration.mdi.value( "mpu401", comboBoxMDIMPU->currentText() );
+    profileConfiguration.mdi.value( "device", comboBoxMDIDevice->currentText() );
+    profileConfiguration.mdi.value( "config", lineEditMDIConfig->text() );
+
+    // Autoexec page
+    for ( int a = 0; a < lwAutoexec->count(); a++ ) {
+
+      qApp->processEvents();
+
+      QListWidgetItem *item = lwAutoexec->item( a );
+      profileConfiguration.autoexec += item->text() + "\n";
+    }
+
+    // Inernet page
+    for ( int b = 0;  b < twSerial->topLevelItemCount(); b ++ ) {
+
+      qApp->processEvents();
+
+      QTreeWidgetItem *item = twSerial->topLevelItem( b );
+      m_Configuration.serial.value( item->text( 0 ), item->text( 1 ) );
+    }
+
+    profileConfiguration.ipx.value( "ipx", checkBoxIPX->setChecked(  ) );
+
+    // DOS page
+    profileConfiguration.dosbox.value( "language", lineEditLanguage->text() );
+    profileConfiguration.dosbox.value( "machine", comboBoxMachine->currentText() );
+    profileConfiguration.dosbox.value( "captures", comboBoxCaptures->currentText() );
+    profileConfiguration.dosbox.value( "memsize", comboBoxMemsize->currentText() );
+
+    profileConfiguration.dos.value( "xms", checkBoxXMS->setChecked(  ) );
+    profileConfiguration.dos.value( "ems", checkBoxEMS->setChecked(  ) );
+    profileConfiguration.dos.value( "umb", checkBoxUMB->setChecked(  ) );
+    profileConfiguration.dos.value( "keyboardlayout", comboBoxKeyboardLayout->currentText() );
+
+    profileConfiguration.joystick.value( "timed", checkBoxTimed->setChecked(  ) );
+    profileConfiguration.joystick.value( "autofire", checkBoxAutofire->setChecked(  ) );
+    profileConfiguration.joystick.value( "swap34", checkBoxSwap34->setChecked(  ) );
+    profileConfiguration.joystick.value( "buttonwrap", checkBoxButtonWrap->setChecked(  ) );
+    profileConfiguration.joystick.value( "joysticktype", comboBoxJoystickType->currentText() );
+*/
   }
 
   void ProfileSettings::closeWidget() {

@@ -44,7 +44,8 @@ namespace asaal {
     profiles.clear();
 
     profiles = xmlPreferences( settingFile() ).getStringList( "Name", "Profile" );
-    if( profiles.isEmpty() || profiles.size() <= 0 ) {
+
+    if ( profiles.isEmpty() || profiles.size() <= 0 ) {
 
       profiles = searchProfiles();
     }
@@ -185,7 +186,6 @@ namespace asaal {
     readConf.endGroup();
 
     // Autoexec settings
-
     if ( !configFile.open( QIODevice::ReadOnly | QIODevice::Text ) ) {
       return m_Configuration;
     }
@@ -195,11 +195,15 @@ namespace asaal {
     QString line;
 
     while ( !in.atEnd() ) {
+
+      qApp->prcoessEvents();
+      
       line = in.readLine();
 
       if ( line == "[autoexec]" ) {
         while ( !in.atEnd() ) {
-          m_Configuration.autoexec += in.readLine() + "\n";
+          line = in.readLine();
+          m_Configuration.autoexec.append( line );
 
           if ( line.startsWith( "[" ) && line.endsWith( "]" ) )
             break;
@@ -213,16 +217,16 @@ namespace asaal {
   }
 
   DBoxFE_Configuration ConfigBase::readSettings() {
-    
+
     m_DboxfeConfiguration.clear();
     m_DboxfeConfiguration.dosboxBinary = xmlPreferences( settingFile() ).getString( "binary", "DOSBox" );
     m_DboxfeConfiguration.dosboxVersion = xmlPreferences( settingFile() ).getString( "version", "DOSBox" );
     m_DboxfeConfiguration.winHide = xmlPreferences( settingFile() ).getBool( "winHide", "DBoxFE" );
     m_DboxfeConfiguration.keyMapper = xmlPreferences( settingFile() ).getBool( "keyMapper", "DBoxFE" );
-    
+
     return m_DboxfeConfiguration;
   }
-  
+
   Configuration ConfigBase::convertConfiguration( const QString &profile ) {
 
     bool isDfendProf = false;
@@ -242,7 +246,8 @@ namespace asaal {
 
     QStringList allKeys = readConf.allKeys();
     foreach( QString key, allKeys ) {
-      if (( key == "ExtraInfo" ) || ( key == "Extra" ) ) {
+
+      if ( ( key == "ExtraInfo" ) || ( key == "Extra" ) ) {
         isDfendProf = true;
         break;
       }
@@ -405,12 +410,12 @@ namespace asaal {
     QDomNode node = doc.documentElement().firstChild();
 
     QString dosboxBinary, dosboxVersion;
-    
+
 #ifdef Q_OS_UNIX
     dosboxBinary = searchDosboxBinary();
     dosboxVersion = "0.72";
 #endif
-    
+
     QStringList gameProfiles;
     bool winHide = true;
     bool keyMapper = false;
@@ -419,10 +424,12 @@ namespace asaal {
       qApp->processEvents();
 
       // Check if this realy the old profile
+
       if ( node.toElement().tagName() == "software_info" ) {
 
         // iterate over section node
         QDomNode sectionNode = node;
+
         while ( !sectionNode.isNull() ) {
           qApp->processEvents();
 
@@ -475,13 +482,15 @@ namespace asaal {
     }
 
     xmlPreferences().setString( "binary", dosboxBinary, "DOSBox" );
+
     xmlPreferences().setString( "version", dosboxVersion, "DOSBox" );
 
-    if( gameProfiles.isEmpty() || gameProfiles.size() <= 0 ) {
+    if ( gameProfiles.isEmpty() || gameProfiles.size() <= 0 ) {
       gameProfiles = readProfiles();
     }
-    
+
     xmlPreferences().setStringList( "Name", gameProfiles, "Profile" );
+
     xmlPreferences().setBool( "winHide", winHide, "DBoxFE" );
     xmlPreferences().setBool( "keyMapper", keyMapper, "DBoxFE" );
     bool saved = xmlPreferences().save( settingFile() );
@@ -496,6 +505,7 @@ namespace asaal {
     }
 
     xmlPreferences().setString( "binary", dboxfeConfig.dosboxBinary, "DOSBox" );
+
     xmlPreferences().setString( "version", dboxfeConfig.dosboxVersion, "DOSBox" );
     xmlPreferences().setStringList( "Name", dboxfeConfig.profiles, "Profile" );
     xmlPreferences().setBool( "winHide", dboxfeConfig.winHide, "DBoxFE" );
@@ -688,7 +698,12 @@ namespace asaal {
 
     QTextStream out( &configFile );
 
-    out << "[autoexec]\n" << config.autoexec + "\n";
+    out << "[autoexec]\n";
+    foreach( QString autoexec, config.autoexec ) {
+
+      out << autoexec << "\n";
+    }
+
     out.flush();
     configFile.flush();
     configFile.close();
@@ -744,12 +759,12 @@ namespace asaal {
     }
 
     return profiles;
-    
+
   }
 
 #ifdef Q_OS_UNIX
   QString ConfigBase::searchDosboxBinary() {
-    
+
     QStringList whichParameter;
     QString dosboxBinary = QString( "" );
 
@@ -762,12 +777,14 @@ namespace asaal {
     while ( which->waitForFinished() ) {
       dosboxBinary = which->readAll();
     }
-    
+
     whichParameter.clear();
+
     which->close();
     delete which;
-    
+
     return dosboxBinary.simplified().trimmed();
   }
+
 #endif
 }

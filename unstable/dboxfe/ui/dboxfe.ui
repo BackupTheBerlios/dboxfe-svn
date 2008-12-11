@@ -28,8 +28,133 @@
    <string>DBoxFE - Startscreen</string>
   </property>
   <property name="styleSheet" >
-   <string notr="true" >QWidget#UiDBoxFE {
+   <string notr="true" >#UiDBoxFE {
 	background-color: white;
+}
+
+#frameGameScreenshot {
+	border-width: 2px;
+	padding: 1px;
+	border-style: solid;
+	border-color: navy;
+	border-radius: 7px;
+	background-color: white;
+}
+
+#frameGameDescription {
+	border-width: 2px;
+	padding: 1px;
+	border-style: solid;
+	border-color: navy;
+	border-radius: 7px;
+	background-color: white;
+}
+
+#frameGame {
+	border-width: 2px;
+	padding: 1px;
+	border-style: solid;
+	border-color: navy;
+	border-radius: 7px;
+	background-color: white;
+}
+
+#labelGameSreenshotHeader {
+	background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 lightblue, stop: 1 navy);
+	color: white;
+	border-width: 2px;
+	padding: 2px;
+	border-style: solid;
+	border-color: navy;
+	border-radius: 7px;
+}
+
+#labelGameDescriptionHeader {
+	background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 lightblue, stop: 1 navy);
+	color: white;
+	border-width: 2px;
+	padding: 2px;
+	border-style: solid;
+	border-color: navy;
+	border-radius: 7px;
+}
+
+#labelGameHeader {
+background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 lightblue, stop: 1 navy);
+color: white;
+border-width: 2px;
+padding: 2px;
+border-style: solid;
+border-color: navy;
+border-radius: 7px;
+}
+
+#btnOpenDescriptionText {
+	background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 lightblue, stop: 1 navy);
+	border-width: 2px;
+	padding: 2px;
+	border-style: solid;
+	border-color: navy;
+	border-left: none;
+	border-right: none;
+	border-radius: 1px;
+}
+
+#btnApplyDescriptionText {
+	background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 lightblue, stop: 1 navy);
+	border-width: 2px;
+	padding: 2px;
+	border-style: solid;
+	border-color: navy;
+	border-left: none;
+	border-right: none;
+	border-radius: 1px;
+}
+
+#btnClearDescriptionText {
+	background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 lightblue, stop: 1 navy);
+	border-width: 2px;
+	padding: 2px;
+	border-style: solid;
+	border-color: navy;
+	border-left: none;
+	border-right: none;
+	border-radius: 1px;
+}
+
+#btnOpenScreenCapture {
+	background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 lightblue, stop: 1 navy);
+	border-width: 2px;
+	padding: 2px;
+	border-style: solid;
+	border-color: navy;
+	border-left: none;
+	border-right: none;
+	border-radius: 1px;
+}
+
+#btnApplyScreenCapture {
+	background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 lightblue, stop: 1 navy);
+	color: white;
+	border-width: 2px;
+	padding: 2px;
+	border-style: solid;
+	border-color: navy;
+	border-left: none;
+	border-right: none;
+	border-radius: 1px;
+}
+
+#btnClearScreenCapture {
+	background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 lightblue, stop: 1 navy);
+	color: white;
+	border-width: 2px;
+	padding: 2px;
+	border-style: solid;
+	border-color: navy;
+	border-left: none;
+	border-right: none;
+	border-radius: 1px;
 }
 </string>
   </property>
@@ -43,12 +168,7 @@
     </rect>
    </property>
    <property name="styleSheet" >
-    <string notr="true" >border-width: 2px;
-padding: 1px;
-border-style: solid;
-border-color: navy;
-border-radius: 7px;
-background-color: white;</string>
+    <string notr="true" />
    </property>
    <property name="frameShape" >
     <enum>QFrame::StyledPanel</enum>
@@ -63,13 +183,7 @@ background-color: white;</string>
      </rect>
     </property>
     <property name="styleSheet" >
-     <string notr="true" >background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 lightblue, stop: 1 navy);
-color: white;
-border-width: 2px;
-padding: 2px;
-border-style: solid;
-border-color: navy;
-border-radius: 7px;</string>
+     <string notr="true" />
     </property>
     <property name="frameShape" >
      <enum>QFrame::StyledPanel</enum>
@@ -78,7 +192,7 @@ border-radius: 7px;</string>
      <string>Games</string>
     </property>
    </widget>
-   <widget class="QWidget" name="" >
+   <widget class="QWidget" name="layoutWidget" >
     <property name="geometry" >
      <rect>
       <x>10</x>
@@ -428,19 +542,14 @@ border: none;</string>
     </rect>
    </property>
    <property name="styleSheet" >
-    <string notr="true" >border-width: 2px;
-padding: 1px;
-border-style: solid;
-border-color: navy;
-border-radius: 7px;
-background-color: white;</string>
+    <string notr="true" />
    </property>
    <property name="frameShape" >
     <enum>QFrame::StyledPanel</enum>
    </property>
    <widget class="QLabel" name="labelGameScreenshot" >
     <property name="enabled" >
-     <bool>false</bool>
+     <bool>true</bool>
     </property>
     <property name="geometry" >
      <rect>
@@ -477,13 +586,7 @@ background-color: white;
      </rect>
     </property>
     <property name="styleSheet" >
-     <string notr="true" >background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 lightblue, stop: 1 navy);
-color: white;
-border-width: 2px;
-padding: 2px;
-border-style: solid;
-border-color: navy;
-border-radius: 7px;</string>
+     <string notr="true" />
     </property>
     <property name="frameShape" >
      <enum>QFrame::StyledPanel</enum>
@@ -495,21 +598,14 @@ border-radius: 7px;</string>
    <widget class="QToolButton" name="btnClearScreenCapture" >
     <property name="geometry" >
      <rect>
-      <x>470</x>
+      <x>460</x>
       <y>0</y>
       <width>31</width>
       <height>31</height>
      </rect>
     </property>
     <property name="styleSheet" >
-     <string notr="true" >background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 lightblue, stop: 1 navy);
-color: white;
-border-width: 2px;
-padding: 2px;
-border-style: solid;
-border-color: navy;
-border-left: none;
-border-radius: 1px;</string>
+     <string notr="true" />
     </property>
     <property name="icon" >
      <iconset resource="../../resource/dboxfe.qrc" >
@@ -519,22 +615,14 @@ border-radius: 1px;</string>
    <widget class="QToolButton" name="btnApplyScreenCapture" >
     <property name="geometry" >
      <rect>
-      <x>440</x>
+      <x>430</x>
       <y>0</y>
       <width>31</width>
       <height>31</height>
      </rect>
     </property>
     <property name="styleSheet" >
-     <string notr="true" >background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 lightblue, stop: 1 navy);
-color: white;
-border-width: 2px;
-padding: 2px;
-border-style: solid;
-border-color: navy;
-border-left: none;
-border-right: none;
-border-radius: 1px;</string>
+     <string notr="true" />
     </property>
     <property name="icon" >
      <iconset resource="../../resource/dboxfe.qrc" >
@@ -544,7 +632,7 @@ border-radius: 1px;</string>
    <widget class="QToolButton" name="btnOpenScreenCapture" >
     <property name="geometry" >
      <rect>
-      <x>410</x>
+      <x>400</x>
       <y>0</y>
       <width>31</width>
       <height>31</height>
@@ -554,15 +642,7 @@ border-radius: 1px;</string>
      <string>Open screen capture</string>
     </property>
     <property name="styleSheet" >
-     <string notr="true" >background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 lightblue, stop: 1 navy);
-color: white;
-border-width: 2px;
-padding: 2px;
-border-style: solid;
-border-color: navy;
-border-left: none;
-border-right: none;
-border-radius: 1px;</string>
+     <string notr="true" />
     </property>
     <property name="icon" >
      <iconset resource="../../resource/dboxfe.qrc" >
@@ -580,12 +660,7 @@ border-radius: 1px;</string>
     </rect>
    </property>
    <property name="styleSheet" >
-    <string notr="true" >border-width: 2px;
-padding: 1px;
-border-style: solid;
-border-color: navy;
-border-radius: 7px;
-background-color: white;</string>
+    <string notr="true" />
    </property>
    <property name="frameShape" >
     <enum>QFrame::StyledPanel</enum>
@@ -626,13 +701,7 @@ background-color: white;
      </rect>
     </property>
     <property name="styleSheet" >
-     <string notr="true" >background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 lightblue, stop: 1 navy);
-color: white;
-border-width: 2px;
-padding: 2px;
-border-style: solid;
-border-color: navy;
-border-radius: 7px;</string>
+     <string notr="true" />
     </property>
     <property name="frameShape" >
      <enum>QFrame::StyledPanel</enum>
@@ -644,22 +713,14 @@ border-radius: 7px;</string>
    <widget class="QToolButton" name="btnApplyDescriptionText" >
     <property name="geometry" >
      <rect>
-      <x>440</x>
+      <x>430</x>
       <y>0</y>
       <width>31</width>
       <height>31</height>
      </rect>
     </property>
     <property name="styleSheet" >
-     <string notr="true" >background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 lightblue, stop: 1 navy);
-color: white;
-border-width: 2px;
-padding: 2px;
-border-style: solid;
-border-color: navy;
-border-left: none;
-border-right: none;
-border-radius: 1px;</string>
+     <string notr="true" />
     </property>
     <property name="icon" >
      <iconset resource="../../resource/dboxfe.qrc" >
@@ -669,21 +730,14 @@ border-radius: 1px;</string>
    <widget class="QToolButton" name="btnClearDescriptionText" >
     <property name="geometry" >
      <rect>
-      <x>470</x>
+      <x>460</x>
       <y>0</y>
       <width>31</width>
       <height>31</height>
      </rect>
     </property>
     <property name="styleSheet" >
-     <string notr="true" >background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 lightblue, stop: 1 navy);
-color: white;
-border-width: 2px;
-padding: 2px;
-border-style: solid;
-border-color: navy;
-border-left: none;
-border-radius: 1px;</string>
+     <string notr="true" />
     </property>
     <property name="icon" >
      <iconset resource="../../resource/dboxfe.qrc" >
@@ -693,22 +747,14 @@ border-radius: 1px;</string>
    <widget class="QToolButton" name="btnOpenDescriptionText" >
     <property name="geometry" >
      <rect>
-      <x>410</x>
+      <x>400</x>
       <y>0</y>
       <width>31</width>
       <height>31</height>
      </rect>
     </property>
     <property name="styleSheet" >
-     <string notr="true" >background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 lightblue, stop: 1 navy);
-color: white;
-border-width: 2px;
-padding: 2px;
-border-style: solid;
-border-color: navy;
-border-left: none;
-border-right: none;
-border-radius: 1px;</string>
+     <string notr="true" />
     </property>
     <property name="icon" >
      <iconset resource="../../resource/dboxfe.qrc" >
