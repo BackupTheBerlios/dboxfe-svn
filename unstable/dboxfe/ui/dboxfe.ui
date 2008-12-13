@@ -5,12 +5,28 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>762</width>
-    <height>573</height>
+    <width>760</width>
+    <height>570</height>
    </rect>
+  </property>
+  <property name="minimumSize" >
+   <size>
+    <width>760</width>
+    <height>570</height>
+   </size>
+  </property>
+  <property name="maximumSize" >
+   <size>
+    <width>760</width>
+    <height>570</height>
+   </size>
   </property>
   <property name="windowTitle" >
    <string>DBoxFE - Startscreen</string>
+  </property>
+  <property name="windowIcon" >
+   <iconset resource="../../resource/dboxfe.qrc" >
+    <normaloff>:/pics/images/default.png</normaloff>:/pics/images/default.png</iconset>
   </property>
   <property name="styleSheet" >
    <string notr="true" >#textEditGameDescription {
@@ -179,60 +195,6 @@ border-radius: 7px;
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QToolButton" name="btnOpenScreenCapture" >
-   <property name="geometry" >
-    <rect>
-     <x>640</x>
-     <y>305</y>
-     <width>31</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="statusTip" >
-    <string>Open screen capture</string>
-   </property>
-   <property name="styleSheet" >
-    <string notr="true" />
-   </property>
-   <property name="icon" >
-    <iconset resource="../../resource/dboxfe.qrc" >
-     <normaloff>:/pics/images/folder-open_16.png</normaloff>:/pics/images/folder-open_16.png</iconset>
-   </property>
-  </widget>
-  <widget class="QToolButton" name="btnApplyScreenCapture" >
-   <property name="geometry" >
-    <rect>
-     <x>670</x>
-     <y>305</y>
-     <width>31</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="styleSheet" >
-    <string notr="true" />
-   </property>
-   <property name="icon" >
-    <iconset resource="../../resource/dboxfe.qrc" >
-     <normaloff>:/pics/images/apply_16.png</normaloff>:/pics/images/apply_16.png</iconset>
-   </property>
-  </widget>
-  <widget class="QToolButton" name="btnClearScreenCapture" >
-   <property name="geometry" >
-    <rect>
-     <x>700</x>
-     <y>305</y>
-     <width>31</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="styleSheet" >
-    <string notr="true" />
-   </property>
-   <property name="icon" >
-    <iconset resource="../../resource/dboxfe.qrc" >
-     <normaloff>:/pics/images/cancel_16.png</normaloff>:/pics/images/cancel_16.png</iconset>
-   </property>
-  </widget>
   <widget class="QLabel" name="labelGameSreenshotHeader" >
    <property name="geometry" >
     <rect>
@@ -390,136 +352,6 @@ border-radius: 7px;
       <property name="styleSheet" >
        <string notr="true" />
       </property>
-      <item>
-       <property name="text" >
-        <string>Neues Element</string>
-       </property>
-      </item>
-      <item>
-       <property name="text" >
-        <string>Neues Element</string>
-       </property>
-      </item>
-      <item>
-       <property name="text" >
-        <string>Neues Element</string>
-       </property>
-      </item>
-      <item>
-       <property name="text" >
-        <string>Neues Element</string>
-       </property>
-      </item>
-      <item>
-       <property name="text" >
-        <string>Neues Element</string>
-       </property>
-      </item>
-      <item>
-       <property name="text" >
-        <string>Neues Element</string>
-       </property>
-      </item>
-      <item>
-       <property name="text" >
-        <string>Neues Element</string>
-       </property>
-      </item>
-      <item>
-       <property name="text" >
-        <string>Neues Element</string>
-       </property>
-      </item>
-      <item>
-       <property name="text" >
-        <string>Neues Element</string>
-       </property>
-      </item>
-      <item>
-       <property name="text" >
-        <string>Neues Element</string>
-       </property>
-      </item>
-      <item>
-       <property name="text" >
-        <string>Neues Element</string>
-       </property>
-      </item>
-      <item>
-       <property name="text" >
-        <string>Neues Element</string>
-       </property>
-      </item>
-      <item>
-       <property name="text" >
-        <string>Neues Element</string>
-       </property>
-      </item>
-      <item>
-       <property name="text" >
-        <string>Neues Element</string>
-       </property>
-      </item>
-      <item>
-       <property name="text" >
-        <string>Neues Element</string>
-       </property>
-      </item>
-      <item>
-       <property name="text" >
-        <string>Neues Element</string>
-       </property>
-      </item>
-      <item>
-       <property name="text" >
-        <string>Neues Element</string>
-       </property>
-      </item>
-      <item>
-       <property name="text" >
-        <string>Neues Element</string>
-       </property>
-      </item>
-      <item>
-       <property name="text" >
-        <string>Neues Element</string>
-       </property>
-      </item>
-      <item>
-       <property name="text" >
-        <string>Neues Element</string>
-       </property>
-      </item>
-      <item>
-       <property name="text" >
-        <string>Neues Element</string>
-       </property>
-      </item>
-      <item>
-       <property name="text" >
-        <string>Neues Element</string>
-       </property>
-      </item>
-      <item>
-       <property name="text" >
-        <string>Neues Element</string>
-       </property>
-      </item>
-      <item>
-       <property name="text" >
-        <string>Neues Element</string>
-       </property>
-      </item>
-      <item>
-       <property name="text" >
-        <string>Neues Element</string>
-       </property>
-      </item>
-      <item>
-       <property name="text" >
-        <string>Neues Element</string>
-       </property>
-      </item>
      </widget>
     </item>
     <item row="1" column="0" >
@@ -853,7 +685,61 @@ border-radius: 7px;
     <string notr="true" />
    </property>
    <property name="text" >
-    <string>TextLabel</string>
+    <string>Games</string>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="btnApplyScreenCapture" >
+   <property name="geometry" >
+    <rect>
+     <x>670</x>
+     <y>305</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet" >
+    <string notr="true" />
+   </property>
+   <property name="icon" >
+    <iconset resource="../../resource/dboxfe.qrc" >
+     <normaloff>:/pics/images/apply_16.png</normaloff>:/pics/images/apply_16.png</iconset>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="btnClearScreenCapture" >
+   <property name="geometry" >
+    <rect>
+     <x>700</x>
+     <y>305</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet" >
+    <string notr="true" />
+   </property>
+   <property name="icon" >
+    <iconset resource="../../resource/dboxfe.qrc" >
+     <normaloff>:/pics/images/cancel_16.png</normaloff>:/pics/images/cancel_16.png</iconset>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="btnOpenScreenCapture" >
+   <property name="geometry" >
+    <rect>
+     <x>640</x>
+     <y>305</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="statusTip" >
+    <string>Open screen capture</string>
+   </property>
+   <property name="styleSheet" >
+    <string notr="true" />
+   </property>
+   <property name="icon" >
+    <iconset resource="../../resource/dboxfe.qrc" >
+     <normaloff>:/pics/images/folder-open_16.png</normaloff>:/pics/images/folder-open_16.png</iconset>
    </property>
   </widget>
  </widget>

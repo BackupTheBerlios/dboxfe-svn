@@ -120,7 +120,7 @@ namespace asaal {
       QFile dboxOutFile( dosbox->workingDirectory() + "/stdout.txt" );
 
       if ( !dboxOutFile.open( QFile::ReadOnly | QFile::Text ) ) {
-        QMessageBox::information( this, winTitle(), tr( "Can not read " ) + dboxOutFile.fileName() );
+        QMessageBox::information( this, tr( "DBoxFE" ), tr( "Can not read " ) + dboxOutFile.fileName() );
         dosboxVersion = QString( "" );
         dosbox->close();
         delete dosbox;
@@ -146,7 +146,6 @@ namespace asaal {
 
         lineEditDosboxBinary->setText( dosboxBinary );
         lineEditDosboxVersion->setText( QString( tr( "DOSBox Version:  " ) + dosboxVersion ) );
-        dosboxVersion = dVersion;
       } else {
 
         QMessageBox::information( this, tr( "DBoxFE" ), tr( "Wrong dosbox version %1, i need 0.7x or higher." ).arg( QString( dosboxVersion.simplified() ).trimmed() ) );
@@ -158,7 +157,6 @@ namespace asaal {
     }
 
     dosbox->close();
-
     delete dosbox;
 
 #else
@@ -195,7 +193,6 @@ namespace asaal {
     }
 
     dosbox->close();
-
     delete dosbox;
 
 #endif
