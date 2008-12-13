@@ -196,7 +196,7 @@ namespace asaal {
 
     while ( !in.atEnd() ) {
 
-      qApp->prcoessEvents();
+      qApp->processEvents();
       
       line = in.readLine();
 

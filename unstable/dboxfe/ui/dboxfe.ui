@@ -1,49 +1,39 @@
 <ui version="4.0" >
  <class>UiDBoxFE</class>
  <widget class="QWidget" name="UiDBoxFE" >
-  <property name="enabled" >
-   <bool>true</bool>
-  </property>
   <property name="geometry" >
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>751</width>
-    <height>570</height>
+    <width>762</width>
+    <height>573</height>
    </rect>
-  </property>
-  <property name="minimumSize" >
-   <size>
-    <width>751</width>
-    <height>570</height>
-   </size>
-  </property>
-  <property name="maximumSize" >
-   <size>
-    <width>751</width>
-    <height>570</height>
-   </size>
   </property>
   <property name="windowTitle" >
    <string>DBoxFE - Startscreen</string>
   </property>
   <property name="styleSheet" >
-   <string notr="true" >#UiDBoxFE {
-	background-color: white;
-}
+   <string notr="true" >#textEditGameDescription {
+	padding-top: 20px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
 
-#frameGameScreenshot {
+	border: solid;
 	border-width: 2px;
-	padding: 1px;
 	border-style: solid;
 	border-color: navy;
 	border-radius: 7px;
 	background-color: white;
 }
 
-#frameGameDescription {
+#labelGameScreenshot {
+	padding-top: 20px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+	border: solid;
 	border-width: 2px;
-	padding: 1px;
 	border-style: solid;
 	border-color: navy;
 	border-radius: 7px;
@@ -156,611 +146,715 @@ border-radius: 7px;
 	border-right: none;
 	border-radius: 1px;
 }
+
+#listWidgetGames {
+	selection-background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 lightblue, stop: 1 navy);
+	border: none;
+	background-color: white;
+}
 </string>
   </property>
-  <widget class="QFrame" name="frameGame" >
+  <widget class="QLabel" name="labelGameScreenshot" >
+   <property name="enabled" >
+    <bool>true</bool>
+   </property>
+   <property name="geometry" >
+    <rect>
+     <x>240</x>
+     <y>320</y>
+     <width>511</width>
+     <height>241</height>
+    </rect>
+   </property>
+   <property name="contextMenuPolicy" >
+    <enum>Qt::CustomContextMenu</enum>
+   </property>
+   <property name="styleSheet" >
+    <string notr="true" />
+   </property>
+   <property name="text" >
+    <string/>
+   </property>
+   <property name="scaledContents" >
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="btnOpenScreenCapture" >
+   <property name="geometry" >
+    <rect>
+     <x>640</x>
+     <y>305</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="statusTip" >
+    <string>Open screen capture</string>
+   </property>
+   <property name="styleSheet" >
+    <string notr="true" />
+   </property>
+   <property name="icon" >
+    <iconset resource="../../resource/dboxfe.qrc" >
+     <normaloff>:/pics/images/folder-open_16.png</normaloff>:/pics/images/folder-open_16.png</iconset>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="btnApplyScreenCapture" >
+   <property name="geometry" >
+    <rect>
+     <x>670</x>
+     <y>305</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet" >
+    <string notr="true" />
+   </property>
+   <property name="icon" >
+    <iconset resource="../../resource/dboxfe.qrc" >
+     <normaloff>:/pics/images/apply_16.png</normaloff>:/pics/images/apply_16.png</iconset>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="btnClearScreenCapture" >
+   <property name="geometry" >
+    <rect>
+     <x>700</x>
+     <y>305</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet" >
+    <string notr="true" />
+   </property>
+   <property name="icon" >
+    <iconset resource="../../resource/dboxfe.qrc" >
+     <normaloff>:/pics/images/cancel_16.png</normaloff>:/pics/images/cancel_16.png</iconset>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelGameSreenshotHeader" >
+   <property name="geometry" >
+    <rect>
+     <x>250</x>
+     <y>305</y>
+     <width>491</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="minimumSize" >
+    <size>
+     <width>0</width>
+     <height>31</height>
+    </size>
+   </property>
+   <property name="maximumSize" >
+    <size>
+     <width>16777215</width>
+     <height>31</height>
+    </size>
+   </property>
+   <property name="styleSheet" >
+    <string notr="true" />
+   </property>
+   <property name="frameShape" >
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="text" >
+    <string>Screenshot</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="textEditGameDescription" >
+   <property name="enabled" >
+    <bool>true</bool>
+   </property>
+   <property name="geometry" >
+    <rect>
+     <x>240</x>
+     <y>20</y>
+     <width>511</width>
+     <height>271</height>
+    </rect>
+   </property>
+   <property name="cursor" stdset="0" >
+    <cursorShape>IBeamCursor</cursorShape>
+   </property>
+   <property name="contextMenuPolicy" >
+    <enum>Qt::CustomContextMenu</enum>
+   </property>
+   <property name="styleSheet" >
+    <string notr="true" />
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelGameDescriptionHeader" >
+   <property name="geometry" >
+    <rect>
+     <x>250</x>
+     <y>7</y>
+     <width>491</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet" >
+    <string notr="true" />
+   </property>
+   <property name="frameShape" >
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="text" >
+    <string>Description</string>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="btnOpenDescriptionText" >
+   <property name="geometry" >
+    <rect>
+     <x>640</x>
+     <y>7</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet" >
+    <string notr="true" />
+   </property>
+   <property name="icon" >
+    <iconset resource="../../resource/dboxfe.qrc" >
+     <normaloff>:/pics/images/folder-open_16.png</normaloff>:/pics/images/folder-open_16.png</iconset>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="btnApplyDescriptionText" >
+   <property name="geometry" >
+    <rect>
+     <x>670</x>
+     <y>7</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet" >
+    <string notr="true" />
+   </property>
+   <property name="icon" >
+    <iconset resource="../../resource/dboxfe.qrc" >
+     <normaloff>:/pics/images/apply_16.png</normaloff>:/pics/images/apply_16.png</iconset>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="btnClearDescriptionText" >
+   <property name="geometry" >
+    <rect>
+     <x>700</x>
+     <y>7</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet" >
+    <string notr="true" />
+   </property>
+   <property name="icon" >
+    <iconset resource="../../resource/dboxfe.qrc" >
+     <normaloff>:/pics/images/cancel_16.png</normaloff>:/pics/images/cancel_16.png</iconset>
+   </property>
+  </widget>
+  <widget class="QLabel" name="frameGame" >
    <property name="geometry" >
     <rect>
      <x>10</x>
-     <y>10</y>
+     <y>20</y>
      <width>221</width>
-     <height>551</height>
+     <height>541</height>
     </rect>
    </property>
    <property name="styleSheet" >
     <string notr="true" />
    </property>
-   <property name="frameShape" >
-    <enum>QFrame::StyledPanel</enum>
+   <property name="text" >
+    <string/>
    </property>
-   <widget class="QLabel" name="labelGameHeader" >
-    <property name="geometry" >
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>221</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet" >
-     <string notr="true" />
-    </property>
-    <property name="frameShape" >
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="text" >
-     <string>Games</string>
-    </property>
-   </widget>
-   <widget class="QWidget" name="layoutWidget" >
-    <property name="geometry" >
-     <rect>
-      <x>10</x>
-      <y>40</y>
-      <width>201</width>
-      <height>501</height>
-     </rect>
-    </property>
-    <layout class="QGridLayout" name="glGames" >
-     <item row="0" column="0" >
-      <widget class="QListWidget" name="listWidgetGames" >
-       <property name="contextMenuPolicy" >
-        <enum>Qt::CustomContextMenu</enum>
-       </property>
-       <property name="styleSheet" >
-        <string notr="true" >selection-background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 lightblue, stop: 1 navy);
-border: none;</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0" >
-      <layout class="QGridLayout" name="glButtonGroup" >
-       <item row="0" column="0" >
-        <layout class="QHBoxLayout" name="hlStartGame" >
-         <item>
-          <widget class="QLabel" name="labelStartGame" >
-           <property name="minimumSize" >
-            <size>
-             <width>110</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="maximumSize" >
-            <size>
-             <width>110</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="styleSheet" >
-            <string notr="true" >border: none;</string>
-           </property>
-           <property name="text" >
-            <string>Start:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="btnStartGame" >
-           <property name="minimumSize" >
-            <size>
-             <width>0</width>
-             <height>22</height>
-            </size>
-           </property>
-           <property name="maximumSize" >
-            <size>
-             <width>16777215</width>
-             <height>22</height>
-            </size>
-           </property>
-           <property name="styleSheet" >
-            <string notr="true" >border-style: none;</string>
-           </property>
-           <property name="text" >
-            <string/>
-           </property>
-           <property name="icon" >
-            <iconset resource="../../resource/dboxfe.qrc" >
-             <normaloff>:/pics/images/applications_16.png</normaloff>:/pics/images/applications_16.png</iconset>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item row="1" column="0" >
-        <layout class="QHBoxLayout" name="hlNewProfile" >
-         <item>
-          <widget class="QLabel" name="labelNewProfile" >
-           <property name="minimumSize" >
-            <size>
-             <width>110</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="maximumSize" >
-            <size>
-             <width>110</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="styleSheet" >
-            <string notr="true" >border: none;</string>
-           </property>
-           <property name="text" >
-            <string>New:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="btnNewProfile" >
-           <property name="minimumSize" >
-            <size>
-             <width>0</width>
-             <height>22</height>
-            </size>
-           </property>
-           <property name="maximumSize" >
-            <size>
-             <width>16777215</width>
-             <height>22</height>
-            </size>
-           </property>
-           <property name="styleSheet" >
-            <string notr="true" >border-style: none;</string>
-           </property>
-           <property name="text" >
-            <string/>
-           </property>
-           <property name="icon" >
-            <iconset resource="../../resource/dboxfe.qrc" >
-             <normaloff>:/pics/images/documents_16.png</normaloff>:/pics/images/documents_16.png</iconset>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item row="2" column="0" >
-        <layout class="QHBoxLayout" name="hlEditProfile" >
-         <item>
-          <widget class="QLabel" name="labelEditProfile" >
-           <property name="minimumSize" >
-            <size>
-             <width>110</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="maximumSize" >
-            <size>
-             <width>110</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="styleSheet" >
-            <string notr="true" >border: none;</string>
-           </property>
-           <property name="text" >
-            <string>Edit:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="btnEditProfile" >
-           <property name="minimumSize" >
-            <size>
-             <width>0</width>
-             <height>22</height>
-            </size>
-           </property>
-           <property name="maximumSize" >
-            <size>
-             <width>16777215</width>
-             <height>22</height>
-            </size>
-           </property>
-           <property name="styleSheet" >
-            <string notr="true" >border-style: none;</string>
-           </property>
-           <property name="text" >
-            <string/>
-           </property>
-           <property name="icon" >
-            <iconset resource="../../resource/dboxfe.qrc" >
-             <normaloff>:/pics/images/copy_16.png</normaloff>:/pics/images/copy_16.png</iconset>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item row="3" column="0" >
-        <layout class="QHBoxLayout" name="hlDeleteProfile" >
-         <item>
-          <widget class="QLabel" name="labelDeleteProfile" >
-           <property name="minimumSize" >
-            <size>
-             <width>110</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="maximumSize" >
-            <size>
-             <width>110</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="styleSheet" >
-            <string notr="true" >border: none;</string>
-           </property>
-           <property name="text" >
-            <string>Delete:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="btnDeleteProfile" >
-           <property name="minimumSize" >
-            <size>
-             <width>0</width>
-             <height>22</height>
-            </size>
-           </property>
-           <property name="maximumSize" >
-            <size>
-             <width>16777215</width>
-             <height>22</height>
-            </size>
-           </property>
-           <property name="styleSheet" >
-            <string notr="true" >border-style: none;</string>
-           </property>
-           <property name="text" >
-            <string/>
-           </property>
-           <property name="icon" >
-            <iconset resource="../../resource/dboxfe.qrc" >
-             <normaloff>:/pics/images/trash_16.png</normaloff>:/pics/images/trash_16.png</iconset>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item row="4" column="0" >
-        <layout class="QHBoxLayout" name="hlAssistant" >
-         <item>
-          <widget class="QLabel" name="labelAssistant" >
-           <property name="minimumSize" >
-            <size>
-             <width>110</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="maximumSize" >
-            <size>
-             <width>110</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="styleSheet" >
-            <string notr="true" >border: none;</string>
-           </property>
-           <property name="text" >
-            <string>Assistant</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="btnAssistant" >
-           <property name="minimumSize" >
-            <size>
-             <width>0</width>
-             <height>22</height>
-            </size>
-           </property>
-           <property name="maximumSize" >
-            <size>
-             <width>16777215</width>
-             <height>22</height>
-            </size>
-           </property>
-           <property name="styleSheet" >
-            <string notr="true" >border-style: none;</string>
-           </property>
-           <property name="text" >
-            <string/>
-           </property>
-           <property name="icon" >
-            <iconset resource="../../resource/dboxfe.qrc" >
-             <normaloff>:/pics/images/computer_16.png</normaloff>:/pics/images/computer_16.png</iconset>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item row="5" column="0" >
-        <layout class="QHBoxLayout" name="hlPreference" >
-         <item>
-          <widget class="QLabel" name="labelPreferences" >
-           <property name="minimumSize" >
-            <size>
-             <width>110</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="maximumSize" >
-            <size>
-             <width>110</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="styleSheet" >
-            <string notr="true" >border: none;</string>
-           </property>
-           <property name="text" >
-            <string>Preferences</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="btnPreferences" >
-           <property name="minimumSize" >
-            <size>
-             <width>0</width>
-             <height>22</height>
-            </size>
-           </property>
-           <property name="maximumSize" >
-            <size>
-             <width>16777215</width>
-             <height>22</height>
-            </size>
-           </property>
-           <property name="styleSheet" >
-            <string notr="true" >border-style: none;</string>
-           </property>
-           <property name="text" >
-            <string/>
-           </property>
-           <property name="icon" >
-            <iconset resource="../../resource/dboxfe.qrc" >
-             <normaloff>:/pics/images/preferences.png</normaloff>:/pics/images/preferences.png</iconset>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-      </layout>
-     </item>
-    </layout>
-   </widget>
   </widget>
-  <widget class="QFrame" name="frameGameScreenshot" >
+  <widget class="QWidget" name="layoutWidget" >
    <property name="geometry" >
     <rect>
-     <x>240</x>
-     <y>240</y>
-     <width>501</width>
-     <height>321</height>
+     <x>20</x>
+     <y>50</y>
+     <width>201</width>
+     <height>501</height>
     </rect>
    </property>
-   <property name="styleSheet" >
-    <string notr="true" />
-   </property>
-   <property name="frameShape" >
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <widget class="QLabel" name="labelGameScreenshot" >
-    <property name="enabled" >
-     <bool>true</bool>
-    </property>
-    <property name="geometry" >
-     <rect>
-      <x>10</x>
-      <y>42</y>
-      <width>481</width>
-      <height>271</height>
-     </rect>
-    </property>
-    <property name="contextMenuPolicy" >
-     <enum>Qt::CustomContextMenu</enum>
-    </property>
-    <property name="styleSheet" >
-     <string notr="true" >padding: 1px;
-border-radius: 7px;
-border: none;
-background-color: white;
-</string>
-    </property>
-    <property name="text" >
-     <string/>
-    </property>
-    <property name="scaledContents" >
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QLabel" name="labelGameSreenshotHeader" >
-    <property name="geometry" >
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>501</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet" >
-     <string notr="true" />
-    </property>
-    <property name="frameShape" >
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="text" >
-     <string>Screenshot</string>
-    </property>
-   </widget>
-   <widget class="QToolButton" name="btnClearScreenCapture" >
-    <property name="geometry" >
-     <rect>
-      <x>460</x>
-      <y>0</y>
-      <width>31</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet" >
-     <string notr="true" />
-    </property>
-    <property name="icon" >
-     <iconset resource="../../resource/dboxfe.qrc" >
-      <normaloff>:/pics/images/cancel_16.png</normaloff>:/pics/images/cancel_16.png</iconset>
-    </property>
-   </widget>
-   <widget class="QToolButton" name="btnApplyScreenCapture" >
-    <property name="geometry" >
-     <rect>
-      <x>430</x>
-      <y>0</y>
-      <width>31</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet" >
-     <string notr="true" />
-    </property>
-    <property name="icon" >
-     <iconset resource="../../resource/dboxfe.qrc" >
-      <normaloff>:/pics/images/apply_16.png</normaloff>:/pics/images/apply_16.png</iconset>
-    </property>
-   </widget>
-   <widget class="QToolButton" name="btnOpenScreenCapture" >
-    <property name="geometry" >
-     <rect>
-      <x>400</x>
-      <y>0</y>
-      <width>31</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="statusTip" >
-     <string>Open screen capture</string>
-    </property>
-    <property name="styleSheet" >
-     <string notr="true" />
-    </property>
-    <property name="icon" >
-     <iconset resource="../../resource/dboxfe.qrc" >
-      <normaloff>:/pics/images/folder-open_16.png</normaloff>:/pics/images/folder-open_16.png</iconset>
-    </property>
-   </widget>
+   <layout class="QGridLayout" name="glGames" >
+    <item row="0" column="0" >
+     <widget class="QListWidget" name="listWidgetGames" >
+      <property name="contextMenuPolicy" >
+       <enum>Qt::CustomContextMenu</enum>
+      </property>
+      <property name="styleSheet" >
+       <string notr="true" />
+      </property>
+      <item>
+       <property name="text" >
+        <string>Neues Element</string>
+       </property>
+      </item>
+      <item>
+       <property name="text" >
+        <string>Neues Element</string>
+       </property>
+      </item>
+      <item>
+       <property name="text" >
+        <string>Neues Element</string>
+       </property>
+      </item>
+      <item>
+       <property name="text" >
+        <string>Neues Element</string>
+       </property>
+      </item>
+      <item>
+       <property name="text" >
+        <string>Neues Element</string>
+       </property>
+      </item>
+      <item>
+       <property name="text" >
+        <string>Neues Element</string>
+       </property>
+      </item>
+      <item>
+       <property name="text" >
+        <string>Neues Element</string>
+       </property>
+      </item>
+      <item>
+       <property name="text" >
+        <string>Neues Element</string>
+       </property>
+      </item>
+      <item>
+       <property name="text" >
+        <string>Neues Element</string>
+       </property>
+      </item>
+      <item>
+       <property name="text" >
+        <string>Neues Element</string>
+       </property>
+      </item>
+      <item>
+       <property name="text" >
+        <string>Neues Element</string>
+       </property>
+      </item>
+      <item>
+       <property name="text" >
+        <string>Neues Element</string>
+       </property>
+      </item>
+      <item>
+       <property name="text" >
+        <string>Neues Element</string>
+       </property>
+      </item>
+      <item>
+       <property name="text" >
+        <string>Neues Element</string>
+       </property>
+      </item>
+      <item>
+       <property name="text" >
+        <string>Neues Element</string>
+       </property>
+      </item>
+      <item>
+       <property name="text" >
+        <string>Neues Element</string>
+       </property>
+      </item>
+      <item>
+       <property name="text" >
+        <string>Neues Element</string>
+       </property>
+      </item>
+      <item>
+       <property name="text" >
+        <string>Neues Element</string>
+       </property>
+      </item>
+      <item>
+       <property name="text" >
+        <string>Neues Element</string>
+       </property>
+      </item>
+      <item>
+       <property name="text" >
+        <string>Neues Element</string>
+       </property>
+      </item>
+      <item>
+       <property name="text" >
+        <string>Neues Element</string>
+       </property>
+      </item>
+      <item>
+       <property name="text" >
+        <string>Neues Element</string>
+       </property>
+      </item>
+      <item>
+       <property name="text" >
+        <string>Neues Element</string>
+       </property>
+      </item>
+      <item>
+       <property name="text" >
+        <string>Neues Element</string>
+       </property>
+      </item>
+      <item>
+       <property name="text" >
+        <string>Neues Element</string>
+       </property>
+      </item>
+      <item>
+       <property name="text" >
+        <string>Neues Element</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="1" column="0" >
+     <layout class="QGridLayout" name="glButtonGroup" >
+      <item row="0" column="0" >
+       <layout class="QHBoxLayout" name="hlStartGame" >
+        <item>
+         <widget class="QLabel" name="labelStartGame" >
+          <property name="minimumSize" >
+           <size>
+            <width>110</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize" >
+           <size>
+            <width>110</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet" >
+           <string notr="true" >border: none;</string>
+          </property>
+          <property name="text" >
+           <string>Start:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnStartGame" >
+          <property name="minimumSize" >
+           <size>
+            <width>0</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="maximumSize" >
+           <size>
+            <width>16777215</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="styleSheet" >
+           <string notr="true" >border-style: none;</string>
+          </property>
+          <property name="text" >
+           <string/>
+          </property>
+          <property name="icon" >
+           <iconset resource="../../resource/dboxfe.qrc" >
+            <normaloff>:/pics/images/applications_16.png</normaloff>:/pics/images/applications_16.png</iconset>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="1" column="0" >
+       <layout class="QHBoxLayout" name="hlNewProfile" >
+        <item>
+         <widget class="QLabel" name="labelNewProfile" >
+          <property name="minimumSize" >
+           <size>
+            <width>110</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize" >
+           <size>
+            <width>110</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet" >
+           <string notr="true" >border: none;</string>
+          </property>
+          <property name="text" >
+           <string>New:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnNewProfile" >
+          <property name="minimumSize" >
+           <size>
+            <width>0</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="maximumSize" >
+           <size>
+            <width>16777215</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="styleSheet" >
+           <string notr="true" >border-style: none;</string>
+          </property>
+          <property name="text" >
+           <string/>
+          </property>
+          <property name="icon" >
+           <iconset resource="../../resource/dboxfe.qrc" >
+            <normaloff>:/pics/images/documents_16.png</normaloff>:/pics/images/documents_16.png</iconset>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="2" column="0" >
+       <layout class="QHBoxLayout" name="hlEditProfile" >
+        <item>
+         <widget class="QLabel" name="labelEditProfile" >
+          <property name="minimumSize" >
+           <size>
+            <width>110</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize" >
+           <size>
+            <width>110</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet" >
+           <string notr="true" >border: none;</string>
+          </property>
+          <property name="text" >
+           <string>Edit:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnEditProfile" >
+          <property name="minimumSize" >
+           <size>
+            <width>0</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="maximumSize" >
+           <size>
+            <width>16777215</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="styleSheet" >
+           <string notr="true" >border-style: none;</string>
+          </property>
+          <property name="text" >
+           <string/>
+          </property>
+          <property name="icon" >
+           <iconset resource="../../resource/dboxfe.qrc" >
+            <normaloff>:/pics/images/copy_16.png</normaloff>:/pics/images/copy_16.png</iconset>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="3" column="0" >
+       <layout class="QHBoxLayout" name="hlDeleteProfile" >
+        <item>
+         <widget class="QLabel" name="labelDeleteProfile" >
+          <property name="minimumSize" >
+           <size>
+            <width>110</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize" >
+           <size>
+            <width>110</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet" >
+           <string notr="true" >border: none;</string>
+          </property>
+          <property name="text" >
+           <string>Delete:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnDeleteProfile" >
+          <property name="minimumSize" >
+           <size>
+            <width>0</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="maximumSize" >
+           <size>
+            <width>16777215</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="styleSheet" >
+           <string notr="true" >border-style: none;</string>
+          </property>
+          <property name="text" >
+           <string/>
+          </property>
+          <property name="icon" >
+           <iconset resource="../../resource/dboxfe.qrc" >
+            <normaloff>:/pics/images/trash_16.png</normaloff>:/pics/images/trash_16.png</iconset>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="4" column="0" >
+       <layout class="QHBoxLayout" name="hlAssistant" >
+        <item>
+         <widget class="QLabel" name="labelAssistant" >
+          <property name="minimumSize" >
+           <size>
+            <width>110</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize" >
+           <size>
+            <width>110</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet" >
+           <string notr="true" >border: none;</string>
+          </property>
+          <property name="text" >
+           <string>Assistant</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnAssistant" >
+          <property name="minimumSize" >
+           <size>
+            <width>0</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="maximumSize" >
+           <size>
+            <width>16777215</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="styleSheet" >
+           <string notr="true" >border-style: none;</string>
+          </property>
+          <property name="text" >
+           <string/>
+          </property>
+          <property name="icon" >
+           <iconset resource="../../resource/dboxfe.qrc" >
+            <normaloff>:/pics/images/computer_16.png</normaloff>:/pics/images/computer_16.png</iconset>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="5" column="0" >
+       <layout class="QHBoxLayout" name="hlPreference" >
+        <item>
+         <widget class="QLabel" name="labelPreferences" >
+          <property name="minimumSize" >
+           <size>
+            <width>110</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize" >
+           <size>
+            <width>110</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet" >
+           <string notr="true" >border: none;</string>
+          </property>
+          <property name="text" >
+           <string>Preferences</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnPreferences" >
+          <property name="minimumSize" >
+           <size>
+            <width>0</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="maximumSize" >
+           <size>
+            <width>16777215</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="styleSheet" >
+           <string notr="true" >border-style: none;</string>
+          </property>
+          <property name="text" >
+           <string/>
+          </property>
+          <property name="icon" >
+           <iconset resource="../../resource/dboxfe.qrc" >
+            <normaloff>:/pics/images/preferences.png</normaloff>:/pics/images/preferences.png</iconset>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+   </layout>
   </widget>
-  <widget class="QFrame" name="frameGameDescription" >
+  <widget class="QLabel" name="labelGameHeader" >
    <property name="geometry" >
     <rect>
-     <x>240</x>
-     <y>10</y>
-     <width>501</width>
-     <height>221</height>
+     <x>20</x>
+     <y>7</y>
+     <width>201</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="styleSheet" >
     <string notr="true" />
    </property>
-   <property name="frameShape" >
-    <enum>QFrame::StyledPanel</enum>
+   <property name="text" >
+    <string>TextLabel</string>
    </property>
-   <widget class="QTextEdit" name="textEditGameDescription" >
-    <property name="enabled" >
-     <bool>true</bool>
-    </property>
-    <property name="geometry" >
-     <rect>
-      <x>10</x>
-      <y>40</y>
-      <width>481</width>
-      <height>171</height>
-     </rect>
-    </property>
-    <property name="cursor" stdset="0" >
-     <cursorShape>IBeamCursor</cursorShape>
-    </property>
-    <property name="contextMenuPolicy" >
-     <enum>Qt::CustomContextMenu</enum>
-    </property>
-    <property name="styleSheet" >
-     <string notr="true" >padding: 1px;
-border: none;
-border-radius: 7px;
-background-color: white;
-</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="labelGameDescriptionHeader" >
-    <property name="geometry" >
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>501</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet" >
-     <string notr="true" />
-    </property>
-    <property name="frameShape" >
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="text" >
-     <string>Description</string>
-    </property>
-   </widget>
-   <widget class="QToolButton" name="btnApplyDescriptionText" >
-    <property name="geometry" >
-     <rect>
-      <x>430</x>
-      <y>0</y>
-      <width>31</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet" >
-     <string notr="true" />
-    </property>
-    <property name="icon" >
-     <iconset resource="../../resource/dboxfe.qrc" >
-      <normaloff>:/pics/images/apply_16.png</normaloff>:/pics/images/apply_16.png</iconset>
-    </property>
-   </widget>
-   <widget class="QToolButton" name="btnClearDescriptionText" >
-    <property name="geometry" >
-     <rect>
-      <x>460</x>
-      <y>0</y>
-      <width>31</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet" >
-     <string notr="true" />
-    </property>
-    <property name="icon" >
-     <iconset resource="../../resource/dboxfe.qrc" >
-      <normaloff>:/pics/images/cancel_16.png</normaloff>:/pics/images/cancel_16.png</iconset>
-    </property>
-   </widget>
-   <widget class="QToolButton" name="btnOpenDescriptionText" >
-    <property name="geometry" >
-     <rect>
-      <x>400</x>
-      <y>0</y>
-      <width>31</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet" >
-     <string notr="true" />
-    </property>
-    <property name="icon" >
-     <iconset resource="../../resource/dboxfe.qrc" >
-      <normaloff>:/pics/images/folder-open_16.png</normaloff>:/pics/images/folder-open_16.png</iconset>
-    </property>
-   </widget>
   </widget>
  </widget>
  <resources>
