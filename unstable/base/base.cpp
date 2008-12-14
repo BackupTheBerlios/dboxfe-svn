@@ -685,13 +685,14 @@ namespace asaal {
     writeConf->beginGroup( "ipx" );
     writeConf->setValue( "ipx", config.ipx );
     writeConf->endGroup();
+    writeConf->sync();
 
     delete writeConf;
 
     // Autoexec settings
     QFile configFile( profile );
 
-    if ( !configFile.open( QIODevice::ReadOnly | QIODevice::Text ) ) {
+    if ( !configFile.open( QIODevice::ReadWrite | QIODevice::Text ) ) {
       qDebug() << QDateTime::currentDateTime().toString( Qt::LocaleDate ) << tr( " - [ERROR] Unable to open and read profile: " ) << configFile.fileName() << endl;
       return;
     }
