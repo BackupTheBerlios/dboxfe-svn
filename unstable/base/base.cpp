@@ -67,123 +67,123 @@ namespace asaal {
       return m_Configuration;
     }
 
-    QSettings readConf( profile, QSettings::IniFormat );
+    QSettings *readConf = new QSettings( profile, QSettings::IniFormat );
 
     // SDL settings
-    readConf.beginGroup( "sdl" );
-    m_Configuration.sdl.insert( "fullscreen", readConf.value( "fullscreen" ) );
-    m_Configuration.sdl.insert( "fulldouble", readConf.value( "fulldouble" ) );
-    m_Configuration.sdl.insert( "fullresolution", readConf.value( "fullresolution" ) );
-    m_Configuration.sdl.insert( "windowresolution", readConf.value( "windowresolution" ) );
-    m_Configuration.sdl.insert( "priority", readConf.value( "priority" ) );
-    m_Configuration.sdl.insert( "output", readConf.value( "output" ) );
-    m_Configuration.sdl.insert( "autolock", readConf.value( "autolock" ) );
-    m_Configuration.sdl.insert( "waitonerror", readConf.value( "waitonerror" ) );
-    m_Configuration.sdl.insert( "usescancodes", readConf.value( "usescancodes" ) );
-    m_Configuration.sdl.insert( "sensitivity", readConf.value( "sensitivity" ) );
-    m_Configuration.sdl.insert( "mapperfile", readConf.value( "mapperfile" ) );
-    readConf.endGroup();
+    readConf->beginGroup( "sdl" );
+    m_Configuration.sdl.insert( "fullscreen", readConf->value( "fullscreen" ) );
+    m_Configuration.sdl.insert( "fulldouble", readConf->value( "fulldouble" ) );
+    m_Configuration.sdl.insert( "fullresolution", readConf->value( "fullresolution" ) );
+    m_Configuration.sdl.insert( "windowresolution", readConf->value( "windowresolution" ) );
+    m_Configuration.sdl.insert( "priority", readConf->value( "priority" ) );
+    m_Configuration.sdl.insert( "output", readConf->value( "output" ) );
+    m_Configuration.sdl.insert( "autolock", readConf->value( "autolock" ) );
+    m_Configuration.sdl.insert( "waitonerror", readConf->value( "waitonerror" ) );
+    m_Configuration.sdl.insert( "usescancodes", readConf->value( "usescancodes" ) );
+    m_Configuration.sdl.insert( "sensitivity", readConf->value( "sensitivity" ) );
+    m_Configuration.sdl.insert( "mapperfile", readConf->value( "mapperfile" ) );
+    readConf->endGroup();
 
     // DOSBox settings
-    readConf.beginGroup( "dosbox" );
-    m_Configuration.dosbox.insert( "language", readConf.value( "language" ) );
-    m_Configuration.dosbox.insert( "machine", readConf.value( "machine" ) );
-    m_Configuration.dosbox.insert( "memsize", readConf.value( "memsize" ) );
-    m_Configuration.dosbox.insert( "captures", readConf.value( "captures" ) );
-    readConf.endGroup();
+    readConf->beginGroup( "dosbox" );
+    m_Configuration.dosbox.insert( "language", readConf->value( "language" ) );
+    m_Configuration.dosbox.insert( "machine", readConf->value( "machine" ) );
+    m_Configuration.dosbox.insert( "memsize", readConf->value( "memsize" ) );
+    m_Configuration.dosbox.insert( "captures", readConf->value( "captures" ) );
+    readConf->endGroup();
 
     // Render settings
-    readConf.beginGroup( "render" );
-    m_Configuration.render.insert( "frameskip", readConf.value( "frameskip" ) );
-    m_Configuration.render.insert( "scaler", readConf.value( "scaler" ) );
-    m_Configuration.render.insert( "aspect", readConf.value( "aspect" ) );
-    readConf.endGroup();
+    readConf->beginGroup( "render" );
+    m_Configuration.render.insert( "frameskip", readConf->value( "frameskip" ) );
+    m_Configuration.render.insert( "scaler", readConf->value( "scaler" ) );
+    m_Configuration.render.insert( "aspect", readConf->value( "aspect" ) );
+    readConf->endGroup();
 
     // CPU settings
-    readConf.beginGroup( "cpu" );
-    m_Configuration.cpu.insert( "core", readConf.value( "core" ) );
-    m_Configuration.cpu.insert( "cycles", readConf.value( "cycles" ) );
-    m_Configuration.cpu.insert( "cycleup", readConf.value( "cycleup" ) );
-    m_Configuration.cpu.insert( "cycledown", readConf.value( "cycledown" ) );
-    readConf.endGroup();
+    readConf->beginGroup( "cpu" );
+    m_Configuration.cpu.insert( "core", readConf->value( "core" ) );
+    m_Configuration.cpu.insert( "cycles", readConf->value( "cycles" ) );
+    m_Configuration.cpu.insert( "cycleup", readConf->value( "cycleup" ) );
+    m_Configuration.cpu.insert( "cycledown", readConf->value( "cycledown" ) );
+    readConf->endGroup();
 
     // Mixer settings
-    readConf.beginGroup( "mixer" );
-    m_Configuration.mixer.insert( "nosound", readConf.value( "nosound" ) );
-    m_Configuration.mixer.insert( "rate", readConf.value( "rate" ) );
-    m_Configuration.mixer.insert( "blocksize", readConf.value( "blocksize" ) );
-    m_Configuration.mixer.insert( "prebuffer", readConf.value( "prebuffer" ) );
-    readConf.endGroup();
+    readConf->beginGroup( "mixer" );
+    m_Configuration.mixer.insert( "nosound", readConf->value( "nosound" ) );
+    m_Configuration.mixer.insert( "rate", readConf->value( "rate" ) );
+    m_Configuration.mixer.insert( "blocksize", readConf->value( "blocksize" ) );
+    m_Configuration.mixer.insert( "prebuffer", readConf->value( "prebuffer" ) );
+    readConf->endGroup();
 
     // Mdi settings
-    readConf.beginGroup( "midi" );
-    m_Configuration.mdi.insert( "mpu401", readConf.value( "mpu401" ) );
-    m_Configuration.mdi.insert( "device", readConf.value( "device" ) );
-    m_Configuration.mdi.insert( "config", readConf.value( "config" ) );
-    readConf.endGroup();
+    readConf->beginGroup( "midi" );
+    m_Configuration.mdi.insert( "mpu401", readConf->value( "mpu401" ) );
+    m_Configuration.mdi.insert( "device", readConf->value( "device" ) );
+    m_Configuration.mdi.insert( "config", readConf->value( "config" ) );
+    readConf->endGroup();
 
     // Soundblaster settings
-    readConf.beginGroup( "sblaster" );
-    m_Configuration.sblaster.insert( "sbtype", readConf.value( "sbtype" ) );
-    m_Configuration.sblaster.insert( "sbbase", readConf.value( "sbbase" ) );
-    m_Configuration.sblaster.insert( "irq", readConf.value( "irq" ) );
-    m_Configuration.sblaster.insert( "dma", readConf.value( "dma" ) );
-    m_Configuration.sblaster.insert( "hdma", readConf.value( "hdma" ) );
-    m_Configuration.sblaster.insert( "oplrate", readConf.value( "oplrate" ) );
-    m_Configuration.sblaster.insert( "oplmode", readConf.value( "oplmode" ) );
-    m_Configuration.sblaster.insert( "mixer", readConf.value( "mixer" ) );
-    readConf.endGroup();
+    readConf->beginGroup( "sblaster" );
+    m_Configuration.sblaster.insert( "sbtype", readConf->value( "sbtype" ) );
+    m_Configuration.sblaster.insert( "sbbase", readConf->value( "sbbase" ) );
+    m_Configuration.sblaster.insert( "irq", readConf->value( "irq" ) );
+    m_Configuration.sblaster.insert( "dma", readConf->value( "dma" ) );
+    m_Configuration.sblaster.insert( "hdma", readConf->value( "hdma" ) );
+    m_Configuration.sblaster.insert( "oplrate", readConf->value( "oplrate" ) );
+    m_Configuration.sblaster.insert( "oplmode", readConf->value( "oplmode" ) );
+    m_Configuration.sblaster.insert( "mixer", readConf->value( "mixer" ) );
+    readConf->endGroup();
 
     // GUS settings
-    readConf.beginGroup( "gus" );
-    m_Configuration.gus.insert( "gus", readConf.value( "gus" ) );
-    m_Configuration.gus.insert( "gusrate", readConf.value( "gusrate" ) );
-    m_Configuration.gus.insert( "gusbase", readConf.value( "gusbase" ) );
-    m_Configuration.gus.insert( "irq1", readConf.value( "irq1" ) );
-    m_Configuration.gus.insert( "irq2", readConf.value( "irq2" ) );
-    m_Configuration.gus.insert( "dma1", readConf.value( "dma1" ) );
-    m_Configuration.gus.insert( "dma2", readConf.value( "dma2" ) );
-    m_Configuration.gus.insert( "ultradir", readConf.value( "ultradir" ) );
-    readConf.endGroup();
+    readConf->beginGroup( "gus" );
+    m_Configuration.gus.insert( "gus", readConf->value( "gus" ) );
+    m_Configuration.gus.insert( "gusrate", readConf->value( "gusrate" ) );
+    m_Configuration.gus.insert( "gusbase", readConf->value( "gusbase" ) );
+    m_Configuration.gus.insert( "irq1", readConf->value( "irq1" ) );
+    m_Configuration.gus.insert( "irq2", readConf->value( "irq2" ) );
+    m_Configuration.gus.insert( "dma1", readConf->value( "dma1" ) );
+    m_Configuration.gus.insert( "dma2", readConf->value( "dma2" ) );
+    m_Configuration.gus.insert( "ultradir", readConf->value( "ultradir" ) );
+    readConf->endGroup();
 
     // PC Speaker settings
-    readConf.beginGroup( "speaker" );
-    m_Configuration.speaker.insert( "pcspeaker", readConf.value( "pcspeaker" ) );
-    m_Configuration.speaker.insert( "pcrate", readConf.value( "pcrate" ) );
-    m_Configuration.speaker.insert( "tandy", readConf.value( "tandy" ) );
-    m_Configuration.speaker.insert( "tandyrate", readConf.value( "tandyrate" ) );
-    m_Configuration.speaker.insert( "disney", readConf.value( "disney" ) );
-    readConf.endGroup();
+    readConf->beginGroup( "speaker" );
+    m_Configuration.speaker.insert( "pcspeaker", readConf->value( "pcspeaker" ) );
+    m_Configuration.speaker.insert( "pcrate", readConf->value( "pcrate" ) );
+    m_Configuration.speaker.insert( "tandy", readConf->value( "tandy" ) );
+    m_Configuration.speaker.insert( "tandyrate", readConf->value( "tandyrate" ) );
+    m_Configuration.speaker.insert( "disney", readConf->value( "disney" ) );
+    readConf->endGroup();
 
     // joystick settings
-    readConf.beginGroup( "joystick" );
-    m_Configuration.joystick.insert( "joysticktype", readConf.value( "joysticktype" ) );
-    m_Configuration.joystick.insert( "timed", readConf.value( "timed" ) );
-    m_Configuration.joystick.insert( "autofire", readConf.value( "autofire" ) );
-    m_Configuration.joystick.insert( "swap34", readConf.value( "swap34" ) );
-    m_Configuration.joystick.insert( "buttonwrap", readConf.value( "buttonwrap" ) );
-    readConf.endGroup();
+    readConf->beginGroup( "joystick" );
+    m_Configuration.joystick.insert( "joysticktype", readConf->value( "joysticktype" ) );
+    m_Configuration.joystick.insert( "timed", readConf->value( "timed" ) );
+    m_Configuration.joystick.insert( "autofire", readConf->value( "autofire" ) );
+    m_Configuration.joystick.insert( "swap34", readConf->value( "swap34" ) );
+    m_Configuration.joystick.insert( "buttonwrap", readConf->value( "buttonwrap" ) );
+    readConf->endGroup();
 
     // Serial settings
-    readConf.beginGroup( "serial" );
-    m_Configuration.serial.insert( "serial1", readConf.value( "serial1" ) );
-    m_Configuration.serial.insert( "serial2", readConf.value( "serial2" ) );
-    m_Configuration.serial.insert( "serial3", readConf.value( "serial3" ) );
-    m_Configuration.serial.insert( "serial4", readConf.value( "serial4" ) );
-    readConf.endGroup();
+    readConf->beginGroup( "serial" );
+    m_Configuration.serial.insert( "serial1", readConf->value( "serial1" ) );
+    m_Configuration.serial.insert( "serial2", readConf->value( "serial2" ) );
+    m_Configuration.serial.insert( "serial3", readConf->value( "serial3" ) );
+    m_Configuration.serial.insert( "serial4", readConf->value( "serial4" ) );
+    readConf->endGroup();
 
     // DOS settings
-    readConf.beginGroup( "dos" );
-    m_Configuration.dos.insert( "xms", readConf.value( "xms" ) );
-    m_Configuration.dos.insert( "ems", readConf.value( "ems" ) );
-    m_Configuration.dos.insert( "umb", readConf.value( "umb" ) );
-    m_Configuration.dos.insert( "keyboardlayout", readConf.value( "keyboardlayout" ) );
-    readConf.endGroup();
+    readConf->beginGroup( "dos" );
+    m_Configuration.dos.insert( "xms", readConf->value( "xms" ) );
+    m_Configuration.dos.insert( "ems", readConf->value( "ems" ) );
+    m_Configuration.dos.insert( "umb", readConf->value( "umb" ) );
+    m_Configuration.dos.insert( "keyboardlayout", readConf->value( "keyboardlayout" ) );
+    readConf->endGroup();
 
     // IPX settings
-    readConf.beginGroup( "ipx" );
-    m_Configuration.ipx = readConf.value( "ipx" ).toString();
-    readConf.endGroup();
+    readConf->beginGroup( "ipx" );
+    m_Configuration.ipx = readConf->value( "ipx" ).toString();
+    readConf->endGroup();
 
     // Autoexec settings
     if ( !configFile.open( QIODevice::ReadOnly | QIODevice::Text ) ) {
@@ -212,6 +212,9 @@ namespace asaal {
     }
 
     configFile.close();
+
+    readConf = 0;
+    delete readConf;
 
     return m_Configuration;
   }
@@ -242,9 +245,9 @@ namespace asaal {
       return m_Configuration;
     }
 
-    QSettings readConf( profile, QSettings::IniFormat );
+    QSettings *readConf = new QSettings( profile, QSettings::IniFormat );
 
-    QStringList allKeys = readConf.allKeys();
+    QStringList allKeys = readConf->allKeys();
     foreach( QString key, allKeys ) {
 
       if ( ( key == "ExtraInfo" ) || ( key == "Extra" ) ) {
@@ -262,6 +265,9 @@ namespace asaal {
 
     DFend_Configuration dfend_config;
     m_Configuration.dfendConfig = dfend_config;
+
+    readConf = 0;
+    delete readConf;
 
     return m_Configuration;
   }
@@ -515,6 +521,8 @@ namespace asaal {
 
   void ConfigBase::writeConfiguration( const QString &profile, const Configuration &config ) {
 
+    qApp->processEvents();
+
     if ( config.isEmpty() ) {
       return;
     }
@@ -591,7 +599,7 @@ namespace asaal {
     writeConf->endGroup();
 
     // Mdi settings
-    writeConf->beginGroup( "mdi" );
+    writeConf->beginGroup( "midi" );
     QMap< QString, QVariant >::const_iterator m_Mdi = config.mdi.constBegin();
 
     while ( m_Mdi != config.mdi.constEnd() ) {
@@ -687,19 +695,16 @@ namespace asaal {
     writeConf->endGroup();
     writeConf->sync();
 
-    delete writeConf;
-
     // Autoexec settings
     QFile configFile( profile );
-
-    if ( !configFile.open( QIODevice::ReadWrite | QIODevice::Text ) ) {
+    if ( !configFile.open( QIODevice::ReadWrite | QIODevice::Text | QIODevice::Append ) ) {
       qDebug() << QDateTime::currentDateTime().toString( Qt::LocaleDate ) << tr( " - [ERROR] Unable to open and read profile: " ) << configFile.fileName() << endl;
       return;
     }
 
     QTextStream out( &configFile );
 
-    out << "[autoexec]\n";
+    out << "\n[autoexec]\n";
     foreach( QString autoexec, config.autoexec ) {
 
       out << autoexec << "\n";
@@ -708,6 +713,8 @@ namespace asaal {
     out.flush();
     configFile.flush();
     configFile.close();
+    
+    delete writeConf;
   }
 
   QMap< QString, QString> ConfigBase::exportDatas( const QString &directory ) {

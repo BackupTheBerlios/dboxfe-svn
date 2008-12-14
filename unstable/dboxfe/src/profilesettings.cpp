@@ -80,6 +80,10 @@ namespace asaal {
 
   void ProfileSettings::saveConfiguration() {
 
+		QApplication::setOverrideCursor( Qt::WaitCursor );
+
+    qApp->processEvents();
+
     profileConfiguration.clear();
 
     // Graphic  page
@@ -106,7 +110,7 @@ namespace asaal {
     // Sound page
     profileConfiguration.mixer.insert( "rate", comboBoxMixerRate->currentText() );
     profileConfiguration.mixer.insert( "blocksize", comboBoxMixerBlockSize->currentText() );
-    profileConfiguration.mixer.insert( "rate", spinnBoxPrebuffer->value() );
+    profileConfiguration.mixer.insert( "prebuffer", spinnBoxPrebuffer->value() );
     profileConfiguration.mixer.insert( "nosound", checkBoxMixerNoSound->isChecked() );
 
     profileConfiguration.sblaster.insert( "sbtype", comboBoxSBType->currentText() );
@@ -174,24 +178,37 @@ namespace asaal {
     profileConfiguration.joystick.insert( "buttonwrap", checkBoxButtonWrap->isChecked() );
     profileConfiguration.joystick.insert( "joysticktype", comboBoxJoystickType->currentText() );
 
+    qApp->processEvents();
+
     DBoxFE::configBaseInstance()->writeConfiguration( profFile, profileConfiguration );
+
+		QApplication::restoreOverrideCursor();
 
     QDialog::accept();
   }
 
   void ProfileSettings::setDefaultConfiguration() {
 
-    profileConfiguration.clear();
-    profileConfiguration = DBoxFE::configBaseInstance()->readConfiguration( QString::fromUtf8( ":/default/default.conf" ) );
+    int messageResult = QMessageBox::question( this, tr( "DBoxFE" ), tr( "Are you sure that you would like to use\nthe default preferences for this game\nprofile?" ), QMessageBox::Yes, QMessageBox::No );
 
-    if ( !profileConfiguration.isEmpty() ) {
+    switch( messageResult ) {
 
-      // intial default settings
+      case QMessageBox::Yes:
 
+        profileConfiguration.clear();
+        profileConfiguration = DBoxFE::configBaseInstance()->readConfiguration( QString::fromUtf8( ":/default/default.conf" ) );
+
+        if ( !profileConfiguration.isEmpty() ) {
+
+          loadConfiguration();
+        }
+        break;
     }
   }
 
   void ProfileSettings::loadConfiguration() {
+
+		QApplication::setOverrideCursor( Qt::WaitCursor );
 
     qApp->processEvents();
 
@@ -219,8 +236,13 @@ namespace asaal {
     comboBoxIndex = comboBoxSDLFocusUnfocus->findText( profileConfiguration.sdl.value( "priority" ).toString(), Qt::MatchExactly );
     if( comboBoxIndex < 0 ) {
 
-      QString priority = "normal,normal";
+      QString priority = QString( "" );
       priority = profileConfiguration.sdl.value( "priority" ).toString();
+
+      if( priority.isNull() || priority.isEmpty() ) {
+        priority = "\"normal,normal\"";
+      }
+
       if( priority.startsWith( "\"" ) && priority.endsWith( "\"" ) ) {
 
         priority = priority.replace( "\"", "" );
@@ -254,7 +276,7 @@ namespace asaal {
     comboBoxMixerRate->setCurrentIndex( comboBoxIndex );    
     comboBoxIndex = comboBoxMixerBlockSize->findText( profileConfiguration.mixer.value( "blocksize" ).toString(), Qt::MatchExactly );
     comboBoxMixerBlockSize->setCurrentIndex( comboBoxIndex );
-    spinnBoxPrebuffer->setValue( profileConfiguration.mixer.value( "rate" ).toInt() );    
+    spinnBoxPrebuffer->setValue( profileConfiguration.mixer.value( "prebuffer" ).toInt() );    
     checkBoxMixerNoSound->setChecked( profileConfiguration.mixer.value( "nosound" ).toBool() );
 
     comboBoxIndex = comboBoxSBType->findText( profileConfiguration.sblaster.value( "sbtype" ).toString(), Qt::MatchExactly );
@@ -298,11 +320,14 @@ namespace asaal {
     comboBoxSpeakerTandyRate->setCurrentIndex( comboBoxIndex );
     checkBoxDisney->setChecked( profileConfiguration.speaker.value( "disney" ).toBool() );
 
-    //profileConfiguration.mdi.value( "mpu401", comboBoxMDIMPU->currentText() );
-    //profileConfiguration.mdi.value( "device", comboBoxMDIDevice->currentText() );
-    //profileConfiguration.mdi.value( "config", lineEditMDIConfig->text() );
+    comboBoxIndex = comboBoxMDIMPU->findText( profileConfiguration.mdi.value( "mpu401" ).toString(), Qt::MatchExactly );
+    comboBoxMDIMPU->setCurrentIndex( comboBoxIndex );
+    comboBoxIndex = comboBoxMDIDevice->findText( profileConfiguration.mdi.value( "device" ).toString(), Qt::MatchExactly );
+    comboBoxMDIDevice->setCurrentIndex( comboBoxIndex );
+    lineEditMDIConfig->setText( profileConfiguration.mdi.value( "config" ).toString() );
 
     // Autoexec page
+    lwAutoexec->clear();
     foreach( QString autoexec, profileConfiguration.autoexec ) {
 
       qApp->processEvents();
@@ -312,6 +337,7 @@ namespace asaal {
     }
 
     // Inernet page
+    twSerial->clear();
     QMap< QString, QVariant >::const_iterator serial = profileConfiguration.serial.constBegin();
     while( serial != profileConfiguration.serial.constEnd() ) {
 
@@ -324,24 +350,31 @@ namespace asaal {
       ++serial;
     }
 
-    //profileConfiguration.ipx.value( "ipx", checkBoxIPX->setChecked(  ) );
+    checkBoxIPX->setChecked( profileConfiguration.ipx == "true" ? true : false );
 
-    //// DOS page
-    //profileConfiguration.dosbox.value( "language", lineEditLanguage->text() );
-    //profileConfiguration.dosbox.value( "machine", comboBoxMachine->currentText() );
-    //profileConfiguration.dosbox.value( "captures", comboBoxCaptures->currentText() );
-    //profileConfiguration.dosbox.value( "memsize", comboBoxMemsize->currentText() );
+    // DOS page
+    lineEditLanguage->setText( profileConfiguration.dosbox.value( "language" ).toString() );
+    comboBoxIndex = comboBoxMachine->findText( profileConfiguration.dosbox.value( "machine" ).toString(), Qt::MatchExactly );
+    comboBoxMachine->setCurrentIndex( comboBoxIndex );
+    comboBoxIndex = comboBoxCaptures->findText( profileConfiguration.dosbox.value( "captures" ).toString(), Qt::MatchExactly );
+    comboBoxCaptures->setCurrentIndex( comboBoxIndex );
+    comboBoxIndex = comboBoxMemsize->findText( profileConfiguration.dosbox.value( "memsize" ).toString(), Qt::MatchExactly );
+    comboBoxMemsize->setCurrentIndex( comboBoxIndex );
 
-    //profileConfiguration.dos.value( "xms", checkBoxXMS->setChecked(  ) );
-    //profileConfiguration.dos.value( "ems", checkBoxEMS->setChecked(  ) );
-    //profileConfiguration.dos.value( "umb", checkBoxUMB->setChecked(  ) );
-    //profileConfiguration.dos.value( "keyboardlayout", comboBoxKeyboardLayout->currentText() );
+    checkBoxXMS->setChecked( profileConfiguration.dos.value( "xms" ).toBool() );
+    checkBoxEMS->setChecked( profileConfiguration.dos.value( "ems" ).toBool() );
+    checkBoxUMB->setChecked( profileConfiguration.dos.value( "umb" ).toBool() );
+    comboBoxIndex = comboBoxKeyboardLayout->findText( profileConfiguration.dos.value( "keyboardlayout" ).toString(), Qt::MatchExactly );
+    comboBoxKeyboardLayout->setCurrentIndex( comboBoxIndex );
 
-    //profileConfiguration.joystick.value( "timed", checkBoxTimed->setChecked(  ) );
-    //profileConfiguration.joystick.value( "autofire", checkBoxAutofire->setChecked(  ) );
-    //profileConfiguration.joystick.value( "swap34", checkBoxSwap34->setChecked(  ) );
-    //profileConfiguration.joystick.value( "buttonwrap", checkBoxButtonWrap->setChecked(  ) );
-    //profileConfiguration.joystick.value( "joysticktype", comboBoxJoystickType->currentText() );
+    checkBoxTimed->setChecked( profileConfiguration.joystick.value( "timed" ).toBool() );
+    checkBoxAutofire->setChecked( profileConfiguration.joystick.value( "autofire" ).toBool() );
+    checkBoxSwap34->setChecked( profileConfiguration.joystick.value( "swap34" ).toBool() );
+    checkBoxButtonWrap->setChecked( profileConfiguration.joystick.value( "buttonwrap" ).toBool() );
+    comboBoxIndex = comboBoxJoystickType->findText( profileConfiguration.joystick.value( "joysticktype" ).toString(), Qt::MatchExactly );
+    comboBoxJoystickType->setCurrentIndex( comboBoxIndex );
+
+		QApplication::restoreOverrideCursor();
   }
 
   void ProfileSettings::closeWidget() {
