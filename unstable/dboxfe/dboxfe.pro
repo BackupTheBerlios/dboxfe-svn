@@ -85,6 +85,9 @@ SOURCES += ../3rdparty/zip.cpp
 
 # Unix/Linux settings
 unix {
+  DEPENDPATH += /usr/include/libxml2
+  INCLUDEPATH += /usr/include/libxml2
+
 	RCC_DIR	= ../build/dboxfe/unix/rcc
 	MOC_DIR	+= ../build/dboxfe/unix/moc
 	OBJECTS_DIR += ../build/dboxfe/unix/obj

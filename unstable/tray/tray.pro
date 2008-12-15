@@ -51,6 +51,9 @@ SOURCES	+= ../3rdparty/xmlwriter.cpp
 
 # Unix/Linux settings
 unix{
+  DEPENDPATH += /usr/include/libxml2
+  INCLUDEPATH += /usr/include/libxml2
+
   TARGET = dboxfetray
   #QMAKE_POST_LINK = strip -s bin/dboxfetray
   RCC_DIR = ../build/dboxfetray/unix/rcc

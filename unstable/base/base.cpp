@@ -186,6 +186,7 @@ namespace asaal {
     readConf->endGroup();
 
     // Autoexec settings
+
     if ( !configFile.open( QIODevice::ReadOnly | QIODevice::Text ) ) {
       return m_Configuration;
     }
@@ -197,7 +198,7 @@ namespace asaal {
     while ( !in.atEnd() ) {
 
       qApp->processEvents();
-      
+
       line = in.readLine();
 
       if ( line == "[autoexec]" ) {
@@ -250,7 +251,7 @@ namespace asaal {
     QStringList allKeys = readConf->allKeys();
     foreach( QString key, allKeys ) {
 
-      if ( ( key == "ExtraInfo" ) || ( key == "Extra" ) ) {
+      if (( key == "ExtraInfo" ) || ( key == "Extra" ) ) {
         isDfendProf = true;
         break;
       }
@@ -697,6 +698,7 @@ namespace asaal {
 
     // Autoexec settings
     QFile configFile( profile );
+
     if ( !configFile.open( QIODevice::ReadWrite | QIODevice::Text | QIODevice::Append ) ) {
       qDebug() << QDateTime::currentDateTime().toString( Qt::LocaleDate ) << tr( " - [ERROR] Unable to open and read profile: " ) << configFile.fileName() << endl;
       return;
@@ -713,7 +715,7 @@ namespace asaal {
     out.flush();
     configFile.flush();
     configFile.close();
-    
+
     delete writeConf;
   }
 
