@@ -85,12 +85,14 @@ namespace asaal {
   void DBoxFE::closeEvent( QCloseEvent *event ) {
 
     QStringList profiles;
+
     for ( int a = 0; a < listWidgetGames->count(); a++ ) {
 
       profiles.append( listWidgetGames->item( a )->text() );
     }
 
     configBase->xmlPreferences().setStringList( "Name", profiles, "Profile" );
+
     configBase->xmlPreferences().save( configBase->settingFile() );
 
     event->accept();
@@ -104,13 +106,14 @@ namespace asaal {
     QString profile = QDir::homePath();
     profile.append( "/.dboxfe/profile/profile.xml" );
 
-    if( !configBase->convertProfile( profile ) ) {
+    if ( !configBase->convertProfile( profile ) ) {
 
       QMessageBox::information( this, tr( "DBoxFE" ), tr( "Can not convert old file %1" ).arg( profile ) );
       return;
     }
 
     QStringList profiles = configBase->readProfiles();
+
     listWidgetGames->addItems( profiles );
   }
 
@@ -394,25 +397,16 @@ namespace asaal {
   }
 
   /*
-   * This signal is emitted with the specified item when a mouse button is double clicked on an item in the widget.
+   * This signal is emitted with the specified item when a mouse button is double clicked on an item in the QListWidget.
    */
   void DBoxFE::listWidgetItemDoubleClicked( QListWidgetItem *item ) {
 
-    QString profile = QDir::homePath();
-    profile.append( "/.dboxfe/" + item->text() + ".conf" );
-
-    profSettings = new ProfileSettings();
-    profSettings->setProfileName( item->text() );
-    profSettings->initialConfiguration( profile );
-
-    if ( profSettings->exec() == QDialog::Accepted ) {
-    }
-
-    delete profSettings;
-
-    profSettings = 0;
+    startGame();
   }
 
+  /*
+   * This signal is emitted when the command button on MessageBox is clicked.
+   */
   void DBoxFE::deleteProfile( const QCommandLinkButton *commandLinkButton ) {
 
     if ( commandLinkButton ) {
@@ -494,6 +488,7 @@ namespace asaal {
       processParameter.append( conf );
 
       bool startKeyMapper = configBase->xmlPreferences( configBase->settingFile() ).getBool( "keyMapper", "DBoxFE" );
+
       if ( startKeyMapper ) {
 
         processParameter.append( "-startmapper" );
