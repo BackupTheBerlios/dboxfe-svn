@@ -72,6 +72,7 @@ int main( int argc, char *argv[] ) {
     proDir.mkdir( m_profile_dir );
   }
 
+#ifdef Q_OS_LINUX
   if ( splash )
     splash->showMessage( QApplication::translate( "DBoxFE", "Create template directory " ) + m_profile_dir + "..." );
 
@@ -83,7 +84,6 @@ int main( int argc, char *argv[] ) {
     tmplDir.mkdir( m_tmpl_dir );
   }
 
-#ifdef Q_OS_LINUX
   if ( splash )
     splash->showMessage( QApplication::translate( "DBoxFE", "Load resource stream" ) );
 
