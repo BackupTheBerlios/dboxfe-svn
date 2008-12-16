@@ -82,8 +82,8 @@ namespace asaal {
 
     painter->setPen( QColor( 255, 255, 255 ) );
 
-    QFont fnt( "Verdena" );
-    fnt.setPointSize( 12 );
+    QFont fnt( "Monospace" );
+    fnt.setPointSize( 9 );
     painter->setFont( fnt );
 
     if ( m_string.length() > 40 ) {

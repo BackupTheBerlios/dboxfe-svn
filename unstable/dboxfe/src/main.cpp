@@ -23,12 +23,14 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
+#include <base.h>
 #include <dboxfe.h>
 #include <splash.h>
 
-#include <QApplication>
-#include <QDir>
-#include <QString>
+#include <xmlpreferences.h>
+
+#include <QtCore>
+#include <QtXml>
 
 
 using namespace asaal;
@@ -51,7 +53,6 @@ int main( int argc, char *argv[] ) {
   if ( splash )
     splash->showMessage( QApplication::translate( "DBoxFE", "Create/Search application Directory ..." ) );
 
-  // TODO Create application directory if dosn't exists
   m_file = QDir::homePath();
   m_file.append( "/.dboxfe" );
 
@@ -61,7 +62,7 @@ int main( int argc, char *argv[] ) {
   }
 
   if ( splash )
-    splash->showMessage( QApplication::translate( "DBoxFE", "Create Directory " ) + m_file + "..." );
+    splash->showMessage( QApplication::translate( "DBoxFE", "Create profile directory " ) + m_file + "..." );
 
   m_profile_dir = QDir::homePath();
   m_profile_dir.append( "/.dboxfe/profile" );
@@ -72,20 +73,125 @@ int main( int argc, char *argv[] ) {
   }
 
   if ( splash )
-    splash->showMessage( QApplication::translate( "DBoxFE", "Create Directory " ) + m_profile_dir + "..." );
+    splash->showMessage( QApplication::translate( "DBoxFE", "Create template directory " ) + m_profile_dir + "..." );
 
   m_tmpl_dir = QDir::homePath();
   m_tmpl_dir.append( "/.dboxfe/templates" );
 
   QDir tmplDir( m_tmpl_dir );
-
   if ( !tmplDir.exists( m_tmpl_dir ) ) {
     tmplDir.mkdir( m_tmpl_dir );
   }
 
+#ifdef Q_OS_LINUX
   if ( splash )
-    splash->showMessage( QApplication::translate( "DBoxFE", "Create Directory " ) + m_tmpl_dir + "..." );
+    splash->showMessage( QApplication::translate( "DBoxFE", "Load resource stream" ) );
 
+  QStringList entryList = tmplDir.entryList( QDir::Files );
+
+  DBoxFE_Configuration dboxfeConfig = DBoxFE::configBaseInstance()->readSettings();
+  if( entryList.count() != dboxfeConfig.profileCount ) {
+
+        
+    QString templateResource = QString::fromUtf8( ":/files/templates.qrc" );
+    QFile templateFile( templateResource );
+    templateFile.open( QIODevice::ReadOnly | QIODevice::Text );
+
+    QDomDocument doc;
+    doc.setContent( &templateFile );
+
+    templateFile.close();
+    templateResource = QString( "" );
+
+    QDomNode node = doc.documentElement().firstChild();
+
+    if ( splash )  {
+      splash->showMessage( QApplication::translate( "DBoxFE", "Initial resource stream ..." ) );
+    }
+
+    while ( !node.isNull() ) {
+      qApp->processEvents();
+
+      QString tagName = node.toElement().tagName();
+
+      if ( tagName == "qresource" ) {
+
+        QDomNode qresource = node.firstChild();
+
+        while ( !qresource.isNull() ) {
+          qApp->processEvents();
+
+          tagName = qresource.toElement().tagName();
+
+          if ( tagName == "file" ) {
+            QString dfendProf = ":/" + QString( qresource.toElement().attribute( "alias" ) );
+
+            QFile profIn( dfendProf );
+            if ( !profIn.open( QIODevice::ReadOnly ) ) {
+              qDebug() << QString( "ERROR: Can't open the resource stream: %1" ).arg( dfendProf );
+
+              qresource = qresource.nextSibling();
+              continue;
+            }
+
+            QTextStream in( &profIn );
+            QString profEntry = in.readAll();
+
+            QFile profOut( m_file + "/" + qresource.toElement().text() );
+            if( profOut.exists() ) {
+
+              if ( splash ) {
+
+                splash->showMessage( QApplication::translate( "DBoxFE", "Ignore template: " ) + qresource.toElement().attribute( "alias" ) + ".prof ..." );
+              }
+
+              profIn.close();
+              qresource = qresource.nextSibling();
+              continue;
+            }
+
+            if ( !profOut.open( QIODevice::WriteOnly | QIODevice::Text ) ) {
+              qDebug() << QString( "ERROR: Can't write the resource stream %1 to %2" ).arg( dfendProf ).arg( profOut.fileName() );
+
+              qresource = qresource.nextSibling();
+              continue;
+            }
+
+            QTextStream out( &profOut );
+            out << profEntry;
+
+            out.flush();
+            profOut.flush();
+            profOut.close();
+            profIn.close();
+            profEntry = QString( "" );
+
+            if ( splash ) {
+
+              splash->showMessage( QApplication::translate( "DBoxFE", "Initial template: " ) + qresource.toElement().attribute( "alias" ) + ".prof ..." );
+            }
+          }
+
+          qresource = qresource.nextSibling();
+        }
+      }
+
+      node = node.nextSibling();
+    }
+    
+    entryList.clear();
+    entryList = tmplDir.entryList( QDir::Files );
+
+    DBoxFE_Configuration dboxfeConfig = DBoxFE::configBaseInstance()->readSettings();
+    dboxfeConfig.profileCount = entryList.count();
+
+    DBoxFE::configBaseInstance()->writeSettings( dboxfeConfig );
+  }
+
+  if ( splash )
+    splash->showMessage( QApplication::translate( "DBoxFE", "Closing resource stream ..." ) );
+
+#endif
 
   if ( splash )
     splash->showMessage( QApplication::translate( "DBoxFE", "Loading Profiles ..." ) );

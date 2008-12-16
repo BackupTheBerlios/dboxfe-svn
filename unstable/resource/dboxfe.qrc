@@ -11,6 +11,7 @@
         <file>language/RUS/russian.lng</file>
     </qresource>
     <qresource prefix="/files" >
+        <file>templates.qrc</file>
         <file>LICENSE.GPL</file>
         <file>thanks</file>
     </qresource>

@@ -225,6 +225,7 @@ namespace asaal {
     m_DboxfeConfiguration.clear();
     m_DboxfeConfiguration.dosboxBinary = xmlPreferences( settingFile() ).getString( "binary", "DOSBox" );
     m_DboxfeConfiguration.dosboxVersion = xmlPreferences( settingFile() ).getString( "version", "DOSBox" );
+    m_DboxfeConfiguration.profileCount = xmlPreferences( settingFile() ).getInt( "profileCount", "DBoxFE" );
     m_DboxfeConfiguration.winHide = xmlPreferences( settingFile() ).getBool( "winHide", "DBoxFE" );
     m_DboxfeConfiguration.keyMapper = xmlPreferences( settingFile() ).getBool( "keyMapper", "DBoxFE" );
 
@@ -489,7 +490,6 @@ namespace asaal {
     }
 
     xmlPreferences().setString( "binary", dosboxBinary, "DOSBox" );
-
     xmlPreferences().setString( "version", dosboxVersion, "DOSBox" );
 
     if ( gameProfiles.isEmpty() || gameProfiles.size() <= 0 ) {
@@ -497,7 +497,6 @@ namespace asaal {
     }
 
     xmlPreferences().setStringList( "Name", gameProfiles, "Profile" );
-
     xmlPreferences().setBool( "winHide", winHide, "DBoxFE" );
     xmlPreferences().setBool( "keyMapper", keyMapper, "DBoxFE" );
     bool saved = xmlPreferences().save( settingFile() );
@@ -505,6 +504,41 @@ namespace asaal {
     return saved;
   }
 
+  bool ConfigBase::isOldProfile( const QString &profile ) {
+
+    if ( profile.isNull() || profile.isEmpty() ) {
+
+      return false;
+    }
+
+    QFile xml( profile );
+
+    if ( !xml.exists() ) {
+      return false;
+    }
+
+    xml.open( QIODevice::ReadOnly );
+
+    QDomDocument doc;
+    doc.setContent( &xml );
+
+    xml.close();
+
+    QDomNode node = doc.documentElement().firstChild();
+    while ( !node.isNull() ) {
+      qApp->processEvents();
+
+      // Check if this realy the old profile
+      if ( node.toElement().tagName() == "software_info" ) {
+        return true;
+      }
+
+      node = node.nextSibling();
+    }
+    
+    return false;
+  }
+  
   void ConfigBase::writeSettings( const DBoxFE_Configuration &dboxfeConfig ) {
 
     if ( dboxfeConfig.isEmpty() ) {
@@ -512,9 +546,13 @@ namespace asaal {
     }
 
     xmlPreferences().setString( "binary", dboxfeConfig.dosboxBinary, "DOSBox" );
-
     xmlPreferences().setString( "version", dboxfeConfig.dosboxVersion, "DOSBox" );
     xmlPreferences().setStringList( "Name", dboxfeConfig.profiles, "Profile" );
+    
+    if( dboxfeConfig.profileCount >= 1 ) {
+      xmlPreferences().setInt( "profileCount", dboxfeConfig.profileCount, "DBoxFE" );
+    }
+
     xmlPreferences().setBool( "winHide", dboxfeConfig.winHide, "DBoxFE" );
     xmlPreferences().setBool( "keyMapper", dboxfeConfig.keyMapper, "DBoxFE" );
     xmlPreferences().save( settingFile() );

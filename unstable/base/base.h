@@ -57,6 +57,9 @@ namespace asaal {
 
       /** Game profiles */
       QStringList profiles;
+      
+      /** Profile count */
+      int profileCount;
 
       /** Hide window after dosbox is started */
       bool winHide;
@@ -72,7 +75,8 @@ namespace asaal {
                 dosboxVersion == other.dosboxVersion &&
                 profiles == other.profiles &&
                 winHide == other.winHide &&
-                keyMapper == other.keyMapper;
+                keyMapper == other.keyMapper &&
+                profileCount == other.profileCount;
       }
 
       /**
@@ -83,7 +87,8 @@ namespace asaal {
                 dosboxVersion != other.dosboxVersion ||
                 profiles != other.profiles ||
                 winHide != other.winHide ||
-                keyMapper != other.keyMapper;
+                keyMapper != other.keyMapper ||
+                profileCount != other.profileCount;
       }
 
       /**
@@ -444,6 +449,13 @@ namespace asaal {
        * @param profile The profile xml
        */
       bool convertProfile( const QString &profile );
+      
+      /**
+       * \brief Check if this a old profile configuration
+       *
+       * @param profile The profile xml
+       */
+      bool isOldProfile( const QString &profile );
 
     public slots:
       /**
