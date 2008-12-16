@@ -68,16 +68,16 @@ namespace asaal {
 
     painter->setPen( Qt::NoPen );
     painter->setBrush( QColor( 255, 255, 255 ) );
-    painter->drawEllipse( 51, 7, 9, 9 );
-    painter->drawEllipse( 62, 7, 9, 9 );
-    painter->drawEllipse( 73, 7, 9, 9 );
+    painter->drawEllipse( 11, 7, 9, 9 );
+    painter->drawEllipse( 22, 7, 9, 9 );
+    painter->drawEllipse( 33, 7, 9, 9 );
 
     for ( int i = 0; i < progress_bar_size; i++ ) {
       position = ( state + i ) % ( 2 * progress_bar_size - 1 );
       painter->setBrush( QColor( base_color.red() - 18 * i, base_color.green() - 10 * i, base_color.blue() - 28 * i ) );
 
       if ( position < 3 )
-        painter->drawEllipse( 51 + position * 11, 7, 9, 9 );
+        painter->drawEllipse( 11 + position * 11, 7, 9, 9 );
     }
 
     painter->setPen( QColor( 255, 255, 255 ) );
@@ -91,6 +91,6 @@ namespace asaal {
       m_string += "...";
     }
 
-    painter->drawText( 90, 16, m_string );
+    painter->drawText( 50, 16, m_string );
   }
 }
