@@ -9,7 +9,7 @@
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
+ *   the Free Software Foundation; either version 3 of the License, or     *
  *   (at your option) any later version.                                   *
  *                                                                         *
  *   This program is distributed in the hope that it will be useful,       *
@@ -35,44 +35,569 @@ namespace asaal {
 
     setupUi( this );
 
+    /* ProfileSettings connections */
     connect( btnSave, SIGNAL( clicked() ), this, SLOT( saveConfiguration() ) );
     connect( btnDefault, SIGNAL( clicked() ), this, SLOT( setDefaultConfiguration() ) );
     connect( btnAbort, SIGNAL( clicked() ), this, SLOT( closeWidget() ) );
+
+    /* Autoexec page connections */
+    connect( comboBoxAutoexecMountOption, SIGNAL( currentIndexChanged( int ) ), this, SLOT( comboBoxAutoexecIndexChanged( int ) ) );
+    connect( comboBoxAutoexecImageFormat, SIGNAL( currentIndexChanged( int ) ), this, SLOT( comboBoxAutoexecImageFormatIndexChanged( int ) ) );
+    connect( btnAutoexecDrive, SIGNAL( clicked() ), this, SLOT( autoexecDrive() ) );
+    connect( btnAutoexecAdd, SIGNAL( clicked() ), this, SLOT( autoexecAdd() ) );
+    connect( btnAutoexecRemove, SIGNAL( clicked() ), this, SLOT( autoexecRemove() ) );
+    connect( btnAutoexecUpdate, SIGNAL( clicked() ), this, SLOT( autoexecUpdate() ) );
+    connect( btnGame, SIGNAL( clicked() ), this, SLOT( addGame() ) );
+    connect( btnAutoexecUp, SIGNAL( clicked() ), this, SLOT( autoexecMoveUp() ) );
+    connect( btnAutoexecDown, SIGNAL( clicked() ), this, SLOT( autoexecMoveDown() ) );
+
+    /* Internet page connections */
+    connect( comboBoxDSOption, SIGNAL( currentIndexChanged( int ) ), this, SLOT( comboBoxSerialIndexChanged( int ) ) );
+    connect( btnSerialAdd, SIGNAL( clicked() ), this, SLOT( serialAdd() ) );
+    connect( btnSerialRemove, SIGNAL( clicked() ), this, SLOT( serialRemove() ) );
+
+    /* DOS page connections */
+    connect( btnLanguage, SIGNAL( clicked() ), this, SLOT( openLanguageFile() ) );
+    connect( comboBoxKeyboardLayout, SIGNAL( currentIndexChanged( int ) ), this, SLOT( comboBoxKeyboardLayoutIndexChanged( int ) ) );
   }
 
   ProfileSettings::~ProfileSettings() {}
 
   void ProfileSettings::closeEvent( QCloseEvent *e ) {
+
+    e->accept();
+
+    profileConfiguration.clear();
   }
 
   void ProfileSettings::comboBoxSerialIndexChanged( int index ) {
+
+    switch ( index ) {
+
+      case 0:               // diasabled
+        groupBoxSerialOption->setEnabled( false );
+        break;
+
+      case 1:               // dummy
+        groupBoxSerialOption->setEnabled( false );
+        break;
+
+      case 2:               // modem
+        groupBoxSerialOption->setEnabled( true );
+        labelDSRealPort->setEnabled( true );
+        comboBoxDSRealPort->setEnabled( true );
+        labelDSIrq->setEnabled( true );
+        lineEditDSIrq->setEnabled( true );
+        labelDSDefaultBps->setEnabled( true );
+        lineEditDSBps->setEnabled( true );
+        labelDSByteSize->setEnabled( true );
+        comboBoxDSByteSize->setEnabled( true );
+        labelDSStopBit->setEnabled( true );
+        comboBoxDSStopBit->setEnabled( true );
+        labelDSParity->setEnabled( true );
+        comboBoxDSParity->setEnabled( true );
+        labelDSComPort->setEnabled( false );
+        comboBoxDSComPort->setEnabled( false );
+        break;
+
+      case 3:               // directserial
+        groupBoxSerialOption->setEnabled( true );
+        labelDSRealPort->setEnabled( true );
+        comboBoxDSRealPort->setEnabled( true );
+        labelDSIrq->setEnabled( true );
+        lineEditDSIrq->setEnabled( true );
+        labelDSDefaultBps->setEnabled( true );
+        lineEditDSBps->setEnabled( true );
+        labelDSByteSize->setEnabled( true );
+        comboBoxDSByteSize->setEnabled( true );
+        labelDSStopBit->setEnabled( true );
+        comboBoxDSStopBit->setEnabled( true );
+        labelDSParity->setEnabled( true );
+        comboBoxDSParity->setEnabled( true );
+        labelDSComPort->setEnabled( false );
+        comboBoxDSComPort->setEnabled( false );
+        break;
+    }
   }
 
   void ProfileSettings::comboBoxAutoexecIndexChanged( int index ) {
+
+    switch ( index ) {
+
+      case 0:               // Default
+        labelAutoexecCDDVDROMOption->setEnabled( false );
+        comboBoxAutoexecCDDVDROMOption->setEnabled( false );
+
+        labelAutoexecImageTyp->setEnabled( false );
+        comboBoxAutoexecImageTyp->setEnabled( false );
+
+        labelAutoexecImageFormat->setEnabled( false );
+        comboBoxAutoexecImageFormat->setEnabled( false );
+
+        labelAutoexecImageSize->setEnabled( false );
+        lineEditImageSize->setEnabled( false );
+
+        labelAutoexecImageHddMode->setEnabled( false );
+        comboBoxAutoexecImageHddMode->setEnabled( false );
+        break;
+
+      case 1:               // CD/DVD ROM
+        labelAutoexecCDDVDROMOption->setEnabled( true );
+        comboBoxAutoexecCDDVDROMOption->setEnabled( true );
+
+        labelAutoexecImageTyp->setEnabled( false );
+        comboBoxAutoexecImageTyp->setEnabled( false );
+
+        labelAutoexecImageFormat->setEnabled( false );
+        comboBoxAutoexecImageFormat->setEnabled( false );
+
+        labelAutoexecImageSize->setEnabled( false );
+        lineEditImageSize->setEnabled( false );
+
+        labelAutoexecImageHddMode->setEnabled( false );
+        comboBoxAutoexecImageHddMode->setEnabled( false );
+        break;
+
+      case 2:               // Floppy
+        labelAutoexecCDDVDROMOption->setEnabled( false );
+        comboBoxAutoexecCDDVDROMOption->setEnabled( false );
+
+        labelAutoexecImageTyp->setEnabled( false );
+        comboBoxAutoexecImageTyp->setEnabled( false );
+
+        labelAutoexecImageFormat->setEnabled( false );
+        comboBoxAutoexecImageFormat->setEnabled( false );
+
+        labelAutoexecImageSize->setEnabled( false );
+        lineEditImageSize->setEnabled( false );
+
+        labelAutoexecImageHddMode->setEnabled( false );
+        comboBoxAutoexecImageHddMode->setEnabled( false );
+        break;
+
+      case 3:               // Image
+        labelAutoexecCDDVDROMOption->setEnabled( false );
+        comboBoxAutoexecCDDVDROMOption->setEnabled( false );
+
+        labelAutoexecImageTyp->setEnabled( true );
+        comboBoxAutoexecImageTyp->setEnabled( true );
+
+        labelAutoexecImageFormat->setEnabled( true );
+        comboBoxAutoexecImageFormat->setEnabled( true );
+
+        labelAutoexecImageSize->setEnabled( false );
+        lineEditImageSize->setEnabled( false );
+
+        labelAutoexecImageHddMode->setEnabled( false );
+        comboBoxAutoexecImageHddMode->setEnabled( false );
+        break;
+    }
   }
 
   void ProfileSettings::comboBoxAutoexecImageFormatIndexChanged( int index ) {
+
+    switch ( index ) {
+
+      case 0:               // iso
+        labelAutoexecImageSize->setEnabled( false );
+        lineEditImageSize->setEnabled( false );
+
+        labelAutoexecImageHddMode->setEnabled( false );
+        comboBoxAutoexecImageHddMode->setEnabled( false );
+        break;
+
+      case 1:               // fat
+        labelAutoexecImageSize->setEnabled( false );
+        lineEditImageSize->setEnabled( false );
+
+        labelAutoexecImageHddMode->setEnabled( false );
+        comboBoxAutoexecImageHddMode->setEnabled( false );
+        break;
+
+      case 2:               // none
+        labelAutoexecImageSize->setEnabled( true );
+        lineEditImageSize->setEnabled( true );
+
+        labelAutoexecImageHddMode->setEnabled( true );
+        comboBoxAutoexecImageHddMode->setEnabled( true );
+        break;
+    }
   }
 
   void ProfileSettings::comboBoxKeyboardLayoutIndexChanged( int index ) {
+
+    labelKeyboardLayoutInfo->setText( tr( "No keyboardlayot" ) );
+
+    switch ( index ) {
+
+      case 0:
+        labelKeyboardLayoutInfo->setText( tr( "No keyboardlayot" ) );     /* none  */
+        break;
+
+      case 1:
+        labelKeyboardLayoutInfo->setText( tr( "Bulgaria" ) );      /* BG  */
+        break;
+
+      case 2:
+        labelKeyboardLayoutInfo->setText( tr( "Czech Republic" ) );     /* CZ243 */
+        break;
+
+      case 3:
+        labelKeyboardLayoutInfo->setText( tr( "France" ) );       /* FR  */
+        break;
+
+      case 4:
+        labelKeyboardLayoutInfo->setText( tr( "Greece" ) );       /* GK  */
+        break;
+
+      case 5:
+        labelKeyboardLayoutInfo->setText( tr( "Germany" ) );      /* GR  */
+        break;
+
+      case 6:
+        labelKeyboardLayoutInfo->setText( tr( "Croatia" ) );      /* HR  */
+        break;
+
+      case 7:
+        labelKeyboardLayoutInfo->setText( tr( "Hungary" ) );      /* HU  */
+        break;
+
+      case 8:
+        labelKeyboardLayoutInfo->setText( tr( "Italy" ) );       /* IT  */
+        break;
+
+      case 9:
+        labelKeyboardLayoutInfo->setText( tr( "Netherlands" ) );     /* NL  */
+        break;
+
+      case 10:
+        labelKeyboardLayoutInfo->setText( tr( "Norway" ) );      /* NO  */
+        break;
+
+      case 11:
+        labelKeyboardLayoutInfo->setText( tr( "Poland" ) );      /* PL  */
+        break;
+
+      case 12:
+        labelKeyboardLayoutInfo->setText( tr( "Russian Federation" ) );   /* RU  */
+        break;
+
+      case 13:
+        labelKeyboardLayoutInfo->setText( tr( "Slovakia" ) );      /* SK  */
+        break;
+
+      case 14:
+        labelKeyboardLayoutInfo->setText( tr( "Spain" ) );       /* SP  */
+        break;
+
+      case 15:
+        labelKeyboardLayoutInfo->setText( tr( "Finland" ) );      /* SU  */
+        break;
+
+      case 16:
+        labelKeyboardLayoutInfo->setText( tr( "Sweden" ) );      /* SV  */
+        break;
+    }
   }
 
   void ProfileSettings::autoexecDrive() {
+
+    QString autoDrive = QString( "" );
+
+    if ( comboBoxAutoexecMountOption->currentIndex() == 3 ) {
+
+      autoDrive = QFileDialog::getOpenFileName( this, tr( "Open image file" ), QDir::homePath(),  "ISO (*.iso);;CUE (*.cue);;BIN (*.bin)" );
+    } else {
+
+      autoDrive = QFileDialog::getExistingDirectory( this, tr( "Open directory for mount in dosbox" ), QDir::homePath() );
+    }
+
+    if ( autoDrive.isEmpty() )
+      return;
+
+    lineEditDrives->setText( autoDrive );
   }
 
   void ProfileSettings::autoexecUpdate() {
   }
 
   void ProfileSettings::autoexecRemove() {
+
+    QListWidgetItem * item = listWidgetAutoexec->currentItem();
+
+    if ( item == NULL ) {
+      QMessageBox::information( this, tr( "DBoxFE" ), tr( "No entry was selected." ) );
+      return;
+    }
+
+    delete item;
   }
 
   void ProfileSettings::autoexecAdd() {
+
+    QList<QListWidgetItem *> it( listWidgetAutoexec->findItems( "mount " + comboBoxDrive->currentText().toLower(), Qt::MatchContains ) );
+
+    for ( int a = 0; a < it.size(); ++a ) {
+      QListWidgetItem *sItem;
+      sItem = it.value( a );
+
+      if ( sItem->text().startsWith( "mount " + comboBoxDrive->currentText().toLower() ) ) {
+
+        QMessageBox::information( this, tr( "DBoxFE" ), tr( "Can not add the same drive '%1' to the list." ).arg( comboBoxDrive->currentText().toLower() ) );
+        return ;
+      }
+    }
+
+    QString addStr;
+
+    if ( lineEditDrives->text().isEmpty() ) {
+      QMessageBox::information( this, tr( "DBoxFE" ), tr( "No directory was selected." ) );
+      return ;
+    } else {
+      switch ( comboBoxAutoexecMountOption->currentIndex() ) {
+
+        case 0:               // Default
+
+          if ( checkBoxLabelCDDVD->isChecked() ) {
+            if ( !lineEditDeviceLabel->text().isEmpty() ) {
+
+              addStr = "mount " + comboBoxDrive->currentText().toLower() + " " + lineEditDrives->text() + " -label " + lineEditDeviceLabel->text();
+            } else {
+
+              QMessageBox::information( this, tr( "DBoxFE" ), tr( "Please enter a valid name for label." ) );
+              return ;
+            }
+          } else {
+
+            lineEditDeviceLabel->setText( "" );
+            addStr = "mount " + comboBoxDrive->currentText().toLower() + " " + lineEditDrives->text();
+          }
+
+          break;
+
+        case 1:               // CD/DVD
+
+          switch ( comboBoxAutoexecCDDVDROMOption->currentIndex() ) {
+
+            case 0:             // Windows 2000/XP/Linux
+
+              if ( checkBoxLabelCDDVD->isChecked() ) {
+                if ( !lineEditDeviceLabel->text().isEmpty() ) {
+
+                  addStr = "mount " + comboBoxDrive->currentText().toLower() + " " + lineEditDrives->text() + " -t cdrom -usecd 0 -ioctl -label " + lineEditDeviceLabel->text();
+                } else {
+
+                  QMessageBox::information( this, tr( "DBoxFE" ), tr( "Please enter a valid name for label." ) );
+                  return ;
+                }
+              } else {
+
+                lineEditDeviceLabel->setText( "" );
+                addStr = "mount " + comboBoxDrive->currentText().toLower() + " " + lineEditDrives->text() + " -t cdrom -usecd 0 -ioctl";
+              }
+
+              break;
+
+            case 1:             // Windows 98
+
+              if ( checkBoxLabelCDDVD->isChecked() ) {
+                if ( !lineEditDeviceLabel->text().isEmpty() ) {
+
+                  addStr = "mount " + comboBoxDrive->currentText().toLower() + " " + lineEditDrives->text() + " -t cdrom -usecd 0 -aspi -label " + lineEditDeviceLabel->text();
+                } else {
+
+                  QMessageBox::information( this, tr( "DBoxFE" ), tr( "Please enter a valid name for label." ) );
+                  return ;
+                }
+              } else {
+
+                lineEditDeviceLabel->setText( "" );
+                addStr = "mount " + comboBoxDrive->currentText().toLower() + " " + lineEditDrives->text() + " -t cdrom -usecd 0 -aspi";
+              }
+
+              break;
+          }
+
+          break;
+
+        case 2:               // Floppy
+
+          if ( checkBoxLabelCDDVD->isChecked() ) {
+            if ( !lineEditDeviceLabel->text().isEmpty() ) {
+
+              addStr = "mount " + comboBoxDrive->currentText().toLower() + " " + lineEditDrives->text() + " -t floppy -label " + lineEditDeviceLabel->text();
+            } else {
+
+              QMessageBox::information( this, tr( "DBoxFE" ), tr( "Please enter a valid name for label." ) );
+              return ;
+            }
+          } else {
+
+            lineEditDeviceLabel->setText( "" );
+            addStr = "mount " + comboBoxDrive->currentText().toLower() + " " + lineEditDrives->text() + " -t floppy";
+          }
+
+          break;
+
+        case 3:               // Image
+
+          switch ( comboBoxAutoexecImageTyp->currentIndex() ) {
+
+            case 0: // floppy
+
+              switch ( comboBoxAutoexecImageFormat->currentIndex() ) {
+
+                case 0: // iso
+                  addStr = "imgmount " + comboBoxDrive->currentText().toLower() + " " + lineEditDrives->text() + " -t iso";
+                  break;
+
+                case 1: // fat
+                  addStr = "imgmount " + comboBoxDrive->currentText().toLower() + " " + lineEditDrives->text() + " -t fat";
+                  break;
+
+                case 2: // none
+                  QMessageBox::information( this, tr( "DBoxFE" ), tr( "Not used by floppy!" ) );
+                  return;
+              }
+
+              break;
+
+            case 1: // iso
+              break;
+
+            case 2: // hdd
+              break;
+          }
+
+          break;
+      }
+    }
+
+    if ( checkBoxSwitchDir->isChecked() ) {
+
+      QListWidgetItem * item = new QListWidgetItem( listWidgetAutoexec );
+      item->setText( addStr );
+
+      QListWidgetItem *itemDir = new QListWidgetItem( listWidgetAutoexec );
+      itemDir->setText( comboBoxDrive->currentText().toLower() + ":" );
+
+      checkBoxSwitchDir->setChecked( false );
+    } else {
+
+      QListWidgetItem *item = new QListWidgetItem( listWidgetAutoexec );
+      item->setText( addStr );
+    }
+
+    addStr = "";
+  }
+
+  void ProfileSettings::autoexecMoveUp() {
+
+    if ( listWidgetAutoexec->currentItem() == NULL ) {
+      return;
+    }
+
+    if ( listWidgetAutoexec->row( listWidgetAutoexec->currentItem() ) <= 0 ) {
+      return;
+    }
+
+    QListWidgetItem *item = listWidgetAutoexec->currentItem();
+
+    listWidgetAutoexec->insertItem( listWidgetAutoexec->row( listWidgetAutoexec->currentItem() ), listWidgetAutoexec->takeItem( listWidgetAutoexec->row( listWidgetAutoexec->currentItem() ) ) );
+    listWidgetAutoexec->setCurrentItem( item );
+  }
+
+  void ProfileSettings::autoexecMoveDown() {
+
+    if ( listWidgetAutoexec->currentItem() == NULL ) {
+      return;
+    }
+
+    if (( listWidgetAutoexec->row( listWidgetAutoexec->currentItem() ) + 1 ) >= listWidgetAutoexec->count() ) {
+      return;
+    }
+
+    listWidgetAutoexec->insertItem( listWidgetAutoexec->row( listWidgetAutoexec->currentItem() ), listWidgetAutoexec->takeItem( listWidgetAutoexec->row( listWidgetAutoexec->currentItem() ) + 1 ) );
+  }
+
+  void ProfileSettings::addGame() {
   }
 
   void ProfileSettings::serialRemove() {
+
+    QTreeWidgetItem * item = treeWidgetSerial->currentItem();
+
+    if ( item == NULL ) {
+      QMessageBox::information( this, tr( "DBoxFE" ), tr( "No serial was selected." ) );
+      return;
+    }
+
+    delete item;
   }
 
   void ProfileSettings::serialAdd() {
+
+    // Check if the item available in the list then show a message and exit function
+    QList<QTreeWidgetItem *> it( treeWidgetSerial->findItems( comboBoxDSSerial->currentText(), Qt::MatchExactly, 0 ) );
+
+    for ( int a = 0; a < it.size(); ++a ) {
+      QTreeWidgetItem *sItem;
+      sItem = it.value( a );
+
+      if ( sItem->text( a ) == comboBoxDSSerial->currentText() ) {
+        QMessageBox::information( this, tr( "DBoxFE" ), tr( "Can not add the same serial '%1' port to the list." ).arg( sItem->text( a ) ) );
+        return;
+      }
+    }
+
+    // Check if the list count higher as 4 then show message and exit function
+    if ( treeWidgetSerial->topLevelItemCount() >= 4 ) {
+      QMessageBox::information( this, tr( "DBoxFE" ), tr( "Can not add 5 serialports to the list, maximal 4 are allow." ) );
+      return;
+    }
+
+    QTreeWidgetItem *item = new QTreeWidgetItem( treeWidgetSerial );
+
+    item->setText( 0, comboBoxDSSerial->currentText() );
+
+    QString serialOption;
+
+    switch ( comboBoxDSOption->currentIndex() ) {
+
+      case 0:               // diasabled
+        item->setText( 1, comboBoxDSOption->currentText() );
+        break;
+
+      case 1:               // dummy
+        item->setText( 1, comboBoxDSOption->currentText() );
+        break;
+
+      case 2:               // modem
+        serialOption = comboBoxDSOption->currentText() + " " +
+                       "listenport:" + lineEditDSListenPort->text() + " " +
+                       "realport:" + comboBoxDSRealPort->currentText() + " " +
+                       "startbps:" + lineEditDSBps->text() + " " +
+                       "parity:" + comboBoxDSParity->currentText() + " " +
+                       "bytesize:" + comboBoxDSByteSize->currentText() + " " +
+                       "stopbits:" + comboBoxDSStopBit->currentText() + " " +
+                       "irq:" + lineEditDSIrq->text();
+
+        item->setText( 1, serialOption );
+        break;
+
+      case 3:               // directserial
+        serialOption = comboBoxDSOption->currentText() + " " +
+                       "realport:" + comboBoxDSRealPort->currentText() + " " +
+                       "startbps:" + lineEditDSBps->text() + " " +
+                       "parity:" + comboBoxDSParity->currentText() + " " +
+                       "bytesize:" + comboBoxDSByteSize->currentText() + " " +
+                       "stopbits:" + comboBoxDSStopBit->currentText() + " " +
+                       "irq:" + lineEditDSIrq->text();
+
+        item->setText( 1, serialOption );
+        break;
+    }
+
   }
 
   void ProfileSettings::openLanguageFile() {
@@ -80,7 +605,7 @@ namespace asaal {
 
   void ProfileSettings::saveConfiguration() {
 
-		QApplication::setOverrideCursor( Qt::WaitCursor );
+    QApplication::setOverrideCursor( Qt::WaitCursor );
 
     qApp->processEvents();
 
@@ -142,23 +667,110 @@ namespace asaal {
     profileConfiguration.mdi.insert( "config", lineEditMDIConfig->text() );
 
     // Autoexec page
-    for ( int a = 0; a < lwAutoexec->count(); a++ ) {
+
+    for ( int a = 0; a < listWidgetAutoexec->count(); a++ ) {
 
       qApp->processEvents();
 
-      QListWidgetItem *item = lwAutoexec->item( a );
+      QListWidgetItem *item = listWidgetAutoexec->item( a );
       profileConfiguration.autoexec.append( item->text() );
     }
 
     // Inernet page
-    for ( int b = 0;  b < twSerial->topLevelItemCount(); b ++ ) {
+    // Now we are check this list for more then one entry
+    bool serialFound1 = false;
+    bool serialFound2 = false;
+    bool serialFound3 = false;
+    bool serialFound4 = false;
+
+    for ( int b = 0;  b < treeWidgetSerial->topLevelItemCount(); b++ ) {
 
       qApp->processEvents();
 
-      QTreeWidgetItem *item = twSerial->topLevelItem( b );
-      profileConfiguration.serial.insert( item->text( 0 ), item->text( 1 ) );
-    }
+      QTreeWidgetItem *item = treeWidgetSerial->topLevelItem( b );
+      if( item->text( 0 ) == "serial1" ) {
 
+        serialFound1 = true;
+        profileConfiguration.serial.insert( item->text( 0 ), item->text( 1 ) );
+      } else if( item->text( 0 ) == "serial2" ) {
+
+        serialFound2 = true;
+        profileConfiguration.serial.insert( item->text( 0 ), item->text( 1 ) );
+      } else if( item->text( 0 ) == "serial3" ) {
+
+        serialFound3 = true;
+        profileConfiguration.serial.insert( item->text( 0 ), item->text( 1 ) );
+      } else if( item->text( 0 ) == "serial4" ) {
+
+        serialFound4 = true;
+        profileConfiguration.serial.insert( item->text( 0 ), item->text( 1 ) );
+      }
+    }
+    
+    if( !serialFound1 && serialFound2 && serialFound3 && serialFound4 ) {
+
+      profileConfiguration.serial.insert( "serial1", "dummy" );
+    } else if( serialFound1 && !serialFound2 && serialFound3 && serialFound4 ) {
+
+      profileConfiguration.serial.insert( "serial2", "dummy" );
+    } else if( serialFound1 && serialFound2 && !serialFound3 && serialFound4 ) {
+
+      profileConfiguration.serial.insert( "serial3", "disabled" );
+    } else if( serialFound1 && serialFound2 && serialFound3 && !serialFound4 ) {
+
+      profileConfiguration.serial.insert( "serial4", "disabled" );
+    } else if( serialFound1 && !serialFound2 && !serialFound3 && !serialFound4 ) {
+
+      profileConfiguration.serial.insert( "serial2", "dummy" );
+      profileConfiguration.serial.insert( "serial3", "disabled" );
+      profileConfiguration.serial.insert( "serial4", "disabled" );
+    } else if( serialFound1 && serialFound2 && !serialFound3 && !serialFound4 ) {
+
+      profileConfiguration.serial.insert( "serial3", "disabled" );
+      profileConfiguration.serial.insert( "serial4", "disabled" );
+    } else if( !serialFound1 && !serialFound2 && serialFound3 && serialFound4 ) {
+
+      profileConfiguration.serial.insert( "serial1", "dummy" );
+      profileConfiguration.serial.insert( "serial2", "dummy" );
+    } else if( !serialFound1 && !serialFound2 && !serialFound3 && serialFound4 ) {
+
+      profileConfiguration.serial.insert( "serial1", "dummy" );
+      profileConfiguration.serial.insert( "serial2", "dummy" );
+      profileConfiguration.serial.insert( "serial3", "disbaled" );
+    } else if( !serialFound1 && !serialFound2 && !serialFound3 && !serialFound4 ) {
+
+      profileConfiguration.serial.insert( "serial1", "dummy" );
+      profileConfiguration.serial.insert( "serial2", "dummy" );
+      profileConfiguration.serial.insert( "serial3", "disbaled" );
+      profileConfiguration.serial.insert( "serial4", "disbaled" );
+    } else if( !serialFound1 && serialFound2 && !serialFound3 && !serialFound4 ) {
+
+      profileConfiguration.serial.insert( "serial1", "dummy" );
+      profileConfiguration.serial.insert( "serial3", "disbaled" );
+      profileConfiguration.serial.insert( "serial4", "disabled" );
+    } else if( !serialFound1 && serialFound2 && serialFound3 && !serialFound4 ) {
+
+      profileConfiguration.serial.insert( "serial1", "dummy" );
+      profileConfiguration.serial.insert( "serial4", "disabled" );
+    } else if( serialFound1 && !serialFound2 && serialFound3 && !serialFound4 ) {
+
+      profileConfiguration.serial.insert( "serial2", "dummy" );
+      profileConfiguration.serial.insert( "serial4", "disabled" );
+    } else if( serialFound1 && !serialFound2 && !serialFound3 && serialFound4 ) {
+
+      profileConfiguration.serial.insert( "serial2", "dummy" );
+      profileConfiguration.serial.insert( "serial3", "disabled" );
+    } else if( !serialFound1 && serialFound2 && !serialFound3 && serialFound4 ) {
+
+      profileConfiguration.serial.insert( "serial1", "dummy" );
+      profileConfiguration.serial.insert( "serial3", "disabled" );
+    } else if( !serialFound1 && !serialFound2 && serialFound3 && !serialFound4 ) {
+
+      profileConfiguration.serial.insert( "serial1", "dummy" );
+      profileConfiguration.serial.insert( "serial2", "dummy" );
+      profileConfiguration.serial.insert( "serial4", "disbaled" );
+    }
+    
     profileConfiguration.ipx = QVariant( checkBoxIPX->isChecked() ).toString();
 
     // DOS page
@@ -182,7 +794,7 @@ namespace asaal {
 
     DBoxFE::configBaseInstance()->writeConfiguration( profFile, profileConfiguration );
 
-		QApplication::restoreOverrideCursor();
+    QApplication::restoreOverrideCursor();
 
     QDialog::accept();
   }
@@ -191,7 +803,7 @@ namespace asaal {
 
     int messageResult = QMessageBox::question( this, tr( "DBoxFE" ), tr( "Are you sure that you would like to use\nthe default preferences for this game\nprofile?" ), QMessageBox::Yes, QMessageBox::No );
 
-    switch( messageResult ) {
+    switch ( messageResult ) {
 
       case QMessageBox::Yes:
 
@@ -202,13 +814,14 @@ namespace asaal {
 
           loadConfiguration();
         }
+
         break;
     }
   }
 
   void ProfileSettings::loadConfiguration() {
 
-		QApplication::setOverrideCursor( Qt::WaitCursor );
+    QApplication::setOverrideCursor( Qt::WaitCursor );
 
     qApp->processEvents();
 
@@ -229,33 +842,36 @@ namespace asaal {
     checkBoxSDLFullDouble->setChecked( profileConfiguration.sdl.value( "fulldouble" ).toBool() );
     checkBoxSDLWaitOnError->setChecked( profileConfiguration.sdl.value( "waitonerror" ).toBool() );
     checkBoxSDLAutolock->setChecked( profileConfiguration.sdl.value( "autolock" ).toBool() );
-    checkBoxSDLUseScanCode->setChecked( profileConfiguration.sdl.value( "usescancodes"  ).toBool() );
+    checkBoxSDLUseScanCode->setChecked( profileConfiguration.sdl.value( "usescancodes" ).toBool() );
     comboBoxIndex = comboBoxSDLOutout->findText( profileConfiguration.sdl.value( "output" ).toString(), Qt::MatchExactly );
     comboBoxSDLOutout->setCurrentIndex( comboBoxIndex );
-    
+
     comboBoxIndex = comboBoxSDLFocusUnfocus->findText( profileConfiguration.sdl.value( "priority" ).toString(), Qt::MatchExactly );
-    if( comboBoxIndex < 0 ) {
+
+    if ( comboBoxIndex < 0 ) {
 
       QString priority = QString( "" );
       priority = profileConfiguration.sdl.value( "priority" ).toString();
 
-      if( priority.isNull() || priority.isEmpty() ) {
+      if ( priority.isNull() || priority.isEmpty() ) {
         priority = "\"normal,normal\"";
       }
 
-      if( priority.startsWith( "\"" ) && priority.endsWith( "\"" ) ) {
+      if ( priority.startsWith( "\"" ) && priority.endsWith( "\"" ) ) {
 
         priority = priority.replace( "\"", "" );
       }
+
       comboBoxIndex = comboBoxSDLFocusUnfocus->findText( priority, Qt::MatchExactly );
     }
+
     comboBoxSDLFocusUnfocus->setCurrentIndex( comboBoxIndex );
 
     comboBoxIndex = comboBoxSDLWindowWightHigh->findText( profileConfiguration.sdl.value( "windowresolution" ).toString(), Qt::MatchExactly );
     comboBoxSDLWindowWightHigh->setCurrentIndex( comboBoxIndex );
     comboBoxIndex = comboBoxSDLFullWightHigh->findText( profileConfiguration.sdl.value( "fullresolution" ).toString(), Qt::MatchExactly );
     comboBoxSDLFullWightHigh->setCurrentIndex( comboBoxIndex );
-    lcdSDLSensitivity->display( profileConfiguration.sdl.value( "sensitivity").toInt() );
+    lcdSDLSensitivity->display( profileConfiguration.sdl.value( "sensitivity" ).toInt() );
 
     comboBoxIndex = comboBoxRenderScaler->findText( profileConfiguration.render.value( "scaler" ).toString(), Qt::MatchExactly );
     comboBoxRenderScaler->setCurrentIndex( comboBoxIndex );
@@ -263,20 +879,20 @@ namespace asaal {
     checkBoxRenderAspect->setChecked( profileConfiguration.render.value( "aspect" ).toBool() );
 
     comboBoxIndex = comboBoxCPUCore->findText( profileConfiguration.cpu.value( "core" ).toString(), Qt::MatchExactly );
-    comboBoxCPUCore->setCurrentIndex( comboBoxIndex );    
+    comboBoxCPUCore->setCurrentIndex( comboBoxIndex );
     comboBoxIndex = comboBoxCPUCycleUp->findText( profileConfiguration.cpu.value( "cycleup" ).toString(), Qt::MatchExactly );
-    comboBoxCPUCycleUp->setCurrentIndex( comboBoxIndex );    
+    comboBoxCPUCycleUp->setCurrentIndex( comboBoxIndex );
     comboBoxIndex = comboBoxCPUCycles->findText( profileConfiguration.cpu.value( "cycles" ).toString(), Qt::MatchExactly );
-    comboBoxCPUCycles->setCurrentIndex( comboBoxIndex );    
+    comboBoxCPUCycles->setCurrentIndex( comboBoxIndex );
     comboBoxIndex = comboBoxCPUCycleDown->findText( profileConfiguration.cpu.value( "cycledown" ).toString(), Qt::MatchExactly );
     comboBoxCPUCycleDown->setCurrentIndex( comboBoxIndex );
 
     // Sound page
     comboBoxIndex = comboBoxMixerRate->findText( profileConfiguration.mixer.value( "rate" ).toString(), Qt::MatchExactly );
-    comboBoxMixerRate->setCurrentIndex( comboBoxIndex );    
+    comboBoxMixerRate->setCurrentIndex( comboBoxIndex );
     comboBoxIndex = comboBoxMixerBlockSize->findText( profileConfiguration.mixer.value( "blocksize" ).toString(), Qt::MatchExactly );
     comboBoxMixerBlockSize->setCurrentIndex( comboBoxIndex );
-    spinnBoxPrebuffer->setValue( profileConfiguration.mixer.value( "prebuffer" ).toInt() );    
+    spinnBoxPrebuffer->setValue( profileConfiguration.mixer.value( "prebuffer" ).toInt() );
     checkBoxMixerNoSound->setChecked( profileConfiguration.mixer.value( "nosound" ).toBool() );
 
     comboBoxIndex = comboBoxSBType->findText( profileConfiguration.sblaster.value( "sbtype" ).toString(), Qt::MatchExactly );
@@ -327,23 +943,24 @@ namespace asaal {
     lineEditMDIConfig->setText( profileConfiguration.mdi.value( "config" ).toString() );
 
     // Autoexec page
-    lwAutoexec->clear();
+    listWidgetAutoexec->clear();
     foreach( QString autoexec, profileConfiguration.autoexec ) {
 
       qApp->processEvents();
 
-      QListWidgetItem *item = new QListWidgetItem( lwAutoexec );
+      QListWidgetItem *item = new QListWidgetItem( listWidgetAutoexec );
       item->setText( autoexec );
     }
 
     // Inernet page
-    twSerial->clear();
+    treeWidgetSerial->clear();
     QMap< QString, QVariant >::const_iterator serial = profileConfiguration.serial.constBegin();
-    while( serial != profileConfiguration.serial.constEnd() ) {
+
+    while ( serial != profileConfiguration.serial.constEnd() ) {
 
       qApp->processEvents();
 
-      QTreeWidgetItem *item = new QTreeWidgetItem( twSerial );
+      QTreeWidgetItem *item = new QTreeWidgetItem( treeWidgetSerial );
       item->setText( 0, serial.key() );
       item->setText( 1, serial.value().toString() );
 
@@ -374,7 +991,7 @@ namespace asaal {
     comboBoxIndex = comboBoxJoystickType->findText( profileConfiguration.joystick.value( "joysticktype" ).toString(), Qt::MatchExactly );
     comboBoxJoystickType->setCurrentIndex( comboBoxIndex );
 
-		QApplication::restoreOverrideCursor();
+    QApplication::restoreOverrideCursor();
   }
 
   void ProfileSettings::closeWidget() {

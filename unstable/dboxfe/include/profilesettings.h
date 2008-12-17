@@ -9,7 +9,7 @@
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
+ *   the Free Software Foundation; either version 3 of the License, or     *
  *   (at your option) any later version.                                   *
  *                                                                         *
  *   This program is distributed in the hope that it will be useful,       *
@@ -34,158 +34,175 @@
 
 /**
 * \brief Namespace asaal
-*/ 
+*/
+
 namespace asaal {
 
   /**
    * \brief ProfileSettings
-   * 
+   *
    * @author Alexander Saal <alex.saal@gmx.de>
    * @sa http://dboxfe.belios.de/index
    * @date 2008/09/11
    * @version 0.2.5
    * @since 0.2.5
-   */ 
+   */
+
   class ProfileSettings : public QDialog, public Ui::UiProfileSettings {
 
-    Q_OBJECT
+      Q_OBJECT
 
     public:
-        /**
-         * \brief Constructor of ProfileSettings
-         * 
-         * @param parent The optional parent widget
-         * @param flags The optional window flags
-         */ 
-        ProfileSettings( QWidget *parent = 0, Qt::WFlags flags = 0 );
+      /**
+       * \brief Constructor of ProfileSettings
+       *
+       * @param parent The optional parent widget
+       * @param flags The optional window flags
+       */
+      ProfileSettings( QWidget *parent = 0, Qt::WFlags flags = 0 );
 
-        /**
-         * \brief De-Constructor of ProfileSettings
-         */ 
-        ~ProfileSettings();
+      /**
+       * \brief De-Constructor of ProfileSettings
+       */
+      ~ProfileSettings();
 
-     public slots:
-        /**
-         * \brief Set profile name
-         * 
-         * @param name The profile name
-         */ 
-        inline void setProfileName( const QString &name ) {
+    public slots:
+      /**
+       * \brief Set profile name
+       *
+       * @param name The profile name
+       */
+      inline void setProfileName( const QString &name ) {
 
-          profName = name;
-          setWindowTitle( tr( "Settings for [ %1 ]" ).arg( profName ) );
-        }
-        
-        inline void initialConfiguration( const QString &configFile ) {
+        profName = name;
+        setWindowTitle( tr( "Settings for [ %1 ]" ).arg( profName ) );
+      }
 
-          profFile = configFile;
-          loadConfiguration();
-        } 
+      inline void initialConfiguration( const QString &configFile ) {
 
-      private slots:
-        /**
-         * \brief This event slot is called if you change index in the serial combobox
-         * 
-         * @param index the current index from QComboBox
-         */ 
-        void comboBoxSerialIndexChanged( int );
+        profFile = configFile;
+        loadConfiguration();
+      }
 
-        /**
-         * \brief This event slot is called if you change index in the autoexec combobox
-         * 
-         * @param index the current index from QComboBox
-         */
-        void comboBoxAutoexecIndexChanged( int );
+    private slots:
+      /**
+       * \brief This event slot is called if you change index in the serial combobox
+       *
+       * @param index the current index from QComboBox
+       */
+      void comboBoxSerialIndexChanged( int );
 
-        /**
-         * \brief 
-         * 
-         * @param index The current index from QComboBox
-         */
-        void comboBoxAutoexecImageFormatIndexChanged( int );
+      /**
+       * \brief This event slot is called if you change index in the autoexec combobox
+       *
+       * @param index the current index from QComboBox
+       */
+      void comboBoxAutoexecIndexChanged( int );
 
-        /**
-         * \brief This event slot is called if you change keyboard layout for DOSBox
-         * 
-         * @param index the current index from QComboBox
-         */
-        void comboBoxKeyboardLayoutIndexChanged( int );
+      /**
+       * \brief
+       *
+       * @param index The current index from QComboBox
+       */
+      void comboBoxAutoexecImageFormatIndexChanged( int );
 
-        /**
-         * \brief Select autexec drive
-         */ 
-        void autoexecDrive();
+      /**
+       * \brief This event slot is called if you change keyboard layout for DOSBox
+       *
+       * @param index the current index from QComboBox
+       */
+      void comboBoxKeyboardLayoutIndexChanged( int );
 
-        /**
-         * \brief Update autoecex entry in the list
-         */ 
-        void autoexecUpdate();
+      /**
+       * \brief Select autexec drive
+       */
+      void autoexecDrive();
 
-        /**
-         * \brief Remove autoecex entry to the list
-         */ 
-        void autoexecRemove();
+      /**
+       * \brief Update autoecex entry in the list
+       */
+      void autoexecUpdate();
 
-        /**
-         * \brief Add autoecex entry to the list
-         */ 
-        void autoexecAdd();
+      /**
+       * \brief Remove autoecex entry to the list
+       */
+      void autoexecRemove();
 
-        /**
-         * \brief Remove serial interface to the list
-         */ 
-        void serialRemove();
+      /**
+       * \brief Add autoecex entry to the list
+       */
+      void autoexecAdd();
 
-        /**
-         * \brief Add serial interface to the list
-         */ 
-        void serialAdd();
+      /**
+       * \brief Move entry in autoexec list up
+       */
+      void autoexecMoveUp();
 
-        /**
-         * \brief Open language file from file system.
-         */ 
-        void openLanguageFile();
+      /**
+       * \brief Move entry in autoexec list down
+       */
+      void autoexecMoveDown();
+      
+      /**
+       * \brief Add game executable to this profile
+       */
+      void addGame();
 
-        /**
-         * \brief Save configuration for selected profile
-         * 
-         * @see Configuration
-         */ 
-        void saveConfiguration();
+      /**
+       * \brief Remove serial interface to the list
+       */
+      void serialRemove();
 
-        /**
-         * \brief Set default configuration
-         * 
-         * @see Configuration
-         */ 
-        void setDefaultConfiguration();
+      /**
+       * \brief Add serial interface to the list
+       */
+      void serialAdd();
 
-        
-        /**
-         * \brief Load configuration
-         */
-        void loadConfiguration();
-        
-        /**
-         * \brief Close widget
-         */ 
-        void closeWidget();
+      /**
+       * \brief Open language file from file system.
+       */
+      void openLanguageFile();
+
+      /**
+       * \brief Save configuration for selected profile
+       *
+       * @see Configuration
+       */
+      void saveConfiguration();
+
+      /**
+       * \brief Set default configuration
+       *
+       * @see Configuration
+       */
+      void setDefaultConfiguration();
+
+
+      /**
+       * \brief Load configuration
+       */
+      void loadConfiguration();
+
+      /**
+       * \brief Close widget
+       */
+      void closeWidget();
 
     protected:
       /**
        * \brief This event slot is called if you close the current widget; overide from QWidget
-       * 
+       *
        * @param e The QCloseEvent fired from QWidget
-       */ 
-       void closeEvent( QCloseEvent *e );
+       */
+      void closeEvent( QCloseEvent *e );
 
     private:
-       /**
-        * Internal, private variables 
-        */ 
-       QString profFile;
-       QString profName;
-       Configuration profileConfiguration;
+      /**
+       * Internal, private variables
+       */
+      QString profFile;
+      QString profName;
+      Configuration profileConfiguration;
   };
 }
 

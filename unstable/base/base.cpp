@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2008 by Alexander Saal                                  *
+ *   Copyright (C) 2004-2008 by Alexander Saal                             *
  *   alex.saal@gmx.de                                                      *
  *                                                                         *
  *   File: ${filename}.${extension}                                        *
@@ -9,7 +9,7 @@
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
+ *   the Free Software Foundation; either version 3 of the License, or     *
  *   (at your option) any later version.                                   *
  *                                                                         *
  *   This program is distributed in the hope that it will be useful,       *
@@ -430,8 +430,6 @@ namespace asaal {
 
     while ( !node.isNull() ) {
       qApp->processEvents();
-
-      // Check if this realy the old profile
 
       if ( node.toElement().tagName() == "software_info" ) {
 

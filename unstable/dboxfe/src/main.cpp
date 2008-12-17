@@ -1,5 +1,5 @@
 /***************************************************************************
-  *   Copyright (C) 2004-2008 by Alexander Saal                             *
+ *   Copyright (C) 2004-2008 by Alexander Saal                             *
  *   alex.saal@gmx.de                                                      *
  *                                                                         *
  *   File: ${filename}.${extension}                                        *
@@ -9,7 +9,7 @@
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
+ *   the Free Software Foundation; either version 3 of the License, or     *
  *   (at your option) any later version.                                   *
  *                                                                         *
  *   This program is distributed in the hope that it will be useful,       *
@@ -90,6 +90,10 @@ int main( int argc, char *argv[] ) {
       dboxfeConfig.dosboxVersion = "0.72";
     }
 
+    if( dboxfeConfig.profileCount <= 0 )  {
+      dboxfeConfig.profileCount = 0;
+    }
+
     dboxfeConfig.winHide = true;
     dboxfeConfig.keyMapper = false;
   }
@@ -113,7 +117,6 @@ int main( int argc, char *argv[] ) {
     splash->showMessage( QApplication::translate( "DBoxFE", "Load resource stream" ) );
 
   QStringList entryList = tmplDir.entryList( QDir::Files );
-
   if ( entryList.count() != dboxfeConfig.profileCount || dboxfeConfig.profileCount <= 0 ) {
 
 

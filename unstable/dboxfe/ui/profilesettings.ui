@@ -1500,8 +1500,8 @@
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>680</width>
-              <height>208</height>
+              <width>573</width>
+              <height>141</height>
              </rect>
             </property>
             <attribute name="label" >
@@ -1671,8 +1671,8 @@
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>386</width>
-              <height>132</height>
+              <width>400</width>
+              <height>144</height>
              </rect>
             </property>
             <attribute name="label" >
@@ -2061,7 +2061,7 @@
               <x>0</x>
               <y>0</y>
               <width>386</width>
-              <height>184</height>
+              <height>203</height>
              </rect>
             </property>
             <attribute name="label" >
@@ -2361,7 +2361,7 @@
               <x>0</x>
               <y>0</y>
               <width>386</width>
-              <height>100</height>
+              <height>110</height>
              </rect>
             </property>
             <attribute name="label" >
@@ -2535,7 +2535,7 @@
               <x>0</x>
               <y>0</y>
               <width>396</width>
-              <height>108</height>
+              <height>114</height>
              </rect>
             </property>
             <attribute name="label" >
@@ -2760,12 +2760,12 @@
               <string>Mount as:</string>
              </property>
              <property name="buddy" >
-              <cstring>comboBoxAutoexecDirectoryOption</cstring>
+              <cstring>comboBoxAutoexecMountOption</cstring>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QComboBox" name="comboBoxAutoexecDirectoryOption" >
+            <widget class="QComboBox" name="comboBoxAutoexecMountOption" >
              <item>
               <property name="text" >
                <string>Default</string>
@@ -2843,7 +2843,7 @@
           </layout>
          </item>
          <item row="2" column="0" >
-          <layout class="QHBoxLayout" name="_5" >
+          <layout class="QHBoxLayout" name="hlAutoexecImageType" >
            <item>
             <widget class="QLabel" name="labelAutoexecImageTyp" >
              <property name="enabled" >
@@ -3280,10 +3280,10 @@
          <item row="6" column="0" colspan="2" >
           <layout class="QGridLayout" name="glAutoexecEntries" >
            <item row="0" column="0" >
-            <widget class="QListWidget" name="lwAutoexec" />
+            <widget class="QListWidget" name="listWidgetAutoexec" />
            </item>
            <item row="0" column="1" >
-            <layout class="QGridLayout" name="_13" >
+            <layout class="QGridLayout" name="vlAutoexecMove" >
              <property name="margin" >
               <number>0</number>
              </property>
@@ -3291,7 +3291,7 @@
               <number>6</number>
              </property>
              <item row="1" column="0" >
-              <spacer>
+              <spacer name="vsAutoexecMove" >
                <property name="orientation" >
                 <enum>Qt::Vertical</enum>
                </property>
@@ -3438,9 +3438,6 @@
            </item>
            <item>
             <widget class="QPushButton" name="btnAutoexecUpdate" >
-             <property name="enabled" >
-              <bool>false</bool>
-             </property>
              <property name="minimumSize" >
               <size>
                <width>75</width>
@@ -3464,9 +3461,6 @@
            </item>
            <item>
             <widget class="QPushButton" name="btnGame" >
-             <property name="enabled" >
-              <bool>false</bool>
-             </property>
              <property name="minimumSize" >
               <size>
                <width>75</width>
@@ -3495,7 +3489,7 @@
        <widget class="QWidget" name="pageInternet" >
         <layout class="QGridLayout" name="gridLayout_13" >
          <item row="0" column="0" >
-          <widget class="QGroupBox" name="gBoxDirectSerial" >
+          <widget class="QGroupBox" name="groupBoxDirectSerial" >
            <property name="title" >
             <string>Serial</string>
            </property>
@@ -3507,7 +3501,7 @@
              <number>6</number>
             </property>
             <item row="3" column="0" >
-             <layout class="QHBoxLayout" name="_40" >
+             <layout class="QHBoxLayout" name="hlSerialButtonGroup" >
               <property name="spacing" >
                <number>6</number>
               </property>
@@ -3576,7 +3570,7 @@
              </layout>
             </item>
             <item row="2" column="0" >
-             <widget class="QTreeWidget" name="twSerial" >
+             <widget class="QTreeWidget" name="treeWidgetSerial" >
               <column>
                <property name="text" >
                 <string>Serial</string>
@@ -3622,7 +3616,7 @@
              </widget>
             </item>
             <item row="1" column="0" >
-             <widget class="QGroupBox" name="gBoxSerialOption" >
+             <widget class="QGroupBox" name="groupBoxSerialOption" >
               <property name="enabled" >
                <bool>false</bool>
               </property>
@@ -3637,7 +3631,7 @@
                 <number>6</number>
                </property>
                <item row="0" column="0" >
-                <layout class="QHBoxLayout" name="_42" >
+                <layout class="QHBoxLayout" name="hlSerialComPort" >
                  <property name="spacing" >
                   <number>6</number>
                  </property>
@@ -3683,7 +3677,7 @@
                 </layout>
                </item>
                <item row="1" column="1" >
-                <layout class="QHBoxLayout" name="_43" >
+                <layout class="QHBoxLayout" name="hlSerialListenPort" >
                  <property name="spacing" >
                   <number>6</number>
                  </property>
@@ -3722,7 +3716,7 @@
                 </layout>
                </item>
                <item row="1" column="0" >
-                <layout class="QHBoxLayout" name="_44" >
+                <layout class="QHBoxLayout" name="hlSerialRealPort" >
                  <property name="spacing" >
                   <number>6</number>
                  </property>
@@ -3778,7 +3772,7 @@
                 </layout>
                </item>
                <item row="2" column="0" colspan="2" >
-                <layout class="QHBoxLayout" name="_45" >
+                <layout class="QHBoxLayout" name="hlSerialIrq" >
                  <property name="spacing" >
                   <number>6</number>
                  </property>
@@ -3817,7 +3811,7 @@
                 </layout>
                </item>
                <item row="0" column="1" >
-                <layout class="QHBoxLayout" name="_46" >
+                <layout class="QHBoxLayout" name="hlSerialDefaultBps" >
                  <property name="spacing" >
                   <number>6</number>
                  </property>
@@ -3856,7 +3850,7 @@
                 </layout>
                </item>
                <item row="3" column="0" colspan="2" >
-                <layout class="QHBoxLayout" name="_47" >
+                <layout class="QHBoxLayout" name="hlSerialParity" >
                  <property name="spacing" >
                   <number>6</number>
                  </property>
@@ -3907,7 +3901,7 @@
                 </layout>
                </item>
                <item row="4" column="0" colspan="2" >
-                <layout class="QHBoxLayout" name="_48" >
+                <layout class="QHBoxLayout" name="hlSerialByteSize" >
                  <property name="spacing" >
                   <number>6</number>
                  </property>
@@ -3956,7 +3950,7 @@
                 </layout>
                </item>
                <item row="5" column="0" colspan="2" >
-                <layout class="QHBoxLayout" name="_49" >
+                <layout class="QHBoxLayout" name="hlSerialStopBit" >
                  <property name="spacing" >
                   <number>6</number>
                  </property>
@@ -4005,7 +3999,7 @@
              </widget>
             </item>
             <item row="0" column="0" >
-             <layout class="QHBoxLayout" name="_50" >
+             <layout class="QHBoxLayout" name="hlSerial" >
               <property name="spacing" >
                <number>6</number>
               </property>
@@ -4092,13 +4086,13 @@
        <widget class="QWidget" name="pageDos" >
         <layout class="QGridLayout" name="gridLayout_14" >
          <item row="0" column="0" colspan="2" >
-          <widget class="QGroupBox" name="gBoxOther_2" >
+          <widget class="QGroupBox" name="groupBoxDosBox" >
            <property name="title" >
             <string>DosBox</string>
            </property>
-           <layout class="QGridLayout" name="gridLayout_12" >
+           <layout class="QGridLayout" name="glDosBox" >
             <item row="0" column="0" >
-             <layout class="QHBoxLayout" name="horizontalLayout_7" >
+             <layout class="QHBoxLayout" name="hlLanguage" >
               <item>
                <widget class="QLabel" name="labelLanguage" >
                 <property name="minimumSize" >
@@ -4153,7 +4147,7 @@
              </layout>
             </item>
             <item row="0" column="1" >
-             <layout class="QHBoxLayout" name="horizontalLayout_6" >
+             <layout class="QHBoxLayout" name="hlMachine" >
               <item>
                <widget class="QLabel" name="labelMachine" >
                 <property name="minimumSize" >
@@ -4211,7 +4205,7 @@
              </layout>
             </item>
             <item row="1" column="0" >
-             <layout class="QHBoxLayout" name="horizontalLayout_4" >
+             <layout class="QHBoxLayout" name="hlCaptures" >
               <item>
                <widget class="QLabel" name="labelCaptures" >
                 <property name="minimumSize" >
@@ -4264,7 +4258,7 @@
              </layout>
             </item>
             <item row="1" column="1" >
-             <layout class="QHBoxLayout" name="horizontalLayout_5" >
+             <layout class="QHBoxLayout" name="hlMemorySize" >
               <item>
                <widget class="QLabel" name="labelMemSize" >
                 <property name="minimumSize" >
@@ -4308,6 +4302,71 @@
               </item>
              </layout>
             </item>
+            <item row="2" column="0" colspan="2" >
+             <layout class="QHBoxLayout" name="hlCaptureDirectory" >
+              <item>
+               <widget class="QLabel" name="labelCaptureDirectory" >
+                <property name="enabled" >
+                 <bool>false</bool>
+                </property>
+                <property name="minimumSize" >
+                 <size>
+                  <width>110</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize" >
+                 <size>
+                  <width>110</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="text" >
+                 <string>Directory:</string>
+                </property>
+                <property name="buddy" >
+                 <cstring>lineEditLanguage</cstring>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEditCapture" >
+                <property name="enabled" >
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnCaptureDirectory" >
+                <property name="enabled" >
+                 <bool>false</bool>
+                </property>
+                <property name="minimumSize" >
+                 <size>
+                  <width>24</width>
+                  <height>24</height>
+                 </size>
+                </property>
+                <property name="maximumSize" >
+                 <size>
+                  <width>24</width>
+                  <height>24</height>
+                 </size>
+                </property>
+                <property name="toolTip" >
+                 <string>Open the language file for dosbox</string>
+                </property>
+                <property name="text" >
+                 <string/>
+                </property>
+                <property name="icon" >
+                 <iconset resource="../../resource/dboxfe.qrc" >
+                  <normaloff>:/pics/images/folder-open_16.png</normaloff>:/pics/images/folder-open_16.png</iconset>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
            </layout>
           </widget>
          </item>
@@ -4316,9 +4375,9 @@
            <property name="title" >
             <string>DOS</string>
            </property>
-           <layout class="QGridLayout" name="gridLayout_3" >
+           <layout class="QGridLayout" name="glDOS" >
             <item row="0" column="0" >
-             <layout class="QHBoxLayout" name="horizontalLayout" >
+             <layout class="QHBoxLayout" name="hlDosXmsEmsUmb" >
               <item>
                <widget class="QCheckBox" name="checkBoxXMS" >
                 <property name="text" >
@@ -4352,7 +4411,7 @@
              </layout>
             </item>
             <item row="1" column="0" >
-             <layout class="QHBoxLayout" name="horizontalLayout_2" >
+             <layout class="QHBoxLayout" name="hlKeyboardLanguage" >
               <item>
                <widget class="QLabel" name="labelKeyboardLayout" >
                 <property name="minimumSize" >
@@ -4472,7 +4531,7 @@
             <item row="2" column="0" >
              <widget class="QLabel" name="labelKeyboardLayoutInfo" >
               <property name="text" >
-               <string>******</string>
+               <string>No keyboardlayot</string>
               </property>
               <property name="alignment" >
                <set>Qt::AlignCenter</set>
@@ -4490,9 +4549,9 @@
            <property name="title" >
             <string>Joysticktype</string>
            </property>
-           <layout class="QGridLayout" name="gridLayout_11" >
+           <layout class="QGridLayout" name="glJoystickType" >
             <item row="0" column="0" >
-             <layout class="QHBoxLayout" name="horizontalLayout_3" >
+             <layout class="QHBoxLayout" name="hlJoystickType" >
               <item>
                <widget class="QCheckBox" name="checkBoxTimed" >
                 <property name="text" >
@@ -4637,7 +4696,7 @@
   <tabstop>comboBoxMDIDevice</tabstop>
   <tabstop>lineEditMDIConfig</tabstop>
   <tabstop>btnConfig</tabstop>
-  <tabstop>comboBoxAutoexecDirectoryOption</tabstop>
+  <tabstop>comboBoxAutoexecMountOption</tabstop>
   <tabstop>comboBoxAutoexecCDDVDROMOption</tabstop>
   <tabstop>comboBoxAutoexecImageTyp</tabstop>
   <tabstop>comboBoxAutoexecImageFormat</tabstop>
@@ -4649,7 +4708,7 @@
   <tabstop>checkBoxSwitchDir</tabstop>
   <tabstop>lineEditDeviceLabel</tabstop>
   <tabstop>checkBoxLabelCDDVD</tabstop>
-  <tabstop>lwAutoexec</tabstop>
+  <tabstop>listWidgetAutoexec</tabstop>
   <tabstop>btnAutoexecUp</tabstop>
   <tabstop>btnAutoexecDown</tabstop>
   <tabstop>btnAutoexecAdd</tabstop>
@@ -4675,8 +4734,40 @@
      <y>21</y>
     </hint>
     <hint type="destinationlabel" >
-     <x>91</x>
-     <y>361</y>
+     <x>186</x>
+     <y>371</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBoxLabelCDDVD</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>lineEditDeviceLabel</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>221</x>
+     <y>263</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>224</x>
+     <y>248</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBoxLabelCDDVD</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>labelDeviceName</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>178</x>
+     <y>262</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>178</x>
+     <y>224</y>
     </hint>
    </hints>
   </connection>

@@ -29,12 +29,15 @@
     <normaloff>:/pics/images/default.png</normaloff>:/pics/images/default.png</iconset>
   </property>
   <property name="styleSheet" >
-   <string notr="true" >#textEditGameDescription {
+   <string notr="true" >#UiDBoxFE {
+	background-color: white;
+}
+
+#textEditGameDescription {
 	padding-top: 20px;
 	padding-bottom: 5px;
 	padding-left: 5px;
 	padding-right: 5px;
-
 	border: solid;
 	border-width: 2px;
 	border-style: solid;
