@@ -34,7 +34,17 @@
        </property>
        <column>
         <property name="text" >
-         <string>Gamename</string>
+         <string>Executable</string>
+        </property>
+       </column>
+       <column>
+        <property name="text" >
+         <string>Name</string>
+        </property>
+       </column>
+       <column>
+        <property name="text" >
+         <string>Genre</string>
         </property>
        </column>
        <column>
@@ -62,6 +72,9 @@
          </property>
          <property name="text" >
           <string>Game:</string>
+         </property>
+         <property name="buddy" >
+          <cstring>lineEditExecutable</cstring>
          </property>
         </widget>
        </item>
@@ -160,9 +173,33 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>treeWidgetGames</tabstop>
+  <tabstop>lineEditExecutable</tabstop>
+  <tabstop>btnGameExecutable</tabstop>
+  <tabstop>btnOk</tabstop>
+  <tabstop>btnCancel</tabstop>
+ </tabstops>
  <resources>
   <include location="../../resource/dboxfe.qrc" />
   <include location="../../resource/dboxfe.qrc" />
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>btnCancel</sender>
+   <signal>clicked()</signal>
+   <receiver>UiGames</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>647</x>
+     <y>399</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>377</x>
+     <y>395</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

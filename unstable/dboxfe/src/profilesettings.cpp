@@ -24,6 +24,7 @@
  ***************************************************************************/
 
 #include <dboxfe.h>
+#include <games.h>
 #include <profilesettings.h>
 
 #include <QtGui>
@@ -34,6 +35,8 @@ namespace asaal {
   ProfileSettings::ProfileSettings( QWidget *parent, Qt::WFlags flags ) : QDialog( parent, flags ) {
 
     setupUi( this );
+
+    btnAutoexecUpdate->setEnabled( false );
 
     /* ProfileSettings connections */
     connect( btnSave, SIGNAL( clicked() ), this, SLOT( saveConfiguration() ) );
@@ -47,6 +50,7 @@ namespace asaal {
     connect( btnAutoexecAdd, SIGNAL( clicked() ), this, SLOT( autoexecAdd() ) );
     connect( btnAutoexecRemove, SIGNAL( clicked() ), this, SLOT( autoexecRemove() ) );
     connect( btnAutoexecUpdate, SIGNAL( clicked() ), this, SLOT( autoexecUpdate() ) );
+
     connect( btnGame, SIGNAL( clicked() ), this, SLOT( addGame() ) );
     connect( btnAutoexecUp, SIGNAL( clicked() ), this, SLOT( autoexecMoveUp() ) );
     connect( btnAutoexecDown, SIGNAL( clicked() ), this, SLOT( autoexecMoveDown() ) );
@@ -59,6 +63,12 @@ namespace asaal {
     /* DOS page connections */
     connect( btnLanguage, SIGNAL( clicked() ), this, SLOT( openLanguageFile() ) );
     connect( comboBoxKeyboardLayout, SIGNAL( currentIndexChanged( int ) ), this, SLOT( comboBoxKeyboardLayoutIndexChanged( int ) ) );
+
+    QDesktopWidget *desktop = qApp->desktop();
+    const QRect rect = desktop->availableGeometry( desktop->primaryScreen() );
+    int left = ( rect.width() - width() ) / 2;
+    int top = ( rect.height() - height() ) / 2;
+    setGeometry( left, top, width(), height() );
   }
 
   ProfileSettings::~ProfileSettings() {}
@@ -521,6 +531,14 @@ namespace asaal {
   }
 
   void ProfileSettings::addGame() {
+
+    Games *games = new Games();
+    games->initalGames();
+
+    if ( games->exec() == QDialog::Accepted ) {
+
+      listWidgetAutoexec->addItem( games->executable() );
+    }
   }
 
   void ProfileSettings::serialRemove() {
@@ -679,8 +697,11 @@ namespace asaal {
     // Inernet page
     // Now we are check this list for more then one entry
     bool serialFound1 = false;
+
     bool serialFound2 = false;
+
     bool serialFound3 = false;
+
     bool serialFound4 = false;
 
     for ( int b = 0;  b < treeWidgetSerial->topLevelItemCount(); b++ ) {
@@ -688,89 +709,90 @@ namespace asaal {
       qApp->processEvents();
 
       QTreeWidgetItem *item = treeWidgetSerial->topLevelItem( b );
-      if( item->text( 0 ) == "serial1" ) {
+
+      if ( item->text( 0 ) == "serial1" ) {
 
         serialFound1 = true;
         profileConfiguration.serial.insert( item->text( 0 ), item->text( 1 ) );
-      } else if( item->text( 0 ) == "serial2" ) {
+      } else if ( item->text( 0 ) == "serial2" ) {
 
         serialFound2 = true;
         profileConfiguration.serial.insert( item->text( 0 ), item->text( 1 ) );
-      } else if( item->text( 0 ) == "serial3" ) {
+      } else if ( item->text( 0 ) == "serial3" ) {
 
         serialFound3 = true;
         profileConfiguration.serial.insert( item->text( 0 ), item->text( 1 ) );
-      } else if( item->text( 0 ) == "serial4" ) {
+      } else if ( item->text( 0 ) == "serial4" ) {
 
         serialFound4 = true;
         profileConfiguration.serial.insert( item->text( 0 ), item->text( 1 ) );
       }
     }
-    
-    if( !serialFound1 && serialFound2 && serialFound3 && serialFound4 ) {
+
+    if ( !serialFound1 && serialFound2 && serialFound3 && serialFound4 ) {
 
       profileConfiguration.serial.insert( "serial1", "dummy" );
-    } else if( serialFound1 && !serialFound2 && serialFound3 && serialFound4 ) {
+    } else if ( serialFound1 && !serialFound2 && serialFound3 && serialFound4 ) {
 
       profileConfiguration.serial.insert( "serial2", "dummy" );
-    } else if( serialFound1 && serialFound2 && !serialFound3 && serialFound4 ) {
+    } else if ( serialFound1 && serialFound2 && !serialFound3 && serialFound4 ) {
 
       profileConfiguration.serial.insert( "serial3", "disabled" );
-    } else if( serialFound1 && serialFound2 && serialFound3 && !serialFound4 ) {
+    } else if ( serialFound1 && serialFound2 && serialFound3 && !serialFound4 ) {
 
       profileConfiguration.serial.insert( "serial4", "disabled" );
-    } else if( serialFound1 && !serialFound2 && !serialFound3 && !serialFound4 ) {
+    } else if ( serialFound1 && !serialFound2 && !serialFound3 && !serialFound4 ) {
 
       profileConfiguration.serial.insert( "serial2", "dummy" );
       profileConfiguration.serial.insert( "serial3", "disabled" );
       profileConfiguration.serial.insert( "serial4", "disabled" );
-    } else if( serialFound1 && serialFound2 && !serialFound3 && !serialFound4 ) {
+    } else if ( serialFound1 && serialFound2 && !serialFound3 && !serialFound4 ) {
 
       profileConfiguration.serial.insert( "serial3", "disabled" );
       profileConfiguration.serial.insert( "serial4", "disabled" );
-    } else if( !serialFound1 && !serialFound2 && serialFound3 && serialFound4 ) {
+    } else if ( !serialFound1 && !serialFound2 && serialFound3 && serialFound4 ) {
 
       profileConfiguration.serial.insert( "serial1", "dummy" );
       profileConfiguration.serial.insert( "serial2", "dummy" );
-    } else if( !serialFound1 && !serialFound2 && !serialFound3 && serialFound4 ) {
+    } else if ( !serialFound1 && !serialFound2 && !serialFound3 && serialFound4 ) {
 
       profileConfiguration.serial.insert( "serial1", "dummy" );
       profileConfiguration.serial.insert( "serial2", "dummy" );
       profileConfiguration.serial.insert( "serial3", "disbaled" );
-    } else if( !serialFound1 && !serialFound2 && !serialFound3 && !serialFound4 ) {
+    } else if ( !serialFound1 && !serialFound2 && !serialFound3 && !serialFound4 ) {
 
       profileConfiguration.serial.insert( "serial1", "dummy" );
       profileConfiguration.serial.insert( "serial2", "dummy" );
       profileConfiguration.serial.insert( "serial3", "disbaled" );
       profileConfiguration.serial.insert( "serial4", "disbaled" );
-    } else if( !serialFound1 && serialFound2 && !serialFound3 && !serialFound4 ) {
+    } else if ( !serialFound1 && serialFound2 && !serialFound3 && !serialFound4 ) {
 
       profileConfiguration.serial.insert( "serial1", "dummy" );
       profileConfiguration.serial.insert( "serial3", "disbaled" );
       profileConfiguration.serial.insert( "serial4", "disabled" );
-    } else if( !serialFound1 && serialFound2 && serialFound3 && !serialFound4 ) {
+    } else if ( !serialFound1 && serialFound2 && serialFound3 && !serialFound4 ) {
 
       profileConfiguration.serial.insert( "serial1", "dummy" );
       profileConfiguration.serial.insert( "serial4", "disabled" );
-    } else if( serialFound1 && !serialFound2 && serialFound3 && !serialFound4 ) {
+    } else if ( serialFound1 && !serialFound2 && serialFound3 && !serialFound4 ) {
 
       profileConfiguration.serial.insert( "serial2", "dummy" );
       profileConfiguration.serial.insert( "serial4", "disabled" );
-    } else if( serialFound1 && !serialFound2 && !serialFound3 && serialFound4 ) {
+    } else if ( serialFound1 && !serialFound2 && !serialFound3 && serialFound4 ) {
 
       profileConfiguration.serial.insert( "serial2", "dummy" );
       profileConfiguration.serial.insert( "serial3", "disabled" );
-    } else if( !serialFound1 && serialFound2 && !serialFound3 && serialFound4 ) {
+    } else if ( !serialFound1 && serialFound2 && !serialFound3 && serialFound4 ) {
 
       profileConfiguration.serial.insert( "serial1", "dummy" );
       profileConfiguration.serial.insert( "serial3", "disabled" );
-    } else if( !serialFound1 && !serialFound2 && serialFound3 && !serialFound4 ) {
+    } else if ( !serialFound1 && !serialFound2 && serialFound3 && !serialFound4 ) {
 
       profileConfiguration.serial.insert( "serial1", "dummy" );
       profileConfiguration.serial.insert( "serial2", "dummy" );
       profileConfiguration.serial.insert( "serial4", "disbaled" );
     }
-    
+
     profileConfiguration.ipx = QVariant( checkBoxIPX->isChecked() ).toString();
 
     // DOS page

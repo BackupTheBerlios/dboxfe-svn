@@ -59,16 +59,16 @@ namespace asaal {
     connect( listWidgetGames, SIGNAL( itemClicked( QListWidgetItem * ) ), this, SLOT( listWidgetItemClicked( QListWidgetItem * ) ) );
     connect( listWidgetGames, SIGNAL( itemDoubleClicked( QListWidgetItem * ) ), this, SLOT( listWidgetItemDoubleClicked( QListWidgetItem * ) ) );
 
+    messageBox = new MessageBox( this, "DPFL", "DPFLAF" );
+    connect( messageBox, SIGNAL( commandLinkButtonClicked( const QCommandLinkButton * ) ), this, SLOT( deleteProfile( const QCommandLinkButton * ) ) );
+
+    profile = new Profile();
+
     QDesktopWidget *desktop = qApp->desktop();
     const QRect rect = desktop->availableGeometry( desktop->primaryScreen() );
     int left = ( rect.width() - width() ) / 2;
     int top = ( rect.height() - height() ) / 2;
     setGeometry( left, top, width(), height() );
-
-    messageBox = new MessageBox( this, "DPFL", "DPFLAF" );
-    connect( messageBox, SIGNAL( commandLinkButtonClicked( const QCommandLinkButton * ) ), this, SLOT( deleteProfile( const QCommandLinkButton * ) ) );
-
-    profile = new Profile();
   }
 
   DBoxFE::~DBoxFE() {

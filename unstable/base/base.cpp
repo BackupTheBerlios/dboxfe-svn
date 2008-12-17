@@ -805,7 +805,6 @@ namespace asaal {
     }
 
     return profiles;
-
   }
 
 #ifdef Q_OS_UNIX
