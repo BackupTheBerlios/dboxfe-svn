@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2004-2008 by Alexander Saal                             *
+  *   Copyright (C) 2004-2008 by Alexander Saal                             *
  *   alex.saal@gmx.de                                                      *
  *                                                                         *
  *   File: ${filename}.${extension}                                        *
@@ -54,9 +54,11 @@ int main( int argc, char *argv[] ) {
     splash->showMessage( QApplication::translate( "DBoxFE", "Create/Search application Directory ..." ) );
 
   m_file = QDir::homePath();
+
   m_file.append( "/.dboxfe" );
 
   QDir appDir( m_file );
+
   if ( !appDir.exists( m_file ) ) {
     appDir.mkdir( m_file );
   }
@@ -65,14 +67,36 @@ int main( int argc, char *argv[] ) {
     splash->showMessage( QApplication::translate( "DBoxFE", "Create profile directory " ) + m_file + "..." );
 
   m_profile_dir = QDir::homePath();
+
   m_profile_dir.append( "/.dboxfe/profile" );
 
   QDir proDir( m_profile_dir );
+
   if ( !proDir.exists( m_profile_dir ) ) {
     proDir.mkdir( m_profile_dir );
   }
 
+  DBoxFE_Configuration dboxfeConfig = DBoxFE::configBaseInstance()->readSettings();
+  {
+    if( dboxfeConfig.profiles.count() <= 0 ) {
+      dboxfeConfig.profiles = DBoxFE::configBaseInstance()->readProfiles();
+    }
+
+    if( dboxfeConfig.dosboxBinary.isNull() || dboxfeConfig.dosboxBinary.isEmpty() ) {
+      dboxfeConfig.dosboxBinary = "";
+    }
+
+    if( dboxfeConfig.dosboxVersion.isNull() || dboxfeConfig.dosboxVersion.isEmpty() ) {
+      dboxfeConfig.dosboxVersion = "0.72";
+    }
+
+    dboxfeConfig.winHide = true;
+    dboxfeConfig.keyMapper = false;
+  }
+  DBoxFE::configBaseInstance()->writeSettings( dboxfeConfig );
+
 #ifdef Q_OS_LINUX
+
   if ( splash )
     splash->showMessage( QApplication::translate( "DBoxFE", "Create template directory " ) + m_profile_dir + "..." );
 
@@ -80,6 +104,7 @@ int main( int argc, char *argv[] ) {
   m_tmpl_dir.append( "/.dboxfe/templates" );
 
   QDir tmplDir( m_tmpl_dir );
+
   if ( !tmplDir.exists( m_tmpl_dir ) ) {
     tmplDir.mkdir( m_tmpl_dir );
   }
@@ -89,10 +114,9 @@ int main( int argc, char *argv[] ) {
 
   QStringList entryList = tmplDir.entryList( QDir::Files );
 
-  DBoxFE_Configuration dboxfeConfig = DBoxFE::configBaseInstance()->readSettings();
-  if( entryList.count() != dboxfeConfig.profileCount ) {
+  if ( entryList.count() != dboxfeConfig.profileCount || dboxfeConfig.profileCount <= 0 ) {
 
-        
+
     QString templateResource = QString::fromUtf8( ":/files/templates.qrc" );
     QFile templateFile( templateResource );
     templateFile.open( QIODevice::ReadOnly | QIODevice::Text );
@@ -127,6 +151,7 @@ int main( int argc, char *argv[] ) {
             QString dfendProf = ":/" + QString( qresource.toElement().attribute( "alias" ) );
 
             QFile profIn( dfendProf );
+
             if ( !profIn.open( QIODevice::ReadOnly ) ) {
               qDebug() << QString( "ERROR: Can't open the resource stream: %1" ).arg( dfendProf );
 
@@ -135,10 +160,12 @@ int main( int argc, char *argv[] ) {
             }
 
             QTextStream in( &profIn );
+
             QString profEntry = in.readAll();
 
             QFile profOut( m_file + "/" + qresource.toElement().text() );
-            if( profOut.exists() ) {
+
+            if ( profOut.exists() ) {
 
               if ( splash ) {
 
@@ -146,6 +173,7 @@ int main( int argc, char *argv[] ) {
               }
 
               profIn.close();
+
               qresource = qresource.nextSibling();
               continue;
             }
@@ -158,6 +186,7 @@ int main( int argc, char *argv[] ) {
             }
 
             QTextStream out( &profOut );
+
             out << profEntry;
 
             out.flush();
@@ -178,8 +207,9 @@ int main( int argc, char *argv[] ) {
 
       node = node.nextSibling();
     }
-    
+
     entryList.clear();
+
     entryList = tmplDir.entryList( QDir::Files );
 
     DBoxFE_Configuration dboxfeConfig = DBoxFE::configBaseInstance()->readSettings();
