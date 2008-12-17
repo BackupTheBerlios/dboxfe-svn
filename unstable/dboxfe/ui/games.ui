@@ -1,0 +1,168 @@
+<ui version="4.0" >
+ <author>Alexander Saal - alex.saal@gmx.de</author>
+ <class>UiGames</class>
+ <widget class="QDialog" name="UiGames" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>706</width>
+    <height>416</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>Games</string>
+  </property>
+  <property name="windowIcon" >
+   <iconset resource="../../resource/dboxfe.qrc" >
+    <normaloff>:/pics/images/applications_16.png</normaloff>:/pics/images/applications_16.png</iconset>
+  </property>
+  <layout class="QGridLayout" name="glGame" >
+   <item row="0" column="0" >
+    <widget class="QLabel" name="labelGameInformation" >
+     <property name="text" >
+      <string>Please select a game from list. If game not available you can select a game executabale from filesystem.</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0" >
+    <layout class="QGridLayout" name="gridLayoutGameOption" >
+     <item row="0" column="0" >
+      <widget class="QTreeWidget" name="treeWidgetGames" >
+       <property name="rootIsDecorated" >
+        <bool>false</bool>
+       </property>
+       <column>
+        <property name="text" >
+         <string>Gamename</string>
+        </property>
+       </column>
+       <column>
+        <property name="text" >
+         <string>Publisher</string>
+        </property>
+       </column>
+      </widget>
+     </item>
+     <item row="1" column="0" >
+      <layout class="QHBoxLayout" name="hlGameExecutable" >
+       <item>
+        <widget class="QLabel" name="labelGameExecutable" >
+         <property name="minimumSize" >
+          <size>
+           <width>110</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize" >
+          <size>
+           <width>110</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="text" >
+          <string>Game:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="lineEditExecutable" />
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnGameExecutable" >
+         <property name="minimumSize" >
+          <size>
+           <width>23</width>
+           <height>23</height>
+          </size>
+         </property>
+         <property name="maximumSize" >
+          <size>
+           <width>23</width>
+           <height>23</height>
+          </size>
+         </property>
+         <property name="text" >
+          <string/>
+         </property>
+         <property name="icon" >
+          <iconset resource="../../resource/dboxfe.qrc" >
+           <normaloff>:/pics/images/folder-open_16.png</normaloff>:/pics/images/folder-open_16.png</iconset>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+   <item row="2" column="0" >
+    <layout class="QHBoxLayout" name="hlGameButtonGroup" >
+     <item>
+      <spacer name="hsGameButtonGroup" >
+       <property name="orientation" >
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0" >
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnOk" >
+       <property name="minimumSize" >
+        <size>
+         <width>75</width>
+         <height>23</height>
+        </size>
+       </property>
+       <property name="maximumSize" >
+        <size>
+         <width>75</width>
+         <height>233</height>
+        </size>
+       </property>
+       <property name="text" >
+        <string>&amp;Ok</string>
+       </property>
+       <property name="icon" >
+        <iconset resource="../../resource/dboxfe.qrc" >
+         <normaloff>:/pics/images/apply_16.png</normaloff>:/pics/images/apply_16.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnCancel" >
+       <property name="minimumSize" >
+        <size>
+         <width>75</width>
+         <height>23</height>
+        </size>
+       </property>
+       <property name="maximumSize" >
+        <size>
+         <width>75</width>
+         <height>233</height>
+        </size>
+       </property>
+       <property name="text" >
+        <string>&amp;Cancel</string>
+       </property>
+       <property name="icon" >
+        <iconset resource="../../resource/dboxfe.qrc" >
+         <normaloff>:/pics/images/cancel_16.png</normaloff>:/pics/images/cancel_16.png</iconset>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="../../resource/dboxfe.qrc" />
+  <include location="../../resource/dboxfe.qrc" />
+ </resources>
+ <connections/>
+</ui>
