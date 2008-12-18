@@ -575,7 +575,10 @@ namespace asaal {
   void ProfileSettings::addGame() {
 
     Games *games = new Games();
+
+    QApplication::setOverrideCursor( Qt::WaitCursor );
     games->initalGames();
+    QApplication::restoreOverrideCursor();
 
     if ( games->exec() == QDialog::Accepted ) {
 

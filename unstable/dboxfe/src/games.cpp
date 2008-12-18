@@ -63,7 +63,13 @@ namespace asaal {
 
     treeWidgetGames->clear();
 
+#ifdef Q_OS_WIN32
+    QDir templateDir( QApplication::applicationDirPath() + "/templates" );
+#elif Q_OS_UNIX
     QDir templateDir( QDir::homePath() + "/.dboxfe/templates" );
+#endif
+
+
     QStringList entryList = templateDir.entryList( QDir::Files );
     
     if( entryList.isEmpty() || entryList.count() <= 0 ) {
