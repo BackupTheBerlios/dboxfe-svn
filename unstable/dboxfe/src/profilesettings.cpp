@@ -333,7 +333,7 @@ namespace asaal {
 
   void ProfileSettings::autoexecRemove() {
 
-    QListWidgetItem * item = listWidgetAutoexec->currentItem();
+    QTreeWidgetItem * item = treeWidgetAutoexec->currentItem();
 
     if ( item == NULL ) {
       QMessageBox::information( this, tr( "DBoxFE" ), tr( "No entry was selected." ) );
@@ -345,23 +345,25 @@ namespace asaal {
 
   void ProfileSettings::autoexecAdd() {
 
-    QList<QListWidgetItem *> it( listWidgetAutoexec->findItems( "mount " + comboBoxDrive->currentText().toLower(), Qt::MatchContains ) );
+    QList<QTreeWidgetItem *> it( treeWidgetAutoexec->findItems( comboBoxDrive->currentText().toLower(), Qt::MatchExactly, 0 ) );
 
-    for ( int a = 0; a < it.size(); ++a ) {
-      QListWidgetItem *sItem;
-      sItem = it.value( a );
+    for ( int a = 0; a < it.size(); a++ ) {
+      QTreeWidgetItem *item;
+      item = it.value( a );
 
-      if ( sItem->text().startsWith( "mount " + comboBoxDrive->currentText().toLower() ) ) {
+      if ( item->text( 0 ) == comboBoxDrive->currentText().toLower() ) {
 
         QMessageBox::information( this, tr( "DBoxFE" ), tr( "Can not add the same drive '%1' to the list." ).arg( comboBoxDrive->currentText().toLower() ) );
-        return ;
+        return;
       }
     }
 
     QString addStr;
 
+    QTreeWidgetItem *autoexecItem = new QTreeWidgetItem();
+
     if ( lineEditDrives->text().isEmpty() ) {
-      QMessageBox::information( this, tr( "DBoxFE" ), tr( "No directory was selected." ) );
+      QMessageBox::information( this, tr( "DBoxFE" ), tr( "No file/directory was choosed." ) );
       return ;
     } else {
       switch ( comboBoxAutoexecMountOption->currentIndex() ) {
@@ -372,6 +374,10 @@ namespace asaal {
             if ( !lineEditDeviceLabel->text().isEmpty() ) {
 
               addStr = "mount " + comboBoxDrive->currentText().toLower() + " " + lineEditDrives->text() + " -label " + lineEditDeviceLabel->text();
+              autoexecItem->setText( 0, comboBoxDrive->currentText().toLower() );
+              autoexecItem->setText( 1, lineEditDrives->text() );
+              autoexecItem->setText( 2, lineEditDeviceLabel->text() );
+              autoexecItem->setText( 5, addStr );
             } else {
 
               QMessageBox::information( this, tr( "DBoxFE" ), tr( "Please enter a valid name for label." ) );
@@ -381,6 +387,10 @@ namespace asaal {
 
             lineEditDeviceLabel->setText( "" );
             addStr = "mount " + comboBoxDrive->currentText().toLower() + " " + lineEditDrives->text();
+
+            autoexecItem->setText( 0, comboBoxDrive->currentText().toLower() );
+            autoexecItem->setText( 1, lineEditDrives->text() );
+            autoexecItem->setText( 5, addStr );
           }
 
           break;
@@ -395,6 +405,10 @@ namespace asaal {
                 if ( !lineEditDeviceLabel->text().isEmpty() ) {
 
                   addStr = "mount " + comboBoxDrive->currentText().toLower() + " " + lineEditDrives->text() + " -t cdrom -usecd 0 -ioctl -label " + lineEditDeviceLabel->text();
+                  autoexecItem->setText( 0, comboBoxDrive->currentText().toLower() );
+                  autoexecItem->setText( 1, lineEditDrives->text() );
+                  autoexecItem->setText( 2, lineEditDeviceLabel->text() );
+                  autoexecItem->setText( 5, addStr );
                 } else {
 
                   QMessageBox::information( this, tr( "DBoxFE" ), tr( "Please enter a valid name for label." ) );
@@ -404,6 +418,9 @@ namespace asaal {
 
                 lineEditDeviceLabel->setText( "" );
                 addStr = "mount " + comboBoxDrive->currentText().toLower() + " " + lineEditDrives->text() + " -t cdrom -usecd 0 -ioctl";
+                autoexecItem->setText( 0, comboBoxDrive->currentText().toLower() );
+                autoexecItem->setText( 1, lineEditDrives->text() );
+                autoexecItem->setText( 5, addStr );
               }
 
               break;
@@ -414,6 +431,10 @@ namespace asaal {
                 if ( !lineEditDeviceLabel->text().isEmpty() ) {
 
                   addStr = "mount " + comboBoxDrive->currentText().toLower() + " " + lineEditDrives->text() + " -t cdrom -usecd 0 -aspi -label " + lineEditDeviceLabel->text();
+                  autoexecItem->setText( 0, comboBoxDrive->currentText().toLower() );
+                  autoexecItem->setText( 1, lineEditDrives->text() );
+                  autoexecItem->setText( 2, lineEditDeviceLabel->text() );
+                  autoexecItem->setText( 5, addStr );
                 } else {
 
                   QMessageBox::information( this, tr( "DBoxFE" ), tr( "Please enter a valid name for label." ) );
@@ -423,6 +444,9 @@ namespace asaal {
 
                 lineEditDeviceLabel->setText( "" );
                 addStr = "mount " + comboBoxDrive->currentText().toLower() + " " + lineEditDrives->text() + " -t cdrom -usecd 0 -aspi";
+                autoexecItem->setText( 0, comboBoxDrive->currentText().toLower() );
+                autoexecItem->setText( 1, lineEditDrives->text() );
+                autoexecItem->setText( 5, addStr );
               }
 
               break;
@@ -436,6 +460,10 @@ namespace asaal {
             if ( !lineEditDeviceLabel->text().isEmpty() ) {
 
               addStr = "mount " + comboBoxDrive->currentText().toLower() + " " + lineEditDrives->text() + " -t floppy -label " + lineEditDeviceLabel->text();
+              autoexecItem->setText( 0, comboBoxDrive->currentText().toLower() );
+              autoexecItem->setText( 1, lineEditDrives->text() );
+              autoexecItem->setText( 2, lineEditDeviceLabel->text() );
+              autoexecItem->setText( 5, addStr );
             } else {
 
               QMessageBox::information( this, tr( "DBoxFE" ), tr( "Please enter a valid name for label." ) );
@@ -445,6 +473,9 @@ namespace asaal {
 
             lineEditDeviceLabel->setText( "" );
             addStr = "mount " + comboBoxDrive->currentText().toLower() + " " + lineEditDrives->text() + " -t floppy";
+            autoexecItem->setText( 0, comboBoxDrive->currentText().toLower() );
+            autoexecItem->setText( 1, lineEditDrives->text() );
+            autoexecItem->setText( 5, addStr );
           }
 
           break;
@@ -459,10 +490,16 @@ namespace asaal {
 
                 case 0: // iso
                   addStr = "imgmount " + comboBoxDrive->currentText().toLower() + " " + lineEditDrives->text() + " -t iso";
+                  autoexecItem->setText( 0, comboBoxDrive->currentText().toLower() );
+                  autoexecItem->setText( 1, lineEditDrives->text() );
+                  autoexecItem->setText( 5, addStr );
                   break;
 
                 case 1: // fat
                   addStr = "imgmount " + comboBoxDrive->currentText().toLower() + " " + lineEditDrives->text() + " -t fat";
+                  autoexecItem->setText( 0, comboBoxDrive->currentText().toLower() );
+                  autoexecItem->setText( 1, lineEditDrives->text() );
+                  autoexecItem->setText( 5, addStr );
                   break;
 
                 case 2: // none
@@ -485,49 +522,54 @@ namespace asaal {
 
     if ( checkBoxSwitchDir->isChecked() ) {
 
-      QListWidgetItem * item = new QListWidgetItem( listWidgetAutoexec );
-      item->setText( addStr );
-
-      QListWidgetItem *itemDir = new QListWidgetItem( listWidgetAutoexec );
-      itemDir->setText( comboBoxDrive->currentText().toLower() + ":" );
-
+      autoexecItem->setText( 3, "true" );
       checkBoxSwitchDir->setChecked( false );
     } else {
 
-      QListWidgetItem *item = new QListWidgetItem( listWidgetAutoexec );
-      item->setText( addStr );
+      autoexecItem->setText( 3, "false" );
     }
+
+    treeWidgetAutoexec->addTopLevelItem( autoexecItem );
 
     addStr = "";
   }
 
   void ProfileSettings::autoexecMoveUp() {
 
-    if ( listWidgetAutoexec->currentItem() == NULL ) {
+    QTreeWidgetItem *item = treeWidgetAutoexec->currentItem();
+
+    if ( item == NULL ) {
       return;
     }
 
-    if ( listWidgetAutoexec->row( listWidgetAutoexec->currentItem() ) <= 0 ) {
+    int index = treeWidgetAutoexec->indexOfTopLevelItem( item );
+
+    if ( index <= 0 ) {
       return;
     }
 
-    QListWidgetItem *item = listWidgetAutoexec->currentItem();
+    treeWidgetAutoexec->insertTopLevelItem( index - 1, treeWidgetAutoexec->takeTopLevelItem( index ) );
 
-    listWidgetAutoexec->insertItem( listWidgetAutoexec->row( listWidgetAutoexec->currentItem() ), listWidgetAutoexec->takeItem( listWidgetAutoexec->row( listWidgetAutoexec->currentItem() ) ) );
-    listWidgetAutoexec->setCurrentItem( item );
+    treeWidgetAutoexec->setCurrentItem( item );
   }
 
   void ProfileSettings::autoexecMoveDown() {
 
-    if ( listWidgetAutoexec->currentItem() == NULL ) {
+    QTreeWidgetItem *item = treeWidgetAutoexec->currentItem();
+
+    if ( item == NULL ) {
       return;
     }
 
-    if (( listWidgetAutoexec->row( listWidgetAutoexec->currentItem() ) + 1 ) >= listWidgetAutoexec->count() ) {
+    int index = treeWidgetAutoexec->indexOfTopLevelItem( item );
+
+    if (( index + 1 ) >= treeWidgetAutoexec->topLevelItemCount() ) {
       return;
     }
 
-    listWidgetAutoexec->insertItem( listWidgetAutoexec->row( listWidgetAutoexec->currentItem() ), listWidgetAutoexec->takeItem( listWidgetAutoexec->row( listWidgetAutoexec->currentItem() ) + 1 ) );
+    treeWidgetAutoexec->insertTopLevelItem( index + 1, treeWidgetAutoexec->takeTopLevelItem( index ) );
+
+    treeWidgetAutoexec->setCurrentItem( item );
   }
 
   void ProfileSettings::addGame() {
@@ -537,8 +579,20 @@ namespace asaal {
 
     if ( games->exec() == QDialog::Accepted ) {
 
-      listWidgetAutoexec->addItem( games->executable() );
+      QTreeWidgetItem *autoexecItem = treeWidgetAutoexec->currentItem();
+
+      if ( autoexecItem ) {
+        autoexecItem->setText( 4, games->executable() );
+      } else {
+
+        QMessageBox::information( this, tr( "DBoxFE" ), tr( "You must select a autoexec entry from list to add a game!" ) );
+        return;
+      }
     }
+
+    games = 0;
+
+    delete games;
   }
 
   void ProfileSettings::serialRemove() {
@@ -685,23 +739,29 @@ namespace asaal {
     profileConfiguration.mdi.insert( "config", lineEditMDIConfig->text() );
 
     // Autoexec page
-
-    for ( int a = 0; a < listWidgetAutoexec->count(); a++ ) {
+    for ( int a = 0; a < treeWidgetAutoexec->topLevelItemCount(); a++ ) {
 
       qApp->processEvents();
 
-      QListWidgetItem *item = listWidgetAutoexec->item( a );
-      profileConfiguration.autoexec.append( item->text() );
+      QTreeWidgetItem *item = treeWidgetAutoexec->topLevelItem( a );
+      profileConfiguration.autoexec.append( item->text( 5 ) );
+
+      if ( item->text( 3 ) == "true" ) {
+
+        profileConfiguration.autoexec.append( item->text( 0 ) + ":" );
+      }
+
+      if ( !item->text( 4 ).isNull() || !item->text( 4 ).isEmpty() ) {
+
+        profileConfiguration.autoexec.append( item->text( 4 ) );
+      }
     }
 
     // Inernet page
     // Now we are check this list for more then one entry
     bool serialFound1 = false;
-
     bool serialFound2 = false;
-
     bool serialFound3 = false;
-
     bool serialFound4 = false;
 
     for ( int b = 0;  b < treeWidgetSerial->topLevelItemCount(); b++ ) {
@@ -965,14 +1025,37 @@ namespace asaal {
     lineEditMDIConfig->setText( profileConfiguration.mdi.value( "config" ).toString() );
 
     // Autoexec page
-    listWidgetAutoexec->clear();
+    treeWidgetAutoexec->clear();
+    QTreeWidgetItem *item = new QTreeWidgetItem();
     foreach( QString autoexec, profileConfiguration.autoexec ) {
 
       qApp->processEvents();
 
-      QListWidgetItem *item = new QListWidgetItem( listWidgetAutoexec );
-      item->setText( autoexec );
+      if( autoexec.toLower().startsWith( "mount" ) ) {
+
+        QStringList mountList = autoexec.split( " " );
+        item->setText( 0, mountList.value( 1 ) );
+        item->setText( 1, mountList.value( 2 ) );
+        item->setText( 2, mountList.value( mountList.size() - 1 ) );
+        item->setText( 5, autoexec );
+
+      } else if( autoexec.toLower().contains( "bat" ) || autoexec.toLower().contains( "exe" ) || autoexec.toLower().contains( "com" )) {
+        item->setText( 4, autoexec );
+
+      } else if( autoexec.toLower().contains( ":" ) ) {
+
+        QStringList mountList = autoexec.split( ":" );
+        if( mountList.count() >= 1 ) {
+
+          if( mountList.value( 0 ).startsWith( autoexec.left( 0 ) ) ) {
+            item->setText( 3, "true" );
+          } else {
+            item->setText( 3, "false" );
+          }
+        }        
+      }
     }
+    treeWidgetAutoexec->addTopLevelItem( item );
 
     // Inernet page
     treeWidgetSerial->clear();
