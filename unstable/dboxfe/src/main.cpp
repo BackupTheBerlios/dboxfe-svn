@@ -99,7 +99,7 @@ int main( int argc, char *argv[] ) {
   }
   DBoxFE::configBaseInstance()->writeSettings( dboxfeConfig );
 
-#ifdef Q_OS_LINUX
+#ifdef Q_OS_UNIX
 
   if ( splash )
     splash->showMessage( QApplication::translate( "DBoxFE", "Create template directory " ) + m_profile_dir + "..." );
