@@ -5,7 +5,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dboxfetray", "tray\dboxfetr
 		Integration = True
 	EndGlobalSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dboxfe", "dboxfe\dboxfe.vcproj", "{7BFA4E88-2B88-35D6-81C5-871E6F8BF5FC}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dboxfe", "dboxfe\dboxfe.vcproj", "{DCAF5BFE-048B-3CD8-A83B-D0D533AC6448}"
 	GlobalSection(Qt) = preSolution
 		Integration = True
 	EndGlobalSection
@@ -25,10 +25,10 @@ Global
 		{D0186849-2713-33EC-AD7F-323B08D8CC74}.Debug|Win32.Build.0 = Debug|Win32
 		{D0186849-2713-33EC-AD7F-323B08D8CC74}.Release|Win32.ActiveCfg = Release|Win32
 		{D0186849-2713-33EC-AD7F-323B08D8CC74}.Release|Win32.Build.0 = Release|Win32
-		{7BFA4E88-2B88-35D6-81C5-871E6F8BF5FC}.Debug|Win32.ActiveCfg = Debug|Win32
-		{7BFA4E88-2B88-35D6-81C5-871E6F8BF5FC}.Debug|Win32.Build.0 = Debug|Win32
-		{7BFA4E88-2B88-35D6-81C5-871E6F8BF5FC}.Release|Win32.ActiveCfg = Release|Win32
-		{7BFA4E88-2B88-35D6-81C5-871E6F8BF5FC}.Release|Win32.Build.0 = Release|Win32
+		{DCAF5BFE-048B-3CD8-A83B-D0D533AC6448}.Debug|Win32.ActiveCfg = Debug|Win32
+		{DCAF5BFE-048B-3CD8-A83B-D0D533AC6448}.Debug|Win32.Build.0 = Debug|Win32
+		{DCAF5BFE-048B-3CD8-A83B-D0D533AC6448}.Release|Win32.ActiveCfg = Release|Win32
+		{DCAF5BFE-048B-3CD8-A83B-D0D533AC6448}.Release|Win32.Build.0 = Release|Win32
 		{06A1D750-958C-312C-B780-17E8D575D6FC}.Debug|Win32.ActiveCfg = Debug|Win32
 		{06A1D750-958C-312C-B780-17E8D575D6FC}.Debug|Win32.Build.0 = Debug|Win32
 		{06A1D750-958C-312C-B780-17E8D575D6FC}.Release|Win32.ActiveCfg = Release|Win32
