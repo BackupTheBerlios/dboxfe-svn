@@ -1397,7 +1397,7 @@
             <x>0</x>
             <y>0</y>
             <width>573</width>
-            <height>141</height>
+            <height>128</height>
            </rect>
           </property>
           <attribute name="label" >
@@ -1567,8 +1567,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>400</width>
-            <height>144</height>
+            <width>386</width>
+            <height>132</height>
            </rect>
           </property>
           <attribute name="label" >
@@ -1957,7 +1957,7 @@
             <x>0</x>
             <y>0</y>
             <width>386</width>
-            <height>203</height>
+            <height>184</height>
            </rect>
           </property>
           <attribute name="label" >
@@ -2257,7 +2257,7 @@
             <x>0</x>
             <y>0</y>
             <width>386</width>
-            <height>110</height>
+            <height>100</height>
            </rect>
           </property>
           <attribute name="label" >
@@ -2431,7 +2431,7 @@
             <x>0</x>
             <y>0</y>
             <width>396</width>
-            <height>114</height>
+            <height>108</height>
            </rect>
           </property>
           <attribute name="label" >

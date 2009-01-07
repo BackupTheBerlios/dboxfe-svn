@@ -239,7 +239,7 @@ namespace asaal {
       QString ipx;
 
       /** Set/Get autoexec settings */
-      QStringList autoexec;
+      QMap< QString, QStringList> autoexec;
 
       /** DFend - Realoded Configuraion */
       DFend_Configuration dfendConfig;
@@ -366,7 +366,7 @@ namespace asaal {
        *
        * @param profile The DBoxFE profile
        * 
-       * @see Configuration for readed profile
+       * @see Configuration for read profile
        */
       Configuration readConfiguration( const QString &profile );
       

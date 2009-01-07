@@ -249,7 +249,7 @@
  </widget>
  <resources>
   <include location="../../resource/dboxfe.qrc" />
-  <include location="../../../dboxfe_old/res/dboxfe.qrc" />
+  <include location="../../resource/dboxfe.qrc" />
  </resources>
  <connections>
   <connection>

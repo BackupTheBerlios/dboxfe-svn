@@ -742,23 +742,6 @@ namespace asaal {
     profileConfiguration.mdi.insert( "config", lineEditMDIConfig->text() );
 
     // Autoexec page
-    for ( int a = 0; a < treeWidgetAutoexec->topLevelItemCount(); a++ ) {
-
-      qApp->processEvents();
-
-      QTreeWidgetItem *item = treeWidgetAutoexec->topLevelItem( a );
-      profileConfiguration.autoexec.append( item->text( 5 ) );
-
-      if ( item->text( 3 ) == "true" ) {
-
-        profileConfiguration.autoexec.append( item->text( 0 ) + ":" );
-      }
-
-      if ( !item->text( 4 ).isNull() || !item->text( 4 ).isEmpty() ) {
-
-        profileConfiguration.autoexec.append( item->text( 4 ) );
-      }
-    }
 
     // Inernet page
     // Now we are check this list for more then one entry
@@ -1029,39 +1012,10 @@ namespace asaal {
 
     // Autoexec page
     treeWidgetAutoexec->clear();
-    QTreeWidgetItem *item = new QTreeWidgetItem();
-    foreach( QString autoexec, profileConfiguration.autoexec ) {
-
-      qApp->processEvents();
-
-      if( autoexec.toLower().startsWith( "mount" ) ) {
-
-        QStringList mountList = autoexec.split( " " );
-        item->setText( 0, mountList.value( 1 ) );
-        item->setText( 1, mountList.value( 2 ) );
-        item->setText( 2, mountList.value( mountList.size() - 1 ) );
-        item->setText( 5, autoexec );
-
-      } else if( autoexec.toLower().contains( "bat" ) || autoexec.toLower().contains( "exe" ) || autoexec.toLower().contains( "com" )) {
-        item->setText( 4, autoexec );
-
-      } else if( autoexec.toLower().contains( ":" ) ) {
-
-        QStringList mountList = autoexec.split( ":" );
-        if( mountList.count() >= 1 ) {
-
-          if( mountList.value( 0 ).startsWith( autoexec.left( 0 ) ) ) {
-            item->setText( 3, "true" );
-          } else {
-            item->setText( 3, "false" );
-          }
-        }        
-      }
-    }
-    treeWidgetAutoexec->addTopLevelItem( item );
 
     // Inernet page
     treeWidgetSerial->clear();
+
     QMap< QString, QVariant >::const_iterator serial = profileConfiguration.serial.constBegin();
 
     while ( serial != profileConfiguration.serial.constEnd() ) {

@@ -1,27 +1,27 @@
 /***************************************************************************
- *   Copyright (C) 2004-2008 by Alexander Saal                             *
- *   alex.saal@gmx.de                                                      *
- *                                                                         *
- *   File: ${filename}.${extension}                                        *
- *   Desc: ${description}                                                  *
- *                                                                         *
- *   This file is part of DBoxFE - DOSBox Front End                        *
- *                                                                         *
- *   This program is free software; you can redistribute it and/or modify  *
- *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 3 of the License, or     *
- *   (at your option) any later version.                                   *
- *                                                                         *
- *   This program is distributed in the hope that it will be useful,       *
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
- *   GNU General Public License for more details.                          *
- *                                                                         *
- *   You should have received a copy of the GNU General Public License     *
- *   along with this program; if not, write to the                         *
- *   Free Software Foundation, Inc.,                                       *
- *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
- ***************************************************************************/
+*   Copyright (C) 2004-2008 by Alexander Saal                             *
+*   alex.saal@gmx.de                                                      *
+*                                                                         *
+*   File: ${filename}.${extension}                                        *
+*   Desc: ${description}                                                  *
+*                                                                         *
+*   This file is part of DBoxFE - DOSBox Front End                        *
+*                                                                         *
+*   This program is free software; you can redistribute it and/or modify  *
+*   it under the terms of the GNU General Public License as published by  *
+*   the Free Software Foundation; either version 3 of the License, or     *
+*   (at your option) any later version.                                   *
+*                                                                         *
+*   This program is distributed in the hope that it will be useful,       *
+*   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+*   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+*   GNU General Public License for more details.                          *
+*                                                                         *
+*   You should have received a copy of the GNU General Public License     *
+*   along with this program; if not, write to the                         *
+*   Free Software Foundation, Inc.,                                       *
+*   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+***************************************************************************/
 
 #include <base.h>
 #include <xmlpreferences.h>
@@ -193,6 +193,7 @@ namespace asaal {
 
     QTextStream in( &configFile );
 
+    QStringList mountOptions;
     QString line;
 
     while ( !in.atEnd() ) {
@@ -203,8 +204,27 @@ namespace asaal {
 
       if ( line == "[autoexec]" ) {
         while ( !in.atEnd() ) {
+
+          qApp->processEvents();
+
           line = in.readLine();
-          m_Configuration.autoexec.append( line );
+
+          if ( line.startsWith( "mount" ) ) {
+
+            mountOptions = line.split( " " );
+            m_Configuration.autoexec.insert( "mount", mountOptions );
+
+          } else if ( line.contains( "bat" ) || line.contains( "com" ) || line.contains( "com" ) ) {
+            m_Configuration.autoexec.insert( "executable", QStringList() << line );
+
+          } else if ( line.contains( ":" ) ) {
+            mountOptions = line.split( ":" );
+            m_Configuration.autoexec.insert( "drive", QStringList() << mountOptions.value( 0 ) );
+            m_Configuration.autoexec.insert( "switch", QStringList() << "true" );
+
+          } else if ( line.startsWith( "exit" ) ) {
+            m_Configuration.autoexec.insert( "exit", QStringList() << "true" );
+          }
 
           if ( line.startsWith( "[" ) && line.endsWith( "]" ) )
             break;
@@ -488,6 +508,7 @@ namespace asaal {
     }
 
     xmlPreferences().setString( "binary", dosboxBinary, "DOSBox" );
+
     xmlPreferences().setString( "version", dosboxVersion, "DOSBox" );
 
     if ( gameProfiles.isEmpty() || gameProfiles.size() <= 0 ) {
@@ -495,6 +516,7 @@ namespace asaal {
     }
 
     xmlPreferences().setStringList( "Name", gameProfiles, "Profile" );
+
     xmlPreferences().setBool( "winHide", winHide, "DBoxFE" );
     xmlPreferences().setBool( "keyMapper", keyMapper, "DBoxFE" );
     bool saved = xmlPreferences().save( settingFile() );
@@ -523,20 +545,22 @@ namespace asaal {
     xml.close();
 
     QDomNode node = doc.documentElement().firstChild();
+
     while ( !node.isNull() ) {
       qApp->processEvents();
 
       // Check if this realy the old profile
+
       if ( node.toElement().tagName() == "software_info" ) {
         return true;
       }
 
       node = node.nextSibling();
     }
-    
+
     return false;
   }
-  
+
   void ConfigBase::writeSettings( const DBoxFE_Configuration &dboxfeConfig ) {
 
     if ( dboxfeConfig.isEmpty() ) {
@@ -544,14 +568,16 @@ namespace asaal {
     }
 
     xmlPreferences().setString( "binary", dboxfeConfig.dosboxBinary, "DOSBox" );
+
     xmlPreferences().setString( "version", dboxfeConfig.dosboxVersion, "DOSBox" );
     xmlPreferences().setStringList( "Name", dboxfeConfig.profiles, "Profile" );
-    
-    if( dboxfeConfig.profileCount >= 1 ) {
+
+    if ( dboxfeConfig.profileCount >= 1 ) {
       xmlPreferences().setInt( "profileCount", dboxfeConfig.profileCount, "DBoxFE" );
     }
 
     xmlPreferences().setBool( "winHide", dboxfeConfig.winHide, "DBoxFE" );
+
     xmlPreferences().setBool( "keyMapper", dboxfeConfig.keyMapper, "DBoxFE" );
     xmlPreferences().save( settingFile() );
   }
@@ -743,9 +769,32 @@ namespace asaal {
     QTextStream out( &configFile );
 
     out << "\n[autoexec]\n";
-    foreach( QString autoexec, config.autoexec ) {
 
-      out << autoexec << "\n";
+    // Autoexec   
+    QMap< QString, QStringList>::const_iterator autoexecIt = config.autoexec.constBegin();
+    while( autoexecIt != config.autoexec.end() ) {
+
+      QString key = autoexecIt.key();
+      QStringList value = autoexecIt.value();
+
+      //if ( line.startsWith( "mount" ) ) {
+
+      //  mountOptions = line.split( " " );
+      //  m_Configuration.autoexec.insert( "mount", mountOptions );
+
+      //} else if ( line.contains( "bat" ) || line.contains( "com" ) || line.contains( "exe" ) ) {
+      //  m_Configuration.autoexec.insert( "executable", QStringList() << line );
+
+      //} else if ( line.contains( ":" ) ) {
+      //  mountOptions = line.split( ":" );
+      //  m_Configuration.autoexec.insert( "drive", QStringList() << mountOptions.value( 0 ) );
+      //  m_Configuration.autoexec.insert( "switch", QStringList() << "true" );
+
+      //} else if ( line.startsWith( "exit" ) ) {
+      //  m_Configuration.autoexec.insert( "exit", QStringList() << "true" );
+      //}
+
+      ++autoexecIt;
     }
 
     out.flush();
