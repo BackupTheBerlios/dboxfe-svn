@@ -286,7 +286,7 @@
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="MOC include\about.h"
-						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;..\3rdparty\Zip&quot; -I&quot;..\base&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfe\win\moc&quot; -I&quot;..\build\dboxfe\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\about.h -o ..\build\dboxfe\win\moc\moc_about.cpp&#x0D;&#x0A;"
+						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -D_WINDOWS -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT  -I&quot;$(QTDIR)\include\QtCore\.&quot; -I&quot;$(QTDIR)\include\QtCore\.&quot; -I&quot;$(QTDIR)\include\QtNetwork\.&quot; -I&quot;$(QTDIR)\include\QtNetwork\.&quot; -I&quot;$(QTDIR)\include\QtGui\.&quot; -I&quot;$(QTDIR)\include\QtGui\.&quot; -I&quot;$(QTDIR)\include\QtXml\.&quot; -I&quot;$(QTDIR)\include\QtXml\.&quot; -I&quot;$(QTDIR)\include\.&quot; -I&quot;.\include\.&quot; -I&quot;.\ui\.&quot; -I&quot;.\..\3rdparty\.&quot; -I&quot;.\..\3rdparty\Zip\.&quot; -I&quot;.\..\base\.&quot; -I&quot;$(QTDIR)\include\ActiveQt\.&quot; -I&quot;.\..\build\dboxfe\win\moc\.&quot; -I&quot;.\..\build\dboxfe\win\ui\.&quot; -I&quot;$(QTDIR)\mkspecs\win32-msvc2008\.&quot; &quot;include\about.h&quot; -o &quot;..\build\dboxfe\win\moc\moc_about.cpp&quot;&#x0D;&#x0A;"
 						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\about.h"
 						Outputs="..\build\dboxfe\win\moc\moc_about.cpp"
 					/>
@@ -297,7 +297,7 @@
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="MOC include\about.h"
-						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;..\3rdparty\Zip&quot; -I&quot;..\base&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfe\win\moc&quot; -I&quot;..\build\dboxfe\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\about.h -o ..\build\dboxfe\win\moc\moc_about.cpp&#x0D;&#x0A;"
+						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DQT_NO_DEBUG -DNDEBUG -D_WINDOWS -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -DNDEBUG  -I&quot;$(QTDIR)\include\QtCore\.&quot; -I&quot;$(QTDIR)\include\QtCore\.&quot; -I&quot;$(QTDIR)\include\QtNetwork\.&quot; -I&quot;$(QTDIR)\include\QtNetwork\.&quot; -I&quot;$(QTDIR)\include\QtGui\.&quot; -I&quot;$(QTDIR)\include\QtGui\.&quot; -I&quot;$(QTDIR)\include\QtXml\.&quot; -I&quot;$(QTDIR)\include\QtXml\.&quot; -I&quot;$(QTDIR)\include\.&quot; -I&quot;.\include\.&quot; -I&quot;.\ui\.&quot; -I&quot;.\..\3rdparty\.&quot; -I&quot;.\..\3rdparty\Zip\.&quot; -I&quot;.\..\base\.&quot; -I&quot;$(QTDIR)\include\ActiveQt\.&quot; -I&quot;.\..\build\dboxfe\win\moc\.&quot; -I&quot;.\..\build\dboxfe\win\ui\.&quot; -I&quot;$(QTDIR)\mkspecs\win32-msvc2008\.&quot; &quot;include\about.h&quot; -o &quot;..\build\dboxfe\win\moc\moc_about.cpp&quot;&#x0D;&#x0A;"
 						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\about.h"
 						Outputs="..\build\dboxfe\win\moc\moc_about.cpp"
 					/>
@@ -312,7 +312,7 @@
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="MOC ..\base\base.h"
-						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;..\3rdparty\Zip&quot; -I&quot;..\base&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfe\win\moc&quot; -I&quot;..\build\dboxfe\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 ..\base\base.h -o ..\build\dboxfe\win\moc\moc_base.cpp&#x0D;&#x0A;"
+						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -D_WINDOWS -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT  -I&quot;$(QTDIR)\include\QtCore\.&quot; -I&quot;$(QTDIR)\include\QtCore\.&quot; -I&quot;$(QTDIR)\include\QtNetwork\.&quot; -I&quot;$(QTDIR)\include\QtNetwork\.&quot; -I&quot;$(QTDIR)\include\QtGui\.&quot; -I&quot;$(QTDIR)\include\QtGui\.&quot; -I&quot;$(QTDIR)\include\QtXml\.&quot; -I&quot;$(QTDIR)\include\QtXml\.&quot; -I&quot;$(QTDIR)\include\.&quot; -I&quot;.\include\.&quot; -I&quot;.\ui\.&quot; -I&quot;.\..\3rdparty\.&quot; -I&quot;.\..\3rdparty\Zip\.&quot; -I&quot;.\..\base\.&quot; -I&quot;$(QTDIR)\include\ActiveQt\.&quot; -I&quot;.\..\build\dboxfe\win\moc\.&quot; -I&quot;.\..\build\dboxfe\win\ui\.&quot; -I&quot;$(QTDIR)\mkspecs\win32-msvc2008\.&quot; &quot;..\base\base.h&quot; -o &quot;..\build\dboxfe\win\moc\moc_base.cpp&quot;&#x0D;&#x0A;"
 						AdditionalDependencies="..\base\base.h;$(QTDIR)\bin\moc.exe"
 						Outputs="..\build\dboxfe\win\moc\moc_base.cpp"
 					/>
@@ -323,7 +323,7 @@
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="MOC ..\base\base.h"
-						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;..\3rdparty\Zip&quot; -I&quot;..\base&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfe\win\moc&quot; -I&quot;..\build\dboxfe\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 ..\base\base.h -o ..\build\dboxfe\win\moc\moc_base.cpp&#x0D;&#x0A;"
+						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DQT_NO_DEBUG -DNDEBUG -D_WINDOWS -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -DNDEBUG  -I&quot;$(QTDIR)\include\QtCore\.&quot; -I&quot;$(QTDIR)\include\QtCore\.&quot; -I&quot;$(QTDIR)\include\QtNetwork\.&quot; -I&quot;$(QTDIR)\include\QtNetwork\.&quot; -I&quot;$(QTDIR)\include\QtGui\.&quot; -I&quot;$(QTDIR)\include\QtGui\.&quot; -I&quot;$(QTDIR)\include\QtXml\.&quot; -I&quot;$(QTDIR)\include\QtXml\.&quot; -I&quot;$(QTDIR)\include\.&quot; -I&quot;.\include\.&quot; -I&quot;.\ui\.&quot; -I&quot;.\..\3rdparty\.&quot; -I&quot;.\..\3rdparty\Zip\.&quot; -I&quot;.\..\base\.&quot; -I&quot;$(QTDIR)\include\ActiveQt\.&quot; -I&quot;.\..\build\dboxfe\win\moc\.&quot; -I&quot;.\..\build\dboxfe\win\ui\.&quot; -I&quot;$(QTDIR)\mkspecs\win32-msvc2008\.&quot; &quot;..\base\base.h&quot; -o &quot;..\build\dboxfe\win\moc\moc_base.cpp&quot;&#x0D;&#x0A;"
 						AdditionalDependencies="..\base\base.h;$(QTDIR)\bin\moc.exe"
 						Outputs="..\build\dboxfe\win\moc\moc_base.cpp"
 					/>
@@ -342,7 +342,7 @@
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="MOC include\dboxfe.h"
-						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;..\3rdparty\Zip&quot; -I&quot;..\base&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfe\win\moc&quot; -I&quot;..\build\dboxfe\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\dboxfe.h -o ..\build\dboxfe\win\moc\moc_dboxfe.cpp&#x0D;&#x0A;"
+						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -D_WINDOWS -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT  -I&quot;$(QTDIR)\include\QtCore\.&quot; -I&quot;$(QTDIR)\include\QtCore\.&quot; -I&quot;$(QTDIR)\include\QtNetwork\.&quot; -I&quot;$(QTDIR)\include\QtNetwork\.&quot; -I&quot;$(QTDIR)\include\QtGui\.&quot; -I&quot;$(QTDIR)\include\QtGui\.&quot; -I&quot;$(QTDIR)\include\QtXml\.&quot; -I&quot;$(QTDIR)\include\QtXml\.&quot; -I&quot;$(QTDIR)\include\.&quot; -I&quot;.\include\.&quot; -I&quot;.\ui\.&quot; -I&quot;.\..\3rdparty\.&quot; -I&quot;.\..\3rdparty\Zip\.&quot; -I&quot;.\..\base\.&quot; -I&quot;$(QTDIR)\include\ActiveQt\.&quot; -I&quot;.\..\build\dboxfe\win\moc\.&quot; -I&quot;.\..\build\dboxfe\win\ui\.&quot; -I&quot;$(QTDIR)\mkspecs\win32-msvc2008\.&quot; &quot;include\dboxfe.h&quot; -o &quot;..\build\dboxfe\win\moc\moc_dboxfe.cpp&quot;&#x0D;&#x0A;"
 						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\dboxfe.h"
 						Outputs="..\build\dboxfe\win\moc\moc_dboxfe.cpp"
 					/>
@@ -353,7 +353,7 @@
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="MOC include\dboxfe.h"
-						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;..\3rdparty\Zip&quot; -I&quot;..\base&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfe\win\moc&quot; -I&quot;..\build\dboxfe\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\dboxfe.h -o ..\build\dboxfe\win\moc\moc_dboxfe.cpp&#x0D;&#x0A;"
+						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DQT_NO_DEBUG -DNDEBUG -D_WINDOWS -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -DNDEBUG  -I&quot;$(QTDIR)\include\QtCore\.&quot; -I&quot;$(QTDIR)\include\QtCore\.&quot; -I&quot;$(QTDIR)\include\QtNetwork\.&quot; -I&quot;$(QTDIR)\include\QtNetwork\.&quot; -I&quot;$(QTDIR)\include\QtGui\.&quot; -I&quot;$(QTDIR)\include\QtGui\.&quot; -I&quot;$(QTDIR)\include\QtXml\.&quot; -I&quot;$(QTDIR)\include\QtXml\.&quot; -I&quot;$(QTDIR)\include\.&quot; -I&quot;.\include\.&quot; -I&quot;.\ui\.&quot; -I&quot;.\..\3rdparty\.&quot; -I&quot;.\..\3rdparty\Zip\.&quot; -I&quot;.\..\base\.&quot; -I&quot;$(QTDIR)\include\ActiveQt\.&quot; -I&quot;.\..\build\dboxfe\win\moc\.&quot; -I&quot;.\..\build\dboxfe\win\ui\.&quot; -I&quot;$(QTDIR)\mkspecs\win32-msvc2008\.&quot; &quot;include\dboxfe.h&quot; -o &quot;..\build\dboxfe\win\moc\moc_dboxfe.cpp&quot;&#x0D;&#x0A;"
 						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\dboxfe.h"
 						Outputs="..\build\dboxfe\win\moc\moc_dboxfe.cpp"
 					/>
@@ -368,7 +368,7 @@
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="MOC include\games.h"
-						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;..\3rdparty\Zip&quot; -I&quot;..\base&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfe\win\moc&quot; -I&quot;..\build\dboxfe\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\games.h -o ..\build\dboxfe\win\moc\moc_games.cpp&#x0D;&#x0A;"
+						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -D_WINDOWS -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT  -I&quot;$(QTDIR)\include\QtCore\.&quot; -I&quot;$(QTDIR)\include\QtCore\.&quot; -I&quot;$(QTDIR)\include\QtNetwork\.&quot; -I&quot;$(QTDIR)\include\QtNetwork\.&quot; -I&quot;$(QTDIR)\include\QtGui\.&quot; -I&quot;$(QTDIR)\include\QtGui\.&quot; -I&quot;$(QTDIR)\include\QtXml\.&quot; -I&quot;$(QTDIR)\include\QtXml\.&quot; -I&quot;$(QTDIR)\include\.&quot; -I&quot;.\include\.&quot; -I&quot;.\ui\.&quot; -I&quot;.\..\3rdparty\.&quot; -I&quot;.\..\3rdparty\Zip\.&quot; -I&quot;.\..\base\.&quot; -I&quot;$(QTDIR)\include\ActiveQt\.&quot; -I&quot;.\..\build\dboxfe\win\moc\.&quot; -I&quot;.\..\build\dboxfe\win\ui\.&quot; -I&quot;$(QTDIR)\mkspecs\win32-msvc2008\.&quot; &quot;include\games.h&quot; -o &quot;..\build\dboxfe\win\moc\moc_games.cpp&quot;&#x0D;&#x0A;"
 						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\games.h"
 						Outputs="..\build\dboxfe\win\moc\moc_games.cpp"
 					/>
@@ -379,7 +379,7 @@
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="MOC include\games.h"
-						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;..\3rdparty\Zip&quot; -I&quot;..\base&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfe\win\moc&quot; -I&quot;..\build\dboxfe\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\games.h -o ..\build\dboxfe\win\moc\moc_games.cpp&#x0D;&#x0A;"
+						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DQT_NO_DEBUG -DNDEBUG -D_WINDOWS -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -DNDEBUG  -I&quot;$(QTDIR)\include\QtCore\.&quot; -I&quot;$(QTDIR)\include\QtCore\.&quot; -I&quot;$(QTDIR)\include\QtNetwork\.&quot; -I&quot;$(QTDIR)\include\QtNetwork\.&quot; -I&quot;$(QTDIR)\include\QtGui\.&quot; -I&quot;$(QTDIR)\include\QtGui\.&quot; -I&quot;$(QTDIR)\include\QtXml\.&quot; -I&quot;$(QTDIR)\include\QtXml\.&quot; -I&quot;$(QTDIR)\include\.&quot; -I&quot;.\include\.&quot; -I&quot;.\ui\.&quot; -I&quot;.\..\3rdparty\.&quot; -I&quot;.\..\3rdparty\Zip\.&quot; -I&quot;.\..\base\.&quot; -I&quot;$(QTDIR)\include\ActiveQt\.&quot; -I&quot;.\..\build\dboxfe\win\moc\.&quot; -I&quot;.\..\build\dboxfe\win\ui\.&quot; -I&quot;$(QTDIR)\mkspecs\win32-msvc2008\.&quot; &quot;include\games.h&quot; -o &quot;..\build\dboxfe\win\moc\moc_games.cpp&quot;&#x0D;&#x0A;"
 						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\games.h"
 						Outputs="..\build\dboxfe\win\moc\moc_games.cpp"
 					/>
@@ -398,7 +398,7 @@
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="MOC ..\base\messagebox.h"
-						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;..\3rdparty\Zip&quot; -I&quot;..\base&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfe\win\moc&quot; -I&quot;..\build\dboxfe\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 ..\base\messagebox.h -o ..\build\dboxfe\win\moc\moc_messagebox.cpp&#x0D;&#x0A;"
+						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -D_WINDOWS -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT  -I&quot;$(QTDIR)\include\QtCore\.&quot; -I&quot;$(QTDIR)\include\QtCore\.&quot; -I&quot;$(QTDIR)\include\QtNetwork\.&quot; -I&quot;$(QTDIR)\include\QtNetwork\.&quot; -I&quot;$(QTDIR)\include\QtGui\.&quot; -I&quot;$(QTDIR)\include\QtGui\.&quot; -I&quot;$(QTDIR)\include\QtXml\.&quot; -I&quot;$(QTDIR)\include\QtXml\.&quot; -I&quot;$(QTDIR)\include\.&quot; -I&quot;.\include\.&quot; -I&quot;.\ui\.&quot; -I&quot;.\..\3rdparty\.&quot; -I&quot;.\..\3rdparty\Zip\.&quot; -I&quot;.\..\base\.&quot; -I&quot;$(QTDIR)\include\ActiveQt\.&quot; -I&quot;.\..\build\dboxfe\win\moc\.&quot; -I&quot;.\..\build\dboxfe\win\ui\.&quot; -I&quot;$(QTDIR)\mkspecs\win32-msvc2008\.&quot; &quot;..\base\messagebox.h&quot; -o &quot;..\build\dboxfe\win\moc\moc_messagebox.cpp&quot;&#x0D;&#x0A;"
 						AdditionalDependencies="..\base\messagebox.h;$(QTDIR)\bin\moc.exe"
 						Outputs="..\build\dboxfe\win\moc\moc_messagebox.cpp"
 					/>
@@ -409,7 +409,7 @@
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="MOC ..\base\messagebox.h"
-						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;..\3rdparty\Zip&quot; -I&quot;..\base&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfe\win\moc&quot; -I&quot;..\build\dboxfe\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 ..\base\messagebox.h -o ..\build\dboxfe\win\moc\moc_messagebox.cpp&#x0D;&#x0A;"
+						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DQT_NO_DEBUG -DNDEBUG -D_WINDOWS -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -DNDEBUG  -I&quot;$(QTDIR)\include\QtCore\.&quot; -I&quot;$(QTDIR)\include\QtCore\.&quot; -I&quot;$(QTDIR)\include\QtNetwork\.&quot; -I&quot;$(QTDIR)\include\QtNetwork\.&quot; -I&quot;$(QTDIR)\include\QtGui\.&quot; -I&quot;$(QTDIR)\include\QtGui\.&quot; -I&quot;$(QTDIR)\include\QtXml\.&quot; -I&quot;$(QTDIR)\include\QtXml\.&quot; -I&quot;$(QTDIR)\include\.&quot; -I&quot;.\include\.&quot; -I&quot;.\ui\.&quot; -I&quot;.\..\3rdparty\.&quot; -I&quot;.\..\3rdparty\Zip\.&quot; -I&quot;.\..\base\.&quot; -I&quot;$(QTDIR)\include\ActiveQt\.&quot; -I&quot;.\..\build\dboxfe\win\moc\.&quot; -I&quot;.\..\build\dboxfe\win\ui\.&quot; -I&quot;$(QTDIR)\mkspecs\win32-msvc2008\.&quot; &quot;..\base\messagebox.h&quot; -o &quot;..\build\dboxfe\win\moc\moc_messagebox.cpp&quot;&#x0D;&#x0A;"
 						AdditionalDependencies="..\base\messagebox.h;$(QTDIR)\bin\moc.exe"
 						Outputs="..\build\dboxfe\win\moc\moc_messagebox.cpp"
 					/>
@@ -424,7 +424,7 @@
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="MOC include\preference.h"
-						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;..\3rdparty\Zip&quot; -I&quot;..\base&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfe\win\moc&quot; -I&quot;..\build\dboxfe\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\preference.h -o ..\build\dboxfe\win\moc\moc_preference.cpp&#x0D;&#x0A;"
+						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -D_WINDOWS -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT  -I&quot;$(QTDIR)\include\QtCore\.&quot; -I&quot;$(QTDIR)\include\QtCore\.&quot; -I&quot;$(QTDIR)\include\QtNetwork\.&quot; -I&quot;$(QTDIR)\include\QtNetwork\.&quot; -I&quot;$(QTDIR)\include\QtGui\.&quot; -I&quot;$(QTDIR)\include\QtGui\.&quot; -I&quot;$(QTDIR)\include\QtXml\.&quot; -I&quot;$(QTDIR)\include\QtXml\.&quot; -I&quot;$(QTDIR)\include\.&quot; -I&quot;.\include\.&quot; -I&quot;.\ui\.&quot; -I&quot;.\..\3rdparty\.&quot; -I&quot;.\..\3rdparty\Zip\.&quot; -I&quot;.\..\base\.&quot; -I&quot;$(QTDIR)\include\ActiveQt\.&quot; -I&quot;.\..\build\dboxfe\win\moc\.&quot; -I&quot;.\..\build\dboxfe\win\ui\.&quot; -I&quot;$(QTDIR)\mkspecs\win32-msvc2008\.&quot; &quot;include\preference.h&quot; -o &quot;..\build\dboxfe\win\moc\moc_preference.cpp&quot;&#x0D;&#x0A;"
 						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\preference.h"
 						Outputs="..\build\dboxfe\win\moc\moc_preference.cpp"
 					/>
@@ -435,7 +435,7 @@
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="MOC include\preference.h"
-						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;..\3rdparty\Zip&quot; -I&quot;..\base&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfe\win\moc&quot; -I&quot;..\build\dboxfe\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\preference.h -o ..\build\dboxfe\win\moc\moc_preference.cpp&#x0D;&#x0A;"
+						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DQT_NO_DEBUG -DNDEBUG -D_WINDOWS -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -DNDEBUG  -I&quot;$(QTDIR)\include\QtCore\.&quot; -I&quot;$(QTDIR)\include\QtCore\.&quot; -I&quot;$(QTDIR)\include\QtNetwork\.&quot; -I&quot;$(QTDIR)\include\QtNetwork\.&quot; -I&quot;$(QTDIR)\include\QtGui\.&quot; -I&quot;$(QTDIR)\include\QtGui\.&quot; -I&quot;$(QTDIR)\include\QtXml\.&quot; -I&quot;$(QTDIR)\include\QtXml\.&quot; -I&quot;$(QTDIR)\include\.&quot; -I&quot;.\include\.&quot; -I&quot;.\ui\.&quot; -I&quot;.\..\3rdparty\.&quot; -I&quot;.\..\3rdparty\Zip\.&quot; -I&quot;.\..\base\.&quot; -I&quot;$(QTDIR)\include\ActiveQt\.&quot; -I&quot;.\..\build\dboxfe\win\moc\.&quot; -I&quot;.\..\build\dboxfe\win\ui\.&quot; -I&quot;$(QTDIR)\mkspecs\win32-msvc2008\.&quot; &quot;include\preference.h&quot; -o &quot;..\build\dboxfe\win\moc\moc_preference.cpp&quot;&#x0D;&#x0A;"
 						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\preference.h"
 						Outputs="..\build\dboxfe\win\moc\moc_preference.cpp"
 					/>
@@ -450,7 +450,7 @@
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="MOC include\profile.h"
-						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;..\3rdparty\Zip&quot; -I&quot;..\base&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfe\win\moc&quot; -I&quot;..\build\dboxfe\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\profile.h -o ..\build\dboxfe\win\moc\moc_profile.cpp&#x0D;&#x0A;"
+						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -D_WINDOWS -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT  -I&quot;$(QTDIR)\include\QtCore\.&quot; -I&quot;$(QTDIR)\include\QtCore\.&quot; -I&quot;$(QTDIR)\include\QtNetwork\.&quot; -I&quot;$(QTDIR)\include\QtNetwork\.&quot; -I&quot;$(QTDIR)\include\QtGui\.&quot; -I&quot;$(QTDIR)\include\QtGui\.&quot; -I&quot;$(QTDIR)\include\QtXml\.&quot; -I&quot;$(QTDIR)\include\QtXml\.&quot; -I&quot;$(QTDIR)\include\.&quot; -I&quot;.\include\.&quot; -I&quot;.\ui\.&quot; -I&quot;.\..\3rdparty\.&quot; -I&quot;.\..\3rdparty\Zip\.&quot; -I&quot;.\..\base\.&quot; -I&quot;$(QTDIR)\include\ActiveQt\.&quot; -I&quot;.\..\build\dboxfe\win\moc\.&quot; -I&quot;.\..\build\dboxfe\win\ui\.&quot; -I&quot;$(QTDIR)\mkspecs\win32-msvc2008\.&quot; &quot;include\profile.h&quot; -o &quot;..\build\dboxfe\win\moc\moc_profile.cpp&quot;&#x0D;&#x0A;"
 						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\profile.h"
 						Outputs="..\build\dboxfe\win\moc\moc_profile.cpp"
 					/>
@@ -461,7 +461,7 @@
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="MOC include\profile.h"
-						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;..\3rdparty\Zip&quot; -I&quot;..\base&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfe\win\moc&quot; -I&quot;..\build\dboxfe\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\profile.h -o ..\build\dboxfe\win\moc\moc_profile.cpp&#x0D;&#x0A;"
+						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DQT_NO_DEBUG -DNDEBUG -D_WINDOWS -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -DNDEBUG  -I&quot;$(QTDIR)\include\QtCore\.&quot; -I&quot;$(QTDIR)\include\QtCore\.&quot; -I&quot;$(QTDIR)\include\QtNetwork\.&quot; -I&quot;$(QTDIR)\include\QtNetwork\.&quot; -I&quot;$(QTDIR)\include\QtGui\.&quot; -I&quot;$(QTDIR)\include\QtGui\.&quot; -I&quot;$(QTDIR)\include\QtXml\.&quot; -I&quot;$(QTDIR)\include\QtXml\.&quot; -I&quot;$(QTDIR)\include\.&quot; -I&quot;.\include\.&quot; -I&quot;.\ui\.&quot; -I&quot;.\..\3rdparty\.&quot; -I&quot;.\..\3rdparty\Zip\.&quot; -I&quot;.\..\base\.&quot; -I&quot;$(QTDIR)\include\ActiveQt\.&quot; -I&quot;.\..\build\dboxfe\win\moc\.&quot; -I&quot;.\..\build\dboxfe\win\ui\.&quot; -I&quot;$(QTDIR)\mkspecs\win32-msvc2008\.&quot; &quot;include\profile.h&quot; -o &quot;..\build\dboxfe\win\moc\moc_profile.cpp&quot;&#x0D;&#x0A;"
 						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\profile.h"
 						Outputs="..\build\dboxfe\win\moc\moc_profile.cpp"
 					/>
@@ -476,7 +476,7 @@
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="MOC include\profilesettings.h"
-						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;..\3rdparty\Zip&quot; -I&quot;..\base&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfe\win\moc&quot; -I&quot;..\build\dboxfe\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\profilesettings.h -o ..\build\dboxfe\win\moc\moc_profilesettings.cpp&#x0D;&#x0A;"
+						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -D_WINDOWS -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT  -I&quot;$(QTDIR)\include\QtCore\.&quot; -I&quot;$(QTDIR)\include\QtCore\.&quot; -I&quot;$(QTDIR)\include\QtNetwork\.&quot; -I&quot;$(QTDIR)\include\QtNetwork\.&quot; -I&quot;$(QTDIR)\include\QtGui\.&quot; -I&quot;$(QTDIR)\include\QtGui\.&quot; -I&quot;$(QTDIR)\include\QtXml\.&quot; -I&quot;$(QTDIR)\include\QtXml\.&quot; -I&quot;$(QTDIR)\include\.&quot; -I&quot;.\include\.&quot; -I&quot;.\ui\.&quot; -I&quot;.\..\3rdparty\.&quot; -I&quot;.\..\3rdparty\Zip\.&quot; -I&quot;.\..\base\.&quot; -I&quot;$(QTDIR)\include\ActiveQt\.&quot; -I&quot;.\..\build\dboxfe\win\moc\.&quot; -I&quot;.\..\build\dboxfe\win\ui\.&quot; -I&quot;$(QTDIR)\mkspecs\win32-msvc2008\.&quot; &quot;include\profilesettings.h&quot; -o &quot;..\build\dboxfe\win\moc\moc_profilesettings.cpp&quot;&#x0D;&#x0A;"
 						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\profilesettings.h"
 						Outputs="..\build\dboxfe\win\moc\moc_profilesettings.cpp"
 					/>
@@ -487,7 +487,7 @@
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="MOC include\profilesettings.h"
-						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;..\3rdparty\Zip&quot; -I&quot;..\base&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfe\win\moc&quot; -I&quot;..\build\dboxfe\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\profilesettings.h -o ..\build\dboxfe\win\moc\moc_profilesettings.cpp&#x0D;&#x0A;"
+						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DQT_NO_DEBUG -DNDEBUG -D_WINDOWS -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -DNDEBUG  -I&quot;$(QTDIR)\include\QtCore\.&quot; -I&quot;$(QTDIR)\include\QtCore\.&quot; -I&quot;$(QTDIR)\include\QtNetwork\.&quot; -I&quot;$(QTDIR)\include\QtNetwork\.&quot; -I&quot;$(QTDIR)\include\QtGui\.&quot; -I&quot;$(QTDIR)\include\QtGui\.&quot; -I&quot;$(QTDIR)\include\QtXml\.&quot; -I&quot;$(QTDIR)\include\QtXml\.&quot; -I&quot;$(QTDIR)\include\.&quot; -I&quot;.\include\.&quot; -I&quot;.\ui\.&quot; -I&quot;.\..\3rdparty\.&quot; -I&quot;.\..\3rdparty\Zip\.&quot; -I&quot;.\..\base\.&quot; -I&quot;$(QTDIR)\include\ActiveQt\.&quot; -I&quot;.\..\build\dboxfe\win\moc\.&quot; -I&quot;.\..\build\dboxfe\win\ui\.&quot; -I&quot;$(QTDIR)\mkspecs\win32-msvc2008\.&quot; &quot;include\profilesettings.h&quot; -o &quot;..\build\dboxfe\win\moc\moc_profilesettings.cpp&quot;&#x0D;&#x0A;"
 						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\profilesettings.h"
 						Outputs="..\build\dboxfe\win\moc\moc_profilesettings.cpp"
 					/>
@@ -502,7 +502,7 @@
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="MOC include\splash.h"
-						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;..\3rdparty\Zip&quot; -I&quot;..\base&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfe\win\moc&quot; -I&quot;..\build\dboxfe\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\splash.h -o ..\build\dboxfe\win\moc\moc_splash.cpp&#x0D;&#x0A;"
+						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -D_WINDOWS -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT  -I&quot;$(QTDIR)\include\QtCore\.&quot; -I&quot;$(QTDIR)\include\QtCore\.&quot; -I&quot;$(QTDIR)\include\QtNetwork\.&quot; -I&quot;$(QTDIR)\include\QtNetwork\.&quot; -I&quot;$(QTDIR)\include\QtGui\.&quot; -I&quot;$(QTDIR)\include\QtGui\.&quot; -I&quot;$(QTDIR)\include\QtXml\.&quot; -I&quot;$(QTDIR)\include\QtXml\.&quot; -I&quot;$(QTDIR)\include\.&quot; -I&quot;.\include\.&quot; -I&quot;.\ui\.&quot; -I&quot;.\..\3rdparty\.&quot; -I&quot;.\..\3rdparty\Zip\.&quot; -I&quot;.\..\base\.&quot; -I&quot;$(QTDIR)\include\ActiveQt\.&quot; -I&quot;.\..\build\dboxfe\win\moc\.&quot; -I&quot;.\..\build\dboxfe\win\ui\.&quot; -I&quot;$(QTDIR)\mkspecs\win32-msvc2008\.&quot; &quot;include\splash.h&quot; -o &quot;..\build\dboxfe\win\moc\moc_splash.cpp&quot;&#x0D;&#x0A;"
 						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\splash.h"
 						Outputs="..\build\dboxfe\win\moc\moc_splash.cpp"
 					/>
@@ -513,7 +513,7 @@
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="MOC include\splash.h"
-						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtNetwork&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include\QtXml&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;include&quot; -I&quot;ui&quot; -I&quot;..\3rdparty&quot; -I&quot;..\3rdparty\Zip&quot; -I&quot;..\base&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;..\build\dboxfe\win\moc&quot; -I&quot;..\build\dboxfe\win\ui&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 include\splash.h -o ..\build\dboxfe\win\moc\moc_splash.cpp&#x0D;&#x0A;"
+						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DQT_NO_DEBUG -DNDEBUG -D_WINDOWS -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -DNDEBUG  -I&quot;$(QTDIR)\include\QtCore\.&quot; -I&quot;$(QTDIR)\include\QtCore\.&quot; -I&quot;$(QTDIR)\include\QtNetwork\.&quot; -I&quot;$(QTDIR)\include\QtNetwork\.&quot; -I&quot;$(QTDIR)\include\QtGui\.&quot; -I&quot;$(QTDIR)\include\QtGui\.&quot; -I&quot;$(QTDIR)\include\QtXml\.&quot; -I&quot;$(QTDIR)\include\QtXml\.&quot; -I&quot;$(QTDIR)\include\.&quot; -I&quot;.\include\.&quot; -I&quot;.\ui\.&quot; -I&quot;.\..\3rdparty\.&quot; -I&quot;.\..\3rdparty\Zip\.&quot; -I&quot;.\..\base\.&quot; -I&quot;$(QTDIR)\include\ActiveQt\.&quot; -I&quot;.\..\build\dboxfe\win\moc\.&quot; -I&quot;.\..\build\dboxfe\win\ui\.&quot; -I&quot;$(QTDIR)\mkspecs\win32-msvc2008\.&quot; &quot;include\splash.h&quot; -o &quot;..\build\dboxfe\win\moc\moc_splash.cpp&quot;&#x0D;&#x0A;"
 						AdditionalDependencies="$(QTDIR)\bin\moc.exe;include\splash.h"
 						Outputs="..\build\dboxfe\win\moc\moc_splash.cpp"
 					/>
@@ -1218,11 +1218,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\Adventures"
+				RelativePath="Adventures"
 				>
 			</File>
 			<File
-				RelativePath="Adventures"
+				RelativePath="..\resource\templates\Adventures"
 				>
 			</File>
 			<File
@@ -1370,11 +1370,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\Auto"
+				RelativePath="Auto"
 				>
 			</File>
 			<File
-				RelativePath="Auto"
+				RelativePath="..\resource\templates\Auto"
 				>
 			</File>
 			<File
@@ -1438,11 +1438,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\Beyond"
+				RelativePath="Beyond"
 				>
 			</File>
 			<File
-				RelativePath="Beyond"
+				RelativePath="..\resource\templates\Beyond"
 				>
 			</File>
 			<File
@@ -1454,11 +1454,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\Black"
+				RelativePath="Black"
 				>
 			</File>
 			<File
-				RelativePath="Black"
+				RelativePath="..\resource\templates\Black"
 				>
 			</File>
 			<File
@@ -1614,11 +1614,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\Civilization.prof"
+				RelativePath="Civilization.prof"
 				>
 			</File>
 			<File
-				RelativePath="Civilization.prof"
+				RelativePath="..\resource\templates\Civilization.prof"
 				>
 			</File>
 			<File
@@ -1674,11 +1674,11 @@
 				>
 			</File>
 			<File
-				RelativePath="Commander"
+				RelativePath="..\resource\templates\Commander"
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\Commander"
+				RelativePath="Commander"
 				>
 			</File>
 			<File
@@ -1766,11 +1766,11 @@
 				>
 			</File>
 			<File
-				RelativePath="das"
+				RelativePath="..\resource\templates\Das"
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\Das"
+				RelativePath="das"
 				>
 			</File>
 			<File
@@ -1920,19 +1920,19 @@
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\Doom.prof"
-				>
-			</File>
-			<File
 				RelativePath="doom.prof"
 				>
 			</File>
 			<File
-				RelativePath="DOS"
+				RelativePath="..\resource\templates\Doom.prof"
 				>
 			</File>
 			<File
 				RelativePath="Dos"
+				>
+			</File>
+			<File
+				RelativePath="DOS"
 				>
 			</File>
 			<File
@@ -2012,11 +2012,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\Elite"
+				RelativePath="Elite"
 				>
 			</File>
 			<File
-				RelativePath="Elite"
+				RelativePath="..\resource\templates\Elite"
 				>
 			</File>
 			<File
@@ -2260,11 +2260,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\Grand"
+				RelativePath="Grand"
 				>
 			</File>
 			<File
-				RelativePath="Grand"
+				RelativePath="..\resource\templates\Grand"
 				>
 			</File>
 			<File
@@ -2556,11 +2556,11 @@
 				>
 			</File>
 			<File
-				RelativePath="Lemmings.prof"
+				RelativePath="..\resource\templates\Lemmings.prof"
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\Lemmings.prof"
+				RelativePath="Lemmings.prof"
 				>
 			</File>
 			<File
@@ -2772,11 +2772,11 @@
 				>
 			</File>
 			<File
-				RelativePath="Mission"
+				RelativePath="..\resource\templates\Mission"
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\Mission"
+				RelativePath="Mission"
 				>
 			</File>
 			<File
@@ -2792,11 +2792,11 @@
 				>
 			</File>
 			<File
-				RelativePath="More"
+				RelativePath="more"
 				>
 			</File>
 			<File
-				RelativePath="more"
+				RelativePath="More"
 				>
 			</File>
 			<File
@@ -2848,11 +2848,11 @@
 				>
 			</File>
 			<File
-				RelativePath="no"
+				RelativePath="No"
 				>
 			</File>
 			<File
-				RelativePath="No"
+				RelativePath="no"
 				>
 			</File>
 			<File
@@ -3028,11 +3028,11 @@
 				>
 			</File>
 			<File
-				RelativePath="prince"
+				RelativePath="..\resource\templates\Prince"
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\Prince"
+				RelativePath="prince"
 				>
 			</File>
 			<File
@@ -3144,11 +3144,11 @@
 				>
 			</File>
 			<File
-				RelativePath="red"
+				RelativePath="..\resource\templates\Red"
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\Red"
+				RelativePath="red"
 				>
 			</File>
 			<File
@@ -3176,11 +3176,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\Rings"
+				RelativePath="Rings"
 				>
 			</File>
 			<File
-				RelativePath="Rings"
+				RelativePath="..\resource\templates\Rings"
 				>
 			</File>
 			<File
@@ -3380,11 +3380,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\Space"
+				RelativePath="Space"
 				>
 			</File>
 			<File
-				RelativePath="Space"
+				RelativePath="..\resource\templates\Space"
 				>
 			</File>
 			<File
@@ -3542,15 +3542,15 @@
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\The"
-				>
-			</File>
-			<File
 				RelativePath="the"
 				>
 			</File>
 			<File
 				RelativePath="The"
+				>
+			</File>
+			<File
+				RelativePath="..\resource\templates\The"
 				>
 			</File>
 			<File
@@ -3830,11 +3830,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\X-Com"
+				RelativePath="..\resource\templates\X-COM"
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\X-COM"
+				RelativePath="..\resource\templates\X-Com"
 				>
 			</File>
 			<File
