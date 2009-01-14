@@ -17,6 +17,7 @@
     </qresource>
     <qresource prefix="/default" >
         <file>default.conf</file>
+        <file>dboxfe.qss</file>
     </qresource>
     <qresource prefix="/pics/images" >
         <file>add_16.png</file>
