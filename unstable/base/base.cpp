@@ -296,6 +296,8 @@ namespace asaal {
 
   Configuration ConfigBase::importConfiguration( const QString &zipFile ) {
 
+    Q_UNUSED( zipFile );
+
     m_Configuration.clear();
 
     return m_Configuration;

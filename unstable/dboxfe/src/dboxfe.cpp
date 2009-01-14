@@ -405,6 +405,7 @@ namespace asaal {
    */
   void DBoxFE::listWidgetItemDoubleClicked( QListWidgetItem *item ) {
 
+    Q_UNUSED( item );
     startGame();
   }
 
