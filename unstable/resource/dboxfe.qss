@@ -1,0 +1,143 @@
+#UiDBoxFE {
+	background-color: white;
+}
+
+#textEditGameDescription {
+	padding-top: 25px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border: solid;
+	border-width: 2px;
+	border-style: solid;
+	border-color: navy;
+	border-radius: 30px;
+	background-color: white;
+}
+
+#labelGameScreenshot {
+	padding-top: 25px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border: solid;
+	border-width: 2px;
+	border-style: solid;
+	border-color: navy;
+	border-radius: 30px;
+	background-color: white;
+}
+
+#frameGame {
+	padding-top: 1px;
+	border: solid;
+	border-width: 2px;
+	border-style: solid;
+	border-color: navy;
+	border-radius: 30px;
+	background-color: white;
+}
+
+#labelGameSreenshotHeader {
+	background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 lightblue, stop: 1 navy);
+	color: white;
+	border-width: 2px;
+	padding: 5px;
+	border-style: solid;
+	border-color: navy;
+	border-radius: 15px;
+}
+
+#labelGameDescriptionHeader {
+	background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 lightblue, stop: 1 navy);
+	color: white;
+	border-width: 2px;
+	padding: 5px;
+	border-style: solid;
+	border-color: navy;
+	border-radius: 15px;
+}
+
+#labelGameHeader {
+	background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 lightblue, stop: 1 navy);
+	color: white;
+	border-width: 2px;
+	padding: 5px;
+	border-style: solid;
+	border-color: navy;
+	border-radius: 15px;
+}
+
+#btnOpenDescriptionText {
+	background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 lightblue, stop: 1 navy);
+	border-width: 2px;
+	padding: 2px;
+	border-style: solid;
+	border-color: navy;
+	border-left: none;
+	border-right: none;
+	border-radius: 1px;
+}
+
+#btnApplyDescriptionText {
+	background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 lightblue, stop: 1 navy);
+	border-width: 2px;
+	padding: 2px;
+	border-style: solid;
+	border-color: navy;
+	border-left: none;
+	border-right: none;
+	border-radius: 1px;
+}
+
+#btnClearDescriptionText {
+	background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 lightblue, stop: 1 navy);
+	border-width: 2px;
+	padding: 2px;
+	border-style: solid;
+	border-color: navy;
+	border-left: none;
+	border-right: none;
+	border-radius: 1px;
+}
+
+#btnOpenScreenCapture {
+	background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 lightblue, stop: 1 navy);
+	border-width: 2px;
+	padding: 2px;
+	border-style: solid;
+	border-color: navy;
+	border-left: none;
+	border-right: none;
+	border-radius: 1px;
+}
+
+#btnApplyScreenCapture {
+	background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 lightblue, stop: 1 navy);
+	color: white;
+	border-width: 2px;
+	padding: 2px;
+	border-style: solid;
+	border-color: navy;
+	border-left: none;
+	border-right: none;
+	border-radius: 1px;
+}
+
+#btnClearScreenCapture {
+	background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 lightblue, stop: 1 navy);
+	color: white;
+	border-width: 2px;
+	padding: 2px;
+	border-style: solid;
+	border-color: navy;
+	border-left: none;
+	border-right: none;
+	border-radius: 1px;
+}
+
+#listWidgetGames {
+	selection-background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 lightblue, stop: 1 navy);
+	border: none;
+	background-color: white;
+}
