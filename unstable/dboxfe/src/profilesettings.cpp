@@ -1,27 +1,27 @@
 /***************************************************************************
- *   Copyright (C) 2004-2008 by Alexander Saal                             *
- *   alex.saal@gmx.de                                                      *
- *                                                                         *
- *   File: ${filename}.${extension}                                        *
- *   Desc: ${description}                                                  *
- *                                                                         *
- *   This file is part of DBoxFE - DOSBox Front End                        *
- *                                                                         *
- *   This program is free software; you can redistribute it and/or modify  *
- *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 3 of the License, or     *
- *   (at your option) any later version.                                   *
- *                                                                         *
- *   This program is distributed in the hope that it will be useful,       *
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
- *   GNU General Public License for more details.                          *
- *                                                                         *
- *   You should have received a copy of the GNU General Public License     *
- *   along with this program; if not, write to the                         *
- *   Free Software Foundation, Inc.,                                       *
- *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
- ***************************************************************************/
+*   Copyright (C) 2004-2008 by Alexander Saal                             *
+*   alex.saal@gmx.de                                                      *
+*                                                                         *
+*   File: ${filename}.${extension}                                        *
+*   Desc: ${description}                                                  *
+*                                                                         *
+*   This file is part of DBoxFE - DOSBox Front End                        *
+*                                                                         *
+*   This program is free software; you can redistribute it and/or modify  *
+*   it under the terms of the GNU General Public License as published by  *
+*   the Free Software Foundation; either version 3 of the License, or     *
+*   (at your option) any later version.                                   *
+*                                                                         *
+*   This program is distributed in the hope that it will be useful,       *
+*   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+*   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+*   GNU General Public License for more details.                          *
+*                                                                         *
+*   You should have received a copy of the GNU General Public License     *
+*   along with this program; if not, write to the                         *
+*   Free Software Foundation, Inc.,                                       *
+*   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+***************************************************************************/
 
 #include <dboxfe.h>
 #include <games.h>
@@ -399,57 +399,57 @@ namespace asaal {
 
           switch ( comboBoxAutoexecCDDVDROMOption->currentIndex() ) {
 
-            case 0:             // Windows 2000/XP/Linux
+        case 0:             // Windows 2000/XP/Linux
 
-              if ( checkBoxLabelCDDVD->isChecked() ) {
-                if ( !lineEditDeviceLabel->text().isEmpty() ) {
+          if ( checkBoxLabelCDDVD->isChecked() ) {
+            if ( !lineEditDeviceLabel->text().isEmpty() ) {
 
-                  addStr = "mount " + comboBoxDrive->currentText().toLower() + " " + lineEditDrives->text() + " -t cdrom -usecd 0 -ioctl -label " + lineEditDeviceLabel->text();
-                  autoexecItem->setText( 0, comboBoxDrive->currentText().toLower() );
-                  autoexecItem->setText( 1, lineEditDrives->text() );
-                  autoexecItem->setText( 2, lineEditDeviceLabel->text() );
-                  autoexecItem->setText( 5, addStr );
-                } else {
+              addStr = "mount " + comboBoxDrive->currentText().toLower() + " " + lineEditDrives->text() + " -t cdrom -usecd 0 -ioctl -label " + lineEditDeviceLabel->text();
+              autoexecItem->setText( 0, comboBoxDrive->currentText().toLower() );
+              autoexecItem->setText( 1, lineEditDrives->text() );
+              autoexecItem->setText( 2, lineEditDeviceLabel->text() );
+              autoexecItem->setText( 5, addStr );
+            } else {
 
-                  QMessageBox::information( this, tr( "DBoxFE" ), tr( "Please enter a valid name for label." ) );
-                  return ;
-                }
-              } else {
+              QMessageBox::information( this, tr( "DBoxFE" ), tr( "Please enter a valid name for label." ) );
+              return ;
+            }
+          } else {
 
-                lineEditDeviceLabel->setText( "" );
-                addStr = "mount " + comboBoxDrive->currentText().toLower() + " " + lineEditDrives->text() + " -t cdrom -usecd 0 -ioctl";
-                autoexecItem->setText( 0, comboBoxDrive->currentText().toLower() );
-                autoexecItem->setText( 1, lineEditDrives->text() );
-                autoexecItem->setText( 5, addStr );
-              }
+            lineEditDeviceLabel->setText( "" );
+            addStr = "mount " + comboBoxDrive->currentText().toLower() + " " + lineEditDrives->text() + " -t cdrom -usecd 0 -ioctl";
+            autoexecItem->setText( 0, comboBoxDrive->currentText().toLower() );
+            autoexecItem->setText( 1, lineEditDrives->text() );
+            autoexecItem->setText( 5, addStr );
+          }
 
-              break;
+          break;
 
-            case 1:             // Windows 98
+        case 1:             // Windows 98
 
-              if ( checkBoxLabelCDDVD->isChecked() ) {
-                if ( !lineEditDeviceLabel->text().isEmpty() ) {
+          if ( checkBoxLabelCDDVD->isChecked() ) {
+            if ( !lineEditDeviceLabel->text().isEmpty() ) {
 
-                  addStr = "mount " + comboBoxDrive->currentText().toLower() + " " + lineEditDrives->text() + " -t cdrom -usecd 0 -aspi -label " + lineEditDeviceLabel->text();
-                  autoexecItem->setText( 0, comboBoxDrive->currentText().toLower() );
-                  autoexecItem->setText( 1, lineEditDrives->text() );
-                  autoexecItem->setText( 2, lineEditDeviceLabel->text() );
-                  autoexecItem->setText( 5, addStr );
-                } else {
+              addStr = "mount " + comboBoxDrive->currentText().toLower() + " " + lineEditDrives->text() + " -t cdrom -usecd 0 -aspi -label " + lineEditDeviceLabel->text();
+              autoexecItem->setText( 0, comboBoxDrive->currentText().toLower() );
+              autoexecItem->setText( 1, lineEditDrives->text() );
+              autoexecItem->setText( 2, lineEditDeviceLabel->text() );
+              autoexecItem->setText( 5, addStr );
+            } else {
 
-                  QMessageBox::information( this, tr( "DBoxFE" ), tr( "Please enter a valid name for label." ) );
-                  return ;
-                }
-              } else {
+              QMessageBox::information( this, tr( "DBoxFE" ), tr( "Please enter a valid name for label." ) );
+              return ;
+            }
+          } else {
 
-                lineEditDeviceLabel->setText( "" );
-                addStr = "mount " + comboBoxDrive->currentText().toLower() + " " + lineEditDrives->text() + " -t cdrom -usecd 0 -aspi";
-                autoexecItem->setText( 0, comboBoxDrive->currentText().toLower() );
-                autoexecItem->setText( 1, lineEditDrives->text() );
-                autoexecItem->setText( 5, addStr );
-              }
+            lineEditDeviceLabel->setText( "" );
+            addStr = "mount " + comboBoxDrive->currentText().toLower() + " " + lineEditDrives->text() + " -t cdrom -usecd 0 -aspi";
+            autoexecItem->setText( 0, comboBoxDrive->currentText().toLower() );
+            autoexecItem->setText( 1, lineEditDrives->text() );
+            autoexecItem->setText( 5, addStr );
+          }
 
-              break;
+          break;
           }
 
           break;
@@ -484,36 +484,36 @@ namespace asaal {
 
           switch ( comboBoxAutoexecImageTyp->currentIndex() ) {
 
-            case 0: // floppy
+        case 0: // floppy
 
-              switch ( comboBoxAutoexecImageFormat->currentIndex() ) {
+          switch ( comboBoxAutoexecImageFormat->currentIndex() ) {
 
-                case 0: // iso
-                  addStr = "imgmount " + comboBoxDrive->currentText().toLower() + " " + lineEditDrives->text() + " -t iso";
-                  autoexecItem->setText( 0, comboBoxDrive->currentText().toLower() );
-                  autoexecItem->setText( 1, lineEditDrives->text() );
-                  autoexecItem->setText( 5, addStr );
-                  break;
+        case 0: // iso
+          addStr = "imgmount " + comboBoxDrive->currentText().toLower() + " " + lineEditDrives->text() + " -t iso";
+          autoexecItem->setText( 0, comboBoxDrive->currentText().toLower() );
+          autoexecItem->setText( 1, lineEditDrives->text() );
+          autoexecItem->setText( 5, addStr );
+          break;
 
-                case 1: // fat
-                  addStr = "imgmount " + comboBoxDrive->currentText().toLower() + " " + lineEditDrives->text() + " -t fat";
-                  autoexecItem->setText( 0, comboBoxDrive->currentText().toLower() );
-                  autoexecItem->setText( 1, lineEditDrives->text() );
-                  autoexecItem->setText( 5, addStr );
-                  break;
+        case 1: // fat
+          addStr = "imgmount " + comboBoxDrive->currentText().toLower() + " " + lineEditDrives->text() + " -t fat";
+          autoexecItem->setText( 0, comboBoxDrive->currentText().toLower() );
+          autoexecItem->setText( 1, lineEditDrives->text() );
+          autoexecItem->setText( 5, addStr );
+          break;
 
-                case 2: // none
-                  QMessageBox::information( this, tr( "DBoxFE" ), tr( "Not used by floppy!" ) );
-                  return;
-              }
+        case 2: // none
+          QMessageBox::information( this, tr( "DBoxFE" ), tr( "Not used by floppy!" ) );
+          return;
+          }
 
-              break;
+          break;
 
-            case 1: // iso
-              break;
+        case 1: // iso
+          break;
 
-            case 2: // hdd
-              break;
+        case 2: // hdd
+          break;
           }
 
           break;
@@ -649,25 +649,25 @@ namespace asaal {
 
       case 2:               // modem
         serialOption = comboBoxDSOption->currentText() + " " +
-                       "listenport:" + lineEditDSListenPort->text() + " " +
-                       "realport:" + comboBoxDSRealPort->currentText() + " " +
-                       "startbps:" + lineEditDSBps->text() + " " +
-                       "parity:" + comboBoxDSParity->currentText() + " " +
-                       "bytesize:" + comboBoxDSByteSize->currentText() + " " +
-                       "stopbits:" + comboBoxDSStopBit->currentText() + " " +
-                       "irq:" + lineEditDSIrq->text();
+          "listenport:" + lineEditDSListenPort->text() + " " +
+          "realport:" + comboBoxDSRealPort->currentText() + " " +
+          "startbps:" + lineEditDSBps->text() + " " +
+          "parity:" + comboBoxDSParity->currentText() + " " +
+          "bytesize:" + comboBoxDSByteSize->currentText() + " " +
+          "stopbits:" + comboBoxDSStopBit->currentText() + " " +
+          "irq:" + lineEditDSIrq->text();
 
         item->setText( 1, serialOption );
         break;
 
       case 3:               // directserial
         serialOption = comboBoxDSOption->currentText() + " " +
-                       "realport:" + comboBoxDSRealPort->currentText() + " " +
-                       "startbps:" + lineEditDSBps->text() + " " +
-                       "parity:" + comboBoxDSParity->currentText() + " " +
-                       "bytesize:" + comboBoxDSByteSize->currentText() + " " +
-                       "stopbits:" + comboBoxDSStopBit->currentText() + " " +
-                       "irq:" + lineEditDSIrq->text();
+          "realport:" + comboBoxDSRealPort->currentText() + " " +
+          "startbps:" + lineEditDSBps->text() + " " +
+          "parity:" + comboBoxDSParity->currentText() + " " +
+          "bytesize:" + comboBoxDSByteSize->currentText() + " " +
+          "stopbits:" + comboBoxDSStopBit->currentText() + " " +
+          "irq:" + lineEditDSIrq->text();
 
         item->setText( 1, serialOption );
         break;
@@ -742,6 +742,21 @@ namespace asaal {
     profileConfiguration.mdi.insert( "config", lineEditMDIConfig->text() );
 
     // Autoexec page
+    for( int a = 0; a < treeWidgetAutoexec->topLevelItemCount(); a++ ) {
+
+      qApp->processEvents();
+
+      QTreeWidgetItem *item = treeWidgetAutoexec->topLevelItem( a );
+      if( item ) {
+
+        profileConfiguration.autoexec.insert( QString( "mount%1" ).arg( a ), QStringList() << item->text( 5 ) );
+        profileConfiguration.autoexec.insert( QString( "drive%1" ).arg( a ), QStringList() << item->text( 0 ).toLower() );
+        profileConfiguration.autoexec.insert( QString( "switch%1" ).arg( a ), QStringList() << item->text( 3 ).toLower() );
+        profileConfiguration.autoexec.insert( QString( "executable%1" ).arg( a ), QStringList() << item->text( 4 ) );
+        // Commet out, comes later...
+        // profileConfiguration.autoexec.insert( "exit", QStringList() << "true" );
+      }
+    }
 
     // Inernet page
     // Now we are check this list for more then one entry

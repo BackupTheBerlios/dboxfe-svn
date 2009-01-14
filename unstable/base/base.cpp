@@ -861,6 +861,8 @@ namespace asaal {
 #ifdef Q_OS_UNIX
   QString ConfigBase::searchDosboxBinary() {
 
+    // HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\MenuOrder\Start Menu\Programs\DOSBox-0.72
+
     QStringList whichParameter;
     QString dosboxBinary = QString( "" );
 
