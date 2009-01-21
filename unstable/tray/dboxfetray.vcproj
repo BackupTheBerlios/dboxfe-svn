@@ -418,7 +418,7 @@
 	<Globals>
 		<Global
 			Name="QtVersion"
-			Value="Qt 4.4.3"
+			Value="Qt443"
 		/>
 	</Globals>
 </VisualStudioProject>
