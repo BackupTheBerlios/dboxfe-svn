@@ -3546,15 +3546,15 @@
 				>
 			</File>
 			<File
+				RelativePath="..\resource\templates\The"
+				>
+			</File>
+			<File
 				RelativePath="The"
 				>
 			</File>
 			<File
 				RelativePath="the"
-				>
-			</File>
-			<File
-				RelativePath="..\resource\templates\The"
 				>
 			</File>
 			<File
