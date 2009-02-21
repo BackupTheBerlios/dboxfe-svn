@@ -1378,11 +1378,11 @@
 				>
 			</File>
 			<File
-				RelativePath="Alien"
+				RelativePath="..\resource\templates\Alien"
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\Alien"
+				RelativePath="Alien"
 				>
 			</File>
 			<File
@@ -1558,11 +1558,11 @@
 				>
 			</File>
 			<File
-				RelativePath="Black"
+				RelativePath="..\resource\templates\Black"
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\Black"
+				RelativePath="Black"
 				>
 			</File>
 			<File
@@ -1710,11 +1710,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\Civilization.prof"
+				RelativePath="Civilization.prof"
 				>
 			</File>
 			<File
-				RelativePath="Civilization.prof"
+				RelativePath="..\resource\templates\Civilization.prof"
 				>
 			</File>
 			<File
@@ -1770,11 +1770,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\Commander"
+				RelativePath="Commander"
 				>
 			</File>
 			<File
-				RelativePath="Commander"
+				RelativePath="..\resource\templates\Commander"
 				>
 			</File>
 			<File
@@ -1846,11 +1846,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\Das"
+				RelativePath="das"
 				>
 			</File>
 			<File
-				RelativePath="das"
+				RelativePath="..\resource\templates\Das"
 				>
 			</File>
 			<File
@@ -1976,11 +1976,11 @@
 				>
 			</File>
 			<File
-				RelativePath="doom.prof"
+				RelativePath="..\resource\templates\Doom.prof"
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\Doom.prof"
+				RelativePath="doom.prof"
 				>
 			</File>
 			<File
@@ -2068,11 +2068,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\Elite"
+				RelativePath="Elite"
 				>
 			</File>
 			<File
-				RelativePath="Elite"
+				RelativePath="..\resource\templates\Elite"
 				>
 			</File>
 			<File
@@ -2240,11 +2240,11 @@
 				>
 			</File>
 			<File
-				RelativePath="game"
+				RelativePath="..\resource\templates\Game"
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\Game"
+				RelativePath="game"
 				>
 			</File>
 			<File
@@ -2312,11 +2312,11 @@
 				>
 			</File>
 			<File
-				RelativePath="Grand"
+				RelativePath="..\resource\templates\Grand"
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\Grand"
+				RelativePath="Grand"
 				>
 			</File>
 			<File
@@ -2596,11 +2596,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\Lemmings.prof"
+				RelativePath="Lemmings.prof"
 				>
 			</File>
 			<File
-				RelativePath="Lemmings.prof"
+				RelativePath="..\resource\templates\Lemmings.prof"
 				>
 			</File>
 			<File
@@ -2864,11 +2864,11 @@
 				>
 			</File>
 			<File
-				RelativePath="no"
+				RelativePath="No"
 				>
 			</File>
 			<File
-				RelativePath="No"
+				RelativePath="no"
 				>
 			</File>
 			<File
@@ -3172,11 +3172,11 @@
 				>
 			</File>
 			<File
-				RelativePath="Rings"
+				RelativePath="..\resource\templates\Rings"
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\Rings"
+				RelativePath="Rings"
 				>
 			</File>
 			<File
@@ -3360,11 +3360,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\Space"
+				RelativePath="Space"
 				>
 			</File>
 			<File
-				RelativePath="Space"
+				RelativePath="..\resource\templates\Space"
 				>
 			</File>
 			<File
@@ -3396,11 +3396,11 @@
 				>
 			</File>
 			<File
-				RelativePath="Strike"
+				RelativePath="..\resource\templates\Strike"
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\Strike"
+				RelativePath="Strike"
 				>
 			</File>
 			<File
@@ -3514,11 +3514,11 @@
 				>
 			</File>
 			<File
-				RelativePath="Tetris.prof"
+				RelativePath="..\resource\templates\Tetris.prof"
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\Tetris.prof"
+				RelativePath="Tetris.prof"
 				>
 			</File>
 			<File
@@ -3798,11 +3798,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\X-COM"
+				RelativePath="..\resource\templates\X-Com"
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\X-Com"
+				RelativePath="..\resource\templates\X-COM"
 				>
 			</File>
 			<File

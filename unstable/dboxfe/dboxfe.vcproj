@@ -1218,11 +1218,11 @@
 				>
 			</File>
 			<File
-				RelativePath="Adventures"
+				RelativePath="..\resource\templates\Adventures"
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\Adventures"
+				RelativePath="Adventures"
 				>
 			</File>
 			<File
@@ -1370,11 +1370,11 @@
 				>
 			</File>
 			<File
-				RelativePath="Auto"
+				RelativePath="..\resource\templates\Auto"
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\Auto"
+				RelativePath="Auto"
 				>
 			</File>
 			<File
@@ -1438,11 +1438,11 @@
 				>
 			</File>
 			<File
-				RelativePath="Beyond"
+				RelativePath="..\resource\templates\Beyond"
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\Beyond"
+				RelativePath="Beyond"
 				>
 			</File>
 			<File
@@ -1454,11 +1454,11 @@
 				>
 			</File>
 			<File
-				RelativePath="Black"
+				RelativePath="..\resource\templates\Black"
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\Black"
+				RelativePath="Black"
 				>
 			</File>
 			<File
@@ -1614,11 +1614,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\Civilization.prof"
+				RelativePath="Civilization.prof"
 				>
 			</File>
 			<File
-				RelativePath="Civilization.prof"
+				RelativePath="..\resource\templates\Civilization.prof"
 				>
 			</File>
 			<File
@@ -1674,11 +1674,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\Commander"
+				RelativePath="Commander"
 				>
 			</File>
 			<File
-				RelativePath="Commander"
+				RelativePath="..\resource\templates\Commander"
 				>
 			</File>
 			<File
@@ -1766,11 +1766,11 @@
 				>
 			</File>
 			<File
-				RelativePath="das"
+				RelativePath="..\resource\templates\Das"
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\Das"
+				RelativePath="das"
 				>
 			</File>
 			<File
@@ -1924,19 +1924,19 @@
 				>
 			</File>
 			<File
-				RelativePath="doom.prof"
-				>
-			</File>
-			<File
 				RelativePath="..\resource\templates\Doom.prof"
 				>
 			</File>
 			<File
-				RelativePath="Dos"
+				RelativePath="doom.prof"
 				>
 			</File>
 			<File
 				RelativePath="DOS"
+				>
+			</File>
+			<File
+				RelativePath="Dos"
 				>
 			</File>
 			<File
@@ -2016,11 +2016,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\Elite"
+				RelativePath="Elite"
 				>
 			</File>
 			<File
-				RelativePath="Elite"
+				RelativePath="..\resource\templates\Elite"
 				>
 			</File>
 			<File
@@ -2200,11 +2200,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\Game"
+				RelativePath="game"
 				>
 			</File>
 			<File
-				RelativePath="game"
+				RelativePath="..\resource\templates\Game"
 				>
 			</File>
 			<File
@@ -2560,11 +2560,11 @@
 				>
 			</File>
 			<File
-				RelativePath="Lemmings.prof"
+				RelativePath="..\resource\templates\Lemmings.prof"
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\Lemmings.prof"
+				RelativePath="Lemmings.prof"
 				>
 			</File>
 			<File
@@ -2776,11 +2776,11 @@
 				>
 			</File>
 			<File
-				RelativePath="Mission"
+				RelativePath="..\resource\templates\Mission"
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\Mission"
+				RelativePath="Mission"
 				>
 			</File>
 			<File
@@ -2796,11 +2796,11 @@
 				>
 			</File>
 			<File
-				RelativePath="more"
+				RelativePath="More"
 				>
 			</File>
 			<File
-				RelativePath="More"
+				RelativePath="more"
 				>
 			</File>
 			<File
@@ -2852,11 +2852,11 @@
 				>
 			</File>
 			<File
-				RelativePath="no"
+				RelativePath="No"
 				>
 			</File>
 			<File
-				RelativePath="No"
+				RelativePath="no"
 				>
 			</File>
 			<File
@@ -3032,11 +3032,11 @@
 				>
 			</File>
 			<File
-				RelativePath="prince"
+				RelativePath="..\resource\templates\Prince"
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\Prince"
+				RelativePath="prince"
 				>
 			</File>
 			<File
@@ -3148,11 +3148,11 @@
 				>
 			</File>
 			<File
-				RelativePath="red"
+				RelativePath="..\resource\templates\Red"
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\Red"
+				RelativePath="red"
 				>
 			</File>
 			<File
@@ -3180,11 +3180,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\Rings"
+				RelativePath="Rings"
 				>
 			</File>
 			<File
-				RelativePath="Rings"
+				RelativePath="..\resource\templates\Rings"
 				>
 			</File>
 			<File
@@ -3384,11 +3384,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\Space"
+				RelativePath="Space"
 				>
 			</File>
 			<File
-				RelativePath="Space"
+				RelativePath="..\resource\templates\Space"
 				>
 			</File>
 			<File
@@ -3546,15 +3546,15 @@
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\The"
-				>
-			</File>
-			<File
 				RelativePath="The"
 				>
 			</File>
 			<File
 				RelativePath="the"
+				>
+			</File>
+			<File
+				RelativePath="..\resource\templates\The"
 				>
 			</File>
 			<File
@@ -3834,11 +3834,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\X-Com"
+				RelativePath="..\resource\templates\X-COM"
 				>
 			</File>
 			<File
-				RelativePath="..\resource\templates\X-COM"
+				RelativePath="..\resource\templates\X-Com"
 				>
 			</File>
 			<File
