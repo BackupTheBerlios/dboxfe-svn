@@ -209,22 +209,23 @@ namespace asaal {
 
           line = in.readLine();
 
-          if ( line.startsWith( "mount" ) ) {
-
-            mountOptions = line.split( " " );
-            m_Configuration.autoexec.insert( "mount", mountOptions );
-
-          } else if ( line.contains( "bat" ) || line.contains( "com" ) || line.contains( "com" ) ) {
-            m_Configuration.autoexec.insert( "executable", QStringList() << line );
-
-          } else if ( line.contains( ":" ) ) {
-            mountOptions = line.split( ":" );
-            m_Configuration.autoexec.insert( "drive", QStringList() << mountOptions.value( 0 ) );
-            m_Configuration.autoexec.insert( "switch", QStringList() << "true" );
-
-          } else if ( line.startsWith( "exit" ) ) {
-            m_Configuration.autoexec.insert( "exit", QStringList() << "true" );
-          }
+          // TODO Read Autoexec
+//           if ( line.startsWith( "mount" ) ) {
+// 
+//             mountOptions = line.split( " " );
+//             m_Configuration.autoexec.insert( "mount", mountOptions );
+// 
+//           } else if ( line.contains( "bat" ) || line.contains( "com" ) || line.contains( "com" ) ) {
+//             m_Configuration.autoexec.insert( "executable", QStringList() << line );
+// 
+//           } else if ( line.contains( ":" ) ) {
+//             mountOptions = line.split( ":" );
+//             m_Configuration.autoexec.insert( "drive", QStringList() << mountOptions.value( 0 ) );
+//             m_Configuration.autoexec.insert( "switch", QStringList() << "true" );
+// 
+//           } else if ( line.startsWith( "exit" ) ) {
+//             m_Configuration.autoexec.insert( "exit", QStringList() << "true" );
+//           }
 
           if ( line.startsWith( "[" ) && line.endsWith( "]" ) )
             break;
@@ -551,8 +552,7 @@ namespace asaal {
     while ( !node.isNull() ) {
       qApp->processEvents();
 
-      // Check if this realy the old profile
-
+      // Check if this realy the old profiles
       if ( node.toElement().tagName() == "software_info" ) {
         return true;
       }
@@ -772,32 +772,32 @@ namespace asaal {
 
     out << "\n[autoexec]\n";
 
-    // Autoexec   
-    QMap< QString, QStringList>::const_iterator autoexecIt = config.autoexec.constBegin();
-    while( autoexecIt != config.autoexec.end() ) {
-
-      QString key = autoexecIt.key();
-      QStringList value = autoexecIt.value();
-
-      //if ( line.startsWith( "mount" ) ) {
-
-      //  mountOptions = line.split( " " );
-      //  m_Configuration.autoexec.insert( "mount", mountOptions );
-
-      //} else if ( line.contains( "bat" ) || line.contains( "com" ) || line.contains( "exe" ) ) {
-      //  m_Configuration.autoexec.insert( "executable", QStringList() << line );
-
-      //} else if ( line.contains( ":" ) ) {
-      //  mountOptions = line.split( ":" );
-      //  m_Configuration.autoexec.insert( "drive", QStringList() << mountOptions.value( 0 ) );
-      //  m_Configuration.autoexec.insert( "switch", QStringList() << "true" );
-
-      //} else if ( line.startsWith( "exit" ) ) {
-      //  m_Configuration.autoexec.insert( "exit", QStringList() << "true" );
-      //}
-
-      ++autoexecIt;
-    }
+    // TODO Write Autoexec   
+//     QMap< QString, QStringList>::const_iterator autoexecIt = config.autoexec.constBegin();
+//     while( autoexecIt != config.autoexec.end() ) {
+// 
+//       QString key = autoexecIt.key();
+//       QStringList value = autoexecIt.value();
+// 
+//       if ( line.startsWith( "mount" ) ) {
+// 
+//        mountOptions = line.split( " " );
+//        m_Configuration.autoexec.insert( "mount", mountOptions );
+// 
+//       } else if ( line.contains( "bat" ) || line.contains( "com" ) || line.contains( "exe" ) ) {
+//        m_Configuration.autoexec.insert( "executable", QStringList() << line );
+// 
+//       } else if ( line.contains( ":" ) ) {
+//        mountOptions = line.split( ":" );
+//        m_Configuration.autoexec.insert( "drive", QStringList() << mountOptions.value( 0 ) );
+//        m_Configuration.autoexec.insert( "switch", QStringList() << "true" );
+// 
+//       } else if ( line.startsWith( "exit" ) ) {
+//        m_Configuration.autoexec.insert( "exit", QStringList() << "true" );
+//       }
+// 
+//       ++autoexecIt;
+//     }
 
     out.flush();
     configFile.flush();

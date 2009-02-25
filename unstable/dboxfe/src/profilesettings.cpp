@@ -749,10 +749,11 @@ namespace asaal {
       QTreeWidgetItem *item = treeWidgetAutoexec->topLevelItem( a );
       if( item ) {
 
-        profileConfiguration.autoexec.insert( QString( "mount%1" ).arg( a ), QStringList() << item->text( 5 ) );
-        profileConfiguration.autoexec.insert( QString( "drive%1" ).arg( a ), QStringList() << item->text( 0 ).toLower() );
-        profileConfiguration.autoexec.insert( QString( "switch%1" ).arg( a ), QStringList() << item->text( 3 ).toLower() );
-        profileConfiguration.autoexec.insert( QString( "executable%1" ).arg( a ), QStringList() << item->text( 4 ) );
+        // TODO Save configuration
+//         profileConfiguration.autoexec.insert( QString( "mount%1" ).arg( a ), QStringList() << item->text( 5 ) );
+//         profileConfiguration.autoexec.insert( QString( "drive%1" ).arg( a ), QStringList() << item->text( 0 ).toLower() );
+//         profileConfiguration.autoexec.insert( QString( "switch%1" ).arg( a ), QStringList() << item->text( 3 ).toLower() );
+//         profileConfiguration.autoexec.insert( QString( "executable%1" ).arg( a ), QStringList() << item->text( 4 ) );
         // Commet out, comes later...
         // profileConfiguration.autoexec.insert( "exit", QStringList() << "true" );
       }
@@ -1028,24 +1029,25 @@ namespace asaal {
     
     // Autoexec page
     treeWidgetAutoexec->clear();
-    QMapIterator< QString, QStringList > autoexecIt( profileConfiguration.autoexec );
-
-    while( autoexecIt.hasNext() ) {
-
-      autoexecIt.next();
-
-      qApp->processEvents();
-
-      QTreeWidgetItem *item = new QTreeWidgetItem( treeWidgetAutoexec );
-      //profileConfiguration.autoexec.insert( QString( "mount%1" ).arg( a ), QStringList() << item->text( 5 ) );
-      //profileConfiguration.autoexec.insert( QString( "drive%1" ).arg( a ), QStringList() << item->text( 0 ).toLower() );
-      //profileConfiguration.autoexec.insert( QString( "switch%1" ).arg( a ), QStringList() << item->text( 3 ).toLower() );
-      //profileConfiguration.autoexec.insert( QString( "executable%1" ).arg( a ), QStringList() << item->text( 4 ) );
-      for( int a = 0; a < autoexecIt.value().count(); a++ ) {
-
-
-      }
-    }
+    // TODO Load configuration
+//     QMapIterator< QString, QStringList > autoexecIt( profileConfiguration.autoexec );
+// 
+//     while( autoexecIt.hasNext() ) {
+// 
+//       autoexecIt.next();
+// 
+//       qApp->processEvents();
+// 
+//       QTreeWidgetItem *item = new QTreeWidgetItem( treeWidgetAutoexec );
+//       profileConfiguration.autoexec.insert( QString( "mount%1" ).arg( a ), QStringList() << item->text( 5 ) );
+//       profileConfiguration.autoexec.insert( QString( "drive%1" ).arg( a ), QStringList() << item->text( 0 ).toLower() );
+//       profileConfiguration.autoexec.insert( QString( "switch%1" ).arg( a ), QStringList() << item->text( 3 ).toLower() );
+//       profileConfiguration.autoexec.insert( QString( "executable%1" ).arg( a ), QStringList() << item->text( 4 ) );
+//       for( int a = 0; a < autoexecIt.value().count(); a++ ) {
+// 
+// 
+//       }
+//     }
 
     // Internet page
     treeWidgetSerial->clear();

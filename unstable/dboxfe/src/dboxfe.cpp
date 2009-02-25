@@ -105,12 +105,12 @@ namespace asaal {
 
     QString profile = QDir::homePath();
     profile.append( "/.dboxfe/profile/profile.xml" );
-    
-    if( QFile::exists( profile ) ) {
-      if( configBase->isOldProfile( profile ) ) {
+
+    if ( QFile::exists( profile ) ) {
+      if ( configBase->isOldProfile( profile ) ) {
 
         if ( !configBase->convertProfile( profile ) ) {
-  
+
           QMessageBox::information( this, tr( "DBoxFE" ), tr( "Can not convert old file %1" ).arg( profile ) );
           return;
         }
@@ -118,6 +118,7 @@ namespace asaal {
     }
 
     QStringList profiles = configBase->readProfiles();
+
     listWidgetGames->addItems( profiles );
   }
 
@@ -366,6 +367,7 @@ namespace asaal {
 
       QMessageBox::information( this, tr( "DBoxFE" ), tr( "No game profile was selected!" ) );
       return;
+
     } else {
 
       messageBox->setMessageBoxTitle( tr( "Remove [ %1 ]" ).arg( currentItem->text() ) );
@@ -423,6 +425,7 @@ namespace asaal {
         if ( commandLinkButton->objectName() == "DPFL" ) {
 
           delete currentItem;
+
         } else if ( commandLinkButton->objectName() == "DPFLAF" ) {
 
           QString profile = QDir::homePath();

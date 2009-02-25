@@ -57,7 +57,7 @@ namespace asaal {
 
       /** Game profiles */
       QStringList profiles;
-      
+
       /** Profile count */
       int profileCount;
 
@@ -186,6 +186,52 @@ namespace asaal {
   };
 
   /**
+   * \brief AutoexecConfiguration handles all objects from dosbox autoexec configuration
+   *
+   * @author Alexander Saal <alex.saal@gmx.de>
+   * @sa http://dboxfe.belios.de/index
+   * @date 2009/25/02
+   * @version 0.2.5
+   * @since 0.2.5
+   */
+
+  class AutoexecConfiguration {
+
+    public:
+      /** Set/Get moundOption settings */
+      QString moundOption;
+
+      /** Set/Get moundDirectory settings */
+      QString moundDirectory;
+
+      /** Set/Get gameExecutable settings */
+      QString gameExecutable;
+
+      /** Set/Get dosboxExit settings */
+      QString dosboxExit;
+
+      /**
+       * \brief Returns true if the cache contains no objects; otherwise returns false.
+       */
+      bool isEmpty() const {
+        return ( moundOption.isEmpty() || moundOption.isNull() ) &&
+               ( moundDirectory.isEmpty() || moundDirectory.isNull() ) &&
+               ( gameExecutable.isEmpty() || gameExecutable.isNull() ) &&
+               ( dosboxExit.isEmpty() || dosboxExit.isNull() );
+      }
+
+      /**
+       * \brief Deletes all the objects in the cache.
+       */
+      void clear() {
+        moundOption = QString( "" );
+        moundDirectory = QString( "" );
+        gameExecutable = QString( "" );
+        dosboxExit = QString( "" );
+      }
+  };
+
+  /**
    * \brief Configuration handles all objects from dosbox configuration file
    *
    * @author Alexander Saal <alex.saal@gmx.de>
@@ -239,7 +285,7 @@ namespace asaal {
       QString ipx;
 
       /** Set/Get autoexec settings */
-      QMap< QString, QStringList> autoexec;
+      AutoexecConfiguration autoexec;
 
       /** DFend - Realoded Configuraion */
       DFend_Configuration dfendConfig;
@@ -261,8 +307,7 @@ namespace asaal {
                 serial == other.serial &&
                 dos == other.dos &&
                 ipx == other.ipx &&
-                dfendConfig == other.dfendConfig &&
-                autoexec == other.autoexec;
+                dfendConfig == other.dfendConfig;
       }
 
       /**
@@ -282,8 +327,7 @@ namespace asaal {
                 serial != other.serial ||
                 dos != other.dos ||
                 ipx != other.ipx ||
-                dfendConfig != other.dfendConfig ||
-                autoexec != other.autoexec;
+                dfendConfig != other.dfendConfig;
       }
 
       /**
@@ -365,11 +409,11 @@ namespace asaal {
        * \brief Read configuration
        *
        * @param profile The DBoxFE profile
-       * 
+       *
        * @see Configuration for read profile
        */
       Configuration readConfiguration( const QString &profile );
-      
+
       /**
        * \brief Returns DBoxFE configuration
        *
@@ -444,12 +488,12 @@ namespace asaal {
       bool exportConfiguration( const QString &name, const Configuration &config );
 
       /**
-       * \brief Convert old game profile 
+       * \brief Convert old game profile
        *
        * @param profile The profile xml
        */
       bool convertProfile( const QString &profile );
-      
+
       /**
        * \brief Check if this a old profile configuration
        *
@@ -483,7 +527,7 @@ namespace asaal {
        * @return QMap< QString, QString > with all files
        */
       QMap< QString, QString> exportDatas( const QString &directory );
-      
+
       /**
        * \brief Search game profiles in given directory
        *
